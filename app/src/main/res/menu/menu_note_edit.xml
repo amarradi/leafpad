@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.schmidtdominik.leafpad.MainActivity">
+
+    <item
+        android:id="@+id/action_share_note"
+        android:icon="@drawable/action_share"
+        android:title="@string/action_share_note"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_remove"
+        android:icon="@drawable/action_remove"
+        android:title="@string/action_remove"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_copy"
+        android:icon="@drawable/action_copy"
+        android:title="@string/action_copy"
+        app:showAsAction="ifRoom" />
+</menu>

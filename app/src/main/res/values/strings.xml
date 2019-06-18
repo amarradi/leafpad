@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Leafpad</string>
+    <string name="title_activity_note_edit">Edit Note</string>
+
+    <string name="action_add_note">Add Note</string>
+    <string name="action_share_note">Share</string>
+    <string name="action_remove">Remove</string>
+    <string name="action_copy">Copy</string>
+
+    <string name="title_hint">Title</string>
+    <string name="body_hint">Body</string>
+</resources>
