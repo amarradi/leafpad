@@ -1,4 +1,4 @@
-package com.git.amarradi;
+package com.git.amarradi.leafpad;
 
 import java.util.UUID;
 
@@ -6,13 +6,13 @@ public class Note {
 
     private String title;
     private String body;
-    private String id;
+    private final String id;
 
-    public Note(String title, String body) {
+   /*public Note(String title, String body) {
         this.title = title;
         this.body = body;
         this.id = makeId();
-    }
+    }*/
 
     public Note(String title, String body, String id) {
         this.title = title;
@@ -44,7 +44,7 @@ public class Note {
         return id;
     }
 
-    public void setId(String id) {
+   /* public void setId(String id) {
         this.id = id;
-    }
+    }*/
 }

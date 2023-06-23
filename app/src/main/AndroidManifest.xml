@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:tools="http://schemas.android.com/tools"
+    package="com.git.amarradi.leafpad"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
@@ -10,8 +11,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:exported="true">
+            android:theme="@style/leafpad"
+            android:exported="true"
+            tools:ignore="MissingClass">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,11 +24,10 @@
             android:name=".NoteEditActivity"
             android:label="@string/title_activity_note_edit"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            tools:targetApi="jelly_bean">
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.schmidtdominik.leafpad.MainActivity" />
+                android:value="com.git.amarradi.leafpad.MainActivity" />
         </activity>
     </application>
 

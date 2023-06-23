@@ -1,5 +1,6 @@
-package com.git.amarradi;
+package com.git.amarradi.leafpad;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -17,7 +18,7 @@ public class Leaf {
 
     public static ArrayList<Note> loadAll(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
-        ArrayList<Note> notes = new ArrayList<Note>();
+        ArrayList<Note> notes = new ArrayList<>();
 
         // Load note ids
         Set<String> noteIds = sharedPreferences.getStringSet(ID_KEY, null);
@@ -42,6 +43,7 @@ public class Leaf {
         return new Note(title, body, noteId);
     }
 
+    @SuppressLint("MutatingSharedPrefs")
     public static void set(Context context, Note note) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -49,7 +51,7 @@ public class Leaf {
         Set<String> ids = sharedPreferences.getStringSet(ID_KEY, null);
 
         if (ids == null) {
-            ids = new HashSet<String>();
+            ids = new HashSet<>();
             ids.add(note.getId());
             editor.putStringSet(ID_KEY, ids);
         } else if (!ids.contains(note.getId())) {
@@ -62,6 +64,7 @@ public class Leaf {
         editor.apply();
     }
 
+    @SuppressLint("MutatingSharedPrefs")
     public static void remove(Context context, Note note) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -79,10 +82,10 @@ public class Leaf {
         editor.apply();
     }
 
-    public static void clear(Context context) {
+   /* public static void clear(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.apply();
-    }
+    }*/
 }

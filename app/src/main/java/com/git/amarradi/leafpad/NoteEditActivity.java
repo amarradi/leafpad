@@ -1,16 +1,18 @@
-package com.git.amarradi;
+package com.git.amarradi.leafpad;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Intent;
 import android.os.Bundle;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class NoteEditActivity extends AppCompatActivity {
 
@@ -73,31 +75,26 @@ public class NoteEditActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        switch (id) {
-            case R.id.action_share_note:
-                Intent sendIntent = new Intent();
-                sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, getExportString());
-                sendIntent.setType("text/plain");
-                startActivity(Intent.createChooser(sendIntent, "Share Note"));
-                return true;
-
-            case R.id.action_remove:
-                Leaf.remove(this, note);
-                note = null;
-                finish();
-                return true;
-
-            case R.id.action_copy:
-                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("Note", getExportString());
-                clipboard.setPrimaryClip(clip);
-                Snackbar.make(findViewById(id), "Note copied", Snackbar.LENGTH_SHORT).show();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
+        if (id == R.id.action_share_note) {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, getExportString());
+            sendIntent.setType("text/plain");
+            startActivity(Intent.createChooser(sendIntent, "Share Note"));
+            return true;
+        } else if (id == R.id.action_remove) {
+            Leaf.remove(this, note);
+            note = null;
+            finish();
+            return true;
+        } else if (id == R.id.action_copy) {
+            ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText("Note", getExportString());
+            clipboard.setPrimaryClip(clip);
+            Snackbar.make(findViewById(id), "Note copied", Snackbar.LENGTH_SHORT).show();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     public String getExportString() {
