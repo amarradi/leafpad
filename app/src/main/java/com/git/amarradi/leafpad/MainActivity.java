@@ -1,4 +1,4 @@
-package com.schmidtdominik.leafpad;
+package com.git.amarradi;
 
 import android.content.Intent;
 import android.os.Bundle;

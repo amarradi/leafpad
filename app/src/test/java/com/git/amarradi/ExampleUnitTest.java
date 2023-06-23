@@ -1,4 +1,4 @@
-package com.schmidtdominik.leafpad;
+package com.git.leafpad;
 
 import org.junit.Test;
 

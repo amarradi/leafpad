@@ -1,4 +1,4 @@
-package com.schmidtdominik.leafpad;
+package com.git.amarradi;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

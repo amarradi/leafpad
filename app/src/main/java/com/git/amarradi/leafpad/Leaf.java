@@ -1,4 +1,4 @@
-package com.schmidtdominik.leafpad;
+package com.git.amarradi;
 
 import android.content.Context;
 import android.content.SharedPreferences;

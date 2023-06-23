@@ -1,4 +1,4 @@
-package com.schmidtdominik.leafpad;
+package com.git.amarradi;
 
 import java.util.UUID;
 

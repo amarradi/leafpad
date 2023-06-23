@@ -1,4 +1,4 @@
-package com.schmidtdominik.leafpad;
+package com.git.amarradi;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
