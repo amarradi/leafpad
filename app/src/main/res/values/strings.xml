@@ -9,4 +9,5 @@
 
     <string name="title_hint">Title</string>
     <string name="body_hint">Body</string>
+    <string name="contentDescription">add new Note</string>
 </resources>

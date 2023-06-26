@@ -3,10 +3,7 @@
 buildscript {
     repositories {
         //jcenter()
-        mavenCentral() {
-        //    url 'https://maven.google.com/'
-        //    name 'Google'
-        }
+        mavenCentral()
         google()
     }
     dependencies {
@@ -20,13 +17,10 @@ buildscript {
 allprojects {
     repositories {
         //jcenter()
-        mavenCentral {
-        //    url 'https://maven.google.com/'
-        //    name 'Google'
-        }
+        mavenCentral()
+        google()
     }
 }
-
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
