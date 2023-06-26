@@ -11,6 +11,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -19,6 +20,7 @@ public class NoteEditActivity extends AppCompatActivity {
     private EditText titleEdit;
     private EditText bodyEdit;
     private Note note;
+    private CoordinatorLayout coordinator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +87,8 @@ public class NoteEditActivity extends AppCompatActivity {
         } else if (id == R.id.action_remove) {
             Leaf.remove(this, note);
             note = null;
+            Snackbar snackbar = Snackbar.make(findViewById(id),"delete",Snackbar.LENGTH_LONG);
+            snackbar.show();
             finish();
             return true;
         } else if (id == R.id.action_copy) {

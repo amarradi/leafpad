@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -21,7 +20,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    public final static String EXTRA_NOTE_ID = "com.mycompany.myfirstapp.NOTE_ID";
+    public final static String EXTRA_NOTE_ID = "com.git.amarradi.leafpad";
 
     public ArrayList<Note> notes;
     public SimpleAdapter adapter;
@@ -49,13 +48,10 @@ public class MainActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.note_list_view);
         listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
-                Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
-                intent.putExtra(EXTRA_NOTE_ID, notes.get(position).getId());
-                startActivity(intent);
-            }
+        listView.setOnItemClickListener((adapter, v, position, id) -> {
+            Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
+            intent.putExtra(EXTRA_NOTE_ID, notes.get(position).getId());
+            startActivity(intent);
         });
 
 
