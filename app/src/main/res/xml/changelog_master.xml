@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelog>
+    <release version="1.0" versioncode="1" >
+        <change>Den Code der App auf den aktuellen Stand gebracht</change>
+        <change>Die App unter die Apache Lizenz gestellt</change>
+        <change>kleine Fehler sind behoben worden</change>
+    </release>
+</changelog>

@@ -18,6 +18,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import de.cketti.library.changelog.ChangeLog;
+
 public class MainActivity extends AppCompatActivity {
 
     public final static String EXTRA_NOTE_ID = "com.git.amarradi.leafpad";
@@ -38,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         updateDataset();
+
+
+        ChangeLog cl = new ChangeLog(this);
+        if (cl.isFirstRun()) {
+            cl.getLogDialog().show();
+        }
+
 
         adapter = new SimpleAdapter(this, data,
                 R.layout.note_list_item,
