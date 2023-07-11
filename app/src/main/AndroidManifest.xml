@@ -2,7 +2,6 @@
 <manifest xmlns:tools="http://schemas.android.com/tools"
     package="com.git.amarradi.leafpad"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,8 +10,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/leafpad"
             android:exported="true"
+            android:theme="@style/leafpad"
             tools:ignore="MissingClass">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
