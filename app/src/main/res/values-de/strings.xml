@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Leafpad</string>
+    <string name="title_activity_note_edit">Notiz bearbeiten</string>
+
+    <string name="action_add_note">Notiz hinzufügen</string>
+    <string name="action_share_note">Teilen</string>
+    <string name="action_remove">Löschen</string>
+    <string name="action_copy">Kopieren</string>
+
+    <string name="title_hint">Titel</string>
+    <string name="body_hint">Notiz</string>
+    <string name="contentDescription">fügt eine neue Notiz hinzu</string>
+</resources>
