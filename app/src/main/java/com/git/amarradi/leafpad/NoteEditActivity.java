@@ -3,6 +3,7 @@ package com.git.amarradi.leafpad;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -30,19 +31,57 @@ public class NoteEditActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-
         Intent intent = getIntent();
-        String noteId = intent.getStringExtra(MainActivity.EXTRA_NOTE_ID);
 
         titleEdit = findViewById(R.id.title_edit);
         bodyEdit = findViewById(R.id.body_edit);
 
+        String noteId = intent.getStringExtra(MainActivity.EXTRA_NOTE_ID);
         note = Leaf.load(this, noteId);
 
-        titleEdit.setText(note.getTitle());
-        bodyEdit.setText(note.getBody());
-        note.setNotedate();
-        note.setNotetime();
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+           //Build version is older than Tiramisu
+            if (intent.getAction() == "android.intent.action.SEND") {
+                String action = intent.getAction();
+                String type = intent.getType();
+                if (Intent.ACTION_SEND.equals(action) && type != null) {
+                    if (type.startsWith("text/plain")) {
+                        String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
+                        titleEdit.setText(R.string.imported);
+                        bodyEdit.setText(sharedText);
+                        note.setNotedate();
+                        note.setNotetime();
+                    }
+                }
+            } else {
+                titleEdit.setText(note.getTitle());
+                bodyEdit.setText(note.getBody());
+                note.setNotedate();
+                note.setNotetime();
+            }
+        } else {
+            //Build version is newer or equals than Tiramisu
+            if (intent.getAction() == "android.intent.action.SEND") {
+                String action = intent.getAction();
+                String type = intent.getType();
+                if (Intent.ACTION_SEND.equals(action) && type != null) {
+                    if (type.startsWith("text/plain")) {
+                        String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
+                        titleEdit.setText(R.string.imported);
+                        bodyEdit.setText(sharedText);
+                        note.setNotedate();
+                        note.setNotetime();
+                    }
+                }
+
+            } else {
+                titleEdit.setText(note.getTitle());
+                bodyEdit.setText(note.getBody());
+                note.setNotedate();
+                note.setNotetime();
+            }
+
+        }
     }
 
     @Override
@@ -117,6 +156,12 @@ public class NoteEditActivity extends AppCompatActivity {
         }
 
         return exportString;
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+
     }
 
 }
