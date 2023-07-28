@@ -11,35 +11,38 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.google.android.material.snackbar.Snackbar;
+
+import java.util.Objects;
 
 public class NoteEditActivity extends AppCompatActivity {
 
     private EditText titleEdit;
     private EditText bodyEdit;
+
     private Note note;
-    private CoordinatorLayout coordinator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_edit);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
         String noteId = intent.getStringExtra(MainActivity.EXTRA_NOTE_ID);
 
-        titleEdit = (EditText) findViewById(R.id.title_edit);
-        bodyEdit = (EditText) findViewById(R.id.body_edit);
+        titleEdit = findViewById(R.id.title_edit);
+        bodyEdit = findViewById(R.id.body_edit);
 
         note = Leaf.load(this, noteId);
 
         titleEdit.setText(note.getTitle());
         bodyEdit.setText(note.getBody());
+        note.setNotedate();
+        note.setNotetime();
     }
 
     @Override
@@ -49,16 +52,15 @@ public class NoteEditActivity extends AppCompatActivity {
         if (note == null) {
             return;
         }
-
         note.setTitle(titleEdit.getText().toString());
         note.setBody(bodyEdit.getText().toString());
+
 
         if (note.getBody().isEmpty() && note.getTitle().isEmpty()) {
             Leaf.remove(this, note);
             return;
         }
         Log.v("SS", note.getBody());
-
         Leaf.set(this, note);
     }
 

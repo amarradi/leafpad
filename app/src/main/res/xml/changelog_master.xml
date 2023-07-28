@@ -2,6 +2,7 @@
 <changelog>
     <release version="1.1" versioncode="2" >
         <change>Deutsche Übesetzung hinzugefügt</change>
+        <change>Datum und Uhrzeit der Notiz in den Datensatz eingefügt</change>
     </release>
     <release version="1.0" versioncode="1" >
         <change>Den Code der App auf den aktuellen Stand gebracht</change>

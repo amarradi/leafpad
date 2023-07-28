@@ -12,6 +12,8 @@ public class Leaf {
 
     private final static String STORE_PREF = "leafstore";
     private final static String ID_KEY = "note_id_set";
+    private final static String ADDDATE = "note_date_set";
+    private final static String ADDTIME = "note_time_set";
     private final static String TITLE_PREFIX = "note_title_";
     private final static String BODY_PREFIX = "note_body_";
 
@@ -40,7 +42,9 @@ public class Leaf {
     public static Note load(SharedPreferences sharedPreferences, String noteId) {
         String title = sharedPreferences.getString(TITLE_PREFIX + noteId, "");
         String body = sharedPreferences.getString(BODY_PREFIX + noteId, "");
-        return new Note(title, body, noteId);
+        String noteDate = sharedPreferences.getString(ADDDATE+ noteId,"");
+        String noteTime = sharedPreferences.getString(ADDTIME + noteId,"");
+        return new Note(title, body,noteDate, noteTime,noteId);
     }
 
     @SuppressLint("MutatingSharedPrefs")
@@ -61,6 +65,8 @@ public class Leaf {
 
         editor.putString(TITLE_PREFIX + note.getId(), note.getTitle());
         editor.putString(BODY_PREFIX + note.getId(), note.getBody());
+        editor.putString(ADDDATE + note.getId(), note.getDate());
+        editor.putString(ADDTIME+ note.getId(), note.getTime());
         editor.apply();
     }
 

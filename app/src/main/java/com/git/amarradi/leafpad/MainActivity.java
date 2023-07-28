@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -27,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     public ArrayList<Note> notes;
     public SimpleAdapter adapter;
     public ListView listView;
-    List<Map<String, String>> data = new ArrayList<Map<String, String>>();
+    List<Map<String, String>> data = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +49,13 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new SimpleAdapter(this, data,
                 R.layout.note_list_item,
-                new String[] {"title", "body"},
+                new String[] {"title", "body", "date", "time"},
                 new int[]{R.id.text1,
-                        R.id.text2});
+                        R.id.text2,
+                        R.id.date_txt,
+                        R.id.time_txt});
 
-        listView = (ListView) findViewById(R.id.note_list_view);
+        listView = findViewById(R.id.note_list_view);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener((adapter, v, position, id) -> {
@@ -64,14 +65,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_action_add);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
-                intent.putExtra(EXTRA_NOTE_ID, Note.makeId());
-                startActivity(intent);
-            }
+        FloatingActionButton fab = findViewById(R.id.fab_action_add);
+        fab.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
+            intent.putExtra(EXTRA_NOTE_ID, Note.makeId());
+            startActivity(intent);
         });
     }
 
@@ -101,10 +99,7 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        switch (id) {
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void updateListView() {
@@ -142,13 +137,20 @@ public class MainActivity extends AppCompatActivity {
                 }
                 note.setTitle(stringBuilder.toString());
             }
+            if(note.getDate().isEmpty() && note.getTime().isEmpty()) {
+                note.setNotetime();
+                note.setNotetime();
+            }
+
         }
 
         data.clear();
         for (Note note : notes) {
-            Map<String, String> datum = new HashMap<String, String>(2);
+            Map<String, String> datum = new HashMap<>(4);
             datum.put("title", note.getTitle());
             datum.put("body", note.getBody());
+            datum.put("date", note.getDate());
+            datum.put("time", note.getTime());
             data.add(datum);
         }
     }
