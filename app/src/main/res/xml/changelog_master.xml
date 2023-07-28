@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
     <release version="1.1" versioncode="2" >
+
         <change>Deutsche Übesetzung hinzugefügt</change>
         <change>Datum und Uhrzeit der Notiz in den Datensatz eingefügt</change>
+        <change>leafpad kann jetzt als Ziel für die "Teilen"-Funktion genutzt werden. Es können jetzt Texte via share in leafpad gespeichert werden.</change>
     </release>
     <release version="1.0" versioncode="1" >
         <change>Den Code der App auf den aktuellen Stand gebracht</change>
