@@ -54,7 +54,7 @@ public class Note {
 
     public void setNotetime() {
         SimpleDateFormat df;
-        df = new SimpleDateFormat("hh:mm:ss",LOCALE);
+        df = new SimpleDateFormat("HH:mm:ss",LOCALE);
         this.notetime = df.format(new Date());
     }
     public String getBody() {
