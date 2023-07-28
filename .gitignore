@@ -10,7 +10,7 @@
 /.idea/assetWizardSettings.xml
 /.idea/deploymentTargetDropDown.xml
 .DS_Store
-/release/*
+app/release/*
 /build
 /captures
 .externalNativeBuild
