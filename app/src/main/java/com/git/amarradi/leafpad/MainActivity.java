@@ -9,15 +9,14 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.play.core.review.ReviewException;
 import com.google.android.play.core.review.ReviewInfo;
 import com.google.android.play.core.review.ReviewManager;
 import com.google.android.play.core.review.ReviewManagerFactory;
-import com.google.android.play.core.review.model.ReviewErrorCode;
 import com.google.android.play.core.tasks.Task;
 
 import java.util.ArrayList;
@@ -114,9 +113,9 @@ public class MainActivity extends AppCompatActivity {
 
                 });
 
-            } else {
+            } /*else {
                 @ReviewErrorCode int reviewErrorCode = ((ReviewException) task.getException()).getErrorCode();
-            }
+            }*/
         });
     }
 
@@ -140,11 +139,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+       // int id = item.getItemId();
 
         return super.onOptionsItemSelected(item);
     }
@@ -201,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
             data.add(datum);
         }
     }
-
+/*
     public String joinArray(String[] array, char delimiter) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < array.length; i++) {
@@ -212,4 +211,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return stringBuilder.toString();
     }
+
+ */
 }

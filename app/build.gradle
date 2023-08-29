@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 33
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.git.amarradi.leafpad"
@@ -25,7 +25,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     namespace 'com.git.amarradi.leafpad'
-    buildToolsVersion '33.0.2'
+    buildToolsVersion = '33.0.2'
 }
 
 dependencies {
@@ -38,7 +38,7 @@ dependencies {
 
     implementation 'androidx.core:core-splashscreen:1.0.1'
 
-    def preference_version = "1.2.0"
+    def preference_version = "1.2.1"
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
