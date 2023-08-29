@@ -1,35 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+    android:padding="5dp">
     <TextView
         android:id="@+id/text1"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:textStyle="bold" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@drawable/round_corner"
+        >
+
+
+        <TextView
+            android:id="@+id/edited_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edited_text"/>
 
         <TextView
             android:id="@+id/date_txt"
             android:paddingStart="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            tools:ignore="RtlSymmetry" />
         <TextView
             android:id="@+id/time_txt"
             android:paddingStart="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            tools:ignore="RtlSymmetry" />
     </LinearLayout>
     <TextView
+        android:background="@drawable/frame"
         android:id="@+id/text2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

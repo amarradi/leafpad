@@ -12,4 +12,5 @@
     <string name="body_hint">Notiz</string>
     <string name="contentDescription">fügt eine neue Notiz hinzu</string>
     <string name="imported">Notiz wurde an leafpad geschickt</string>
+    <string name="edited_text">Bearbeitet am</string>
 </resources>

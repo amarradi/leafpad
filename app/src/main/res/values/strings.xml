@@ -11,4 +11,5 @@
     <string name="body_hint">Body</string>
     <string name="contentDescription">add new Note</string>
     <string name="imported">note was send to leafpad</string>
+    <string name="edited_text">edited at</string>
 </resources>
