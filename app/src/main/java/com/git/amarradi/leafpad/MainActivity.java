@@ -1,6 +1,8 @@
 package com.git.amarradi.leafpad;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +13,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.play.core.review.ReviewException;
+import com.google.android.play.core.review.ReviewInfo;
+import com.google.android.play.core.review.ReviewManager;
+import com.google.android.play.core.review.ReviewManagerFactory;
+import com.google.android.play.core.review.model.ReviewErrorCode;
+import com.google.android.play.core.tasks.Task;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,15 +31,19 @@ public class MainActivity extends AppCompatActivity {
 
     public final static String EXTRA_NOTE_ID = "com.git.amarradi.leafpad";
 
+    private final static Integer COUNT = 3;
+
     public ArrayList<Note> notes;
     public SimpleAdapter adapter;
     public ListView listView;
+
     List<Map<String, String>> data = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
 
@@ -70,6 +82,41 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
             intent.putExtra(EXTRA_NOTE_ID, Note.makeId());
             startActivity(intent);
+        });
+        countStart();
+
+    }
+
+    private void countStart() {
+        //shows the FeedbackDialog after the third start
+        SharedPreferences sharedPreferences = getSharedPreferences(String.valueOf(COUNT),Context.MODE_PRIVATE);
+        Integer i = sharedPreferences.getInt(String.valueOf(COUNT),0);
+        if (i.equals(COUNT)) {
+            showFeedbackDialog();
+        } else {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            i = i+1;
+            editor.putInt(String.valueOf(COUNT),i);
+            editor.apply();
+        }
+
+    }
+
+    private void showFeedbackDialog() {
+        ReviewManager manager = ReviewManagerFactory.create(this);
+        Task<ReviewInfo> request = manager.requestReviewFlow();
+        request.addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                // We can get the ReviewInfo object
+                ReviewInfo reviewInfo = task.getResult();
+                Task<Void> flow = manager.launchReviewFlow(this, reviewInfo);
+                flow.addOnCompleteListener(voidTask -> {
+
+                });
+
+            } else {
+                @ReviewErrorCode int reviewErrorCode = ((ReviewException) task.getException()).getErrorCode();
+            }
         });
     }
 
@@ -157,16 +204,12 @@ public class MainActivity extends AppCompatActivity {
 
     public String joinArray(String[] array, char delimiter) {
         StringBuilder stringBuilder = new StringBuilder();
-
         for (int i = 0; i < array.length; i++) {
             stringBuilder.append(array[i]);
             if (i < array.length - 1) {
                 stringBuilder.append(" ");
             }
         }
-
         return stringBuilder.toString();
     }
-
-
 }
