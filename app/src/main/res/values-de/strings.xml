@@ -21,4 +21,9 @@
     <string name="feedback_no">Nicht wirklich</string>
     <string name="feedback_positive">OK</string>
     <string name="feedback_negative">Nein Danke</string>
+
+    <string name="changelog_full_title">Change Log</string>
+    <string name="changelog_title">Was ist neu</string>
+    <string name="changelog_ok_button">OK</string>
+    <string name="changelog_show_full">Mehr…</string>
 </resources>
