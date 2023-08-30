@@ -13,4 +13,12 @@
     <string name="contentDescription">fügt eine neue Notiz hinzu</string>
     <string name="imported">Notiz wurde an leafpad geschickt</string>
     <string name="edited_text">Bearbeitet am</string>
+
+    <string name="satisfied">Gefällt Ihnen leafpad?</string>
+    <string name="rate_the_app">Wie wäre es mit einer Bewertung bei Google Play?</string>
+    <string name="give_feedback">Möchten Sie uns ein Feedback geben?</string>
+    <string name="feedback_yes">Ja</string>
+    <string name="feedback_no">Nicht wirklich</string>
+    <string name="feedback_positive">OK</string>
+    <string name="feedback_negative">Nein Danke</string>
 </resources>

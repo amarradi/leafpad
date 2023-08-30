@@ -12,4 +12,13 @@
     <string name="contentDescription">add new Note</string>
     <string name="imported">note was send to leafpad</string>
     <string name="edited_text">edited at</string>
+
+
+    <string name="satisfied">Enjoying leafpad?</string>
+    <string name="rate_the_app">How about a rating on Google Play?</string>
+    <string name="give_feedback">Would you like to provide some feedback?</string>
+    <string name="feedback_yes">Yes</string>
+    <string name="feedback_no">Not really</string>
+    <string name="feedback_positive">OK</string>
+    <string name="feedback_negative">No, thanks</string>
 </resources>

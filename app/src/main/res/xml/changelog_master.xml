@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="1.4" versionscode="5">
+        <change>Kleine Fehlerkorrekturen</change>
+    </release>
     <release version="1.3" versionscode="4">
         <change>App kann jetzt im Google Play bewertet werden</change>
     </release>
