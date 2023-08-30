@@ -20,4 +20,7 @@
     <release version="1.4" versioncode="5">
         <change>Kleine Fehlerkorrekturen</change>
     </release>
+    <release version="1.5" versioncode="6">
+        <change>Kleine Fehlerkorrekturen</change>
+    </release>
 </changelog>
