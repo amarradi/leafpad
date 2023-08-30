@@ -1,6 +1,7 @@
 package com.git.amarradi.leafpad;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -83,15 +85,31 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
         countStart();
-
     }
 
     private void countStart() {
-        //shows the FeedbackDialog after the third start
+        //shows the FeedbackDialog after the fourth start
         SharedPreferences sharedPreferences = getSharedPreferences(String.valueOf(COUNT),Context.MODE_PRIVATE);
         Integer i = sharedPreferences.getInt(String.valueOf(COUNT),0);
         if (i.equals(COUNT)) {
-            showFeedbackDialog();
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(R.string.satisfied);
+            builder.setMessage(R.string.rate_the_app)
+                    .setPositiveButton(R.string.feedback_yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                            showFeedbackDialog();
+                        }
+                    })
+                    .setNegativeButton(R.string.feedback_no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                            //negativeFeedbackDialog();
+                        }
+                    });
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
         } else {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             i = i+1;
