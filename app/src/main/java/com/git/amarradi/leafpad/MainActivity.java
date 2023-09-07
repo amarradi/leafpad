@@ -26,13 +26,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import de.cketti.library.changelog.ChangeLog;
-
 public class MainActivity extends AppCompatActivity {
 
     public final static String EXTRA_NOTE_ID = "com.git.amarradi.leafpad";
 
-    private final static Integer COUNT = 3;
+    private final static String COUNT = "startcounter";
+    private final static Integer count = 11;
 
     public ArrayList<Note> notes;
     public SimpleAdapter adapter;
@@ -52,13 +51,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         updateDataset();
-
-
-        ChangeLog cl = new ChangeLog(this);
-        if (cl.isFirstRun()) {
-            cl.getLogDialog().show();
-        }
-
 
         adapter = new SimpleAdapter(this, data,
                 R.layout.note_list_item,
@@ -88,10 +80,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void countStart() {
-        //shows the FeedbackDialog after the fourth start
-        SharedPreferences sharedPreferences = getSharedPreferences(String.valueOf(COUNT),Context.MODE_PRIVATE);
-        Integer i = sharedPreferences.getInt(String.valueOf(COUNT),0);
-        if (i.equals(COUNT)) {
+        SharedPreferences sharedPreferences = getSharedPreferences(COUNT,Context.MODE_PRIVATE);
+        Integer integer = sharedPreferences.getInt(COUNT,0);
+        integer++;
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(COUNT,integer);
+        editor.apply();
+        if (integer.equals(count)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(R.string.satisfied);
             builder.setMessage(R.string.rate_the_app)
@@ -104,19 +99,11 @@ public class MainActivity extends AppCompatActivity {
                     .setNegativeButton(R.string.feedback_no, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.dismiss();
-                            //negativeFeedbackDialog();
                         }
                     });
-
             AlertDialog dialog = builder.create();
             dialog.show();
-        } else {
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            i = i+1;
-            editor.putInt(String.valueOf(COUNT),i);
-            editor.apply();
         }
-
     }
 
     private void showFeedbackDialog() {
