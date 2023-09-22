@@ -1,7 +1,5 @@
 package com.git.amarradi.leafpad;
 
-import android.util.Log;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -13,6 +11,8 @@ public class Note {
     private String body;
     private String notedate;
     private String notetime;
+    private String create_date;
+
     private final String id;
 
     private final Locale LOCALE = Locale.GERMAN;
@@ -23,11 +23,12 @@ public class Note {
         this.id = makeId();
     }*/
 
-    public Note(String title, String body, String notedate,String notetime, String id) {
+    public Note(String title, String body, String notedate,String notetime, String create_date, String id) {
         this.title = title;
         this.body = body;
         this.notedate = notedate;
         this.notetime = notetime;
+        this.create_date =create_date;
         this.id = id;
 
     }
@@ -35,7 +36,6 @@ public class Note {
     public static String makeId() {
         return UUID.randomUUID().toString();
     }
-
 
     public void setTitle(String title) {
         this.title = title;
@@ -48,15 +48,21 @@ public class Note {
     public void setNotedate() {
         SimpleDateFormat df;
         df = new SimpleDateFormat("dd.MM.yyyy", LOCALE);
-
         this.notedate = df.format(new Date());
     }
 
     public void setNotetime() {
         SimpleDateFormat df;
-        df = new SimpleDateFormat("HH:mm:ss",LOCALE);
+        df = new SimpleDateFormat("HH:mm",LOCALE);
         this.notetime = df.format(new Date());
     }
+
+    public void setCreateDate(){
+        SimpleDateFormat df;
+        df = new SimpleDateFormat("dd.MM.yyyy", LOCALE);
+        this.create_date = df.format(new Date());
+    }
+
     public String getBody() {
         return body;
     }
@@ -66,12 +72,17 @@ public class Note {
     }
 
     public String getDate() {
-        Log.d("getDate", "getDate: "+notedate);
         return notedate;
     }
+
     public String getTime() {
         return notetime;
     }
+
+    public String getCreateDate() {
+        return create_date;
+    }
+
 
     public String getId() {
         return id;

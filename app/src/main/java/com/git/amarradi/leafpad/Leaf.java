@@ -14,6 +14,7 @@ public class Leaf {
     private final static String ID_KEY = "note_id_set";
     private final static String ADDDATE = "note_date_set";
     private final static String ADDTIME = "note_time_set";
+    private final static String CREATEDATE = "note_date_";
     private final static String TITLE_PREFIX = "note_title_";
     private final static String BODY_PREFIX = "note_body_";
 
@@ -28,11 +29,11 @@ public class Leaf {
         if (noteIds != null) {
             for (String noteId : noteIds) {
                 notes.add(load(context, noteId));
+
             }
         }
         return notes;
     }
-
 
     public static Note load(Context context, String noteId) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
@@ -44,7 +45,8 @@ public class Leaf {
         String body = sharedPreferences.getString(BODY_PREFIX + noteId, "");
         String noteDate = sharedPreferences.getString(ADDDATE+ noteId,"");
         String noteTime = sharedPreferences.getString(ADDTIME + noteId,"");
-        return new Note(title, body,noteDate, noteTime,noteId);
+        String noteCreateDate = sharedPreferences.getString(CREATEDATE+ noteId,"");
+        return new Note(title, body,noteDate, noteTime, noteCreateDate, noteId);
     }
 
     @SuppressLint("MutatingSharedPrefs")
@@ -67,6 +69,7 @@ public class Leaf {
         editor.putString(BODY_PREFIX + note.getId(), note.getBody());
         editor.putString(ADDDATE + note.getId(), note.getDate());
         editor.putString(ADDTIME+ note.getId(), note.getTime());
+        editor.putString(CREATEDATE+note.getId(), note.getCreateDate());
         editor.apply();
     }
 
@@ -82,9 +85,12 @@ public class Leaf {
         }
 
         ids.remove(note.getId());
-
+        editor.remove(ID_KEY + note.getId());
         editor.remove(TITLE_PREFIX + note.getId());
         editor.remove(BODY_PREFIX + note.getId());
+        editor.remove(ADDDATE + note.getId());
+        editor.remove(ADDTIME + note.getId());
+        editor.remove(CREATEDATE + note.getId());
         editor.apply();
     }
 

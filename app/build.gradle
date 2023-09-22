@@ -7,8 +7,8 @@ android {
         applicationId "com.git.amarradi.leafpad"
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 7
-        versionName "1.6"
+        versionCode 8
+        versionName "1.7"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         //version types: alpha, beta, r
@@ -29,20 +29,19 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
-    testImplementation 'junit:junit:4.13.2'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
-    implementation 'androidx.core:core-splashscreen:1.0.1'
+    implementation fileTree(dir: 'lfibs', include: ['*.jar'])
+    def coordinatorLayout = "1.2.0"
+    def appcompat = "1.6.1"
+    def material= "1.9.0"
+    def splashscreen = "1.0.1"
+    def constraintlayout = "2.1.4"
     def preference_version = "1.2.1"
-    implementation 'com.google.android.material:material:1.9.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    def review_api = "2.0.1"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:$coordinatorLayout"
+    implementation "androidx.appcompat:appcompat:$appcompat"
+    implementation "com.google.android.material:material:$material"
+    implementation "androidx.core:core-splashscreen:$splashscreen"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
     implementation "androidx.preference:preference:$preference_version"
-    implementation 'com.google.android.material:material:1.9.0'
-    implementation 'com.thedeanda:lorem:2.1'
-    implementation 'com.google.android.play:core:1.10.3'
+    implementation "com.google.android.play:review:$review_api"
 }

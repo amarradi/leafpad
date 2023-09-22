@@ -4,14 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="5dp">
+    android:paddingHorizontal="6dp"
+    android:paddingVertical="3dp"
+  >
     <TextView
+        android:fontFamily="@font/opensans_semibold"
         android:id="@+id/text1"
+        android:textColor="@color/colorPrimaryText"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-         />
+        android:layout_height="wrap_content"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,30 +22,77 @@
         android:background="@drawable/round_corner">
 
         <TextView
-            android:id="@+id/edited_txt"
+            android:fontFamily="@font/opensans_light"
+            android:textColor="@color/colorSecondaryText"
+            android:id="@+id/created_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:text="@string/created_txt"
+            android:textSize="11sp"
+            android:textAppearance="?android:textAppearanceSmall"/>
+        <TextView
+            android:fontFamily="@font/opensans_light"
+            android:id="@+id/created_at"
+            android:textColor="@color/colorSecondaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:text="@string/created_at"
+            android:textSize="11sp"
+            android:textAppearance="?android:textAppearanceSmall"/>
+    </LinearLayout>
+
+    <TextView
+        android:fontFamily="@font/opensans_light"
+        android:id="@+id/text2"
+        android:maxLines="5"
+        android:singleLine="false"
+        android:ellipsize="end"
+        android:textColor="@color/colorPrimaryText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@drawable/round_corner"
+        android:layout_marginBottom="5dp">
+
+        <TextView
+            android:fontFamily="@font/opensans_light"
+            android:id="@+id/edited_txt"
+            android:textColor="@color/colorSecondaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:textSize="11sp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/edited_text"/>
 
         <TextView
+            android:fontFamily="@font/opensans_light"
             android:id="@+id/date_txt"
+            android:textColor="@color/colorSecondaryText"
             android:paddingStart="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="11sp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             tools:ignore="RtlSymmetry" />
+
         <TextView
+            android:fontFamily="@font/opensans_light"
+            android:textColor="@color/colorSecondaryText"
             android:id="@+id/time_txt"
             android:paddingStart="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="11sp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             tools:ignore="RtlSymmetry" />
     </LinearLayout>
-    <TextView
-        android:id="@+id/text2"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
 </LinearLayout>

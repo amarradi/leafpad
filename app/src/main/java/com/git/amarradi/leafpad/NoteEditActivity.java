@@ -1,19 +1,14 @@
 package com.git.amarradi.leafpad;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Objects;
 
@@ -41,7 +36,7 @@ public class NoteEditActivity extends AppCompatActivity {
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
            //Build version is older than Tiramisu
-            if (intent.getAction() == "android.intent.action.SEND") {
+            if ("android.intent.action.SEND".equals(intent.getAction())) {
                 String action = intent.getAction();
                 String type = intent.getType();
                 if (Intent.ACTION_SEND.equals(action) && type != null) {
@@ -51,6 +46,9 @@ public class NoteEditActivity extends AppCompatActivity {
                         bodyEdit.setText(sharedText);
                         note.setNotedate();
                         note.setNotetime();
+                        if(note.getCreateDate().isEmpty()) {
+                            note.setCreateDate();
+                        }
                     }
                 }
             } else {
@@ -58,10 +56,13 @@ public class NoteEditActivity extends AppCompatActivity {
                 bodyEdit.setText(note.getBody());
                 note.setNotedate();
                 note.setNotetime();
+                if(note.getCreateDate().isEmpty()) {
+                    note.setCreateDate();
+                }
             }
         } else {
             //Build version is newer or equals than Tiramisu
-            if (intent.getAction() == "android.intent.action.SEND") {
+            if ("android.intent.action.SEND".equals(intent.getAction())) {
                 String action = intent.getAction();
                 String type = intent.getType();
                 if (Intent.ACTION_SEND.equals(action) && type != null) {
@@ -71,6 +72,9 @@ public class NoteEditActivity extends AppCompatActivity {
                         bodyEdit.setText(sharedText);
                         note.setNotedate();
                         note.setNotetime();
+                        if(note.getCreateDate().isEmpty()) {
+                            note.setCreateDate();
+                        }
                     }
                 }
 
@@ -79,27 +83,25 @@ public class NoteEditActivity extends AppCompatActivity {
                 bodyEdit.setText(note.getBody());
                 note.setNotedate();
                 note.setNotetime();
+                if(note.getCreateDate().isEmpty()) {
+                    note.setCreateDate();
+                }
             }
-
         }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-
         if (note == null) {
             return;
         }
         note.setTitle(titleEdit.getText().toString());
         note.setBody(bodyEdit.getText().toString());
-
-
         if (note.getBody().isEmpty() && note.getTitle().isEmpty()) {
             Leaf.remove(this, note);
             return;
         }
-        Log.v("SS", note.getBody());
         Leaf.set(this, note);
     }
 
@@ -107,7 +109,6 @@ public class NoteEditActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_note_edit, menu);
-
         return true;
     }
 
@@ -117,51 +118,45 @@ public class NoteEditActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         if (id == R.id.action_share_note) {
-            Intent sendIntent = new Intent();
-            sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, getExportString());
-            sendIntent.setType("text/plain");
-            startActivity(Intent.createChooser(sendIntent, "Share Note"));
+            shareNote();
             return true;
         } else if (id == R.id.action_remove) {
-            Leaf.remove(this, note);
-            note = null;
-            Snackbar snackbar = Snackbar.make(findViewById(id),"delete",Snackbar.LENGTH_LONG);
-            snackbar.show();
-            finish();
-            return true;
-        } else if (id == R.id.action_copy) {
-            ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-            ClipData clip = ClipData.newPlainText("Note", getExportString());
-            clipboard.setPrimaryClip(clip);
-            Snackbar.make(findViewById(id), "Note copied", Snackbar.LENGTH_SHORT).show();
+            removeNote();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
+    private void removeNote() {
+        Leaf.remove(this, note);
+        note = null;
+        finish();
+    }
+
+    private void shareNote() {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, getExportString());
+        sendIntent.setType("text/plain");
+        startActivity(Intent.createChooser(sendIntent, "Share Note"));
+    }
+
     public String getExportString() {
         String exportString = "";
-
         if (!note.getTitle().isEmpty()) {
-            exportString += note.getTitle();
-
+            exportString += getString(R.string.action_share_title) + ": " + note.getTitle()+"\n";
             if (!note.getBody().isEmpty()) {
-                exportString += ": " + note.getBody();
+                exportString += getString(R.string.action_share_body) + ": " + note.getBody();
             }
         } else if (!note.getBody().isEmpty()) {
             exportString += note.getBody();
         }
-
         return exportString;
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-
     }
-
 }

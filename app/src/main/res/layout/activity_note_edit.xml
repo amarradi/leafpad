@@ -26,17 +26,21 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="35dp"
-            android:layout_marginStart="70dp"
-            android:layout_marginTop="25dp">
+            android:layout_marginBottom="15dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="5dp">
 
             <EditText
+                android:textAppearance="?android:textAppearanceMedium"
+                android:fontFamily="@font/opensans_regular"
                 android:id="@+id/title_edit"
-                android:layout_width="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/title_hint"
+                android:autofillHints="@string/title_hint"
                 android:inputType="text"
-                android:minWidth="220dp" />
+                android:minWidth="@dimen/fab_margin" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

@@ -4,22 +4,27 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.play.core.review.ReviewException;
 import com.google.android.play.core.review.ReviewInfo;
 import com.google.android.play.core.review.ReviewManager;
 import com.google.android.play.core.review.ReviewManagerFactory;
-import com.google.android.play.core.tasks.Task;
+import com.google.android.play.core.review.model.ReviewErrorCode;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     public final static String EXTRA_NOTE_ID = "com.git.amarradi.leafpad";
 
     private final static String COUNT = "startcounter";
-    private final static Integer count = 11;
+    private final static Integer count = 10;
 
     public ArrayList<Note> notes;
     public SimpleAdapter adapter;
@@ -39,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     List<Map<String, String>> data = new ArrayList<>();
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,16 +60,22 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new SimpleAdapter(this, data,
                 R.layout.note_list_item,
-                new String[] {"title", "body", "date", "time"},
+                new String[] {"title", "body", "date", "time", "create"},
                 new int[]{R.id.text1,
                         R.id.text2,
                         R.id.date_txt,
-                        R.id.time_txt});
+                        R.id.time_txt,
+                        R.id.created_at});
+
 
         listView = findViewById(R.id.note_list_view);
+
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener((adapter, v, position, id) -> {
+           // Intent intent = new Intent(MainActivity.this, NoteReadActivity.class);
+            //intent.putExtra(EXTRA_NOTE_ID, notes.get(position).getId());
+            //startActivity(intent);
             Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
             intent.putExtra(EXTRA_NOTE_ID, notes.get(position).getId());
             startActivity(intent);
@@ -107,20 +119,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showFeedbackDialog() {
-        ReviewManager manager = ReviewManagerFactory.create(this);
+        ReviewManager manager = ReviewManagerFactory.create(getApplicationContext());
         Task<ReviewInfo> request = manager.requestReviewFlow();
         request.addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                // We can get the ReviewInfo object
-                ReviewInfo reviewInfo = task.getResult();
-                Task<Void> flow = manager.launchReviewFlow(this, reviewInfo);
-                flow.addOnCompleteListener(voidTask -> {
+           if(task.isSuccessful()) {
+               ReviewInfo reviewInfo = task.getResult();
+               Task<Void> flow = manager.launchReviewFlow(this, reviewInfo);
+               flow.addOnCompleteListener(voidtask -> {
+                   Toast.makeText(this, getString(R.string.review_seved), Toast.LENGTH_SHORT).show();
+               });
 
-                });
-
-            } /*else {
-                @ReviewErrorCode int reviewErrorCode = ((ReviewException) task.getException()).getErrorCode();
-            }*/
+           } else {
+               @ReviewErrorCode int reviewErrorCode = ((ReviewException) task.getException()).getErrorCode();
+           }
         });
     }
 
@@ -137,19 +148,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-       // int id = item.getItemId();
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -173,10 +177,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                     substringLength += splits[i].length();
-
                     stringBuilder.append(splits[i]);
-
-
                     if (i + 1 != splits.length) {
                         if (!(substringLength + splits[i + 1].length() > 25)) {
                             stringBuilder.append(" ");
@@ -188,9 +189,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 note.setTitle(stringBuilder.toString());
             }
-            if(note.getDate().isEmpty() && note.getTime().isEmpty()) {
+            if(note.getDate().isEmpty() || note.getTime().isEmpty()) {
                 note.setNotetime();
-                note.setNotetime();
+                note.setNotedate();
             }
 
         }
@@ -202,6 +203,7 @@ public class MainActivity extends AppCompatActivity {
             datum.put("body", note.getBody());
             datum.put("date", note.getDate());
             datum.put("time", note.getTime());
+            datum.put("create",note.getCreateDate());
             data.add(datum);
         }
     }

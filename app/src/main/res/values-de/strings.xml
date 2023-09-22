@@ -4,12 +4,14 @@
     <string name="title_activity_note_edit">Notiz bearbeiten</string>
 
     <string name="action_add_note">Notiz hinzufügen</string>
-    <string name="action_share_note">Teilen</string>
-    <string name="action_remove">Löschen</string>
+    <string name="action_share_note">Notiz teilen</string>
+    <string name="action_share_title">Titel</string>
+    <string name="action_share_body">Notiz</string>
+    <string name="action_remove">Notiz löschen</string>
     <string name="action_copy">Kopieren</string>
 
-    <string name="title_hint">Titel</string>
-    <string name="body_hint">Notiz</string>
+    <string name="title_hint">Geben Sie Ihren Titel hier ein</string>
+    <string name="body_hint">Geben Sie Ihe Notiz hier ein</string>
     <string name="contentDescription">fügt eine neue Notiz hinzu</string>
     <string name="imported">Notiz wurde an leafpad geschickt</string>
     <string name="edited_text">Bearbeitet am</string>
@@ -21,6 +23,10 @@
     <string name="feedback_no">Nicht wirklich</string>
     <string name="feedback_positive">OK</string>
     <string name="feedback_negative">Nein Danke</string>
+    <string name="created_txt">Notiz erstellt am</string>
+    <string name="created_at" />
+    <string name="review_seved">Die Bewertung wurde gespeichert</string>
+
 
 
 </resources>

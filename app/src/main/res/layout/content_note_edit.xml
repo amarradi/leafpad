@@ -10,14 +10,19 @@
     tools:showIn="@layout/activity_note_edit">
 
     <EditText
+        android:textAppearance="?android:textAppearanceMedium"
+        android:fontFamily="@font/opensans_light"
         android:id="@+id/body_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="top"
-
+        android:layout_margin="3dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
         android:hint="@string/body_hint"
         android:autofillHints="@string/body_hint"
         android:scrollbars="vertical"
+        android:inputType="text"
         />
 
 </LinearLayout>
