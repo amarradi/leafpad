@@ -7,8 +7,8 @@ android {
         applicationId "com.git.amarradi.leafpad"
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 8
-        versionName "1.7"
+        versionCode 9
+        versionName "1.8"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         //version types: alpha, beta, r

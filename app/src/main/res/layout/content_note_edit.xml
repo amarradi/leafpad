@@ -22,7 +22,6 @@
         android:hint="@string/body_hint"
         android:autofillHints="@string/body_hint"
         android:scrollbars="vertical"
-        android:inputType="text"
         />
 
 </LinearLayout>
