@@ -19,5 +19,5 @@ leafpad remove your note completly, when you delete your note
 The current version of leafpad can be installed from the PlayStore.
 <a href='https://play.google.com/store/apps/details?id=com.git.amarradi.leafpad'><img alt='Jetzt bei Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/de_badge_web_generic.png'/></a>
 
-## first version of leafpad
-Many thanks to Dominik Schmidt for providing the initial source code in 2017.
+### first version of leafpad
+_Many thanks to Dominik Schmidt for providing the initial source code in 2017._
