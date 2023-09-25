@@ -1,5 +1,5 @@
 # leafpad
-<img alt='feature grafic of leafpad' src='https://github.com/amarradi/leafpad/blob/master/dev/graphics/feature_graphic.png'/>
+<img alt='feature grafic of leafpad' width='640px' src='https://github.com/amarradi/leafpad/blob/master/dev/graphics/feature_graphic.png'/>
 
 ## offline
 leafpad does not require an internet connection or an account to create notes.
@@ -12,7 +12,7 @@ leafpad remove your note completly, when you delete your note
 
 ## features
 * Leafpad allows you to create notes without prior configuration
-* Texts can be shared for leafpad and then notes can be created from them
+* Nexts can be shared for leafpad and then notes can be created from them
 * Notes can be shared with other apps from Leafpad
 
 # Installation
