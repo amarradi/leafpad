@@ -1,7 +1,6 @@
 package com.git.amarradi.leafpad;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     public final static String EXTRA_NOTE_ID = "com.git.amarradi.leafpad";
 
     private final static String COUNT = "startcounter";
-    private final static Integer count = 10;
+    private final static Integer count = 11;
 
     public ArrayList<Note> notes;
     public SimpleAdapter adapter;
@@ -102,17 +101,11 @@ public class MainActivity extends AppCompatActivity {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(R.string.satisfied);
             builder.setMessage(R.string.rate_the_app)
-                    .setPositiveButton(R.string.feedback_yes, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-                            showFeedbackDialog();
-                        }
+                    .setPositiveButton(R.string.feedback_yes, (dialog, id) -> {
+                        showFeedbackDialog();
+                        dialog.dismiss();
                     })
-                    .setNegativeButton(R.string.feedback_no, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-                        }
-                    });
+                    .setNegativeButton(R.string.feedback_no, (dialog, id) -> dialog.dismiss());
             AlertDialog dialog = builder.create();
             dialog.show();
         }
