@@ -1,8 +1,8 @@
 # leafpad
+<img alt='feature grafic of leafpad' src='https://github.com/amarradi/leafpad/blob/master/dev/graphics/feature_graphic.png'/>
+
 ## offline
 leafpad does not require an internet connection or an account to create notes.
-
-offline and easy to use notepad
 
 ## data protection
 leafpad never shares your data with a server. Your notes remain stored locally on your device.
