@@ -1,6 +1,5 @@
 # leafpad
-<img alt='feature grafic of leafpad' width='640px' src='https://github.com/amarradi/leafpad/blob/master/dev/graphics/feature_graphic.png'/>
-
+simple notebook
 ## offline
 leafpad does not require an internet connection or an account to create notes.
 
