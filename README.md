@@ -12,7 +12,7 @@ leafpad remove your note completly, when you delete your note
 
 ## features
 * Leafpad allows you to create notes without prior configuration
-* Nexts can be shared for leafpad and then notes can be created from them
+* Notes can be shared for leafpad and then notes can be created from them
 * Notes can be shared with other apps from Leafpad
 
 # Installation
