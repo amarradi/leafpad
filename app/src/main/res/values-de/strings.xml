@@ -4,29 +4,61 @@
     <string name="title_activity_note_edit">Notiz bearbeiten</string>
 
     <string name="action_add_note">Notiz hinzufügen</string>
+    <string name="action_edit_note">Notiz bearbeiten</string>
     <string name="action_share_note">Notiz teilen</string>
     <string name="action_share_title">Titel</string>
     <string name="action_share_body">Notiz</string>
     <string name="action_remove">Notiz löschen</string>
+    <string name="action_fab_note">notieren</string>
     <string name="action_copy">Kopieren</string>
 
-    <string name="title_hint">Geben Sie Ihren Titel hier ein</string>
-    <string name="body_hint">Geben Sie Ihe Notiz hier ein</string>
+    <string name="add_shortcut_short_label">neues notieren</string>
+
+    <string name="title_hint">Titel</string>
+    <string name="body_hint">Notiz</string>
     <string name="contentDescription">fügt eine neue Notiz hinzu</string>
     <string name="imported">Notiz wurde an leafpad geschickt</string>
     <string name="edited_text">Bearbeitet am</string>
 
+    <string name="new_note">neue Notiz</string>
     <string name="satisfied">Gefällt Ihnen leafpad?</string>
-    <string name="rate_the_app">Wie wäre es mit einer Bewertung bei Google Play?</string>
+    <string name="rate_the_app">Wie wäre es mit einer Bewertung im PlayStore von Google?</string>
     <string name="give_feedback">Möchten Sie uns ein Feedback geben?</string>
     <string name="feedback_yes">Ja</string>
     <string name="feedback_no">Nicht wirklich</string>
     <string name="feedback_positive">OK</string>
     <string name="feedback_negative">Nein Danke</string>
     <string name="created_txt">Notiz erstellt am</string>
-    <string name="created_at" />
+
     <string name="review_seved">Die Bewertung wurde gespeichert</string>
+    <string name="remove_dialog_title">Sind Sie sicher?</string>
 
+    <string name="remove_dailog_message">Diese Notiz wird endgültig gelöscht. Danach kann sie nicht wiederhergestellt werden.</string>
+    <string name="remove_dialog_abort">Abbrechen</string>
 
+    <string name="menu_settings" >Einstellungen</string>
+    <string name="general_preference">Allgemein</string>
+    <string name="theme_preference">Farbschema</string>
+    <string name="lightmode_preference_key">Hell</string>
+    <string name="darkmode_preference_key">Dunkel</string>
+    <string name="system_preference_key">Systemstandard (standard)</string>
 
+    <string name="theme_summary">Umschalten zwischen dunkel und hell</string>
+    <string name="about">Über</string>
+    <string name="about_the_app">Über die App</string>
+    <string name="tell_about">Was ich über Leafpad erzählen möchte</string>
+
+    <string name="version">Version</string>
+    <string name="change">Version</string>
+
+    <string name="what_is_leafpad">Leafpad ist eine einfache App zum Schreiben von Notizen. Mit dieser App kann man auf seinem Telefon Noitzen erstellen, bearbeiten, versenden oder löschen.</string>
+    <string name="leafpad_work">Leafpad speichert alle Daten lokal auf deinem Smartphone. Die Notizen oder die Metadaten wie Datum und Uhrzeit werden in keiner Cloud abgelegt und mit niemandem geteilt. Es wird auch keine Textanalyse durchgeführt. Die Notizen gehören dir. Du entscheidest, was du damit machst.</string>
+    <string name="rev20_12">Vor dem Thron aber sah ich die Toten stehen, vom Größten bis zum Kleinsten. Es wurden Bücher aufgeschlagen, in denen alle Taten aufgeschrieben sind, und dann noch ein anderes Buch: das Buch des Lebens. Anschließend wurde Gericht über die Toten gehalten. Jeder bekam das Urteil, das seinen Taten entsprach. Offenbarung des Johannes 20 Vers 12</string>
+    <string name="statement">Wir notireren uns Einkauflisten, Gesprächsnotizen, Packlisten für den Urlaub oder Geburtstage von Freunden. Das sind alles gute Dinge um sie nicht zu vergessen. Die schlechten Dinge wie zum Beispiel böse Gedanken, notieren wir selbstverständlich nicht, weil wir nicht möchten, dass sie jemals ans Tageslicht kommen. Bei Gott ist das ganz anders. Er schreibt alles mit. Nach unserem Tod stehen wir vor unserem Schöpfer und dann werden alle Dinge offenbar, die guten und die schlechten. Die Menschen, die im Buch des Lebens eintragen sind, haben dann nichts zu befürchten. Bist du im Buch des Lebens eingetragen?</string>
+    <string name="rating_the_app">Bewertung im PlayStore</string>
+    <string name="its_opensource">Leafpad ist OpenSource und es ist frei</string>
+    <string name="find_code_on_github">GitHub</string>
+    <string name="find_code_on_github_summary">Sie können den Quellcode von Leafpad über das Repository einsehen und überprüfen. Für Änderungswünsche und Fehlermeldungen können Sie gerne ein sogenanntes Issue öffnen.</string>
+    <string name="title_licence">Lizenzen</string>
+    <string name="licence">Open source Lizenzen</string>
 </resources>

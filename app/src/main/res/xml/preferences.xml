@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/general_preference">
+        <ListPreference
+            android:key="@string/theme_key"
+            android:title="@string/theme_preference"
+            android:summary="@string/theme_summary"
+            android:icon="@drawable/switch_dn_mode"
+            android:entries="@array/design_mode_preference_key"
+            android:defaultValue="@string/system_preference_option_value"
+            android:entryValues="@array/design_mode_preference_value" />
+
+
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/about" >
+        <Preference
+            android:title="@string/about_the_app"
+            android:key="about"
+            android:summary="@string/tell_about"
+            android:icon="@drawable/preference_about_the_app"/>
+
+        <Preference
+            android:icon="@drawable/preference_license"
+            android:key="license"
+            android:selectable="true"
+            android:title="@string/title_licence"
+            android:summary="@string/licence" />
+        <Preference
+            android:icon="@drawable/preference_rating"
+            android:key="rating"
+            android:title="@string/satisfied"
+            android:summary="@string/rate_the_app" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/find_code_on_github" >
+
+        <Preference
+            android:selectable="true"
+            android:icon="@drawable/preference_github_logo"
+            android:key="github"
+            android:title="@string/its_opensource"
+            android:summary="@string/find_code_on_github_summary" />
+    </PreferenceCategory>
+</PreferenceScreen>

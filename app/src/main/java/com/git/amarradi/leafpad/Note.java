@@ -12,7 +12,7 @@ public class Note {
     private String notedate;
     private String notetime;
     private String create_date;
-
+    private String create_time;
     private final String id;
 
     private final Locale LOCALE = Locale.GERMAN;
@@ -23,12 +23,13 @@ public class Note {
         this.id = makeId();
     }*/
 
-    public Note(String title, String body, String notedate,String notetime, String create_date, String id) {
+    public Note(String title, String body, String notedate, String notetime, String create_date, String create_time, String id) {
         this.title = title;
         this.body = body;
         this.notedate = notedate;
         this.notetime = notetime;
-        this.create_date =create_date;
+        this.create_date = create_date;
+        this.create_time = create_time;
         this.id = id;
 
     }
@@ -63,6 +64,12 @@ public class Note {
         this.create_date = df.format(new Date());
     }
 
+    public void setCreateTime() {
+        SimpleDateFormat df;
+        df = new SimpleDateFormat("HH:mm", LOCALE);
+        this.create_time = df.format(new Date());
+    }
+
     public String getBody() {
         return body;
     }
@@ -81,6 +88,10 @@ public class Note {
 
     public String getCreateDate() {
         return create_date;
+    }
+
+    public String getCreateTime() {
+        return create_time;
     }
 
 

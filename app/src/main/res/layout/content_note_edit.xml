@@ -5,23 +5,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:scrollbars="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.git.amarradi.leafpad.NoteEditActivity"
+
     tools:showIn="@layout/activity_note_edit">
 
-    <EditText
-        android:textAppearance="?android:textAppearanceMedium"
-        android:fontFamily="@font/opensans_light"
-        android:id="@+id/body_edit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="top"
-        android:layout_margin="3dp"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
-        android:hint="@string/body_hint"
-        android:autofillHints="@string/body_hint"
-        android:scrollbars="vertical"
-        />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/default_text_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/title_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:hint="@string/title_hint"
+                    android:inputType="text"
+                    android:maxLines="@integer/maxLines"
+                    android:minWidth="@dimen/editText_min_length"
+                    android:scrollbars="vertical" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/body_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="5"
+                    android:gravity="top"
+                    android:hint="@string/body_hint"
+
+                    android:inputType="textMultiLine"
+                    android:isScrollContainer="true"
+                    android:overScrollMode="always"
+                    android:scrollbars="vertical"
+                    android:windowSoftInputMode="adjustPan"
+                    app:textInputLayoutFocusedRectEnabled="false" />
+            </com.google.android.material.textfield.TextInputLayout>
+
 
 </LinearLayout>

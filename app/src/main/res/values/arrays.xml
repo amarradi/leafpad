@@ -1,0 +1,14 @@
+<resources>
+    <!-- Label ordering must match values -->
+    <array name="design_mode_preference_key">
+        <item>@string/system_preference_key</item>
+        <item>@string/lightmode_preference_key</item>
+        <item>@string/darkmode_preference_key</item>
+    </array>
+    <array name="design_mode_preference_value">
+        <item>@string/system_preference</item>
+        <item>@string/lightmode_preference</item>
+        <item>@string/darkmode_preference</item>
+    </array>
+    <integer name="maxLines">1</integer>
+</resources>

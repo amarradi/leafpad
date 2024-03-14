@@ -1,0 +1,14 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="add"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/add_shortcut_short_label" >
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.git.amarradi.leafpad.NoteEditActivity"
+            android:targetPackage="com.git.amarradi.leafpad" />
+    </shortcut>
+</shortcuts><!-- Specify more shortcuts here. -->
+
+  

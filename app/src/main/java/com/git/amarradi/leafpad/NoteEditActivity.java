@@ -1,14 +1,18 @@
 package com.git.amarradi.leafpad;
 
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+
+import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.Objects;
 
@@ -16,78 +20,68 @@ public class NoteEditActivity extends AppCompatActivity {
 
     private EditText titleEdit;
     private EditText bodyEdit;
-
     private Note note;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_note_edit);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        if(Objects.equals(getIntent().getAction(), "android.intent.action.VIEW")) {
+            note = Leaf.load(this, Note.makeId());
+        }
+
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         Intent intent = getIntent();
 
         titleEdit = findViewById(R.id.title_edit);
+
         bodyEdit = findViewById(R.id.body_edit);
 
+        //TextView text = findViewById(R.id.created_at);
+
         String noteId = intent.getStringExtra(MainActivity.EXTRA_NOTE_ID);
+
         note = Leaf.load(this, noteId);
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
-           //Build version is older than Tiramisu
-            if ("android.intent.action.SEND".equals(intent.getAction())) {
-                String action = intent.getAction();
-                String type = intent.getType();
-                if (Intent.ACTION_SEND.equals(action) && type != null) {
-                    if (type.startsWith("text/plain")) {
-                        String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
-                        titleEdit.setText(R.string.imported);
-                        bodyEdit.setText(sharedText);
-                        note.setNotedate();
-                        note.setNotetime();
-                        if(note.getCreateDate().isEmpty()) {
-                            note.setCreateDate();
-                        }
-                    }
-                }
-            } else {
-                titleEdit.setText(note.getTitle());
-                bodyEdit.setText(note.getBody());
-                note.setNotedate();
-                note.setNotetime();
-                if(note.getCreateDate().isEmpty()) {
-                    note.setCreateDate();
+        if(isNewEntry(note, intent)) {
+            note = Leaf.load(this,Note.makeId());
+            //new note
+            toolbar.setSubtitle(R.string.new_note);
+            String action = intent.getAction();
+            String type = intent.getType();
+            if(Intent.ACTION_SEND.equals(action) && type != null) {
+                if(type.startsWith("text/plain")) {
+                    Note.makeId();
+                    String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
+                    titleEdit.setText(R.string.imported);
+                    bodyEdit.setText(sharedText);
+                    note.setNotedate();
+                    note.setNotetime();
                 }
             }
+            note.setNotedate();
+            note.setNotetime();
+
         } else {
-            //Build version is newer or equals than Tiramisu
-            if ("android.intent.action.SEND".equals(intent.getAction())) {
-                String action = intent.getAction();
-                String type = intent.getType();
-                if (Intent.ACTION_SEND.equals(action) && type != null) {
-                    if (type.startsWith("text/plain")) {
-                        String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
-                        titleEdit.setText(R.string.imported);
-                        bodyEdit.setText(sharedText);
-                        note.setNotedate();
-                        note.setNotetime();
-                        if(note.getCreateDate().isEmpty()) {
-                            note.setCreateDate();
-                        }
-                    }
-                }
+            //existing note
 
-            } else {
-                titleEdit.setText(note.getTitle());
-                bodyEdit.setText(note.getBody());
-                note.setNotedate();
-                note.setNotetime();
-                if(note.getCreateDate().isEmpty()) {
-                    note.setCreateDate();
-                }
-            }
+            toolbar.setTitle(R.string.action_fab_note);
+            toolbar.setSubtitle(note.getTitle());
+            titleEdit.setText(note.getTitle());
+            bodyEdit.setText(note.getBody());
         }
+    }
+
+    private boolean isNewEntry(Note note, Intent intent) {
+        return note.getDate().isEmpty() ||
+                note.getTime().isEmpty() ||
+                "android.intent.action.SEND".equals(intent.getAction());
     }
 
     @Override
@@ -122,7 +116,26 @@ public class NoteEditActivity extends AppCompatActivity {
             shareNote();
             return true;
         } else if (id == R.id.action_remove) {
-            removeNote();
+            MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(NoteEditActivity.this);
+            materialAlertDialogBuilder
+                    .setIcon(R.drawable.dialog_delete)
+                    .setTitle(R.string.remove_dialog_title)
+                    .setMessage(R.string.remove_dailog_message)
+                    .setPositiveButton(R.string.action_remove, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            removeNote();
+                            dialogInterface.dismiss();
+                        }
+                    })
+                    .setNegativeButton(R.string.remove_dialog_abort, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+            materialAlertDialogBuilder.create();
+            materialAlertDialogBuilder.show();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -145,7 +158,7 @@ public class NoteEditActivity extends AppCompatActivity {
     public String getExportString() {
         String exportString = "";
         if (!note.getTitle().isEmpty()) {
-            exportString += getString(R.string.action_share_title) + ": " + note.getTitle()+"\n";
+            exportString += getString(R.string.action_share_title) + ": " + note.getTitle() + "\n";
             if (!note.getBody().isEmpty()) {
                 exportString += getString(R.string.action_share_body) + ": " + note.getBody();
             }

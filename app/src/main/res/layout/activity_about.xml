@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:scrollbars="vertical"
+    tools:context=".AboutActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/screen_edge_margin"
+                app:cardPreventCornerOverlap="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:orientation="vertical"
+                    android:padding="@dimen/screen_edge_margin"
+                    android:paddingTop="@dimen/list_vertical_padding"
+                    android:paddingBottom="@dimen/list_vertical_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="?android:listPreferredItemPaddingStart"
+                        android:paddingEnd="?android:listPreferredItemPaddingEnd">
+
+                        <ImageView
+                            android:layout_width="@dimen/large_icon_size"
+                            android:layout_height="@dimen/large_icon_size"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/leafpad_svg_twig" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/textView_version"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/content_start_from_screen_edge_margin_minus_40dp"
+                            android:textAppearance="?attr/textAppearanceHeadline3" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="?android:listPreferredItemPaddingStart"
+                        android:paddingEnd="?android:listPreferredItemPaddingEnd">
+
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/textView_data"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/new_margin"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:text="@string/leafpad_work"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/screen_edge_margin"
+                app:cardPreventCornerOverlap="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:orientation="vertical"
+                    android:padding="@dimen/screen_edge_margin"
+                    android:paddingTop="@dimen/list_vertical_padding"
+                    android:paddingBottom="@dimen/list_vertical_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="?android:listPreferredItemPaddingStart"
+                        android:paddingEnd="?android:listPreferredItemPaddingEnd">
+
+                        <ImageView
+                            android:layout_width="@dimen/large_icon_size"
+                            android:layout_height="@dimen/large_icon_size"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/about_book" />
+                        <TextView
+                            android:id="@+id/tv_biblevers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/content_start_from_screen_edge_margin_minus_40dp"
+
+                            android:text="@string/rev20_12" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/screen_edge_margin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:orientation="vertical"
+                    android:padding="@dimen/screen_edge_margin"
+                    android:paddingTop="@dimen/list_vertical_padding"
+                    android:paddingBottom="@dimen/list_vertical_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="?android:listPreferredItemPaddingStart"
+                        android:paddingEnd="?android:listPreferredItemPaddingEnd">
+
+                        <ImageView
+                            android:layout_width="@dimen/large_icon_size"
+                            android:layout_height="@dimen/large_icon_size"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/about_article" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/textView_statement"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/content_start_from_screen_edge_margin_minus_40dp"
+                            android:text="@string/what_is_leafpad" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

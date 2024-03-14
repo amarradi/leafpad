@@ -1,6 +1,42 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_margin">16dp</dimen>
+
+    <dimen name="dividerHeight">2dp</dimen>
+
+    <dimen name="editText_min_length">48dp</dimen>
+    <dimen name="editText_max_length">30dp</dimen>
+    <dimen name="lineHeight">20sp</dimen>
+    <dimen name="titleTextSize">20sp</dimen>
+    <dimen name="alertButtonTextSize">16sp</dimen>
+
+    <dimen name="margin">5dp</dimen>
+
+    <dimen name="dialogTextSize">16dp</dimen>
+
+    <dimen name="radius">4dp</dimen>
+    <dimen name="listView_maxLines">1</dimen>
+    <integer name="titleMaxLines">1</integer>
+    <integer name="linear_sum">2</integer>
     <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="list_vertical_padding">8dp</dimen>
+
+    <dimen name="large_icon_size">40dp</dimen>
+
+    <dimen name="content_start_from_screen_edge_margin_minus_40dp">16dp</dimen>
+
+
+    <dimen name="new_margin">56dp</dimen>
+
+    <dimen name="screen_edge_margin">8dp</dimen>
+
+    <dimen name="mtrl_btn_stroke_size">0.5dp</dimen>
+
+    <dimen name="maxLines">1</dimen>
+
+    <dimen name="toolbarPaddingLeft">16dp</dimen>
+    <dimen name="toolbarPaddingRight">24dp</dimen>
+
+    <dimen name="listElementTitle">25sp</dimen>
 </resources>

@@ -9,11 +9,19 @@
     tools:showIn="@layout/activity_main">
 
     <ListView
+
         android:id="@+id/note_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:dividerHeight="2dp"
-        android:divider="@drawable/divider">
-    </ListView>
+        android:dividerHeight="@dimen/dividerHeight"
+        android:divider="@null"/>
+
+    <ImageView
+       android:layout_centerInParent="true"
+        android:id="@+id/emptyElement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/leafpad_svg_twig"
+        android:visibility="gone" />
 
 </RelativeLayout>

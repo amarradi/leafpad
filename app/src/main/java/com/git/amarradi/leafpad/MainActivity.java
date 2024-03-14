@@ -1,11 +1,13 @@
 package com.git.amarradi.leafpad;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -13,120 +15,128 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.splashscreen.SplashScreen;
+import androidx.preference.PreferenceManager;
 
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.play.core.review.ReviewException;
-import com.google.android.play.core.review.ReviewInfo;
-import com.google.android.play.core.review.ReviewManager;
-import com.google.android.play.core.review.ReviewManagerFactory;
-import com.google.android.play.core.review.model.ReviewErrorCode;
+import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     public final static String EXTRA_NOTE_ID = "com.git.amarradi.leafpad";
-
-    private final static String COUNT = "startcounter";
-    private final static Integer count = 11;
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String DESIGN_MODE = "system";
 
     public ArrayList<Note> notes;
     public SimpleAdapter adapter;
     public ListView listView;
 
+
     List<Map<String, String>> data = new ArrayList<>();
 
+    @SuppressLint("RestrictedApi")
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setupSharedPreferences();
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        String themes = sharedPreferences.getString(DESIGN_MODE, "");
+        changeTheme(themes);
 
-
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Objects.requireNonNull(getSupportActionBar()).setDefaultDisplayHomeAsUpEnabled(true);
+
+
+        SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
 
         updateDataset();
 
+
         adapter = new SimpleAdapter(this, data,
                 R.layout.note_list_item,
-                new String[] {"title", "body", "date", "time", "create"},
-                new int[]{R.id.text1,
-                        R.id.text2,
-                        R.id.date_txt,
-                        R.id.time_txt,
-                        R.id.created_at});
+                new String[]{"title", "date", "time"},
+                new int[]{R.id.title_text, R.id.created_at, R.id.time_txt});
 
-
+        updateDataset();
         listView = findViewById(R.id.note_list_view);
 
         listView.setAdapter(adapter);
-
         listView.setOnItemClickListener((adapter, v, position, id) -> {
-           // Intent intent = new Intent(MainActivity.this, NoteReadActivity.class);
-            //intent.putExtra(EXTRA_NOTE_ID, notes.get(position).getId());
-            //startActivity(intent);
             Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
             intent.putExtra(EXTRA_NOTE_ID, notes.get(position).getId());
             startActivity(intent);
         });
-
-
-        FloatingActionButton fab = findViewById(R.id.fab_action_add);
-        fab.setOnClickListener(v -> {
+        ExtendedFloatingActionButton extendedFloatingActionButton = findViewById(R.id.fab_action_add);
+        extendedFloatingActionButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
             intent.putExtra(EXTRA_NOTE_ID, Note.makeId());
             startActivity(intent);
         });
-        countStart();
+
+        listView.setEmptyView(findViewById(R.id.emptyElement));
     }
 
-    private void countStart() {
-        SharedPreferences sharedPreferences = getSharedPreferences(COUNT,Context.MODE_PRIVATE);
-        Integer integer = sharedPreferences.getInt(COUNT,0);
-        integer++;
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(COUNT,integer);
-        editor.apply();
-        if (integer.equals(count)) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle(R.string.satisfied);
-            builder.setMessage(R.string.rate_the_app)
-                    .setPositiveButton(R.string.feedback_yes, (dialog, id) -> {
-                        showFeedbackDialog();
-                        dialog.dismiss();
-                    })
-                    .setNegativeButton(R.string.feedback_no, (dialog, id) -> dialog.dismiss());
-            AlertDialog dialog = builder.create();
-            dialog.show();
+    private void setupSharedPreferences() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPreferences.registerOnSharedPreferenceChangeListener((SharedPreferences.OnSharedPreferenceChangeListener) this);
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        if (key.equals("theme")) {
+            loadThemeFromPreference(sharedPreferences);
+        }
+    }
+    private void loadThemeFromPreference(SharedPreferences sharedPreferences) {
+        changeTheme(sharedPreferences.getString(getString(R.string.theme_key), getString(R.string.system_preference_option_value)));
+    }
+
+    private void changeTheme(String theme_value) {
+        switch (theme_value) {
+            case "lightmode": {
+                Log.d("theme", "changeTheme: "+theme_value);
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString(DESIGN_MODE, theme_value);
+                editor.apply();
+                break;
+            }
+            case "darkmode": {
+                Log.d("theme", "changeTheme: "+theme_value);
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString(DESIGN_MODE, theme_value);
+                editor.apply();
+                break;
+            }
+            case "system": {
+                Log.d("theme", "changeTheme: "+theme_value);
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString(DESIGN_MODE, theme_value);
+                editor.apply();
+                break;
+            }
         }
     }
 
-    private void showFeedbackDialog() {
-        ReviewManager manager = ReviewManagerFactory.create(getApplicationContext());
-        Task<ReviewInfo> request = manager.requestReviewFlow();
-        request.addOnCompleteListener(task -> {
-           if(task.isSuccessful()) {
-               ReviewInfo reviewInfo = task.getResult();
-               Task<Void> flow = manager.launchReviewFlow(this, reviewInfo);
-               flow.addOnCompleteListener(voidtask -> {
-                   Toast.makeText(this, getString(R.string.review_seved), Toast.LENGTH_SHORT).show();
-               });
-
-           } else {
-               @ReviewErrorCode int reviewErrorCode = ((ReviewException) task.getException()).getErrorCode();
-           }
-        });
-    }
 
     @Override
     protected void onPause() {
@@ -136,17 +146,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
         updateListView();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.item_settings:
+                Intent settingsIntent = new Intent(this, SettingsActivity.class);
+                startActivity(settingsIntent);
+                break;
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -159,9 +178,29 @@ public class MainActivity extends AppCompatActivity {
     public void updateDataset() {
         notes = Leaf.loadAll(this);
 
+
+
+
+/* I don't understand the code yet so the code is not deleted yet
         for (Note note : notes) {
+            Map<String,String> datum = new HashMap<>();
+            datum.put("title", note.getTitle());
+            Log.d("title", "title:"+note.getTitle());
+            datum.put("body", note.getBody());
+            Log.d("body", "body:"+note.getBody());
+            datum.put("date", note.getDate());
+            Log.d("date", "date:"+note.getDate()+"Datum");
+            datum.put("time", note.getTime());
+            Log.d("time", "time:"+note.getTime()+"Uhr");
+            datum.put("create", note.getCreateDate().stripLeading().stripTrailing());
+            Log.d("create", "create:"+note.getCreateDate()+"Datum");
+
+
+        }*/
+
+       /* for (Note note : notes) {
             if (note.getTitle().isEmpty()) {
-                String[] splits = note.getBody().split(" ");
+                String[] splits = note.getBody().split("");
 
                 StringBuilder stringBuilder = new StringBuilder();
                 int substringLength = 0;
@@ -173,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
                     stringBuilder.append(splits[i]);
                     if (i + 1 != splits.length) {
                         if (!(substringLength + splits[i + 1].length() > 25)) {
-                            stringBuilder.append(" ");
+                            stringBuilder.append("");
                         }
                     }
                 }
@@ -182,25 +221,25 @@ public class MainActivity extends AppCompatActivity {
                 }
                 note.setTitle(stringBuilder.toString());
             }
-            if(note.getDate().isEmpty() || note.getTime().isEmpty()) {
+            if (note.getDate().isEmpty() || note.getTime().isEmpty()) {
                 note.setNotetime();
                 note.setNotedate();
             }
-
-        }
+        }*/
 
         data.clear();
         for (Note note : notes) {
-            Map<String, String> datum = new HashMap<>(4);
+            Map<String, String> datum = new HashMap<>();
             datum.put("title", note.getTitle());
             datum.put("body", note.getBody());
             datum.put("date", note.getDate());
             datum.put("time", note.getTime());
-            datum.put("create",note.getCreateDate());
+            //   datum.put("create", note.getCreateDate());
             data.add(datum);
         }
+
     }
-/*
+/* whats that
     public String joinArray(String[] array, char delimiter) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < array.length; i++) {
@@ -211,6 +250,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return stringBuilder.toString();
     }
-
  */
 }

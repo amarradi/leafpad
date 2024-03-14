@@ -8,18 +8,14 @@
     android:id="@+id/coordinator"
     tools:context="MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+   <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="?attr/actionBarSize" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -27,16 +23,19 @@
         android:id="@+id/note_area"
         layout="@layout/content_main" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab_action_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/activity_margin"
+        android:text="@string/action_fab_note"
         android:contentDescription="@string/contentDescription"
         android:clickable="true"
         android:focusable="true"
-        android:src="@drawable/action_add_note"
+        app:icon="@drawable/action_add_note"
         app:layout_anchor="@id/note_area"
         app:layout_anchorGravity="bottom|right|end" />
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
