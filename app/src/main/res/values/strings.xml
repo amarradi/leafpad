@@ -78,5 +78,6 @@
     <string name="find_code_on_github_summary">You can view and check the source code via the repository. You are welcome to open an issue for change requests and error messages.</string>
     <string name="title_licence">Licences</string>
     <string name="licence">Open source licenses</string>
-
+    <string name="share_note">Share Note</string>
+    <string name="note_will_be_saved_first">Note will be saved first</string>
 </resources>

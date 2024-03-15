@@ -3,11 +3,10 @@ package com.git.amarradi.leafpad;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
-
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,7 +22,6 @@ public class NoteEditActivity extends AppCompatActivity {
     private Note note;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +31,7 @@ public class NoteEditActivity extends AppCompatActivity {
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if(Objects.equals(getIntent().getAction(), "android.intent.action.VIEW")) {
+        if (Objects.equals(getIntent().getAction(), "android.intent.action.VIEW")) {
             note = Leaf.load(this, Note.makeId());
         }
 
@@ -49,14 +47,14 @@ public class NoteEditActivity extends AppCompatActivity {
         String noteId = intent.getStringExtra(MainActivity.EXTRA_NOTE_ID);
 
         note = Leaf.load(this, noteId);
-        if(isNewEntry(note, intent)) {
-            note = Leaf.load(this,Note.makeId());
+        if (isNewEntry(note, intent)) {
+            note = Leaf.load(this, Note.makeId());
             //new note
             toolbar.setSubtitle(R.string.new_note);
             String action = intent.getAction();
             String type = intent.getType();
-            if(Intent.ACTION_SEND.equals(action) && type != null) {
-                if(type.startsWith("text/plain")) {
+            if (Intent.ACTION_SEND.equals(action) && type != null) {
+                if (type.startsWith("text/plain")) {
                     Note.makeId();
                     String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
                     titleEdit.setText(R.string.imported);
@@ -79,9 +77,7 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private boolean isNewEntry(Note note, Intent intent) {
-        return note.getDate().isEmpty() ||
-                note.getTime().isEmpty() ||
-                "android.intent.action.SEND".equals(intent.getAction());
+        return note.getDate().isEmpty() || note.getTime().isEmpty() || "android.intent.action.SEND".equals(intent.getAction());
     }
 
     @Override
@@ -117,23 +113,18 @@ public class NoteEditActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_remove) {
             MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(NoteEditActivity.this);
-            materialAlertDialogBuilder
-                    .setIcon(R.drawable.dialog_delete)
-                    .setTitle(R.string.remove_dialog_title)
-                    .setMessage(R.string.remove_dailog_message)
-                    .setPositiveButton(R.string.action_remove, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            removeNote();
-                            dialogInterface.dismiss();
-                        }
-                    })
-                    .setNegativeButton(R.string.remove_dialog_abort, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
-                        }
-                    });
+            materialAlertDialogBuilder.setIcon(R.drawable.dialog_delete).setTitle(R.string.remove_dialog_title).setMessage(R.string.remove_dailog_message).setPositiveButton(R.string.action_remove, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    removeNote();
+                    dialogInterface.dismiss();
+                }
+            }).setNegativeButton(R.string.remove_dialog_abort, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            });
             materialAlertDialogBuilder.create();
             materialAlertDialogBuilder.show();
             return true;
@@ -148,11 +139,17 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private void shareNote() {
+        if (note.getBody().isEmpty() && note.getTitle().isEmpty()) {
+            Toast.makeText(this, getResources().getString(R.string.note_will_be_saved_first), Toast.LENGTH_SHORT).show();
+        }
+        note.setTitle(titleEdit.getText().toString());
+        note.setBody(bodyEdit.getText().toString());
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.putExtra(Intent.EXTRA_TEXT, getExportString());
         sendIntent.setType("text/plain");
-        startActivity(Intent.createChooser(sendIntent, "Share Note"));
+        startActivity(Intent.createChooser(sendIntent, getString(R.string.share_note)));
+
     }
 
     public String getExportString() {
