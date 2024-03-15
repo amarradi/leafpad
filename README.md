@@ -10,9 +10,10 @@ leafpad never shares your data with a server. Your notes remain stored locally o
 leafpad remove your note completly, when you delete your note
 
 ## features
-* Leafpad allows you to create notes without prior configuration
+* leafpad allows you to create notes without prior configuration
 * Notes can be shared for leafpad and then notes can be created from them
 * Notes can be shared with other apps from Leafpad
+* leafpad support the android dark/night-mode
 
 # Installation
 The current version of leafpad can be installed from the PlayStore.
