@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String DESIGN_MODE = "system";
 
-    public ArrayList<Note> notes;
+    public List<Note> notes;
     public SimpleAdapter adapter;
     public ListView listView;
 
