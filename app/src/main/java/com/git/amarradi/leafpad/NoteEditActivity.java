@@ -1,6 +1,5 @@
 package com.git.amarradi.leafpad;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -113,18 +112,10 @@ public class NoteEditActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_remove) {
             MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(NoteEditActivity.this);
-            materialAlertDialogBuilder.setIcon(R.drawable.dialog_delete).setTitle(R.string.remove_dialog_title).setMessage(R.string.remove_dailog_message).setPositiveButton(R.string.action_remove, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    removeNote();
-                    dialogInterface.dismiss();
-                }
-            }).setNegativeButton(R.string.remove_dialog_abort, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    dialogInterface.dismiss();
-                }
-            });
+            materialAlertDialogBuilder.setIcon(R.drawable.dialog_delete).setTitle(R.string.remove_dialog_title).setMessage(R.string.remove_dailog_message).setPositiveButton(R.string.action_remove, (dialogInterface, i) -> {
+                removeNote();
+                dialogInterface.dismiss();
+            }).setNegativeButton(R.string.remove_dialog_abort, (dialogInterface, i) -> dialogInterface.dismiss());
             materialAlertDialogBuilder.create();
             materialAlertDialogBuilder.show();
             return true;
