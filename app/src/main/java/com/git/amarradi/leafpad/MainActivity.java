@@ -166,25 +166,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
 
 
-
-/* I don't understand the code yet so the code is not deleted yet
-        for (Note note : notes) {
-            Map<String,String> datum = new HashMap<>();
-            datum.put("title", note.getTitle());
-            Log.d("title", "title:"+note.getTitle());
-            datum.put("body", note.getBody());
-            Log.d("body", "body:"+note.getBody());
-            datum.put("date", note.getDate());
-            Log.d("date", "date:"+note.getDate()+"Datum");
-            datum.put("time", note.getTime());
-            Log.d("time", "time:"+note.getTime()+"Uhr");
-            datum.put("create", note.getCreateDate().stripLeading().stripTrailing());
-            Log.d("create", "create:"+note.getCreateDate()+"Datum");
-
-
-        }*/
-
-       /* for (Note note : notes) {
+      /* for (Note note : notes) {
             if (note.getTitle().isEmpty()) {
                 String[] splits = note.getBody().split("");
 
@@ -223,18 +205,5 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             //   datum.put("create", note.getCreateDate());
             data.add(datum);
         }
-
     }
-/* whats that
-    public String joinArray(String[] array, char delimiter) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < array.length; i++) {
-            stringBuilder.append(array[i]);
-            if (i < array.length - 1) {
-                stringBuilder.append(" ");
-            }
-        }
-        return stringBuilder.toString();
-    }
- */
 }
