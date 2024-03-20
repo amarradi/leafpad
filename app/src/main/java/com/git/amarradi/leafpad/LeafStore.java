@@ -1,7 +1,5 @@
 package com.git.amarradi.leafpad;
 
-import android.annotation.SuppressLint;
-
 import java.util.List;
 
 public interface LeafStore {

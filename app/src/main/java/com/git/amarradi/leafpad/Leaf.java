@@ -37,7 +37,6 @@ public class Leaf implements LeafStore {
 
     @Override
     public List<Note> loadAll() {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
         ArrayList<Note> notes = new ArrayList<>();
         Set<String> noteIds = findAllIds();
 
