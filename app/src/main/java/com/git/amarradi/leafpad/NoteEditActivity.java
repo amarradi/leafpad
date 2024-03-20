@@ -61,7 +61,6 @@ public class NoteEditActivity extends AppCompatActivity {
             String type = intent.getType();
             if (Intent.ACTION_SEND.equals(action) && type != null) {
                 if (type.startsWith("text/plain")) {
-                    Note.makeId();
                     String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
                     titleEdit.setText(R.string.imported);
                     bodyEdit.setText(sharedText);
