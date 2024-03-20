@@ -13,7 +13,7 @@ public class Note {
     private String notetime;
     private String create_date;
   //  private String create_time;
-    private final String id;
+    private String id;
 
     private final Locale LOCALE = Locale.GERMAN;
 
@@ -100,7 +100,7 @@ public class Note {
         return id;
     }
 
-   /* public void setId(String id) {
+    public void setId(String id) {
         this.id = id;
-    }*/
+    }
 }

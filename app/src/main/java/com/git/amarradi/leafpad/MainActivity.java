@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public SimpleAdapter adapter;
     public ListView listView;
 
+    private LeafStore leafStore;
 
     List<Map<String, String>> data = new ArrayList<>();
 
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        leafStore = new Leaf(this);
         setContentView(R.layout.activity_main);
 
         setupSharedPreferences();
@@ -171,9 +173,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
 
 
-    public void updateDataset() {
-        notes = Leaf.loadAll(this);
-
+    private void updateDataset() {
+        notes = leafStore.loadAll();
 
 
       /* for (Note note : notes) {
