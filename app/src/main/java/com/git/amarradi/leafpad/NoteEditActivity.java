@@ -1,6 +1,5 @@
 package com.git.amarradi.leafpad;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,10 +20,13 @@ public class NoteEditActivity extends AppCompatActivity {
     private EditText bodyEdit;
     private Note note;
 
+    private LeafStore leafStore;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        leafStore = new Leaf(this);
 
         setContentView(R.layout.activity_note_edit);
 
@@ -32,7 +34,7 @@ public class NoteEditActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         if (Objects.equals(getIntent().getAction(), "android.intent.action.VIEW")) {
-            note = Leaf.load(this, Note.makeId());
+            note = leafStore.findById(Note.makeId());
         }
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
@@ -46,16 +48,13 @@ public class NoteEditActivity extends AppCompatActivity {
 
         String noteId = intent.getStringExtra(MainActivity.EXTRA_NOTE_ID);
 
-        note = Leaf.load(this, noteId);
+        note = leafStore.findById(noteId);
         if (isNewEntry(note, intent)) {
-            note = Leaf.load(this, Note.makeId());
-            //new note
             toolbar.setSubtitle(R.string.new_note);
             String action = intent.getAction();
             String type = intent.getType();
             if (Intent.ACTION_SEND.equals(action) && type != null) {
                 if (type.startsWith("text/plain")) {
-                    Note.makeId();
                     String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
                     titleEdit.setText(R.string.imported);
                     bodyEdit.setText(sharedText);
@@ -89,10 +88,10 @@ public class NoteEditActivity extends AppCompatActivity {
         note.setTitle(titleEdit.getText().toString());
         note.setBody(bodyEdit.getText().toString());
         if (note.getBody().isEmpty() && note.getTitle().isEmpty()) {
-            Leaf.remove(this, note);
+            leafStore.remove(note);
             return;
         }
-        Leaf.set(this, note);
+        leafStore.save(note);
     }
 
     @Override
@@ -113,18 +112,10 @@ public class NoteEditActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_remove) {
             MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(NoteEditActivity.this);
-            materialAlertDialogBuilder.setIcon(R.drawable.dialog_delete).setTitle(R.string.remove_dialog_title).setMessage(R.string.remove_dailog_message).setPositiveButton(R.string.action_remove, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    removeNote();
-                    dialogInterface.dismiss();
-                }
-            }).setNegativeButton(R.string.remove_dialog_abort, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    dialogInterface.dismiss();
-                }
-            });
+            materialAlertDialogBuilder.setIcon(R.drawable.dialog_delete).setTitle(R.string.remove_dialog_title).setMessage(R.string.remove_dailog_message).setPositiveButton(R.string.action_remove, (dialogInterface, i) -> {
+                removeNote();
+                dialogInterface.dismiss();
+            }).setNegativeButton(R.string.remove_dialog_abort, (dialogInterface, i) -> dialogInterface.dismiss());
             materialAlertDialogBuilder.create();
             materialAlertDialogBuilder.show();
             return true;
@@ -133,7 +124,7 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private void removeNote() {
-        Leaf.remove(this, note);
+        leafStore.remove(note);
         note = null;
         finish();
     }
@@ -149,7 +140,6 @@ public class NoteEditActivity extends AppCompatActivity {
         sendIntent.putExtra(Intent.EXTRA_TEXT, getExportString());
         sendIntent.setType("text/plain");
         startActivity(Intent.createChooser(sendIntent, getString(R.string.share_note)));
-
     }
 
     public String getExportString() {
@@ -165,8 +155,4 @@ public class NoteEditActivity extends AppCompatActivity {
         return exportString;
     }
 
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-    }
 }

@@ -11,7 +11,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -31,14 +30,16 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
+
     public final static String EXTRA_NOTE_ID = "com.git.amarradi.leafpad";
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String DESIGN_MODE = "system";
 
-    public ArrayList<Note> notes;
+    public List<Note> notes;
     public SimpleAdapter adapter;
     public ListView listView;
 
+    private LeafStore leafStore;
 
     List<Map<String, String>> data = new ArrayList<>();
 
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        leafStore = new Leaf(this);
         setContentView(R.layout.activity_main);
 
         setupSharedPreferences();
@@ -63,17 +65,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
 
-        updateDataset();
-
-
         adapter = new SimpleAdapter(this, data,
                 R.layout.note_list_item,
                 new String[]{"title", "date", "time"},
                 new int[]{R.id.title_text, R.id.created_at, R.id.time_txt});
 
         updateDataset();
-        listView = findViewById(R.id.note_list_view);
 
+        listView = findViewById(R.id.note_list_view);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener((adapter, v, position, id) -> {
             Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
@@ -86,53 +85,44 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             intent.putExtra(EXTRA_NOTE_ID, Note.makeId());
             startActivity(intent);
         });
-
         listView.setEmptyView(findViewById(R.id.emptyElement));
     }
 
     private void setupSharedPreferences() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        sharedPreferences.registerOnSharedPreferenceChangeListener((SharedPreferences.OnSharedPreferenceChangeListener) this);
+        sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (key.equals("theme")) {
+        if ("theme".equals(key)) {
             loadThemeFromPreference(sharedPreferences);
         }
     }
+
     private void loadThemeFromPreference(SharedPreferences sharedPreferences) {
         changeTheme(sharedPreferences.getString(getString(R.string.theme_key), getString(R.string.system_preference_option_value)));
     }
 
-    private void changeTheme(String theme_value) {
-        switch (theme_value) {
+    private void changeTheme(String themeValue) {
+        Log.d("theme", "changeTheme: " + themeValue);
+        AppCompatDelegate.setDefaultNightMode(toNightMode(themeValue));
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(DESIGN_MODE, themeValue);
+        editor.apply();
+    }
+
+    private int toNightMode(String themeValue) {
+        switch (themeValue) {
             case "lightmode": {
-                Log.d("theme", "changeTheme: "+theme_value);
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString(DESIGN_MODE, theme_value);
-                editor.apply();
-                break;
+                return AppCompatDelegate.MODE_NIGHT_NO;
             }
             case "darkmode": {
-                Log.d("theme", "changeTheme: "+theme_value);
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString(DESIGN_MODE, theme_value);
-                editor.apply();
-                break;
+                return AppCompatDelegate.MODE_NIGHT_YES;
             }
-            case "system": {
-                Log.d("theme", "changeTheme: "+theme_value);
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString(DESIGN_MODE, theme_value);
-                editor.apply();
-                break;
+            default: {
+                return AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
             }
         }
     }
@@ -160,11 +150,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()) {
-            case R.id.item_settings:
-                Intent settingsIntent = new Intent(this, SettingsActivity.class);
-                startActivity(settingsIntent);
-                break;
+        if (item.getItemId() == R.id.item_settings) {
+            Intent settingsIntent = new Intent(this, SettingsActivity.class);
+            startActivity(settingsIntent);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -175,30 +163,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
 
 
-    public void updateDataset() {
-        notes = Leaf.loadAll(this);
+    private void updateDataset() {
+        notes = leafStore.loadAll();
 
 
-
-
-/* I don't understand the code yet so the code is not deleted yet
-        for (Note note : notes) {
-            Map<String,String> datum = new HashMap<>();
-            datum.put("title", note.getTitle());
-            Log.d("title", "title:"+note.getTitle());
-            datum.put("body", note.getBody());
-            Log.d("body", "body:"+note.getBody());
-            datum.put("date", note.getDate());
-            Log.d("date", "date:"+note.getDate()+"Datum");
-            datum.put("time", note.getTime());
-            Log.d("time", "time:"+note.getTime()+"Uhr");
-            datum.put("create", note.getCreateDate().stripLeading().stripTrailing());
-            Log.d("create", "create:"+note.getCreateDate()+"Datum");
-
-
-        }*/
-
-       /* for (Note note : notes) {
+      /* for (Note note : notes) {
             if (note.getTitle().isEmpty()) {
                 String[] splits = note.getBody().split("");
 
@@ -237,18 +206,5 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             //   datum.put("create", note.getCreateDate());
             data.add(datum);
         }
-
     }
-/* whats that
-    public String joinArray(String[] array, char delimiter) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < array.length; i++) {
-            stringBuilder.append(array[i]);
-            if (i < array.length - 1) {
-                stringBuilder.append(" ");
-            }
-        }
-        return stringBuilder.toString();
-    }
- */
 }
