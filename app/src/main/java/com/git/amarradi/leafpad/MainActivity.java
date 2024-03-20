@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (key.equals("theme")) {
+        if ("theme".equals(key)) {
             loadThemeFromPreference(sharedPreferences);
         }
     }
