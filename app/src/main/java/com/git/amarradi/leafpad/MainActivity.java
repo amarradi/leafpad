@@ -63,17 +63,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
 
-        updateDataset();
-
-
         adapter = new SimpleAdapter(this, data,
                 R.layout.note_list_item,
                 new String[]{"title", "date", "time"},
                 new int[]{R.id.title_text, R.id.created_at, R.id.time_txt});
 
         updateDataset();
-        listView = findViewById(R.id.note_list_view);
 
+        listView = findViewById(R.id.note_list_view);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener((adapter, v, position, id) -> {
             Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
@@ -86,7 +83,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             intent.putExtra(EXTRA_NOTE_ID, Note.makeId());
             startActivity(intent);
         });
-
         listView.setEmptyView(findViewById(R.id.emptyElement));
     }
 
