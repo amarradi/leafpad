@@ -174,7 +174,6 @@ public class NoteEditActivity extends AppCompatActivity {
         sendIntent.putExtra(Intent.EXTRA_TEXT, getExportString());
         sendIntent.setType("text/plain");
         startActivity(Intent.createChooser(sendIntent, getString(R.string.share_note)));
-
     }
 
     public String getExportString() {
@@ -190,8 +189,4 @@ public class NoteEditActivity extends AppCompatActivity {
         return exportString;
     }
 
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-    }
 }
