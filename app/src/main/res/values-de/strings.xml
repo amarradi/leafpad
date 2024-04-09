@@ -54,7 +54,7 @@
     <string name="what_is_leafpad">Leafpad ist eine einfache App zum Schreiben von Notizen. Mit dieser App kann man auf seinem Telefon Noitzen erstellen, bearbeiten, versenden oder löschen.</string>
     <string name="leafpad_work">Leafpad speichert alle Daten lokal auf deinem Smartphone. Die Notizen oder die Metadaten wie Datum und Uhrzeit werden in keiner Cloud abgelegt und mit niemandem geteilt. Es wird auch keine Textanalyse durchgeführt. Die Notizen gehören dir. Du entscheidest, was du damit machst.</string>
     <string name="rev20_12">Vor dem Thron aber sah ich die Toten stehen, vom Größten bis zum Kleinsten. Es wurden Bücher aufgeschlagen, in denen alle Taten aufgeschrieben sind, und dann noch ein anderes Buch: das Buch des Lebens. Anschließend wurde Gericht über die Toten gehalten. Jeder bekam das Urteil, das seinen Taten entsprach. Offenbarung des Johannes 20 Vers 12</string>
-    <string name="statement">Wir notieren uns Einkauflisten, Gesprächsnotizen, Packlisten für den Urlaub oder Geburtstage von Freunden. Das sind alles gute Dinge um sie nicht zu vergessen. Die schlechten Dinge wie zum Beispiel böse Gedanken, notieren wir selbstverständlich nicht, weil wir nicht möchten, dass sie jemals ans Tageslicht kommen. Bei Gott ist das ganz anders. Er schreibt alles mit. Nach unserem Tod stehen wir vor unserem Schöpfer und dann werden alle Dinge offenbar, die guten und die schlechten. Die Menschen, die im Buch des Lebens eintragen sind, haben dann nichts zu befürchten. Bist du im Buch des Lebens eingetragen?</string>
+    <string name="statement">Wir notieren uns Einkauflisten, Gesprächsnotizen, Packlisten für den Urlaub oder Geburtstage von Freunden. Das sind alles gute Dinge um sie nicht zu vergessen. Bei Gott ist das ganz anders, er weiß alles, das Gute und das Schlechte, auch ohne leafpad. Gott liebt den Menschen und möchte Gemeinschaft mit ihm. Nach unserem Tod stehen wir vor ihm und dann werden alle Dinge im Gericht Gottes offenbar, die Guten und die Schlechten. Die Menschen, die im Buch des Lebens eintragen sind, haben dann nichts zu befürchten. Bist du im Buch des Lebens eingetragen?</string>
     <string name="rating_the_app">Bewertung im PlayStore</string>
     <string name="its_opensource">Leafpad ist OpenSource und es ist frei</string>
     <string name="find_code_on_github">GitHub</string>
@@ -63,4 +63,6 @@
     <string name="licence">Open source Lizenzen</string>
     <string name="share_note">Notiz teilen</string>
     <string name="note_will_be_saved_first">Notiz wird erst gespeichert</string>
+    <string name="thanks">Danke Stefan für das Testen der App</string>
+
 </resources>
