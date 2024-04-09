@@ -32,7 +32,7 @@ public class Leaf {
     private final static String CREATEDATE = "note_date_";
     private final static String TITLE_PREFIX = "note_title_";
     private final static String BODY_PREFIX = "note_body_";
-    private final static String CREATETIME = "note_time_";
+   // private final static String CREATETIME = "note_time_";
 
 
     public static ArrayList<Note> loadAll(Context context) {
@@ -79,8 +79,8 @@ notes.sort(
         String noteDate = sharedPreferences.getString(ADDDATE+ noteId,"");
         String noteTime = sharedPreferences.getString(ADDTIME + noteId,"");
         String noteCreateDate = sharedPreferences.getString(CREATEDATE+ noteId,"");
-        String noteCreateTime = sharedPreferences.getString(CREATETIME+noteId,"");
-        return new Note(title, body, noteDate, noteTime, noteCreateDate, noteCreateTime, noteId);
+       //String noteCreateTime = sharedPreferences.getString(CREATETIME+noteId,"");
+        return new Note(title, body, noteDate, noteTime, noteCreateDate, /*noteCreateTime,*/ noteId);
     }
 
     @SuppressLint("MutatingSharedPrefs")
