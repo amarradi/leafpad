@@ -82,5 +82,5 @@
     <string name="share_note">Share Note</string>
     <string name="note_will_be_saved_first">Note will be saved first</string>
     <string name="action_save">save note</string>
-    <string name="action_note_saved">note saved</string>
+    <string name="action_note_saved">saved</string>
 </resources>
