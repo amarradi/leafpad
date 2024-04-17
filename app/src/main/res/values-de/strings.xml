@@ -64,5 +64,6 @@
     <string name="share_note">Notiz teilen</string>
     <string name="note_will_be_saved_first">Notiz wird erst gespeichert</string>
     <string name="thanks">Danke Stefan für das Testen der App</string>
-
+    <string name="action_save">Notiz speichern</string>
+    <string name="action_note_saved">Notiz gespeichert</string>
 </resources>

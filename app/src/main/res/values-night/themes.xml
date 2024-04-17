@@ -59,6 +59,7 @@
         <!-- CardView -->
         <item name="materialCardViewStyle">@style/Widget.App.CardView</item>
 
+        <item name="actionOverflowButtonStyle">@style/IconOverFlow</item>
 
         <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog</item>
     </style>
@@ -72,6 +73,10 @@
         <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.App.Title.Text</item>
         <item name="buttonBarPositiveButtonStyle">@style/Widget.App.Button</item>
         <item name="buttonBarNegativeButtonStyle">@style/Widget.App.Button</item>
+    </style>
+
+    <style name="IconOverFlow" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">@color/md_theme_light_onSecondary</item>
     </style>
 
 </resources>

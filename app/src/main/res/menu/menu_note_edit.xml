@@ -7,12 +7,17 @@
         android:id="@+id/action_share_note"
         android:icon="@drawable/action_share"
         android:title="@string/action_share_note"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_remove"
         android:icon="@drawable/action_remove"
         android:title="@string/action_remove"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
 
+    <item
+        android:id="@+id/action_save"
+        android:icon="@drawable/action_save"
+        android:title="@string/action_save"
+        app:showAsAction="ifRoom" />
 </menu>

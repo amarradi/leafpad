@@ -2,7 +2,9 @@ package com.git.amarradi.leafpad;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -21,6 +23,8 @@ public class NoteEditActivity extends AppCompatActivity {
     private EditText bodyEdit;
     private Note note;
 
+    private MaterialToolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +32,7 @@ public class NoteEditActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_note_edit);
 
-        MaterialToolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         if (Objects.equals(getIntent().getAction(), "android.intent.action.VIEW")) {
@@ -39,10 +43,7 @@ public class NoteEditActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         titleEdit = findViewById(R.id.title_edit);
-
         bodyEdit = findViewById(R.id.body_edit);
-
-        //TextView text = findViewById(R.id.created_at);
 
         String noteId = intent.getStringExtra(MainActivity.EXTRA_NOTE_ID);
 
@@ -128,8 +129,14 @@ public class NoteEditActivity extends AppCompatActivity {
             materialAlertDialogBuilder.create();
             materialAlertDialogBuilder.show();
             return true;
+        } else if (id == R.id.action_save) {
+            Resources resources = getResources();
+            Leaf.set(this, note);
+            toolbar.setSubtitle(note.getTitle());
+            Toast.makeText(this, resources.getString(R.string.action_note_saved) , Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
+
     }
 
     private void removeNote() {
