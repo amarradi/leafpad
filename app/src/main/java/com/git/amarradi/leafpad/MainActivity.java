@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     private void setupSharedPreferences() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        sharedPreferences.registerOnSharedPreferenceChangeListener((SharedPreferences.OnSharedPreferenceChangeListener) this);
+        sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
 
     @Override

@@ -53,6 +53,8 @@
         <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Toolbar</item>
         <item name="titleTextAppearance">@style/TextAppearance.App.TitleLarge</item>
+
+
     </style>
 
     <style name="TextAppearance.App.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
