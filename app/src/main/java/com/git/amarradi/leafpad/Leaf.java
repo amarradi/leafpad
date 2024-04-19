@@ -14,6 +14,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DateTimeException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -46,24 +48,16 @@ public class Leaf {
             }
         }
 
-       /*
-
-       notes.sort(Comparator
-                .comparing(Note::getDate)
-                .thenComparing(Note::getTime));
-        */
-
-       /*
-       DateTimeFormatter f = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-notes.sort(
-  (String s1, String s2) -> LocalDate.parse(s1, f).compareTo(LocalDate.parse(s2, f)));
-        */
-        DateTimeFormatter f;
+        DateTimeFormatter d;
+        DateTimeFormatter t;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            f = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+            d = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+            t = DateTimeFormatter.ofPattern("HH:mm");
             notes.sort(Comparator
-                        .comparing(o -> LocalDate.parse(o.getDate(), f)));
+                    .comparing((Note o) -> LocalDate.parse(o.getDate(), d))
+                    .thenComparing(o -> LocalTime.parse(o.getTime(), t)));
         }
+
         Collections.reverse(notes);
         return notes;
     }
