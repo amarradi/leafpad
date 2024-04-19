@@ -27,7 +27,7 @@ public class Leaf implements LeafStore {
     private final static String CREATEDATE = "note_date_";
     private final static String TITLE_PREFIX = "note_title_";
     private final static String BODY_PREFIX = "note_body_";
-   // private final static String CREATETIME = "note_time_";
+   private final static String CREATETIME = "note_time_";
     private final Context context;
 
 
@@ -116,7 +116,7 @@ public class Leaf implements LeafStore {
         editor.remove(BODY_PREFIX + note.getId());
         editor.remove(ADDDATE + note.getId());
         editor.remove(ADDTIME + note.getId());
-        //  editor.remove(CREATEDATE + note.getId());
+        editor.remove(CREATEDATE + note.getId());
         editor.apply();
     }
 
@@ -130,7 +130,7 @@ public class Leaf implements LeafStore {
         String noteCreateDate = sharedPreferences.getString(CREATEDATE+ noteId,"");
         String noteCreateTime = sharedPreferences.getString(CREATETIME+noteId,"");
 
-        return new Note(title, body, noteDate, noteTime, noteCreateDate, noteCreateTime, noteId);
+        return new Note(title, body, noteDate, noteTime, noteCreateDate, noteId);
     }
 
    /* public static void clear(Context context) {
