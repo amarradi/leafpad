@@ -11,13 +11,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.splashscreen.SplashScreen;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.appbar.MaterialToolbar;
@@ -62,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
 
 
-        SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
+       // SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
 
         updateDataset();
 
