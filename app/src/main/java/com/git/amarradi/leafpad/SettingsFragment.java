@@ -1,7 +1,6 @@
 package com.git.amarradi.leafpad;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -70,7 +69,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         Objects.requireNonNull(rating).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(@NonNull Preference preference) {
-                launchAppStore(requireActivity(), getApplicationName(requireContext()));
+                launchAppStore(requireActivity(), getContext().getPackageName());
 
                 return false;
             }
@@ -139,18 +138,16 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     public static void launchAppStore(Activity activity, String packageName) {
         Intent intent;
         try {
+            //Log.d("market", "launchAppStore: market://details?id="+packageName);
             intent = new Intent(Intent.ACTION_VIEW);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.setData(Uri.parse("market://details?id=" + packageName));
             activity.startActivity(intent);
         } catch (android.content.ActivityNotFoundException anfe) {
+            //Log.d("uri", "launchAppStore: https://play.google.com/store/apps/details?id=" + packageName);
             activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + packageName)));
 
         }
-    }
-
-    public static String getApplicationName(Context context) {
-        return context.getApplicationInfo().loadLabel(context.getPackageManager()).toString();
     }
 
 }

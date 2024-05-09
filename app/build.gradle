@@ -14,8 +14,8 @@ android {
         applicationId "com.git.amarradi.leafpad"
         minSdkVersion 25
         targetSdkVersion 34
-        versionCode 14
-        versionName "1.12"
+        versionCode 15
+        versionName "1.13"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
@@ -52,14 +52,13 @@ android {
 dependencies {
     implementation fileTree(dir: 'lfibs', include: ['*.jar'])
 
-    def core = "1.12.0"
+    def core = "1.13.1"
     def coordinatorLayout = "1.2.0"
     def appcompat = "1.6.1"
-    def material= "1.11.0"
+    def material= "1.12.0"
     def splashscreen = "1.0.1"
     def constraintlayout = "2.1.4"
     def preference_version = "1.2.1"
-  
     def play_services_oss = "17.0.1"
     implementation "androidx.core:core:$core"
     implementation "androidx.coordinatorlayout:coordinatorlayout:$coordinatorLayout"
@@ -68,6 +67,5 @@ dependencies {
     implementation "androidx.core:core-splashscreen:$splashscreen"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
     implementation "androidx.preference:preference:$preference_version"
-
     implementation "com.google.android.gms:play-services-oss-licenses:$play_services_oss"
 }
