@@ -52,6 +52,7 @@
                         <ImageView
                             android:layout_width="@dimen/large_icon_size"
                             android:layout_height="@dimen/large_icon_size"
+                            android:contentDescription="@string/leafpad_work"
                             android:scaleType="centerCrop"
                             android:src="@drawable/leafpad_svg_twig" />
 
@@ -60,7 +61,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/content_start_from_screen_edge_margin_minus_40dp"
-                            android:textAppearance="?attr/textAppearanceHeadline3" />
+                            android:textAppearance="?attr/textAppearanceHeadline4" />
 
                     </LinearLayout>
                     <LinearLayout

@@ -122,7 +122,11 @@ public class NoteEditActivity extends AppCompatActivity {
                 return true;
             case R.id.action_remove:
                 MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(NoteEditActivity.this);
-                materialAlertDialogBuilder.setIcon(R.drawable.dialog_delete).setTitle(R.string.remove_dialog_title).setMessage(R.string.remove_dailog_message).setPositiveButton(R.string.action_remove, new DialogInterface.OnClickListener() {
+                materialAlertDialogBuilder
+                        .setIcon(R.drawable.dialog_delete)
+                        .setTitle(R.string.remove_dialog_title)
+                        .setMessage(R.string.remove_dailog_message)
+                        .setPositiveButton(R.string.action_remove, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         removeNote();
