@@ -3,24 +3,16 @@ package com.git.amarradi.leafpad;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.icu.util.LocaleData;
 import android.os.Build;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.DateTimeException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
@@ -48,14 +40,20 @@ public class Leaf {
             }
         }
 
+
         DateTimeFormatter d;
         DateTimeFormatter t;
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            d = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-            t = DateTimeFormatter.ofPattern("HH:mm");
-            notes.sort(Comparator
-                    .comparing((Note o) -> LocalDate.parse(o.getDate(), d))
-                    .thenComparing(o -> LocalTime.parse(o.getTime(), t)));
+            try {
+                d = DateTimeFormatter.ofPattern("dd.MM.yyyy", Locale.GERMANY);
+                t = DateTimeFormatter.ofPattern("HH:mm", Locale.GERMANY);
+                notes.sort(Comparator
+                        .comparing((Note o) -> LocalDate.parse(o.getDate(), d))
+                        .thenComparing(o -> LocalTime.parse(o.getTime(), t)));
+            } catch (DateTimeParseException dateTimeParseException) {
+                Log.d("dateTimeParseException", "loadAll: "+dateTimeParseException.getClass());
+            }
         }
 
         Collections.reverse(notes);

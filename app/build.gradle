@@ -59,7 +59,7 @@ dependencies {
     def splashscreen = "1.0.1"
     def constraintlayout = "2.1.4"
     def preference_version = "1.2.1"
-    def review_api = "2.0.1"
+  
     def play_services_oss = "17.0.1"
     implementation "androidx.core:core:$core"
     implementation "androidx.coordinatorlayout:coordinatorlayout:$coordinatorLayout"
@@ -68,6 +68,6 @@ dependencies {
     implementation "androidx.core:core-splashscreen:$splashscreen"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
     implementation "androidx.preference:preference:$preference_version"
-    implementation "com.google.android.play:review:$review_api"
+
     implementation "com.google.android.gms:play-services-oss-licenses:$play_services_oss"
 }

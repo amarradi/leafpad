@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         Objects.requireNonNull(getSupportActionBar()).setDefaultDisplayHomeAsUpEnabled(true);
 
 
+
         SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
 
         updateDataset();

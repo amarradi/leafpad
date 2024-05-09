@@ -1,10 +1,11 @@
 package com.git.amarradi.leafpad;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,12 +18,6 @@ import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceScreen;
 
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
-import com.google.android.gms.tasks.Task;
-import com.google.android.play.core.review.ReviewException;
-import com.google.android.play.core.review.ReviewInfo;
-import com.google.android.play.core.review.ReviewManager;
-import com.google.android.play.core.review.ReviewManagerFactory;
-import com.google.android.play.core.review.model.ReviewErrorCode;
 
 import java.util.Objects;
 
@@ -75,7 +70,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         Objects.requireNonNull(rating).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(@NonNull Preference preference) {
-                requestReview();
+                launchAppStore(requireActivity(), getApplicationName(requireContext()));
+
                 return false;
             }
         });
@@ -140,19 +136,21 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         }
     }
 
-    public void requestReview() {
-        ReviewManager manager = ReviewManagerFactory.create(getContext());
-        Task<ReviewInfo> request = manager.requestReviewFlow();
-        ((Task<?>) request).addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                ReviewInfo reviewInfo = (ReviewInfo) task.getResult();
-                Task<Void> flow = manager.launchReviewFlow(getActivity(), reviewInfo);
-                flow.addOnCompleteListener(voidtask -> {
-                });
-            } else {
-                @ReviewErrorCode int reviewErrorCode = ((ReviewException) task.getException()).getErrorCode();
-                Toast.makeText(getContext(), "Review not saved "+reviewErrorCode, Toast.LENGTH_SHORT).show();
-            }
-        });
+    public static void launchAppStore(Activity activity, String packageName) {
+        Intent intent;
+        try {
+            intent = new Intent(Intent.ACTION_VIEW);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setData(Uri.parse("market://details?id=" + packageName));
+            activity.startActivity(intent);
+        } catch (android.content.ActivityNotFoundException anfe) {
+            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + packageName)));
+
+        }
     }
+
+    public static String getApplicationName(Context context) {
+        return context.getApplicationInfo().loadLabel(context.getPackageManager()).toString();
+    }
+
 }

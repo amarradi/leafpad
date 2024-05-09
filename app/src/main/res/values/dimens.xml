@@ -38,5 +38,5 @@
     <dimen name="toolbarPaddingLeft">16dp</dimen>
     <dimen name="toolbarPaddingRight">24dp</dimen>
 
-    <dimen name="listElementTitle">25sp</dimen>
+    <dimen name="listElementTitle">20sp</dimen>
 </resources>
