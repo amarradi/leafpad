@@ -1,7 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Leafpad</string>
     <string name="title_activity_note_edit">Edit Note</string>
-
     <string name="action_add_note">Add Note</string>
     <string name="action_edit_note">Edit Note</string>
     <string name="action_share_note">Share note</string>
@@ -9,18 +9,13 @@
     <string name="action_share_body">Note</string>
     <string name="action_remove">Remove note</string>
     <string name="action_fab_note">make a note</string>
-
     <string name="add_shortcut_short_label">Write down new</string>
-
-
     <string name="action_copy">Copy</string>
-
     <string name="title_hint">Title</string>
     <string name="body_hint">Note</string>
     <string name="contentDescription">add new Note</string>
     <string name="imported">note was send to leafpad</string>
     <string name="edited_text">edited at</string>
-
     <string name="new_note">new Note</string>
     <string name="satisfied">Enjoying leafpad?</string>
     <string name="rate_the_app">How about a review in Google\'s PlayStore?</string>
@@ -29,20 +24,14 @@
     <string name="feedback_no">Not really</string>
     <string name="feedback_positive">OK</string>
     <string name="feedback_negative">No, thanks</string>
-    <string name="created_txt" />
-
+    <string name="created_txt">created at</string>
     <string name="review_seved">The review was saved</string>
-
     <string name="remove_dialog_title">Are you sure</string>
     <string name="remove_dailog_message">This note will be permanently deleted. Afterwards it cannot be restored.</string>
     <string name="remove_dialog_abort">Cancel</string>
-
     <string name="menu_settings">Settings</string>
-
-
     <!-- Messages Preferences -->
     <string name="general_preference">General</string>
-
     <!-- Key name for theme preference in SharedPreferences -->
     <string name="theme_key" translatable="false">theme</string>
     <!-- Value in SharedPreferences for lightmode option -->
@@ -55,19 +44,15 @@
     <string name="darkmode_preference" translatable="false">darkmode</string>
     <string name="lightmode_preference" translatable="false">lightmode</string>
     <string name="system_preference" translatable="false">system</string>
-
     <string name="lightmode_preference_key">lightmode</string>
     <string name="darkmode_preference_key">darkmode</string>
     <string name="system_preference_key">follow system (standard)</string>
     <string name="theme_summary">Toggle between dark and light theme</string>
-
     <string name="about">About</string>
     <string name="about_the_app">About the App</string>
     <string name="tell_about">What I want to tell you about Leafpad</string>
-
     <string name="version">version</string>
     <string name="change">version</string>
-
     <string name="what_is_leafpad">Leafpad is a simple app for taking notes.</string>
     <string name="leafpad_work">Leafpad saves all data locally on your smartphone. The notes or metadata such as date and time are not stored in any cloud and are not shared with anyone. No text analysis is carried out either. The notes belong to you. You decide what you do with them.</string>
     <string name="rev20_12">And I saw the dead, the great and the small, standing before the throne; and books were opened: and another book was opened, which is the book of life: and the dead were judged out of the things which were written in the books, according to their works. Revelation 20:12</string>
