@@ -25,5 +25,15 @@ If you have found a bug or are missing a function, you can simply open a new iss
 
 <a href='https://github.com/amarradi/leafpad/issues/'>Post a GitHub Issue</a>
 
+# Translation
+Help translate at <a href='https://hosted.weblate.org/engage/leafpad/'>Weblate</a>
+
+<a href="https://hosted.weblate.org/engage/leafpad/">
+<img src="https://hosted.weblate.org/widget/leafpad/leafpad/open-graph.png" alt="Übersetzungsstatus" />
+</a>
+
+
 ### first version of leafpad
 _Many thanks to Dominik Schmidt for providing the initial source code in 2017._
+
+
