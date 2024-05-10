@@ -54,4 +54,5 @@
     <string name="remove_dailog_message">Esta nota se borrará permanentemente. Después no se podrá restaurar.</string>
     <string name="statement">Anotamos las listas de la compra, las notas de conversación, las listas de la maleta para las vacaciones o los cumpleaños de los amigos. Todas estas cosas son buenas para que no se nos olviden. Con Dios es completamente diferente, él lo sabe todo, lo bueno y lo malo, incluso sin un bloc de hojas. Dios ama a las personas y quiere tener comunión con ellas. Después de nuestra muerte compareceremos ante él y entonces todas las cosas serán reveladas en el juicio de Dios, lo bueno y lo malo. Las personas que están inscritas en el Libro de la Vida no tienen nada que temer. ¿Está usted inscrito en el Libro de la Vida?</string>
     <string name="app_name">Leafpad</string>
+    <string name="created_txt">Creado en</string>
 </resources>
