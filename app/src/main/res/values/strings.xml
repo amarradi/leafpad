@@ -26,7 +26,7 @@
     <string name="feedback_negative">No, thanks</string>
     <string name="created_txt">created at</string>
     <string name="review_seved">The review was saved</string>
-    <string name="remove_dialog_title">Are you sure</string>
+    <string name="remove_dialog_title">Are you sure?</string>
     <string name="remove_dailog_message">This note will be permanently deleted. Afterwards it cannot be restored.</string>
     <string name="remove_dialog_abort">Cancel</string>
     <string name="menu_settings">Settings</string>
