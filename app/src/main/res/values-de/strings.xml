@@ -23,7 +23,6 @@
     <string name="feedback_yes">Ja</string>
     <string name="feedback_no">Nicht wirklich</string>
     <string name="feedback_positive">OK</string>
-    <string name="feedback_negative">Nein Danke</string>
     <string name="created_txt">Notiz erstellt am</string>
     <string name="review_seved">Die Bewertung wurde gespeichert</string>
     <string name="remove_dialog_title">Sind Sie sicher?</string>
