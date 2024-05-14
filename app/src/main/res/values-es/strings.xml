@@ -8,7 +8,6 @@
     <string name="action_remove">Borrar nota</string>
     <string name="action_fab_note">hacer una nota</string>
     <string name="add_shortcut_short_label">Escribir algo nuevo</string>
-    <string name="action_copy">Copiar</string>
     <string name="title_hint">Título</string>
     <string name="body_hint">Nota</string>
     <string name="contentDescription">añadir una nueva nota</string>
