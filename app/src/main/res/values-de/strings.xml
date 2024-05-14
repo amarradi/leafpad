@@ -53,7 +53,9 @@
     <string name="licence">Open source Lizenzen</string>
     <string name="share_note">Notiz teilen</string>
     <string name="note_will_be_saved_first">Notiz wird erst gespeichert</string>
-    <string name="thanks">Danke Stefan für das Testen der App</string>
+    <string name="thanks">Danke Stefan, Falk und Stefanie für das Testen der App.</string>
     <string name="action_save">Notiz speichern</string>
     <string name="action_note_saved">gespeichert</string>
+
+    <string name="search">suchen</string>
 </resources>
