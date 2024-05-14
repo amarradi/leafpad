@@ -23,7 +23,6 @@
     <string name="feedback_yes">Yes</string>
     <string name="feedback_no">Not really</string>
     <string name="feedback_positive">OK</string>
-    <string name="feedback_negative">No, thanks</string>
     <string name="created_txt">created at</string>
     <string name="review_seved">The review was saved</string>
     <string name="remove_dialog_title">Are you sure?</string>
