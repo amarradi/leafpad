@@ -19,7 +19,6 @@
     <string name="feedback_yes">Sí</string>
     <string name="feedback_no">En realidad no</string>
     <string name="feedback_positive">De acuerdo</string>
-    <string name="feedback_negative">No, gracias</string>
     <string name="review_seved">Se ha guardado la revisión</string>
     <string name="remove_dialog_title">¿Estás seguro?</string>
     <string name="remove_dialog_abort">Cancelar</string>
