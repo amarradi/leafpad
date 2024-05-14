@@ -51,11 +51,10 @@
     <string name="find_code_on_github_summary">Sie können den Quellcode von Leafpad über das Repository einsehen und überprüfen. Für Änderungswünsche und Fehlermeldungen können Sie gerne ein sogenanntes Issue öffnen.</string>
     <string name="title_licence">Lizenzen</string>
     <string name="licence">Open source Lizenzen</string>
-    <string name="share_note">Notiz teilen</string>
+    <string name="share_note">Notiz teilen?</string>
     <string name="note_will_be_saved_first">Notiz wird erst gespeichert</string>
     <string name="thanks">Danke Stefan, Falk und Stefanie für das Testen der App.</string>
     <string name="action_save">Notiz speichern</string>
     <string name="action_note_saved">gespeichert</string>
-
     <string name="search">suchen</string>
 </resources>
