@@ -9,7 +9,6 @@
     <string name="action_share_body">Notiz</string>
     <string name="action_remove">Notiz löschen</string>
     <string name="action_fab_note">notieren</string>
-    <string name="action_copy">Kopieren</string>
     <string name="add_shortcut_short_label">neues notieren</string>
     <string name="title_hint">Titel</string>
     <string name="body_hint">Notiz</string>
