@@ -14,8 +14,8 @@ android {
         applicationId "com.git.amarradi.leafpad"
         minSdkVersion 25
         targetSdkVersion 34
-        versionCode 15
-        versionName "1.13"
+        versionCode 16
+        versionName "1.14"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {

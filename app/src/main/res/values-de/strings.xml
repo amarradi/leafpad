@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">Leafpad</string>
     <string name="title_activity_note_edit">Notiz bearbeiten</string>
-
     <string name="action_add_note">Notiz hinzufügen</string>
     <string name="action_edit_note">Notiz bearbeiten</string>
     <string name="action_share_note">Notiz teilen</string>
@@ -11,15 +10,12 @@
     <string name="action_remove">Notiz löschen</string>
     <string name="action_fab_note">notieren</string>
     <string name="action_copy">Kopieren</string>
-
     <string name="add_shortcut_short_label">neues notieren</string>
-
     <string name="title_hint">Titel</string>
     <string name="body_hint">Notiz</string>
     <string name="contentDescription">fügt eine neue Notiz hinzu</string>
     <string name="imported">Notiz wurde an leafpad geschickt</string>
     <string name="edited_text">Bearbeitet am</string>
-
     <string name="new_note">neue Notiz</string>
     <string name="satisfied">Gefällt Ihnen leafpad?</string>
     <string name="rate_the_app">Wie wäre es mit einer Bewertung im PlayStore von Google?</string>
@@ -29,28 +25,22 @@
     <string name="feedback_positive">OK</string>
     <string name="feedback_negative">Nein Danke</string>
     <string name="created_txt">Notiz erstellt am</string>
-
     <string name="review_seved">Die Bewertung wurde gespeichert</string>
     <string name="remove_dialog_title">Sind Sie sicher?</string>
-
     <string name="remove_dailog_message">Diese Notiz wird endgültig gelöscht. Danach kann sie nicht wiederhergestellt werden.</string>
     <string name="remove_dialog_abort">Abbrechen</string>
-
-    <string name="menu_settings" >Einstellungen</string>
+    <string name="menu_settings">Einstellungen</string>
     <string name="general_preference">Allgemein</string>
     <string name="theme_preference">Farbschema</string>
     <string name="lightmode_preference_key">Hell</string>
     <string name="darkmode_preference_key">Dunkel</string>
     <string name="system_preference_key">Systemstandard (standard)</string>
-
     <string name="theme_summary">Umschalten zwischen dunkel und hell</string>
     <string name="about">Über</string>
     <string name="about_the_app">Über die App</string>
     <string name="tell_about">Was ich über Leafpad erzählen möchte</string>
-
     <string name="version">Version</string>
     <string name="change">Version</string>
-
     <string name="what_is_leafpad">Leafpad ist eine einfache App zum Schreiben von Notizen. Mit dieser App kann man auf seinem Telefon Noitzen erstellen, bearbeiten, versenden oder löschen.</string>
     <string name="leafpad_work">Leafpad speichert alle Daten lokal auf deinem Smartphone. Die Notizen oder die Metadaten wie Datum und Uhrzeit werden in keiner Cloud abgelegt und mit niemandem geteilt. Es wird auch keine Textanalyse durchgeführt. Die Notizen gehören dir. Du entscheidest, was du damit machst.</string>
     <string name="rev20_12">Vor dem Thron aber sah ich die Toten stehen, vom Größten bis zum Kleinsten. Es wurden Bücher aufgeschlagen, in denen alle Taten aufgeschrieben sind, und dann noch ein anderes Buch: das Buch des Lebens. Anschließend wurde Gericht über die Toten gehalten. Jeder bekam das Urteil, das seinen Taten entsprach. Offenbarung des Johannes 20 Vers 12</string>
@@ -63,7 +53,9 @@
     <string name="licence">Open source Lizenzen</string>
     <string name="share_note">Notiz teilen</string>
     <string name="note_will_be_saved_first">Notiz wird erst gespeichert</string>
-    <string name="thanks">Danke Stefan für das Testen der App</string>
+    <string name="thanks">Danke Stefan, Falk und Stefanie für das Testen der App.</string>
     <string name="action_save">Notiz speichern</string>
     <string name="action_note_saved">gespeichert</string>
+
+    <string name="search">suchen</string>
 </resources>

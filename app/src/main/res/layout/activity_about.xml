@@ -24,8 +24,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -81,6 +79,57 @@
                             android:layout_marginStart="@dimen/new_margin"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
                             android:text="@string/leafpad_work"/>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/screen_edge_margin"
+                app:cardPreventCornerOverlap="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:orientation="vertical"
+                    android:padding="@dimen/screen_edge_margin"
+                    android:paddingTop="@dimen/list_vertical_padding"
+                    android:paddingBottom="@dimen/list_vertical_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="?android:listPreferredItemPaddingStart"
+                        android:paddingEnd="?android:listPreferredItemPaddingEnd">
+
+                        <ImageView
+                            android:layout_width="@dimen/large_icon_size"
+                            android:layout_height="@dimen/large_icon_size"
+                            android:contentDescription="@string/leafpad_work"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/leafpad_svg_twig" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/thank_you"
+                            android:text="@string/thanks"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/content_start_from_screen_edge_margin_minus_40dp" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="?android:listPreferredItemPaddingStart"
+                        android:paddingEnd="?android:listPreferredItemPaddingEnd">
 
 
                     </LinearLayout>
