@@ -60,4 +60,6 @@
     <string name="rating_the_app">PlayStore पर रेटिंग</string>
     <string name="its_opensource">लीफपैड ओपनसोर्से और इसकी मुफ्त है</string>
     <string name="find_code_on_github">गिटहब</string>
+    <string name="lightmode_preference_key">lightmode</string>
+    <string name="darkmode_preference_key">darkmode</string>
 </resources>
