@@ -1,4 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Leafpad</string>
+    <string name="darkmode_preference" translatable="false">darkmode</string>
+    <string name="system_preference" translatable="false">system</string>
+    <string name="theme_key" translatable="false">theme</string>
+    <string name="lightmode_preference" translatable="false">lightmode</string>
+    <string name="system_preference_option_value" translatable="false">system</string>
+    <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
+    <string name="theme_preference" translatable="false">Theme</string>
+    <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
+    <string name="give_feedback">Voulez-vous fournir quelques commentaires?</string>
+    <string name="feedback_yes">Oui</string>
+    <string name="feedback_no">Pas vraiment</string>
+    <string name="feedback_positive">OK</string>
+    <string name="created_txt">créé à</string>
+    <string name="remove_dailog_message">Cette note sera définitivement supprimée. Ensuite, il ne peut être restauré.</string>
+    <string name="remove_dialog_abort">Annuler</string>
+    <string name="menu_settings">Réglages</string>
+    <string name="general_preference">Généralités</string>
+    <string name="statement">Nous faisons une note des listes de courses, des notes de conversation, des listes d\'emballage pour les vacances ou les anniversaires d\'amis. Ce sont toutes de bonnes choses pour ne pas les oublier. Avec Dieu c\'est complètement différent, il sait tout, le bien et le mal, même sans pavé. Dieu aime les gens et veut être en communion avec eux. Après notre mort, nous nous tenons devant lui et toutes choses seront révélées dans le jugement de Dieu, le bien et le mal. Les gens inscrits dans le Livre de Vie n\'ont rien à craindre. Êtes-vous inscrit dans le Livre de Vie?</string>
+    <string name="rating_the_app">Note sur PlayStore</string>
+    <string name="its_opensource">Leafpad is OpenSource and its free</string>
+    <string name="find_code_on_github">GitHub</string>
+    <string name="find_code_on_github_summary">Vous pouvez consulter et vérifier le code source via le dépôt. Vous êtes le bienvenu pour ouvrir un numéro pour les demandes de changement et les messages d\'erreur.</string>
+    <string name="title_licence">Licences</string>
+    <string name="licence">Licences Open Source</string>
+    <string name="share_note">Share Note?</string>
+    <string name="note_will_be_saved_first">La note sera sauvegardée</string>
+    <string name="action_save">note</string>
+    <string name="action_note_saved">sauvés</string>
+    <string name="title_activity_note_edit">Modifier la note</string>
+    <string name="action_add_note">Ajouter la note</string>
+    <string name="action_edit_note">Modifier la note</string>
+    <string name="action_share_note">Partager la note</string>
+    <string name="action_share_title">Titre</string>
+    <string name="action_share_body">Note</string>
+    <string name="action_remove">Supprimer la note</string>
+    <string name="action_fab_note">faire une note</string>
+    <string name="add_shortcut_short_label">Écrivez un nouveau</string>
+    <string name="title_hint">Titre</string>
+    <string name="body_hint">Note</string>
+    <string name="contentDescription">ajouter une nouvelle note</string>
+    <string name="imported">la note a été envoyée au pavé</string>
+    <string name="edited_text">édité à</string>
+    <string name="new_note">nouvelle note</string>
+    <string name="satisfied">Vous aimez le pavé ?</string>
+    <string name="rate_the_app">Que diriez-vous d\'un commentaire dans Google PlayStore?</string>
+    <string name="system_preference_key">suivre le système (standard)</string>
+    <string name="theme_summary">Toggle between dark and light theme</string>
+    <string name="about">À propos</string>
+    <string name="about_the_app">À propos de l\'application</string>
+    <string name="tell_about">Ce que je veux te dire sur Leafpad</string>
+    <string name="version">version</string>
+    <string name="change">version</string>
+    <string name="what_is_leafpad">Leafpad est une application simple pour prendre des notes.</string>
+    <string name="leafpad_work">Leafpad sauve toutes les données localement sur votre smartphone. Les notes ou métadonnées telles que la date et l\'heure ne sont stockées dans aucun nuage et ne sont partagées avec personne. Aucune analyse de texte n \' est effectuée non plus. Les notes vous appartiennent. Tu décides ce que tu fais avec eux.</string>
+    <string name="rev20_12">Et je vis les morts, les grands et les petits, debout devant le trône; et des livres furent ouverts; et un autre livre fut ouvert, qui est le livre de la vie; et les morts furent jugés des choses qui étaient écrites dans les livres, selon leurs œuvres. Apocalypse 20:12</string>
+    <string name="thanks">Merci Stefan D, Stefan R, Manuel, Falk et Stephanie pour vos idées et tester l\'application.</string>
+    <string name="review_seved">L \' examen a été enregistré</string>
+    <string name="remove_dialog_title">Tu es sûr ?</string>
+    <string name="search">recherche</string>
+    <string name="lightmode_preference_key">lightmode</string>
+    <string name="darkmode_preference_key">darkmode</string>
 </resources>

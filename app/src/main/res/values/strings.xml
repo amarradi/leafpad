@@ -10,7 +10,6 @@
     <string name="action_remove">Remove note</string>
     <string name="action_fab_note">make a note</string>
     <string name="add_shortcut_short_label">Write down new</string>
-    <string name="action_copy">Copy</string>
     <string name="title_hint">Title</string>
     <string name="body_hint">Note</string>
     <string name="contentDescription">add new Note</string>
@@ -23,7 +22,6 @@
     <string name="feedback_yes">Yes</string>
     <string name="feedback_no">Not really</string>
     <string name="feedback_positive">OK</string>
-    <string name="feedback_negative">No, thanks</string>
     <string name="created_txt">created at</string>
     <string name="review_seved">The review was saved</string>
     <string name="remove_dialog_title">Are you sure?</string>
@@ -57,7 +55,7 @@
     <string name="leafpad_work">Leafpad saves all data locally on your smartphone. The notes or metadata such as date and time are not stored in any cloud and are not shared with anyone. No text analysis is carried out either. The notes belong to you. You decide what you do with them.</string>
     <string name="rev20_12">And I saw the dead, the great and the small, standing before the throne; and books were opened: and another book was opened, which is the book of life: and the dead were judged out of the things which were written in the books, according to their works. Revelation 20:12</string>
     <string name="statement">We make a note of shopping lists, conversation notes, packing lists for holidays or friends\' birthdays. These are all good things so that we don\'t forget them. With God it\'s completely different, he knows everything, the good and the bad, even without a leafpad. God loves people and wants to have fellowship with them. After our death we stand before him and then all things will be revealed in God\'s judgement, the good and the bad. People who are registered in the Book of Life have nothing to fear. Are you registered in the Book of Life?</string>
-    <string name="thanks">Thank you Stefan, Falk and Stefanie for testing the app.</string>
+    <string name="thanks">Thank you Stefan D, Stefan R, Manuel, Falk and Stephanie for your ideas and testing the app.</string>
     <string name="rating_the_app">Rating on PlayStore</string>
     <string name="its_opensource">Leafpad is OpenSource and its free</string>
     <string name="find_code_on_github">GitHub</string>
@@ -68,7 +66,5 @@
     <string name="note_will_be_saved_first">Note will be saved first</string>
     <string name="action_save">save note</string>
     <string name="action_note_saved">saved</string>
-
     <string name="search">search</string>
-
 </resources>
