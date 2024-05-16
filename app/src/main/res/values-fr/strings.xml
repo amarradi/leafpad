@@ -60,4 +60,6 @@
     <string name="review_seved">L \' examen a été enregistré</string>
     <string name="remove_dialog_title">Tu es sûr ?</string>
     <string name="search">recherche</string>
+    <string name="lightmode_preference_key">lightmode</string>
+    <string name="darkmode_preference_key">darkmode</string>
 </resources>
