@@ -60,6 +60,6 @@
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
     <string name="theme_preference" translatable="false">Theme</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
-    <string name="give_feedback">Vuoi fornire qualche feedback?</string>
+    <string name="give_feedback">Vuoi lasciare il tuo commento?</string>
     <string name="title_licence">Licenze</string>
 </resources>
