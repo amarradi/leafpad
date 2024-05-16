@@ -60,4 +60,6 @@
     <string name="new_note">नया नोट</string>
     <string name="thanks">धन्यवाद Stefan D, Stefan R, Manuel, Falk और Stephanie अपने विचारों और एप्लिकेशन का परीक्षण करने के लिए।।</string>
     <string name="rating_the_app">PlayStore पर रेटिंग</string>
+    <string name="lightmode_preference_key">lightmode</string>
+    <string name="darkmode_preference_key">darkmode</string>
 </resources>
