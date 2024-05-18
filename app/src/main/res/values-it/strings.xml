@@ -4,8 +4,7 @@
     <string name="contentDescription">Aggiungere una nota</string>
     <string name="edited_text">modificata a</string>
     <string name="general_preference">Generali</string>
-    <string name="leafpad_work">Leafpad salva tutti i dati in locale sul tuo smartphone. Le note o i metadati come data e ora non vengono memorizzati in nessun cloud e non vengono condivisi con nessuno.
-\nNon viene effettuata nessuna analisi del testo. Le note sono di tua proprietà. Decidi tu cosa farne.</string>
+    <string name="leafpad_work">Leafpad salva tutti i dati in locale sul tuo smartphone. Le note o i metadati come data e ora non vengono memorizzati in nessun cloud e non vengono condivisi con nessuno. Non viene effettuata nessuna analisi del testo. Le note sono di tua proprietà. Decidi tu cosa farne.</string>
     <string name="rev20_12">E vidi i morti, i grandi e i piccoli, in piedi davanti al trono; e si aprirono dei libri; e si aprì un altro libro, che è il libro della vita; e i morti furono giudicati dalle cose scritte nei libri, secondo le loro opere. Apocalisse 20:12</string>
     <string name="statement">Scriviamo delle liste della spesa, delle note di conversazione, delle liste per le vacanze o i compleanni degli amici. Sono tutte cose buone per non dimenticarle. Con Dio è completamente diverso, Lui sa tutto, il bene e il male, anche senza Leafpad. Dio ama le persone e vuole essere in comunione con loro. Dopo la nostra morte ci troveremo davanti a Lui e allora tutte le cose saranno rivelate nel giudizio di Dio, le buone e le cattive. Chi è iscritto nel Libro della Vita non ha nulla da temere. Siete iscritti nel Libro della vita?</string>
     <string name="find_code_on_github_summary">È possibile visualizzare e controllare il codice sorgente tramite il repository. È possibile aprire un problema per le richieste di modifica e i messaggi di errore.</string>
@@ -61,6 +60,6 @@
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
     <string name="theme_preference" translatable="false">Theme</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
-    <string name="give_feedback">Vuoi fornire qualche feedback?</string>
+    <string name="give_feedback">Vuoi lasciare il tuo commento?</string>
     <string name="title_licence">Licenze</string>
 </resources>
