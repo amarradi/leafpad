@@ -1,4 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Leafpad</string>
+    <string name="contentDescription">Aggiungere una nota</string>
+    <string name="edited_text">modificata a</string>
+    <string name="general_preference">Generali</string>
+    <string name="leafpad_work">Leafpad salva tutti i dati in locale sul tuo smartphone. Le note o i metadati come data e ora non vengono memorizzati in nessun cloud e non vengono condivisi con nessuno. Non viene effettuata nessuna analisi del testo. Le note sono di tua proprietà. Decidi tu cosa farne.</string>
+    <string name="rev20_12">E vidi i morti, i grandi e i piccoli, in piedi davanti al trono; e si aprirono dei libri; e si aprì un altro libro, che è il libro della vita; e i morti furono giudicati dalle cose scritte nei libri, secondo le loro opere. Apocalisse 20:12</string>
+    <string name="statement">Scriviamo delle liste della spesa, delle note di conversazione, delle liste per le vacanze o i compleanni degli amici. Sono tutte cose buone per non dimenticarle. Con Dio è completamente diverso, Lui sa tutto, il bene e il male, anche senza Leafpad. Dio ama le persone e vuole essere in comunione con loro. Dopo la nostra morte ci troveremo davanti a Lui e allora tutte le cose saranno rivelate nel giudizio di Dio, le buone e le cattive. Chi è iscritto nel Libro della Vita non ha nulla da temere. Siete iscritti nel Libro della vita?</string>
+    <string name="find_code_on_github_summary">È possibile visualizzare e controllare il codice sorgente tramite il repository. È possibile aprire un problema per le richieste di modifica e i messaggi di errore.</string>
+    <string name="licence">Licenze open source</string>
+    <string name="title_activity_note_edit">Modificare nota</string>
+    <string name="action_add_note">Aggiungere nota</string>
+    <string name="action_edit_note">Modificare nota</string>
+    <string name="action_share_note">Condividere nota</string>
+    <string name="action_share_title">Titolo</string>
+    <string name="action_share_body">Nota</string>
+    <string name="action_remove">Cancellare nota</string>
+    <string name="action_fab_note">Creare una nota</string>
+    <string name="add_shortcut_short_label">Scrivi qualcosa</string>
+    <string name="title_hint">Titolo</string>
+    <string name="new_note">Nuova nota</string>
+    <string name="rate_the_app">Vuoi lasciare un commento su Google Play?</string>
+    <string name="feedback_yes">Si</string>
+    <string name="feedback_no">Veramente no</string>
+    <string name="feedback_positive">Va bene</string>
+    <string name="created_txt">Creato a</string>
+    <string name="system_preference_key">Segui sistema (standard)</string>
+    <string name="theme_summary">Passa dal tema scuro a quello chiaro</string>
+    <string name="about">Informazioni</string>
+    <string name="version">versione</string>
+    <string name="change">versione</string>
+    <string name="what_is_leafpad">Leafpad è una applicazione semplice per scrivere note.</string>
+    <string name="share_note">Condividere nota?</string>
+    <string name="note_will_be_saved_first">La nota sarà salvata per prima</string>
+    <string name="action_save">Salvare nota</string>
+    <string name="action_note_saved">Salvata</string>
+    <string name="search">Cerca</string>
+    <string name="remove_dailog_message">Questa nota sara eliminata per sempre. Non potrà essere ripristinata.</string>
+    <string name="remove_dialog_abort">Cancellare</string>
+    <string name="body_hint">Nota</string>
+    <string name="imported">Nota inviata a Leafpad</string>
+    <string name="satisfied">Ti piace Leafpad?</string>
+    <string name="review_seved">La revisone è stata salvata</string>
+    <string name="remove_dialog_title">Sei sicuro?</string>
+    <string name="menu_settings">Impostazioni</string>
+    <string name="lightmode_preference_key">Tema chiaro</string>
+    <string name="darkmode_preference_key">Tema scuro</string>
+    <string name="about_the_app">Informazioni sull\'app</string>
+    <string name="tell_about">Quello che voglio dirti su Leafpad</string>
+    <string name="thanks">Grazie a Stefan D, Stefan R, Manuel, Falk e Stephanie per le loro idee e per aver testato l\'applicazione.</string>
+    <string name="rating_the_app">Valuta su Playstore</string>
+    <string name="its_opensource">Leafpad è gratuito e open source</string>
+    <string name="find_code_on_github">GitHub</string>
+    <string name="darkmode_preference" translatable="false">darkmode</string>
+    <string name="system_preference" translatable="false">system</string>
+    <string name="theme_key" translatable="false">theme</string>
+    <string name="lightmode_preference" translatable="false">lightmode</string>
+    <string name="system_preference_option_value" translatable="false">system</string>
+    <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
+    <string name="theme_preference" translatable="false">Theme</string>
+    <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
+    <string name="give_feedback">Vuoi lasciare il tuo commento?</string>
+    <string name="title_licence">Licenze</string>
 </resources>

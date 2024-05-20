@@ -29,6 +29,7 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
+
     public final static String EXTRA_NOTE_ID = "com.git.amarradi.leafpad";
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String DESIGN_MODE = "system";
@@ -100,40 +101,28 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             loadThemeFromPreference(sharedPreferences);
         }
     }
+
     private void loadThemeFromPreference(SharedPreferences sharedPreferences) {
         changeTheme(sharedPreferences.getString(getString(R.string.theme_key), getString(R.string.system_preference_option_value)));
     }
 
-    private void changeTheme(String theme_value) {
-        switch (theme_value) {
-            case "lightmode": {
-                Log.d("theme", "changeTheme: "+theme_value);
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString(DESIGN_MODE, theme_value);
-                editor.apply();
-                break;
-            }
-            case "darkmode": {
-                Log.d("theme", "changeTheme: "+theme_value);
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString(DESIGN_MODE, theme_value);
-                editor.apply();
-                break;
-            }
-            case "system": {
-                Log.d("theme", "changeTheme: "+theme_value);
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString(DESIGN_MODE, theme_value);
-                editor.apply();
-                break;
-            }
+    private void changeTheme(String themeValue) {
+        Log.d("theme", "changeTheme: " + themeValue);
+        AppCompatDelegate.setDefaultNightMode(toNightMode(themeValue));
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(DESIGN_MODE, themeValue);
+        editor.apply();
+    }
+
+    private int toNightMode(String themeValue) {
+        if("lightmode".equals(themeValue)) {
+                return AppCompatDelegate.MODE_NIGHT_NO;
         }
+        if("darkmode".equals(themeValue)) {
+                return AppCompatDelegate.MODE_NIGHT_YES;
+        }
+        return AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
     }
 
 
@@ -164,6 +153,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingsIntent);
                 break;
+            case R.id.item_search:
+                
         }
         return super.onOptionsItemSelected(item);
     }

@@ -9,8 +9,16 @@
         android:title="@string/action_remove_all"
         app:showAsAction="ifRoom" /> -->
     <item
+        android:id="@+id/item_search"
+        android:icon="@drawable/action_search"
+        android:title="@string/search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/item_settings"
         android:icon="@drawable/action_setting"
         android:title="@string/menu_settings"
         app:showAsAction="ifRoom" />
+
+
 </menu>
