@@ -9,7 +9,6 @@
     <string name="action_share_body">Notiz</string>
     <string name="action_remove">Notiz löschen</string>
     <string name="action_fab_note">notieren</string>
-    <string name="action_copy">Kopieren</string>
     <string name="add_shortcut_short_label">neues notieren</string>
     <string name="title_hint">Titel</string>
     <string name="body_hint">Notiz</string>
@@ -23,7 +22,6 @@
     <string name="feedback_yes">Ja</string>
     <string name="feedback_no">Nicht wirklich</string>
     <string name="feedback_positive">OK</string>
-    <string name="feedback_negative">Nein Danke</string>
     <string name="created_txt">Notiz erstellt am</string>
     <string name="review_seved">Die Bewertung wurde gespeichert</string>
     <string name="remove_dialog_title">Sind Sie sicher?</string>
@@ -31,7 +29,7 @@
     <string name="remove_dialog_abort">Abbrechen</string>
     <string name="menu_settings">Einstellungen</string>
     <string name="general_preference">Allgemein</string>
-    <string name="theme_preference">Farbschema</string>
+    <string name="theme_preference">Theme</string>
     <string name="lightmode_preference_key">Hell</string>
     <string name="darkmode_preference_key">Dunkel</string>
     <string name="system_preference_key">Systemstandard (standard)</string>
@@ -51,11 +49,17 @@
     <string name="find_code_on_github_summary">Sie können den Quellcode von Leafpad über das Repository einsehen und überprüfen. Für Änderungswünsche und Fehlermeldungen können Sie gerne ein sogenanntes Issue öffnen.</string>
     <string name="title_licence">Lizenzen</string>
     <string name="licence">Open source Lizenzen</string>
-    <string name="share_note">Notiz teilen</string>
+    <string name="share_note">Notiz teilen?</string>
     <string name="note_will_be_saved_first">Notiz wird erst gespeichert</string>
-    <string name="thanks">Danke Stefan, Falk und Stefanie für das Testen der App.</string>
+    <string name="thanks">Danke Stefan D, Stefan R, Manuel, Falk und Stephanie für eure Ideen und das Testen der App.</string>
     <string name="action_save">Notiz speichern</string>
     <string name="action_note_saved">gespeichert</string>
-
     <string name="search">suchen</string>
+    <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
+    <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
+    <string name="lightmode_preference" translatable="false">lightmode</string>
+    <string name="theme_key" translatable="false">theme</string>
+    <string name="darkmode_preference" translatable="false">darkmode</string>
+    <string name="system_preference" translatable="false">system</string>
+    <string name="system_preference_option_value" translatable="false">system</string>
 </resources>

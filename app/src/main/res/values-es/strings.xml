@@ -8,7 +8,6 @@
     <string name="action_remove">Borrar nota</string>
     <string name="action_fab_note">hacer una nota</string>
     <string name="add_shortcut_short_label">Escribir algo nuevo</string>
-    <string name="action_copy">Copiar</string>
     <string name="title_hint">Título</string>
     <string name="body_hint">Nota</string>
     <string name="contentDescription">añadir una nueva nota</string>
@@ -19,7 +18,6 @@
     <string name="feedback_yes">Sí</string>
     <string name="feedback_no">En realidad no</string>
     <string name="feedback_positive">De acuerdo</string>
-    <string name="feedback_negative">No, gracias</string>
     <string name="review_seved">Se ha guardado la revisión</string>
     <string name="remove_dialog_title">¿Estás seguro?</string>
     <string name="remove_dialog_abort">Cancelar</string>
@@ -37,14 +35,14 @@
     <string name="what_is_leafpad">Leafpad es una sencilla aplicación para tomar notas.</string>
     <string name="leafpad_work">Leafpad guarda todos los datos localmente en tu smartphone. Las notas o metadatos como la fecha y la hora no se almacenan en ninguna nube ni se comparten con nadie. Tampoco se realiza ningún análisis de texto. Las notas te pertenecen. Tú decides lo que haces con ellas.</string>
     <string name="rev20_12">Y vi a los muertos, grandes y pequeños, de pie ante el trono; y se abrieron libros; y se abrió otro libro, que es el libro de la vida; y fueron juzgados los muertos por las cosas que estaban escritas en los libros, según sus obras. Apocalipsis 20:12</string>
-    <string name="thanks">Gracias Stefan por probar la aplicación</string>
+    <string name="thanks">Gracias a Stefan D, Stefan R, Manuel, Falk y Stephanie por sus ideas y por testear la aplicación.</string>
     <string name="rating_the_app">Valoración en PlayStore</string>
     <string name="its_opensource">Leafpad es de código abierto y gratuita</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="find_code_on_github_summary">Puedes ver y comprobar el código fuente a través del repositorio. Puede abrir una incidencia para solicitar cambios y mensajes de error.</string>
     <string name="title_licence">Licencias</string>
     <string name="licence">Licencias de código abierto</string>
-    <string name="share_note">Compartir nota</string>
+    <string name="share_note">Compartir nota?</string>
     <string name="note_will_be_saved_first">La nota se guardará primero</string>
     <string name="action_save">guardar nota</string>
     <string name="action_note_saved">guardada</string>
@@ -55,4 +53,13 @@
     <string name="statement">Anotamos las listas de la compra, las notas de conversación, las listas de la maleta para las vacaciones o los cumpleaños de los amigos. Todas estas cosas son buenas para que no se nos olviden. Con Dios es completamente diferente, él lo sabe todo, lo bueno y lo malo, incluso sin un bloc de hojas. Dios ama a las personas y quiere tener comunión con ellas. Después de nuestra muerte compareceremos ante él y entonces todas las cosas serán reveladas en el juicio de Dios, lo bueno y lo malo. Las personas que están inscritas en el Libro de la Vida no tienen nada que temer. ¿Está usted inscrito en el Libro de la Vida?</string>
     <string name="app_name">Leafpad</string>
     <string name="created_txt">Creado en</string>
+    <string name="search">buscar</string>
+    <string name="darkmode_preference" translatable="false">darkmode</string>
+    <string name="theme_key" translatable="false">theme</string>
+    <string name="lightmode_preference" translatable="false">lightmode</string>
+    <string name="system_preference_option_value" translatable="false">system</string>
+    <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
+    <string name="theme_preference" translatable="false">Theme</string>
+    <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
+    <string name="system_preference" translatable="false">system</string>
 </resources>

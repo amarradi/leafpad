@@ -1,4 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Leafpad</string>
+    <string name="darkmode_preference" translatable="false">darkmode</string>
+    <string name="system_preference" translatable="false">system</string>
+    <string name="lightmode_preference" translatable="false">lightmode</string>
+    <string name="system_preference_option_value" translatable="false">system</string>
+    <string name="theme_preference" translatable="false">Theme</string>
+    <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
+    <string name="theme_key" translatable="false">theme</string>
+    <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
+    <string name="title_activity_note_edit">नया नोट जोड़ें</string>
+    <string name="action_add_note">नोट जोड़ें</string>
+    <string name="action_edit_note">नया नोट जोड़ें</string>
+    <string name="action_share_note">शेयर नोट</string>
+    <string name="action_share_title">शीर्षक</string>
+    <string name="action_share_body">नोट</string>
+    <string name="action_remove">नोट निकालें</string>
+    <string name="leafpad_work">लीफपैड आपके स्मार्टफोन पर स्थानीय रूप से सभी डेटा को बचाता है। नोट या मेटाडाटा जैसे कि तारीख और समय किसी भी बादल में संग्रहीत नहीं हैं और किसी के साथ साझा नहीं किए जाते हैं। कोई टेक्स्ट विश्लेषण नहीं किया जाता है। नोट्स आपके हैं। आप तय करते हैं कि आप उनके साथ क्या करते हैं।।</string>
+    <string name="satisfied">लीफपैड का आनंद लेना?</string>
+    <string name="give_feedback">क्या आप कुछ फीडबैक देना चाहते हैं?</string>
+    <string name="feedback_yes">हाँ</string>
+    <string name="feedback_no">वास्तव में नहीं</string>
+    <string name="feedback_positive">ठीक</string>
+    <string name="review_seved">समीक्षा को बचाया गया था</string>
+    <string name="remove_dailog_message">यह नोट स्थायी रूप से हटा दिया जाएगा। बाद में इसे बहाल नहीं किया जा सकता है।।</string>
+    <string name="remove_dialog_abort">रद्द करना</string>
+    <string name="menu_settings">सेटिंग्स</string>
+    <string name="general_preference">जनरल</string>
+    <string name="statement">हम छुट्टियों या दोस्तों के जन्मदिन के लिए खरीदारी सूची, वार्तालाप नोट, पैकिंग सूची का एक नोट बनाते हैं। ये सभी अच्छे काम हैं ताकि हम उन्हें भूल न दें। भगवान के साथ यह पूरी तरह से अलग है, वह सब कुछ जानता है, अच्छा और बुरा, यहां तक कि एक पत्ती के बिना भी। भगवान लोगों को प्यार करता है और उनके साथ साथी होना चाहता है। हमारी मृत्यु के बाद हम उससे पहले खड़े हो जाओ और फिर सभी चीजों को भगवान के फैसले, अच्छे और बुरे में प्रकट किया जाएगा। जो लोग पुस्तक ऑफ लाइफ में पंजीकृत हैं उन्हें डरने के लिए कुछ भी नहीं है। क्या आप बुक ऑफ लाइफ में पंजीकृत हैं?</string>
+    <string name="its_opensource">लीफपैड ओपनसोर्से और इसकी मुफ्त है</string>
+    <string name="find_code_on_github">गिटहब</string>
+    <string name="find_code_on_github_summary">आप भंडार के माध्यम से स्रोत कोड को देख सकते हैं और देख सकते हैं। आप परिवर्तन अनुरोध और त्रुटि संदेश के लिए एक मुद्दा खोलने के लिए स्वागत करते हैं।।</string>
+    <string name="title_licence">लाइसेंस</string>
+    <string name="licence">ओपन सोर्स लाइसेंस</string>
+    <string name="share_note">शेयर नोट?</string>
+    <string name="note_will_be_saved_first">नोट पहले सेव किया जाएगा</string>
+    <string name="action_save">नोट सहेजें</string>
+    <string name="action_note_saved">बचाया</string>
+    <string name="search">खोज</string>
+    <string name="action_fab_note">ध्यान दें</string>
+    <string name="add_shortcut_short_label">नया</string>
+    <string name="rate_the_app">Google PlayStore में एक समीक्षा के बारे में?</string>
+    <string name="system_preference_key">प्रणाली (मानक) का पालन करें</string>
+    <string name="theme_summary">अंधेरे और प्रकाश थीम के बीच टॉगल</string>
+    <string name="about">के बारे में</string>
+    <string name="about_the_app">ऐप के बारे में</string>
+    <string name="created_txt">पर बनाया</string>
+    <string name="tell_about">क्या मैं आपको पत्तापैड के बारे में बताना चाहता हूं</string>
+    <string name="version">संस्करण</string>
+    <string name="change">संस्करण</string>
+    <string name="what_is_leafpad">लीफपैड नोट लेने के लिए एक सरल ऐप है।।</string>
+    <string name="remove_dialog_title">क्या आप निश्चित हैं?</string>
+    <string name="rev20_12">और मैंने मृत देखा, महान और छोटा, सिंहासन से पहले खड़ा था; और किताबें खोली गईं: और दूसरी पुस्तक खोली गई थी, जो जीवन की पुस्तक है: और मृतकों को उनके कार्यों के अनुसार पुस्तकों में लिखी गई चीजों से बाहर कर दिया गया था। प्रकाशन 20:12</string>
+    <string name="title_hint">शीर्षक</string>
+    <string name="body_hint">नोट</string>
+    <string name="contentDescription">नया नोट जोड़ें</string>
+    <string name="imported">नोट को पत्रपैड में भेजा गया था</string>
+    <string name="edited_text">संपादित करना</string>
+    <string name="new_note">नया नोट</string>
+    <string name="thanks">धन्यवाद Stefan D, Stefan R, Manuel, Falk और Stephanie अपने विचारों और एप्लिकेशन का परीक्षण करने के लिए।।</string>
+    <string name="rating_the_app">PlayStore पर रेटिंग</string>
+    <string name="lightmode_preference_key">lightmode</string>
+    <string name="darkmode_preference_key">darkmode</string>
 </resources>
