@@ -61,7 +61,6 @@ public class NoteEditActivity extends AppCompatActivity {
             String type = intent.getType();
             if (Intent.ACTION_SEND.equals(action) && type != null) {
                 if (type.startsWith("text/plain")) {
-                    Note.makeId();
                     String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
                     titleEdit.setText(R.string.imported);
                     bodyEdit.setText(sharedText);
@@ -174,7 +173,6 @@ public class NoteEditActivity extends AppCompatActivity {
         sendIntent.putExtra(Intent.EXTRA_TEXT, getExportString());
         sendIntent.setType("text/plain");
         startActivity(Intent.createChooser(sendIntent, getString(R.string.share_note)));
-
     }
 
     public String getExportString() {
@@ -190,8 +188,4 @@ public class NoteEditActivity extends AppCompatActivity {
         return exportString;
     }
 
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-    }
 }
