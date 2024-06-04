@@ -6,6 +6,7 @@
         <!-- Color Primary -->
         <item name="colorPrimary">@color/md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/md_theme_dark_onPrimary</item>
+        <item name="colorPrimaryVariant">@color/md_theme_light_primary</item>
         <item name="colorPrimaryContainer">@color/md_theme_dark_primaryContainer</item>
         <item name="colorOnPrimaryContainer">@color/md_theme_dark_onPrimaryContainer</item>
         <!-- Color Secondary -->
@@ -36,36 +37,33 @@
         <item name="colorPrimaryInverse">@color/md_theme_dark_inversePrimary</item>
         <item name="colorControlNormal">@color/md_theme_dark_onPrimary</item>
 
-         <!-- Fonts-->
+         <!-- Fonts -->
         <item name="android:fontFamily">@font/opensans_regular</item>
-        <!-- TextInput Style-->
+        <!-- TextInput Style -->
         <item name="textInputStyle">@style/Widget.App.TextInputLayout</item>
         <!-- FloatingActionButton -->
         <item name="extendedFloatingActionButtonStyle">@style/Widget.Material3.ExtendedFloatingActionButton.Primary</item>
-        <!--AppBar Design -->
+        <!-- AppBar Design -->
         <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
         <!-- StatusBar -->
 
         <item name="android:windowLightStatusBar">false</item>
         <item name="textAppearanceTitleLarge">@style/TextAppearance.App.TitleLarge</item>
-         <item name="textAppearanceTitleMedium">@style/TextAppearance.App.SubTitleText</item>
-
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.App.SubTitleText</item>
         <item name="textAppearanceBodySmall">@style/TextAppearance.App.BodySmall</item>
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
 
         <item name="android:colorEdgeEffect">@color/md_theme_dark_secondaryContainer</item>
-        <!-- Preference Screen -->
+        <!-- Preference Screen-->
         <item name="preferenceStyle">@style/AppPreferenceThemeOverlay</item>
         <!-- CardView -->
         <item name="materialCardViewStyle">@style/Widget.App.CardView</item>
-
         <item name="actionOverflowButtonStyle">@style/IconOverFlow</item>
-
         <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog</item>
     </style>
 
     <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
-        <item name="colorPrimary">@color/md_theme_dark_primary</item>
+        <item name="colorPrimary">@color/md_theme_light_primary</item>
         <item name="colorSecondary">@color/md_theme_dark_secondary</item>
         <item name="colorSurface">@color/md_theme_dark_surface</item>
         <item name="colorOnSurface">@color/md_theme_dark_onSurface</item>
