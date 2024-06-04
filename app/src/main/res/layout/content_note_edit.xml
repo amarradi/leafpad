@@ -28,7 +28,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="top"
                     android:hint="@string/title_hint"
-                    android:inputType="text"
+                    android:inputType="text|textCapCharacters|textCapSentences|textPersonName|textAutoCorrect"
                     android:maxLines="@integer/maxLines"
                     android:minWidth="@dimen/editText_min_length"
                     android:scrollbars="vertical" />
@@ -46,7 +46,7 @@
                     android:gravity="top"
                     android:hint="@string/body_hint"
 
-                    android:inputType="textMultiLine"
+                    android:inputType="textMultiLine|textCapSentences|textCapCharacters|textEmailAddress"
                     android:isScrollContainer="true"
                     android:overScrollMode="always"
                     android:scrollbars="vertical"
