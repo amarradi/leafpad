@@ -13,7 +13,7 @@ leafpad remove your note completly, when you delete your note
 * leafpad allows you to create notes without prior configuration
 * Notes can be shared for leafpad and then notes can be created from them
 * Notes can be shared with other apps from leafpad
-* Notes can be created with an shortcut. Long tab to the leafpad-icon, then create
+* Notes can be created with an shortcut. Long tab to the leafpad-icon then write down new
 * leafpad support the android dark/night-mode
 * leafpad sorted your notes by date and time
 
