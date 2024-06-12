@@ -56,7 +56,7 @@
     <string name="what_is_leafpad">Leafpad est une application simple pour prendre des notes.</string>
     <string name="leafpad_work">Leafpad sauve toutes les données localement sur votre smartphone. Les notes ou métadonnées telles que la date et l\'heure ne sont stockées dans aucun nuage et ne sont partagées avec personne. Aucune analyse de texte n \' est effectuée non plus. Les notes vous appartiennent. Tu décides ce que tu fais avec eux.</string>
     <string name="rev20_12">Et je vis les morts, les grands et les petits, debout devant le trône ; et des livres furent ouverts ; et un autre livre fut ouvert, qui est le livre de la vie ; et les morts furent jugés des choses qui étaient écrites dans les livres, selon leurs œuvres. Apocalypse 20 :12</string>
-    <string name="thanks">Merci Stefan D, Stefan R, Manuel, Falk et Stephanie pour vos idées et tester l\'application.</string>
+    <string name="thanks">Merci S D, S R, M L, F D et S J pour vos idées et tester l\'application.</string>
     <string name="review_seved">L \' examen a été enregistré</string>
     <string name="remove_dialog_title">Tu es sûr ?</string>
     <string name="search">recherche</string>
