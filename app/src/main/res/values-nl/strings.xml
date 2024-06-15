@@ -17,7 +17,7 @@
     <string name="darkmode_preference_key">darkmode</string>
     <string name="tell_about">What I want to tell you about Leafpad</string>
     <string name="leafpad_work">Leafpad saves all data locally on your smartphone. The notes or metadata such as date and time are not stored in any cloud and are not shared with anyone. No text analysis is carried out either. The notes belong to you. You decide what you do with them.</string>
-    <string name="thanks">Thank you Stefan D, Stefan R, Manuel, Falk and Stephanie for your ideas and testing the app.</string>
+    <string name="thanks">Thank you Stefan, Stefan, Manuel, Falk and Stephanie for your ideas and testing the app.</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="its_opensource">Leafpad is OpenSource and its free</string>
     <string name="action_note_saved">saved</string>

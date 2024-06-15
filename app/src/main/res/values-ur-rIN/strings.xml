@@ -18,7 +18,7 @@
     <string name="note_will_be_saved_first">Note will be saved first</string>
     <string name="title_licence">Licences</string>
     <string name="find_code_on_github_summary">You can view and check the source code via the repository. You are welcome to open an issue for change requests and error messages.</string>
-    <string name="thanks">Thank you Stefan D, Stefan R, Manuel, Falk and Stephanie for your ideas and testing the app.</string>
+    <string name="thanks">Thank you Stefan, Stefan, Manuel, Falk and Stephanie for your ideas and testing the app.</string>
     <string name="remove_dailog_message">This note will be permanently deleted. Afterwards it cannot be restored.</string>
     <string name="general_preference">General</string>
     <string name="about">About</string>

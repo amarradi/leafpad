@@ -31,7 +31,8 @@
     <string name="what_is_leafpad">Leafpad es una sencilla aplicación para tomar notas.</string>
     <string name="leafpad_work">Leafpad guarda todos los datos localmente en tu smartphone. Las notas o metadatos como la fecha y la hora no se almacenan en ninguna nube ni se comparten con nadie. Tampoco se realiza ningún análisis de texto. Las notas te pertenecen. Tú decides lo que haces con ellas.</string>
     <string name="rev20_12">Y vi a los muertos, grandes y pequeños, de pie ante el trono; y se abrieron libros; y se abrió otro libro, que es el libro de la vida; y fueron juzgados los muertos por las cosas que estaban escritas en los libros, según sus obras. Apocalipsis 20:12</string>
-    <string name="thanks">Gracias a S D, S R, M L, F D y S J por sus ideas y por testear la aplicación.</string>
+    <string name="thanks">Gracias a Stefan, Stefan, Manuel, Falk y Stephanie por sus ideas y por testear la aplicación.</string>
+
     <string name="its_opensource">Leafpad es de código abierto y gratuita</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="find_code_on_github_summary">Puedes ver y comprobar el código fuente a través del repositorio. Puede abrir una incidencia para solicitar cambios y mensajes de error.</string>
