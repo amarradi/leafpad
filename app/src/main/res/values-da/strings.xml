@@ -13,7 +13,6 @@
     <string name="new_note">new Note</string>
     <string name="imported">note was send to leafpad</string>
     <string name="rate_the_app">How about a review in Google\'s PlayStore?</string>
-
     <string name="lightmode_preference_key">lightmode</string>
     <string name="system_preference_key">follow system (standard)</string>
     <string name="darkmode_preference_key">darkmode</string>
@@ -25,7 +24,6 @@
     <string name="find_code_on_github">GitHub</string>
     <string name="search">search</string>
     <string name="change">version</string>
-
     <string name="leafpad_work">Leafpad saves all data locally on your smartphone. The notes or metadata such as date and time are not stored in any cloud and are not shared with anyone. No text analysis is carried out either. The notes belong to you. You decide what you do with them.</string>
     <string name="add_shortcut_short_label">Write down new</string>
     <string name="action_note_saved">saved</string>
@@ -47,7 +45,6 @@
     <string name="licence">Open source licenses</string>
     <string name="edited_text">edited at</string>
     <string name="body_hint">Note</string>
-
     <string name="action_save">save note</string>
     <string name="share_note">Share Note?</string>
     <string name="statement">We write down shopping lists, notes for conversations, packing lists for vacations or friends\' birthdays. These are all good things so that we don\'t forget them. It\'s very similar with God, he writes down our good and bad deeds and saves them. God is above everything and simply knows everything. God loves people and wants to have fellowship with them. But this is only possible if we are seen by God as blameless. Through faith in Jesus Christ, our bad deeds (our guilt) are wiped out before God. Jesus Christ atoned for our guilt on the cross of Calvary. Every person who accepts this is entered in the book of life forever. Are you registered in the book of life?</string>
