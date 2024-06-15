@@ -22,11 +22,8 @@ public class NoteEditActivity extends AppCompatActivity {
     private EditText titleEdit;
     private EditText bodyEdit;
     private Note note;
-
     private MaterialToolbar toolbar;
-
     private Resources resources;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +45,6 @@ public class NoteEditActivity extends AppCompatActivity {
 
         bodyEdit = findViewById(R.id.body_edit);
 
-        //TextView text = findViewById(R.id.created_at);
-
         String noteId = intent.getStringExtra(MainActivity.EXTRA_NOTE_ID);
 
         note = Leaf.load(this, noteId);
@@ -61,7 +56,6 @@ public class NoteEditActivity extends AppCompatActivity {
             String type = intent.getType();
             if (Intent.ACTION_SEND.equals(action) && type != null) {
                 if (type.startsWith("text/plain")) {
-                    Note.makeId();
                     String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
                     titleEdit.setText(R.string.imported);
                     bodyEdit.setText(sharedText);
@@ -144,6 +138,7 @@ public class NoteEditActivity extends AppCompatActivity {
             case R.id.action_save:
                 note.setTitle(titleEdit.getText().toString());
                 note.setBody(bodyEdit.getText().toString());
+                note.setHide(true);
                 if (note.getBody().isEmpty() && note.getTitle().isEmpty()) {
                     //don't save empty notes
                     Leaf.remove(this, note);
@@ -174,7 +169,6 @@ public class NoteEditActivity extends AppCompatActivity {
         sendIntent.putExtra(Intent.EXTRA_TEXT, getExportString());
         sendIntent.setType("text/plain");
         startActivity(Intent.createChooser(sendIntent, getString(R.string.share_note)));
-
     }
 
     public String getExportString() {
@@ -190,8 +184,4 @@ public class NoteEditActivity extends AppCompatActivity {
         return exportString;
     }
 
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-    }
 }

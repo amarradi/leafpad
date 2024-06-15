@@ -53,8 +53,6 @@
         <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Toolbar</item>
         <item name="titleTextAppearance">@style/TextAppearance.App.TitleLarge</item>
-
-
     </style>
 
     <style name="TextAppearance.App.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
@@ -86,22 +84,19 @@
 
     <!-- Preference Screen -->
     <style name="AppPreferenceThemeOverlay" parent="@style/PreferenceThemeOverlay">
-        <item name="switchPreferenceCompatStyle">@style/AppSwitchPreference</item>
 
+        <item name="colorSurface">@color/md_theme_light_surface</item>
         <item name="android:textColor">@color/md_theme_light_primary</item>
         <item name="colorPrimary">@color/md_theme_light_primary</item>
         <item name="colorSurfaceVariant">@color/md_theme_dark_surface</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
     </style>
 
-    <style name="AppSwitchPreference" parent="@style/Preference.SwitchPreferenceCompat.Material">
-        <item name="widgetLayout">@layout/switch_preference_compat_widget_material3</item>
-    </style>
+
 
     <style name="Widget.App.CardView" parent="Widget.Material3.CardView.Elevated">
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Card</item>
         <item name="shapeAppearance">@style/ShapeAppearance.App.MediumComponent</item>
-
         <item name="android:stateListAnimator">@null</item>
         <item name="cardElevation">0dp</item>
         <item name="strokeColor">@color/md_theme_light_onPrimaryContainer</item>
@@ -109,16 +104,11 @@
     </style>
 
     <style name="ThemeOverlay.App.Card" parent="">
-        <item name="android:background">@color/md_theme_light_onSecondary</item>
-        <item name="android:textColor">@color/md_theme_light_primary</item>
-        <item name="colorPrimary">@color/md_theme_light_secondary</item>
-        <!-- <item name="colorSurface">@color/md_theme_light_onSecondary</item>
-        <item name="colorOnSurface">@color/md_theme_light_onSecondary</item>
-       <item name="colorOnSurfaceVariant">@color/md_theme_light_onSurface</item> -->
+        <item name="android:background">@color/md_theme_light_surface</item>
+        <item name="colorSecondary">@color/md_theme_light_onSurface</item>
+        <item name="colorSurface">@color/md_theme_light_background</item>
         <item name="android:padding">@dimen/margin</item>
     </style>
-
-
 
     <style name="Theme.App.toolbar" parent="Theme.Material3.DynamicColors.DayNight">
         <!-- Color Primary -->
@@ -133,6 +123,7 @@
         <item name="colorOnSecondaryContainer">@color/md_theme_light_onSecondaryContainer</item>
         <!-- Color Accent -->
         <item name="android:colorBackground">@color/md_theme_light_background</item>
+        <item name="colorOnBackground">@color/md_theme_light_onBackground</item>
         <item name="colorAccent">@color/seed</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Toolbar</item>
         <item name="textAppearanceTitleLarge">@style/TextAppearance.App.TitleLarge</item>
@@ -145,7 +136,6 @@
         <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
         <item name="shapeAppearanceOverlay">@style/ShapeAppearance.App.MediumComponent</item>
         <item name="toolbarNavigationButtonStyle">@style/Toolbar.Button.Navigation.Tinted</item>
-
         <item name="textAppearanceTitleMedium">@style/titleTextAppearanceTitleMedium</item>
         <!-- Fonts -->
         <item name="android:fontFamily">@font/opensans_regular</item>
@@ -189,6 +179,4 @@
     <style name="Widget.App.Button" parent="Widget.Material3.Button.TextButton.Dialog">
         <item name="android:textColor">@color/md_theme_light_primary</item>
     </style>
-
-
 </resources>

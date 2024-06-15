@@ -34,9 +34,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String DESIGN_MODE = "system";
 
-    public ArrayList<Note> notes;
+    public List<Note> notes;
     public SimpleAdapter adapter;
     public ListView listView;
+
+    public boolean visibility;
 
 
     List<Map<String, String>> data = new ArrayList<>();
@@ -59,34 +61,29 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         Objects.requireNonNull(getSupportActionBar()).setDefaultDisplayHomeAsUpEnabled(true);
 
-
-
-       // SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
-
-        updateDataset();
-
+        // SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
 
         adapter = new SimpleAdapter(this, data,
                 R.layout.note_list_item,
-                new String[]{"title", "date", "time"},
+                new String[]{"title", "date", "time", "state"},
                 new int[]{R.id.title_text, R.id.created_at, R.id.time_txt});
 
         updateDataset();
-        listView = findViewById(R.id.note_list_view);
 
+        listView = findViewById(R.id.note_list_view);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener((adapter, v, position, id) -> {
             Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
             intent.putExtra(EXTRA_NOTE_ID, notes.get(position).getId());
             startActivity(intent);
         });
+
         ExtendedFloatingActionButton extendedFloatingActionButton = findViewById(R.id.fab_action_add);
         extendedFloatingActionButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
             intent.putExtra(EXTRA_NOTE_ID, Note.makeId());
             startActivity(intent);
         });
-
         listView.setEmptyView(findViewById(R.id.emptyElement));
     }
 
@@ -97,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (key.equals("theme")) {
+        if ("theme".equals(key)) {
             loadThemeFromPreference(sharedPreferences);
         }
     }
@@ -153,8 +150,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingsIntent);
                 break;
-            case R.id.item_search:
-                
         }
         return super.onOptionsItemSelected(item);
     }
@@ -168,77 +163,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public void updateDataset() {
         notes = Leaf.loadAll(this);
 
-
-
-
-/* I don't understand the code yet so the code is not deleted yet
-        for (Note note : notes) {
-            Map<String,String> datum = new HashMap<>();
-            datum.put("title", note.getTitle());
-            Log.d("title", "title:"+note.getTitle());
-            datum.put("body", note.getBody());
-            Log.d("body", "body:"+note.getBody());
-            datum.put("date", note.getDate());
-            Log.d("date", "date:"+note.getDate()+"Datum");
-            datum.put("time", note.getTime());
-            Log.d("time", "time:"+note.getTime()+"Uhr");
-            datum.put("create", note.getCreateDate().stripLeading().stripTrailing());
-            Log.d("create", "create:"+note.getCreateDate()+"Datum");
-
-
-        }*/
-
-       /* for (Note note : notes) {
-            if (note.getTitle().isEmpty()) {
-                String[] splits = note.getBody().split("");
-
-                StringBuilder stringBuilder = new StringBuilder();
-                int substringLength = 0;
-                for (int i = 0; i < splits.length; i++) {
-                    if (substringLength + splits[i].length() > 25) {
-                        break;
-                    }
-                    substringLength += splits[i].length();
-                    stringBuilder.append(splits[i]);
-                    if (i + 1 != splits.length) {
-                        if (!(substringLength + splits[i + 1].length() > 25)) {
-                            stringBuilder.append("");
-                        }
-                    }
-                }
-                if (!(note.getBody().length() == stringBuilder.toString().length())) {
-                    stringBuilder.append("...");
-                }
-                note.setTitle(stringBuilder.toString());
-            }
-            if (note.getDate().isEmpty() || note.getTime().isEmpty()) {
-                note.setNotetime();
-                note.setNotedate();
-            }
-        }*/
-
         data.clear();
         for (Note note : notes) {
-            Map<String, String> datum = new HashMap<>();
-            datum.put("title", note.getTitle());
-            datum.put("body", note.getBody());
-            datum.put("date", note.getDate());
-            datum.put("time", note.getTime());
-            //   datum.put("create", note.getCreateDate());
-            data.add(datum);
+                Map<String, String> datum = new HashMap<>();
+                datum.put("title", note.getTitle());
+                datum.put("body", note.getBody());
+                datum.put("date", note.getDate());
+                datum.put("time", note.getTime());
+                data.add(datum);
         }
-
     }
-/* whats that
-    public String joinArray(String[] array, char delimiter) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < array.length; i++) {
-            stringBuilder.append(array[i]);
-            if (i < array.length - 1) {
-                stringBuilder.append(" ");
-            }
-        }
-        return stringBuilder.toString();
-    }
- */
 }

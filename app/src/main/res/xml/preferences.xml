@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
         android:title="@string/general_preference">
@@ -28,14 +29,12 @@
             android:selectable="true"
             android:title="@string/title_licence"
             android:summary="@string/licence" />
-        <Preference
-            android:icon="@drawable/preference_rating"
-            android:key="rating"
-            android:title="@string/satisfied"
-            android:summary="@string/rate_the_app" />
+
     </PreferenceCategory>
     <PreferenceCategory
-        android:title="@string/find_code_on_github" >
+        android:title="@string/participate"
+
+        >
 
         <Preference
             android:selectable="true"
@@ -43,5 +42,16 @@
             android:key="github"
             android:title="@string/its_opensource"
             android:summary="@string/find_code_on_github_summary" />
+        <Preference
+            android:selectable="true"
+            android:key="translate"
+            android:icon="@drawable/preference_translate_logo"
+            app:title="@string/translate"
+            android:summary="@string/translation_help"/>
+        <Preference
+            android:icon="@drawable/preference_rating"
+            android:key="rating"
+            android:title="@string/satisfied"
+            android:summary="@string/rate_the_app" />
     </PreferenceCategory>
 </PreferenceScreen>

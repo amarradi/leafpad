@@ -21,9 +21,7 @@
     <string name="title_hint">Titolo</string>
     <string name="new_note">Nuova nota</string>
     <string name="rate_the_app">Vuoi lasciare un commento su Google Play?</string>
-    <string name="feedback_yes">Si</string>
-    <string name="feedback_no">Veramente no</string>
-    <string name="feedback_positive">Va bene</string>
+
     <string name="created_txt">Creato a</string>
     <string name="system_preference_key">Segui sistema (standard)</string>
     <string name="theme_summary">Passa dal tema scuro a quello chiaro</string>
@@ -41,15 +39,15 @@
     <string name="body_hint">Nota</string>
     <string name="imported">Nota inviata a Leafpad</string>
     <string name="satisfied">Ti piace Leafpad?</string>
-    <string name="review_seved">La revisone è stata salvata</string>
+
     <string name="remove_dialog_title">Sei sicuro?</string>
     <string name="menu_settings">Impostazioni</string>
     <string name="lightmode_preference_key">Tema chiaro</string>
     <string name="darkmode_preference_key">Tema scuro</string>
     <string name="about_the_app">Informazioni sull\'app</string>
     <string name="tell_about">Quello che voglio dirti su Leafpad</string>
-    <string name="thanks">Grazie a Stefan D, Stefan R, Manuel, Falk e Stephanie per le loro idee e per aver testato l\'applicazione.</string>
-    <string name="rating_the_app">Valuta su Playstore</string>
+    <string name="thanks">Grazie a S D, S R, M L, F D e S J per le loro idee e per aver testato l\'applicazione.</string>
+
     <string name="its_opensource">Leafpad è gratuito e open source</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="darkmode_preference" translatable="false">darkmode</string>
@@ -60,6 +58,9 @@
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
     <string name="theme_preference" translatable="false">Theme</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
-    <string name="give_feedback">Vuoi lasciare il tuo commento?</string>
     <string name="title_licence">Licenze</string>
+    <string name="participate">Participate</string>
+    <string name="translate">Translate the app on Weblate</string>
+    <string name="translation_help">Help us translate the app into your language on weblate</string>
+    <string name="hide_note">hide note</string>
 </resources>

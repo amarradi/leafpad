@@ -15,10 +15,7 @@
     <string name="new_note">Nota nueva</string>
     <string name="satisfied">¿Te gusta leafpad?</string>
     <string name="rate_the_app">¿Qué tal una reseña en la PlayStore de Google?</string>
-    <string name="feedback_yes">Sí</string>
-    <string name="feedback_no">En realidad no</string>
-    <string name="feedback_positive">De acuerdo</string>
-    <string name="review_seved">Se ha guardado la revisión</string>
+
     <string name="remove_dialog_title">¿Estás seguro?</string>
     <string name="remove_dialog_abort">Cancelar</string>
     <string name="menu_settings">Ajustes</string>
@@ -35,8 +32,8 @@
     <string name="what_is_leafpad">Leafpad es una sencilla aplicación para tomar notas.</string>
     <string name="leafpad_work">Leafpad guarda todos los datos localmente en tu smartphone. Las notas o metadatos como la fecha y la hora no se almacenan en ninguna nube ni se comparten con nadie. Tampoco se realiza ningún análisis de texto. Las notas te pertenecen. Tú decides lo que haces con ellas.</string>
     <string name="rev20_12">Y vi a los muertos, grandes y pequeños, de pie ante el trono; y se abrieron libros; y se abrió otro libro, que es el libro de la vida; y fueron juzgados los muertos por las cosas que estaban escritas en los libros, según sus obras. Apocalipsis 20:12</string>
-    <string name="thanks">Gracias a Stefan D, Stefan R, Manuel, Falk y Stephanie por sus ideas y por testear la aplicación.</string>
-    <string name="rating_the_app">Valoración en PlayStore</string>
+    <string name="thanks">Gracias a S D, S R, M L, F D y S J por sus ideas y por testear la aplicación.</string>
+
     <string name="its_opensource">Leafpad es de código abierto y gratuita</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="find_code_on_github_summary">Puedes ver y comprobar el código fuente a través del repositorio. Puede abrir una incidencia para solicitar cambios y mensajes de error.</string>
@@ -48,9 +45,9 @@
     <string name="action_note_saved">guardada</string>
     <string name="action_share_title">Título</string>
     <string name="edited_text">editada en</string>
-    <string name="give_feedback">¿Deseas hacernos llegar tus comentarios?</string>
+
     <string name="remove_dailog_message">Esta nota se borrará permanentemente. Después no se podrá restaurar.</string>
-    <string name="statement">Anotamos las listas de la compra, las notas de conversación, las listas de la maleta para las vacaciones o los cumpleaños de los amigos. Todas estas cosas son buenas para que no se nos olviden. Con Dios es completamente diferente, él lo sabe todo, lo bueno y lo malo, incluso sin un bloc de hojas. Dios ama a las personas y quiere tener comunión con ellas. Después de nuestra muerte compareceremos ante él y entonces todas las cosas serán reveladas en el juicio de Dios, lo bueno y lo malo. Las personas que están inscritas en el Libro de la Vida no tienen nada que temer. ¿Está usted inscrito en el Libro de la Vida?</string>
+    <string name="statement">Anotamos listas de compras, notas para conversaciones, listas de embalaje para vacaciones o cumpleaños de amigos. Todas son cosas buenas para que no las olvidemos. Es muy similar a Dios, escribe nuestras obras buenas y malas y las salva. Dios está por encima de todo y simplemente sabe todo. Dios ama a la gente y quiere tener comunión con ellos. Pero esto sólo es posible si somos vistos por Dios como intachables. A través de la fe en Jesucristo, nuestras malas obras (nuestra culpa) son borradas ante Dios. Jesucristo expió por nuestra culpa en la cruz del Calvario. Cada persona que acepta esto se introduce en el libro de la vida para siempre. ¿Estás registrado en el libro de la vida?</string>
     <string name="app_name">Leafpad</string>
     <string name="created_txt">Creado en</string>
     <string name="search">buscar</string>
@@ -62,4 +59,8 @@
     <string name="theme_preference" translatable="false">Theme</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="system_preference" translatable="false">system</string>
+    <string name="participate">Participate</string>
+    <string name="translate">Translate the app on Weblate</string>
+    <string name="translation_help">Help us translate the app into your language on weblate</string>
+    <string name="hide_note">hide note</string>
 </resources>

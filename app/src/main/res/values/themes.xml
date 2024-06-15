@@ -35,28 +35,26 @@
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
         <item name="colorControlNormal">@color/md_theme_light_onPrimary</item>
 
-        <!-- Fonts-->
+        <!-- Fonts -->
         <item name="android:fontFamily">@font/opensans_regular</item>
-        <!-- TextInput Style-->
+        <!-- TextInput Style -->
         <item name="textInputStyle">@style/Widget.App.TextInputLayout</item>
         <!-- FloatingActionButton -->
         <item name="extendedFloatingActionButtonStyle">@style/Widget.Material3.ExtendedFloatingActionButton.Primary</item>
-        <!--AppBar Design -->
+        <!-- AppBar Design -->
         <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
         <!-- StatusBar -->
 
         <item name="android:windowLightStatusBar">false</item>
         <item name="textAppearanceTitleLarge">@style/TextAppearance.App.TitleLarge</item>
-         <item name="textAppearanceTitleMedium">@style/TextAppearance.App.SubTitleText</item>
-
-
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.App.SubTitleText</item>
         <item name="textAppearanceBodySmall">@style/TextAppearance.App.BodySmall</item>
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
 
         <item name="android:colorEdgeEffect">@color/md_theme_dark_secondaryContainer</item>
         <!-- Preference Screen-->
-        <item name="preferenceTheme">@style/AppPreferenceThemeOverlay</item>
-        <!-- CardView-->
+        <item name="preferenceStyle">@style/AppPreferenceThemeOverlay</item>
+        <!-- CardView -->
         <item name="materialCardViewStyle">@style/Widget.App.CardView</item>
 
         <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog</item>
