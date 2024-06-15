@@ -9,14 +9,12 @@
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
     <string name="theme_preference" translatable="false">Theme</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
-
     <string name="created_txt">créé à</string>
     <string name="remove_dailog_message">Cette note sera définitivement supprimée. Ensuite, il ne peut être restauré.</string>
     <string name="remove_dialog_abort">Annuler</string>
     <string name="menu_settings">Réglages</string>
     <string name="general_preference">Généralités</string>
     <string name="statement">Nous écrivons des listes de courses, des notes pour les conversations, des listes d\'emballage pour les vacances ou les anniversaires d\'amis. Ce sont toutes de bonnes choses pour ne pas les oublier. C\'est très semblable à Dieu, il écrit nos bonnes et mauvaises actions et les sauve. Dieu est au-dessus de tout et sait tout simplement. Dieu aime les gens et veut être en communion avec eux. Mais cela n\'est possible que si nous sommes vus par Dieu comme impitoyables. Par la foi en Jésus-Christ, nos mauvaises actions (notre culpabilité) sont essuyées devant Dieu. Jésus-Christ a voulu notre culpabilité sur la croix du Calvaire. Toute personne qui accepte cela est inscrite dans le livre de la vie pour toujours. Êtes-vous inscrit dans le livre de vie ?</string>
-
     <string name="its_opensource">Leafpad est OpenSource et gratuit</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="find_code_on_github_summary">Vous pouvez consulter et vérifier le code source via le dépôt. Vous êtes le bienvenu pour ouvrir un numéro pour les demandes de changement et les messages d\'erreur.</string>
@@ -54,7 +52,6 @@
     <string name="leafpad_work">Leafpad sauve toutes les données localement sur votre smartphone. Les notes ou métadonnées telles que la date et l\'heure ne sont stockées dans aucun nuage et ne sont partagées avec personne. Aucune analyse de texte n \' est effectuée non plus. Les notes vous appartiennent. Tu décides ce que tu fais avec eux.</string>
     <string name="rev20_12">Et je vis les morts, les grands et les petits, debout devant le trône ; et des livres furent ouverts ; et un autre livre fut ouvert, qui est le livre de la vie ; et les morts furent jugés des choses qui étaient écrites dans les livres, selon leurs œuvres. Apocalypse 20 :12</string>
     <string name="thanks">Merci S D, S R, M L, F D et S J pour vos idées et tester l\'application.</string>
-
     <string name="remove_dialog_title">Tu es sûr ?</string>
     <string name="search">recherche</string>
     <string name="lightmode_preference_key">lightmode</string>
