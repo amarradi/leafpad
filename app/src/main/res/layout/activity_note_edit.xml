@@ -23,24 +23,19 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
-        android:layout_margin="@dimen/screen_edge_margin"
+        android:layout_margin="@dimen/margin_about"
         android:id="@+id/ScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-
         android:scrollbars="vertical"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:orientation="vertical">
-
-
                 <com.google.android.material.textfield.TextInputLayout
-
                     android:id="@+id/default_text_input_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -51,8 +46,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="top"
                         android:hint="@string/title_hint"
-                        android:inputType="text"
-
+                        android:inputType="text|textCapSentences"
                         android:maxLines="@integer/maxLines"/>
                 </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
@@ -67,10 +61,10 @@
                     android:ems="5"
                     android:gravity="top"
                     android:hint="@string/body_hint"
-
-                    android:inputType="textMultiLine|textCapSentences" />
+                    android:autoLink="all"
+                    android:linksClickable="true"
+                    android:inputType="textMultiLine|textCapSentences|textWebEmailAddress|textAutoCorrect|textPersonName|textUri" />
             </com.google.android.material.textfield.TextInputLayout>
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

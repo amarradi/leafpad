@@ -14,7 +14,12 @@
         android:icon="@drawable/action_remove"
         android:title="@string/action_remove"
         app:showAsAction="never" />
-
+  <!-- <item
+        android:id="@+id/item_hide"
+        android:icon="@drawable/action_hide_note"
+        android:title="@string/hide_note"
+        app:showAsAction="ifRoom"
+        /> -->
     <item
         android:id="@+id/action_save"
         android:icon="@drawable/action_save"

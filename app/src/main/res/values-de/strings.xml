@@ -18,12 +18,8 @@
     <string name="new_note">neue Notiz</string>
     <string name="satisfied">Gefällt Ihnen leafpad?</string>
     <string name="rate_the_app">Wie wäre es mit einer Bewertung im PlayStore von Google?</string>
-    <string name="give_feedback">Möchten Sie uns ein Feedback geben?</string>
-    <string name="feedback_yes">Ja</string>
-    <string name="feedback_no">Nicht wirklich</string>
-    <string name="feedback_positive">OK</string>
     <string name="created_txt">Notiz erstellt am</string>
-    <string name="review_seved">Die Bewertung wurde gespeichert</string>
+
     <string name="remove_dialog_title">Sind Sie sicher?</string>
     <string name="remove_dailog_message">Diese Notiz wird endgültig gelöscht. Danach kann sie nicht wiederhergestellt werden.</string>
     <string name="remove_dialog_abort">Abbrechen</string>
@@ -43,7 +39,7 @@
     <string name="leafpad_work">Leafpad speichert alle Daten lokal auf deinem Smartphone. Die Notizen oder die Metadaten wie Datum und Uhrzeit werden in keiner Cloud abgelegt und mit niemandem geteilt. Es wird auch keine Textanalyse durchgeführt. Die Notizen gehören dir. Du entscheidest, was du damit machst.</string>
     <string name="rev20_12">Vor dem Thron aber sah ich die Toten stehen, vom Größten bis zum Kleinsten. Es wurden Bücher aufgeschlagen, in denen alle Taten aufgeschrieben sind, und dann noch ein anderes Buch: das Buch des Lebens. Anschließend wurde Gericht über die Toten gehalten. Jeder bekam das Urteil, das seinen Taten entsprach. Offenbarung des Johannes 20 Vers 12</string>
     <string name="statement">Wir notieren uns Einkaufslisten, Gesprächsnotizen, Packlisten für Urlaube oder Geburtstage von Freunden. Das sind alles gute Dinge, damit wir sie nicht vergessen. Bei Gott ist das ganz ähnlich, er schreibt sich unsere guten und schlechten Taten auf und speichert sie. Gott steht über allem und weiß einfach alles. Gott liebt die Menschen und möchte mit ihnen Gemeinschaft haben. Das geht aber nur, wenn wir von Gott als schuldlos angesehen werden. Durch den Glauben an Jesus Christus werden unsere schlechten Taten (unsere Schuld) vor Gott ausgelöscht. Jesus Christus hat unsere Schuld am Kreuz auf Golgatha gesühnt. Jeder Mensch, der das annimmt ist für immer im Buch des Lebens eintragen. Sind Sie im Buch des Lebens eingetragen?</string>
-    <string name="rating_the_app">Bewertung im PlayStore</string>
+
     <string name="its_opensource">Leafpad ist OpenSource und es ist frei</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="find_code_on_github_summary">Sie können den Quellcode von Leafpad über das Repository einsehen und überprüfen. Für Änderungswünsche und Fehlermeldungen können Sie gerne ein sogenanntes Issue öffnen.</string>
@@ -51,7 +47,7 @@
     <string name="licence">Open source Lizenzen</string>
     <string name="share_note">Notiz teilen?</string>
     <string name="note_will_be_saved_first">Notiz wird erst gespeichert</string>
-    <string name="thanks">Danke S D, S R, M L, F D und S J für eure Ideen und das Testen der App.</string>
+    <string name="thanks">Danke Stefan, Stefan, Manuel, Falk und Stephanie für eure Ideen und das Testen der App.</string>
     <string name="action_save">Notiz speichern</string>
     <string name="action_note_saved">gespeichert</string>
     <string name="search">suchen</string>
@@ -62,4 +58,9 @@
     <string name="darkmode_preference" translatable="false">darkmode</string>
     <string name="system_preference" translatable="false">system</string>
     <string name="system_preference_option_value" translatable="false">system</string>
+    <string name="participate">Mitmachen</string>
+
+    <string name="translate">Translate the app on Weblate</string>
+    <string name="translation_help">Help us translate the app into your language on weblate</string>
+    <string name="hide_note">hide note</string>
 </resources>

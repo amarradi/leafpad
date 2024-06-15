@@ -18,11 +18,7 @@
     <string name="action_remove">नोट निकालें</string>
     <string name="leafpad_work">लीफपैड आपके स्मार्टफोन पर स्थानीय रूप से सभी डेटा को बचाता है। नोट या मेटाडाटा जैसे कि तारीख और समय किसी भी बादल में संग्रहीत नहीं हैं और किसी के साथ साझा नहीं किए जाते हैं। कोई टेक्स्ट विश्लेषण नहीं किया जाता है। नोट्स आपके हैं। आप तय करते हैं कि आप उनके साथ क्या करते हैं।।</string>
     <string name="satisfied">लीफपैड का आनंद लेना?</string>
-    <string name="give_feedback">क्या आप कुछ फीडबैक देना चाहते हैं?</string>
-    <string name="feedback_yes">हाँ</string>
-    <string name="feedback_no">वास्तव में नहीं</string>
-    <string name="feedback_positive">ठीक</string>
-    <string name="review_seved">समीक्षा को बचाया गया था</string>
+
     <string name="remove_dailog_message">यह नोट स्थायी रूप से हटा दिया जाएगा। बाद में इसे बहाल नहीं किया जा सकता है।।</string>
     <string name="remove_dialog_abort">रद्द करना</string>
     <string name="menu_settings">सेटिंग्स</string>
@@ -59,7 +55,12 @@
     <string name="edited_text">संपादित करना</string>
     <string name="new_note">नया नोट</string>
     <string name="thanks">धन्यवाद Stefan D, Stefan R, Manuel, Falk और Stephanie अपने विचारों और एप्लिकेशन का परीक्षण करने के लिए।।</string>
-    <string name="rating_the_app">PlayStore पर रेटिंग</string>
+
     <string name="lightmode_preference_key">lightmode</string>
     <string name="darkmode_preference_key">darkmode</string>
+
+    <string name="participate">Participate</string>
+    <string name="translate">Translate the app on Weblate</string>
+    <string name="translation_help">Help us translate the app into your language on weblate</string>
+    <string name="hide_note">hide note</string>
 </resources>
