@@ -17,20 +17,17 @@
     <string name="darkmode_preference_key">darkmode</string>
     <string name="tell_about">What I want to tell you about Leafpad</string>
     <string name="leafpad_work">Leafpad saves all data locally on your smartphone. The notes or metadata such as date and time are not stored in any cloud and are not shared with anyone. No text analysis is carried out either. The notes belong to you. You decide what you do with them.</string>
-
     <string name="thanks">Thank you Stefan D, Stefan R, Manuel, Falk and Stephanie for your ideas and testing the app.</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="its_opensource">Leafpad is OpenSource and its free</string>
     <string name="action_note_saved">saved</string>
     <string name="imported">note was send to leafpad</string>
     <string name="rate_the_app">How about a review in Google\'s PlayStore?</string>
-
     <string name="action_share_body">Note</string>
     <string name="remove_dialog_abort">Cancel</string>
     <string name="menu_settings">Settings</string>
     <string name="action_fab_note">make a note</string>
     <string name="change">version</string>
-
     <string name="system_preference_key">follow system (standard)</string>
     <string name="contentDescription">add new Note</string>
     <string name="note_will_be_saved_first">Note will be saved first</string>
@@ -49,7 +46,6 @@
     <string name="licence">Open source licenses</string>
     <string name="edited_text">edited at</string>
     <string name="body_hint">Note</string>
-
     <string name="search">search</string>
     <string name="remove_dialog_title">Are you sure?</string>
     <string name="action_add_note">Add Note</string>
@@ -64,5 +60,4 @@
     <string name="translate">Translate the app on Weblate</string>
     <string name="translation_help">Help us translate the app into your language on weblate</string>
     <string name="hide_note">hide note</string>
-
 </resources>

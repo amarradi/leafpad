@@ -17,16 +17,12 @@
     <string name="add_shortcut_short_label">Zapisz nową</string>
     <string name="title_hint">Tytuł</string>
     <string name="body_hint">Notatka</string>
-
     <string name="general_preference">Ogólne</string>
     <string name="lightmode_preference_key">tryb jasny</string>
     <string name="darkmode_preference_key">tryb ciemny</string>
     <string name="about">O Nas</string>
     <string name="tell_about">Co chcę powiedzieć o Leafpad</string>
     <string name="change">wersja</string>
-
-
-
     <string name="thanks">Thank you Stefan D, Stefan R, Manuel, Falk and Stephanie for your ideas and testing the app.</string>
     <string name="its_opensource">Leafpad is OpenSource and its free</string>
     <string name="title_licence">Licences</string>
@@ -47,13 +43,11 @@
     <string name="remove_dailog_message">Ta notatka zostanie bezpowrotnie usunięta. Potem nie da się jej przywrócić.</string>
     <string name="version">wersja</string>
     <string name="find_code_on_github_summary">You can view and check the source code via the repository. You are welcome to open an issue for change requests and error messages.</string>
-
     <string name="theme_summary">Przełącz między trybem ciemnym i jasnym</string>
     <string name="what_is_leafpad">Leafpad jest prostą aplikacją do tworzenia notatek.</string>
     <string name="created_txt">utworzona w</string>
     <string name="action_remove">Usuń notatkę</string>
     <string name="edited_text">zredagowano w</string>
-
     <string name="action_save">save note</string>
     <string name="share_note">Share Note?</string>
     <string name="rev20_12">I ujrzałem umarłych, wielkich i małych, stojących przed tronem; i otworzyły się księgi: i została otwarta jeszcze inna księga, która jest księgą życia: i osądzono umarłych z tego, co było napisane w księgach, według ich dzieł, Objawienia 20:12</string>
@@ -62,17 +56,6 @@
     <string name="remove_dialog_title">Na pewno?</string>
     <string name="action_add_note">dodaj notatkę</string>
     <string name="action_share_note">udostępnij notatkę</string>
-
-
-
-
-
-
-
-
-
-
-
     <string name="participate">Participate</string>
     <string name="translate">Translate the app on Weblate</string>
     <string name="translation_help">Help us translate the app into your language on weblate</string>

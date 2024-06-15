@@ -21,7 +21,6 @@
     <string name="title_hint">Titolo</string>
     <string name="new_note">Nuova nota</string>
     <string name="rate_the_app">Vuoi lasciare un commento su Google Play?</string>
-
     <string name="created_txt">Creato a</string>
     <string name="system_preference_key">Segui sistema (standard)</string>
     <string name="theme_summary">Passa dal tema scuro a quello chiaro</string>
@@ -39,7 +38,6 @@
     <string name="body_hint">Nota</string>
     <string name="imported">Nota inviata a Leafpad</string>
     <string name="satisfied">Ti piace Leafpad?</string>
-
     <string name="remove_dialog_title">Sei sicuro?</string>
     <string name="menu_settings">Impostazioni</string>
     <string name="lightmode_preference_key">Tema chiaro</string>
@@ -47,7 +45,6 @@
     <string name="about_the_app">Informazioni sull\'app</string>
     <string name="tell_about">Quello che voglio dirti su Leafpad</string>
     <string name="thanks">Grazie a S D, S R, M L, F D e S J per le loro idee e per aver testato l\'applicazione.</string>
-
     <string name="its_opensource">Leafpad è gratuito e open source</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="darkmode_preference" translatable="false">darkmode</string>
