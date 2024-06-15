@@ -16,6 +16,7 @@ leafpad remove your note completly, when you delete your note
 * Notes can be created with an shortcut. Long tab to the leafpad-icon then write down new
 * leafpad support the android dark/night-mode
 * leafpad sorted your notes by date and time
+* leafpad is now available in many languages
 
 # Installation
 The current version of leafpad can be installed from the PlayStore.
