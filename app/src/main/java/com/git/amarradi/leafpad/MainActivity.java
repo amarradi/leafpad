@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public SimpleAdapter adapter;
     public ListView listView;
 
-    public boolean visibility;
+
 
 
     List<Map<String, String>> data = new ArrayList<>();
