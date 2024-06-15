@@ -22,11 +22,8 @@ public class NoteEditActivity extends AppCompatActivity {
     private EditText titleEdit;
     private EditText bodyEdit;
     private Note note;
-
     private MaterialToolbar toolbar;
-
     private Resources resources;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +44,6 @@ public class NoteEditActivity extends AppCompatActivity {
         titleEdit = findViewById(R.id.title_edit);
 
         bodyEdit = findViewById(R.id.body_edit);
-
-        //TextView text = findViewById(R.id.created_at);
 
         String noteId = intent.getStringExtra(MainActivity.EXTRA_NOTE_ID);
 
@@ -143,6 +138,7 @@ public class NoteEditActivity extends AppCompatActivity {
             case R.id.action_save:
                 note.setTitle(titleEdit.getText().toString());
                 note.setBody(bodyEdit.getText().toString());
+                note.setHide(true);
                 if (note.getBody().isEmpty() && note.getTitle().isEmpty()) {
                     //don't save empty notes
                     Leaf.remove(this, note);

@@ -22,8 +22,7 @@
     <string name="lightmode_preference_key">lightmode</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="darkmode_preference_key">darkmode</string>
-    <string name="rating_the_app">Rating on PlayStore</string>
-    <string name="review_seved">The review was saved</string>
+
     <string name="search">search</string>
     <string name="action_save">save note</string>
     <string name="share_note">Share Note?</string>
@@ -42,9 +41,6 @@
     <string name="action_fab_note">make a note</string>
     <string name="title_activity_note_edit">Edit Note</string>
     <string name="new_note">new Note</string>
-    <string name="give_feedback">Would you like to provide some feedback?</string>
-    <string name="feedback_no">Not really</string>
-    <string name="feedback_positive">OK</string>
     <string name="tell_about">What I want to tell you about Leafpad</string>
     <string name="system_preference_key">follow system (standard)</string>
     <string name="leafpad_work">Leafpad saves all data locally on your smartphone. The notes or metadata such as date and time are not stored in any cloud and are not shared with anyone. No text analysis is carried out either. The notes belong to you. You decide what you do with them.</string>
@@ -54,7 +50,7 @@
     <string name="remove_dialog_abort">Cancel</string>
     <string name="menu_settings">Settings</string>
     <string name="change">version</string>
-    <string name="feedback_yes">Yes</string>
+
     <string name="contentDescription">add new Note</string>
     <string name="action_edit_note">Edit Note</string>
     <string name="note_will_be_saved_first">Note will be saved first</string>
@@ -62,4 +58,8 @@
     <string name="title_licence">Licences</string>
     <string name="remove_dailog_message">This note will be permanently deleted. Afterwards it cannot be restored.</string>
     <string name="version">version</string>
+    <string name="participate">Participate</string>
+    <string name="translate">Translate the app on Weblate</string>
+    <string name="translation_help">Help us translate the app into your language on weblate</string>
+    <string name="hide_note">hide note</string>
 </resources>

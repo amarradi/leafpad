@@ -18,9 +18,7 @@
     <string name="edited_text">edited at</string>
     <string name="new_note">new Note</string>
     <string name="satisfied">Enjoying leafpad?</string>
-    <string name="feedback_yes">Yes</string>
-    <string name="feedback_no">Not really</string>
-    <string name="feedback_positive">OK</string>
+
     <string name="remove_dialog_title">Are you sure?</string>
     <string name="remove_dialog_abort">Cancel</string>
     <string name="general_preference">General</string>
@@ -44,7 +42,7 @@
     <string name="action_add_note">Add Note</string>
     <string name="action_share_note">Share note</string>
     <string name="leafpad_work">Leafpad saves all data locally on your smartphone. The notes or metadata such as date and time are not stored in any cloud and are not shared with anyone. No text analysis is carried out either. The notes belong to you. You decide what you do with them.</string>
-    <string name="give_feedback">Would you like to provide some feedback?</string>
+
     <string name="rate_the_app">How about a review in Google\'s PlayStore?</string>
     <string name="action_note_saved">saved</string>
     <string name="menu_settings">Settings</string>
@@ -59,7 +57,10 @@
     <string name="body_hint">Note</string>
     <string name="lightmode_preference_key">lightmode</string>
     <string name="darkmode_preference_key">darkmode</string>
-    <string name="rating_the_app">Rating on PlayStore</string>
-    <string name="review_seved">The review was saved</string>
+
     <string name="action_save">save note</string>
+    <string name="participate">Participate</string>
+    <string name="translate">Translate the app on Weblate</string>
+    <string name="translation_help">Help us translate the app into your language on weblate</string>
+    <string name="hide_note">hide note</string>
 </resources>

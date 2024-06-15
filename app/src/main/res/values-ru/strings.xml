@@ -10,12 +10,11 @@
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="app_name">Leafpad</string>
     <string name="new_note">new Note</string>
-    <string name="give_feedback">Would you like to provide some feedback?</string>
-    <string name="feedback_no">Not really</string>
+
     <string name="imported">note was send to leafpad</string>
     <string name="rate_the_app">How about a review in Google\'s PlayStore?</string>
     <string name="add_shortcut_short_label">Write down new</string>
-    <string name="feedback_positive">OK</string>
+
     <string name="tell_about">What I want to tell you about Leafpad</string>
     <string name="created_txt">created at</string>
     <string name="action_remove">Remove note</string>
@@ -23,7 +22,7 @@
     <string name="body_hint">Note</string>
     <string name="lightmode_preference_key">lightmode</string>
     <string name="darkmode_preference_key">darkmode</string>
-    <string name="review_seved">The review was saved</string>
+
     <string name="satisfied">Enjoying leafpad?</string>
     <string name="about_the_app">About the App</string>
     <string name="remove_dialog_title">Are you sure?</string>
@@ -32,7 +31,7 @@
     <string name="action_note_saved">saved</string>
     <string name="licence">Open source licenses</string>
     <string name="find_code_on_github">GitHub</string>
-    <string name="rating_the_app">Rating on PlayStore</string>
+
     <string name="search">search</string>
     <string name="action_save">save note</string>
     <string name="share_note">Share Note?</string>
@@ -46,7 +45,7 @@
     <string name="action_fab_note">make a note</string>
     <string name="title_activity_note_edit">Edit Note</string>
     <string name="change">version</string>
-    <string name="feedback_yes">Yes</string>
+
     <string name="system_preference_key">follow system (standard)</string>
     <string name="contentDescription">add new Note</string>
     <string name="action_edit_note">Edit Note</string>
@@ -62,4 +61,8 @@
     <string name="theme_summary">Toggle between dark and light theme</string>
     <string name="what_is_leafpad">Leafpad is a simple app for taking notes.</string>
     <string name="its_opensource">Leafpad is OpenSource and its free</string>
+    <string name="participate">Participate</string>
+    <string name="translate">Translate the app on Weblate</string>
+    <string name="translation_help">Help us translate the app into your language on weblate</string>
+    <string name="hide_note">hide note</string>
 </resources>

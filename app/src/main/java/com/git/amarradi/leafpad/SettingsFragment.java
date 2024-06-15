@@ -23,6 +23,7 @@ import java.util.Objects;
 public class SettingsFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     public static final String GITHUBPATH = "https://github.com/amarradi/leafpad";
+    public static final String WEBLATEPATH = "https://hosted.weblate.org/projects/leafpad/";
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -58,19 +59,16 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             public boolean onPreferenceClick(@NonNull Preference preference) {
                 Intent license_intent = new Intent(getActivity(), OssLicensesMenuActivity.class);
                 startActivity(license_intent);
-
                 return false;
             }
         });
-
 
         Preference rating = findPreference("rating");
         assert rating != null;
         Objects.requireNonNull(rating).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(@NonNull Preference preference) {
-                launchAppStore(requireActivity(), getContext().getPackageName());
-
+                launchAppStore(requireActivity(), requireContext().getPackageName());
                 return false;
             }
         });
@@ -86,7 +84,15 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             }
         });
 
-
+        Preference translate = findPreference("translate");
+        assert translate != null;
+        (translate).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(@NonNull Preference preference) {
+                launchWeblateProject(requireActivity());
+                return false;
+            }
+        });
     }
 
     private void setPreferenceSummary(Preference preference, String value) {
@@ -101,7 +107,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         }
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,7 +118,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         super.onDestroy();
         Objects.requireNonNull(getPreferenceScreen().getSharedPreferences()).
                 unregisterOnSharedPreferenceChangeListener(this);
-
     }
 
     @NonNull
@@ -124,7 +128,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, @Nullable String key) {
-
         assert key != null;
         Preference preference = findPreference(key);
         if(null != preference) {
@@ -138,16 +141,21 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     public static void launchAppStore(Activity activity, String packageName) {
         Intent intent;
         try {
-            //Log.d("market", "launchAppStore: market://details?id="+packageName);
             intent = new Intent(Intent.ACTION_VIEW);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.setData(Uri.parse("market://details?id=" + packageName));
             activity.startActivity(intent);
         } catch (android.content.ActivityNotFoundException anfe) {
-            //Log.d("uri", "launchAppStore: https://play.google.com/store/apps/details?id=" + packageName);
             activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + packageName)));
 
         }
     }
 
+    public static void launchWeblateProject(Activity activity) {
+        Intent intent;
+        intent = new Intent(Intent.ACTION_VIEW);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setData(Uri.parse(WEBLATEPATH));
+        activity.startActivity(intent);
+    }
 }

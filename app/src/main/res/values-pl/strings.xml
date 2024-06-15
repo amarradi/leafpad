@@ -28,6 +28,22 @@
     <string name="tell_about">Co chcę powiedzieć o Leafpad</string>
     <string name="change">wersja</string>
     <string name="rating_the_app">Rating on PlayStore</string>
+    <string name="title_activity_note_edit">Edit Note</string>
+    <string name="action_edit_note">Edit Note</string>
+    <string name="action_share_title">Title</string>
+    <string name="action_share_body">Note</string>
+    <string name="action_fab_note">make a note</string>
+    <string name="add_shortcut_short_label">Write down new</string>
+    <string name="title_hint">Title</string>
+    <string name="body_hint">Note</string>
+
+    <string name="general_preference">General</string>
+    <string name="lightmode_preference_key">lightmode</string>
+    <string name="darkmode_preference_key">darkmode</string>
+    <string name="about">About</string>
+    <string name="tell_about">What I want to tell you about Leafpad</string>
+    <string name="change">version</string>
+
     <string name="thanks">Thank you Stefan D, Stefan R, Manuel, Falk and Stephanie for your ideas and testing the app.</string>
     <string name="its_opensource">Leafpad is OpenSource and its free</string>
     <string name="title_licence">Licences</string>
@@ -48,6 +64,7 @@
     <string name="remove_dailog_message">Ta notatka zostanie bezpowrotnie usunięta. Potem nie da się jej przywrócić.</string>
     <string name="version">wersja</string>
     <string name="find_code_on_github_summary">You can view and check the source code via the repository. You are welcome to open an issue for change requests and error messages.</string>
+
     <string name="theme_summary">Przełącz między trybem ciemnym i jasnym</string>
     <string name="what_is_leafpad">Leafpad jest prostą aplikacją do tworzenia notatek.</string>
     <string name="created_txt">utworzona w</string>
@@ -62,4 +79,22 @@
     <string name="remove_dialog_title">Na pewno?</string>
     <string name="action_add_note">dodaj notatkę</string>
     <string name="action_share_note">udostępnij notatkę</string>
+    <string name="theme_summary">Toggle between dark and light theme</string>
+    <string name="what_is_leafpad">Leafpad is a simple app for taking notes.</string>
+    <string name="created_txt">created at</string>
+    <string name="action_remove">Remove note</string>
+    <string name="edited_text">edited at</string>
+
+    <string name="action_save">save note</string>
+    <string name="share_note">Share Note?</string>
+    <string name="rev20_12">And I saw the dead, the great and the small, standing before the throne; and books were opened: and another book was opened, which is the book of life: and the dead were judged out of the things which were written in the books, according to their works. Revelation 20:12</string>
+    <string name="satisfied">Enjoying leafpad?</string>
+    <string name="about_the_app">About the App</string>
+    <string name="remove_dialog_title">Are you sure?</string>
+    <string name="action_add_note">Add Note</string>
+    <string name="action_share_note">Share note</string>
+    <string name="participate">Participate</string>
+    <string name="translate">Translate the app on Weblate</string>
+    <string name="translation_help">Help us translate the app into your language on weblate</string>
+    <string name="hide_note">hide note</string>
 </resources>
