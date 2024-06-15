@@ -9,14 +9,12 @@ plugins {
 
 android {
     compileSdk 34
-
     defaultConfig {
         applicationId "com.git.amarradi.leafpad"
         minSdkVersion 25
         targetSdkVersion 34
         versionCode 16
         versionName "1.14"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
