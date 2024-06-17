@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="system_preference" translatable="false">system</string>
+    <string name="darkmode_preference" translatable="false">darkmode</string>
+    <string name="theme_key" translatable="false">theme</string>
+    <string name="lightmode_preference" translatable="false">lightmode</string>
+    <string name="system_preference_option_value" translatable="false">system</string>
+    <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
+    <string name="theme_preference" translatable="false">Theme</string>
+    <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
+</resources>
