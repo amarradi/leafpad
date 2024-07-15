@@ -9,13 +9,13 @@
     <string name="theme_preference" translatable="false">Theme</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="find_code_on_github_summary">You can view and check the source code via the repository. You are welcome to open an issue for change requests and error messages.</string>
-    <string name="action_share_title">Title</string>
-    <string name="title_hint">Title</string>
+    <string name="action_share_title">Judul</string>
+    <string name="title_hint">Judul</string>
     <string name="about">About</string>
     <string name="theme_summary">Toggle between dark and light theme</string>
     <string name="what_is_leafpad">Leafpad is a simple app for taking notes.</string>
     <string name="created_txt">created at</string>
-    <string name="action_remove">Remove note</string>
+    <string name="action_remove">Buang Catatan</string>
     <string name="licence">Open source licenses</string>
     <string name="edited_text">edited at</string>
     <string name="body_hint">Note</string>
@@ -33,12 +33,12 @@
     <string name="app_name">Leafpad</string>
     <string name="about_the_app">About the App</string>
     <string name="remove_dialog_title">Are you sure?</string>
-    <string name="action_add_note">Add Note</string>
-    <string name="action_share_note">Share note</string>
-    <string name="add_shortcut_short_label">Write down new</string>
-    <string name="action_share_body">Note</string>
-    <string name="action_fab_note">make a note</string>
-    <string name="title_activity_note_edit">Edit Note</string>
+    <string name="action_add_note">Tambah Catatan</string>
+    <string name="action_share_note">Bagikan catatan</string>
+    <string name="add_shortcut_short_label">Tulis baru</string>
+    <string name="action_share_body">Catatan</string>
+    <string name="action_fab_note">Buat catatan</string>
+    <string name="title_activity_note_edit">Ubah Catatan</string>
     <string name="new_note">new Note</string>
     <string name="tell_about">What I want to tell you about Leafpad</string>
     <string name="system_preference_key">follow system (standard)</string>
@@ -50,7 +50,7 @@
     <string name="menu_settings">Settings</string>
     <string name="change">version</string>
     <string name="contentDescription">add new Note</string>
-    <string name="action_edit_note">Edit Note</string>
+    <string name="action_edit_note">Ubah Catatan</string>
     <string name="note_will_be_saved_first">Note will be saved first</string>
     <string name="general_preference">General</string>
     <string name="title_licence">Licences</string>
