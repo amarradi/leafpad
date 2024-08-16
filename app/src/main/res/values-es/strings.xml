@@ -56,8 +56,8 @@
     <string name="theme_preference" translatable="false">Theme</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="system_preference" translatable="false">system</string>
-    <string name="participate">Participate</string>
+    <string name="participate">Participa</string>
     <string name="translate">Traducir la aplicación en Weblate</string>
     <string name="translation_help">Ayúdanos a traducir la aplicación a tu idioma en weblate</string>
-    <string name="hide_note">hide note</string>
+    <string name="hide_note">ocultar nota</string>
 </resources>
