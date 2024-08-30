@@ -10,7 +10,7 @@
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="app_name">Leafpad</string>
     <string name="title_activity_note_edit">edytuj notatkę</string>
-    <string name="action_edit_note">edytuj notatkę</string>
+    <string name="action_edit_note">Edytuj Notatkę</string>
     <string name="action_share_title">Tytuł</string>
     <string name="action_share_body">Notatka</string>
     <string name="action_fab_note">utwórz notatkę</string>
