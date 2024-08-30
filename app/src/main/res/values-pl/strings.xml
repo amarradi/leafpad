@@ -42,7 +42,7 @@
     <string name="contentDescription">dodaj nową Notatkę</string>
     <string name="remove_dailog_message">Ta notatka zostanie bezpowrotnie usunięta. Potem nie da się jej przywrócić.</string>
     <string name="version">wersja</string>
-    <string name="find_code_on_github_summary">You can view and check the source code via the repository. You are welcome to open an issue for change requests and error messages.</string>
+    <string name="find_code_on_github_summary">Możesz zobaczyć i sprawdzić kod źródłowy za pomocą repozytorium. Zajmuje się otwarciem wydania żądań i błędów.</string>
     <string name="theme_summary">Przełącz między trybem ciemnym i jasnym</string>
     <string name="what_is_leafpad">Leafpad jest prostą aplikacją do tworzenia notatek.</string>
     <string name="created_txt">utworzona w</string>
