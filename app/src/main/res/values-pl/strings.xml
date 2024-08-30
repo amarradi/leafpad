@@ -10,7 +10,7 @@
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="app_name">Leafpad</string>
     <string name="title_activity_note_edit">edytuj notatkę</string>
-    <string name="action_edit_note">Popraw Notatkę</string>
+    <string name="action_edit_note">Edytuj Notatkę</string>
     <string name="action_share_title">Tytuł</string>
     <string name="action_share_body">Notatka</string>
     <string name="action_fab_note">utwórz notatkę</string>
@@ -23,7 +23,7 @@
     <string name="about">O Nas</string>
     <string name="tell_about">Co chcę powiedzieć o Leafpad</string>
     <string name="change">wersja</string>
-    <string name="thanks">Thank you Stefan, Stefan, Manuel, Falk and Stephanie for your ideas and testing the app.</string>
+    <string name="thanks">Dziękuje Stefan, Stefan, Manuel, Falk i Stephanie za wasze pomysły i testowanie aplikacji.</string>
     <string name="its_opensource">Leafpad to otwarta i wolna aplikacja</string>
     <string name="title_licence">Licencje</string>
     <string name="find_code_on_github">GitHub</string>
@@ -38,7 +38,7 @@
     <string name="rate_the_app">Co powiesz na recenzję w sklepie Google PlayStore?</string>
     <string name="remove_dialog_abort">Cofnij</string>
     <string name="menu_settings">Ustawienia</string>
-    <string name="system_preference_key">taki jak system (standard)</string>
+    <string name="system_preference_key">taki jak system (domyślne)</string>
     <string name="contentDescription">dodaj nową Notatkę</string>
     <string name="remove_dailog_message">Ta notatka zostanie bezpowrotnie usunięta. Potem nie da się jej przywrócić.</string>
     <string name="version">wersja</string>
@@ -47,15 +47,15 @@
     <string name="what_is_leafpad">Leafpad jest prostą aplikacją do tworzenia notatek.</string>
     <string name="created_txt">utworzona w</string>
     <string name="action_remove">Usuń notatkę</string>
-    <string name="edited_text">zredagowano w</string>
+    <string name="edited_text">edytowano w</string>
     <string name="action_save">zapisz notatkę</string>
     <string name="share_note">Udostępnić notatkę?</string>
     <string name="rev20_12">I ujrzałem umarłych, wielkich i małych, stojących przed tronem; i otworzyły się księgi: i została otwarta jeszcze inna księga, która jest księgą życia: i osądzono umarłych z tego, co było napisane w księgach, według ich dzieł, Objawienia 20:12</string>
     <string name="satisfied">Podoba się Leafpad?</string>
     <string name="about_the_app">O Aplikacji</string>
     <string name="remove_dialog_title">Na pewno?</string>
-    <string name="action_add_note">dodaj notatkę</string>
-    <string name="action_share_note">udostępnij notatkę</string>
+    <string name="action_add_note">Dodaj notatkę</string>
+    <string name="action_share_note">Udostępnij notatkę</string>
     <string name="participate">Weź udział</string>
     <string name="translate">Pomóż w tłumaczeniu aplikacji przez Weblate</string>
     <string name="translation_help">Pomóż nam przetłumaczyć aplikację na twój język poprzez weblate</string>
