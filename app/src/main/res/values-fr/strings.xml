@@ -56,8 +56,8 @@
     <string name="search">recherche</string>
     <string name="lightmode_preference_key">lightmode</string>
     <string name="darkmode_preference_key">darkmode</string>
-    <string name="participate">Participate</string>
-    <string name="translate">Translate the app on Weblate</string>
-    <string name="translation_help">Help us translate the app into your language on weblate</string>
-    <string name="hide_note">hide note</string>
+    <string name="participate">Participez</string>
+    <string name="translate">Traduire l\'application sur Weblate</string>
+    <string name="translation_help">Aidez-nous à traduire l\'application dans votre langue sur weblate</string>
+    <string name="hide_note">cache-toi</string>
 </resources>
