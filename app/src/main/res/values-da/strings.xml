@@ -17,7 +17,7 @@
     <string name="system_preference_key">følg system (standard)</string>
     <string name="darkmode_preference_key">darkmode</string>
     <string name="theme_summary">Skift mellem mørkt og lys tema</string>
-    <string name="about">Om Om os</string>
+    <string name="about">Om</string>
     <string name="tell_about">Hvad jeg vil fortælle dig om Leafpad</string>
     <string name="thanks">Tak Stefan D, Stefan R, Manuel, Falk og Stephanie for dine idéer og test app.</string>
     <string name="find_code_on_github_summary">Du kan se og kontrollere kildekoden via lageret. Du er velkommen til at åbne et problem for ændringer anmodninger og fejlmeddelelser.</string>
