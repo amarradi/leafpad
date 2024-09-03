@@ -37,7 +37,7 @@
     <string name="find_code_on_github_summary">Puedes ver y comprobar el código fuente a través del repositorio. Puede abrir una incidencia para solicitar cambios y mensajes de error.</string>
     <string name="title_licence">Licencias</string>
     <string name="licence">Licencias de código abierto</string>
-    <string name="share_note">Compartir nota?</string>
+    <string name="share_note">¿Compartir nota?</string>
     <string name="note_will_be_saved_first">La nota se guardará primero</string>
     <string name="action_save">guardar nota</string>
     <string name="action_note_saved">guardada</string>
