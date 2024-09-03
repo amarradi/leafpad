@@ -18,8 +18,8 @@
     <string name="action_remove">Удалить заметку</string>
     <string name="edited_text">отредактировано на</string>
     <string name="body_hint">1.1.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.1.2.1</string>
-    <string name="lightmode_preference_key">светлая</string>
-    <string name="darkmode_preference_key">тёмная</string>
+    <string name="lightmode_preference_key">lightmode</string>
+    <string name="darkmode_preference_key">darkmode</string>
     <string name="satisfied">Наслаждайтесь листовками?</string>
     <string name="about_the_app">О приложении</string>
     <string name="remove_dialog_title">Вы уверены?</string>
