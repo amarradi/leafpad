@@ -40,8 +40,8 @@
     <string name="satisfied">Ti piace Leafpad?</string>
     <string name="remove_dialog_title">Sei sicuro?</string>
     <string name="menu_settings">Impostazioni</string>
-    <string name="lightmode_preference_key">Tema chiaro</string>
-    <string name="darkmode_preference_key">Tema scuro</string>
+    <string name="lightmode_preference_key">lightmode</string>
+    <string name="darkmode_preference_key">darkmode</string>
     <string name="about_the_app">Informazioni sull\'app</string>
     <string name="tell_about">Quello che voglio dirti su Leafpad</string>
     <string name="thanks">Grazie a Stefan, Stefan, Manuel, Falk e Stephanie per le loro idee e per aver testato l\'applicazione.</string>
