@@ -43,7 +43,7 @@
     <string name="edited_text">upraveno na</string>
     <string name="body_hint">Poznámka</string>
     <string name="lightmode_preference_key">čeština</string>
-    <string name="find_code_on_github">Čeština</string>
+    <string name="find_code_on_github">Github</string>
     <string name="darkmode_preference_key">čeština</string>
     <string name="search">hledat</string>
     <string name="action_save">uložit poznámka</string>
