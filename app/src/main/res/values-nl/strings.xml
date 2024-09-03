@@ -25,11 +25,11 @@
     <string name="rate_the_app">Wat dacht je van een beoordeling in Google\'s PlayStore?</string>
     <string name="action_share_body">Notitie</string>
     <string name="remove_dialog_abort">Cancel</string>
-    <string name="menu_settings">Vertaling:</string>
+    <string name="menu_settings">Vertaling</string>
     <string name="action_fab_note">maak een briefje</string>
     <string name="change">versie</string>
     <string name="system_preference_key">volgsysteem (standard)</string>
-    <string name="contentDescription">vertaling:</string>
+    <string name="contentDescription">vertaling</string>
     <string name="note_will_be_saved_first">Het briefje wordt als eerste gered</string>
     <string name="general_preference">Generaal</string>
     <string name="title_licence">Rijbewijs</string>
@@ -46,7 +46,7 @@
     <string name="licence">Open bron vergunningen</string>
     <string name="edited_text">edited at</string>
     <string name="body_hint">Notitie</string>
-    <string name="search">zoekop zoekop zoektocht</string>
+    <string name="search">zoekop</string>
     <string name="remove_dialog_title">Weet je het zeker?</string>
     <string name="action_add_note">Add Not</string>
     <string name="action_share_note">Schrijf notitie</string>
