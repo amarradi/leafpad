@@ -10,8 +10,8 @@
     <string name="add_shortcut_short_label">Escribir algo nuevo</string>
     <string name="title_hint">Título</string>
     <string name="body_hint">Nota</string>
-    <string name="contentDescription">añadir una nueva nota</string>
-    <string name="imported">Nota enviada a leafpad</string>
+    <string name="contentDescription">añadir nueva nota</string>
+    <string name="imported">nota fue enviada a hojald</string>
     <string name="new_note">Nota nueva</string>
     <string name="satisfied">¿Te gusta leafpad?</string>
     <string name="rate_the_app">¿Qué tal una reseña en la PlayStore de Google?</string>
@@ -56,8 +56,8 @@
     <string name="theme_preference" translatable="false">Theme</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="system_preference" translatable="false">system</string>
-    <string name="participate">Participa</string>
+    <string name="participate">Participar</string>
     <string name="translate">Traducir la aplicación en Weblate</string>
     <string name="translation_help">Ayúdanos a traducir la aplicación a tu idioma en weblate</string>
-    <string name="hide_note">ocultar nota</string>
+    <string name="hide_note">oculta nota</string>
 </resources>
