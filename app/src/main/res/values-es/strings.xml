@@ -19,8 +19,8 @@
     <string name="remove_dialog_abort">Cancelar</string>
     <string name="menu_settings">Ajustes</string>
     <string name="general_preference">General</string>
-    <string name="lightmode_preference_key">modo claro</string>
-    <string name="darkmode_preference_key">modo oscuro</string>
+    <string name="lightmode_preference_key">lightmode</string>
+    <string name="darkmode_preference_key">darkmode</string>
     <string name="system_preference_key">del sistema (estandar)</string>
     <string name="theme_summary">Alternar entre los temas oscuro y claro</string>
     <string name="about">Acerca de</string>
