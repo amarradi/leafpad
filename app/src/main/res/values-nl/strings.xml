@@ -17,7 +17,7 @@
     <string name="darkmode_preference_key">darkmode</string>
     <string name="tell_about">Wat ik je wil vertellen over Leafpad</string>
     <string name="leafpad_work">Leafpad redt alle gegevens in de buurt van je smartphone. De notities of metadata zoals datum en tijd worden niet opgeslagen in een wolk en worden met niemand gedeeld. Ook geen sms analyse wordt uitgevoerd. De notities zijn van jou. Jij beslist wat je met hen doet.</string>
-    <string name="thanks">Thank you Stefan, Stefan, Manuel, Falk and Stephanie for your ideas and testing the app.</string>
+    <string name="thanks">Bedankt Stefan, Stefan, Manuel, Falk en Stephanie voor jullie ideeën en het testen van de app.</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="its_opensource">Leafpad is OpenSource en zijn vrije</string>
     <string name="action_note_saved">gered</string>
