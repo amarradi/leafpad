@@ -15,14 +15,14 @@
     <string name="action_share_note">Note share karè</string>
     <string name="action_share_title">Śírśak</string>
     <string name="action_share_body">Note</string>
-    <string name="action_remove">Note hatŕáyè</string>
+    <string name="action_remove">Note haţáyè</string>
     <string name="leafpad_work">Leafpad sári data local taur par ápke smartphone par save karta hai. Notes ya phir táríkh aur samay jaisi metadata kisi bhi cloud par save nahì kiye jate aur na hi kisi ke sáth share kiye játe haì. Koyi text analysis bhi nahì kiya jata hai. Notes ápke haì. Áp phaisla lenge ki áp unke sáth kya karna cáhte haì।</string>
     <string name="satisfied">Leafpad accha lag raha hai?</string>
-    <string name="remove_dailog_message">Ye note permanently hatŕa diya jáyega. Ise bád mè restore nahì kiya ja sakta।</string>
+    <string name="remove_dailog_message">Ye note permanently haţa diya jáyega. Ise bád mè restore nahì kiya ja sakta।</string>
     <string name="remove_dialog_abort">Cancel karè</string>
     <string name="menu_settings">Settings</string>
     <string name="general_preference">Sámány</string>
-    <string name="statement">Ham shopping lists, bátcít ke notes, chuttŕiyò ya dostò ke liye packing lists ádi likhte haì. Ye wo sári acchi cízè haì jo ham bhúlna nahì cáhte. Íśwar bhi kuch aise hi haì, wo hamáre sáre sakarm aur duśkarm likhkar rakhte haì. Íśwar sabse úpar haì aur unhè har cíz ka gyán hai. Íśwar logò se pyár karte haì aur unke sáthi hona cáhte haì. Magar aisa sirf tabhi mumkin hai jab Íśwar hamè nirdoś manè. Yíśu Masíh par yakín karke hamáre duśkarm (páp) Íśwar ke áge dhul játe haì. Yíśu Masíh ne Kalvári ke krös par hamáre pápò ka práyścitt kiya. Ise swíkar karne wála har vyakti jívan-pustak mè hameśa ke liye sama gaya. Kya áp jívan-pustak mè registered haì?</string>
+    <string name="statement">Ham shopping lists, bátcít ke notes, chuţţiyò ya dostò ke liye packing lists ádi likhte haì. Ye wo sári acchi cízè haì jo ham bhúlna nahì cáhte. Íśwar bhi kuch aise hi haì, wo hamáre sáre sakarm aur duśkarm likhkar rakhte haì. Íśwar sabse úpar haì aur unhè har cíz ka gyán hai. Íśwar logò se pyár karte haì aur unke sáthi hona cáhte haì. Magar aisa sirf tabhi mumkin hai jab Íśwar hamè nirdoś manè. Yíśu Masíh par yakín karke hamáre duśkarm (páp) Íśwar ke áge dhul játe haì. Yíśu Masíh ne Kalvári ke krös par hamáre pápò ka práyścitt kiya. Ise swíkar karne wála har vyakti jívan-pustak mè hameśa ke liye sama gaya. Kya áp jívan-pustak mè registered haì?</string>
     <string name="its_opensource">Leafpad OpenSource aur ázád hai</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="find_code_on_github_summary">Áp bhanđár par source code dekh sakte haì. Badlávò ke requests aur error messages ke liye issue kholne mè ápka swágat hai।</string>
