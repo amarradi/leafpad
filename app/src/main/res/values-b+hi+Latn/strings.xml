@@ -57,7 +57,7 @@
     <string name="lightmode_preference_key">lightmode</string>
     <string name="darkmode_preference_key">darkmode</string>
     <string name="participate">Bhág lè</string>
-    <string name="translate">Weblate par app ko translate karè</string>
-    <string name="translation_help">Weblate par app ko ápki bháśá mè translate karne mè hamári madad karè</string>
+    <string name="translate">Weblate par app ko anuvádit karè</string>
+    <string name="translation_help">Weblate par app ko ápki bháśá mè anuvádit karne mè hamári madad karè</string>
     <string name="hide_note">note chipáyè</string>
 </resources>
