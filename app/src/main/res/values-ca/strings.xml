@@ -28,7 +28,7 @@
     <string name="action_edit_note">Edita la nota</string>
     <string name="note_will_be_saved_first">La nota es desarà primer</string>
     <string name="general_preference">Generals</string>
-    <string name="title_licence">Licences</string>
+    <string name="title_licence">Llicències</string>
     <string name="remove_dailog_message">This note will be permanently deleted. Afterwards it cannot be restored.</string>
     <string name="version">versió</string>
     <string name="find_code_on_github_summary">You can view and check the source code via the repository. You are welcome to open an issue for change requests and error messages.</string>
@@ -40,7 +40,7 @@
     <string name="what_is_leafpad">El Leafpad és una aplicació senzilla per a prendre notes.</string>
     <string name="created_txt">creada a les</string>
     <string name="action_remove">Elimina la nota</string>
-    <string name="licence">Open source licenses</string>
+    <string name="licence">Llicència de codi obert</string>
     <string name="edited_text">editada a les</string>
     <string name="body_hint">Nota</string>
     <string name="lightmode_preference_key">lightmode</string>
