@@ -13,7 +13,7 @@
     <dimen name="content_start_from_screen_edge_margin_minus_40dp">16dp</dimen>
     <dimen name="new_margin">56dp</dimen>
     <dimen name="margin_about">5dp</dimen>
-    <dimen name="mtrl_btn_stroke_size">0.5dp</dimen>
+    <dimen name="button_stk_size">0.5dp</dimen>
     <dimen name="toolbarPaddingLeft">8dp</dimen>
     <dimen name="toolbarPaddingRight">24dp</dimen>
     <dimen name="listElementTitle">16sp</dimen>
