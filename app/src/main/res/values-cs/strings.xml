@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="darkmode_preference" translatable="false">darkmode</string>
+    <string name="system_preference" translatable="false">system</string>
+    <string name="theme_key" translatable="false">theme</string>
+    <string name="lightmode_preference" translatable="false">lightmode</string>
+    <string name="system_preference_option_value" translatable="false">system</string>
+    <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
+    <string name="theme_preference" translatable="false">Theme</string>
+    <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
+    <string name="what_is_leafpad">Leták je jednoduchá aplikace pro příjem poznámek.</string>
+    <string name="title_licence">Licence</string>
+    <string name="find_code_on_github_summary">Můžete zobrazit a zkontrolovat zdrojový kód pomocí úložiště. Máte možnost otevřít problém pro změnu požadavků a chybových zpráv.</string>
+    <string name="leafpad_work">Leafpad ukládá všechna data lokálně na vašem smartphonu. Poznámky nebo metadata, jako je datum a čas nejsou uloženy v každém cloudu a nejsou sdíleny s někým. Žádné textové analýzy se provádí buď. Poznámky patří k vám. Vy rozhodujete, co s nimi děláte.</string>
+    <string name="new_note">nová poznámka</string>
+    <string name="imported">poznámka byla odeslána na listpad</string>
+    <string name="rate_the_app">Jak o recenzi v Google PlayStore?</string>
+    <string name="add_shortcut_short_label">Napište nový</string>
+    <string name="action_note_saved">zadané</string>
+    <string name="tell_about">Co chci říct o Leafpad</string>
+    <string name="action_share_body">Poznámka</string>
+    <string name="remove_dialog_abort">Hledat</string>
+    <string name="menu_settings">Nastavení</string>
+    <string name="action_fab_note">aby poznámka</string>
+    <string name="title_activity_note_edit">Upravit poznámku</string>
+    <string name="translate">Přeložit aplikaci na Weblate</string>
+    <string name="change">verze</string>
+    <string name="system_preference_key">systém (standardní)</string>
+    <string name="contentDescription">přidat novou poznámku</string>
+    <string name="action_edit_note">Upravit poznámku</string>
+    <string name="note_will_be_saved_first">Poznámka bude uložena první</string>
+    <string name="general_preference">Všeobecné</string>
+    <string name="remove_dailog_message">Tato poznámka bude trvale odstraněna. Poté nelze obnovit.</string>
+    <string name="version">verze</string>
+    <string name="action_share_title">Titul</string>
+    <string name="participate">Čeština</string>
+    <string name="title_hint">Čeština</string>
+    <string name="about">O nás</string>
+    <string name="theme_summary">Toggle mezi tmavým a světlým tématem</string>
+    <string name="created_txt">vytvořeno</string>
+    <string name="action_remove">Odebrat poznámka</string>
+    <string name="licence">Open source licence</string>
+    <string name="edited_text">upraveno na</string>
+    <string name="body_hint">Poznámka</string>
+    <string name="lightmode_preference_key">čeština</string>
+    <string name="find_code_on_github">Github</string>
+    <string name="darkmode_preference_key">čeština</string>
+    <string name="search">hledat</string>
+    <string name="action_save">uložit poznámka</string>
+    <string name="share_note">Sdílení Poznámka?</string>
+    <string name="thanks">Děkuji Stefan, Stefan, Manuel, Falk a Stephanie pro vaše nápady a testování aplikace.</string>
+    <string name="statement">Vypíšeme seznamy obchodů, poznámky pro rozhovory, balíčky pro dovolenou nebo narozeniny přátel. To jsou všechny dobré věci, abychom je nezapomněli. Je to velmi podobné s Bohem, píše své dobré a špatné skutky a uloží je. Bůh je nad vším a jednoduše ví všechno. Bůh miluje lidi a chce mít přátelství s nimi. Ale to je možné pouze v případě, že jsme viděli Bohem jako neškodný. Prostřednictvím víry v Ježíši Kristu, naše špatné skutky (naše viny) se před Bohem otřít. Ježíš Kristus atoned pro naše viny na kříži Calvary. Každá osoba, která přijímá tuto knihu života navždy. Jste registrováni v knize života?</string>
+    <string name="hide_note">skrýt poznámka</string>
+    <string name="translation_help">Pomocí aplikace přeložit do jazyka na weblate</string>
+    <string name="rev20_12">A viděl jsem mrtvý, velký a malý, stojící před trůnem; a knihy byly otevřeny: a další kniha byla otevřena, která je kniha života: a mrtvý byli posuzováni z věcí, které byly napsány v knihách, podle jejich děl. Zjevení 20:12</string>
+    <string name="its_opensource">Leták je OpenSource a jeho zdarma</string>
+    <string name="satisfied">Enjoying listpad?</string>
+    <string name="app_name">Leafpad</string>
+    <string name="about_the_app">O aplikaci</string>
+    <string name="remove_dialog_title">Jste si jisti?</string>
+    <string name="action_add_note">Přidat komentář</string>
+    <string name="action_share_note">Sdílení poznámky</string>
+</resources>

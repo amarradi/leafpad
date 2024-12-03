@@ -10,71 +10,54 @@
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="app_name">Leafpad</string>
     <string name="title_activity_note_edit">edytuj notatkę</string>
-    <string name="action_edit_note">Popraw Notatkę</string>
+    <string name="action_edit_note">Edytuj Notatkę</string>
     <string name="action_share_title">Tytuł</string>
     <string name="action_share_body">Notatka</string>
     <string name="action_fab_note">utwórz notatkę</string>
     <string name="add_shortcut_short_label">Zapisz nową</string>
     <string name="title_hint">Tytuł</string>
     <string name="body_hint">Notatka</string>
-
     <string name="general_preference">Ogólne</string>
     <string name="lightmode_preference_key">tryb jasny</string>
     <string name="darkmode_preference_key">tryb ciemny</string>
     <string name="about">O Nas</string>
     <string name="tell_about">Co chcę powiedzieć o Leafpad</string>
     <string name="change">wersja</string>
-
-
-
-    <string name="thanks">Thank you Stefan D, Stefan R, Manuel, Falk and Stephanie for your ideas and testing the app.</string>
-    <string name="its_opensource">Leafpad is OpenSource and its free</string>
-    <string name="title_licence">Licences</string>
+    <string name="thanks">Dziękuje Stefan, Stefan, Manuel, Falk i Stephanie za wasze pomysły i testowanie aplikacji.</string>
+    <string name="its_opensource">Leafpad to otwarta i wolna aplikacja</string>
+    <string name="title_licence">Licencje</string>
     <string name="find_code_on_github">GitHub</string>
-    <string name="action_note_saved">saved</string>
-    <string name="note_will_be_saved_first">Note will be saved first</string>
-    <string name="licence">Open source licenses</string>
+    <string name="action_note_saved">zapisano</string>
+    <string name="note_will_be_saved_first">Notatka zostanie najpierw zapisana</string>
+    <string name="licence">Licencje typu open source</string>
     <string name="search">wyszukaj</string>
-    <string name="statement">We write down shopping lists, notes for conversations, packing lists for vacations or friends\' birthdays. These are all good things so that we don\'t forget them. It\'s very similar with God, he writes down our good and bad deeds and saves them. God is above everything and simply knows everything. God loves people and wants to have fellowship with them. But this is only possible if we are seen by God as blameless. Through faith in Jesus Christ, our bad deeds (our guilt) are wiped out before God. Jesus Christ atoned for our guilt on the cross of Calvary. Every person who accepts this is entered in the book of life forever. Are you registered in the book of life?</string>
+    <string name="statement">Napisujemy listy handlowe, notatki do rozmów, listy do wakacji lub urodzin przyjaciół. Są to wszystko dobre rzeczy, aby nie zapomnieć. Jest bardzo podobna do Boga, pisze o naszych dobrach i złych czynach. Bóg jest nad wszystkim i po prostu wie wszystko. Bóg miłuje ludzi i chce z nimi brać udział. Nie jest to jednak możliwe, jeśli widzimy Boga jako niewiarygodnego. Poprzez wiarę w Jezusa Chrystusa, nasze złe uczynki są wyczerpane przed Bogiem. Jezus Chrystus poczuł się winnym krzyża Kalwarii. Każda osoba, która akceptuje to, jest wpisana do książki o życiu. Czy jesteś w księdze życia?</string>
     <string name="leafpad_work">Leafpad zapisuje wszystkie dane na twoim smartfonie.Notatki czy metadane takie jak data i czas nie są przechowywane nigdzie w chmurze ani nie są nikomu udostępniane. Tekst nie jest też analizowany. Notatki należą do Ciebie. Ty decydujesz co z nimi zrobisz.</string>
     <string name="new_note">nowa Notatka</string>
     <string name="imported">notatka została wysłana do Leafpad\'a</string>
     <string name="rate_the_app">Co powiesz na recenzję w sklepie Google PlayStore?</string>
     <string name="remove_dialog_abort">Cofnij</string>
     <string name="menu_settings">Ustawienia</string>
-    <string name="system_preference_key">taki jak system (standard)</string>
+    <string name="system_preference_key">taki jak system (domyślne)</string>
     <string name="contentDescription">dodaj nową Notatkę</string>
     <string name="remove_dailog_message">Ta notatka zostanie bezpowrotnie usunięta. Potem nie da się jej przywrócić.</string>
     <string name="version">wersja</string>
-    <string name="find_code_on_github_summary">You can view and check the source code via the repository. You are welcome to open an issue for change requests and error messages.</string>
-
+    <string name="find_code_on_github_summary">Możesz zobaczyć i sprawdzić kod źródłowy za pomocą repozytorium. Zajmuje się otwarciem wydania żądań i błędów.</string>
     <string name="theme_summary">Przełącz między trybem ciemnym i jasnym</string>
     <string name="what_is_leafpad">Leafpad jest prostą aplikacją do tworzenia notatek.</string>
     <string name="created_txt">utworzona w</string>
     <string name="action_remove">Usuń notatkę</string>
-    <string name="edited_text">zredagowano w</string>
-
-    <string name="action_save">save note</string>
-    <string name="share_note">Share Note?</string>
+    <string name="edited_text">edytowano w</string>
+    <string name="action_save">zapisz notatkę</string>
+    <string name="share_note">Udostępnić notatkę?</string>
     <string name="rev20_12">I ujrzałem umarłych, wielkich i małych, stojących przed tronem; i otworzyły się księgi: i została otwarta jeszcze inna księga, która jest księgą życia: i osądzono umarłych z tego, co było napisane w księgach, według ich dzieł, Objawienia 20:12</string>
     <string name="satisfied">Podoba się Leafpad?</string>
     <string name="about_the_app">O Aplikacji</string>
     <string name="remove_dialog_title">Na pewno?</string>
-    <string name="action_add_note">dodaj notatkę</string>
-    <string name="action_share_note">udostępnij notatkę</string>
-
-
-
-
-
-
-
-
-
-
-
-    <string name="participate">Participate</string>
-    <string name="translate">Translate the app on Weblate</string>
-    <string name="translation_help">Help us translate the app into your language on weblate</string>
-    <string name="hide_note">hide note</string>
+    <string name="action_add_note">Dodaj notatkę</string>
+    <string name="action_share_note">Udostępnij notatkę</string>
+    <string name="participate">Weź udział</string>
+    <string name="translate">Pomóż w tłumaczeniu aplikacji przez Weblate</string>
+    <string name="translation_help">Pomóż nam przetłumaczyć aplikację na twój język poprzez weblate</string>
+    <string name="hide_note">ukryj notatkę</string>
 </resources>
