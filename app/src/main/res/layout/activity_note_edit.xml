@@ -72,7 +72,11 @@
                     android:scrollbars="none"
                     android:inputType="textMultiLine|textCapSentences|textWebEmailAddress|textAutoCorrect|textPersonName|textUri" />
             </com.google.android.material.textfield.TextInputLayout>
-
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/visible_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/hide_note"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

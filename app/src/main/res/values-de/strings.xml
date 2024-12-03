@@ -62,5 +62,6 @@
 
     <string name="translate">Translate the app on Weblate</string>
     <string name="translation_help">Help us translate the app into your language on weblate</string>
-    <string name="hide_note">hide note</string>
+    <string name="hide_note">Notiz verstecken</string>
+    <string name="show_note">Notiz anzeigen</string>
 </resources>

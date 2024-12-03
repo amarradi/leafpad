@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public List<Note> notes;
     public SimpleAdapter adapter;
     public ListView listView;
-
+    private boolean showHidden = false; // Variable für den Zustand "versteckte anzeigen"
 
 
 
@@ -149,6 +149,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             case R.id.item_settings:
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingsIntent);
+            case R.id.item_show_hidden:
+                showHidden = !showHidden;
+
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -165,11 +168,13 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         data.clear();
         for (Note note : notes) {
+
                 Map<String, String> datum = new HashMap<>();
                 datum.put("title", note.getTitle());
                 datum.put("body", note.getBody());
                 datum.put("date", note.getDate());
                 datum.put("time", note.getTime());
+
                 data.add(datum);
         }
     }
