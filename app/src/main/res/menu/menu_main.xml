@@ -5,7 +5,7 @@
 
     <!--<item
         android:id="@+id/item_hide"
-        android:icon="@drawable/action_hide_note"
+        android:icon="@drawable/"
         android:title="@string/hide_note"
         app:showAsAction="ifRoom"/> -->
     <item

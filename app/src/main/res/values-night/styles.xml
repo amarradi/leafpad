@@ -28,7 +28,7 @@
 
     <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">@dimen/radius</item>
+        <item name="cornerSize">@dimen/fabRadius</item>
     </style>
 
     <style name="Widget.Material3.ExtendedFloatingActionButton.Primary" parent="Widget.Material3.ExtendedFloatingActionButton.Icon.Primary">
@@ -162,7 +162,7 @@
 
     <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.Material3.MediumComponent">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">@dimen/radius</item>
+        <item name="cornerSize">@dimen/fabRadius</item>
     </style>
 
     <style name="MaterialAlertDialog.App" parent="MaterialAlertDialog.Material3">

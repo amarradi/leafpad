@@ -3,9 +3,10 @@
     <dimen name="activity_margin">16dp</dimen>
     <dimen name="dividerHeight">2dp</dimen>
     <dimen name="margin">5dp</dimen>
-    <dimen name="radius_delete_dialog">15dp</dimen>
-    <dimen name="cardCornerRadius">5dp</dimen>
-    <dimen name="radius">15dp</dimen>
+    <dimen name="cornerRadiusAlertDialog">15dp</dimen>
+    <dimen name="cornerRadiusCardElement">5dp</dimen>
+    <dimen name="CornerRadiusTextView">5dp</dimen>
+    <dimen name="fabRadius">15dp</dimen>
     <dimen name="list_vertical_padding">8dp</dimen>
     <dimen name="large_icon_size">40dp</dimen>
 
