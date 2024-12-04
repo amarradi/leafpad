@@ -45,7 +45,7 @@
     <string name="lightmode_preference_key">lightmode</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="darkmode_preference_key">darkmode</string>
-    <string name="search">sök efter sök sök</string>
+    <string name="search">sök</string>
     <string name="action_save">spara note</string>
     <string name="share_note">Dela notera?</string>
     <string name="thanks">Tack Stefan, Stefan, Manuel, Falk och Stephanie för dina idéer och testa appen.</string>
