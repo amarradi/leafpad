@@ -60,7 +60,7 @@
     <string name="translate">Traduire l\'application sur Weblate</string>
     <string name="translation_help">Aidez-nous à traduire l\'application dans votre langue sur weblate</string>
     <string name="hide_note">cache-toi</string>
-    <string name="hide_hidden">hide hidden notes</string>
-    <string name="show_note">make the note visible</string>
-    <string name="show_hidden">show hidden notes</string>
+    <string name="hide_hidden">cachés</string>
+    <string name="show_note">rendre la note visible</string>
+    <string name="show_hidden">montres cachées</string>
 </resources>
