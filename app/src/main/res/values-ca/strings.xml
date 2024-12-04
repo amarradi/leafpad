@@ -60,4 +60,7 @@
     <string name="remove_dialog_title">N’esteu segur?</string>
     <string name="action_add_note">Afegeix una nota</string>
     <string name="action_share_note">Comparteix la nota</string>
+    <string name="hide_hidden">hide hidden notes</string>
+    <string name="show_note">make the note visible</string>
+    <string name="show_hidden">show hidden notes</string>
 </resources>
