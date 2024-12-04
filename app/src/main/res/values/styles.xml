@@ -6,6 +6,11 @@
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextInputLayout</item>
         <item name="shapeAppearance">@style/ShapeAppearance.App.SmallComponent</item>
         <item name="hintTextColor">?attr/colorAccent</item>
+        <item name="boxCornerRadiusTopStart">@dimen/CornerRadiusTextView</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/CornerRadiusTextView</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/CornerRadiusTextView</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/CornerRadiusTextView</item>
+
     </style>
 
     <style name="ThemeOverlay.App.TextInputLayout" parent="">
@@ -19,7 +24,6 @@
         <item name="textAppearanceCaption">@color/md_theme_light_primary</item>
         <item name="editTextStyle">@style/Widget.Material3.TextInputEditText.OutlinedBox</item>
     </style>
-
     <style name="editTextStyle" parent="@style/Widget.Material3.TextInputEditText.OutlinedBox">
         <item name="color">@color/seed</item>
         <item name="colorSurface">@color/seed</item>
@@ -28,7 +32,7 @@
 
     <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">@dimen/radius</item>
+        <item name="cornerSize">@dimen/fabRadius</item>
     </style>
 
     <style name="Widget.Material3.ExtendedFloatingActionButton.Primary" parent="Widget.Material3.ExtendedFloatingActionButton.Icon.Primary">
@@ -101,6 +105,7 @@
         <item name="cardElevation">0dp</item>
         <item name="strokeColor">@color/md_theme_light_onPrimaryContainer</item>
         <item name="strokeWidth">@dimen/mtrl_btn_stroke_size</item>
+        <item name="cardCornerRadius">@dimen/cornerRadiusCardElement</item>
     </style>
 
     <style name="ThemeOverlay.App.Card" parent="">
@@ -108,6 +113,7 @@
         <item name="colorSecondary">@color/md_theme_light_onSurface</item>
         <item name="colorSurface">@color/md_theme_light_background</item>
         <item name="android:padding">@dimen/margin</item>
+
     </style>
 
     <style name="Theme.App.toolbar" parent="Theme.Material3.DynamicColors.DayNight">
@@ -164,7 +170,7 @@
 
     <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.Material3.MediumComponent">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">@dimen/radius</item>
+        <item name="cornerSize">@dimen/fabRadius</item>
     </style>
 
     <style name="MaterialAlertDialog.App" parent="MaterialAlertDialog.Material3">
