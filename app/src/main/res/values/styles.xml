@@ -19,7 +19,6 @@
         <item name="textAppearanceCaption">@color/md_theme_light_primary</item>
         <item name="editTextStyle">@style/Widget.Material3.TextInputEditText.OutlinedBox</item>
     </style>
-
     <style name="editTextStyle" parent="@style/Widget.Material3.TextInputEditText.OutlinedBox">
         <item name="color">@color/seed</item>
         <item name="colorSurface">@color/seed</item>

@@ -131,7 +131,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     protected void onResume() {
         super.onResume();
-
         updateListView();
     }
 
@@ -142,6 +141,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         return true;
     }
 
+    @SuppressLint({"NonConstantResourceId", "UseCompatLoadingForDrawables"})
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -150,12 +150,25 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingsIntent);
             case R.id.item_show_hidden:
-                showHidden = !showHidden;
-
-                break;
+                toggleShowHidden(item);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private void toggleShowHidden(MenuItem item) {
+        showHidden = !showHidden;
+        if (showHidden) {
+            item.setIcon(getDrawable(R.drawable.action_eye_closed));
+            item.setTitle(getString(R.string.hide_hidden));
+        } else {
+            item.setIcon(getDrawable(R.drawable.action_eye_open));
+            item.setTitle(getString(R.string.show_hidden));
+        }
+        updateListView();
+    }
+
 
     public void updateListView() {
         updateDataset();
@@ -168,14 +181,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         data.clear();
         for (Note note : notes) {
-
+            if (showHidden || !note.isHide()) {
                 Map<String, String> datum = new HashMap<>();
                 datum.put("title", note.getTitle());
                 datum.put("body", note.getBody());
                 datum.put("date", note.getDate());
                 datum.put("time", note.getTime());
-
                 data.add(datum);
+            }
         }
     }
 }

@@ -69,4 +69,5 @@
     <string name="hide_note">make the note invisible</string>
     <string name="show_note">make the note visible</string>
     <string name="show_hidden">show hidden notes</string>
+    <string name="hide_hidden">hide hidden notes</string>
 </resources>
