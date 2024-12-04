@@ -59,8 +59,8 @@
     <string name="participate">Részvétel</string>
     <string name="translate">Fordítsa le az alkalmazást a Weblate-en</string>
     <string name="translation_help">Segítsen nekünk lefordítani az alkalmazást a nyelvén a weblate</string>
-    <string name="hide_note">rejtett jegyzet</string>
-    <string name="hide_hidden">hide hidden notes</string>
-    <string name="show_note">make the note visible</string>
-    <string name="show_hidden">show hidden notes</string>
+    <string name="hide_note">a megjegyzés láthatatlan</string>
+    <string name="hide_hidden">rejtett jegyzetek rejtett</string>
+    <string name="show_note">a megjegyzés látható</string>
+    <string name="show_hidden">rejtett jegyzetek bemutatása</string>
 </resources>

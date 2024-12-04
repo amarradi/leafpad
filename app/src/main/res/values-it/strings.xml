@@ -59,8 +59,8 @@
     <string name="participate">Partecipazione</string>
     <string name="translate">Traduci l\'app su Weblate</string>
     <string name="translation_help">Aiutaci a tradurre l\'app nella tua lingua su weblate</string>
-    <string name="hide_note">nascondi nota</string>
-    <string name="hide_hidden">hide hidden notes</string>
-    <string name="show_note">make the note visible</string>
-    <string name="show_hidden">show hidden notes</string>
+    <string name="hide_note">rendere invisibile la nota</string>
+    <string name="hide_hidden">nascondere le note nascoste</string>
+    <string name="show_note">rendere visibile la nota</string>
+    <string name="show_hidden">mostra note nascoste</string>
 </resources>

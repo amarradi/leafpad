@@ -59,8 +59,8 @@
     <string name="participate">Particip</string>
     <string name="translate">Vertaal de app op Weblate</string>
     <string name="translation_help">Help ons de app te vertalen in je taal op Weblate</string>
-    <string name="hide_note">verberg je briefje</string>
-    <string name="hide_hidden">hide hidden notes</string>
-    <string name="show_note">make the note visible</string>
-    <string name="show_hidden">show hidden notes</string>
+    <string name="hide_note">maak het briefje onzichtbaar</string>
+    <string name="hide_hidden">verberg verborgen notities</string>
+    <string name="show_note">maak de brief zichtbaar</string>
+    <string name="show_hidden">laat verborgen notities zien</string>
 </resources>

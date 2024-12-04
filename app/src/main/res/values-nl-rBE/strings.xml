@@ -50,7 +50,7 @@
     <string name="share_note">Een briefje delen?</string>
     <string name="thanks">Dank je Stefan, Stefan, Manuel, Falk en Stephanie voor je ideeën en de app testen.</string>
     <string name="statement">We schrijven boodschappenlijsten op, notities voor gesprekken, inpakkenlijsten voor vakanties of verjaardagen. Dit zijn allemaal goede dingen zodat we ze niet vergeten. Hij schrijft onze goede en slechte daden op en redt ze. God staat boven alles en weet gewoon alles. God houdt van mensen en wil met hen samenwerken. Maar dit is alleen mogelijk als we gezien worden door God zo onschuldig. Door vertrouwen in Jezus Christus, zijn onze slechte daden voor God uitgeroeid. Jezus Christus sprong op ons schuldgevoel op het kruis van Calvary. Iedereen die dit accepteert is voor altijd in het boek van het leven beland. Ben je geregistreerd in het boek van het leven?</string>
-    <string name="hide_note">verberg je briefje</string>
+    <string name="hide_note">maak het briefje onzichtbaar</string>
     <string name="translation_help">Help ons de app te vertalen in je taal op Weblate</string>
     <string name="rev20_12">En ik zag de doden, de grote en de kleine, staande voor de troon en boeken werden geopend, en een ander boek werd geopend, dat is het boek van het leven, en de doden werden uit de dingen beoordeeld die in de boeken geschreven stonden, volgens hun werk. Openbaring 20:12</string>
     <string name="its_opensource">Leafpad is OpenSource en zijn vrije</string>
@@ -60,7 +60,7 @@
     <string name="remove_dialog_title">Weet je het zeker?</string>
     <string name="action_add_note">Add Not</string>
     <string name="action_share_note">Schrijf notitie</string>
-    <string name="hide_hidden">hide hidden notes</string>
-    <string name="show_note">make the note visible</string>
-    <string name="show_hidden">show hidden notes</string>
+    <string name="hide_hidden">verberg verborgen notities</string>
+    <string name="show_note">maak de brief zichtbaar</string>
+    <string name="show_hidden">laat verborgen notities zien</string>
 </resources>
