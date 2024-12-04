@@ -149,6 +149,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             case R.id.item_settings:
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingsIntent);
+                return true;
             case R.id.item_show_hidden:
                 toggleShowHidden(item);
                 return true;
