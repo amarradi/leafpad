@@ -7,7 +7,7 @@ leafpad does not require an internet connection or an account to create notes.
 leafpad never shares your data with a server. Your notes remain stored locally on your device.
 
 ## remove your data
-leafpad remove your note completly, when you delete your note
+leafpad remove your note completely, when you delete your note
 
 ## features
 * leafpad allows you to create notes without prior configuration
@@ -16,6 +16,7 @@ leafpad remove your note completly, when you delete your note
 * Notes can be created with an shortcut. Long tab to the leafpad-icon then write down new
 * leafpad support the android dark/night-mode
 * leafpad sorted your notes by date and time
+*  leafpad allows you to hide your notes from prying eyes
 * <b>leafpad is now available in many languages, for example English, German, French, Polish. If languages are still missing, you are welcome to participate.</b>
 
 # Translation
