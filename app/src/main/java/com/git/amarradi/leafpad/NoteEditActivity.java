@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.materialswitch.MaterialSwitch;
 
 import java.util.Objects;
 
@@ -24,33 +25,45 @@ public class NoteEditActivity extends AppCompatActivity {
     private Note note;
     private MaterialToolbar toolbar;
     private Resources resources;
+    private MaterialSwitch visibleSwitch;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_note_edit);
-
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+        Intent intent = getIntent();
+        String noteId = intent.getStringExtra(MainActivity.EXTRA_NOTE_ID);
         if (Objects.equals(getIntent().getAction(), "android.intent.action.VIEW")) {
             note = Leaf.load(this, Note.makeId());
+        } else {
+            note = Leaf.load(this, noteId);
         }
+
         resources = getResources();
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        Intent intent = getIntent();
 
         titleEdit = findViewById(R.id.title_edit);
-
         bodyEdit = findViewById(R.id.body_edit);
+        visibleSwitch = findViewById(R.id.visible_switch);
 
-        String noteId = intent.getStringExtra(MainActivity.EXTRA_NOTE_ID);
+
+
 
         note = Leaf.load(this, noteId);
+
+        toggleView();
+
+
         if (isNewEntry(note, intent)) {
             note = Leaf.load(this, Note.makeId());
-            //new note
+            note.setHide(false);
+            toggleView();
             toolbar.setSubtitle(R.string.new_note);
             String action = intent.getAction();
             String type = intent.getType();
@@ -68,7 +81,6 @@ public class NoteEditActivity extends AppCompatActivity {
 
         } else {
             //existing note
-
             toolbar.setTitle(R.string.action_fab_note);
             toolbar.setSubtitle(note.getTitle());
             titleEdit.setText(note.getTitle());
@@ -76,8 +88,36 @@ public class NoteEditActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private void toggleView() {
+        visibleSwitch.setOnCheckedChangeListener(null);
+        if(note.isHide()) {
+            visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_closed));
+            visibleSwitch.setText(getString(R.string.show_note));
+            visibleSwitch.setChecked(true);
+        } else {
+            visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_open));
+            visibleSwitch.setText(getString(R.string.hide_note));
+            visibleSwitch.setChecked(false);
+        }
+        visibleSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            note.setHide(isChecked);
+            if (isChecked) {
+                visibleSwitch.setText(getString(R.string.show_note));
+                visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_closed));
+            } else {
+                visibleSwitch.setText(getString(R.string.hide_note));
+                visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_open));
+            }
+        });
+
+    }
+
     private boolean isNewEntry(Note note, Intent intent) {
-        return note.getDate().isEmpty() || note.getTime().isEmpty() || "android.intent.action.SEND".equals(intent.getAction());
+        return note == null
+                || note.getDate().isEmpty()
+                || note.getTime().isEmpty()
+                || "android.intent.action.SEND".equals(intent.getAction());
     }
 
     @Override
@@ -88,12 +128,15 @@ public class NoteEditActivity extends AppCompatActivity {
         }
         note.setTitle(titleEdit.getText().toString());
         note.setBody(bodyEdit.getText().toString());
+
         if (note.getBody().isEmpty() && note.getTitle().isEmpty()) {
             //don't save empty notes
             Leaf.remove(this, note);
-            return;
+            note = null;
+            finish();
+        } else {
+            Leaf.set(this, note);
         }
-        Leaf.set(this, note);
     }
 
     @Override
@@ -136,11 +179,11 @@ public class NoteEditActivity extends AppCompatActivity {
                 materialAlertDialogBuilder.show();
                 return true;
             case R.id.action_save:
+                note.setHide(visibleSwitch.isChecked());
                 note.setTitle(titleEdit.getText().toString());
                 note.setBody(bodyEdit.getText().toString());
-                note.setHide(true);
+
                 if (note.getBody().isEmpty() && note.getTitle().isEmpty()) {
-                    //don't save empty notes
                     Leaf.remove(this, note);
                 } else {
                     Leaf.set(this, note);
@@ -171,17 +214,15 @@ public class NoteEditActivity extends AppCompatActivity {
         startActivity(Intent.createChooser(sendIntent, getString(R.string.share_note)));
     }
 
-    public String getExportString() {
-        String exportString = "";
-        if (!note.getTitle().isEmpty()) {
-            exportString += getString(R.string.action_share_title) + ": " + note.getTitle() + "\n";
-            if (!note.getBody().isEmpty()) {
-                exportString += getString(R.string.action_share_body) + ": " + note.getBody();
-            }
-        } else if (!note.getBody().isEmpty()) {
-            exportString += note.getBody();
-        }
-        return exportString;
-    }
 
+    public String getExportString() {
+        StringBuilder exportString = new StringBuilder();
+        if (!note.getTitle().isEmpty()) {
+            exportString.append(getString(R.string.action_share_title)).append(": ").append(note.getTitle()).append("\n");
+        }
+        if (!note.getBody().isEmpty()) {
+            exportString.append(getString(R.string.action_share_body)).append(": ").append(note.getBody());
+        }
+        return exportString.toString().trim();
+    }
 }
