@@ -60,7 +60,7 @@
     <string name="translate">Oversæt app på Weblate</string>
     <string name="translation_help">Hjælp os med at oversætte appen til dit sprog på weblate</string>
     <string name="hide_note">skjul note</string>
-    <string name="hide_hidden">hide hidden notes</string>
-    <string name="show_note">make the note visible</string>
-    <string name="show_hidden">show hidden notes</string>
+    <string name="hide_hidden">skjul skjulte noter</string>
+    <string name="show_note">gør note synlig</string>
+    <string name="show_hidden">vis skjulte noter</string>
 </resources>
