@@ -60,4 +60,7 @@
     <string name="translate">Weblate पर ऐप का अनुवाद करें</string>
     <string name="translation_help">वेबलेट पर अपनी भाषा में एप्लिकेशन को अनुवाद करने में मदद करें</string>
     <string name="hide_note">ध्यान दें</string>
+    <string name="hide_hidden">hide hidden notes</string>
+    <string name="show_note">make the note visible</string>
+    <string name="show_hidden">show hidden notes</string>
 </resources>
