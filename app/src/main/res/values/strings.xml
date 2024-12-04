@@ -18,9 +18,7 @@
     <string name="new_note">new Note</string>
     <string name="satisfied">Enjoying leafpad?</string>
     <string name="rate_the_app">How about a review in Google\'s PlayStore?</string>
-
     <string name="created_txt">created at</string>
-
     <string name="remove_dialog_title">Are you sure?</string>
     <string name="remove_dailog_message">This note will be permanently deleted. Afterwards it cannot be restored.</string>
     <string name="remove_dialog_abort">Cancel</string>

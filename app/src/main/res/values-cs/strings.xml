@@ -33,8 +33,8 @@
     <string name="remove_dailog_message">Tato poznámka bude trvale odstraněna. Poté nelze obnovit.</string>
     <string name="version">verze</string>
     <string name="action_share_title">Titul</string>
-    <string name="participate">Čeština</string>
-    <string name="title_hint">Čeština</string>
+    <string name="participate">účastnit se</string>
+    <string name="title_hint">název</string>
     <string name="about">O nás</string>
     <string name="theme_summary">Toggle mezi tmavým a světlým tématem</string>
     <string name="created_txt">vytvořeno</string>
@@ -42,7 +42,7 @@
     <string name="licence">Open source licence</string>
     <string name="edited_text">upraveno na</string>
     <string name="body_hint">Poznámka</string>
-    <string name="lightmode_preference_key">čeština</string>
+    <string name="lightmode_preference_key">světelný režim</string>
     <string name="find_code_on_github">Github</string>
     <string name="darkmode_preference_key">čeština</string>
     <string name="search">hledat</string>
@@ -50,7 +50,7 @@
     <string name="share_note">Sdílení Poznámka?</string>
     <string name="thanks">Děkuji Stefan, Stefan, Manuel, Falk a Stephanie pro vaše nápady a testování aplikace.</string>
     <string name="statement">Vypíšeme seznamy obchodů, poznámky pro rozhovory, balíčky pro dovolenou nebo narozeniny přátel. To jsou všechny dobré věci, abychom je nezapomněli. Je to velmi podobné s Bohem, píše své dobré a špatné skutky a uloží je. Bůh je nad vším a jednoduše ví všechno. Bůh miluje lidi a chce mít přátelství s nimi. Ale to je možné pouze v případě, že jsme viděli Bohem jako neškodný. Prostřednictvím víry v Ježíši Kristu, naše špatné skutky (naše viny) se před Bohem otřít. Ježíš Kristus atoned pro naše viny na kříži Calvary. Každá osoba, která přijímá tuto knihu života navždy. Jste registrováni v knize života?</string>
-    <string name="hide_note">skrýt poznámka</string>
+    <string name="hide_note">aby poznámka neviditelný</string>
     <string name="translation_help">Pomocí aplikace přeložit do jazyka na weblate</string>
     <string name="rev20_12">A viděl jsem mrtvý, velký a malý, stojící před trůnem; a knihy byly otevřeny: a další kniha byla otevřena, která je kniha života: a mrtvý byli posuzováni z věcí, které byly napsány v knihách, podle jejich děl. Zjevení 20:12</string>
     <string name="its_opensource">Leták je OpenSource a jeho zdarma</string>
@@ -60,7 +60,7 @@
     <string name="remove_dialog_title">Jste si jisti?</string>
     <string name="action_add_note">Přidat komentář</string>
     <string name="action_share_note">Sdílení poznámky</string>
-    <string name="hide_hidden">hide hidden notes</string>
-    <string name="show_note">make the note visible</string>
-    <string name="show_hidden">show hidden notes</string>
+    <string name="hide_hidden">skrýt skryté poznámky</string>
+    <string name="show_note">zviditelnit</string>
+    <string name="show_hidden">zobrazit skryté poznámky</string>
 </resources>
