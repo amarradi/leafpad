@@ -7,7 +7,7 @@ leafpad does not require an internet connection or an account to create notes.
 leafpad never shares your data with a server. Your notes remain stored locally on your device.
 
 ## remove your data
-leafpad remove your note completly, when you delete your note
+leafpad remove your note completely, when you delete your note
 
 ## features
 * leafpad allows you to create notes without prior configuration
