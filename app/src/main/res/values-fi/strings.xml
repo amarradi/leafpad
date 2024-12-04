@@ -34,7 +34,7 @@
     <string name="find_code_on_github_summary">Voit tarkastella ja tarkistaa lähdekoodin arkiston kautta. Olet tervetullut avaamaan ongelman muutospyyntöihin ja virheilmoituksiin.</string>
     <string name="action_share_title">Title</string>
     <string name="participate">Osallistuminen</string>
-    <string name="title_hint">Title</string>
+    <string name="title_hint">Otsikko</string>
     <string name="about">About about</string>
     <string name="theme_summary">Pimeän ja valon teeman välissä</string>
     <string name="what_is_leafpad">Leafpad on yksinkertainen sovellus muistiinpanojen tekemiseen.</string>
