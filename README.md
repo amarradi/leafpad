@@ -16,6 +16,7 @@ leafpad remove your note completly, when you delete your note
 * Notes can be created with an shortcut. Long tab to the leafpad-icon then write down new
 * leafpad support the android dark/night-mode
 * leafpad sorted your notes by date and time
+*  leafpad allows you to hide your notes from prying eyes
 * <b>leafpad is now available in many languages, for example English, German, French, Polish. If languages are still missing, you are welcome to participate.</b>
 
 # Translation
