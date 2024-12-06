@@ -10,7 +10,6 @@
         <item name="boxCornerRadiusTopEnd">@dimen/CornerRadiusTextView</item>
         <item name="boxCornerRadiusBottomStart">@dimen/CornerRadiusTextView</item>
         <item name="boxCornerRadiusBottomEnd">@dimen/CornerRadiusTextView</item>
-
     </style>
 
     <style name="ThemeOverlay.App.TextInputLayout" parent="">
@@ -28,6 +27,7 @@
         <item name="color">@color/seed</item>
         <item name="colorSurface">@color/seed</item>
         <item name="textAppearanceTitleMedium">@style/TextAppearance.App.SubTitleText</item>
+
     </style>
 
     <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
