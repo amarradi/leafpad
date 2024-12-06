@@ -59,8 +59,8 @@
     <string name="participate">Mitmachen</string>
     <string name="translate">Übersetzen Sie die App auf Weblate</string>
     <string name="translation_help">Hilf uns bei der Übersetzung der App in deine Sprache auf weblate</string>
-    <string name="hide_note">die notiz unsichtbar machen</string>
-    <string name="show_note">Notiz anzeigen</string>
+    <string name="hide_note">Die Notiz unsichtbar machen</string>
+    <string name="show_note">Die Notiz sichtbar machen</string>
     <string name="show_hidden">zeige versteckte Notizen</string>
     <string name="hide_hidden">verberge versteckte Notizen</string>
 </resources>
