@@ -28,17 +28,27 @@ public class Leaf {
     private final static String BODY_PREFIX = "note_body_";
     private final static boolean HIDE = false;
 
-    public static ArrayList<Note> loadAll(Context context) {
+    public static ArrayList<Note> loadAll(Context context, boolean includeHidden) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
         ArrayList<Note> notes = new ArrayList<>();
         Set<String> noteIds = sharedPreferences.getStringSet(ID_KEY, null);
+        Log.d("LoadAll", "Note IDs loaded: " + noteIds);
 
 
-        if (noteIds != null) {
+
+       /** if (noteIds != null) {
             for (String noteId : noteIds) {
                 notes.add(load(context, noteId));
             }
+        }**/
+
+        for (String noteId : noteIds) {
+            Note note = load(context, noteId);
+            if (!note.isHide() || includeHidden) { // Parameter `includeHidden` hinzufügen
+                notes.add(note);
+            }
         }
+
 
         DateTimeFormatter d;
         DateTimeFormatter t;
@@ -61,6 +71,15 @@ public class Leaf {
 
     public static Note load(Context context, String noteId) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
+        boolean noteHide;
+        if (sharedPreferences.contains(HIDE + noteId)) {
+            // Migrate old data if found
+            noteHide = sharedPreferences.getBoolean(HIDE + noteId, false);
+            sharedPreferences.edit().remove(HIDE + noteId).putBoolean(HIDE + "_" + noteId, noteHide).apply();
+        } else {
+            noteHide = sharedPreferences.getBoolean(HIDE + "_" + noteId, false);
+        }
+
         return load(sharedPreferences, noteId);
     }
 
@@ -70,7 +89,7 @@ public class Leaf {
         String noteDate = sharedPreferences.getString(ADDDATE+ noteId,"");
         String noteTime = sharedPreferences.getString(ADDTIME + noteId,"");
         String noteCreateDate = sharedPreferences.getString(CREATEDATE+ noteId,"");
-        //boolean noteHide = sharedPreferences.getBoolean(HIDE + noteId,false); alter Schlüssel
+        //boolean noteHide = sharedPreferences.getBoolean(HIDE + noteId,false); //der alte Schlüssel bis version 1.14
         boolean noteHide = sharedPreferences.getBoolean(HIDE + "_" + noteId, false);
         return new Note(title, body, noteDate, noteTime, noteCreateDate, noteHide, noteId);
     }
@@ -97,7 +116,7 @@ public class Leaf {
         editor.putString(BODY_PREFIX + note.getId(), note.getBody());
         editor.putString(ADDDATE + note.getId(), note.getDate());
         editor.putString(ADDTIME + note.getId(), note.getTime());
-       // editor.putBoolean(HIDE + note.getId(), note.isHide());
+        //editor.putBoolean(HIDE + note.getId(), note.isHide());
 
         // Migriere alten Schlüssel, falls vorhanden
         if (sharedPreferences.contains(HIDE + note.getId())) {
