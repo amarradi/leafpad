@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.appbar.MaterialToolbar;
@@ -138,6 +139,15 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu_main, menu);
+        MenuItem item = menu.findItem(R.id.item_show_hidden);
+        if (showHidden) {
+            item.setIcon(ContextCompat.getDrawable(this, R.drawable.action_eye_closed));
+            item.setTitle(getString(R.string.hide_hidden));
+        } else {
+            item.setIcon(ContextCompat.getDrawable(this, R.drawable.action_eye_open));
+            item.setTitle(getString(R.string.show_hidden));
+        }
+        invalidateOptionsMenu();
         return true;
     }
 
@@ -160,14 +170,17 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @SuppressLint("UseCompatLoadingForDrawables")
     private void toggleShowHidden(MenuItem item) {
         showHidden = !showHidden;
-        if (showHidden) {
-            item.setIcon(getDrawable(R.drawable.action_eye_closed));
+        if (!showHidden) {
+            Log.d("MenuAction", "Setting icon to action_eye_closed");
+            item.setIcon(ContextCompat.getDrawable(this, R.drawable.action_eye_closed));
             item.setTitle(getString(R.string.hide_hidden));
         } else {
-            item.setIcon(getDrawable(R.drawable.action_eye_open));
+            Log.d("MenuAction", "Setting icon to action_eye_open");
+            item.setIcon(ContextCompat.getDrawable(this, R.drawable.action_eye_open));
             item.setTitle(getString(R.string.show_hidden));
         }
         updateListView();
+        invalidateOptionsMenu();
     }
 
 
@@ -178,11 +191,19 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
 
     public void updateDataset() {
-        notes = Leaf.loadAll(this);
-
+        notes = Leaf.loadAll(this, showHidden);
         data.clear();
         for (Note note : notes) {
-            if (showHidden || !note.isHide()) {
+            if (showHidden && note.isHide()) {
+                Log.d("Note", "Title: " + note.getTitle() + ", Hidden: " + note.isHide());
+                Map<String, String> datum = new HashMap<>();
+                datum.put("title", note.getTitle());
+                datum.put("body", note.getBody());
+                datum.put("date", note.getDate());
+                datum.put("time", note.getTime());
+                data.add(datum);
+            } else if(!showHidden && !note.isHide()){
+                Log.d("Note", "Title: " + note.getTitle() + ", Hidden: " + note.isHide());
                 Map<String, String> datum = new HashMap<>();
                 datum.put("title", note.getTitle());
                 datum.put("body", note.getBody());
