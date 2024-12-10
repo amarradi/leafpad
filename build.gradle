@@ -23,5 +23,12 @@ allprojects {
     }
 }
 tasks.register('clean', Delete) {
-    delete rootProject
+    delete(layout.buildDirectory)
 }
+
+
+tasks.named('clean', Delete) {
+    delete file("${rootDir}/build")
+}
+
+
