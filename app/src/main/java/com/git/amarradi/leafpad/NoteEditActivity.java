@@ -36,7 +36,6 @@ public class NoteEditActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         Intent intent = getIntent();
         String noteId = intent.getStringExtra(MainActivity.EXTRA_NOTE_ID);
         if (Objects.equals(getIntent().getAction(), "android.intent.action.VIEW")) {
@@ -52,13 +51,9 @@ public class NoteEditActivity extends AppCompatActivity {
         bodyEdit = findViewById(R.id.body_edit);
         visibleSwitch = findViewById(R.id.visible_switch);
 
-
-
-
         note = Leaf.load(this, noteId);
 
         toggleView();
-
 
         if (isNewEntry(note, intent)) {
             note = Leaf.load(this, Note.makeId());
@@ -149,9 +144,7 @@ public class NoteEditActivity extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
         switch (id) {
             case R.id.action_share_note:

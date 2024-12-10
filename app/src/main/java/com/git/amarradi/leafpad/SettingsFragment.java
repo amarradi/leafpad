@@ -16,8 +16,6 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceScreen;
 
-import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
-
 import java.util.Objects;
 
 public class SettingsFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -27,8 +25,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        addPreferencesFromResource(R.xml.preferences);
 
+        addPreferencesFromResource(R.xml.preferences);
         SharedPreferences sharedPreferences = getPreferenceScreen().getSharedPreferences();
         PreferenceScreen preferenceScreen = getPreferenceScreen();
         int count = preferenceScreen.getPreferenceCount();
@@ -36,62 +34,38 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             Preference preference = preferenceScreen.getPreference(i);
             if(!( preference instanceof CheckBoxPreference)) {
                 String value = sharedPreferences != null ? sharedPreferences.getString(preference.getKey(), "") : null;
-
                 setPreferenceSummary(preference,value);
             }
         }
 
         Preference about = findPreference("about");
         assert about != null;
-        Objects.requireNonNull(about).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(@NonNull Preference preference) {
-                Intent about_intent = new Intent(getActivity(),AboutActivity.class);
-                startActivity(about_intent);
-                return false;
-            }
-        });
-
-        Preference license = findPreference("license");
-        assert license != null;
-        license.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(@NonNull Preference preference) {
-                Intent license_intent = new Intent(getActivity(), OssLicensesMenuActivity.class);
-                startActivity(license_intent);
-                return false;
-            }
+        Objects.requireNonNull(about).setOnPreferenceClickListener(preference -> {
+            Intent about_intent = new Intent(getActivity(),AboutActivity.class);
+            startActivity(about_intent);
+            return false;
         });
 
         Preference rating = findPreference("rating");
         assert rating != null;
-        Objects.requireNonNull(rating).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(@NonNull Preference preference) {
-                launchAppStore(requireActivity(), requireContext().getPackageName());
-                return false;
-            }
+        Objects.requireNonNull(rating).setOnPreferenceClickListener(preference -> {
+            launchAppStore(requireActivity(), requireContext().getPackageName());
+            return false;
         });
 
         Preference github = findPreference("github");
         assert github != null;
-        Objects.requireNonNull(github).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(@NonNull Preference preference) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(GITHUBPATH));
-                startActivity(browserIntent);
-                return false;
-            }
+        Objects.requireNonNull(github).setOnPreferenceClickListener(preference -> {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(GITHUBPATH));
+            startActivity(browserIntent);
+            return false;
         });
 
         Preference translate = findPreference("translate");
         assert translate != null;
-        (translate).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(@NonNull Preference preference) {
-                launchWeblateProject(requireActivity());
-                return false;
-            }
+        (translate).setOnPreferenceClickListener(preference -> {
+            launchWeblateProject(requireActivity());
+            return false;
         });
     }
 
@@ -102,7 +76,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             if (preferenceIndex >= 0) {
                 listPreference.setSummary(listPreference.getEntries()[preferenceIndex]);
             }
-        } else if(preference instanceof EditTextPreference){
+        } else if (preference instanceof EditTextPreference) {
             preference.setSummary(value);
         }
     }
