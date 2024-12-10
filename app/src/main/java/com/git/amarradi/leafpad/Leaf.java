@@ -29,26 +29,18 @@ public class Leaf {
     private final static boolean HIDE = false;
 
     public static ArrayList<Note> loadAll(Context context, boolean includeHidden) {
+
         SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
         ArrayList<Note> notes = new ArrayList<>();
         Set<String> noteIds = sharedPreferences.getStringSet(ID_KEY, null);
-        Log.d("LoadAll", "Note IDs loaded: " + noteIds);
-
-
-
-       /** if (noteIds != null) {
+        if (noteIds != null) {
             for (String noteId : noteIds) {
-                notes.add(load(context, noteId));
-            }
-        }**/
-
-        for (String noteId : noteIds) {
-            Note note = load(context, noteId);
-            if (!note.isHide() || includeHidden) { // Parameter `includeHidden` hinzufügen
-                notes.add(note);
+                Note note = load(context, noteId);
+                if (!note.isHide() || includeHidden) {
+                    notes.add(note);
+                }
             }
         }
-
 
         DateTimeFormatter d;
         DateTimeFormatter t;
@@ -73,7 +65,6 @@ public class Leaf {
         SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
         boolean noteHide;
         if (sharedPreferences.contains(HIDE + noteId)) {
-            // Migrate old data if found
             noteHide = sharedPreferences.getBoolean(HIDE + noteId, false);
             sharedPreferences.edit().remove(HIDE + noteId).putBoolean(HIDE + "_" + noteId, noteHide).apply();
         } else {
@@ -126,7 +117,6 @@ public class Leaf {
         } else {
             editor.putBoolean(HIDE + "_" + note.getId(), note.isHide());
         }
-
         editor.apply();
     }
 
@@ -134,7 +124,6 @@ public class Leaf {
     public static void remove(Context context, Note note) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-
         Set<String> ids = sharedPreferences.getStringSet(ID_KEY, null);
 
         if (ids == null) {

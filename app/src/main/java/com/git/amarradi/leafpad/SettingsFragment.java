@@ -81,7 +81,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         }
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,7 +113,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     }
 
     public static void launchAppStore(Activity activity, String packageName) {
-
         Intent intent;
         try {
             intent = new Intent(Intent.ACTION_VIEW);

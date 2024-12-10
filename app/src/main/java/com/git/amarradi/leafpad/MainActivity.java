@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -28,7 +27,6 @@ import java.util.Map;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
-
 
     public final static String EXTRA_NOTE_ID = "com.git.amarradi.leafpad";
     public static final String SHARED_PREFS = "sharedPrefs";
@@ -60,8 +58,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         setSupportActionBar(toolbar);
 
         Objects.requireNonNull(getSupportActionBar()).setDefaultDisplayHomeAsUpEnabled(true);
-
-        // SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
 
         adapter = new SimpleAdapter(this, data,
                 R.layout.note_list_item,
@@ -104,7 +100,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
 
     private void changeTheme(String themeValue) {
-        Log.d("theme", "changeTheme: " + themeValue);
         AppCompatDelegate.setDefaultNightMode(toNightMode(themeValue));
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -121,8 +116,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
         return AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
     }
-
-
     @Override
     protected void onPause() {
         super.onPause();
@@ -134,13 +127,13 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         updateListView();
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu_main, menu);
         MenuItem item = menu.findItem(R.id.item_show_hidden);
         if (showHidden) {
-
             item.setIcon(getDrawable(R.drawable.action_eye_closed));
             item.setTitle(getString(R.string.hide_hidden));
         } else {
@@ -151,10 +144,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         return true;
     }
 
-    @SuppressLint({"NonConstantResourceId", "UseCompatLoadingForDrawables"})
+    @SuppressLint({"NonConstantResourceId"})
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
         switch (item.getItemId()) {
             case R.id.item_settings:
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
@@ -171,11 +163,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private void toggleShowHidden(MenuItem item) {
         showHidden = !showHidden;
         if (!showHidden) {
-            Log.d("MenuAction", "Setting icon to action_eye_closed");
             item.setIcon(getDrawable(R.drawable.action_eye_closed));
             item.setTitle(getString(R.string.hide_hidden));
         } else {
-            Log.d("MenuAction", "Setting icon to action_eye_open");
             item.setIcon(getDrawable(R.drawable.action_eye_open));
             item.setTitle(getString(R.string.show_hidden));
         }
@@ -195,7 +185,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         data.clear();
         for (Note note : notes) {
             if (showHidden && note.isHide()) {
-                Log.d("Note", "Title: " + note.getTitle() + ", Hidden: " + note.isHide());
                 Map<String, String> datum = new HashMap<>();
                 datum.put("title", note.getTitle());
                 datum.put("body", note.getBody());
@@ -203,7 +192,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 datum.put("time", note.getTime());
                 data.add(datum);
             } else if(!showHidden && !note.isHide()){
-                Log.d("Note", "Title: " + note.getTitle() + ", Hidden: " + note.isHide());
                 Map<String, String> datum = new HashMap<>();
                 datum.put("title", note.getTitle());
                 datum.put("body", note.getBody());
