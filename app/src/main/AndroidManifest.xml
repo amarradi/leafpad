@@ -51,13 +51,5 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.git.amarradi.leafpad.MainActivity" />
         </activity>
-        <activity
-            android:label="@string/oss_license_title"
-            android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity"
-            android:theme="@style/Theme.App.toolbar"/>
-        <activity
-            android:label="@string/oss_license_title"
-            android:name="com.google.android.gms.oss.licenses.OssLicensesActivity"
-            android:theme="@style/Theme.App.toolbar" />
     </application>
 </manifest>

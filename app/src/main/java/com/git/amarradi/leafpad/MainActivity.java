@@ -16,7 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.appbar.MaterialToolbar;
@@ -141,10 +140,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         menuInflater.inflate(R.menu.menu_main, menu);
         MenuItem item = menu.findItem(R.id.item_show_hidden);
         if (showHidden) {
-            item.setIcon(ContextCompat.getDrawable(this, R.drawable.action_eye_closed));
+
+            item.setIcon(getDrawable(R.drawable.action_eye_closed));
             item.setTitle(getString(R.string.hide_hidden));
         } else {
-            item.setIcon(ContextCompat.getDrawable(this, R.drawable.action_eye_open));
+            item.setIcon(getDrawable(R.drawable.action_eye_open));
             item.setTitle(getString(R.string.show_hidden));
         }
         invalidateOptionsMenu();
@@ -172,11 +172,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         showHidden = !showHidden;
         if (!showHidden) {
             Log.d("MenuAction", "Setting icon to action_eye_closed");
-            item.setIcon(ContextCompat.getDrawable(this, R.drawable.action_eye_closed));
+            item.setIcon(getDrawable(R.drawable.action_eye_closed));
             item.setTitle(getString(R.string.hide_hidden));
         } else {
             Log.d("MenuAction", "Setting icon to action_eye_open");
-            item.setIcon(ContextCompat.getDrawable(this, R.drawable.action_eye_open));
+            item.setIcon(getDrawable(R.drawable.action_eye_open));
             item.setTitle(getString(R.string.show_hidden));
         }
         updateListView();

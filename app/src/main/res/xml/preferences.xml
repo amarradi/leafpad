@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
         android:title="@string/general_preference">
@@ -12,8 +11,6 @@
             android:entries="@array/design_mode_preference_key"
             android:defaultValue="@string/system_preference_option_value"
             android:entryValues="@array/design_mode_preference_value" />
-
-
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/about" >
@@ -23,19 +20,9 @@
             android:summary="@string/tell_about"
             android:icon="@drawable/preference_about_the_app"/>
 
-        <Preference
-            android:icon="@drawable/preference_license"
-            android:key="license"
-            android:selectable="true"
-            android:title="@string/title_licence"
-            android:summary="@string/licence" />
-
     </PreferenceCategory>
     <PreferenceCategory
-        android:title="@string/participate"
-
-        >
-
+        android:title="@string/participate">
         <Preference
             android:selectable="true"
             android:icon="@drawable/preference_github_logo"
@@ -46,7 +33,7 @@
             android:selectable="true"
             android:key="translate"
             android:icon="@drawable/preference_translate_logo"
-            app:title="@string/translate"
+            android:title="@string/translate"
             android:summary="@string/translation_help"/>
         <Preference
             android:icon="@drawable/preference_rating"
