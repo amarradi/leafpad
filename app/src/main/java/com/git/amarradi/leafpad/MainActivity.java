@@ -35,9 +35,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public List<Note> notes;
     public SimpleAdapter adapter;
     public ListView listView;
-    private boolean showHidden = false; // Variable für den Zustand "versteckte anzeigen"
-
-
+    private boolean showHidden = false;
 
     List<Map<String, String>> data = new ArrayList<>();
 
@@ -49,7 +47,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         setContentView(R.layout.activity_main);
 
         setupSharedPreferences();
-
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         String themes = sharedPreferences.getString(DESIGN_MODE, "");
         changeTheme(themes);
@@ -64,14 +61,32 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 new String[]{"title", "date", "time", "state"},
                 new int[]{R.id.title_text, R.id.created_at, R.id.time_txt});
 
-        updateDataset();
+        //updateDataset();
 
         listView = findViewById(R.id.note_list_view);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener((adapter, v, position, id) -> {
-            Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
-            intent.putExtra(EXTRA_NOTE_ID, notes.get(position).getId());
-            startActivity(intent);
+
+            // Hole die ID aus der angezeigten Datenliste
+            String noteId = data.get(position).get("id");
+
+            // Finde die Notiz in der "notes"-Liste anhand der ID
+            Note selectedNote = null;
+            for (Note note : notes) {
+                if (note.getId().equals(noteId)) {
+                    selectedNote = note;
+                    break;
+                }
+            }
+
+            if (selectedNote != null) {
+                Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
+                intent.putExtra(EXTRA_NOTE_ID, selectedNote.getId());
+                // Log.d("MainActivity", "Selected Note: ID=" + selectedNote.getId() + ", Title=" + selectedNote.getTitle());
+                startActivity(intent);
+            } //else {
+              //  Log.e("MainActivity", "Error: Note not found for ID=" + noteId);
+            //}
         });
 
         ExtendedFloatingActionButton extendedFloatingActionButton = findViewById(R.id.fab_action_add);
@@ -140,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             item.setIcon(getDrawable(R.drawable.action_eye_open));
             item.setTitle(getString(R.string.show_hidden));
         }
-        invalidateOptionsMenu();
+        //invalidateOptionsMenu();
         return true;
     }
 
@@ -176,16 +191,19 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     public void updateListView() {
         updateDataset();
+
         ((SimpleAdapter) listView.getAdapter()).notifyDataSetChanged();
     }
 
 
     public void updateDataset() {
+        //Log.d("MainActivity", "updateDataset() called");
         notes = Leaf.loadAll(this, showHidden);
         data.clear();
         for (Note note : notes) {
             if (showHidden && note.isHide()) {
                 Map<String, String> datum = new HashMap<>();
+                datum.put("id", note.getId());
                 datum.put("title", note.getTitle());
                 datum.put("body", note.getBody());
                 datum.put("date", note.getDate());
@@ -193,6 +211,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 data.add(datum);
             } else if(!showHidden && !note.isHide()){
                 Map<String, String> datum = new HashMap<>();
+                datum.put("id", note.getId());
                 datum.put("title", note.getTitle());
                 datum.put("body", note.getBody());
                 datum.put("date", note.getDate());
@@ -200,5 +219,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 data.add(datum);
             }
         }
+        // Debugging: Ausgabe der geladenen Daten
+        //for (Map<String, String> datum : data) {
+        //    Log.d("MainActivity", "Datum: " + datum);  // Hier wird jedes Element der Liste geloggt
+        //}
+
+        //Log.d("MainActivity", "Displayed Notes: " + data.size());
     }
 }

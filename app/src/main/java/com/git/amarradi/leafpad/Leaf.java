@@ -29,13 +29,13 @@ public class Leaf {
     private final static boolean HIDE = false;
 
     public static ArrayList<Note> loadAll(Context context, boolean includeHidden) {
-
         SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
         ArrayList<Note> notes = new ArrayList<>();
         Set<String> noteIds = sharedPreferences.getStringSet(ID_KEY, null);
         if (noteIds != null) {
             for (String noteId : noteIds) {
                 Note note = load(context, noteId);
+               // Log.d("Leaf", "Loaded Note: " + note.getTitle() + ", Hide: " + note.isHide());
                 if (!note.isHide() || includeHidden) {
                     notes.add(note);
                 }
@@ -67,8 +67,7 @@ public class Leaf {
         if (sharedPreferences.contains(HIDE + noteId)) {
             noteHide = sharedPreferences.getBoolean(HIDE + noteId, false);
             sharedPreferences.edit().remove(HIDE + noteId).putBoolean(HIDE + "_" + noteId, noteHide).apply();
-        } else {
-            noteHide = sharedPreferences.getBoolean(HIDE + "_" + noteId, false);
+           // Log.d("Leaf", "Migrating old hide key for noteId: " + noteId + ", Value: " + noteHide);
         }
 
         return load(sharedPreferences, noteId);
@@ -112,11 +111,14 @@ public class Leaf {
         // Migriere alten Schlüssel, falls vorhanden
         if (sharedPreferences.contains(HIDE + note.getId())) {
             boolean oldHide = sharedPreferences.getBoolean(HIDE + note.getId(), false);
+          //  Log.d("Leaf", "Migrating old hide key: " + oldHide);
             editor.remove(HIDE + note.getId()); // Alten Schlüssel entfernen
             editor.putBoolean(HIDE + "_" + note.getId(), oldHide); // Neuen Schlüssel setzen
         } else {
             editor.putBoolean(HIDE + "_" + note.getId(), note.isHide());
         }
+
+     //   Log.d("Leaf", "Saving Note: Title = " + note.getTitle() + ", Hide = " + note.isHide());
         editor.apply();
     }
 
@@ -137,6 +139,7 @@ public class Leaf {
         editor.remove(ADDDATE + note.getId());
         editor.remove(ADDTIME + note.getId());
         editor.remove(HIDE + note.getId());
+        editor.remove(HIDE + "_" + note.getId());
         editor.apply();
     }
 }
