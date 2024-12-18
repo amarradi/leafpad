@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -36,6 +37,7 @@ public class NoteEditActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         Intent intent = getIntent();
         String noteId = intent.getStringExtra(MainActivity.EXTRA_NOTE_ID);
         if (Objects.equals(getIntent().getAction(), "android.intent.action.VIEW")) {
@@ -54,6 +56,7 @@ public class NoteEditActivity extends AppCompatActivity {
         note = Leaf.load(this, noteId);
 
         toggleView();
+
 
         if (isNewEntry(note, intent)) {
             note = Leaf.load(this, Note.makeId());
@@ -95,6 +98,7 @@ public class NoteEditActivity extends AppCompatActivity {
             visibleSwitch.setText(getString(R.string.hide_note));
             visibleSwitch.setChecked(false);
         }
+        Log.d("NoteEditActivity", "Note visibility toggled: Hide = " + note.isHide());
         visibleSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             note.setHide(isChecked);
             if (isChecked) {
@@ -109,10 +113,9 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private boolean isNewEntry(Note note, Intent intent) {
-        return note == null
-                || note.getDate().isEmpty()
-                || note.getTime().isEmpty()
-                || "android.intent.action.SEND".equals(intent.getAction());
+        Log.d("NoteEditActivity", "isNewEntry = "+ note.getDate().isEmpty() + " "+ note.getTime().isEmpty());
+        return note.getDate().isEmpty() || note.getTime().isEmpty() || "android.intent.action.SEND".equals(intent.getAction());
+
     }
 
     @Override
@@ -206,7 +209,6 @@ public class NoteEditActivity extends AppCompatActivity {
         sendIntent.setType("text/plain");
         startActivity(Intent.createChooser(sendIntent, getString(R.string.share_note)));
     }
-
 
     public String getExportString() {
         StringBuilder exportString = new StringBuilder();

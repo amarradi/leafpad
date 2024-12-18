@@ -13,8 +13,8 @@ android {
         applicationId "com.git.amarradi.leafpad"
         minSdkVersion 25
         targetSdkVersion 34
-        versionCode 21
-        versionName "1.16"
+        versionCode 22
+        versionName "1.17"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
@@ -62,8 +62,7 @@ dependencies {
     def splashscreen = "1.0.1"
     def constraintlayout = "2.1.4"
     def preference_version = "1.2.1"
-  //  def play_services_oss = "17.1.0"
-   // def play_servides_tasks ="18.2.0"
+
     implementation "androidx.core:core:$core"
     implementation "androidx.coordinatorlayout:coordinatorlayout:$coordinatorLayout"
     implementation "androidx.appcompat:appcompat:$appcompat"
@@ -71,6 +70,4 @@ dependencies {
     implementation "androidx.core:core-splashscreen:$splashscreen"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
     implementation "androidx.preference:preference:$preference_version"
-  //  implementation "com.google.android.gms:play-services-oss-licenses:$play_services_oss"
-   // implementation "com.google.android.gms:play-services-tasks:$play_servides_tasks"
 }
