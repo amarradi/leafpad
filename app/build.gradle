@@ -8,11 +8,11 @@ plugins {
 
 
 android {
-    compileSdk 34
+    compileSdk 35
     defaultConfig {
         applicationId "com.git.amarradi.leafpad"
         minSdkVersion 25
-        targetSdkVersion 34
+        targetSdkVersion 35
         versionCode 22
         versionName "1.17"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -39,12 +39,13 @@ android {
     buildFeatures {
         viewBinding true
     }
-    externalNativeBuild {
-        cmake {
-            path file('src/main/cpp/CMakeLists.txt')
-            version '3.22.1'
-        }
-    }
+//    externalNativeBuild {
+//        cmake {
+//            path file('src/main/cpp/CMakeLists.txt')
+//            version '3.22.1'
+//        }
+//    }
+
     java {
         toolchain {
             languageVersion = JavaLanguageVersion.of(11)
