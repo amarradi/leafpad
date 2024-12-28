@@ -12,7 +12,7 @@
     <string name="translate">Translate the app on Weblate</string>
     <string name="show_note">make the note visible</string>
     <string name="leafpad_work">Leafpad saves all data locally on your smartphone. The notes or metadata such as date and time are not stored in any cloud and are not shared with anyone. No text analysis is carried out either. The notes belong to you. You decide what you do with them.</string>
-    <string name="new_note">new Note</string>
+    <string name="new_note">nova nota</string>
     <string name="imported">nota enviada para o Leafpad</string>
     <string name="rate_the_app">Que tal uma review na Google PlayStore?</string>
     <string name="add_shortcut_short_label">Escrever algo novo</string>
@@ -26,7 +26,7 @@
     <string name="hide_hidden">hide hidden notes</string>
     <string name="change">version</string>
     <string name="system_preference_key">follow system (standard)</string>
-    <string name="contentDescription">add new Note</string>
+    <string name="contentDescription">adicionar nova nota</string>
     <string name="action_edit_note">Editar nota</string>
     <string name="note_will_be_saved_first">Note will be saved first</string>
     <string name="general_preference">General</string>
@@ -39,11 +39,11 @@
     <string name="title_hint">Título</string>
     <string name="about">About</string>
     <string name="theme_summary">Toggle between dark and light theme</string>
-    <string name="created_txt">created at</string>
+    <string name="created_txt">criado em</string>
     <string name="action_remove">Remover nota</string>
     <string name="licence">Open source licenses</string>
-    <string name="edited_text">edited at</string>
-    <string name="body_hint">Note</string>
+    <string name="edited_text">editado em</string>
+    <string name="body_hint">Nota</string>
     <string name="lightmode_preference_key">lightmode</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="darkmode_preference_key">darkmode</string>
@@ -59,7 +59,7 @@
     <string name="satisfied">Gostando do Leafpad?</string>
     <string name="app_name">Leafpad</string>
     <string name="about_the_app">About the App</string>
-    <string name="remove_dialog_title">Are you sure?</string>
+    <string name="remove_dialog_title">Tens a certeza?</string>
     <string name="action_add_note">Adicionar nota</string>
     <string name="show_hidden">show hidden notes</string>
     <string name="action_share_note">Compartilhar nota</string>
