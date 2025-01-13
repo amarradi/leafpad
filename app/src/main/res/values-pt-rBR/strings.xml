@@ -28,7 +28,7 @@
     <string name="system_preference_key">Seguir o sistema (padrão)</string>
     <string name="contentDescription">adicionar nova nota</string>
     <string name="action_edit_note">Editar nota</string>
-    <string name="note_will_be_saved_first">Note will be saved first</string>
+    <string name="note_will_be_saved_first">Nota será salva primeiro</string>
     <string name="general_preference">Geral</string>
     <string name="title_licence">Licenças</string>
     <string name="remove_dailog_message">Esta nota será permanentemente excluída. Ela não poderá ser restaurada posteriormente.</string>
@@ -53,7 +53,7 @@
     <string name="thanks">Obrigado Stefan, Stefan, Manuel, Falk e Stephanie por suas ideias e por testar o aplicativo.</string>
     <string name="statement">Escrevemos listas de compras, notas de conversas, listas de o que levar para férias ou aniversários de amigos. São coisas boas para não esquecermos. É muito semelhante a Deus, ele escreve nossas boas e más ações e as salva. Deus está acima de tudo e simplesmente sabe tudo. Deus ama as pessoas e quer ter comunhão com elas. Mas isso só é possível se somos vistos por Deus sem a culpa de nossas ações. Através da fé em Jesus Cristo, nossas más ações (nossa culpa) são exterminadas diante de Deus. Jesus Cristo expiou por nossa culpa na cruz do Calvário. Toda pessoa que aceita isso é inserida no livro da vida para sempre. Você está registado no livro da vida?</string>
     <string name="hide_note">tornar a nota invisível</string>
-    <string name="translation_help">Help us translate the app into your language on weblate</string>
+    <string name="translation_help">Ajude-nos a traduzir o aplicativo em seu idioma no weblate</string>
     <string name="rev20_12">E vi os mortos, grandes e pequenos, que estavam diante de Deus, e abriram-se os livros; e abriu-se outro livro, que é o da vida. E os mortos foram julgados pelas coisas que estavam escritas nos livros, segundo as suas obras. Apocalipse 20:12</string>
     <string name="its_opensource">Leafpad é um aplicativo de código aberto e gratuito</string>
     <string name="satisfied">Gostando do Leafpad?</string>
