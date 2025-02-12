@@ -17,6 +17,7 @@
             android:exported="false" />
         <activity
             android:name=".SettingsActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false"
             android:label="@string/menu_settings"
             android:theme="@style/Theme.App.toolbar"

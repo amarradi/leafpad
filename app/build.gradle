@@ -56,13 +56,14 @@ android {
 dependencies {
     implementation fileTree(dir: 'lfibs', include: ['*.jar'])
 
-    def core = "1.13.1"
+    def core = "1.15.0"
     def coordinatorLayout = "1.2.0"
-    def appcompat = "1.6.1"
+    def appcompat = "1.7.0"
     def material= "1.12.0"
-    def splashscreen = "1.0.1"
-    def constraintlayout = "2.1.4"
+    def splashscreen = "1.2.0-alpha02"
+    def constraintlayout = "2.2.0"
     def preference_version = "1.2.1"
+    def activity_version = '1.10.0'
 
     implementation "androidx.core:core:$core"
     implementation "androidx.coordinatorlayout:coordinatorlayout:$coordinatorLayout"
@@ -71,4 +72,5 @@ dependencies {
     implementation "androidx.core:core-splashscreen:$splashscreen"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
     implementation "androidx.preference:preference:$preference_version"
+    implementation "androidx.activity:activity:$activity_version"
 }

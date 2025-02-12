@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base application theme -->
+
     <style name="Theme.App" parent="Theme.Material3.DayNight.NoActionBar">
 
         <!-- Color Primary -->
@@ -10,7 +10,7 @@
         <item name="colorPrimaryContainer">@color/md_theme_dark_primaryContainer</item>
         <item name="colorOnPrimaryContainer">@color/md_theme_dark_onPrimaryContainer</item>
         <item name="android:statusBarColor">@color/md_theme_light_primary</item>
-
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
         <!-- Color Secondary -->
         <item name="colorSecondary">@color/md_theme_dark_secondary</item>
         <item name="colorOnSecondary">@color/md_theme_dark_onSecondary</item>
@@ -39,12 +39,14 @@
         <item name="colorPrimaryInverse">@color/md_theme_dark_inversePrimary</item>
         <item name="colorControlNormal">@color/md_theme_dark_onPrimary</item>
 
-         <!-- Fonts -->
+        <!-- Fonts -->
         <item name="android:fontFamily">@font/opensans_regular</item>
         <!-- TextInput Style -->
         <item name="textInputStyle">@style/Widget.App.TextInputLayout</item>
         <!-- FloatingActionButton -->
-        <item name="extendedFloatingActionButtonStyle">@style/Widget.Material3.ExtendedFloatingActionButton.Primary</item>
+        <item name="extendedFloatingActionButtonStyle">
+            @style/Widget.Material3.ExtendedFloatingActionButton.Primary
+        </item>
         <!-- AppBar Design -->
         <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
         <!-- StatusBar -->
@@ -63,20 +65,4 @@
         <item name="actionOverflowButtonStyle">@style/IconOverFlow</item>
         <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog</item>
     </style>
-
-    <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
-        <item name="colorPrimary">@color/md_theme_light_primary</item>
-        <item name="colorSecondary">@color/md_theme_dark_secondary</item>
-        <item name="colorSurface">@color/md_theme_dark_surface</item>
-        <item name="colorOnSurface">@color/md_theme_dark_onSurface</item>
-        <item name="alertDialogStyle">@style/MaterialAlertDialog.App</item>
-        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.App.Title.Text</item>
-        <item name="buttonBarPositiveButtonStyle">@style/Widget.App.Button</item>
-        <item name="buttonBarNegativeButtonStyle">@style/Widget.App.Button</item>
-    </style>
-
-    <style name="IconOverFlow" parent="Widget.AppCompat.ActionButton.Overflow">
-        <item name="android:tint">@color/md_theme_light_onSecondary</item>
-    </style>
-
 </resources>

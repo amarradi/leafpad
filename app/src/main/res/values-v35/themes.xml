@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base application theme -->
+
     <style name="Theme.App" parent="Theme.Material3.Light.NoActionBar">
         <!-- Color Primary -->
         <item name="colorPrimary">@color/md_theme_light_primary</item>
@@ -8,6 +8,7 @@
         <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
         <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
         <item name="android:statusBarColor">@color/md_theme_light_primary</item>
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
 
         <!-- Color Secondary -->
         <item name="colorSecondary">@color/md_theme_light_secondary</item>
@@ -42,7 +43,9 @@
         <!-- TextInput Style -->
         <item name="textInputStyle">@style/Widget.App.TextInputLayout</item>
         <!-- FloatingActionButton -->
-        <item name="extendedFloatingActionButtonStyle">@style/Widget.Material3.ExtendedFloatingActionButton.Primary</item>
+        <item name="extendedFloatingActionButtonStyle">
+            @style/Widget.Material3.ExtendedFloatingActionButton.Primary
+        </item>
         <!-- AppBar Design -->
         <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
         <!-- StatusBar -->
@@ -63,20 +66,4 @@
 
         <item name="actionOverflowButtonStyle">@style/IconOverFlow</item>
     </style>
-
-    <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
-        <item name="colorPrimary">@color/md_theme_light_primary</item>
-        <item name="colorSecondary">@color/md_theme_light_secondary</item>
-        <item name="colorSurface">@color/md_theme_light_surface</item>
-        <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
-        <item name="alertDialogStyle">@style/MaterialAlertDialog.App</item>
-        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.App.Title.Text</item>
-        <item name="buttonBarPositiveButtonStyle">@style/Widget.App.Button</item>
-        <item name="buttonBarNegativeButtonStyle">@style/Widget.App.Button</item>
-    </style>
-
-    <style name="IconOverFlow" parent="Widget.AppCompat.ActionButton.Overflow">
-        <item name="android:tint">@color/md_theme_light_onSecondary</item>
-    </style>
-
 </resources>
