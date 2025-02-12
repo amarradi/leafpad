@@ -69,7 +69,9 @@
                     android:ems="5"
                     android:gravity="top"
                     android:hint="@string/body_hint"
-                    android:scrollbars="none"
+                    android:scrollbars="vertical"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:inputType="textMultiLine|textCapSentences|textWebEmailAddress|textAutoCorrect|textPersonName|textUri" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.materialswitch.MaterialSwitch
