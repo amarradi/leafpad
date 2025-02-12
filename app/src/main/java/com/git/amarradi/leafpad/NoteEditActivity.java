@@ -84,7 +84,9 @@ public class NoteEditActivity extends AppCompatActivity {
             titleEdit.setText(note.getTitle());
             bodyEdit.setText(note.getBody());
         }
+
     }
+
 
     @SuppressLint("UseCompatLoadingForDrawables")
     private void toggleView() {
@@ -196,6 +198,8 @@ public class NoteEditActivity extends AppCompatActivity {
         note = null;
         finish();
     }
+
+
 
     private void shareNote() {
         if (note.getBody().isEmpty() && note.getTitle().isEmpty()) {
