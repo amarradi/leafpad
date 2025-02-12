@@ -48,6 +48,8 @@
 
     <style name="Widget.App.Toolbar" parent="Widget.Material3.Toolbar">
         <item name="android:statusBarColor">@color/md_theme_light_primary</item>
+        <item name="android:windowLightStatusBar">false</item>
+
         <item name="android:background">@color/md_theme_light_primary</item>
         <item name="android:fillColor">@color/md_theme_light_onPrimary</item>
         <item name="titleTextColor">@color/md_theme_light_onPrimary</item>
@@ -57,6 +59,7 @@
         <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Toolbar</item>
         <item name="titleTextAppearance">@style/TextAppearance.App.TitleLarge</item>
+        <item name="actionBarStyle">@style/MyActionBarStyle</item>
     </style>
 
     <style name="TextAppearance.App.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
@@ -67,6 +70,7 @@
     <style name="ThemeOverlay.App.Toolbar" parent="">
         <item name="colorPrimary">@color/md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
+
         <item name="android:subtitleTextStyle">@style/TextAppearance.App.SubTitleText</item>
     </style>
 
@@ -134,6 +138,7 @@
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Toolbar</item>
         <item name="textAppearanceTitleLarge">@style/TextAppearance.App.TitleLarge</item>
         <item name="android:windowLightStatusBar">false</item>
+
         <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
         <item name="navigationIconTint">@color/md_theme_light_onPrimary</item>
         <item name="android:colorControlNormal">@color/md_theme_light_onPrimary</item>
@@ -149,6 +154,11 @@
         <item name="textInputStyle">@style/Widget.App.TextInputLayout</item>
         <!-- FloatingActionButton -->
         <item name="extendedFloatingActionButtonStyle">@style/Widget.Material3.ExtendedFloatingActionButton.Primary</item>
+
+    </style>
+
+    <style name="MyActionBarStyle">
+        <item name="color">@color/md_theme_dark_primaryContainer</item>
     </style>
 
     <style name="Toolbar.Button.Navigation.Tinted" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
