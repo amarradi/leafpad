@@ -58,19 +58,22 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+
                 android:layout_weight="1">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/body_edit"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:autoLink="all"
+                    android:autoLink="phone"
                     android:layout_weight="2"
                     android:ems="5"
                     android:gravity="top"
                     android:hint="@string/body_hint"
-                    android:scrollbars="none"
-                    android:inputType="textMultiLine|textCapSentences|textWebEmailAddress|textAutoCorrect|textPersonName|textUri" />
+                    android:scrollbars="vertical"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:inputType="textMultiLine|textCapSentences|textAutoCorrect|textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/visible_switch"
