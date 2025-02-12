@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme -->
     <style name="Theme.App" parent="Theme.Material3.Light.NoActionBar">
         <!-- Color Primary -->
@@ -78,5 +78,4 @@
     <style name="IconOverFlow" parent="Widget.AppCompat.ActionButton.Overflow">
         <item name="android:tint">@color/md_theme_light_onSecondary</item>
     </style>
-
 </resources>
