@@ -35,7 +35,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     namespace 'com.git.amarradi.leafpad'
-    buildToolsVersion = '34.0.0'
+    buildToolsVersion = '35.0.0'
     buildFeatures {
         viewBinding true
     }

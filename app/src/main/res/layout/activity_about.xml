@@ -28,7 +28,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_about"
-                app:cardPreventCornerOverlap="false">
+                app:cardPreventCornerOverlap="false"
+                app:strokeColor="@color/md_theme_dark_outline">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -88,7 +89,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_about"
-                app:cardPreventCornerOverlap="false">
+                app:cardPreventCornerOverlap="false"
+                app:strokeColor="@color/md_theme_dark_outline">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -128,7 +130,8 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_about">
+                android:layout_margin="@dimen/margin_about"
+                app:strokeColor="@color/md_theme_dark_outline">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -169,7 +172,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_about"
-                app:cardPreventCornerOverlap="false">
+                app:cardPreventCornerOverlap="false"
+                app:strokeColor="@color/md_theme_dark_outline">
 
                 <LinearLayout
                     android:layout_width="match_parent"
