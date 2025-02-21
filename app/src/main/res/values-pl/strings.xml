@@ -9,8 +9,8 @@
     <string name="theme_preference" translatable="false">Theme</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="app_name">Leafpad</string>
-    <string name="title_activity_note_edit">edytuj notatkę</string>
-    <string name="action_edit_note">Edytuj Notatkę</string>
+    <string name="title_activity_note_edit">Edytuj notatkę</string>
+    <string name="action_edit_note">Edytuj notatkę</string>
     <string name="action_share_title">Tytuł</string>
     <string name="action_share_body">Notatka</string>
     <string name="action_fab_note">utwórz notatkę</string>
@@ -20,7 +20,7 @@
     <string name="general_preference">Ogólne</string>
     <string name="lightmode_preference_key">tryb jasny</string>
     <string name="darkmode_preference_key">tryb ciemny</string>
-    <string name="about">O Nas</string>
+    <string name="about">O nas</string>
     <string name="tell_about">Co chcę powiedzieć o Leafpad</string>
     <string name="change">wersja</string>
     <string name="thanks">Dziękuje Stefan, Stefan, Manuel, Falk i Stephanie za wasze pomysły i testowanie aplikacji.</string>
@@ -32,7 +32,7 @@
     <string name="licence">Licencje typu open source</string>
     <string name="search">wyszukaj</string>
     <string name="statement">Napisujemy listy handlowe, notatki do rozmów, listy do wakacji lub urodzin przyjaciół. Są to wszystko dobre rzeczy, aby nie zapomnieć. Jest bardzo podobna do Boga, pisze o naszych dobrach i złych czynach. Bóg jest nad wszystkim i po prostu wie wszystko. Bóg miłuje ludzi i chce z nimi brać udział. Nie jest to jednak możliwe, jeśli widzimy Boga jako niewiarygodnego. Poprzez wiarę w Jezusa Chrystusa, nasze złe uczynki są wyczerpane przed Bogiem. Jezus Chrystus poczuł się winnym krzyża Kalwarii. Każda osoba, która akceptuje to, jest wpisana do książki o życiu. Czy jesteś w księdze życia?</string>
-    <string name="leafpad_work">Leafpad zapisuje wszystkie dane na twoim smartfonie.Notatki czy metadane takie jak data i czas nie są przechowywane nigdzie w chmurze ani nie są nikomu udostępniane. Tekst nie jest też analizowany. Notatki należą do Ciebie. Ty decydujesz co z nimi zrobisz.</string>
+    <string name="leafpad_work">Leafpad zapisuje wszystkie dane lokalnie na Twoim smartfonie. Notatki lub metadane, takie jak data i godzina, nie są przechowywane w żadnej chmurze i nie są nikomu udostępniane. Nie jest również przeprowadzana żadna analiza tekstu. Notatki należą do Ciebie. Ty decydujesz, co z nimi zrobisz.</string>
     <string name="new_note">nowa Notatka</string>
     <string name="imported">notatka została wysłana do Leafpad\'a</string>
     <string name="rate_the_app">Co powiesz na recenzję w sklepie Google PlayStore?</string>
@@ -52,15 +52,15 @@
     <string name="share_note">Udostępnić notatkę?</string>
     <string name="rev20_12">I ujrzałem umarłych, wielkich i małych, stojących przed tronem; i otworzyły się księgi: i została otwarta jeszcze inna księga, która jest księgą życia: i osądzono umarłych z tego, co było napisane w księgach, według ich dzieł, Objawienia 20:12</string>
     <string name="satisfied">Podoba się Leafpad?</string>
-    <string name="about_the_app">O Aplikacji</string>
+    <string name="about_the_app">O aplikacji</string>
     <string name="remove_dialog_title">Na pewno?</string>
     <string name="action_add_note">Dodaj notatkę</string>
     <string name="action_share_note">Udostępnij notatkę</string>
     <string name="participate">Weź udział</string>
     <string name="translate">Pomóż w tłumaczeniu aplikacji przez Weblate</string>
-    <string name="translation_help">Pomóż nam przetłumaczyć aplikację na twój język poprzez weblate</string>
-    <string name="hide_note">to niewidzialne, czy notatnik nie jest widoczny</string>
-    <string name="hide_hidden">ukryty</string>
-    <string name="show_note">to nota widoczna</string>
-    <string name="show_hidden">pokazywać</string>
+    <string name="translation_help">Pomóż nam przetłumaczyć aplikację na Twój język poprzez Weblate</string>
+    <string name="hide_note">uczyń notatkę niewidoczną</string>
+    <string name="hide_hidden">ukryj ukryte notatki</string>
+    <string name="show_note">uczyń notatkę widoczną</string>
+    <string name="show_hidden">pokaż ukryte notatki</string>
 </resources>
