@@ -8,7 +8,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.App">
+        android:theme="@style/Theme.MyApp">
 
         <activity
             android:name=".AboutActivity"
@@ -17,15 +17,16 @@
             android:exported="false" />
         <activity
             android:name=".SettingsActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false"
             android:label="@string/menu_settings"
-            android:theme="@style/Theme.App.toolbar"
+            android:theme="@style/Theme.MyApp"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:launchMode="singleTop"
-            android:theme="@style/Theme.App"
+            android:theme="@style/Theme.MyApp"
             tools:ignore="MissingClass">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,7 +41,7 @@
             android:exported="true"
             android:label="@string/title_activity_note_edit"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.App">
+            android:theme="@style/Theme.MyApp">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />

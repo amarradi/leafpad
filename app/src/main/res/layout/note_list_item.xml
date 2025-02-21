@@ -24,7 +24,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/title_text"
-                android:theme="@style/listElement"
+
 
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
