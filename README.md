@@ -1,5 +1,8 @@
 # leafpad
 simple notebook
+
+<a href='https://play.google.com/store/apps/details?id=com.git.amarradi.leafpad'>https://play.google.com/store/apps/details?id=com.git.amarradi.leafpad</a>
+
 ## offline
 leafpad does not require an internet connection or an account to create notes.
 
