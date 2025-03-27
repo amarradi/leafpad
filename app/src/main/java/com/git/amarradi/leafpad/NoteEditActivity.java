@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.materialswitch.MaterialSwitch;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
 
@@ -28,6 +29,7 @@ public class NoteEditActivity extends AppCompatActivity {
     private Resources resources;
     private MaterialSwitch visibleSwitch;
 
+    private MaterialSwitch recipeSwitch;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,11 @@ public class NoteEditActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Java
+        TextInputLayout titleLayout = findViewById(R.id.default_text_input_layout);
+        TextInputLayout bodyLayout = findViewById(R.id.body_text_input_layout);
+        titleLayout.setHintEnabled(false);
+        bodyLayout.setHintEnabled(false);
 
         Intent intent = getIntent();
         String noteId = intent.getStringExtra(MainActivity.EXTRA_NOTE_ID);
@@ -53,10 +60,12 @@ public class NoteEditActivity extends AppCompatActivity {
         bodyEdit = findViewById(R.id.body_edit);
         visibleSwitch = findViewById(R.id.visible_switch);
 
+        recipeSwitch = findViewById(R.id.recipe_switch);
+
         note = Leaf.load(this, noteId);
 
         toggleView();
-
+        toggleRecipe();
 
         if (isNewEntry(note, intent)) {
             note = Leaf.load(this, Note.makeId());
@@ -84,9 +93,37 @@ public class NoteEditActivity extends AppCompatActivity {
             titleEdit.setText(note.getTitle());
             bodyEdit.setText(note.getBody());
         }
-
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private void toggleRecipe() {
+        recipeSwitch.setOnCheckedChangeListener(null);
+        if(note.getCategory().equals(resources.getStringArray(R.array.category)[0])){
+            recipeSwitch.setThumbIconDrawable(getDrawable(R.drawable.togue));
+            Log.d("toggleCheckBox", "toggleCheckBox: "+note.getCategory()+" "+recipeSwitch.isChecked());
+            recipeSwitch.setText(R.string.note_is_no_recipe);
+            recipeSwitch.setChecked(true);
+        } else {
+            recipeSwitch.setThumbIconDrawable(getDrawable(R.drawable.togue_strikethrough));
+            recipeSwitch.setText(R.string.note_is_recipe);
+            //recipeSwitch.setText(R.string.note_is_no_recipe);
+            recipeSwitch.setChecked(false);
+
+        }
+        recipeSwitch.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                //recipeSwitch.setText(R.string.note_is_recipe);
+                recipeSwitch.setText(R.string.note_is_no_recipe);
+                recipeSwitch.setThumbIconDrawable(getDrawable(R.drawable.togue));
+                note.setCategory(resources.getStringArray(R.array.category)[0]);
+            } else {
+                //recipeSwitch.setText(R.string.note_is_no_recipe);
+                recipeSwitch.setText(R.string.note_is_recipe);
+                recipeSwitch.setThumbIconDrawable(getDrawable(R.drawable.togue_strikethrough));
+                note.setCategory("");
+            }
+        });
+    }
 
     @SuppressLint("UseCompatLoadingForDrawables")
     private void toggleView() {
@@ -137,6 +174,7 @@ public class NoteEditActivity extends AppCompatActivity {
         } else {
             Leaf.set(this, note);
         }
+
     }
 
     @Override
@@ -186,7 +224,7 @@ public class NoteEditActivity extends AppCompatActivity {
                 } else {
                     Leaf.set(this, note);
                     toolbar.setSubtitle(note.getTitle());
-                    Toast.makeText(this, note.getTitle() + " " + resources.getString(R.string.action_note_saved), Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(this, note.getTitle() + " " + resources.getString(R.string.action_note_saved), Toast.LENGTH_SHORT).show();
                 }
                 break;
         }

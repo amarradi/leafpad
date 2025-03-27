@@ -20,7 +20,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-
     <include
         android:id="@+id/note_area"
         layout="@layout/content_main" />
@@ -37,7 +36,5 @@
         app:icon="@drawable/action_add_note"
         app:layout_anchor="@id/note_area"
         app:layout_anchorGravity="bottom|right|end" />
-
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

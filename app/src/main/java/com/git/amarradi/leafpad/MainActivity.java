@@ -5,16 +5,20 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.appbar.MaterialToolbar;
@@ -35,9 +39,15 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public List<Note> notes;
     public SimpleAdapter adapter;
     public ListView listView;
+
+
     private boolean showHidden = false;
 
+
+    private final Integer PREVIEW = 25;
+
     List<Map<String, String>> data = new ArrayList<>();
+
 
     @SuppressLint("RestrictedApi")
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -58,13 +68,62 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         adapter = new SimpleAdapter(this, data,
                 R.layout.note_list_item,
-                new String[]{"title", "date", "time", "state"},
-                new int[]{R.id.title_text, R.id.created_at, R.id.time_txt});
+                new String[]{"title", "body","date", "time", "category"},
+                new int[]{R.id.title_text, R.id.note_preview, R.id.created_at, R.id.time_txt, R.id.category_txt});
+
+        adapter.setViewBinder((view, data, textRepresentation) -> {
+            if (view.getId() == R.id.category_txt) {
+                if (data instanceof String) {
+                    String category = (String) data;
+                    Log.d("setViewBinder", "category: "+data.toString());
+                    // Setze den Text explizit (da der Default-Binding unterdrückt wird)
+                    ((TextView) view).setText(category);
+
+                    // Finde das übergeordnete MaterialCardView
+                    View parent = (View) view.getParent();
+                    while (parent != null && !(parent instanceof com.google.android.material.card.MaterialCardView)) {
+                        parent = (View) parent.getParent();
+                    }
+                    if (parent != null) {
+                        com.google.android.material.card.MaterialCardView cardView = (com.google.android.material.card.MaterialCardView) parent;
+                        int highlightColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_light_recipe);
+                        int defaultStrokeColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_light_primaryContainer);
+
+                        if (!android.text.TextUtils.isEmpty(category)) {
+                            // Kategorie vorhanden: Rahmen auf Highlight-Farbe setzen
+                            cardView.setStrokeColor(highlightColor);
+                            // Zeige das Kategorie-Textfeld
+                            view.setVisibility(View.VISIBLE);
+                            // Icon sichtbar machen
+                            View icon = ((View) view.getParent()).findViewById(R.id.category_icon);
+                            if (icon != null) {
+                                icon.setVisibility(View.VISIBLE);
+                            }
+                        } else {
+                            // Keine Kategorie: Rahmen zurücksetzen
+                            cardView.setStrokeColor(defaultStrokeColor);
+                            cardView.invalidate(); // Erzwingt Neuzeichnen
+                            // Verstecke das Kategorie-Textfeld
+                            view.setVisibility(View.GONE);
+                            // Verstecke auch das Icon
+                            View icon = ((View) view.getParent()).findViewById(R.id.category_icon);
+                            if (icon != null) {
+                                icon.setVisibility(View.GONE);
+                            }
+                        }
+                    }
+                }
+                return true;
+            }
+            return false;
+        });
 
         //updateDataset();
 
         listView = findViewById(R.id.note_list_view);
+
         listView.setAdapter(adapter);
+
         listView.setOnItemClickListener((adapter, v, position, id) -> {
 
             // Hole die ID aus der angezeigten Datenliste
@@ -74,6 +133,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             Note selectedNote = null;
             for (Note note : notes) {
                 if (note.getId().equals(noteId)) {
+
                     selectedNote = note;
                     break;
                 }
@@ -96,6 +156,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             startActivity(intent);
         });
         listView.setEmptyView(findViewById(R.id.emptyElement));
+
     }
 
     private void setupSharedPreferences() {
@@ -191,7 +252,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     public void updateListView() {
         updateDataset();
-
         ((SimpleAdapter) listView.getAdapter()).notifyDataSetChanged();
     }
 
@@ -200,22 +260,35 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         //Log.d("MainActivity", "updateDataset() called");
         notes = Leaf.loadAll(this, showHidden);
         data.clear();
+
         for (Note note : notes) {
             if (showHidden && note.isHide()) {
                 Map<String, String> datum = new HashMap<>();
                 datum.put("id", note.getId());
                 datum.put("title", note.getTitle());
-                datum.put("body", note.getBody());
+                // Kürze den Notiztext auf maximal 50 Zeichen
+                String previewText = note.getBody();
+                if (previewText.length() > PREVIEW) {
+                    previewText = previewText.substring(0, PREVIEW) + "...";
+                }
+                datum.put("body", previewText);
                 datum.put("date", note.getDate());
                 datum.put("time", note.getTime());
+                datum.put("category", note.getCategory());
                 data.add(datum);
             } else if(!showHidden && !note.isHide()){
                 Map<String, String> datum = new HashMap<>();
                 datum.put("id", note.getId());
                 datum.put("title", note.getTitle());
-                datum.put("body", note.getBody());
+                // Kürze den Notiztext auf maximal 50 Zeichen
+                String previewText = note.getBody();
+                if (previewText.length() > PREVIEW) {
+                    previewText = previewText.substring(0, PREVIEW) + "...";
+                }
+                datum.put("body", previewText);
                 datum.put("date", note.getDate());
                 datum.put("time", note.getTime());
+                datum.put("category", note.getCategory());
                 data.add(datum);
             }
         }
@@ -226,4 +299,5 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         //Log.d("MainActivity", "Displayed Notes: " + data.size());
     }
+
 }

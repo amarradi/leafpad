@@ -1,6 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.MyApp" parent="Theme.Material3.DayNight.NoActionBar">
+
         <!-- Farben für Material3 Dark Mode -->
+        <item name="materialCardViewStyle">@style/CustomCardViewStyle</item>
+        <item name="toolbarStyle">@style/CustomToolbarStyle</item>
+
+        <item name="android:windowBackground">@color/md_theme_dark_surface</item>
+
         <item name="colorPrimary">@color/md_theme_dark_primary</item>
         <item name="colorOnPrimary">@color/md_theme_dark_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_dark_primaryContainer</item>
@@ -10,7 +16,6 @@
         <item name="colorOnSecondary">@color/md_theme_dark_onSecondary</item>
         <item name="colorSecondaryContainer">@color/md_theme_dark_secondaryContainer</item>
         <item name="colorOnSecondaryContainer">@color/md_theme_dark_onSecondaryContainer</item>
-
 
         <item name="colorOnBackground">@color/md_theme_dark_onBackground</item>
         <item name="colorSurface">@color/md_theme_dark_surface</item>
@@ -34,6 +39,5 @@
         <!-- Runden von UI-Elementen aktivieren -->
        <!-- <item name="android:dialogCornerRadius">28dp</item> -->
 
-        <item name="android:textColorPrimary">@color/md_theme_dark_primary</item> <!-- Wirkt sich auf Toolbar-Titel aus -->
     </style>
 </resources>

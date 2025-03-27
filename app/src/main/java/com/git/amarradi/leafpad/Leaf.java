@@ -27,7 +27,7 @@ public class Leaf {
     private final static String TITLE_PREFIX = "note_title_";
     private final static String BODY_PREFIX = "note_body_";
     private final static boolean HIDE = false;
-
+    private final static String CATEGORY ="note_category_";
     public static ArrayList<Note> loadAll(Context context, boolean includeHidden) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
         ArrayList<Note> notes = new ArrayList<>();
@@ -81,7 +81,8 @@ public class Leaf {
         String noteCreateDate = sharedPreferences.getString(CREATEDATE+ noteId,"");
         //boolean noteHide = sharedPreferences.getBoolean(HIDE + noteId,false); //der alte Schlüssel bis version 1.14
         boolean noteHide = sharedPreferences.getBoolean(HIDE + "_" + noteId, false);
-        return new Note(title, body, noteDate, noteTime, noteCreateDate, noteHide, noteId);
+        String noteCategory = sharedPreferences.getString(CATEGORY + noteId,"");
+        return new Note(title, body, noteDate, noteTime, noteCreateDate, noteHide, noteCategory, noteId);
     }
 
     @SuppressLint("MutatingSharedPrefs")
@@ -117,8 +118,8 @@ public class Leaf {
         } else {
             editor.putBoolean(HIDE + "_" + note.getId(), note.isHide());
         }
+        editor.putString(CATEGORY + note.getId(), note.getCategory());
 
-     //   Log.d("Leaf", "Saving Note: Title = " + note.getTitle() + ", Hide = " + note.isHide());
         editor.apply();
     }
 
@@ -140,6 +141,7 @@ public class Leaf {
         editor.remove(ADDTIME + note.getId());
         editor.remove(HIDE + note.getId());
         editor.remove(HIDE + "_" + note.getId());
+        editor.remove(CATEGORY + note.getId());
         editor.apply();
     }
 }

@@ -45,7 +45,7 @@
     <string name="licence">Open source Lizenzen</string>
     <string name="share_note">Notiz teilen?</string>
     <string name="note_will_be_saved_first">Notiz wird erst gespeichert</string>
-    <string name="thanks">Danke Stefan, Stefan, Manuel, Falk und Stephanie für eure Ideen und das Testen der App.</string>
+    <string name="thanks">Danke Stefan, Stefan, Manuel, Falk, Stephanie und Emil für eure Ideen und das Testen der App.</string>
     <string name="action_save">Notiz speichern</string>
     <string name="action_note_saved">gespeichert</string>
     <string name="search">suchen</string>
@@ -63,4 +63,9 @@
     <string name="show_note">Die Notiz sichtbar machen</string>
     <string name="show_hidden">zeige versteckte Notizen</string>
     <string name="hide_hidden">verberge versteckte Notizen</string>
+    <string name="note_is_recipe">Die Notiz ist ein Rezept</string>
+    <string name="note_is_no_recipe">Die Notiz ist kein Rezept</string>
+    <string-array name="category">
+        <item>Rezept</item>
+    </string-array>
 </resources>

@@ -14,19 +14,29 @@ public class Note {
     private String create_date;
     private final String id;
     private boolean hide;
+    private String category;
 
     private final Locale LOCALE = Locale.GERMAN;
 
 
-    public Note(String title, String body, String notedate, String notetime, String create_date, boolean hide, String id) {
+    public Note(String title, String body, String notedate, String notetime, String create_date, boolean hide,String category, String id) {
         this.title = title;
         this.body = body;
         this.notedate = notedate;
         this.notetime = notetime;
         this.create_date = create_date;
         this.hide = hide;
+        this.category = category;
         this.id = id;
 
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public boolean isHide() {
