@@ -1,5 +1,6 @@
 # leafpad
 simple notebook
+
 ## offline
 leafpad does not require an internet connection or an account to create notes.
 
@@ -29,6 +30,8 @@ Help translate at <a href='https://hosted.weblate.org/engage/leafpad/'>Weblate</
 # Installation
 The current version of leafpad can be installed from the PlayStore.
 <a href='https://play.google.com/store/apps/details?id=com.git.amarradi.leafpad'><img alt='Jetzt bei Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/de_badge_web_generic.png'/></a>
+
+<a href='https://play.google.com/store/apps/details?id=com.git.amarradi.leafpad'>https://play.google.com/store/apps/details?id=com.git.amarradi.leafpad</a>
 
 # Bugs or feature
 If you have found a bug or are missing a function, you can simply open a new issue on GitHub.
