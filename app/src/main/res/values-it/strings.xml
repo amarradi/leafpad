@@ -63,4 +63,6 @@
     <string name="hide_hidden">nascondere le note nascoste</string>
     <string name="show_note">rendere visibile la nota</string>
     <string name="show_hidden">mostra note nascoste</string>
+    <string name="note_is_recipe">note is a recipe</string>
+    <string name="note_is_no_recipe">note is no recipe</string>
 </resources>
