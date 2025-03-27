@@ -63,4 +63,6 @@
     <string name="hide_hidden">ukryj ukryte notatki</string>
     <string name="show_note">uczyń notatkę widoczną</string>
     <string name="show_hidden">pokaż ukryte notatki</string>
+    <string name="note_is_recipe">note is a recipe</string>
+    <string name="note_is_no_recipe">note is no recipe</string>
 </resources>
