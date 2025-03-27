@@ -63,4 +63,6 @@
     <string name="hide_hidden">menyembunyikan catatan tersembunyi</string>
     <string name="show_note">membuat catatan terlihat</string>
     <string name="show_hidden">menunjukkan catatan tersembunyi</string>
+    <string name="note_is_recipe">note is a recipe</string>
+    <string name="note_is_no_recipe">note is no recipe</string>
 </resources>
