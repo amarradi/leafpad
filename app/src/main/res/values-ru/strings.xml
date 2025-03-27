@@ -63,4 +63,6 @@
     <string name="hide_hidden">скрытые заметки</string>
     <string name="show_note">сделать заметку видимой</string>
     <string name="show_hidden">показать скрытые заметки</string>
+    <string name="note_is_recipe">note is a recipe</string>
+    <string name="note_is_no_recipe">note is no recipe</string>
 </resources>
