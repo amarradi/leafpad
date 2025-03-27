@@ -63,4 +63,6 @@
     <string name="hide_hidden">rejtett jegyzetek rejtett</string>
     <string name="show_note">a megjegyzés látható</string>
     <string name="show_hidden">rejtett jegyzetek bemutatása</string>
+    <string name="note_is_recipe">note is a recipe</string>
+    <string name="note_is_no_recipe">note is no recipe</string>
 </resources>
