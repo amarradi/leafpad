@@ -63,4 +63,6 @@
     <string name="action_add_note">Adicionar nota</string>
     <string name="show_hidden">mostrar notas ocultas</string>
     <string name="action_share_note">Compartilhar nota</string>
+    <string name="note_is_recipe">note is a recipe</string>
+    <string name="note_is_no_recipe">note is no recipe</string>
 </resources>
