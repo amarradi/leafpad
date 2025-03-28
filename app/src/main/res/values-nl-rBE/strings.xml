@@ -63,4 +63,6 @@
     <string name="hide_hidden">verberg verborgen notities</string>
     <string name="show_note">maak de brief zichtbaar</string>
     <string name="show_hidden">laat verborgen notities zien</string>
+    <string name="note_is_recipe">note is a recipe</string>
+    <string name="note_is_no_recipe">note is no recipe</string>
 </resources>

@@ -23,7 +23,7 @@
     <string name="about">O nas</string>
     <string name="tell_about">Co chcę powiedzieć o Leafpad</string>
     <string name="change">wersja</string>
-    <string name="thanks">Dziękuje Stefan, Stefan, Manuel, Falk i Stephanie za wasze pomysły i testowanie aplikacji.</string>
+    <string name="thanks">Dziękujemy Stefanowi, Stefanowi, Manuelowi, Falkowi, Stephanie i Emilowi za pomysły i testowanie aplikacji.</string>
     <string name="its_opensource">Leafpad to otwarta i wolna aplikacja</string>
     <string name="title_licence">Licencje</string>
     <string name="find_code_on_github">GitHub</string>
@@ -31,15 +31,15 @@
     <string name="note_will_be_saved_first">Notatka zostanie najpierw zapisana</string>
     <string name="licence">Licencje typu open source</string>
     <string name="search">wyszukaj</string>
-    <string name="statement">Napisujemy listy handlowe, notatki do rozmów, listy do wakacji lub urodzin przyjaciół. Są to wszystko dobre rzeczy, aby nie zapomnieć. Jest bardzo podobna do Boga, pisze o naszych dobrach i złych czynach. Bóg jest nad wszystkim i po prostu wie wszystko. Bóg miłuje ludzi i chce z nimi brać udział. Nie jest to jednak możliwe, jeśli widzimy Boga jako niewiarygodnego. Poprzez wiarę w Jezusa Chrystusa, nasze złe uczynki są wyczerpane przed Bogiem. Jezus Chrystus poczuł się winnym krzyża Kalwarii. Każda osoba, która akceptuje to, jest wpisana do książki o życiu. Czy jesteś w księdze życia?</string>
+    <string name="statement">Zapisujemy listy zakupów, notatki do rozmów, listy rzeczy do spakowania na wakacje lub urodziny przyjaciół. To wszystko są dobre rzeczy, abyśmy o nich nie zapomnieli. Podobnie jest z Bogiem, który zapisuje nasze dobre i złe uczynki i je zapisuje. Bóg jest ponad wszystkim i po prostu wszystko wie. Bóg kocha ludzi i chce mieć z nimi społeczność. Ale jest to możliwe tylko wtedy, gdy jesteśmy postrzegani przez Boga jako nienaganni. Przez wiarę w Jezusa Chrystusa nasze złe uczynki (nasza wina) zostają wymazane przed Bogiem. Jezus Chrystus odkupił naszą winę na krzyżu na Golgocie. Każda osoba, która to przyjmuje, zostaje wpisana do księgi życia na zawsze. Czy jesteś zapisany w księdze życia?</string>
     <string name="leafpad_work">Leafpad zapisuje wszystkie dane lokalnie na Twoim smartfonie. Notatki lub metadane, takie jak data i godzina, nie są przechowywane w żadnej chmurze i nie są nikomu udostępniane. Nie jest również przeprowadzana żadna analiza tekstu. Notatki należą do Ciebie. Ty decydujesz, co z nimi zrobisz.</string>
-    <string name="new_note">nowa Notatka</string>
-    <string name="imported">notatka została wysłana do Leafpad\'a</string>
+    <string name="new_note">nowa notatka</string>
+    <string name="imported">notatka została wysłana do Leafpada</string>
     <string name="rate_the_app">Co powiesz na recenzję w sklepie Google PlayStore?</string>
     <string name="remove_dialog_abort">Cofnij</string>
     <string name="menu_settings">Ustawienia</string>
     <string name="system_preference_key">taki jak system (domyślne)</string>
-    <string name="contentDescription">dodaj nową Notatkę</string>
+    <string name="contentDescription">dodaj nową notatkę</string>
     <string name="remove_dailog_message">Ta notatka zostanie bezpowrotnie usunięta. Potem nie da się jej przywrócić.</string>
     <string name="version">wersja</string>
     <string name="find_code_on_github_summary">Możesz zobaczyć i sprawdzić kod źródłowy za pomocą repozytorium. Zajmuje się otwarciem wydania żądań i błędów.</string>
@@ -63,4 +63,6 @@
     <string name="hide_hidden">ukryj ukryte notatki</string>
     <string name="show_note">uczyń notatkę widoczną</string>
     <string name="show_hidden">pokaż ukryte notatki</string>
+    <string name="note_is_recipe">notatka jest przepisem</string>
+    <string name="note_is_no_recipe">notatka nie jest przepisem</string>
 </resources>

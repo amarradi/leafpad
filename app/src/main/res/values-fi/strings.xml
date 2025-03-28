@@ -63,4 +63,6 @@
     <string name="hide_hidden">piilotettuja muistiinpanoja</string>
     <string name="show_note">tee muistiinpano näkyväksi</string>
     <string name="show_hidden">näytä piilotetut muistiinpanot</string>
+    <string name="note_is_recipe">note is a recipe</string>
+    <string name="note_is_no_recipe">note is no recipe</string>
 </resources>

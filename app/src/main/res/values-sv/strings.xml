@@ -63,4 +63,6 @@
     <string name="hide_hidden">gömda dolda anteckningar</string>
     <string name="show_note">gör anteckningen synlig</string>
     <string name="show_hidden">visa dolda anteckningar</string>
+    <string name="note_is_recipe">note is a recipe</string>
+    <string name="note_is_no_recipe">note is no recipe</string>
 </resources>

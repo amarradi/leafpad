@@ -63,4 +63,6 @@
     <string name="hide_hidden">amagat notes</string>
     <string name="show_note">fer visible la nota</string>
     <string name="show_hidden">veure fotos</string>
+    <string name="note_is_recipe">note is a recipe</string>
+    <string name="note_is_no_recipe">note is no recipe</string>
 </resources>

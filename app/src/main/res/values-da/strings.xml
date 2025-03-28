@@ -63,4 +63,6 @@
     <string name="hide_hidden">skjul skjulte noter</string>
     <string name="show_note">gør note synlig</string>
     <string name="show_hidden">vis skjulte noter</string>
+    <string name="note_is_recipe">note is a recipe</string>
+    <string name="note_is_no_recipe">note is no recipe</string>
 </resources>
