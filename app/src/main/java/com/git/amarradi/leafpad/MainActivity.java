@@ -3,6 +3,7 @@ package com.git.amarradi.leafpad;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,10 +41,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public SimpleAdapter adapter;
     public ListView listView;
 
-
     private boolean showHidden = false;
-
-
     private final Integer PREVIEW = 25;
 
     List<Map<String, String>> data = new ArrayList<>();
@@ -79,6 +77,15 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     // Setze den Text explizit (da der Default-Binding unterdrückt wird)
                     ((TextView) view).setText(category);
 
+                    // Bestimme, ob der Dunkelmodus aktiv ist
+                    int currentNightMode = view.getContext().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+                    boolean isDarkMode;
+                    if (currentNightMode == Configuration.UI_MODE_NIGHT_YES) {
+                        isDarkMode = true;
+                    } else {
+                        isDarkMode = false;
+                    }
+
                     // Finde das übergeordnete MaterialCardView
                     View parent = (View) view.getParent();
                     while (parent != null && !(parent instanceof com.google.android.material.card.MaterialCardView)) {
@@ -86,8 +93,25 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     }
                     if (parent != null) {
                         com.google.android.material.card.MaterialCardView cardView = (com.google.android.material.card.MaterialCardView) parent;
-                        int highlightColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_light_recipe);
-                        int defaultStrokeColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_light_primaryContainer);
+                      //  int highlightColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_light_recipe);
+
+                        // Farben abhängig vom Modus setzen
+                        int highlightColor;
+                        if (isDarkMode) {
+                            highlightColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_dark_recipe);
+                        } else {
+                            highlightColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_light_recipe);
+                        }
+
+                        int iconColor;
+                        if (isDarkMode) {
+                           // iconColor = ContextCompat.getColor(view.getContext(), android.R.color.white);
+                            iconColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_dark_recipe);
+                        } else {
+                            iconColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_light_recipe);
+                        }
+
+                       int defaultStrokeColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_light_primaryContainer);
 
                         if (!android.text.TextUtils.isEmpty(category)) {
                             // Kategorie vorhanden: Rahmen auf Highlight-Farbe setzen

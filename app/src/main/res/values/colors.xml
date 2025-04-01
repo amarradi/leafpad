@@ -6,11 +6,11 @@
         <color name="iconColor">#5A5A5A</color> <!-- Neutralgrau, gut für beide Modi -->
         <color name="previewTextColor">#5A6B5F</color> <!-- Sanftes Grau-Grün für angenehme Lesbarkeit -->
 
-        <color name="md_theme_light_cardBackground">#F2FAF2</color> <!-- oder eine andere gewählte Farbe -->
+        <color name="md_theme_light_cardBackground">#E8F0E8</color> <!-- oder eine andere gewählte Farbe -->
         <color name="md_theme_dark_cardBackground">#2E2E2E</color> <!-- für Dark Mode dunkler halten -->
 
         <color name="md_theme_light_recipe">#000080</color>
-        <color name="md_theme_dark_recipe">#000040</color>
+        <color name="md_theme_dark_recipe">#6699FF</color>
 
         <color name="md_theme_light_primary">#006D42</color>
         <color name="md_theme_light_onPrimary">#FFFFFF</color>
