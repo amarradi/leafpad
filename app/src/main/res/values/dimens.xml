@@ -67,8 +67,8 @@
     <dimen name="textSize_MyNotePreview">13sp</dimen>
     <dimen name="textSize_MyDateTime">8sp</dimen>
     <dimen name="textSize_MyCategory">8sp</dimen>
-    <dimen name="textSize_MyToolbarTitle">24sp</dimen>
-    <dimen name="textSize_MyToolbarSubtitle">14sp</dimen>
+    <dimen name="textSize_MyToolbarTitle">14sp</dimen>
+    <dimen name="textSize_MyToolbarSubtitle">24sp</dimen>
 
     <dimen name="textMargin_top">5dp</dimen>
 
