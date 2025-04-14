@@ -255,6 +255,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             case R.id.item_show_hidden:
                 toggleShowHidden(item);
                 return true;
+            case R.id.action_open_search:
+                Intent searchIntent = new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(searchIntent);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

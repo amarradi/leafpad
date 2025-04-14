@@ -13,6 +13,11 @@
         android:icon="@drawable/action_setting"
         android:title="@string/menu_settings"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_open_search"
+        android:title="@string/open_search"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="ifRoom"/>
 
 
 </menu>
