@@ -37,7 +37,7 @@
     <string name="leafpad_work">Leafpad сохраняет все данные локально на вашем смартфоне. Заметки или метаданные, такие как дата и время, не хранятся в каком-либо облаке и не передаются никому. Текстовый анализ также не проводится. Заметки принадлежат тебе. Вы решаете, что с ними делать.</string>
     <string name="action_share_body">1.1.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.2.1.1.2.1</string>
     <string name="remove_dialog_abort">Отмена</string>
-    <string name="menu_settings">Настройка</string>
+    <string name="menu_settings">Настройки</string>
     <string name="action_fab_note">сделать записку</string>
     <string name="title_activity_note_edit">Редактирование</string>
     <string name="change">версия</string>
@@ -45,7 +45,7 @@
     <string name="contentDescription">добавить</string>
     <string name="action_edit_note">Редактирование</string>
     <string name="note_will_be_saved_first">Заметка будет сохранена первым</string>
-    <string name="general_preference">General</string>
+    <string name="general_preference">Основные</string>
     <string name="title_licence">Лицензии</string>
     <string name="remove_dailog_message">Настоящая записка будет навсегда исключена. После этого его нельзя восстановить.</string>
     <string name="version">версия</string>
