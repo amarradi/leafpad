@@ -47,7 +47,7 @@
     <string name="lightmode_preference_key">Modo claro</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="darkmode_preference_key">Modo escuro</string>
-    <string name="search">Pesquisar</string>
+    <string name="search">pesquisa</string>
     <string name="action_save">salvar nota</string>
     <string name="share_note">Compartilhar Anotação?</string>
     <string name="thanks">Obrigado Stefan, Stefan, Manuel, Falk e Stephanie por suas ideias e por testar o aplicativo.</string>
