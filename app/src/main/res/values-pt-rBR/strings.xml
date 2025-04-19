@@ -14,7 +14,7 @@
     <string name="leafpad_work">O Leafpad salva todos os dados localmente no seu smartphone. As notas ou metadados, como data e hora, não são armazenados em nenhum servidor na nuvem e não são compartilhados com ninguém. Nenhuma análise de texto é realizada também. As notas pertencem a você. Você decide o que fazer com elas.</string>
     <string name="new_note">nova nota</string>
     <string name="imported">nota enviada para o Leafpad</string>
-    <string name="rate_the_app">Que tal uma review na Google PlayStore?</string>
+    <string name="rate_the_app">Que tal uma avaliação na Google PlayStore?</string>
     <string name="add_shortcut_short_label">Escrever algo novo</string>
     <string name="action_note_saved">salvo</string>
     <string name="tell_about">O que quero lhe contar sobre o Leafpad</string>
@@ -44,10 +44,10 @@
     <string name="licence">Licenças de código aberto</string>
     <string name="edited_text">editado em</string>
     <string name="body_hint">Nota</string>
-    <string name="lightmode_preference_key">lightmode</string>
+    <string name="lightmode_preference_key">Modo claro</string>
     <string name="find_code_on_github">GitHub</string>
-    <string name="darkmode_preference_key">darkmode</string>
-    <string name="search">search</string>
+    <string name="darkmode_preference_key">Modo escuro</string>
+    <string name="search">Pesquisar</string>
     <string name="action_save">salvar nota</string>
     <string name="share_note">Compartilhar Anotação?</string>
     <string name="thanks">Obrigado Stefan, Stefan, Manuel, Falk e Stephanie por suas ideias e por testar o aplicativo.</string>
@@ -57,7 +57,7 @@
     <string name="rev20_12">E vi os mortos, grandes e pequenos, que estavam diante de Deus, e abriram-se os livros; e abriu-se outro livro, que é o da vida. E os mortos foram julgados pelas coisas que estavam escritas nos livros, segundo as suas obras. Apocalipse 20:12</string>
     <string name="its_opensource">Leafpad é um aplicativo de código aberto e gratuito</string>
     <string name="satisfied">Gostando do Leafpad?</string>
-    <string name="app_name">Bloco de folhas</string>
+    <string name="app_name">Leafpad</string>
     <string name="about_the_app">Sobre o aplicativo</string>
     <string name="remove_dialog_title">Tem certeza?</string>
     <string name="action_add_note">Adicionar nota</string>
