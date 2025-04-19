@@ -28,7 +28,7 @@
     <string name="system_preference_key">seguir o sistema (padrão)</string>
     <string name="contentDescription">adicionar nova nota</string>
     <string name="action_edit_note">Editar nota</string>
-    <string name="note_will_be_saved_first">Nota será salva primeiro</string>
+    <string name="note_will_be_saved_first">Nota será salva primeiramente</string>
     <string name="general_preference">Geral</string>
     <string name="title_licence">Licenças</string>
     <string name="remove_dailog_message">Esta nota será permanentemente excluída. Ela não poderá ser restaurada posteriormente.</string>
