@@ -25,7 +25,7 @@
     <string name="title_activity_note_edit">Editar Nota</string>
     <string name="hide_hidden">esconder notas ocultas</string>
     <string name="change">versão</string>
-    <string name="system_preference_key">Seguir o sistema (padrão)</string>
+    <string name="system_preference_key">seguir o sistema (padrão)</string>
     <string name="contentDescription">adicionar nova nota</string>
     <string name="action_edit_note">Editar nota</string>
     <string name="note_will_be_saved_first">Nota será salva primeiro</string>
@@ -35,7 +35,7 @@
     <string name="version">versão</string>
     <string name="find_code_on_github_summary">Você pode visualizar e verificar o código fonte no repositório. Você é bem-vindo para abrir uma issue para solicitar alterações ou relatar mensagens de erro.</string>
     <string name="action_share_title">Título</string>
-    <string name="participate">Participate</string>
+    <string name="participate">Participar</string>
     <string name="title_hint">Título</string>
     <string name="about">Sobre</string>
     <string name="theme_summary">Alternar entre o tema claro e escuro</string>
@@ -63,6 +63,6 @@
     <string name="action_add_note">Adicionar nota</string>
     <string name="show_hidden">mostrar notas ocultas</string>
     <string name="action_share_note">Compartilhar nota</string>
-    <string name="note_is_recipe">note is a recipe</string>
-    <string name="note_is_no_recipe">note is no recipe</string>
+    <string name="note_is_recipe">nota é uma receita</string>
+    <string name="note_is_no_recipe">nota não é receita</string>
 </resources>
