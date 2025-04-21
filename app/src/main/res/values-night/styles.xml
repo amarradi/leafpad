@@ -4,7 +4,25 @@
         <item name="titleTextAppearance">@style/TextAppearance.MyToolbarTitle</item>
         <item name="subtitleTextAppearance">@style/TextAppearance.MyToolbarSubtitle</item>
         <item name="android:elevation">0dp</item>
+    </style>
 
+    <style name="CustomToolbarStyleEdit" parent="Widget.Material3.Toolbar">
+        <item name="titleTextAppearance">@style/TextAppearance.MyToolbarTitleEdit</item>
+        <item name="subtitleTextAppearance">@style/TextAppearance.MyToolbarSubtitleEdit</item>
+        <item name="android:elevation">0dp</item>
+    </style>
+
+    <style name="TextAppearance.MyToolbarTitleEdit" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:fontFamily">@font/opensans_medium</item>
+        <item name="android:textSize">@dimen/textSize_MyToolbarTitleEdit</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/md_theme_light_primary</item>
+    </style>
+
+    <style name="TextAppearance.MyToolbarSubtitleEdit" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:fontFamily">@font/opensans_medium</item>
+        <item name="android:textSize">@dimen/textSize_MyToolbarSubtitleEdit</item>
+        <item name="android:textColor">@color/md_theme_dark_emeraldTint</item>
     </style>
 
 
