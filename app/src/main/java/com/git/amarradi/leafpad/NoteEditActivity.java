@@ -1,7 +1,6 @@
 package com.git.amarradi.leafpad;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -14,7 +13,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -194,7 +192,8 @@ public class NoteEditActivity extends AppCompatActivity {
                 shareNote();
                 return true;
             case R.id.action_remove:
-                MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(NoteEditActivity.this);
+                DialogHelper.showDeleteSingleNoteDialog(NoteEditActivity.this, this::removeNote);
+               /** MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(NoteEditActivity.this);
                 materialAlertDialogBuilder
                         .setIcon(R.drawable.dialog_delete)
                         .setTitle(R.string.remove_dialog_title)
@@ -212,7 +211,7 @@ public class NoteEditActivity extends AppCompatActivity {
                     }
                 });
                 materialAlertDialogBuilder.create();
-                materialAlertDialogBuilder.show();
+                materialAlertDialogBuilder.show(); **/
                 return true;
             case R.id.action_save:
                 note.setHide(visibleSwitch.isChecked());

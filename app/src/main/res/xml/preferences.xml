@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
         android:title="@string/general_preference">
@@ -11,6 +12,22 @@
             android:entries="@array/design_mode_preference_key"
             android:defaultValue="@string/system_preference_option_value"
             android:entryValues="@array/design_mode_preference_value" />
+        <Preference
+            app:selectable="true"
+            android:key="save"
+            android:title="@string/save_notes_title"
+            android:summary="@string/save"
+            android:icon="@drawable/preference_restore_data"
+            />
+
+        <Preference
+            app:selectable="true"
+            android:key="restore"
+            android:title="@string/restore_notes_title"
+            android:summary="@string/restore"
+            android:icon="@drawable/preference_save_data"
+            />
+
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/about" >
