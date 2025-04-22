@@ -30,6 +30,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -37,14 +39,17 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String DESIGN_MODE = "system";
 
+    private final static String BIBLEVERSE_URL_REGEX = "(?i)https?://(?:www\\.)?bible\\.(com|org)";
+
+
+
     public List<Note> notes;
     public SimpleAdapter adapter;
     public ListView listView;
 
     private boolean showHidden = false;
-    private final Integer PREVIEW = 25;
 
-    List<Map<String, String>> data = new ArrayList<>();
+    List<Map<String, Object>> data = new ArrayList<>();
 
 
     @SuppressLint("RestrictedApi")
@@ -66,17 +71,27 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         adapter = new SimpleAdapter(this, data,
                 R.layout.note_list_item,
-                new String[]{"title", "body","date", "time", "category"},
-                new int[]{R.id.title_text, R.id.note_preview, R.id.created_at, R.id.time_txt, R.id.category_txt});
+                new String[]{"title", "body","date", "time", "category", "bible"},
+                new int[]{R.id.title_text, R.id.note_preview, R.id.created_at, R.id.time_txt, R.id.category_txt, R.id.bible});
 
         adapter.setViewBinder((view, data, textRepresentation) -> {
-            if (view.getId() == R.id.category_txt) {
+            int viewId = view.getId();
+            // Bible Icon
+            if (viewId == R.id.bible && data instanceof String) {
+                String body = (String) data;
+                Pattern biblePattern = Pattern.compile(BIBLEVERSE_URL_REGEX);
+                Matcher matcher = biblePattern.matcher(body);
+                view.setVisibility(matcher.find() ? View.VISIBLE : View.GONE);
+                return true;
+            }
+
+
+            if (viewId == R.id.category_txt) {
                 if (data instanceof String) {
                     String category = (String) data;
                     Log.d("setViewBinder", "category: "+data.toString());
                     // Setze den Text explizit (da der Default-Binding unterdrückt wird)
                     ((TextView) view).setText(category);
-
                     // Bestimme, ob der Dunkelmodus aktiv ist
                     int currentNightMode = view.getContext().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
                     boolean isDarkMode;
@@ -85,7 +100,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     } else {
                         isDarkMode = false;
                     }
-
                     // Finde das übergeordnete MaterialCardView
                     View parent = (View) view.getParent();
                     while (parent != null && !(parent instanceof com.google.android.material.card.MaterialCardView)) {
@@ -93,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     }
                     if (parent != null) {
                         com.google.android.material.card.MaterialCardView cardView = (com.google.android.material.card.MaterialCardView) parent;
-                      //  int highlightColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_light_recipe);
+                        //  int highlightColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_light_recipe);
 
                         // Farben abhängig vom Modus setzen
                         int highlightColor;
@@ -105,13 +119,13 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
                         int iconColor;
                         if (isDarkMode) {
-                           // iconColor = ContextCompat.getColor(view.getContext(), android.R.color.white);
+                            // iconColor = ContextCompat.getColor(view.getContext(), android.R.color.white);
                             iconColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_dark_recipe);
                         } else {
                             iconColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_light_recipe);
                         }
 
-                       int defaultStrokeColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_light_primaryContainer);
+                        int defaultStrokeColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_light_primaryContainer);
 
                         if (!android.text.TextUtils.isEmpty(category)) {
                             // Kategorie vorhanden: Rahmen auf Highlight-Farbe setzen
@@ -151,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         listView.setOnItemClickListener((adapter, v, position, id) -> {
 
             // Hole die ID aus der angezeigten Datenliste
-            String noteId = data.get(position).get("id");
+            String noteId = (String) data.get(position).get("id");
 
             // Finde die Notiz in der "notes"-Liste anhand der ID
             Note selectedNote = null;
@@ -169,7 +183,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 // Log.d("MainActivity", "Selected Note: ID=" + selectedNote.getId() + ", Title=" + selectedNote.getTitle());
                 startActivity(intent);
             } //else {
-              //  Log.e("MainActivity", "Error: Note not found for ID=" + noteId);
+            //  Log.e("MainActivity", "Error: Note not found for ID=" + noteId);
             //}
         });
 
@@ -209,10 +223,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     private int toNightMode(String themeValue) {
         if("lightmode".equals(themeValue)) {
-                return AppCompatDelegate.MODE_NIGHT_NO;
+            return AppCompatDelegate.MODE_NIGHT_NO;
         }
         if("darkmode".equals(themeValue)) {
-                return AppCompatDelegate.MODE_NIGHT_YES;
+            return AppCompatDelegate.MODE_NIGHT_YES;
         }
         return AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
     }
@@ -286,8 +300,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         data.clear();
 
         for (Note note : notes) {
+            int PREVIEW = 25;
             if (showHidden && note.isHide()) {
-                Map<String, String> datum = new HashMap<>();
+                Map<String, Object> datum = new HashMap<>();
                 datum.put("id", note.getId());
                 datum.put("title", note.getTitle());
                 // Kürze den Notiztext auf maximal 50 Zeichen
@@ -299,9 +314,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 datum.put("date", note.getDate());
                 datum.put("time", note.getTime());
                 datum.put("category", note.getCategory());
+                datum.put("bible", note.getBody());
                 data.add(datum);
             } else if(!showHidden && !note.isHide()){
-                Map<String, String> datum = new HashMap<>();
+                Map<String, Object> datum = new HashMap<>();
                 datum.put("id", note.getId());
                 datum.put("title", note.getTitle());
                 // Kürze den Notiztext auf maximal 50 Zeichen
@@ -313,6 +329,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 datum.put("date", note.getDate());
                 datum.put("time", note.getTime());
                 datum.put("category", note.getCategory());
+                datum.put("bible", note.getBody());
                 data.add(datum);
             }
         }
