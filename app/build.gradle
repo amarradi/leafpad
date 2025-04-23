@@ -13,7 +13,7 @@ android {
         applicationId "com.git.amarradi.leafpad"
         minSdkVersion 25
         targetSdkVersion 35
-        versionCode 23
+        versionCode 25
         versionName "1.18"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
@@ -21,6 +21,7 @@ android {
                 cppFlags ''
             }
         }
+        resConfigs "aeb", "ar", "be", "bg", "br", "ca", "ce", "cs", "da", "de", "el", "es", "fi", "fr", "hi", "hu", "id", "it", "nb", "nl", "pl", "pt", "ru", "sq", "sv", "ta", "ur"
 
 
         //version types: alpha, beta, r
