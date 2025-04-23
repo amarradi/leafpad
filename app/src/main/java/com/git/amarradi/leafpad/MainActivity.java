@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -55,12 +56,17 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+
+
+
         setContentView(R.layout.activity_main);
 
-        setupSharedPreferences();
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         String themes = sharedPreferences.getString(DESIGN_MODE, "");
         changeTheme(themes);
+
+        setupSharedPreferences();
 
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -192,7 +198,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             startActivity(intent);
         });
         listView.setEmptyView(findViewById(R.id.emptyElement));
-
+        //tatusBarUtil.applyStatusBarTheme(this);
     }
 
     private void setupSharedPreferences() {

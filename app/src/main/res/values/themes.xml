@@ -3,6 +3,13 @@
         <!-- Farben für Material3 -->
 
 
+
+        <item name="android:windowLightStatusBar">false</item>
+
+        <item name="android:navigationBarColor">
+            @color/md_theme_light_primary
+        </item>
+
         <item name="materialCardViewStyle">@style/CustomCardViewStyle</item>
         <item name="toolbarStyle">@style/CustomToolbarStyle</item>
 
