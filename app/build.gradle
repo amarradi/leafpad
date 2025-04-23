@@ -21,6 +21,8 @@ android {
                 cppFlags ''
             }
         }
+
+
         //version types: alpha, beta, r
     }
     buildTypes {
