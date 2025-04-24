@@ -70,7 +70,7 @@
     <string name="showDeleteConfirmation">Të fshihen shënimet?</string>
     <string name="backupIsrunning">Kopjeruajtja po bëhet</string>
     <string name="importError">Gabim gjatë importimit të shënimeve.</string>
-    <string name="restore">Rikthe krejt shënimet si xml</string>
+    <string name="restore">Rikthe krejt shënimet që nga kartelë xml</string>
     <string name="showDeleteConfirmationMessage">Krejt shënimet do të fshihen përfundimisht. Të vazhdohet?</string>
     <string name="yes">Po</string>
     <plurals name="notes_imported">
@@ -79,7 +79,7 @@
     </plurals>
     <string name="fileOpeningError">Gabim kur hapet kartela.</string>
     <string name="delete">Fshije</string>
-    <string name="backupfinish">Kopjeruajtja përfundon</string>
+    <string name="backupfinish">Kopjeruajtja përfundoi</string>
     <string name="invalidFile">Kartelë kopjeruajtje e pavlefshme. Importimi u anulua.</string>
     <string name="cancel">Anuloje</string>
     <string name="showRestoreConfirmation">Të ritkhehet?</string>
