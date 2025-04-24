@@ -71,12 +71,12 @@
     <string name="note_is_recipe">note is a recipe</string>
     <string name="note_is_no_recipe">note is no recipe</string>
     <string-array name="category">
-         <item>recipe</item>
+        <item>recipe</item>
     </string-array>
     <string name="save_notes_title">Backup</string>
     <string name="save">Save all notes as xml</string>
     <string name="restore_notes_title">Restore</string>
-    <string name="restore">Restore all notes as xml</string>
+    <string name="restore">Restore all notes from an xml file</string>
     <string name="showRestoreConfirmation">Restore?</string>
     <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
     <string name="yes">Yes</string>
@@ -89,7 +89,7 @@
     <string name="fileOpeningError">Error when opening the file.</string>
     <string name="invalidFile">Invalid backup file. The import was cancelled.</string>
     <string name="backupIsrunning">Backup is running</string>
-    <string name="backupfinish">Backup finishes</string>
+    <string name="backupfinish">Backup finished</string>
     <plurals name="notes_imported">
         <item quantity="one">One note imported</item>
         <item quantity="other">%1$d notes imported</item>
