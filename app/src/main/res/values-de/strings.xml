@@ -77,16 +77,16 @@
     <string-array name="category">
         <item>Rezept</item>
     </string-array>
-    <string name="no">No</string>
-    <string name="save">Save all notes as xml</string>
-    <string name="showDeleteConfirmation">Delete notes?</string>
-    <string name="restore">Restore all notes as xml</string>
-    <string name="showDeleteConfirmationMessage">All notes will be permanently deleted. Continue?</string>
-    <string name="yes">Yes</string>
-    <string name="delete">Delete</string>
-    <string name="cancel">Cancel</string>
-    <string name="showRestoreConfirmation">Restore?</string>
-    <string name="restore_notes_title">Restore</string>
-    <string name="save_notes_title">Backup</string>
-    <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
+    <string name="no">Nein</string>
+    <string name="save">Alle Notizen als xml-Datei speichern</string>
+    <string name="showDeleteConfirmation">Notizen löschen?</string>
+    <string name="restore">Alle Notizen aus einer xml-Datei wiederherstellen</string>
+    <string name="showDeleteConfirmationMessage">Alle Notizen werden endgültig gelöscht. Weiter?</string>
+    <string name="yes">Ja</string>
+    <string name="delete">Löschen</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="showRestoreConfirmation">Wiederherstellen?</string>
+    <string name="restore_notes_title">Wiederherstellen</string>
+    <string name="save_notes_title">Notizen sichern</string>
+    <string name="showRestoreConfirmationMessage">Alle aktuellen Notizen werden durch die Sicherungskopie ersetzt. Weiter?</string>
 </resources>
