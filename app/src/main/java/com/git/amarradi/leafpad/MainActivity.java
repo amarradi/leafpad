@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String DESIGN_MODE = "system";
 
-    public final static String BIBLEVERSE_URL_REGEX = "(?i)\\b(?:https?://)?(?:www\\.)?bible\\.(com|org)(/\\S*)?";
+    public static final String BIBLEVERSE_URL_REGEX = "(?i)\\b(?:https?://)?(?:www\\.)?(bible\\.(com|org)|bibleserver\\.com)(/\\S*)?";
 
     public List<Note> notes;
     public SimpleAdapter adapter;
