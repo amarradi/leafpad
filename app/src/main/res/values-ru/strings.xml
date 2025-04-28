@@ -64,15 +64,15 @@
     <string name="show_note">сделать заметку видимой</string>
     <string name="show_hidden">показать скрытые заметки</string>
     <string name="note_is_recipe">note is a recipe</string>
-    <string name="note_is_no_recipe">note is no recipe</string>
-    <string name="save">Save all notes as xml</string>
-    <string name="showDeleteConfirmation">Delete notes?</string>
+    <string name="note_is_no_recipe">примечание - нет рецепта</string>
+    <string name="save">Сохранить все заметки как xml</string>
+    <string name="showDeleteConfirmation">Исключить заметки?</string>
     <string name="backupIsrunning">Backup is running</string>
-    <string name="no">No</string>
+    <string name="no">Нет</string>
     <string name="importError">Error when importing notes.</string>
     <string name="restore">Restore all notes as xml</string>
-    <string name="showDeleteConfirmationMessage">All notes will be permanently deleted. Continue?</string>
-    <string name="yes">Yes</string>
+    <string name="showDeleteConfirmationMessage">Все заметки будут удалены навсегда. Продолжать?</string>
+    <string name="yes">Да</string>
     <plurals name="notes_imported">
         <item quantity="one">One note imported</item>
         <item quantity="few">%1$d notes imported</item>
@@ -80,12 +80,12 @@
         <item quantity="other">%1$d notes imported</item>
     </plurals>
     <string name="fileOpeningError">Error when opening the file.</string>
-    <string name="delete">Delete</string>
+    <string name="delete">Удалить</string>
     <string name="backupfinish">Backup finishes</string>
     <string name="invalidFile">Invalid backup file. The import was cancelled.</string>
-    <string name="cancel">Cancel</string>
-    <string name="showRestoreConfirmation">Restore?</string>
-    <string name="restore_notes_title">Restore</string>
-    <string name="save_notes_title">Backup</string>
-    <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
+    <string name="cancel">Отмена</string>
+    <string name="showRestoreConfirmation">Восстановить?</string>
+    <string name="restore_notes_title">Восстановление</string>
+    <string name="save_notes_title">Назад</string>
+    <string name="showRestoreConfirmationMessage">Все текущие заметки будут заменены резервной копией. Продолжать?</string>
 </resources>
