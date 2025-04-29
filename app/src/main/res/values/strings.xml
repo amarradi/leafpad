@@ -94,4 +94,5 @@
         <item quantity="one">One note imported</item>
         <item quantity="other">%1$d notes imported</item>
     </plurals>
+    <string name="toggle">change View</string>
 </resources>

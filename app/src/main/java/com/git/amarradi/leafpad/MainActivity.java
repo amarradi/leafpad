@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -14,6 +15,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,11 +32,15 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public static final String EXTRA_NOTE_ID = "com.git.amarradi.leafpad";
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String DESIGN_MODE = "system";
+    private static final String PREF_LAYOUT_MODE = "layout_mode"; // "list" oder "grid"
+
 
     public RecyclerView recyclerView;
     public NoteAdapter noteAdapter;
     public List<Note> notes = new ArrayList<>();
     private boolean showHidden = false;
+
+    private boolean isListView = true;
 
     @SuppressLint("RestrictedApi")
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -59,6 +65,16 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         noteAdapter = new NoteAdapter(this, new ArrayList<>());
         recyclerView.setAdapter(noteAdapter);
 
+        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        String savedLayout = prefs.getString(PREF_LAYOUT_MODE, "list");
+        isListView = savedLayout.equals("list");
+
+        if (isListView) {
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        } else {
+            recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        }
+
         ExtendedFloatingActionButton fab = findViewById(R.id.fab_action_add);
         fab.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
@@ -71,6 +87,26 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
+
+    private void toggleLayoutManager() {
+        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+
+        isListView = !isListView;
+
+        if (isListView) {
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            editor.putString(PREF_LAYOUT_MODE, "list");
+        } else {
+            recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+            editor.putString(PREF_LAYOUT_MODE, "grid");
+        }
+
+        editor.apply();
+        invalidateOptionsMenu(); // ← Menü neu zeichnen lassen
+    }
+
+
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
@@ -130,12 +166,22 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public boolean onCreateOptionsMenu(@NonNull android.view.Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         android.view.MenuItem item = menu.findItem(R.id.item_show_hidden);
+        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        String savedLayout = prefs.getString(PREF_LAYOUT_MODE, "list");
+
         if (showHidden) {
             item.setIcon(getDrawable(R.drawable.action_eye_closed));
             item.setTitle(getString(R.string.hide_hidden));
         } else {
             item.setIcon(getDrawable(R.drawable.action_eye_open));
             item.setTitle(getString(R.string.show_hidden));
+        }
+
+        MenuItem layoutItem = menu.findItem(R.id.item_toggle_layout);
+        if ("grid".equals(savedLayout)) {
+            layoutItem.setIcon(R.drawable.action_gridview_off);
+        } else {
+            layoutItem.setIcon(R.drawable.action_gridview_on);
         }
         return true;
     }
@@ -149,6 +195,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 return true;
             case R.id.item_show_hidden:
                 toggleShowHidden(item);
+                return true;
+            case R.id.item_toggle_layout:
+                toggleLayoutManager();
                 return true;
         }
         return super.onOptionsItemSelected(item);

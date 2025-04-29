@@ -89,4 +89,5 @@
     <string name="restore_notes_title">Wiederherstellen</string>
     <string name="save_notes_title">Notizen sichern</string>
     <string name="showRestoreConfirmationMessage">Alle aktuellen Notizen werden durch die Sicherungskopie ersetzt. Weiter?</string>
+    <string name="toggle">Ansicht umschalten</string>
 </resources>
