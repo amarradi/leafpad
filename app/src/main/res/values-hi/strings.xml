@@ -68,7 +68,7 @@
     <string name="save">Save all notes as xml</string>
     <string name="showDeleteConfirmation">Delete notes?</string>
     <string name="backupIsrunning">Backup is running</string>
-    <string name="no">No</string>
+    <string name="no">नहीं</string>
     <string name="importError">Error when importing notes।</string>
     <string name="restore">Restore all notes as xml</string>
     <string name="showDeleteConfirmationMessage">All notes will be permanently deleted. Continue?</string>
@@ -84,7 +84,7 @@
     <string name="cancel">Cancel</string>
     <string name="showRestoreConfirmation">Restore?</string>
     <string name="restore_notes_title">Restore</string>
-    <string name="save_notes_title">Backup</string>
+    <string name="save_notes_title">बैकअप</string>
     <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
     <string name="toggle">change View</string>
 </resources>
