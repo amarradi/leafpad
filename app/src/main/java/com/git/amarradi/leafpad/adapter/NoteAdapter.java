@@ -94,7 +94,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         if (matcher.find()) {
             holder.bibleIcon.setVisibility(View.VISIBLE);
         } else {
-            holder.bibleIcon.setVisibility(View.VISIBLE);
+            holder.bibleIcon.setVisibility(View.INVISIBLE);
         }
 
         holder.itemView.setOnClickListener(v -> {
