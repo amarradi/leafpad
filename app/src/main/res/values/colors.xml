@@ -6,73 +6,39 @@
         <color name="iconColor">#5A5A5A</color> <!-- Neutralgrau, gut für beide Modi -->
         <color name="previewTextColor">#5A6B5F</color> <!-- Sanftes Grau-Grün für angenehme Lesbarkeit -->
 
-        <color name="md_theme_light_cardBackground">#E8F0E8</color> <!-- oder eine andere gewählte Farbe -->
-        <color name="md_theme_dark_cardBackground">#2E2E2E</color> <!-- für Dark Mode dunkler halten -->
+        <color name="md_theme_cardBackground">#E8F0E8</color> <!-- oder eine andere gewählte Farbe -->
 
-        <color name="md_theme_light_recipe">#000080</color>
-        <color name="md_theme_dark_recipe">#6699FF</color>
 
-        <color name="md_theme_light_primary">#006D42</color>
-        <color name="md_theme_light_onPrimary">#FFFFFF</color>
-        <color name="md_theme_light_primaryContainer">#8CD6B3</color>
-        <color name="md_theme_light_onPrimaryContainer">#003321</color>
-        <color name="md_theme_light_emeraldTint">#2F6E5A</color>
+        <color name="md_theme_recipe">#000080</color>
+
+        <color name="md_theme_primary">#006D42</color>
+        <color name="md_theme_onPrimary">#FFFFFF</color>
+        <color name="md_theme_primaryContainer">#8CD6B3</color>
+        <color name="md_theme_onPrimaryContainer">#003321</color>
+        <color name="md_theme_emeraldTint">#2F6E5A</color>
 
         <!-- Sekundärfarben -->
-        <color name="md_theme_light_secondary">#9B4427</color>
-        <color name="md_theme_light_onSecondary">#FFFFFF</color>
-        <color name="md_theme_light_secondaryContainer">#E4B4A6</color>
-        <color name="md_theme_light_onSecondaryContainer">#4E190D</color>
+        <color name="md_theme_secondary">#9B4427</color>
+        <color name="md_theme_onSecondary">#FFFFFF</color>
+        <color name="md_theme_secondaryContainer">#E4B4A6</color>
+        <color name="md_theme_onSecondaryContainer">#4E190D</color>
 
         <!-- Hintergrund und Oberfläche -->
-        <color name="md_theme_light_background">#F5F5F5</color>
-        <color name="md_theme_light_onBackground">#1C1C1C</color>
-        <color name="md_theme_light_surface">#FFFFFF</color>
-        <color name="md_theme_light_onSurface">#1C1C1C</color>
+        <color name="md_theme_background">#F5F5F5</color>
+        <color name="md_theme_onBackground">#1C1C1C</color>
+        <color name="md_theme_surface">#FFFFFF</color>
+        <color name="md_theme_onSurface">#1C1C1C</color>
 
         <!-- Fehlerfarbe -->
-        <color name="md_theme_light_error">#B3261E</color>
-        <color name="md_theme_light_onError">#FFFFFF</color>
-        <color name="md_theme_light_errorContainer">#FFDAD4</color>
-        <color name="md_theme_light_onErrorContainer">#410E0B</color>
+        <color name="md_theme_error">#B3261E</color>
+        <color name="md_theme_onError">#FFFFFF</color>
+        <color name="md_theme_errorContainer">#FFDAD4</color>
+        <color name="md_theme_onErrorContainer">#410E0B</color>
 
         <!-- Outlines & Variationen -->
-        <color name="md_theme_light_outline">#79747E</color>
-        <color name="md_theme_light_outlineVariant">#C4C4C4</color>
+        <color name="md_theme_outline">#79747E</color>
+        <color name="md_theme_outlineVariant">#C4C4C4</color>
 
         <!-- Schatten -->
-        <color name="md_theme_light_shadow">#000000</color>
-
-        <!-- Primärfarben (angepasst für Dunkelmodus) -->
-
-        <color name="md_theme_dark_emeraldTint">#2F6E5A</color>
-        <color name="md_theme_dark_primary">#3BBF88</color>
-        <color name="md_theme_dark_onPrimary">#003321</color>
-        <color name="md_theme_dark_primaryContainer">#005A33</color>
-        <color name="md_theme_dark_onPrimaryContainer">#8CD6B3</color>
-
-        <!-- Sekundärfarben (angepasst für Dunkelmodus) -->
-        <color name="md_theme_dark_secondary">#D86C4F</color>
-        <color name="md_theme_dark_onSecondary">#4E190D</color>
-        <color name="md_theme_dark_secondaryContainer">#7C2A17</color>
-        <color name="md_theme_dark_onSecondaryContainer">#E4B4A6</color>
-
-        <!-- Hintergrund und Oberfläche -->
-        <color name="md_theme_dark_background">#252525</color>
-        <color name="md_theme_dark_onBackground">#E0E0E0</color>
-        <color name="md_theme_dark_surface">#1E1E1E</color>
-        <color name="md_theme_dark_onSurface">#FFFFFF</color>
-
-        <!-- Fehlerfarbe -->
-        <color name="md_theme_dark_error">#CF6679</color>
-        <color name="md_theme_dark_onError">#1E1E1E</color>
-        <color name="md_theme_dark_errorContainer">#B3261E</color>
-        <color name="md_theme_dark_onErrorContainer">#FFDAD4</color>
-
-        <!-- Outlines & Variationen -->
-        <color name="md_theme_dark_outline">#888888</color>
-        <color name="md_theme_dark_outlineVariant">#505050</color>
-
-        <!-- Schatten -->
-        <color name="md_theme_dark_shadow">#000000</color>
+        <color name="md_theme_shadow">#000000</color>
 </resources>

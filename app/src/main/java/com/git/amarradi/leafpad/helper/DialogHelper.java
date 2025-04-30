@@ -1,7 +1,8 @@
-package com.git.amarradi.leafpad;
+package com.git.amarradi.leafpad.helper;
 
 import android.content.Context;
 
+import com.git.amarradi.leafpad.R;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class DialogHelper {

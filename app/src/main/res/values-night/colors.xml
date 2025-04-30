@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <!-- hellblaue Kochmütze-->
+        <color name="md_theme_recipe">#6699FF</color>
+        <!-- Primärfarben (angepasst für Dunkelmodus) -->
+        <color name="md_theme_primaryContainer">#005A33</color>
+        <color name="md_theme_cardBackground">#2E2E2E</color> <!-- für Dark Mode dunkler halten -->
+        <color name="md_theme_primary">#3BBF88</color>
+        <color name="md_theme_onPrimary">#003321</color>
+        <color name="md_theme_onPrimaryContainer">#8CD6B3</color>
+        <color name="md_theme_emeraldTint">#2F6E5A</color>
+        <!-- Sekundärfarben (angepasst für Dunkelmodus) -->
+        <color name="md_theme_secondary">#D86C4F</color>
+        <color name="md_theme_onSecondary">#4E190D</color>
+        <color name="md_theme_secondaryContainer">#7C2A17</color>
+        <color name="md_theme_onSecondaryContainer">#E4B4A6</color>
+        <!-- Hintergrund und Oberfläche -->
+        <color name="md_theme_background">#252525</color>
+        <color name="md_theme_onBackground">#E0E0E0</color>
+        <color name="md_theme_surface">#1E1E1E</color>
+        <color name="md_theme_onSurface">#FFFFFF</color>
+
+        <!-- Fehlerfarbe -->
+        <color name="md_theme_error">#CF6679</color>
+        <color name="md_theme_onError">#1E1E1E</color>
+        <color name="md_theme_errorContainer">#B3261E</color>
+        <color name="md_theme_onErrorContainer">#FFDAD4</color>
+
+        <!-- Outlines & Variationen -->
+        <color name="md_theme_outline">#888888</color>
+        <color name="md_theme_outlineVariant">#505050</color>
+
+        <!-- Schatten -->
+        <color name="md_theme_shadow">#000000</color>
+
+</resources>

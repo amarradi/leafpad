@@ -18,6 +18,8 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceScreen;
 
+import com.git.amarradi.leafpad.helper.DialogHelper;
+import com.git.amarradi.leafpad.helper.NoteBackupHelper;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.InputStream;

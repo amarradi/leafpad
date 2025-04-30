@@ -53,16 +53,16 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         holder.dateText.setText(note.getDate());
         holder.timeText.setText(note.getTime());
 
+        MaterialCardView cardView = holder.itemView.findViewById(R.id.note_card_view);
         if (!TextUtils.isEmpty(note.getCategory())) {
             holder.categoryText.setVisibility(View.VISIBLE);
             holder.categoryIcon.setVisibility(View.VISIBLE);
             holder.categoryText.setText(note.getCategory());
-            ((MaterialCardView) holder.itemView.findViewById(R.id.note_card_view)).setStrokeColor(
-                    context.getResources().getColor(R.color.md_theme_light_recipe, null)
-            );
+            cardView.setStrokeColor(context.getResources().getColor(R.color.md_theme_recipe, null));
         } else {
-            holder.categoryText.setVisibility(View.GONE);
-            holder.categoryIcon.setVisibility(View.GONE);
+            cardView.setStrokeColor(context.getResources().getColor(R.color.md_theme_primaryContainer, null));
+            holder.categoryText.setVisibility(View.INVISIBLE);
+            holder.categoryIcon.setVisibility(View.INVISIBLE);
         }
 
         Pattern biblePattern = Pattern.compile(BIBLEVERSE_URL_REGEX);
@@ -70,7 +70,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         if (matcher.find()) {
             holder.bibleIcon.setVisibility(View.VISIBLE);
         } else {
-            holder.bibleIcon.setVisibility(View.GONE);
+            holder.bibleIcon.setVisibility(View.VISIBLE);
         }
 
         holder.itemView.setOnClickListener(v -> {
