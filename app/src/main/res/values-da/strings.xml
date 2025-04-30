@@ -86,4 +86,5 @@
     <string name="save_notes_title">Backup</string>
     <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
     <string name="restore_notes_title">Restore</string>
+    <string name="toggle">change View</string>
 </resources>

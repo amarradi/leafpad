@@ -88,4 +88,5 @@
     <string name="restore_notes_title">Przywróć</string>
     <string name="save_notes_title">Kopia zapasowa</string>
     <string name="showRestoreConfirmationMessage">Wszystkie bieżące notatki zostaną zastąpione kopią zapasową. Kontynuować?</string>
+    <string name="toggle">zmień widok</string>
 </resources>
