@@ -148,11 +148,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         noteAdapter.updateNotes(notes);
 
         ImageView emptyElement = findViewById(R.id.emptyElement);
-        if (notes.isEmpty()) {
+        if (noteAdapter.isFilteredListEmpty()) {
             emptyElement.setVisibility(View.VISIBLE);
-            recyclerView.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.INVISIBLE);
         } else {
-            emptyElement.setVisibility(View.GONE);
+            emptyElement.setVisibility(View.INVISIBLE);
             recyclerView.setVisibility(View.VISIBLE);
         }
     }
@@ -204,7 +204,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
-    private void toggleShowHidden(android.view.MenuItem item) {
+    private void toggleShowHidden(MenuItem item) {
         showHidden = !showHidden;
         if (showHidden) {
             item.setIcon(getDrawable(R.drawable.action_eye_closed));
@@ -213,6 +213,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             item.setIcon(getDrawable(R.drawable.action_eye_open));
             item.setTitle(getString(R.string.show_hidden));
         }
+        noteAdapter.setShowOnlyHidden(showHidden);
         updateListView();
         invalidateOptionsMenu();
     }

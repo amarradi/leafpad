@@ -17,6 +17,7 @@ import com.git.amarradi.leafpad.NoteEditActivity;
 import com.git.amarradi.leafpad.R;
 import com.google.android.material.card.MaterialCardView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,12 +26,35 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
     private Context context;
     private List<Note> noteList;
+    private boolean showOnlyHidden = false;
+    private List<Note> fullNoteList = new ArrayList<>();
+
     private final static String BIBLEVERSE_URL_REGEX = "(?i)\\b(?:https?://)?(?:www\\.)?(bible\\.(com|org)|bibleserver\\.com)(/\\S*)?";
 
     public NoteAdapter(Context context, List<Note> noteList) {
         this.context = context;
         this.noteList = noteList;
+        this.noteList = filterNotes(showOnlyHidden);
     }
+
+    public void setShowOnlyHidden(boolean showHidden) {
+        this.showOnlyHidden = showHidden;
+        this.noteList = filterNotes(showHidden);
+        notifyDataSetChanged();
+    }
+
+    private List<Note> filterNotes(boolean showHidden) {
+        List<Note> filtered = new ArrayList<>();
+        for (Note note : fullNoteList) {
+            if (showHidden && note.isHide()) {
+                filtered.add(note);
+            } else if (!showHidden && !note.isHide()) {
+                filtered.add(note);
+            }
+        }
+        return filtered;
+    }
+
 
     @Override
     public NoteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -86,9 +110,14 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     }
 
     public void updateNotes(List<Note> newNotes) {
-        this.noteList = newNotes;
+        this.fullNoteList = newNotes;
+        this.noteList = filterNotes(showOnlyHidden);
         notifyDataSetChanged();
     }
+    public boolean isFilteredListEmpty() {
+        return noteList == null || noteList.isEmpty();
+    }
+
 
     static class NoteViewHolder extends RecyclerView.ViewHolder {
         TextView titleText, bodyPreview, dateText, timeText, categoryText;
