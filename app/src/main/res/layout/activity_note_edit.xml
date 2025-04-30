@@ -72,12 +72,14 @@
                 app:hintTextAppearance="@style/MyHintStyle"
                 app:boxCollapsedPaddingTop="@dimen/boxCollapsedPaddingTop">
 
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/body_edit"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="top|start"
                     android:includeFontPadding="false"
+                    android:paddingTop="@dimen/paddingTop_noteEditText"
                     android:textAlignment="viewStart"
                     android:scrollbars="vertical"
                     android:overScrollMode="always"

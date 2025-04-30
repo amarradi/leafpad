@@ -21,6 +21,7 @@
     <dimen name="marginTop_noteEdit">5dp</dimen>
     <dimen name="marginBottom_noteEdit">0dp</dimen>
     <dimen name="paddingStartEnd_noteEdit">8dp</dimen>
+    <dimen name="paddingTop_noteEditText">7dp</dimen>
 
     <dimen name="boxCollapsedPaddingTop">5dp</dimen>
 
