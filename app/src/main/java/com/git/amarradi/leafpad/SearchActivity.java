@@ -1,7 +1,19 @@
+package com.git.amarradi.leafpad;
+
+import androidx.appcompat.widget.SearchView;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import androidx.appcompat.app.AppCompatActivity;
+import java.util.*;
+import android.os.Bundle;
+
+import com.google.android.material.appbar.MaterialToolbar;
+
 
 public class SearchActivity extends AppCompatActivity {
 	private SearchView searchView;
 	private ListView listView;
+	private MaterialToolbar toolbar;
 	private SimpleAdapter adapter;
 	private List<Note> notes;
 	private List<Map<String,String>> data = new ArrayList<>();
@@ -15,6 +27,10 @@ public class SearchActivity extends AppCompatActivity {
 
 		searchView = findViewById(R.id.search_view);
 		listView = findViewById(R.id.list_search_results);
+		toolbar = findViewById(R.id.search_toolbar);
+
+		setSupportActionBar(toolbar);
+		Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
 		notes = Leaf.loadAll(this,true);
 
@@ -24,7 +40,7 @@ public class SearchActivity extends AppCompatActivity {
 		listView.setAdapter(adapter);
 
 
-		searchView.setOnQueryTextListener(new SearchView.onQueryTextListener() {
+		searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 			@Override
 			public boolean onQueryTextSubmit(String query) {	
 				filterNotes(query);

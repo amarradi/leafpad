@@ -61,6 +61,7 @@
     <string name="action_save">save note</string>
     <string name="action_note_saved">saved</string>
     <string name="search">search</string>
+    <string name="search_hint">type search terms</string>
     <string name="participate">Participate</string>
     <string name="translate">Translate the app on Weblate</string>
     <string name="translation_help">Help us translate the app into your language on weblate</string>

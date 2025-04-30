@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical"
+	android:fitsSystemWindows="true"
  	android:padding="16dp">
+
+	<!-- Toolbar -->
+	<com.google.android.material.appbar.AppBarLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:fitsSystemWindows="true">
+
+		<com.google.android.material.appbar.MaterialToolbar
+			android:id="@+id/search_toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="?attr/actionBarSize"
+			android:fitsSystemWindows="true"
+
+			/>
+	</com.google.android.material.appbar.AppBarLayout>
 
  	<androidx.appcompat.widget.SearchView
  		android:id="@+id/search_view"
