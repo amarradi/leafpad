@@ -13,14 +13,17 @@ android {
         applicationId "com.git.amarradi.leafpad"
         minSdkVersion 25
         targetSdkVersion 35
-        versionCode 22
-        versionName "1.17"
+        versionCode 26
+        versionName "1.18"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
                 cppFlags ''
             }
         }
+        resConfigs "aeb", "ar", "be", "bg", "br", "ca", "ce", "cs", "da", "de", "el", "es", "fi", "fr", "hi", "hu", "id", "it", "nb", "nl", "pl", "pt", "ru", "sq", "sv", "ta", "ur"
+
+
         //version types: alpha, beta, r
     }
     buildTypes {
@@ -31,8 +34,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     namespace 'com.git.amarradi.leafpad'
     buildToolsVersion = '35.0.0'
@@ -48,7 +51,7 @@ android {
 
     java {
         toolchain {
-            languageVersion = JavaLanguageVersion.of(11)
+            languageVersion = JavaLanguageVersion.of(17)
         }
     }
 }
@@ -56,14 +59,14 @@ android {
 dependencies {
     implementation fileTree(dir: 'lfibs', include: ['*.jar'])
 
-    def core = "1.15.0"
-    def coordinatorLayout = "1.2.0"
+    def core = "1.16.0"
+    def coordinatorLayout = "1.3.0"
     def appcompat = "1.7.0"
     def material= "1.12.0"
-    def splashscreen = "1.2.0-alpha02"
-    def constraintlayout = "2.2.0"
+    def splashscreen = "1.2.0-beta02"
+    def constraintlayout = "2.2.1"
     def preference_version = "1.2.1"
-    def activity_version = '1.10.0'
+    def activity_version = '1.10.1'
 
     implementation "androidx.core:core:$core"
     implementation "androidx.coordinatorlayout:coordinatorlayout:$coordinatorLayout"

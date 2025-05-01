@@ -4,7 +4,26 @@
         <item name="titleTextAppearance">@style/TextAppearance.MyToolbarTitle</item>
         <item name="subtitleTextAppearance">@style/TextAppearance.MyToolbarSubtitle</item>
         <item name="android:elevation">0dp</item>
+    </style>
 
+    <style name="CustomToolbarStyleEdit" parent="Widget.Material3.Toolbar">
+        <item name="titleTextAppearance">@style/TextAppearance.MyToolbarTitleEdit</item>
+        <item name="subtitleTextAppearance">@style/TextAppearance.MyToolbarSubtitleEdit</item>
+        <item name="android:elevation">0dp</item>
+    </style>
+
+    <style name="TextAppearance.MyToolbarTitleEdit" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:fontFamily">@font/opensans_medium</item>
+        <item name="android:textSize">@dimen/textSize_MyToolbarTitleEdit</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/md_theme_primary</item>
+    </style>
+
+    <style name="TextAppearance.MyToolbarSubtitleEdit" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:fontFamily">@font/opensans_medium</item>
+        <item name="android:textSize">@dimen/textSize_MyToolbarSubtitleEdit</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/md_theme_emeraldTint</item>
     </style>
 
 
@@ -13,68 +32,68 @@
         <item name="android:fontFamily">@font/opensans_medium</item>
         <item name="android:textSize">@dimen/textSize_MyToolbarTitle</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/md_theme_dark_primary</item>
+        <item name="android:textColor">@color/md_theme_primary</item>
     </style>
 
     <style name="TextAppearance.MyToolbarSubtitle" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:fontFamily">@font/opensans_medium</item>
         <item name="android:textSize">@dimen/textSize_MyToolbarSubtitle</item>
-        <item name="android:textColor">@color/md_theme_dark_emeraldTint</item>
+        <item name="android:textColor">@color/md_theme_emeraldTint</item>
     </style>
 
     <style name="TextAppearance.MyNoteItem" parent="TextAppearance.MaterialComponents.Body1">
-        <item name="android:textSize">@dimen/textSize_MyNoteItem</item> <!-- Definiert die Schriftgröße -->
-        <item name="android:textColor">@color/md_theme_dark_primary</item> <!-- Definiert die Schriftfarbe -->
-        <item name="android:textStyle">bold</item> <!-- Optional, für den Stil (z. B. "bold", "italic") -->
+        <item name="android:textSize">@dimen/textSize_MyNoteItem</item>
+        <item name="android:textColor">@color/md_theme_primary</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">@font/opensans_medium</item>
     </style>
 
     <style name="TextAppearance.MyNotePreview" parent="TextAppearance.MaterialComponents.Body1">
-        <item name="android:textSize">@dimen/textSize_MyNotePreview</item> <!-- Definiert die Schriftgröße -->
-        <item name="android:textColor">@color/previewTextColor</item> <!-- Definiert die Schriftfarbe -->
-        <item name="android:textStyle">normal</item> <!-- Optional, für den Stil (z. B. "bold", "italic") -->
+        <item name="android:textSize">@dimen/textSize_MyNotePreview</item>
+        <item name="android:textColor">@color/previewTextColor</item>
+        <item name="android:textStyle">normal</item>
         <item name="android:fontFamily">@font/opensans_medium</item>
     </style>
 
     <style name="TextAppearance.MyDateTime" parent="TextAppearance.MaterialComponents.Body1">
-        <item name="android:textSize">@dimen/textSize_MyDateTime</item> <!-- Definiert die Schriftgröße -->
-        <item name="android:textColor">@color/md_theme_dark_primary</item> <!-- Definiert die Schriftfarbe -->
-        <item name="android:textStyle">bold</item> <!-- Optional, für den Stil (z. B. "bold", "italic") -->
+        <item name="android:textSize">@dimen/textSize_MyDateTime</item>
+        <item name="android:textColor">@color/md_theme_primary</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">@font/opensans_medium</item>
     </style>
     <style name="TextAppearance.MyCategoryText" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textSize">@dimen/textSize_MyCategory</item>
-        <item name="android:textColor">@color/md_theme_dark_recipe</item>
+        <item name="android:textColor">@color/md_theme_recipe</item>
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily" >@font/opensans_medium</item>
     </style>
 
     <!-- Custom style für MaterialCardView -->
     <style name="CustomCardViewStyle" parent="Widget.Material3.CardView.Elevated">
-        <item name="strokeColor">@color/md_theme_dark_primaryContainer</item>
-        <!-- Definiere Eigenschaften für die CardView -->
+        <item name="strokeColor">@color/md_theme_primaryContainer</item>
+
         <item name="cardCornerRadius">@dimen/cornerRadiusCardElement</item>
-        <item name="cardElevation">@dimen/cardElevation</item> <!-- Schattenwurf -->
-        <item name="strokeWidth">@dimen/strokeWidth</item> <!-- Breite der Umrandung -->
+        <item name="cardElevation">@dimen/cardElevation</item>
+        <item name="strokeWidth">@dimen/strokeWidth</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Card</item>
     </style>
 
     <style name="ThemeOverlay.App.Card" parent="">
-        <item name="android:background">@color/md_theme_dark_cardBackground</item>
-        <item name="colorSurface">@color/md_theme_dark_surface</item>
-        <item name="colorSecondary">@color/md_theme_dark_onSurface</item>
+        <item name="android:background">@color/md_theme_cardBackground</item>
+        <item name="colorSurface">@color/md_theme_surface</item>
+        <item name="colorSecondary">@color/md_theme_onSurface</item>
     </style>
     <style name="TextAppearance.MyAboutPage" parent="TextAppearance.MaterialComponents.Body1">
-        <item name="android:textSize">12sp</item> <!-- Definiert die Schriftgröße -->
-        <item name="android:textColor">@color/md_theme_light_primary</item> <!-- Definiert die Schriftfarbe -->
-        <item name="android:textStyle">normal</item> <!-- Optional, für den Stil (z. B. "bold", "italic") -->
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/md_theme_primary</item>
+        <item name="android:textStyle">normal</item>
         <item name="android:fontFamily" >@font/opensans_medium</item>
     </style>
 
     <style name="TextAppearance.MyAboutPageTitle" parent="TextAppearance.MaterialComponents.Body1">
-        <item name="android:textSize">20sp</item> <!-- Definiert die Schriftgröße -->
-        <item name="android:textColor">@color/md_theme_light_primary</item> <!-- Definiert die Schriftfarbe -->
-        <item name="android:textStyle">bold</item> <!-- Optional, für den Stil (z. B. "bold", "italic") -->
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/md_theme_primary</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:fontFamily" >@font/opensans_medium</item>
     </style>
 

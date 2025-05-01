@@ -8,7 +8,7 @@
     tools:context="MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
 
         android:id="@+id/note_list_view"
         android:layout_width="match_parent"
@@ -21,6 +21,7 @@
         android:id="@+id/emptyElement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/leafpad_work"
         android:src="@drawable/leafpad_svg_twig"
         android:visibility="gone" />
 

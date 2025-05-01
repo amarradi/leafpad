@@ -1,7 +1,6 @@
 package com.git.amarradi.leafpad;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -11,10 +10,11 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.git.amarradi.leafpad.helper.DialogHelper;
 import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -34,7 +34,7 @@ public class NoteEditActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_note_edit);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -194,7 +194,8 @@ public class NoteEditActivity extends AppCompatActivity {
                 shareNote();
                 return true;
             case R.id.action_remove:
-                MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(NoteEditActivity.this);
+                DialogHelper.showDeleteSingleNoteDialog(NoteEditActivity.this, this::removeNote);
+               /** MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(NoteEditActivity.this);
                 materialAlertDialogBuilder
                         .setIcon(R.drawable.dialog_delete)
                         .setTitle(R.string.remove_dialog_title)
@@ -212,7 +213,7 @@ public class NoteEditActivity extends AppCompatActivity {
                     }
                 });
                 materialAlertDialogBuilder.create();
-                materialAlertDialogBuilder.show();
+                materialAlertDialogBuilder.show(); **/
                 return true;
             case R.id.action_save:
                 note.setHide(visibleSwitch.isChecked());

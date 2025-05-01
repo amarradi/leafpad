@@ -12,7 +12,7 @@ public class Note {
     private String notedate;
     private String notetime;
     private String create_date;
-    private final String id;
+    private String id;
     private boolean hide;
     private String category;
 
@@ -51,6 +51,10 @@ public class Note {
         return UUID.randomUUID().toString();
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -69,6 +73,14 @@ public class Note {
         SimpleDateFormat df;
         df = new SimpleDateFormat("HH:mm",LOCALE);
         this.notetime = df.format(new Date());
+    }
+
+    public void setNotedate(String notedate) {
+        this.notedate = notedate;
+    }
+
+    public void setNotetime(String notetime) {
+        this.notetime = notetime;
     }
 
     public void setCreateDate(){

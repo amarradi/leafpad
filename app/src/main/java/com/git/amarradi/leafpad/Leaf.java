@@ -144,4 +144,32 @@ public class Leaf {
         editor.remove(CATEGORY + note.getId());
         editor.apply();
     }
+
+    public static void deleteAll(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        Set<String> ids = sharedPreferences.getStringSet(ID_KEY, null);
+        if (ids != null) {
+            for (String noteId : ids) {
+                editor.remove(TITLE_PREFIX + noteId);
+                editor.remove(BODY_PREFIX + noteId);
+                editor.remove(ADDDATE + noteId);
+                editor.remove(ADDTIME + noteId);
+                editor.remove(CREATEDATE + noteId);
+                editor.remove(HIDE + "_" + noteId);
+                editor.remove(CATEGORY + noteId);
+            }
+            editor.remove(ID_KEY); // Wichtig: auch die ID-Liste löschen
+        }
+
+        editor.apply();
+        Log.d("Leaf", "Alle Notizen wurden gelöscht.");
+    }
+
+    public static void save(Context context, Note note) {
+        set(context, note); // Die Methode `set(...)` hast du ja bereits korrekt definiert.
+    }
+
+
 }

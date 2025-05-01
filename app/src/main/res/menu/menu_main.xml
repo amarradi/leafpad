@@ -9,15 +9,20 @@
         app:showAsAction="ifRoom"
         />
     <item
+        android:id="@+id/action_open_search"
+        android:title="@string/search"
+        android:icon="@drawable/action_search"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/item_toggle_layout"
+        android:icon="@drawable/action_gridview_on"
+        android:title="@string/toggle"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/item_settings"
         android:icon="@drawable/action_setting"
         android:title="@string/menu_settings"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/action_open_search"
-        android:title="@string/search"
-        android:icon="@drawable/action_search"
-        app:showAsAction="ifRoom"/>
 
 
 </menu>

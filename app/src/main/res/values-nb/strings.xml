@@ -47,8 +47,8 @@
     <string name="lightmode_preference_key">lightmode</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="darkmode_preference_key">darkmode</string>
-    <string name="search">search</string>
     <string name="action_save">save note</string>
+    <string name="search">search</string>
     <string name="share_note">Share Note?</string>
     <string name="thanks">Thank you Stefan, Stefan, Manuel, Falk and Stephanie for your ideas and testing the app.</string>
     <string name="statement">We write down shopping lists, notes for conversations, packing lists for vacations or friends\' birthdays. These are all good things so that we don\'t forget them. It\'s very similar with God, he writes down our good and bad deeds and saves them. God is above everything and simply knows everything. God loves people and wants to have fellowship with them. But this is only possible if we are seen by God as blameless. Through faith in Jesus Christ, our bad deeds (our guilt) are wiped out before God. Jesus Christ atoned for our guilt on the cross of Calvary. Every person who accepts this is entered in the book of life forever. Are you registered in the book of life?</string>
@@ -65,4 +65,26 @@
     <string name="action_share_note">Share note</string>
     <string name="note_is_recipe">note is a recipe</string>
     <string name="note_is_no_recipe">note is no recipe</string>
+    <string name="save">Save all notes as xml</string>
+    <string name="showDeleteConfirmation">Delete notes?</string>
+    <string name="backupIsrunning">Backup is running</string>
+    <string name="no">No</string>
+    <string name="importError">Error when importing notes.</string>
+    <string name="restore">Restore all notes as xml</string>
+    <string name="showDeleteConfirmationMessage">All notes will be permanently deleted. Continue?</string>
+    <string name="yes">Yes</string>
+    <plurals name="notes_imported">
+        <item quantity="one">One note imported</item>
+        <item quantity="other">%1$d notes imported</item>
+    </plurals>
+    <string name="fileOpeningError">Error when opening the file.</string>
+    <string name="delete">Delete</string>
+    <string name="backupfinish">Backup finishes</string>
+    <string name="invalidFile">Invalid backup file. The import was cancelled.</string>
+    <string name="cancel">Cancel</string>
+    <string name="showRestoreConfirmation">Restore?</string>
+    <string name="restore_notes_title">Restore</string>
+    <string name="save_notes_title">Backup</string>
+    <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
+    <string name="toggle">change View</string>
 </resources>

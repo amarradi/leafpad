@@ -14,13 +14,13 @@
     <string name="remove_dialog_abort">Annuler</string>
     <string name="menu_settings">Réglages</string>
     <string name="general_preference">Généralités</string>
-    <string name="statement">Nous écrivons des listes de courses, des notes pour les conversations, des listes d\'emballage pour les vacances ou les anniversaires d\'amis. Ce sont toutes de bonnes choses pour ne pas les oublier. C\'est très semblable à Dieu, il écrit nos bonnes et mauvaises actions et les sauve. Dieu est au-dessus de tout et sait tout simplement. Dieu aime les gens et veut être en communion avec eux. Mais cela n\'est possible que si nous sommes vus par Dieu comme impitoyables. Par la foi en Jésus-Christ, nos mauvaises actions (notre culpabilité) sont essuyées devant Dieu. Jésus-Christ a voulu notre culpabilité sur la croix du Calvaire. Toute personne qui accepte cela est inscrite dans le livre de la vie pour toujours. Êtes-vous inscrit dans le livre de vie ?</string>
+    <string name="statement">Nous écrivons des listes de courses, des notes pour les conversations, des listes d\'emballage pour les vacances ou les anniversaires d\'amis. Ce sont toutes de bonnes choses pour ne pas les oublier. C\'est très semblable à Dieu, il écrit nos bonnes et mauvaises actions et les sauve. Dieu est au-dessus de tout et sait tout simplement. Dieu aime les gens et veut être en communion avec eux. Mais cela n\'est possible que si nous sommes vus par Dieu comme impitoyables. Par la foi en Jésus-Christ, nos mauvaises actions (notre culpabilité) sont essuyées devant Dieu. Jésus-Christ a voulu notre culpabilité sur la croix du Calvaire. Toute personne qui accepte cela est inscrite dans le livre de la vie pour toujours. Êtes-vous inscrit dans le livre de vie ?</string>
     <string name="its_opensource">Leafpad est OpenSource et gratuit</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="find_code_on_github_summary">Vous pouvez consulter et vérifier le code source via le dépôt. Vous êtes le bienvenu pour ouvrir un numéro pour les demandes de changement et les messages d\'erreur.</string>
     <string name="title_licence">Licences</string>
     <string name="licence">Licences Open Source</string>
-    <string name="share_note">Note de partage ?</string>
+    <string name="share_note">Note de partage ?</string>
     <string name="note_will_be_saved_first">La note sera sauvegardée</string>
     <string name="action_save">Enregistrer la note</string>
     <string name="action_note_saved">sauvés</string>
@@ -39,8 +39,8 @@
     <string name="imported">la note a été envoyée au pavé</string>
     <string name="edited_text">édité à</string>
     <string name="new_note">nouvelle note</string>
-    <string name="satisfied">Vous aimez le pavé ?</string>
-    <string name="rate_the_app">Que diriez-vous d\'un commentaire dans Google PlayStore ?</string>
+    <string name="satisfied">Vous aimez le pavé ?</string>
+    <string name="rate_the_app">Que diriez-vous d\'un commentaire dans Google PlayStore ?</string>
     <string name="system_preference_key">suivre le système (standard)</string>
     <string name="theme_summary">Basculer entre le thème sombre et le thème clair</string>
     <string name="about">À propos</string>
@@ -50,9 +50,9 @@
     <string name="change">version</string>
     <string name="what_is_leafpad">Leafpad est une application simple pour prendre des notes.</string>
     <string name="leafpad_work">Leafpad sauve toutes les données localement sur votre smartphone. Les notes ou métadonnées telles que la date et l\'heure ne sont stockées dans aucun nuage et ne sont partagées avec personne. Aucune analyse de texte n \' est effectuée non plus. Les notes vous appartiennent. Tu décides ce que tu fais avec eux.</string>
-    <string name="rev20_12">Et je vis les morts, les grands et les petits, debout devant le trône ; et des livres furent ouverts ; et un autre livre fut ouvert, qui est le livre de la vie ; et les morts furent jugés des choses qui étaient écrites dans les livres, selon leurs œuvres. Apocalypse 20 :12</string>
+    <string name="rev20_12">Et je vis les morts, les grands et les petits, debout devant le trône ; et des livres furent ouverts ; et un autre livre fut ouvert, qui est le livre de la vie ; et les morts furent jugés des choses qui étaient écrites dans les livres, selon leurs œuvres. Apocalypse 20 :12</string>
     <string name="thanks">Merci Stefan, Stefan, Manuel, Falk et Stephanie pour vos idées et tester l\'application.</string>
-    <string name="remove_dialog_title">Tu es sûr ?</string>
+    <string name="remove_dialog_title">Tu es sûr ?</string>
     <string name="search">recherche</string>
     <string name="lightmode_preference_key">lightmode</string>
     <string name="darkmode_preference_key">darkmode</string>
@@ -65,4 +65,27 @@
     <string name="show_hidden">montres cachées</string>
     <string name="note_is_recipe">note is a recipe</string>
     <string name="note_is_no_recipe">note is no recipe</string>
+    <string name="no">No</string>
+    <string name="save">Save all notes as xml</string>
+    <string name="showDeleteConfirmation">Delete notes?</string>
+    <string name="backupIsrunning">Backup is running</string>
+    <string name="importError">Error when importing notes.</string>
+    <string name="restore">Restore all notes as xml</string>
+    <string name="showDeleteConfirmationMessage">All notes will be permanently deleted. Continue?</string>
+    <string name="yes">Yes</string>
+    <plurals name="notes_imported">
+        <item quantity="one">One note imported</item>
+        <item quantity="many">%1$d notes imported</item>
+        <item quantity="other">%1$d notes imported</item>
+    </plurals>
+    <string name="fileOpeningError">Error when opening the file.</string>
+    <string name="delete">Delete</string>
+    <string name="backupfinish">Backup finishes</string>
+    <string name="invalidFile">Invalid backup file. The import was cancelled.</string>
+    <string name="cancel">Cancel</string>
+    <string name="showRestoreConfirmation">Restore?</string>
+    <string name="restore_notes_title">Restore</string>
+    <string name="save_notes_title">Backup</string>
+    <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
+    <string name="toggle">change View</string>
 </resources>

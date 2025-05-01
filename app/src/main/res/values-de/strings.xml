@@ -65,7 +65,29 @@
     <string name="hide_hidden">verberge versteckte Notizen</string>
     <string name="note_is_recipe">Die Notiz ist ein Rezept</string>
     <string name="note_is_no_recipe">Die Notiz ist kein Rezept</string>
+    <string name="importError">Fehler beim Importieren der Notizen.</string>
+    <string name="fileOpeningError">Fehler beim Öffnen der Datei.</string>
+    <string name="invalidFile">Ungültige Backup-Datei. Der Import wurde abgebrochen.</string>
+    <string name="backupIsrunning">Backup läuft</string>
+    <string name="backupfinish">Backup abgeschlossen</string>
+    <plurals name="notes_imported">
+        <item quantity="one">Eine Notiz importiert</item>
+        <item quantity="other">%1$d Notizen importiert</item>
+    </plurals>
     <string-array name="category">
         <item>Rezept</item>
     </string-array>
+    <string name="no">Nein</string>
+    <string name="save">Alle Notizen als xml-Datei speichern</string>
+    <string name="showDeleteConfirmation">Notizen löschen?</string>
+    <string name="restore">Alle Notizen aus einer xml-Datei wiederherstellen</string>
+    <string name="showDeleteConfirmationMessage">Alle Notizen werden endgültig gelöscht. Weiter?</string>
+    <string name="yes">Ja</string>
+    <string name="delete">Löschen</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="showRestoreConfirmation">Wiederherstellen?</string>
+    <string name="restore_notes_title">Wiederherstellen</string>
+    <string name="save_notes_title">Notizen sichern</string>
+    <string name="showRestoreConfirmationMessage">Alle aktuellen Notizen werden durch die Sicherungskopie ersetzt. Weiter?</string>
+    <string name="toggle">Ansicht umschalten</string>
 </resources>
