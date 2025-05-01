@@ -32,6 +32,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
     public static final String GITHUBPATH = "https://github.com/amarradi/leafpad";
     public static final String WEBLATEPATH = "https://hosted.weblate.org/projects/leafpad/";
+    //public static final NoteStore leaf = new LeafAdapter();
+    public static final NoteStore leaf = new RoomNoteStore();
 
     private ActivityResultLauncher<Intent> exportLauncher;
     private ActivityResultLauncher<Intent> importLauncher;
@@ -172,7 +174,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
                         showToast(getString(R.string.fileOpeningError));
                         return;
                     }
-                    Leaf.deleteAll(requireContext());
+                    leaf.deleteAll(requireContext());
                     List<Note> restored = NoteBackupHelper.restoreNotesFromStream(requireContext(), inputStream.get());
                     int count = restored.size();
                     String message = getResources().getQuantityString(R.plurals.notes_imported, count, count);

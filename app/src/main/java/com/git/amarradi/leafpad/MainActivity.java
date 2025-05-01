@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public static final String DESIGN_MODE = "system";
     private static final String PREF_LAYOUT_MODE = "layout_mode"; // "list" oder "grid"
 
-
+    //private static final NoteStore leaf = new LeafAdapter();
+    private static final NoteStore leaf = new RoomNoteStore();
     public RecyclerView recyclerView;
     public NoteAdapter noteAdapter;
     public List<Note> notes = new ArrayList<>();
@@ -158,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
 
     public void updateDataset() {
-        notes = Leaf.loadAll(this, showHidden);
+        notes = leaf.loadAll(this, showHidden);
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
