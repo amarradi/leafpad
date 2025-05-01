@@ -28,6 +28,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     private List<Note> noteList;
     private boolean showOnlyHidden = false;
     private List<Note> fullNoteList = new ArrayList<>();
+    private boolean isGridMode = false;
+
 
     private final static String BIBLEVERSE_URL_REGEX = "(?i)\\b(?:https?://)?(?:www\\.)?(bible\\.(com|org)|bibleserver\\.com)(/\\S*)?";
 
@@ -36,6 +38,22 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         this.noteList = noteList;
         this.noteList = filterNotes(showOnlyHidden);
     }
+
+    public void setLayoutMode(boolean isGrid) {
+        this.isGridMode = isGrid;
+    }
+    @Override
+    public int getItemViewType(int position) {
+        // Wenn Grid-Ansicht aktiv ist, dann Rückgabe 1
+        // Wenn Listen-Ansicht aktiv ist, dann Rückgabe 0
+        if (isGridMode) {
+            return 1; // das steht für das Grid-Layout
+        } else {
+            return 0; // das steht für das Listen-Layout
+        }
+    }
+
+
 
     public void setShowOnlyHidden(boolean showHidden) {
         this.showOnlyHidden = showHidden;
@@ -58,7 +76,12 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
     @Override
     public NoteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.note_list_item, parent, false);
+        View view;
+         if (viewType == 1) {
+             view = LayoutInflater.from(context).inflate(R.layout.note_grid_item, parent, false);
+         } else {
+             view = LayoutInflater.from(context).inflate(R.layout.note_list_item, parent, false);
+         }
         return new NoteViewHolder(view);
     }
 
@@ -85,8 +108,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             cardView.setStrokeColor(context.getResources().getColor(R.color.md_theme_recipe, null));
         } else {
             cardView.setStrokeColor(context.getResources().getColor(R.color.md_theme_primaryContainer, null));
-            holder.categoryText.setVisibility(View.INVISIBLE);
-            holder.categoryIcon.setVisibility(View.INVISIBLE);
+            holder.categoryText.setVisibility(View.GONE);
+            holder.categoryIcon.setVisibility(View.GONE);
         }
 
         Pattern biblePattern = Pattern.compile(BIBLEVERSE_URL_REGEX);
@@ -94,7 +117,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         if (matcher.find()) {
             holder.bibleIcon.setVisibility(View.VISIBLE);
         } else {
-            holder.bibleIcon.setVisibility(View.INVISIBLE);
+            holder.bibleIcon.setVisibility(View.GONE);
         }
 
         holder.itemView.setOnClickListener(v -> {

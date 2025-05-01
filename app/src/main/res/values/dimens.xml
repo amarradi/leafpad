@@ -42,7 +42,7 @@
     <dimen name="cornerRadiusAlertDialog">15dp</dimen>
     <dimen name="cornerRadiusCardElement">8dp</dimen>
     <dimen name="strokeWidth">2dp</dimen>
-
+    <dimen name="grid_spacing">0dp</dimen>
 
     <!--ExtendedFloatingActionButton -->
     <dimen name="ExtendedFloatingActionButton">20dp</dimen>

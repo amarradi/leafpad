@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public List<Note> notes = new ArrayList<>();
     private boolean showHidden = false;
 
+    private RecyclerView.ItemDecoration gridSpacingDecoration;
+
+
     private boolean isListView = true;
 
     @SuppressLint("RestrictedApi")
@@ -62,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         recyclerView = findViewById(R.id.note_list_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        updateDataset();
         noteAdapter = new NoteAdapter(this, new ArrayList<>());
         recyclerView.setAdapter(noteAdapter);
 
@@ -71,8 +75,13 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         if (isListView) {
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            if(gridSpacingDecoration != null) {
+                recyclerView.removeItemDecoration(gridSpacingDecoration);
+                gridSpacingDecoration = null;
+            }
         } else {
             recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+            applyGridSpacingIfNeeded();
         }
 
         ExtendedFloatingActionButton fab = findViewById(R.id.fab_action_add);
@@ -82,6 +91,15 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             startActivity(intent);
         });
     }
+
+    private void applyGridSpacingIfNeeded() {
+        if (gridSpacingDecoration == null) {
+            int spacing = getResources().getDimensionPixelSize(R.dimen.grid_spacing); // z.B. 16dp
+            gridSpacingDecoration = new GridSpacingItemDecoration(2, spacing, true);
+            recyclerView.addItemDecoration(gridSpacingDecoration);
+        }
+    }
+
 
     private void setupSharedPreferences() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -96,17 +114,23 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         if (isListView) {
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
             editor.putString(PREF_LAYOUT_MODE, "list");
+            if(gridSpacingDecoration != null) {
+                recyclerView.removeItemDecoration(gridSpacingDecoration);
+                gridSpacingDecoration = null;
+            }
         } else {
             recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+            noteAdapter.setLayoutMode(!isListView);
+            noteAdapter.notifyDataSetChanged();
             editor.putString(PREF_LAYOUT_MODE, "grid");
+            applyGridSpacingIfNeeded();
         }
-
         editor.apply();
-        invalidateOptionsMenu(); // ← Menü neu zeichnen lassen
+        invalidateOptionsMenu();
     }
-
-
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
