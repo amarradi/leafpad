@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -64,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         noteAdapter = new NoteAdapter(this, new ArrayList<>());
         recyclerView.setAdapter(noteAdapter);
+        registerForContextMenu(recyclerView);
 
         SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         String savedLayout = prefs.getString(PREF_LAYOUT_MODE, "list");
@@ -216,5 +219,32 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         noteAdapter.setShowOnlyHidden(showHidden);
         updateListView();
         invalidateOptionsMenu();
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.menu_note_edit, menu);
+    }
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        int pos = noteAdapter.getSelectedPos();
+        Note note = notes.get(pos);
+
+        switch(item.getItemId()){
+            case R.id.action_remove:
+                Leaf.remove(this, note);
+                note = null;
+                updateListView();
+                return true;
+            case R.id.action_share_note:
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, NoteExporter.getExportString(note, this));
+                sendIntent.setType("text/plain");
+                startActivity(Intent.createChooser(sendIntent, getString(R.string.share_note)));
+                return true;
+        }
+        return super.onContextItemSelected(item);
     }
 }

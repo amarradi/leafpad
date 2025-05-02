@@ -28,6 +28,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     private List<Note> noteList;
     private boolean showOnlyHidden = false;
     private List<Note> fullNoteList = new ArrayList<>();
+    private int selectedPos;
 
     private final static String BIBLEVERSE_URL_REGEX = "(?i)\\b(?:https?://)?(?:www\\.)?(bible\\.(com|org)|bibleserver\\.com)(/\\S*)?";
 
@@ -102,11 +103,19 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             intent.putExtra(MainActivity.EXTRA_NOTE_ID, note.getId());
             context.startActivity(intent);
         });
+        holder.itemView.setOnLongClickListener(v -> {
+            this.selectedPos = holder.getAdapterPosition();
+            v.showContextMenu();
+            return true;
+        });
     }
 
     @Override
     public int getItemCount() {
         return noteList.size();
+    }
+    public int getSelectedPos() {
+        return this.selectedPos;
     }
 
     public void updateNotes(List<Note> newNotes) {

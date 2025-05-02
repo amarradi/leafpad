@@ -248,7 +248,7 @@ public class NoteEditActivity extends AppCompatActivity {
         note.setBody(bodyEdit.getText().toString());
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, getExportString());
+        sendIntent.putExtra(Intent.EXTRA_TEXT, NoteExporter.getExportString(note,this));
         sendIntent.setType("text/plain");
         startActivity(Intent.createChooser(sendIntent, getString(R.string.share_note)));
     }
