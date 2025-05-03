@@ -20,6 +20,9 @@ leafpad remove your note completely, when you delete your note
 *  leafpad allows you to hide your notes from prying eyes
 * <b>leafpad is now available in many languages, for example English, German, French, Polish. If languages are still missing, you are welcome to participate.</b>
 
+# Thanks
+Many thanks for the work for the leafpadproject goes to @stdx , @sealor, @alejandromartincarrera , Manuel, Emil, Falk, Stephanie and many others
+
 # Translation
 Help translate at <a href='https://hosted.weblate.org/engage/leafpad/'>Weblate</a>
 
