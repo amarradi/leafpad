@@ -9,10 +9,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.git.amarradi.leafpad.MainActivity;
 import com.git.amarradi.leafpad.Note;
+import com.git.amarradi.leafpad.NoteDiffCallback;
 import com.git.amarradi.leafpad.NoteEditActivity;
 import com.git.amarradi.leafpad.R;
 import com.google.android.material.card.MaterialCardView;
@@ -38,9 +40,11 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     }
 
     public void setShowOnlyHidden(boolean showHidden) {
+
         this.showOnlyHidden = showHidden;
         this.noteList = filterNotes(showHidden);
-        notifyDataSetChanged();
+        updateNotes(this.fullNoteList);
+       // notifyDataSetChanged();
     }
 
     private List<Note> filterNotes(boolean showHidden) {
@@ -106,12 +110,21 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
     @Override
     public int getItemCount() {
-        return noteList.size();
+        if (noteList != null) {
+            return noteList.size();
+        } else {
+            return 0;
+        }
     }
 
     public void updateNotes(List<Note> newNotes) {
+        if (newNotes.equals(this.fullNoteList)) {
+            return; // Keine Änderung erforderlich
+        }
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new NoteDiffCallback(this.noteList, newNotes));
         this.fullNoteList = newNotes;
         this.noteList = filterNotes(showOnlyHidden);
+        diffResult.dispatchUpdatesTo(this);
         notifyDataSetChanged();
     }
     public boolean isFilteredListEmpty() {
