@@ -3,7 +3,10 @@ package com.git.amarradi.leafpad.helper;
 import android.content.Context;
 
 import com.git.amarradi.leafpad.Leaf;
+import com.git.amarradi.leafpad.LeafAdapter;
 import com.git.amarradi.leafpad.Note;
+import com.git.amarradi.leafpad.NoteStore;
+import com.git.amarradi.leafpad.RoomNoteStore;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -18,6 +21,8 @@ import java.util.List;
 public class NoteBackupHelper {
 
     public static final String BASE_NAME = "leafpad_";
+    //public static final NoteStore leaf = new LeafAdapter();
+    public static final NoteStore leaf = new RoomNoteStore();
 
     public static String generateTimestamp() {
 
@@ -27,7 +32,7 @@ public class NoteBackupHelper {
 
 
     public static void backupNotesToStream(Context context, OutputStream outputStream) throws Exception {
-        List<Note> notes = Leaf.loadAll(context, true);
+        List<Note> notes = leaf.loadAll(context, true);
         XmlSerializer serializer = XmlPullParserFactory.newInstance().newSerializer();
         StringWriter writer = new StringWriter();
 
@@ -161,7 +166,7 @@ public class NoteBackupHelper {
             eventType = parser.next();
         }
         for (Note n : notes) {
-            Leaf.set(context, n);
+            leaf.set(context, n);
         }
         return notes;
     }

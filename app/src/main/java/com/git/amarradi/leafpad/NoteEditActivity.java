@@ -22,6 +22,9 @@ import java.util.Objects;
 
 public class NoteEditActivity extends AppCompatActivity {
 
+    //private static final NoteStore leaf = new LeafAdapter();
+    private static final NoteStore leaf = new RoomNoteStore();
+
     private EditText titleEdit;
     private EditText bodyEdit;
     private Note note;
@@ -48,9 +51,9 @@ public class NoteEditActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String noteId = intent.getStringExtra(MainActivity.EXTRA_NOTE_ID);
         if (Objects.equals(getIntent().getAction(), "android.intent.action.VIEW")) {
-            note = Leaf.load(this, Note.makeId());
+            note = leaf.load(this, Note.makeId());
         } else {
-            note = Leaf.load(this, noteId);
+            note = leaf.load(this, noteId);
         }
 
         resources = getResources();
@@ -62,13 +65,13 @@ public class NoteEditActivity extends AppCompatActivity {
 
         recipeSwitch = findViewById(R.id.recipe_switch);
 
-        note = Leaf.load(this, noteId);
+        note = leaf.load(this, noteId);
 
         toggleView();
         toggleRecipe();
 
         if (isNewEntry(note, intent)) {
-            note = Leaf.load(this, Note.makeId());
+            note = leaf.load(this, Note.makeId());
             note.setHide(false);
             toggleView();
             toolbar.setSubtitle(R.string.new_note);
@@ -168,11 +171,11 @@ public class NoteEditActivity extends AppCompatActivity {
 
         if (note.getBody().isEmpty() && note.getTitle().isEmpty()) {
             //don't save empty notes
-            Leaf.remove(this, note);
+            leaf.remove(this, note);
             note = null;
             finish();
         } else {
-            Leaf.set(this, note);
+            leaf.set(this, note);
         }
 
     }
@@ -221,9 +224,9 @@ public class NoteEditActivity extends AppCompatActivity {
                 note.setBody(bodyEdit.getText().toString());
 
                 if (note.getBody().isEmpty() && note.getTitle().isEmpty()) {
-                    Leaf.remove(this, note);
+                    leaf.remove(this, note);
                 } else {
-                    Leaf.set(this, note);
+                    leaf.set(this, note);
                     toolbar.setSubtitle(note.getTitle());
                   //  Toast.makeText(this, note.getTitle() + " " + resources.getString(R.string.action_note_saved), Toast.LENGTH_SHORT).show();
                 }
@@ -233,7 +236,7 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private void removeNote() {
-        Leaf.remove(this, note);
+        leaf.remove(this, note);
         note = null;
         finish();
     }
