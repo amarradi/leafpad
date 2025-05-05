@@ -21,7 +21,7 @@ leafpad remove your note completely, when you delete your note
 * <b>leafpad is now available in many languages, for example English, German, French, Polish. If languages are still missing, you are welcome to participate.</b>
 
 # Thanks
-Many thanks for the work for the leafpadproject goes to @stdx , @sealor, @alejandromartincarrera , Manuel, Emil, Falk, Stephanie and many others
+Many thanks for the work for the leafpadproject goes to <a href='https://github.com/stdx'>@stdx</a>, <a href='https://github.com/sealor'>@sealor</a>, <a href='https://github.com/alejandromartincarrera'>@alejandromartincarrera</a> , Manuel, Emil, Falk, Stephanie and many others
 
 # Translation
 Help translate at <a href='https://hosted.weblate.org/engage/leafpad/'>Weblate</a>
