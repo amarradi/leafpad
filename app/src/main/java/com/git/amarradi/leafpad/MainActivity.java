@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -42,7 +43,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     private RecyclerView.ItemDecoration gridSpacingDecoration;
 
-
     private boolean isListView = true;
 
     @SuppressLint("RestrictedApi")
@@ -72,17 +72,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         String savedLayout = prefs.getString(PREF_LAYOUT_MODE, "list");
         isListView = savedLayout.equals("list");
-
-        if (isListView) {
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            if(gridSpacingDecoration != null) {
-                recyclerView.removeItemDecoration(gridSpacingDecoration);
-                gridSpacingDecoration = null;
-            }
-        } else {
-            recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-            applyGridSpacingIfNeeded();
-        }
+        applyLayoutMode(isListView);
+        noteAdapter.setLayoutMode(isListView);
+        noteAdapter.notifyDataSetChanged();
 
         ExtendedFloatingActionButton fab = findViewById(R.id.fab_action_add);
         fab.setOnClickListener(v -> {
@@ -107,31 +99,36 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
 
     private void toggleLayoutManager() {
+        isListView = !isListView;
         SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
 
-        isListView = !isListView;
-
-        if (isListView) {
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
+        if (isListView)  {
             editor.putString(PREF_LAYOUT_MODE, "list");
+        } else {
+            editor.putString(PREF_LAYOUT_MODE, "grid");
+        }
+        editor.apply();
+        applyLayoutMode(isListView);
+        invalidateOptionsMenu();
+    }
+
+
+    private void applyLayoutMode(boolean isList) {
+        noteAdapter.setLayoutMode(isList);
+        if (isList) {
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            noteAdapter.notifyDataSetChanged();
             if(gridSpacingDecoration != null) {
                 recyclerView.removeItemDecoration(gridSpacingDecoration);
                 gridSpacingDecoration = null;
             }
         } else {
             recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-            noteAdapter.setLayoutMode(!isListView);
             noteAdapter.notifyDataSetChanged();
-            editor.putString(PREF_LAYOUT_MODE, "grid");
             applyGridSpacingIfNeeded();
-        }
-        editor.apply();
-        invalidateOptionsMenu();
+         }
     }
-
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if ("theme".equals(key)) {
