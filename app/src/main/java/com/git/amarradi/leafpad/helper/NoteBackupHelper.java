@@ -17,6 +17,7 @@ import java.util.List;
 
 public class NoteBackupHelper {
 
+
     public static final String BASE_NAME = "leafpad_";
 
     public static String generateTimestamp() {
@@ -112,7 +113,7 @@ public class NoteBackupHelper {
             return foundNotesRoot && validStructure;
 
         } catch (Exception e) {
-            e.printStackTrace();
+            e.getLocalizedMessage();
             return false;
         }
     }

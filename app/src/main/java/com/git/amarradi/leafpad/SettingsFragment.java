@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -20,7 +18,7 @@ import androidx.preference.PreferenceScreen;
 
 import com.git.amarradi.leafpad.helper.DialogHelper;
 import com.git.amarradi.leafpad.helper.NoteBackupHelper;
-import com.google.android.material.snackbar.Snackbar;
+import com.git.amarradi.leafpad.helper.NotificationHelper;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -36,6 +34,10 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     private ActivityResultLauncher<Intent> exportLauncher;
     private ActivityResultLauncher<Intent> importLauncher;
 
+
+
+
+
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.preferences);
@@ -50,7 +52,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         for (int i = 0; i < preferenceScreen.getPreferenceCount(); i++) {
             Preference preference = preferenceScreen.getPreference(i);
             if (!(preference instanceof CheckBoxPreference)) {
-                String value = sharedPreferences.getString(preference.getKey(), "");
+                String value = Objects.requireNonNull(sharedPreferences).getString(preference.getKey(), "");
                 setPreferenceSummary(preference, value);
             }
         }
@@ -99,7 +101,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
                         Uri uri = result.getData().getData();
                         if (uri != null) {
                             backupToUri(uri);
-
                         }
                     }
                 }
@@ -136,15 +137,14 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
     private void backupToUri(Uri uri) {
         new Thread(() -> {
-            requireActivity().runOnUiThread(() -> showSnackbar(getString(R.string.backupIsrunning)));
+            requireActivity().runOnUiThread(() -> NotificationHelper.showSnackbar(requireView(),getString(R.string.backupIsrunning)));
             try (OutputStream outputStream = requireContext().getContentResolver().openOutputStream(uri)) {
                 if (outputStream != null) {
                     NoteBackupHelper.backupNotesToStream(requireContext(), outputStream);
-                    requireActivity().runOnUiThread(() -> showSnackbar(getString(R.string.backupfinish)));
-                    Log.d("Backup", "Backup erfolgreich geschrieben.");
+                    requireActivity().runOnUiThread(() -> NotificationHelper.showSnackbar(requireView(),getString(R.string.backupfinish)));
                 }
             } catch (Exception e) {
-                Log.e("Backup", "Fehler beim Schreiben des Backups", e);
+                NotificationHelper.showSnackbar(requireView(),e.getLocalizedMessage());
             }
         }).start();
     }
@@ -153,7 +153,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         try {
             AtomicReference<InputStream> inputStream = new AtomicReference<>(requireContext().getContentResolver().openInputStream(uri));
             if (inputStream.get() == null) {
-                showToast(getString(R.string.fileOpeningError));
+                NotificationHelper.showSnackbar(requireView(), getString(R.string.fileOpeningError));
                 return;
             }
 
@@ -161,7 +161,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             inputStream.get().close();
 
             if (!isValid) {
-                showToast(getString(R.string.invalidFile));
+                NotificationHelper.showSnackbar(requireView(), getString(R.string.invalidFile));
                 return;
             }
 
@@ -169,25 +169,21 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
                 try {
                     inputStream.set(requireContext().getContentResolver().openInputStream(uri));
                     if (inputStream.get() == null) {
-                        showToast(getString(R.string.fileOpeningError));
+                        NotificationHelper.showSnackbar(requireView(), getString(R.string.fileOpeningError));
                         return;
                     }
                     Leaf.deleteAll(requireContext());
                     List<Note> restored = NoteBackupHelper.restoreNotesFromStream(requireContext(), inputStream.get());
                     int count = restored.size();
                     String message = getResources().getQuantityString(R.plurals.notes_imported, count, count);
-                    showSnackbar(message);
+                    NotificationHelper.showSnackbar(requireView(),message);
                     inputStream.get().close();
                 } catch (Exception e) {
-                    e.printStackTrace();
-                    showToast(getString(R.string.importError));
-                    Log.e("Restore", "Fehler beim Wiederherstellen", e);
+                    NotificationHelper.showSnackbar(requireView(),getString(R.string.importError)+" "+e.getLocalizedMessage());
                 }
             });
         } catch (Exception e) {
-            e.printStackTrace();
-            showToast(getString(R.string.importError));
-            Log.e("Restore", "Fehler beim Wiederherstellen", e);
+            NotificationHelper.showSnackbar(requireView(), getString(R.string.importError)+" "+e.getLocalizedMessage());
         }
     }
 
@@ -210,15 +206,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             }
         }
     }
-
-    private void showToast(String text) {
-        Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show();
-    }
-
-    private void showSnackbar(String text) {
-        Snackbar.make(requireView(), text, Snackbar.LENGTH_SHORT).show();
-    }
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

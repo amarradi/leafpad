@@ -122,4 +122,10 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+    <View
+        android:id="@+id/snackbar_anchor"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/anchor_height"
+        android:layout_gravity="bottom" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

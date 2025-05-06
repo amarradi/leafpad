@@ -86,4 +86,6 @@
     <dimen name="constraint_paddingTop">8dp</dimen>
     <dimen name="constraint_paddingBottom">8dp</dimen>
 
+    <dimen name="anchor_height">56dp</dimen>
+
 </resources>

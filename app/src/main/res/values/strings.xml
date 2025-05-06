@@ -7,6 +7,7 @@
     <string name="action_share_note">Share note</string>
     <string name="action_share_title">Title</string>
     <string name="action_share_body">Note</string>
+    <string name="note_shared">Note shared</string>
     <string name="action_remove">Remove note</string>
     <string name="action_fab_note">make a note</string>
     <string name="add_shortcut_short_label">Write down new</string>

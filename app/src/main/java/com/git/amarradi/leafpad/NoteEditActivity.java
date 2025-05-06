@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -14,8 +15,10 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.git.amarradi.leafpad.helper.DialogHelper;
+import com.git.amarradi.leafpad.helper.NotificationHelper;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.materialswitch.MaterialSwitch;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
@@ -30,6 +33,9 @@ public class NoteEditActivity extends AppCompatActivity {
     private MaterialSwitch visibleSwitch;
 
     private MaterialSwitch recipeSwitch;
+
+    private boolean sharedJustNow = false;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +45,6 @@ public class NoteEditActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Java
         TextInputLayout titleLayout = findViewById(R.id.default_text_input_layout);
         TextInputLayout bodyLayout = findViewById(R.id.body_text_input_layout);
         titleLayout.setHintEnabled(false);
@@ -55,13 +60,10 @@ public class NoteEditActivity extends AppCompatActivity {
 
         resources = getResources();
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-
         titleEdit = findViewById(R.id.title_edit);
         bodyEdit = findViewById(R.id.body_edit);
         visibleSwitch = findViewById(R.id.visible_switch);
-
         recipeSwitch = findViewById(R.id.recipe_switch);
-
         note = Leaf.load(this, noteId);
 
         toggleView();
@@ -106,18 +108,15 @@ public class NoteEditActivity extends AppCompatActivity {
         } else {
             recipeSwitch.setThumbIconDrawable(getDrawable(R.drawable.togue_strikethrough));
             recipeSwitch.setText(R.string.note_is_recipe);
-            //recipeSwitch.setText(R.string.note_is_no_recipe);
             recipeSwitch.setChecked(false);
 
         }
         recipeSwitch.setOnCheckedChangeListener((compoundButton, b) -> {
             if (b) {
-                //recipeSwitch.setText(R.string.note_is_recipe);
                 recipeSwitch.setText(R.string.note_is_no_recipe);
                 recipeSwitch.setThumbIconDrawable(getDrawable(R.drawable.togue));
                 note.setCategory(resources.getStringArray(R.array.category)[0]);
             } else {
-                //recipeSwitch.setText(R.string.note_is_no_recipe);
                 recipeSwitch.setText(R.string.note_is_recipe);
                 recipeSwitch.setThumbIconDrawable(getDrawable(R.drawable.togue_strikethrough));
                 note.setCategory("");
@@ -179,7 +178,6 @@ public class NoteEditActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_note_edit, menu);
         return true;
     }
@@ -195,25 +193,6 @@ public class NoteEditActivity extends AppCompatActivity {
                 return true;
             case R.id.action_remove:
                 DialogHelper.showDeleteSingleNoteDialog(NoteEditActivity.this, this::removeNote);
-               /** MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(NoteEditActivity.this);
-                materialAlertDialogBuilder
-                        .setIcon(R.drawable.dialog_delete)
-                        .setTitle(R.string.remove_dialog_title)
-                        .setMessage(R.string.remove_dailog_message)
-                        .setPositiveButton(R.string.action_remove, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        removeNote();
-                        dialogInterface.dismiss();
-                    }
-                }).setNegativeButton(R.string.remove_dialog_abort, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                });
-                materialAlertDialogBuilder.create();
-                materialAlertDialogBuilder.show(); **/
                 return true;
             case R.id.action_save:
                 note.setHide(visibleSwitch.isChecked());
@@ -225,7 +204,6 @@ public class NoteEditActivity extends AppCompatActivity {
                 } else {
                     Leaf.set(this, note);
                     toolbar.setSubtitle(note.getTitle());
-                  //  Toast.makeText(this, note.getTitle() + " " + resources.getString(R.string.action_note_saved), Toast.LENGTH_SHORT).show();
                 }
                 break;
         }
@@ -238,8 +216,6 @@ public class NoteEditActivity extends AppCompatActivity {
         finish();
     }
 
-
-
     private void shareNote() {
         if (note.getBody().isEmpty() && note.getTitle().isEmpty()) {
             Toast.makeText(this, getResources().getString(R.string.note_will_be_saved_first), Toast.LENGTH_SHORT).show();
@@ -251,6 +227,7 @@ public class NoteEditActivity extends AppCompatActivity {
         sendIntent.putExtra(Intent.EXTRA_TEXT, getExportString());
         sendIntent.setType("text/plain");
         startActivity(Intent.createChooser(sendIntent, getString(R.string.share_note)));
+        sharedJustNow = true;
     }
 
     public String getExportString() {
@@ -263,4 +240,15 @@ public class NoteEditActivity extends AppCompatActivity {
         }
         return exportString.toString().trim();
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (sharedJustNow) {
+            sharedJustNow = false; // Flag zurücksetzen
+            View rootView = findViewById(R.id.all);
+            NotificationHelper.showSnackbar(rootView, getString(R.string.note_shared),Snackbar.LENGTH_SHORT, findViewById(R.id.snackbar_anchor));
+        }
+    }
+
 }

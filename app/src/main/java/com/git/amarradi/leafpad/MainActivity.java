@@ -103,10 +103,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
 
         editor.apply();
-        invalidateOptionsMenu(); // ← Menü neu zeichnen lassen
+        invalidateOptionsMenu();
     }
-
-
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
@@ -189,18 +187,21 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull android.view.MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.item_settings:
+        return switch (item.getItemId()) {
+            case R.id.item_settings -> {
                 startActivity(new Intent(this, SettingsActivity.class));
-                return true;
-            case R.id.item_show_hidden:
+                yield true;
+            }
+            case R.id.item_show_hidden -> {
                 toggleShowHidden(item);
-                return true;
-            case R.id.item_toggle_layout:
+                yield true;
+            }
+            case R.id.item_toggle_layout -> {
                 toggleLayoutManager();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
+                yield true;
+            }
+            default -> super.onOptionsItemSelected(item);
+        };
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")

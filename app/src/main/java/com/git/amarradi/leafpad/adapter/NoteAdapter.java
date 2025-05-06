@@ -1,5 +1,6 @@
 package com.git.amarradi.leafpad.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.git.amarradi.leafpad.MainActivity;
@@ -24,7 +26,7 @@ import java.util.regex.Pattern;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder> {
 
-    private Context context;
+    private final Context context;
     private List<Note> noteList;
     private boolean showOnlyHidden = false;
     private List<Note> fullNoteList = new ArrayList<>();
@@ -37,6 +39,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         this.noteList = filterNotes(showOnlyHidden);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void setShowOnlyHidden(boolean showHidden) {
         this.showOnlyHidden = showHidden;
         this.noteList = filterNotes(showHidden);
@@ -56,8 +59,9 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     }
 
 
+    @NonNull
     @Override
-    public NoteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.note_list_item, parent, false);
         return new NoteViewHolder(view);
     }
@@ -109,6 +113,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         return noteList.size();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void updateNotes(List<Note> newNotes) {
         this.fullNoteList = newNotes;
         this.noteList = filterNotes(showOnlyHidden);
@@ -119,7 +124,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     }
 
 
-    static class NoteViewHolder extends RecyclerView.ViewHolder {
+    public static class NoteViewHolder extends RecyclerView.ViewHolder {
         TextView titleText, bodyPreview, dateText, timeText, categoryText;
         ImageView bibleIcon, categoryIcon;
 

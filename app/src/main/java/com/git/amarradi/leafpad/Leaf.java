@@ -35,7 +35,6 @@ public class Leaf {
         if (noteIds != null) {
             for (String noteId : noteIds) {
                 Note note = load(context, noteId);
-               // Log.d("Leaf", "Loaded Note: " + note.getTitle() + ", Hide: " + note.isHide());
                 if (!note.isHide() || includeHidden) {
                     notes.add(note);
                 }
@@ -56,7 +55,6 @@ public class Leaf {
                 Log.d("dateTimeParseException", "loadAll: "+dateTimeParseException.getClass());
             }
         }
-
         Collections.reverse(notes);
         return notes;
     }
@@ -67,9 +65,8 @@ public class Leaf {
         if (sharedPreferences.contains(HIDE + noteId)) {
             noteHide = sharedPreferences.getBoolean(HIDE + noteId, false);
             sharedPreferences.edit().remove(HIDE + noteId).putBoolean(HIDE + "_" + noteId, noteHide).apply();
-           // Log.d("Leaf", "Migrating old hide key for noteId: " + noteId + ", Value: " + noteHide);
-        }
 
+        }
         return load(sharedPreferences, noteId);
     }
 
@@ -100,9 +97,6 @@ public class Leaf {
             ids.add(note.getId());
             editor.putStringSet(ID_KEY, ids);
         }
-
-
-
         editor.putString(TITLE_PREFIX + note.getId(), note.getTitle());
         editor.putString(BODY_PREFIX + note.getId(), note.getBody());
         editor.putString(ADDDATE + note.getId(), note.getDate());
@@ -119,7 +113,6 @@ public class Leaf {
             editor.putBoolean(HIDE + "_" + note.getId(), note.isHide());
         }
         editor.putString(CATEGORY + note.getId(), note.getCategory());
-
         editor.apply();
     }
 
@@ -160,16 +153,12 @@ public class Leaf {
                 editor.remove(HIDE + "_" + noteId);
                 editor.remove(CATEGORY + noteId);
             }
-            editor.remove(ID_KEY); // Wichtig: auch die ID-Liste löschen
+            editor.remove(ID_KEY);
         }
-
         editor.apply();
-        Log.d("Leaf", "Alle Notizen wurden gelöscht.");
     }
 
     public static void save(Context context, Note note) {
-        set(context, note); // Die Methode `set(...)` hast du ja bereits korrekt definiert.
+        set(context, note);
     }
-
-
 }

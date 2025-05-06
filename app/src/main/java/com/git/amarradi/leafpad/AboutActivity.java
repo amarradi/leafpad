@@ -22,15 +22,11 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_about);
-
         MaterialToolbar materialToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(materialToolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-
         MaterialTextView materialTextViewAppNameVersion = findViewById(R.id.textView_version);
-
         MaterialTextView materialTextViewStatement = findViewById(R.id.textView_statement);
-
         materialTextViewAppNameVersion.setText(getApplicationName(getBaseContext()) + " " + getApplicationNumber());
         materialTextViewStatement.setText(R.string.statement);
 
@@ -43,9 +39,9 @@ public class AboutActivity extends AppCompatActivity {
         try {
             packageInfo = packageManager.getPackageInfo(pkgName, 0);
         } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
+            e.getLocalizedMessage();
         }
-        return packageInfo.versionName;
+        return Objects.requireNonNull(packageInfo).versionName;
     }
 
     public static String getApplicationName(Context context) {
