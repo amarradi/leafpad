@@ -23,6 +23,7 @@
     <string name="remove_dailog_message">This note will be permanently deleted. Afterwards it cannot be restored.</string>
     <string name="remove_dialog_abort">Cancel</string>
     <string name="menu_settings">Settings</string>
+    <string name="theme_dialog">Design</string>
     <!-- Messages Preferences -->
     <string name="general_preference">General</string>
     <!-- Key name for theme preference in SharedPreferences -->

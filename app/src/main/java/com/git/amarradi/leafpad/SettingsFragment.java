@@ -50,10 +50,16 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         for (int i = 0; i < preferenceScreen.getPreferenceCount(); i++) {
             Preference preference = preferenceScreen.getPreference(i);
             if (!(preference instanceof CheckBoxPreference)) {
-                String value = sharedPreferences.getString(preference.getKey(), "");
+                String value = Objects.requireNonNull(sharedPreferences).getString(preference.getKey(), "");
                 setPreferenceSummary(preference, value);
             }
         }
+
+        setupClickListener("theme", preference -> {
+            DialogHelper.showThemeSelectionDialog(requireContext(), Objects.requireNonNull(sharedPreferences), ()->
+                    updateThemeSummary(preference, sharedPreferences));
+            return true;
+        });
 
         setupClickListener("save", v -> {
             startExportIntent();
@@ -179,13 +185,13 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
                     showSnackbar(message);
                     inputStream.get().close();
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    e.getLocalizedMessage();
                     showToast(getString(R.string.importError));
                     Log.e("Restore", "Fehler beim Wiederherstellen", e);
                 }
             });
         } catch (Exception e) {
-            e.printStackTrace();
+            e.getLocalizedMessage();
             showToast(getString(R.string.importError));
             Log.e("Restore", "Fehler beim Wiederherstellen", e);
         }
@@ -241,4 +247,18 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + packageName)));
         }
     }
+
+    private void updateThemeSummary(Preference preference, SharedPreferences sharedPreferences) {
+        String currentValue = sharedPreferences.getString("theme", getString(R.string.system_preference_option_value));
+        String label;
+        if (currentValue.equals(getString(R.string.lightmode_preference_option_value))) {
+            label = getString(R.string.lightmode_preference_key);
+        } else if (currentValue.equals(getString(R.string.darkmode_preference_option_value))) {
+            label = getString(R.string.darkmode_preference_key);
+        } else {
+            label = getString(R.string.system_preference_key);
+        }
+        preference.setSummary(label);
+    }
+
 }

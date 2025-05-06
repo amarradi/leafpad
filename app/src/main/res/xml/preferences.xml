@@ -4,14 +4,12 @@
 
     <PreferenceCategory
         android:title="@string/general_preference">
-        <ListPreference
-            android:key="@string/theme_key"
+        <Preference
+            android:key="theme"
             android:title="@string/theme_preference"
             android:summary="@string/theme_summary"
             android:icon="@drawable/switch_dn_mode"
-            android:entries="@array/design_mode_preference_key"
-            android:defaultValue="@string/system_preference_option_value"
-            android:entryValues="@array/design_mode_preference_value" />
+            android:selectable="true"/>
         <Preference
             app:selectable="true"
             android:key="save"
