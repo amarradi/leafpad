@@ -89,4 +89,5 @@
     <string name="save_notes_title">Kopia zapasowa</string>
     <string name="showRestoreConfirmationMessage">Wszystkie bieżące notatki zostaną zastąpione kopią zapasową. Kontynuować?</string>
     <string name="toggle">zmień widok</string>
+    <string name="note_shared">Note shared</string>
 </resources>

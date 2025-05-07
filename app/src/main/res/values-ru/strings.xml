@@ -89,4 +89,5 @@
     <string name="save_notes_title">Назад</string>
     <string name="showRestoreConfirmationMessage">Все текущие заметки будут заменены резервной копией. Продолжать?</string>
     <string name="toggle">изменить вид</string>
+    <string name="note_shared">Note shared</string>
 </resources>
