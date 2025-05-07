@@ -90,4 +90,5 @@
     <string name="save_notes_title">Notizen sichern</string>
     <string name="showRestoreConfirmationMessage">Alle aktuellen Notizen werden durch die Sicherungskopie ersetzt. Weiter?</string>
     <string name="toggle">Ansicht umschalten</string>
+    <string name="note_shared">Note shared</string>
 </resources>
