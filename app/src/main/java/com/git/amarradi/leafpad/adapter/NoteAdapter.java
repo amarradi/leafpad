@@ -10,10 +10,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.git.amarradi.leafpad.MainActivity;
 import com.git.amarradi.leafpad.Note;
+import com.git.amarradi.leafpad.NoteDiffCallback;
 import com.git.amarradi.leafpad.NoteEditActivity;
 import com.git.amarradi.leafpad.R;
 import com.google.android.material.card.MaterialCardView;
@@ -55,7 +57,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     public void setShowOnlyHidden(boolean showHidden) {
         this.showOnlyHidden = showHidden;
         this.noteList = filterNotes(showHidden);
-        notifyDataSetChanged();
+        updateNotes(this.fullNoteList);
     }
 
     private List<Note> filterNotes(boolean showHidden) {
@@ -131,9 +133,14 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     }
 
     public void updateNotes(List<Note> newNotes) {
+        if (newNotes.equals(this.fullNoteList)) {
+            return;
+        }
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new NoteDiffCallback(this.noteList, newNotes));
         this.fullNoteList = newNotes;
         this.noteList = filterNotes(showOnlyHidden);
-        notifyDataSetChanged();
+        diffResult.dispatchUpdatesTo(this);
+       // notifyDataSetChanged();
     }
     public boolean isFilteredListEmpty() {
         return noteList == null || noteList.isEmpty();
