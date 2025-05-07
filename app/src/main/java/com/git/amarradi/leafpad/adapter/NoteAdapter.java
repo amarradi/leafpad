@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,6 +18,7 @@ import com.git.amarradi.leafpad.MainActivity;
 import com.git.amarradi.leafpad.Note;
 import com.git.amarradi.leafpad.NoteDiffCallback;
 import com.git.amarradi.leafpad.NoteEditActivity;
+import com.git.amarradi.leafpad.NoteViewModel;
 import com.git.amarradi.leafpad.R;
 import com.google.android.material.card.MaterialCardView;
 
@@ -120,11 +122,23 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             holder.bibleIcon.setVisibility(View.GONE);
         }
 
+        // Hier wird die selectNote Methode des ViewModels aufgerufen
         holder.itemView.setOnClickListener(v -> {
+            // Die ausgewählte Notiz im ViewModel speichern
+            NoteViewModel noteViewModel = new ViewModelProvider((MainActivity) context).get(NoteViewModel.class);
+            noteViewModel.selectNote(note);  // Die ausgewählte Note wird gespeichert
+
+            // Dann wird die NoteEditActivity gestartet
             Intent intent = new Intent(context, NoteEditActivity.class);
             intent.putExtra(MainActivity.EXTRA_NOTE_ID, note.getId());
             context.startActivity(intent);
         });
+
+        //holder.itemView.setOnClickListener(v -> {
+            //Intent intent = new Intent(context, NoteEditActivity.class);
+            //intent.putExtra(MainActivity.EXTRA_NOTE_ID, note.getId());
+            //context.startActivity(intent);
+        //});
     }
 
     @Override

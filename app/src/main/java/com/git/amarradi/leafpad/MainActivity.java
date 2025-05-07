@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,6 +27,7 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private RecyclerView.ItemDecoration gridSpacingDecoration;
     private RecyclerView.ItemDecoration listSpacingDecoration;
 
+    private NoteViewModel noteViewModel;
 
     private boolean isListView = true;
 
@@ -53,6 +56,26 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+       // NoteViewModel noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
+        noteViewModel = new ViewModelProvider(
+                this,
+                new ViewModelProvider.AndroidViewModelFactory(getApplication())
+        ).get(NoteViewModel.class);
+
+        noteViewModel.getNotes().observe(this, notes -> {
+            noteAdapter.updateNotes(notes);
+
+            ImageView emptyElement = findViewById(R.id.emptyElement);
+            if (noteAdapter.isFilteredListEmpty()) {
+                emptyElement.setVisibility(View.VISIBLE);
+                recyclerView.setVisibility(View.INVISIBLE);
+            } else {
+                emptyElement.setVisibility(View.INVISIBLE);
+                recyclerView.setVisibility(View.VISIBLE);
+            }
+        });
+
 
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         String themes = sharedPreferences.getString(DESIGN_MODE, "");
@@ -84,6 +107,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             startActivity(intent);
         });
     }
+
+
+
 
     private void applyGridSpacingIfNeeded() {
         if (gridSpacingDecoration == null) {
@@ -175,16 +201,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     public void updateListView() {
         updateDataset();
-        noteAdapter.updateNotes(notes);
-
-        ImageView emptyElement = findViewById(R.id.emptyElement);
-        if (noteAdapter.isFilteredListEmpty()) {
-            emptyElement.setVisibility(View.VISIBLE);
-            recyclerView.setVisibility(View.INVISIBLE);
-        } else {
-            emptyElement.setVisibility(View.INVISIBLE);
-            recyclerView.setVisibility(View.VISIBLE);
-        }
+        noteViewModel.loadNotes(showHidden);
     }
 
     public void updateDataset() {

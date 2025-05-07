@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.git.amarradi.leafpad.helper.DialogHelper;
 import com.git.amarradi.leafpad.helper.NotificationHelper;
@@ -28,6 +29,7 @@ public class NoteEditActivity extends AppCompatActivity {
     private EditText titleEdit;
     private EditText bodyEdit;
     private Note note;
+    private NoteViewModel noteViewModel;
     private MaterialToolbar toolbar;
     private Resources resources;
     private MaterialSwitch visibleSwitch;
@@ -43,25 +45,44 @@ public class NoteEditActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_note_edit);
 
+        Intent intent = getIntent();
+
+        if (Intent.ACTION_SEND.equals(intent.getAction())&&"text/plain".equals(intent.getType())) {
+            setupNewNoteFromIntent(intent);
+        } else {
+
+            // ViewModel und Observer
+            noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
+            noteViewModel.getSelectedNote().observe(this, note -> {
+                if (note != null) {
+                    this.note = note;  // Die ausgewählte Notiz aus dem ViewModel holen
+                    configureUIForNote();
+                }
+            });
+        }
+
         setupToolbar();
         initViews();
 
-        Intent intent = getIntent();
         loadNote(intent);
         resources = getResources();
 
-        configureUIForNote(intent);
-        toggleView();
-        toggleRecipe();
+        configureUIForNote();
+
     }
 
-    private void configureUIForNote(Intent intent){
-        if(isNewEntry(note, intent)){
-            setupNewNoteFromIntent(intent);
-        } else {
-            setupExistingNote();
+    private void configureUIForNote(){
+        if (note != null) {
+            if(isNewEntry(note)){
+                setupNewNoteFromIntent(getIntent());
+            } else {
+                setupExistingNote();
+            }
+            toggleView();
+            toggleRecipe();
         }
     }
+
 
     private void setupExistingNote() {
         toolbar.setTitle(R.string.action_fab_note);
@@ -76,6 +97,8 @@ public class NoteEditActivity extends AppCompatActivity {
         note.setNotedate();
         note.setNotetime();
 
+        noteViewModel.selectNote(note);
+
         toolbar.setSubtitle(R.string.new_note);
         titleEdit.setText("");
         bodyEdit.setText("");
@@ -89,14 +112,16 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private void loadNote(Intent intent) {
-
         String noteId = intent.getStringExtra(MainActivity.EXTRA_NOTE_ID);
-        if(Objects.equals(intent.getAction(), "android.intent.action.VIEW")) {
-            note = Leaf.load(this, Note.makeId());
+        if (noteId != null) {
+            // Falls die Note aus einer externen Quelle kommt
+            noteViewModel.selectNote(Leaf.load(this, noteId)); // Setze die Notiz im ViewModel
         } else {
-            note = Leaf.load(this, noteId);
+            // Erstelle eine neue Notiz
+            noteViewModel.selectNote(Leaf.load(this, Note.makeId()));
         }
     }
+
 
     private void initViews() {
         TextInputLayout titleLayout = findViewById(R.id.default_text_input_layout);
@@ -162,9 +187,10 @@ public class NoteEditActivity extends AppCompatActivity {
 
     }
 
-    private boolean isNewEntry(Note note, Intent intent) {
-        return note.getDate().isEmpty() || note.getTime().isEmpty() || Intent.ACTION_SEND.equals(intent.getAction());
+    private boolean isNewEntry(Note note) {
+        return note.getDate().isEmpty() || note.getTime().isEmpty();
     }
+
 
     @Override
     protected void onPause() {
@@ -215,14 +241,20 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private void saveNote() {
+        if (note == null) {
+            return;
+        }
         updateNoteFromUI();
+
         if (note.getBody().isEmpty() && note.getTitle().isEmpty()) {
             Leaf.remove(this, note);
         } else {
             Leaf.set(this, note);
+            noteViewModel.selectNote(note); // Die Notiz im ViewModel aktualisieren
             toolbar.setSubtitle(note.getTitle());
         }
     }
+
 
     private void updateNoteFromUI() {
         note.setHide(visibleSwitch.isChecked());
@@ -231,8 +263,12 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private void removeNote() {
-        Leaf.remove(this, note);
-        note = null;
+        if (note != null) {
+            Leaf.remove(this, note);
+            note = null;
+
+
+        }
         setResult(RESULT_OK);
         finish();
     }
