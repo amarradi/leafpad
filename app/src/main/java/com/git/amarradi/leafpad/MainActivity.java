@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,9 +15,9 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceManager;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.git.amarradi.leafpad.adapter.NoteAdapter;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -42,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private boolean showHidden = false;
 
     private RecyclerView.ItemDecoration gridSpacingDecoration;
+    private RecyclerView.ItemDecoration listSpacingDecoration;
+
 
     private boolean isListView = true;
 
@@ -113,22 +114,30 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         invalidateOptionsMenu();
     }
 
-
     private void applyLayoutMode(boolean isList) {
         noteAdapter.setLayoutMode(isList);
+        noteAdapter.notifyDataSetChanged();
+
         if (isList) {
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            noteAdapter.notifyDataSetChanged();
-            if(gridSpacingDecoration != null) {
-                recyclerView.removeItemDecoration(gridSpacingDecoration);
-                gridSpacingDecoration = null;
-            }
+            // … List-Dekoration entfernen …
         } else {
-            recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-            noteAdapter.notifyDataSetChanged();
-            applyGridSpacingIfNeeded();
-         }
+            // 1) StaggeredManager statt GridManager
+            recyclerView.setLayoutManager(
+                    new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+            );
+            // 2) passende Masonry-Abstände
+            if (gridSpacingDecoration != null) {
+                recyclerView.removeItemDecoration(gridSpacingDecoration);
+            }
+            int vert = getResources().getDimensionPixelSize(R.dimen.masonry_vertical_spacing);
+            int horz = getResources().getDimensionPixelSize(R.dimen.masonry_horizontal_spacing);
+            gridSpacingDecoration = new MasonrySpacingDecoration(vert, horz);
+            recyclerView.addItemDecoration(gridSpacingDecoration);
+        }
     }
+
+
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if ("theme".equals(key)) {

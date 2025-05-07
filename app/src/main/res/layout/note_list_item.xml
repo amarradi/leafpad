@@ -28,7 +28,7 @@
                 android:id="@+id/title_text"
                 android:textAppearance="@style/TextAppearance.MyNoteItem"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:singleLine="true"
                 android:ellipsize="end"
                 android:text=""
