@@ -42,59 +42,71 @@ public class NoteEditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_note_edit);
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        TextInputLayout titleLayout = findViewById(R.id.default_text_input_layout);
-        TextInputLayout bodyLayout = findViewById(R.id.body_text_input_layout);
-        titleLayout.setHintEnabled(false);
-        bodyLayout.setHintEnabled(false);
+        setupToolbar();
+        initViews();
 
         Intent intent = getIntent();
+        loadNote(intent);
+        resources = getResources();
+
+        configureUIForNote(intent);
+        toggleView();
+        toggleRecipe();
+    }
+
+    private void configureUIForNote(Intent intent){
+        if(isNewEntry(note, intent)){
+            setupNewNoteFromIntent(intent);
+        } else {
+            setupExistingNote();
+        }
+    }
+
+    private void setupExistingNote() {
+        toolbar.setTitle(R.string.action_fab_note);
+        toolbar.setSubtitle(note.getTitle());
+        titleEdit.setText(note.getTitle());
+        bodyEdit.setText(note.getBody());
+    }
+
+    private void setupNewNoteFromIntent(Intent intent) {
+        note = Leaf.load(this, Note.makeId());
+        note.setHide(false);
+        note.setNotedate();
+        note.setNotetime();
+
+        toolbar.setSubtitle(R.string.new_note);
+        titleEdit.setText("");
+        bodyEdit.setText("");
+
+        if (Intent.ACTION_SEND.equals(intent.getAction()) && "text/plain".equals(intent.getType())){
+            String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
+            titleEdit.setText(R.string.imported);
+            bodyEdit.setText(sharedText);
+        }
+
+    }
+
+    private void loadNote(Intent intent) {
+
         String noteId = intent.getStringExtra(MainActivity.EXTRA_NOTE_ID);
-        if (Objects.equals(getIntent().getAction(), "android.intent.action.VIEW")) {
+        if(Objects.equals(intent.getAction(), "android.intent.action.VIEW")) {
             note = Leaf.load(this, Note.makeId());
         } else {
             note = Leaf.load(this, noteId);
         }
+    }
 
-        resources = getResources();
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+    private void initViews() {
+        TextInputLayout titleLayout = findViewById(R.id.default_text_input_layout);
+        TextInputLayout bodyLayout = findViewById(R.id.body_text_input_layout);
         titleEdit = findViewById(R.id.title_edit);
         bodyEdit = findViewById(R.id.body_edit);
         visibleSwitch = findViewById(R.id.visible_switch);
         recipeSwitch = findViewById(R.id.recipe_switch);
-        note = Leaf.load(this, noteId);
-
-        toggleView();
-        toggleRecipe();
-
-        if (isNewEntry(note, intent)) {
-            note = Leaf.load(this, Note.makeId());
-            note.setHide(false);
-            toggleView();
-            toolbar.setSubtitle(R.string.new_note);
-            String action = intent.getAction();
-            String type = intent.getType();
-            if (Intent.ACTION_SEND.equals(action) && type != null) {
-                if (type.startsWith("text/plain")) {
-                    String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
-                    titleEdit.setText(R.string.imported);
-                    bodyEdit.setText(sharedText);
-                    note.setNotedate();
-                    note.setNotetime();
-                }
-            }
-            note.setNotedate();
-            note.setNotetime();
-
-        } else {
-            //existing note
-            toolbar.setTitle(R.string.action_fab_note);
-            toolbar.setSubtitle(note.getTitle());
-            titleEdit.setText(note.getTitle());
-            bodyEdit.setText(note.getBody());
-        }
+        titleLayout.setHintEnabled(false);
+        bodyLayout.setHintEnabled(false);
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -151,9 +163,7 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private boolean isNewEntry(Note note, Intent intent) {
-        Log.d("NoteEditActivity", "isNewEntry = "+ note.getDate().isEmpty() + " "+ note.getTime().isEmpty());
-        return note.getDate().isEmpty() || note.getTime().isEmpty() || "android.intent.action.SEND".equals(intent.getAction());
-
+        return note.getDate().isEmpty() || note.getTime().isEmpty() || Intent.ACTION_SEND.equals(intent.getAction());
     }
 
     @Override
@@ -187,27 +197,37 @@ public class NoteEditActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-        switch (id) {
-            case R.id.action_share_note:
+        return switch (id) {
+            case R.id.action_share_note -> {
                 shareNote();
-                return true;
-            case R.id.action_remove:
+                yield true;
+            }
+            case R.id.action_remove -> {
                 DialogHelper.showDeleteSingleNoteDialog(NoteEditActivity.this, this::removeNote);
-                return true;
-            case R.id.action_save:
-                note.setHide(visibleSwitch.isChecked());
-                note.setTitle(titleEdit.getText().toString());
-                note.setBody(bodyEdit.getText().toString());
+                yield true;
+            }
+            case R.id.action_save -> {
+                saveNote();
+                yield true;
+            }
+            default -> super.onOptionsItemSelected(item);
+        };
+    }
 
-                if (note.getBody().isEmpty() && note.getTitle().isEmpty()) {
-                    Leaf.remove(this, note);
-                } else {
-                    Leaf.set(this, note);
-                    toolbar.setSubtitle(note.getTitle());
-                }
-                break;
+    private void saveNote() {
+        updateNoteFromUI();
+        if (note.getBody().isEmpty() && note.getTitle().isEmpty()) {
+            Leaf.remove(this, note);
+        } else {
+            Leaf.set(this, note);
+            toolbar.setSubtitle(note.getTitle());
         }
-        return super.onOptionsItemSelected(item);
+    }
+
+    private void updateNoteFromUI() {
+        note.setHide(visibleSwitch.isChecked());
+        note.setTitle(titleEdit.getText().toString());
+        note.setBody(bodyEdit.getText().toString());
     }
 
     private void removeNote() {
@@ -215,6 +235,12 @@ public class NoteEditActivity extends AppCompatActivity {
         note = null;
         setResult(RESULT_OK);
         finish();
+    }
+
+    private void setupToolbar() {
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
     }
 
     private void shareNote() {
@@ -246,7 +272,7 @@ public class NoteEditActivity extends AppCompatActivity {
         super.onResume();
 
         if (sharedJustNow) {
-            sharedJustNow = false; // Flag zurücksetzen
+            sharedJustNow = false;
             View rootView = findViewById(R.id.all);
             NotificationHelper.showSnackbar(rootView, getString(R.string.note_shared),Snackbar.LENGTH_SHORT, findViewById(R.id.snackbar_anchor));
         }
