@@ -109,10 +109,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         } else {
             editor.putString(PREF_LAYOUT_MODE, "grid");
         }
+
         editor.apply();
+        invalidateOptionsMenu(); // ← Menü neu zeichnen lassen
         applyLayoutMode(isListView);
         invalidateOptionsMenu();
     }
+
+
 
     private void applyLayoutMode(boolean isList) {
         noteAdapter.setLayoutMode(isList);
@@ -244,7 +248,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             item.setTitle(getString(R.string.show_hidden));
         }
         noteAdapter.setShowOnlyHidden(showHidden);
-        updateListView();
+        recyclerView.post(this::updateListView);
         invalidateOptionsMenu();
     }
 }
