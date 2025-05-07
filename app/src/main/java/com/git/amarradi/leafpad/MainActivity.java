@@ -21,6 +21,7 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.git.amarradi.leafpad.adapter.NoteAdapter;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -137,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
 
     private void applyLayoutMode(boolean isList) {
-        noteAdapter.setLayoutMode(isList);
+        //noteAdapter.setLayoutMode(isList);
         noteAdapter.notifyDataSetChanged();
 
         if (isList) {
