@@ -213,6 +213,7 @@ public class NoteEditActivity extends AppCompatActivity {
     private void removeNote() {
         Leaf.remove(this, note);
         note = null;
+        setResult(RESULT_OK);
         finish();
     }
 

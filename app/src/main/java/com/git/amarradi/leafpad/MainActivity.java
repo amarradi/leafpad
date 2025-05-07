@@ -10,10 +10,13 @@ import android.view.View;
 import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -46,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
@@ -79,9 +83,18 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         fab.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
             intent.putExtra(EXTRA_NOTE_ID, Note.makeId());
-            startActivity(intent);
+            noteEditLauncher.launch(intent);
         });
     }
+    // In MainActivity:
+    private final ActivityResultLauncher<Intent> noteEditLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == RESULT_OK) {
+                    updateListView();
+                }
+            });
+
 
     private void setupSharedPreferences() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -101,7 +114,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
             editor.putString(PREF_LAYOUT_MODE, "grid");
         }
-
         editor.apply();
         invalidateOptionsMenu();
     }
@@ -144,6 +156,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public void updateListView() {
         updateDataset();
         noteAdapter.updateNotes(notes);
+        if (notes == null) {
+            notes = new ArrayList<>();
+        }
 
         ImageView emptyElement = findViewById(R.id.emptyElement);
         if (noteAdapter.isFilteredListEmpty()) {
@@ -168,18 +183,18 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         String savedLayout = prefs.getString(PREF_LAYOUT_MODE, "list");
 
         if (showHidden) {
-            item.setIcon(getDrawable(R.drawable.action_eye_closed));
+            item.setIcon(ContextCompat.getDrawable(this, R.drawable.action_eye_closed));
             item.setTitle(getString(R.string.hide_hidden));
         } else {
-            item.setIcon(getDrawable(R.drawable.action_eye_open));
+            item.setIcon(ContextCompat.getDrawable(this,R.drawable.action_eye_open));
             item.setTitle(getString(R.string.show_hidden));
         }
 
         MenuItem layoutItem = menu.findItem(R.id.item_toggle_layout);
         if ("grid".equals(savedLayout)) {
-            layoutItem.setIcon(R.drawable.action_gridview_off);
+            layoutItem.setIcon(ContextCompat.getDrawable(this,R.drawable.action_gridview_off));
         } else {
-            layoutItem.setIcon(R.drawable.action_gridview_on);
+            layoutItem.setIcon(ContextCompat.getDrawable(this, R.drawable.action_gridview_on));
         }
         return true;
     }
@@ -204,18 +219,28 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         };
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100 && resultCode == RESULT_OK) {
+            updateListView();
+        }
+    }
+
+
     @SuppressLint("UseCompatLoadingForDrawables")
     private void toggleShowHidden(MenuItem item) {
         showHidden = !showHidden;
+
         if (showHidden) {
-            item.setIcon(getDrawable(R.drawable.action_eye_closed));
+            item.setIcon(ContextCompat.getDrawable(this, R.drawable.action_eye_closed));
             item.setTitle(getString(R.string.hide_hidden));
         } else {
-            item.setIcon(getDrawable(R.drawable.action_eye_open));
+            item.setIcon(ContextCompat.getDrawable(this, R.drawable.action_eye_open));
             item.setTitle(getString(R.string.show_hidden));
         }
         noteAdapter.setShowOnlyHidden(showHidden);
-        updateListView();
+        recyclerView.post(this::updateListView);
         invalidateOptionsMenu();
     }
 }

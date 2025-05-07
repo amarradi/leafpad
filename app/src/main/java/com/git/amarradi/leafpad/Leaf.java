@@ -59,15 +59,39 @@ public class Leaf {
         return notes;
     }
 
-    public static Note load(Context context, String noteId) {
+    /**public static Note load(Context context, String noteId) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
         boolean noteHide;
+
         if (sharedPreferences.contains(HIDE + noteId)) {
             noteHide = sharedPreferences.getBoolean(HIDE + noteId, false);
             sharedPreferences.edit().remove(HIDE + noteId).putBoolean(HIDE + "_" + noteId, noteHide).apply();
 
         }
+            sharedPreferences.edit()
+                    .remove(HIDE + noteId)
+                    .putBoolean(HIDE + "_" + noteId, noteHide)
+                    .apply();
+           // Log.d("Leaf", "Migrating old hide key for noteId: " + noteId + ", Value: " + noteHide);
+        }
         return load(sharedPreferences, noteId);
+    }**/
+
+    public static Note load(Context context, String noteId) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
+        boolean noteHide;
+
+        // Wenn der alte Schlüssel für "Hide" existiert, migriere ihn auf den neuen Schlüssel.
+        if (sharedPreferences.contains(HIDE + noteId)) {
+            noteHide = sharedPreferences.getBoolean(HIDE + noteId, false);
+            sharedPreferences.edit()
+                    .remove(HIDE + noteId) // Entferne den alten Schlüssel
+                    .putBoolean(HIDE + "_" + noteId, noteHide) // Setze den neuen Schlüssel
+                    .apply();
+        }
+
+        // Lade die Notiz aus SharedPreferences mit dem neuen Schlüssel
+        return load(sharedPreferences, noteId); // Keine Rekursion mehr, sondern einfaches Laden der Notiz
     }
 
     public static Note load(SharedPreferences sharedPreferences, String noteId) {
