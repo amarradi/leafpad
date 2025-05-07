@@ -229,6 +229,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             case R.id.item_toggle_layout:
                 toggleLayoutManager();
                 return true;
+            case R.id.action_open_search:
+                Intent searchIntent = new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(searchIntent);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
