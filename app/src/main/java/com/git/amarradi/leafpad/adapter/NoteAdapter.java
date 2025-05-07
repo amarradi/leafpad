@@ -3,6 +3,7 @@ package com.git.amarradi.leafpad.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,6 +20,7 @@ import com.git.amarradi.leafpad.MainActivity;
 import com.git.amarradi.leafpad.Note;
 import com.git.amarradi.leafpad.NoteDiffCallback;
 import com.git.amarradi.leafpad.NoteEditActivity;
+import com.git.amarradi.leafpad.NoteViewModel;
 import com.git.amarradi.leafpad.R;
 import com.google.android.material.card.MaterialCardView;
 
@@ -27,8 +31,8 @@ import java.util.regex.Pattern;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder> {
 
-    private final Context context;
-    private List<Note> noteList;
+
+    private List<Note> noteList = new ArrayList<>();
     private boolean showOnlyHidden = false;
     private List<Note> fullNoteList = new ArrayList<>();
     private boolean isGridMode = false;
@@ -36,8 +40,11 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
     private final static String BIBLEVERSE_URL_REGEX = "(?i)\\b(?:https?://)?(?:www\\.)?(bible\\.(com|org)|bibleserver\\.com)(/\\S*)?";
 
-    public NoteAdapter(Context context, List<Note> noteList) {
-        this.context = context;
+    public NoteAdapter() {
+        setHasStableIds(true);  // WICHTIG für DiffUtil & RecyclerView-Stabilität
+    }
+    public NoteAdapter(Context context) {
+
         this.noteList = noteList;
         this.noteList = filterNotes(showOnlyHidden);
     }
@@ -54,9 +61,16 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         }
     }
 
+    @Override
+    public long getItemId(int position) {
+        Note note = noteList.get(position);
+        return note.getId() != null ? note.getId().hashCode() : RecyclerView.NO_ID;
+    }
+
+
     public void setShowOnlyHidden(boolean showHidden) {
         this.showOnlyHidden = showHidden;
-        this.noteList = filterNotes(showHidden);
+        //this.noteList = filterNotes(showHidden);
         updateNotes(this.fullNoteList);
     }
 
@@ -72,15 +86,14 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         return filtered;
     }
 
-
     @NonNull
     @Override
     public NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
         if (viewType == 0) {
-            view = LayoutInflater.from(context).inflate(R.layout.note_grid_item, parent, false);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.note_grid_item, parent, false);
         } else {
-            view = LayoutInflater.from(context).inflate(R.layout.note_list_item, parent, false);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.note_list_item, parent, false);
         }
         return new NoteViewHolder(view);
     }
@@ -101,13 +114,15 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         holder.timeText.setText(note.getTime());
 
         MaterialCardView cardView = holder.itemView.findViewById(R.id.note_card_view);
+        Context context = cardView.getContext(); // sichere Methode!
         if (!TextUtils.isEmpty(note.getCategory())) {
+
             holder.categoryText.setVisibility(View.VISIBLE);
             holder.categoryIcon.setVisibility(View.VISIBLE);
             holder.categoryText.setText(note.getCategory());
-            cardView.setStrokeColor(context.getResources().getColor(R.color.md_theme_recipe, null));
+            cardView.setStrokeColor(ContextCompat.getColor(context, R.color.md_theme_recipe));
         } else {
-            cardView.setStrokeColor(context.getResources().getColor(R.color.md_theme_primaryContainer, null));
+            cardView.setStrokeColor(ContextCompat.getColor(context, R.color.md_theme_primaryContainer));
             holder.categoryText.setVisibility(View.GONE);
             holder.categoryIcon.setVisibility(View.GONE);
         }
@@ -120,7 +135,14 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             holder.bibleIcon.setVisibility(View.GONE);
         }
 
+        // Hier wird die selectNote Methode des ViewModels aufgerufen
         holder.itemView.setOnClickListener(v -> {
+            // Die ausgewählte Notiz im ViewModel speichern
+
+            NoteViewModel noteViewModel = new ViewModelProvider((MainActivity) context).get(NoteViewModel.class);
+            noteViewModel.selectNote(note);  // Die ausgewählte Note wird gespeichert
+
+            // Dann wird die NoteEditActivity gestartet
             Intent intent = new Intent(context, NoteEditActivity.class);
             intent.putExtra(MainActivity.EXTRA_NOTE_ID, note.getId());
             context.startActivity(intent);
@@ -133,15 +155,42 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     }
 
     public void updateNotes(List<Note> newNotes) {
-        if (newNotes.equals(this.fullNoteList)) {
-            return;
+        List<Note> newFullList = new ArrayList<>();
+        if (newNotes != null) {
+            newFullList.addAll(newNotes);
         }
-        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new NoteDiffCallback(this.noteList, newNotes));
-        this.fullNoteList = newNotes;
-        this.noteList = filterNotes(showOnlyHidden);
+
+        List<Note> newFilteredList = filterNotesFromList(showOnlyHidden, newFullList);  // Erst filtern
+
+        NoteDiffCallback diffCallback = new NoteDiffCallback(this.noteList, newFilteredList);
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);
+
+        //fullNoteList.clear();
+        if(newNotes != null) {
+            newFullList.addAll(newNotes);
+        }
+
+
+        // Diese Zuweisung NICHT nachträglich modifizieren!
+        this.fullNoteList = newFullList; // Alternativ: clear + addAll, wenn du List final hältst
+        this.noteList = newFilteredList; // NEUE LISTE STATT clear/addAll
+
+
         diffResult.dispatchUpdatesTo(this);
-       // notifyDataSetChanged();
     }
+    private List<Note> filterNotesFromList(boolean showHidden, List<Note> sourceList) {
+        List<Note> filtered = new ArrayList<>();
+        for (Note note : sourceList) {
+            if (showHidden && note.isHide()) {
+                filtered.add(note);
+            } else if (!showHidden && !note.isHide()) {
+                filtered.add(note);
+            }
+        }
+
+        return filtered;
+    }
+
     public boolean isFilteredListEmpty() {
         return noteList == null || noteList.isEmpty();
     }

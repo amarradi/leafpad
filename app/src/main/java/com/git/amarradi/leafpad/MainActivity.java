@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     public static final String EXTRA_NOTE_ID = "com.git.amarradi.leafpad";
@@ -37,11 +39,13 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     public RecyclerView recyclerView;
     public NoteAdapter noteAdapter;
+    private NoteViewModel noteViewModel;
     public List<Note> notes = new ArrayList<>();
     private boolean showHidden = false;
 
     private RecyclerView.ItemDecoration gridSpacingDecoration;
     private RecyclerView.ItemDecoration listSpacingDecoration;
+
 
 
     private boolean isListView = true;
@@ -54,6 +58,29 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        recyclerView = findViewById(R.id.note_list_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        noteAdapter = new NoteAdapter(this);
+        recyclerView.setAdapter(noteAdapter);
+
+        noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
+
+        noteViewModel.getNotes().observe(this, notes -> {
+            noteAdapter.updateNotes(notes);
+
+            ImageView emptyElement = findViewById(R.id.emptyElement);
+            if (noteAdapter.isFilteredListEmpty()) {
+                emptyElement.setVisibility(View.VISIBLE);
+                recyclerView.setVisibility(View.INVISIBLE);
+            } else {
+                emptyElement.setVisibility(View.INVISIBLE);
+                recyclerView.setVisibility(View.VISIBLE);
+            }
+        });
+
+        noteViewModel.loadNotes(showHidden);
+
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         String themes = sharedPreferences.getString(DESIGN_MODE, "");
         changeTheme(themes);
@@ -64,18 +91,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDefaultDisplayHomeAsUpEnabled(true);
 
-        recyclerView = findViewById(R.id.note_list_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        updateDataset();
-        noteAdapter = new NoteAdapter(this, new ArrayList<>());
-        recyclerView.setAdapter(noteAdapter);
+
 
         SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         String savedLayout = prefs.getString(PREF_LAYOUT_MODE, "list");
         isListView = savedLayout.equals("list");
         applyLayoutMode(isListView);
         noteAdapter.setLayoutMode(isListView);
-        noteAdapter.notifyDataSetChanged();
+
 
         ExtendedFloatingActionButton fab = findViewById(R.id.fab_action_add);
         fab.setOnClickListener(v -> {
@@ -84,6 +107,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             startActivity(intent);
         });
     }
+
+
+
 
     private void applyGridSpacingIfNeeded() {
         if (gridSpacingDecoration == null) {
@@ -120,9 +146,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         if (isList) {
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            // … List-Dekoration entfernen …
         } else {
-            // 1) StaggeredManager statt GridManager
             recyclerView.setLayoutManager(
                     new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             );
@@ -174,22 +198,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
 
     public void updateListView() {
-        updateDataset();
-        noteAdapter.updateNotes(notes);
-
-        ImageView emptyElement = findViewById(R.id.emptyElement);
-        if (noteAdapter.isFilteredListEmpty()) {
-            emptyElement.setVisibility(View.VISIBLE);
-            recyclerView.setVisibility(View.INVISIBLE);
-        } else {
-            emptyElement.setVisibility(View.INVISIBLE);
-            recyclerView.setVisibility(View.VISIBLE);
-        }
+//        updateDataset();
+        noteViewModel.loadNotes(showHidden);
     }
 
-    public void updateDataset() {
-        notes = Leaf.loadAll(this, showHidden);
-    }
+//    public void updateDataset() {
+//        notes = Leaf.loadAll(this, showHidden);
+//        noteAdapter.updateNotes(notes);
+//    }
 
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
@@ -235,7 +251,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     @SuppressLint("UseCompatLoadingForDrawables")
     private void toggleShowHidden(MenuItem item) {
+
         showHidden = !showHidden;
+
+        // Update the Menu item icon and title
         if (showHidden) {
             item.setIcon(getDrawable(R.drawable.action_eye_closed));
             item.setTitle(getString(R.string.hide_hidden));
@@ -243,8 +262,12 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             item.setIcon(getDrawable(R.drawable.action_eye_open));
             item.setTitle(getString(R.string.show_hidden));
         }
+
+        // 🛠️ NEU: Den Adapter informieren
         noteAdapter.setShowOnlyHidden(showHidden);
-        updateListView();
-        invalidateOptionsMenu();
+
+        // Lade die Notizen basierend auf dem neuen Filter
+        noteViewModel.loadNotes(showHidden);
+
     }
 }

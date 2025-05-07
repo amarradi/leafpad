@@ -1,17 +1,27 @@
 package com.git.amarradi.leafpad;
 
+import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class NoteViewModel extends ViewModel {
+public class NoteViewModel extends AndroidViewModel {
 
     private final MutableLiveData<List<Note>> notesLiveData = new MutableLiveData<>();
     private final MutableLiveData<Note> selectedNote = new MutableLiveData<>();
+
+
+
+    public NoteViewModel(@NonNull Application application) {
+        super(application);
+    }
 
     public LiveData<List<Note>> getNotes() {
         return notesLiveData;
@@ -21,9 +31,21 @@ public class NoteViewModel extends ViewModel {
         return selectedNote;
     }
 
-    public void loadNotes(Context context, boolean includeHidden) {
-        List<Note> notes = Leaf.loadAll(context, includeHidden);
-        notesLiveData.setValue(notes);
+    public void loadNotes(boolean includeHidden) {
+        Log.d("NoteViewModel", "showHidden: " + includeHidden);  // Log-Ausgabe
+        List<Note> allNotes = Leaf.loadAll(getApplication(),includeHidden);
+        Log.d("NoteViewModel", "Loaded Notes: " + allNotes.size());  // Log-Ausgabe
+        //notesLiveData.setValue(notes);
+        /**List<Note> filteredNotes = new ArrayList<>();
+        for (Note note : allNotes) {
+            Log.d("NoteViewModel", "Checking note: " + note.getTitle() + ", hide: " + note.isHide());
+            if(includeHidden || !note.isHide()) {
+                filteredNotes.add(note);
+            }
+        }
+
+        Log.d("NoteViewModel", "Filtered Notes: " + filteredNotes.size());**/
+        notesLiveData.setValue(allNotes);
     }
 
     public void selectNote(Note note) {
@@ -31,12 +53,12 @@ public class NoteViewModel extends ViewModel {
     }
 
     public void saveNote(Context context, Note note) {
-        Leaf.save(context, note);
-        loadNotes(context, false); // Liste neu laden
+        Leaf.save(getApplication(), note);
+        loadNotes(false); // Liste neu laden
     }
 
     public void deleteNote(Context context, Note note) {
-        Leaf.remove(context, note);
-        loadNotes(context, false);
+        Leaf.remove(getApplication(), note);
+        loadNotes( false);
     }
 }

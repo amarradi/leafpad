@@ -34,10 +34,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     private ActivityResultLauncher<Intent> exportLauncher;
     private ActivityResultLauncher<Intent> importLauncher;
 
-
-
-
-
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.preferences);

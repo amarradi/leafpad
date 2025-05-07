@@ -35,9 +35,7 @@ public class Leaf {
         if (noteIds != null) {
             for (String noteId : noteIds) {
                 Note note = load(context, noteId);
-                if (!note.isHide() || includeHidden) {
-                    notes.add(note);
-                }
+                notes.add(note);
             }
         }
 
@@ -56,6 +54,8 @@ public class Leaf {
             }
         }
         Collections.reverse(notes);
+
+        Log.d("Leaf", "Filtered Notes: " + notes.size());  // Log-Ausgabe
         return notes;
     }
 
