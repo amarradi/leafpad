@@ -144,12 +144,11 @@ public class Leaf {
     public static void remove(Context context, Note note) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        Set<String> ids = sharedPreferences.getStringSet(ID_KEY, null);
+        Set<String> ids = new HashSet<>(sharedPreferences.getStringSet(ID_KEY, new HashSet<>()));
 
-        if (ids == null) {
-            return;
-        }
 
+        ids.remove(note.getId());
+        editor.putStringSet(ID_KEY, ids);
         ids.remove(note.getId());
         editor.remove(ID_KEY + note.getId());
         editor.remove(TITLE_PREFIX + note.getId());
