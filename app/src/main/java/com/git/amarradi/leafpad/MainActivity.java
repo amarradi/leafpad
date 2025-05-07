@@ -10,15 +10,11 @@ import android.view.View;
 import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceManager;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -54,7 +50,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
@@ -78,29 +73,17 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         String savedLayout = prefs.getString(PREF_LAYOUT_MODE, "list");
         isListView = savedLayout.equals("list");
-
-        if (isListView) {
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        } else {
-            recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        }
+        applyLayoutMode(isListView);
+        noteAdapter.setLayoutMode(isListView);
+        noteAdapter.notifyDataSetChanged();
 
         ExtendedFloatingActionButton fab = findViewById(R.id.fab_action_add);
         fab.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
             intent.putExtra(EXTRA_NOTE_ID, Note.makeId());
-            noteEditLauncher.launch(intent);
+            startActivity(intent);
         });
     }
-    // In MainActivity:
-    private final ActivityResultLauncher<Intent> noteEditLauncher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            result -> {
-                if (result.getResultCode() == RESULT_OK) {
-                    updateListView();
-                }
-            });
-
 
     private void applyGridSpacingIfNeeded() {
         if (gridSpacingDecoration == null) {
@@ -122,23 +105,17 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         SharedPreferences.Editor editor = prefs.edit();
 
         if (isListView)  {
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
             editor.putString(PREF_LAYOUT_MODE, "list");
         } else {
-            recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
             editor.putString(PREF_LAYOUT_MODE, "grid");
         }
-
         editor.apply();
-        invalidateOptionsMenu(); // ← Menü neu zeichnen lassen
         applyLayoutMode(isListView);
         invalidateOptionsMenu();
     }
 
-
-
     private void applyLayoutMode(boolean isList) {
-        //noteAdapter.setLayoutMode(isList);
+        noteAdapter.setLayoutMode(isList);
         noteAdapter.notifyDataSetChanged();
 
         if (isList) {
@@ -199,9 +176,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public void updateListView() {
         updateDataset();
         noteAdapter.updateNotes(notes);
-        if (notes == null) {
-            notes = new ArrayList<>();
-        }
 
         ImageView emptyElement = findViewById(R.id.emptyElement);
         if (noteAdapter.isFilteredListEmpty()) {
@@ -226,18 +200,18 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         String savedLayout = prefs.getString(PREF_LAYOUT_MODE, "list");
 
         if (showHidden) {
-            item.setIcon(ContextCompat.getDrawable(this, R.drawable.action_eye_closed));
+            item.setIcon(getDrawable(R.drawable.action_eye_closed));
             item.setTitle(getString(R.string.hide_hidden));
         } else {
-            item.setIcon(ContextCompat.getDrawable(this,R.drawable.action_eye_open));
+            item.setIcon(getDrawable(R.drawable.action_eye_open));
             item.setTitle(getString(R.string.show_hidden));
         }
 
         MenuItem layoutItem = menu.findItem(R.id.item_toggle_layout);
         if ("grid".equals(savedLayout)) {
-            layoutItem.setIcon(ContextCompat.getDrawable(this,R.drawable.action_gridview_off));
+            layoutItem.setIcon(R.drawable.action_gridview_off);
         } else {
-            layoutItem.setIcon(ContextCompat.getDrawable(this, R.drawable.action_gridview_on));
+            layoutItem.setIcon(R.drawable.action_gridview_on);
         }
         return true;
     }
@@ -245,45 +219,32 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull android.view.MenuItem item) {
-        return switch (item.getItemId()) {
-            case R.id.item_settings -> {
+        switch (item.getItemId()) {
+            case R.id.item_settings:
                 startActivity(new Intent(this, SettingsActivity.class));
-                yield true;
-            }
-            case R.id.item_show_hidden -> {
+                return true;
+            case R.id.item_show_hidden:
                 toggleShowHidden(item);
-                yield true;
-            }
-            case R.id.item_toggle_layout -> {
+                return true;
+            case R.id.item_toggle_layout:
                 toggleLayoutManager();
-                yield true;
-            }
-            default -> super.onOptionsItemSelected(item);
-        };
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 100 && resultCode == RESULT_OK) {
-            updateListView();
+                return true;
         }
+        return super.onOptionsItemSelected(item);
     }
-
 
     @SuppressLint("UseCompatLoadingForDrawables")
     private void toggleShowHidden(MenuItem item) {
         showHidden = !showHidden;
-
         if (showHidden) {
-            item.setIcon(ContextCompat.getDrawable(this, R.drawable.action_eye_closed));
+            item.setIcon(getDrawable(R.drawable.action_eye_closed));
             item.setTitle(getString(R.string.hide_hidden));
         } else {
-            item.setIcon(ContextCompat.getDrawable(this, R.drawable.action_eye_open));
+            item.setIcon(getDrawable(R.drawable.action_eye_open));
             item.setTitle(getString(R.string.show_hidden));
         }
         noteAdapter.setShowOnlyHidden(showHidden);
-        recyclerView.post(this::updateListView);
+        updateListView();
         invalidateOptionsMenu();
     }
 }
