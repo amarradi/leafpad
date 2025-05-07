@@ -47,7 +47,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         this.showOnlyHidden = showHidden;
         this.noteList = filterNotes(showHidden);
         updateNotes(this.fullNoteList);
-       // notifyDataSetChanged();
+        // notifyDataSetChanged();
     }
 
     private List<Note> filterNotes(boolean showHidden) {

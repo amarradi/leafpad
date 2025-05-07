@@ -17,7 +17,7 @@
     <dimen name="toolbarPaddingRight">24dp</dimen>
     <dimen name="listElementTitle">16sp</dimen>
     <!-- note edit -->
-    <dimen name="marginLayout">5dp</dimen>
+    <dimen name="marginLayout">3dp</dimen>
     <dimen name="marginTop_noteEdit">5dp</dimen>
     <dimen name="marginBottom_noteEdit">0dp</dimen>
     <dimen name="paddingStartEnd_noteEdit">8dp</dimen>
@@ -27,7 +27,7 @@
 
     <!-- listItem note overview-->
     <dimen name="margin_listItem">2dp</dimen>
-    <dimen name="paddingStartlistItem">15dp</dimen>
+    <dimen name="paddingStartlistItem">10dp</dimen>
     <dimen name="paddingEndlistItem">5dp</dimen>
     <dimen name="paddingToplistItem">5dp</dimen>
     <dimen name="paddingBottomlistItem">5dp</dimen>
@@ -39,10 +39,14 @@
 
     <!-- CardView -->
 
-    <dimen name="cardElevation">2dp</dimen>
+    <dimen name="cardElevation">0dp</dimen>
     <dimen name="cornerRadiusAlertDialog">15dp</dimen>
-    <dimen name="cornerRadiusCardElement">8dp</dimen>
-    <dimen name="strokeWidth">2dp</dimen>
+    <dimen name="cornerRadiusCardElement">6dp</dimen>
+    <dimen name="strokeWidth">1dp</dimen>
+    <dimen name="grid_spacing">0dp</dimen>
+    <dimen name="list_spacing">0dp</dimen>
+    <dimen name="masonry_vertical_spacing">0dp</dimen>
+    <dimen name="masonry_horizontal_spacing">0dp</dimen>
 
 
     <!--ExtendedFloatingActionButton -->

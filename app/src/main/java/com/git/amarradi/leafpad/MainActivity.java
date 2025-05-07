@@ -43,6 +43,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public List<Note> notes = new ArrayList<>();
     private boolean showHidden = false;
 
+    private RecyclerView.ItemDecoration gridSpacingDecoration;
+    private RecyclerView.ItemDecoration listSpacingDecoration;
+
+
     private boolean isListView = true;
 
     @SuppressLint("RestrictedApi")
@@ -66,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         recyclerView = findViewById(R.id.note_list_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        updateDataset();
         noteAdapter = new NoteAdapter(this, new ArrayList<>());
         recyclerView.setAdapter(noteAdapter);
 
@@ -96,27 +101,64 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             });
 
 
+    private void applyGridSpacingIfNeeded() {
+        if (gridSpacingDecoration == null) {
+            int spacing = getResources().getDimensionPixelSize(R.dimen.grid_spacing); // z.B. 16dp
+            gridSpacingDecoration = new GridSpacingItemDecoration(2, spacing, true);
+            recyclerView.addItemDecoration(gridSpacingDecoration);
+        }
+    }
+
+
     private void setupSharedPreferences() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
 
     private void toggleLayoutManager() {
+        isListView = !isListView;
         SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
 
-        isListView = !isListView;
-
-        if (isListView) {
+        if (isListView)  {
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             editor.putString(PREF_LAYOUT_MODE, "list");
         } else {
             recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
             editor.putString(PREF_LAYOUT_MODE, "grid");
         }
+
         editor.apply();
+        invalidateOptionsMenu(); // ← Menü neu zeichnen lassen
+        applyLayoutMode(isListView);
         invalidateOptionsMenu();
     }
+
+
+
+    private void applyLayoutMode(boolean isList) {
+        noteAdapter.setLayoutMode(isList);
+        noteAdapter.notifyDataSetChanged();
+
+        if (isList) {
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            // … List-Dekoration entfernen …
+        } else {
+            // 1) StaggeredManager statt GridManager
+            recyclerView.setLayoutManager(
+                    new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+            );
+            // 2) passende Masonry-Abstände
+            if (gridSpacingDecoration != null) {
+                recyclerView.removeItemDecoration(gridSpacingDecoration);
+            }
+            int vert = getResources().getDimensionPixelSize(R.dimen.masonry_vertical_spacing);
+            int horz = getResources().getDimensionPixelSize(R.dimen.masonry_horizontal_spacing);
+            gridSpacingDecoration = new MasonrySpacingDecoration(vert, horz);
+            recyclerView.addItemDecoration(gridSpacingDecoration);
+        }
+    }
+
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
