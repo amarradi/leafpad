@@ -63,7 +63,7 @@
     <string name="hide_hidden">nascondere le note nascoste</string>
     <string name="show_note">rendere visibile la nota</string>
     <string name="show_hidden">mostra note nascoste</string>
-    <string name="note_is_recipe">note is a recipe</string>
+    <string name="note_is_recipe">nota è la ricetta</string>
     <string name="note_is_no_recipe">nota non è ricetta</string>
     <string name="showRestoreConfirmation">Ripristino?</string>
     <string name="save">Salva tutte le note come xml</string>
@@ -88,5 +88,5 @@
     <string name="save_notes_title">Backup</string>
     <string name="showRestoreConfirmationMessage">Tutte le note correnti saranno sostituite dal backup. Continua?</string>
     <string name="toggle">change View</string>
-    <string name="note_shared">Note shared</string>
+    <string name="note_shared">Note condivise</string>
 </resources>
