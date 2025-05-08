@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Objects;
 
 
-public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, OnNoteClickListener {
 
     public static final String EXTRA_NOTE_ID = "com.git.amarradi.leafpad";
     public static final String SHARED_PREFS = "sharedPrefs";
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         recyclerView = findViewById(R.id.note_list_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        noteAdapter = new NoteAdapter(this);
+        noteAdapter = new NoteAdapter(this,this);
         recyclerView.setAdapter(noteAdapter);
 
         noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
@@ -269,5 +269,12 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         // Lade die Notizen basierend auf dem neuen Filter
         noteViewModel.loadNotes(showHidden);
 
+    }
+
+    @Override
+    public void onNoteClick(Note note) {
+        Intent intent = new Intent(this, NoteEditActivity.class);
+        intent.putExtra(MainActivity.EXTRA_NOTE_ID, note.getId());
+        startActivity(intent);
     }
 }

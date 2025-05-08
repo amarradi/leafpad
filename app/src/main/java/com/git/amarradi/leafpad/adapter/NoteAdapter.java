@@ -1,9 +1,7 @@
 package com.git.amarradi.leafpad.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,15 +10,12 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.git.amarradi.leafpad.MainActivity;
 import com.git.amarradi.leafpad.Note;
 import com.git.amarradi.leafpad.NoteDiffCallback;
-import com.git.amarradi.leafpad.NoteEditActivity;
-import com.git.amarradi.leafpad.NoteViewModel;
+import com.git.amarradi.leafpad.OnNoteClickListener;
 import com.git.amarradi.leafpad.R;
 import com.google.android.material.card.MaterialCardView;
 
@@ -37,13 +32,21 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     private List<Note> fullNoteList = new ArrayList<>();
     private boolean isGridMode = false;
 
+    private final OnNoteClickListener clickListener;
+
+    private final Context context;
+
 
     private final static String BIBLEVERSE_URL_REGEX = "(?i)\\b(?:https?://)?(?:www\\.)?(bible\\.(com|org)|bibleserver\\.com)(/\\S*)?";
 
-    public NoteAdapter() {
+    public NoteAdapter(OnNoteClickListener listener, Context context) {
+        this.clickListener = listener;
+        this.context = context;
         setHasStableIds(true);  // WICHTIG für DiffUtil & RecyclerView-Stabilität
     }
-    public NoteAdapter(Context context) {
+    public NoteAdapter(Context context, OnNoteClickListener listener, Context context1) {
+        this.clickListener = listener;
+        this.context = context1;
 
         this.noteList = noteList;
         this.noteList = filterNotes(showOnlyHidden);
@@ -134,18 +137,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         } else {
             holder.bibleIcon.setVisibility(View.GONE);
         }
-
-        // Hier wird die selectNote Methode des ViewModels aufgerufen
         holder.itemView.setOnClickListener(v -> {
-            // Die ausgewählte Notiz im ViewModel speichern
-
-            NoteViewModel noteViewModel = new ViewModelProvider((MainActivity) context).get(NoteViewModel.class);
-            noteViewModel.selectNote(note);  // Die ausgewählte Note wird gespeichert
-
-            // Dann wird die NoteEditActivity gestartet
-            Intent intent = new Intent(context, NoteEditActivity.class);
-            intent.putExtra(MainActivity.EXTRA_NOTE_ID, note.getId());
-            context.startActivity(intent);
+                clickListener.onNoteClick(note);
         });
     }
 
