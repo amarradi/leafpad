@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.git.amarradi.leafpad.adapter.NoteAdapter;
+import com.git.amarradi.leafpad.helper.DialogHelper;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
@@ -233,9 +234,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         switch(item.getItemId()){
             case R.id.action_remove:
-                Leaf.remove(this, note);
-                note = null;
-                updateListView();
+                DialogHelper.showDeleteSingleNoteDialog(this, ()->removeNote(note));
                 return true;
             case R.id.action_share_note:
                 Intent sendIntent = new Intent();
@@ -246,5 +245,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 return true;
         }
         return super.onContextItemSelected(item);
+    }
+
+    private void removeNote(Note note) {
+        Leaf.remove(this, note);
+        updateListView();
     }
 }
