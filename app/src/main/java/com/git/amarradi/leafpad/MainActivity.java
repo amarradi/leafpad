@@ -31,8 +31,9 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     public static final String EXTRA_NOTE_ID = "com.git.amarradi.leafpad";
-    public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String DESIGN_MODE = "system";
+    //public static final String SHARED_PREFS = "sharedPrefs";
+    //public static final String SHARED_PREFS = Leafpad.getPrefs();
+    //public static final String DESIGN_MODE = "system";
     private static final String PREF_LAYOUT_MODE = "layout_mode"; // "list" oder "grid"
 
 
@@ -227,7 +228,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public boolean onCreateOptionsMenu(@NonNull android.view.Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         android.view.MenuItem item = menu.findItem(R.id.item_show_hidden);
-        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences prefs = Leafpad.getPrefs();
         String savedLayout = prefs.getString(PREF_LAYOUT_MODE, "list");
         Boolean showHidden = noteViewModel.getShowHidden().getValue();
         if (showHidden == null) {

@@ -7,18 +7,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.git.amarradi.leafpad.Leafpad;
 import com.git.amarradi.leafpad.R;
 import com.git.amarradi.leafpad.adapter.NoteAdapter;
 import com.git.amarradi.leafpad.util.MasonrySpacingDecoration;
 
 public class LayoutModeHelper {
 
-    private static final String PREF_NAME = "sharedPrefs";
+    //private static final String PREF_NAME = Leafpad.SHARED_PREFS;
     private static final String PREF_LAYOUT_MODE = "layout_mode"; // list/grid
     private static RecyclerView.ItemDecoration gridSpacingDecoration;
 
     public static boolean isListMode(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences prefs = Leafpad.getPrefs();
         String mode = prefs.getString(PREF_LAYOUT_MODE, "list");
         return "list".equals(mode);
     }
@@ -30,7 +31,7 @@ public class LayoutModeHelper {
     }
 
     public static void saveMode(Context context, boolean isList) {
-        SharedPreferences prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences prefs = Leafpad.getPrefs();
         prefs.edit().putString(PREF_LAYOUT_MODE, isList ? "list" : "grid").apply();
     }
 

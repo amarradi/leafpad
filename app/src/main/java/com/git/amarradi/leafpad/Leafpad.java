@@ -36,6 +36,10 @@ public class Leafpad extends Application {
         return instance;
     }
 
+    public static SharedPreferences getPrefs() {
+        return getInstance().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+    }
+
     public boolean isListLayout() {
         SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         String layout = prefs.getString(PREF_LAYOUT_MODE, "list");
