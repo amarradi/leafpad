@@ -16,14 +16,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.git.amarradi.leafpad.MainActivity;
 import com.git.amarradi.leafpad.Note;
-import com.git.amarradi.leafpad.NoteDiffCallback;
 import com.git.amarradi.leafpad.NoteEditActivity;
 import com.git.amarradi.leafpad.NoteViewModel;
 import com.git.amarradi.leafpad.R;
+import com.git.amarradi.leafpad.util.NoteDiffCallback;
 import com.google.android.material.card.MaterialCardView;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -41,7 +43,19 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     public NoteAdapter(Context context, List<Note> noteList) {
         this.context = context;
         this.noteList = noteList;
+        this.fullNoteList = noteList;
         this.noteList = filterNotes(showOnlyHidden);
+        setHasStableIds(true);
+    }
+    @Override
+    public long getItemId(int position) {
+        if (position >= 0 && position < noteList.size()) {
+            String id = noteList.get(position).getId();
+            if (id != null) {
+                return UUID.nameUUIDFromBytes(id.getBytes(StandardCharsets.UTF_8)).getMostSignificantBits();
+            }
+        }
+        return RecyclerView.NO_ID;
     }
 
     public void setLayoutMode(boolean isGrid) {
@@ -58,8 +72,10 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
     public void setShowOnlyHidden(boolean showHidden) {
         this.showOnlyHidden = showHidden;
-        this.noteList = filterNotes(showHidden);
-        updateNotes(this.fullNoteList);
+        List<Note> newFilteredList = filterNotes(showHidden);
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new NoteDiffCallback(this.noteList, newFilteredList));
+        this.noteList = newFilteredList;
+        diffResult.dispatchUpdatesTo(this);
     }
 
     private List<Note> filterNotes(boolean showHidden) {
@@ -89,6 +105,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
     @Override
     public void onBindViewHolder(NoteViewHolder holder, int position) {
+        if (position < 0 || position >= noteList.size()) return; // <<< Schutz vor Crashes
+
         Note note = noteList.get(position);
 
         holder.titleText.setText(note.getTitle());
@@ -147,13 +165,23 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     }
 
     public void updateNotes(List<Note> newNotes) {
-        if (newNotes.equals(this.fullNoteList)) {
-            return;
-        }
-        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new NoteDiffCallback(this.noteList, newNotes));
         this.fullNoteList = newNotes;
-        this.noteList = filterNotes(showOnlyHidden);
+
+        List<Note> newFilteredList = filterNotes(showOnlyHidden);
+
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new NoteDiffCallback(this.noteList, newFilteredList));
+
+        this.noteList = newFilteredList;
+
         diffResult.dispatchUpdatesTo(this);
+
+        //if (newNotes.equals(this.fullNoteList)) {
+        //    return;
+        //}
+
+        //this.fullNoteList = newNotes;
+        //this.noteList = filterNotes(showOnlyHidden);
+        //diffResult.dispatchUpdatesTo(this);
        // notifyDataSetChanged();
     }
     public boolean isFilteredListEmpty() {

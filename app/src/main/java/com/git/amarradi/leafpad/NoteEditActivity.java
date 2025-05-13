@@ -250,7 +250,8 @@ public class NoteEditActivity extends AppCompatActivity {
             Leaf.remove(this, note);
         } else {
             Leaf.set(this, note);
-            noteViewModel.selectNote(note); // Die Notiz im ViewModel aktualisieren
+            noteViewModel.saveNote(getApplication(), note);
+            //noteViewModel.selectNote(note); // Die Notiz im ViewModel aktualisieren
             toolbar.setSubtitle(note.getTitle());
         }
     }
@@ -264,7 +265,8 @@ public class NoteEditActivity extends AppCompatActivity {
 
     private void removeNote() {
         if (note != null) {
-            Leaf.remove(this, note);
+            //Leaf.remove(this, note);
+            noteViewModel.deleteNote(getApplication(), note);
             note = null;
 
 

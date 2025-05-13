@@ -1,6 +1,8 @@
-package com.git.amarradi.leafpad;
+package com.git.amarradi.leafpad.util;
 
 import androidx.recyclerview.widget.DiffUtil;
+
+import com.git.amarradi.leafpad.Note;
 
 import java.util.List;
 import java.util.Objects;

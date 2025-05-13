@@ -57,6 +57,12 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             }
         }
 
+        setupClickListener("theme", preference -> {
+            DialogHelper.showThemeSelectionDialog(requireContext(), () -> requireActivity().recreate());
+            return true;
+        });
+
+
         setupClickListener("save", v -> {
             startExportIntent();
             return true;

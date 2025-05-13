@@ -56,6 +56,7 @@ public class Leaf {
             }
         }
         Collections.reverse(notes);
+        Log.d("LeafDebug", "Loaded notes: " + notes.size());
         return notes;
     }
 

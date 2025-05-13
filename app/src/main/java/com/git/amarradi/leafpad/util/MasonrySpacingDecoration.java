@@ -1,4 +1,4 @@
-package com.git.amarradi.leafpad;
+package com.git.amarradi.leafpad.util;
 
 import android.graphics.Rect;
 import android.view.View;

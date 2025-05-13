@@ -4,7 +4,7 @@
 
     <PreferenceCategory
         android:title="@string/general_preference">
-        <ListPreference
+        <Preference
             android:key="@string/theme_key"
             android:title="@string/theme_preference"
             android:summary="@string/theme_summary"

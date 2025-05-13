@@ -40,5 +40,7 @@ public class SettingsActivity extends AppCompatActivity {
             v.setPadding(0, systemBars.top, 0, 0);
             return insets;
         });
+
     }
+
 }

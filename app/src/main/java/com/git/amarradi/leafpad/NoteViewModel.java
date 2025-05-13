@@ -14,8 +14,16 @@ public class NoteViewModel extends AndroidViewModel {
 
     private final MutableLiveData<List<Note>> notesLiveData = new MutableLiveData<>();
     private final MutableLiveData<Note> selectedNote = new MutableLiveData<>();
+    private final MutableLiveData<Boolean> showHiddenLiveData = new MutableLiveData<>(false);
 
+    public LiveData<Boolean> getShowHidden() {
+        return showHiddenLiveData;
+    }
 
+    public void setShowHidden(boolean showHidden) {
+        showHiddenLiveData.setValue(showHidden);
+        loadNotes();
+    }
 
     public NoteViewModel(@NonNull Application application) {
         super(application);
@@ -29,10 +37,18 @@ public class NoteViewModel extends AndroidViewModel {
         return selectedNote;
     }
 
-    public void loadNotes(boolean includeHidden) {
-        List<Note> notes = Leaf.loadAll(getApplication(), includeHidden);
-        notesLiveData.setValue(notes);
+//   private void loadNotes(boolean onlyHidden) {
+//        List<Note> allNotes = Leaf.loadAll(getApplication(),onlyHidden);
+//        Log.d("NoteViewModel", "Loaded notes: " + allNotes.size());
+//        notesLiveData.postValue(allNotes);}
+
+    public void loadNotes() {
+        Boolean showHidden = showHiddenLiveData.getValue();
+        if (showHidden == null) showHidden = false;
+        List<Note> allNotes = Leaf.loadAll(getApplication(), showHidden);
+        notesLiveData.postValue(allNotes);
     }
+
 
     public void selectNote(Note note) {
         selectedNote.setValue(note);
@@ -40,11 +56,13 @@ public class NoteViewModel extends AndroidViewModel {
 
     public void saveNote(Context context, Note note) {
         Leaf.save(getApplication(), note);
-        loadNotes(false); // Liste neu laden
+        //loadNotes(false); // Liste neu laden
+        loadNotes();
     }
 
     public void deleteNote(Context context, Note note) {
         Leaf.remove(getApplication(), note);
-        loadNotes( false);
+        //loadNotes( false);
+        loadNotes();
     }
 }
