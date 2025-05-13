@@ -14,8 +14,7 @@ import com.git.amarradi.leafpad.util.MasonrySpacingDecoration;
 
 public class LayoutModeHelper {
 
-    //private static final String PREF_NAME = Leafpad.SHARED_PREFS;
-    private static final String PREF_LAYOUT_MODE = "layout_mode"; // list/grid
+    private static final String PREF_LAYOUT_MODE = Leafpad.PREF_LAYOUT_MODE;
     private static RecyclerView.ItemDecoration gridSpacingDecoration;
 
     public static boolean isListMode(Context context) {
@@ -37,6 +36,8 @@ public class LayoutModeHelper {
 
     public static void applyLayout(Context context, RecyclerView recyclerView, NoteAdapter adapter, boolean isList) {
         adapter.setLayoutMode(isList);
+
+
         adapter.notifyDataSetChanged();
 
         if (isList) {

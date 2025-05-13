@@ -55,7 +55,7 @@ public class NoteEditActivity extends AppCompatActivity {
             noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
             noteViewModel.getSelectedNote().observe(this, note -> {
                 if (note != null) {
-                    this.note = note;  // Die ausgewählte Notiz aus dem ViewModel holen
+                    this.note = note;
                     configureUIForNote();
                 }
             });
@@ -114,10 +114,8 @@ public class NoteEditActivity extends AppCompatActivity {
     private void loadNote(Intent intent) {
         String noteId = intent.getStringExtra(MainActivity.EXTRA_NOTE_ID);
         if (noteId != null) {
-            // Falls die Note aus einer externen Quelle kommt
             noteViewModel.selectNote(Leaf.load(this, noteId)); // Setze die Notiz im ViewModel
         } else {
-            // Erstelle eine neue Notiz
             noteViewModel.selectNote(Leaf.load(this, Note.makeId()));
         }
     }

@@ -1,7 +1,6 @@
 package com.git.amarradi.leafpad.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,14 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.git.amarradi.leafpad.MainActivity;
 import com.git.amarradi.leafpad.Note;
-import com.git.amarradi.leafpad.NoteEditActivity;
-import com.git.amarradi.leafpad.NoteViewModel;
 import com.git.amarradi.leafpad.R;
 import com.git.amarradi.leafpad.util.NoteDiffCallback;
 import com.google.android.material.card.MaterialCardView;
@@ -34,16 +30,18 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     private final Context context;
     private List<Note> noteList;
     private boolean showOnlyHidden = false;
-    private List<Note> fullNoteList = new ArrayList<>();
+    private List<Note> fullNoteList;
     private boolean isGridMode = false;
 
+    private final MainActivity.NoteClickListener listener;
 
     private final static String BIBLEVERSE_URL_REGEX = "(?i)\\b(?:https?://)?(?:www\\.)?(bible\\.(com|org)|bibleserver\\.com)(/\\S*)?";
 
-    public NoteAdapter(Context context, List<Note> noteList) {
+    public NoteAdapter(Context context, List<Note> noteList, MainActivity.NoteClickListener listener) {
         this.context = context;
         this.noteList = noteList;
         this.fullNoteList = noteList;
+        this.listener = listener;
         this.noteList = filterNotes(showOnlyHidden);
         setHasStableIds(true);
     }
@@ -72,10 +70,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
     public void setShowOnlyHidden(boolean showHidden) {
         this.showOnlyHidden = showHidden;
-        List<Note> newFilteredList = filterNotes(showHidden);
-        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new NoteDiffCallback(this.noteList, newFilteredList));
-        this.noteList = newFilteredList;
-        diffResult.dispatchUpdatesTo(this);
+        applyFilterAndUpdate();
     }
 
     private List<Note> filterNotes(boolean showHidden) {
@@ -96,22 +91,22 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     public NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
         if (viewType == 0) {
-            view = LayoutInflater.from(context).inflate(R.layout.note_grid_item, parent, false);
-        } else {
             view = LayoutInflater.from(context).inflate(R.layout.note_list_item, parent, false);
+        } else {
+            view = LayoutInflater.from(context).inflate(R.layout.note_grid_item, parent, false);
         }
         return new NoteViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(NoteViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NoteViewHolder holder, int position) {
         if (position < 0 || position >= noteList.size()) return; // <<< Schutz vor Crashes
 
         Note note = noteList.get(position);
 
         holder.titleText.setText(note.getTitle());
 
-        String body = note.getBody();
+        String body = note.getBody() != null ? note.getBody() : "";
         if (body.length() > 25) {
             body = body.substring(0, 25) + "...";
         }
@@ -140,23 +135,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             holder.bibleIcon.setVisibility(View.GONE);
         }
 
-        // Hier wird die selectNote Methode des ViewModels aufgerufen
-        holder.itemView.setOnClickListener(v -> {
-            // Die ausgewählte Notiz im ViewModel speichern
-            NoteViewModel noteViewModel = new ViewModelProvider((MainActivity) context).get(NoteViewModel.class);
-            noteViewModel.selectNote(note);  // Die ausgewählte Note wird gespeichert
-
-            // Dann wird die NoteEditActivity gestartet
-            Intent intent = new Intent(context, NoteEditActivity.class);
-            intent.putExtra(MainActivity.EXTRA_NOTE_ID, note.getId());
-            context.startActivity(intent);
-        });
-
-        //holder.itemView.setOnClickListener(v -> {
-            //Intent intent = new Intent(context, NoteEditActivity.class);
-            //intent.putExtra(MainActivity.EXTRA_NOTE_ID, note.getId());
-            //context.startActivity(intent);
-        //});
+        holder.itemView.setOnClickListener(v -> listener.onNoteClicked(note));
     }
 
     @Override
@@ -166,26 +145,17 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
     public void updateNotes(List<Note> newNotes) {
         this.fullNoteList = newNotes;
-
-        List<Note> newFilteredList = filterNotes(showOnlyHidden);
-
-        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new NoteDiffCallback(this.noteList, newFilteredList));
-
-        this.noteList = newFilteredList;
-
-        diffResult.dispatchUpdatesTo(this);
-
-        //if (newNotes.equals(this.fullNoteList)) {
-        //    return;
-        //}
-
-        //this.fullNoteList = newNotes;
-        //this.noteList = filterNotes(showOnlyHidden);
-        //diffResult.dispatchUpdatesTo(this);
-       // notifyDataSetChanged();
+        applyFilterAndUpdate();
     }
     public boolean isFilteredListEmpty() {
         return noteList == null || noteList.isEmpty();
+    }
+
+    private void applyFilterAndUpdate() {
+        List<Note> newFilteredList = filterNotes(showOnlyHidden);
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new NoteDiffCallback(this.noteList, newFilteredList));
+        this.noteList = newFilteredList;
+        diffResult.dispatchUpdatesTo(this);
     }
 
     public static class NoteViewHolder extends RecyclerView.ViewHolder {
