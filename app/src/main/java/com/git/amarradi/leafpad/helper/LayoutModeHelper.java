@@ -1,5 +1,7 @@
 package com.git.amarradi.leafpad.helper;
 
+import static com.git.amarradi.leafpad.adapter.NoteAdapter.LayoutMode;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -17,6 +19,8 @@ public class LayoutModeHelper {
     private static final String PREF_LAYOUT_MODE = Leafpad.PREF_LAYOUT_MODE;
     private static RecyclerView.ItemDecoration gridSpacingDecoration;
 
+
+
     public static boolean isListMode(Context context) {
         SharedPreferences prefs = Leafpad.getPrefs();
         String mode = prefs.getString(PREF_LAYOUT_MODE, "list");
@@ -31,14 +35,21 @@ public class LayoutModeHelper {
 
     public static void saveMode(Context context, boolean isList) {
         SharedPreferences prefs = Leafpad.getPrefs();
-        prefs.edit().putString(PREF_LAYOUT_MODE, isList ? "list" : "grid").apply();
+        if (isList) {
+            prefs.edit().putString(PREF_LAYOUT_MODE,"list").apply();
+        } else {
+            prefs.edit().putString(PREF_LAYOUT_MODE,"grid").apply();
+        }
+
     }
 
     public static void applyLayout(Context context, RecyclerView recyclerView, NoteAdapter adapter, boolean isList) {
-        adapter.setLayoutMode(isList);
 
-
-        adapter.notifyDataSetChanged();
+        if (isList) {
+            adapter.setLayoutMode(LayoutMode.LIST);
+        } else {
+            adapter.setLayoutMode(LayoutMode.GRID);
+        }
 
         if (isList) {
             recyclerView.setLayoutManager(new LinearLayoutManager(context));

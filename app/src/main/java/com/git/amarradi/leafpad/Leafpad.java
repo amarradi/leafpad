@@ -17,7 +17,8 @@ public class Leafpad extends Application {
     public static final String PREF_SHOW_HIDDEN = "pref_show_hidden";
     public static final String DESIGN_MODE = "design_mode";
     public static final String OLD_DESIGN_MODE = "system"; // Alter Schlüssel
-    public static final String PREF_LAYOUT_MODE = "layout_mode"; // "list" oder "grid"
+    public static final String PREF_LAYOUT_MODE = "layout_mode";// "list" oder "grid"
+    public static final String EXTRA_NOTE_ID = "com.git.amarradi.leafpad";
 
     private static Leafpad instance;
 

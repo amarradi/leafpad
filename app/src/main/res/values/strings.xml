@@ -25,7 +25,7 @@
     <string name="remove_dialog_abort">Cancel</string>
     <string name="menu_settings">Settings</string>
     <!-- Messages Preferences -->
-    <string name="general_preference">General</string>
+    <string name="general_preference">General settings</string>
     <!-- Key name for theme preference in SharedPreferences -->
     <string name="theme_key" translatable="false">theme</string>
     <!-- Value in SharedPreferences for lightmode option -->
@@ -42,6 +42,8 @@
     <string name="darkmode_preference_key">darkmode</string>
     <string name="system_preference_key">follow system (standard)</string>
     <string name="theme_summary">Toggle between dark and light theme</string>
+    <string name="notification_of_change">Notification of changes</string>
+    <string name="notification_of_change_description">Activate these buttons if you want to be informed about changes to an open note</string>
     <string name="about">About</string>
     <string name="about_the_app">About the App</string>
     <string name="tell_about">What I want to tell you about Leafpad</string>

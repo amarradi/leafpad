@@ -27,7 +27,7 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-    public static final String EXTRA_NOTE_ID = "com.git.amarradi.leafpad";
+    //public static final String EXTRA_NOTE_ID = "com.git.amarradi.leafpad";
    // private static final String PREF_LAYOUT_MODE = "layout_mode"; // "list" oder "grid"
 
     public RecyclerView recyclerView;
@@ -57,7 +57,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         noteViewModel.getNotes().observe(this, notes -> {
             //Log.d("MainActivity", "Observed notes: " + notes.size());
             noteAdapter.updateNotes(notes);
-            //recyclerView.sub
+            recyclerView.post(()->recyclerView.scrollToPosition(0));
+
             ImageView emptyElement = findViewById(R.id.emptyElement);
             if (noteAdapter.isFilteredListEmpty()) {
                 emptyElement.setVisibility(View.VISIBLE);
@@ -85,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         noteAdapter = new NoteAdapter(this, new ArrayList<>(), note -> {
             noteViewModel.selectNote(note);
             Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
-            intent.putExtra(EXTRA_NOTE_ID, note.getId());
+            intent.putExtra(Leafpad.EXTRA_NOTE_ID, note.getId());
             startActivity(intent);
         });
 
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         ExtendedFloatingActionButton fab = findViewById(R.id.fab_action_add);
         fab.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
-            intent.putExtra(EXTRA_NOTE_ID, Note.makeId());
+            intent.putExtra(Leafpad.EXTRA_NOTE_ID, Note.makeId());
             startActivity(intent);
         });
     }
@@ -115,13 +116,22 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
     }
 
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        Leafpad.getInstance().applyCurrentLayoutMode(recyclerView, noteAdapter);
+//        noteViewModel.loadNotes();
+//
+//    }
+
     @Override
     protected void onResume() {
         super.onResume();
+        // Layout‐Modus etc.
         Leafpad.getInstance().applyCurrentLayoutMode(recyclerView, noteAdapter);
         noteViewModel.loadNotes();
-
     }
+
 
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override

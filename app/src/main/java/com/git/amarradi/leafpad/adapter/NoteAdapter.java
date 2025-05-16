@@ -31,7 +31,16 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     private List<Note> noteList;
     private boolean showOnlyHidden = false;
     private List<Note> fullNoteList;
-    private boolean isGridMode = false;
+    private LayoutMode layoutMode = LayoutMode.LIST;
+
+    public enum LayoutMode {
+        LIST, GRID
+    }
+
+    public void setLayoutMode(LayoutMode mode) {
+        this.layoutMode = mode;
+        notifyItemRangeChanged(0, getItemCount(), null);
+    }
 
     private final MainActivity.NoteClickListener listener;
 
@@ -45,6 +54,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         this.noteList = filterNotes(showOnlyHidden);
         setHasStableIds(true);
     }
+
     @Override
     public long getItemId(int position) {
         if (position >= 0 && position < noteList.size()) {
@@ -56,12 +66,9 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         return RecyclerView.NO_ID;
     }
 
-    public void setLayoutMode(boolean isGrid) {
-        this.isGridMode = isGrid;
-    }
     @Override
     public int getItemViewType(int position) {
-        if (isGridMode) {
+        if (layoutMode == LayoutMode.GRID) {
             return 1;
         } else {
             return 0;
@@ -100,7 +107,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull NoteViewHolder holder, int position) {
-        if (position < 0 || position >= noteList.size()) return; // <<< Schutz vor Crashes
+        if (position < 0 || position >= noteList.size()) return;
 
         Note note = noteList.get(position);
 
@@ -146,6 +153,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     public void updateNotes(List<Note> newNotes) {
         this.fullNoteList = newNotes;
         applyFilterAndUpdate();
+
     }
     public boolean isFilteredListEmpty() {
         return noteList == null || noteList.isEmpty();
@@ -156,6 +164,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new NoteDiffCallback(this.noteList, newFilteredList));
         this.noteList = newFilteredList;
         diffResult.dispatchUpdatesTo(this);
+
     }
 
     public static class NoteViewHolder extends RecyclerView.ViewHolder {

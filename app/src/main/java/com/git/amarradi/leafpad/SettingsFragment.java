@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -66,6 +67,12 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
         setupClickListener("restore", v -> {
             startImportIntent();
+            return true;
+        });
+
+        setupClickListener("change", v-> {
+           // notificationRequested();
+            Toast.makeText(requireContext(), "Test", Toast.LENGTH_LONG).show();
             return true;
         });
 

@@ -7,19 +7,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.git.amarradi.leafpad.helper.DialogHelper;
-import com.git.amarradi.leafpad.helper.NotificationHelper;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.materialswitch.MaterialSwitch;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
@@ -31,12 +27,12 @@ public class NoteEditActivity extends AppCompatActivity {
     private Note note;
     private NoteViewModel noteViewModel;
     private MaterialToolbar toolbar;
-    private Resources resources;
+    private Resources res;
     private MaterialSwitch visibleSwitch;
 
     private MaterialSwitch recipeSwitch;
 
-    private boolean sharedJustNow = false;
+    private boolean isNoteDeleted = false; // <--- Flag setzen!
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -44,82 +40,130 @@ public class NoteEditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_note_edit);
+        res = getResources();
+        initViews();
+        setupToolbar();
+        noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
+        handleIntent(getIntent());
+        observeNote();
+        setupVisibilitySwitch();
+    }
 
-        Intent intent = getIntent();
+    private void handleIntent(Intent intent) {
+        String noteId = intent.getStringExtra(Leafpad.EXTRA_NOTE_ID);
+        Note note = Leaf.load(this, noteId);
 
         if (Intent.ACTION_SEND.equals(intent.getAction())&&"text/plain".equals(intent.getType())) {
-            setupNewNoteFromIntent(intent);
-        } else {
-
-            // ViewModel und Observer
-            noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
-            noteViewModel.getSelectedNote().observe(this, note -> {
-                if (note != null) {
-                    this.note = note;
-                    configureUIForNote();
-                }
-            });
+            String shareText = intent.getStringExtra(Intent.EXTRA_TEXT);
+            note.setTitle(getString(R.string.imported));
+            note.setBody(shareText);
         }
-
-        setupToolbar();
-        initViews();
-
-        loadNote(intent);
-        resources = getResources();
-
-        configureUIForNote();
-
-    }
-
-    private void configureUIForNote(){
-        if (note != null) {
-            if(isNewEntry(note)){
-                setupNewNoteFromIntent(getIntent());
-            } else {
-                setupExistingNote();
-            }
-            toggleView();
-            toggleRecipe();
+        if (isNewEntry(note)) {
+            note.setNotedate();
+            note.setNotetime();
         }
-    }
-
-
-    private void setupExistingNote() {
-        toolbar.setTitle(R.string.action_fab_note);
-        toolbar.setSubtitle(note.getTitle());
-        titleEdit.setText(note.getTitle());
-        bodyEdit.setText(note.getBody());
-    }
-
-    private void setupNewNoteFromIntent(Intent intent) {
-        note = Leaf.load(this, Note.makeId());
-        note.setHide(false);
-        note.setNotedate();
-        note.setNotetime();
 
         noteViewModel.selectNote(note);
-
-        toolbar.setSubtitle(R.string.new_note);
-        titleEdit.setText("");
-        bodyEdit.setText("");
-
-        if (Intent.ACTION_SEND.equals(intent.getAction()) && "text/plain".equals(intent.getType())){
-            String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
-            titleEdit.setText(R.string.imported);
-            bodyEdit.setText(sharedText);
-        }
-
+        Log.d("NoteEditActivity", "Selected note: " + noteViewModel.getSelectedNote().getValue());
     }
 
-    private void loadNote(Intent intent) {
-        String noteId = intent.getStringExtra(MainActivity.EXTRA_NOTE_ID);
-        if (noteId != null) {
-            noteViewModel.selectNote(Leaf.load(this, noteId)); // Setze die Notiz im ViewModel
+    private void observeNote() {
+        noteViewModel.getSelectedNote().observe(this, note -> {
+            if (note != null) {
+                this.note = note;
+                if (!isNewEntry(note)) {
+                    Log.d("NoteEditActivity", "observeNote: "+note.getTitle()+"|"+note.getBody());
+                    configureUIFromNote(note);
+                }
+                setupRecipeSwitch(note);
+                setupVisibilitySwitch(note.isHide());
+            }
+        });
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private void setupVisibilitySwitch(boolean isHidden) {
+
+        visibleSwitch.setOnCheckedChangeListener(null);
+
+        if (isHidden) {
+            visibleSwitch.setChecked(true);
+            visibleSwitch.setText(getString(R.string.show_note));
+            visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_closed));
         } else {
-            noteViewModel.selectNote(Leaf.load(this, Note.makeId()));
+            visibleSwitch.setChecked(false);
+            visibleSwitch.setText(getString(R.string.hide_note));
+            visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_open));
+        }
+
+        visibleSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            noteViewModel.updateNoteVisibility(isChecked);
+        });
+    }
+
+    private void setupVisibilitySwitch() {
+        // immer nur den Listener setzen, aber NICHT configureUIFromNote neu aufrufen
+        visibleSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            // bevor wir ins VM schießen, unbedingt die UI‐Werte übernehmen
+            note.setTitle(titleEdit.getText().toString());
+            note.setBody(bodyEdit.getText().toString());
+            noteViewModel.updateNoteVisibility(isChecked);
+            // und dann rein nur die Switch‐Optik anpassen:
+            updateVisibilityUI(isChecked);
+        });
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private void updateVisibilityUI(boolean isHidden) {
+        if (isHidden) {
+            visibleSwitch.setChecked(true);
+            visibleSwitch.setText(R.string.show_note);
+            visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_closed));
+        } else {
+            visibleSwitch.setChecked(false);
+            visibleSwitch.setText(R.string.hide_note);
+            visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_open));
         }
     }
 
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private void setupRecipeSwitch(Note note) {
+        String cat = res.getStringArray(R.array.category)[0];
+
+        recipeSwitch.setOnCheckedChangeListener(null);
+
+        boolean isRecipe = cat.equals(note.getCategory());
+        recipeSwitch.setChecked(isRecipe);
+        recipeSwitch.setText(isRecipe ? R.string.note_is_no_recipe : R.string.note_is_recipe);
+        recipeSwitch.setThumbIconDrawable(getDrawable(isRecipe ? R.drawable.togue : R.drawable.togue_strikethrough));
+
+        recipeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            Log.d("NoteEditActivity", "Recipe switch toggled: " + isChecked);
+            noteViewModel.updateNoteRecipe(isChecked ? cat : "");
+        });
+    }
+
+    private void configureUIFromNote(Note note) {
+        toolbar.setTitle(R.string.action_edit_note);
+
+        titleEdit.setText(note.getTitle());
+        bodyEdit.setText(note.getBody());
+
+        if (isNewEntry(note)) {
+            setupToolbarSubtitle(R.string.new_note);
+        } else {
+            setupToolbarSubtitle(note.getTitle());
+        }
+    }
+
+    private void setupToolbarSubtitle(int stringResId) {
+        toolbar.setSubtitle(getString(stringResId));
+    }
+
+    private void setupToolbarSubtitle(String subtitle) {
+        toolbar.setSubtitle(subtitle);
+    }
 
     private void initViews() {
         TextInputLayout titleLayout = findViewById(R.id.default_text_input_layout);
@@ -132,82 +176,15 @@ public class NoteEditActivity extends AppCompatActivity {
         bodyLayout.setHintEnabled(false);
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
-    private void toggleRecipe() {
-        recipeSwitch.setOnCheckedChangeListener(null);
-        if(note.getCategory().equals(resources.getStringArray(R.array.category)[0])){
-            recipeSwitch.setThumbIconDrawable(getDrawable(R.drawable.togue));
-            Log.d("toggleCheckBox", "toggleCheckBox: "+note.getCategory()+" "+recipeSwitch.isChecked());
-            recipeSwitch.setText(R.string.note_is_no_recipe);
-            recipeSwitch.setChecked(true);
-        } else {
-            recipeSwitch.setThumbIconDrawable(getDrawable(R.drawable.togue_strikethrough));
-            recipeSwitch.setText(R.string.note_is_recipe);
-            recipeSwitch.setChecked(false);
-
-        }
-        recipeSwitch.setOnCheckedChangeListener((compoundButton, b) -> {
-            if (b) {
-                recipeSwitch.setText(R.string.note_is_no_recipe);
-                recipeSwitch.setThumbIconDrawable(getDrawable(R.drawable.togue));
-                note.setCategory(resources.getStringArray(R.array.category)[0]);
-            } else {
-                recipeSwitch.setText(R.string.note_is_recipe);
-                recipeSwitch.setThumbIconDrawable(getDrawable(R.drawable.togue_strikethrough));
-                note.setCategory("");
-            }
-        });
-    }
-
-    @SuppressLint("UseCompatLoadingForDrawables")
-    private void toggleView() {
-        visibleSwitch.setOnCheckedChangeListener(null);
-        if(note.isHide()) {
-            visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_closed));
-            visibleSwitch.setText(getString(R.string.show_note));
-            visibleSwitch.setChecked(true);
-        } else {
-            visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_open));
-            visibleSwitch.setText(getString(R.string.hide_note));
-            visibleSwitch.setChecked(false);
-        }
-        Log.d("NoteEditActivity", "Note visibility toggled: Hide = " + note.isHide());
-        visibleSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            note.setHide(isChecked);
-            if (isChecked) {
-                visibleSwitch.setText(getString(R.string.show_note));
-                visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_closed));
-            } else {
-                visibleSwitch.setText(getString(R.string.hide_note));
-                visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_open));
-            }
-        });
-
-    }
-
     private boolean isNewEntry(Note note) {
-        return note.getDate().isEmpty() || note.getTime().isEmpty();
+        return note.getTitle() == null ||
+                note.getTitle().isEmpty() ||
+                note.getBody() == null ||
+                note.getBody().isEmpty();
     }
 
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (note == null) {
-            return;
-        }
-        note.setTitle(titleEdit.getText().toString());
-        note.setBody(bodyEdit.getText().toString());
-
-        if (note.getBody().isEmpty() && note.getTitle().isEmpty()) {
-            //don't save empty notes
-            Leaf.remove(this, note);
-            note = null;
-            finish();
-        } else {
-            Leaf.set(this, note);
-        }
-
+    public boolean isEmptyEntry(Note note) {
+        return note.getBody().isEmpty() && note.getTitle().isEmpty();
     }
 
     @Override
@@ -219,7 +196,6 @@ public class NoteEditActivity extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         int id = item.getItemId();
         return switch (id) {
             case R.id.action_share_note -> {
@@ -238,13 +214,14 @@ public class NoteEditActivity extends AppCompatActivity {
         };
     }
 
+
     private void saveNote() {
         if (note == null) {
             return;
         }
         updateNoteFromUI();
 
-        if (note.getBody().isEmpty() && note.getTitle().isEmpty()) {
+        if (NoteViewModel.isEmptyEntry(note)) {
             Leaf.remove(this, note);
         } else {
             Leaf.set(this, note);
@@ -262,16 +239,19 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private void removeNote() {
+        Log.d("NoteEditActivity", "removeNote entered");
         if (note != null) {
             //Leaf.remove(this, note);
             noteViewModel.deleteNote(getApplication(), note);
             note = null;
 
-
+            isNoteDeleted = true; // <--- Flag setzen!
         }
         setResult(RESULT_OK);
         finish();
     }
+
+
 
     private void setupToolbar() {
         toolbar = findViewById(R.id.toolbar);
@@ -280,17 +260,16 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private void shareNote() {
-        if (note.getBody().isEmpty() && note.getTitle().isEmpty()) {
-            Toast.makeText(this, getResources().getString(R.string.note_will_be_saved_first), Toast.LENGTH_SHORT).show();
-        }
-        note.setTitle(titleEdit.getText().toString());
-        note.setBody(bodyEdit.getText().toString());
+
+        saveNote();
+       // note.setTitle(titleEdit.getText().toString());
+       // note.setBody(bodyEdit.getText().toString());
+
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.putExtra(Intent.EXTRA_TEXT, getExportString());
         sendIntent.setType("text/plain");
         startActivity(Intent.createChooser(sendIntent, getString(R.string.share_note)));
-        sharedJustNow = true;
     }
 
     public String getExportString() {
@@ -306,12 +285,21 @@ public class NoteEditActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        if (sharedJustNow) {
-            sharedJustNow = false;
-            View rootView = findViewById(R.id.all);
-            NotificationHelper.showSnackbar(rootView, getString(R.string.note_shared),Snackbar.LENGTH_SHORT, findViewById(R.id.snackbar_anchor));
-        }
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("NoteEditActivity", "onPause entered");
+
+        if (isNoteDeleted) return;
+        // alle UI-Felder in das Note-Objekt übernehmen:
+        Note n = noteViewModel.getSelectedNote().getValue();
+        if (n != null) {
+            n.setTitle(titleEdit.getText().toString());
+            n.setBody (bodyEdit .getText().toString());
+        }
+        // jetzt ViewModel persist() aufrufen – löscht oder speichert
+        noteViewModel.persist();
+    }
 }

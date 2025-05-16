@@ -18,6 +18,16 @@ public class Note {
 
     private final Locale LOCALE = Locale.GERMAN;
 
+    public Note(Note other) {
+        this.title = other.title;
+        this.body = other.body;
+        this.notedate = other.notedate;
+        this.notetime = other.notetime;
+        this.create_date = other.create_date;
+        this.id = other.id;
+        this.hide = other.hide;
+        this.category = other.category;
+    }
 
     public Note(String title, String body, String notedate, String notetime, String create_date, boolean hide,String category, String id) {
         this.title = title;
@@ -30,6 +40,8 @@ public class Note {
         this.id = id;
 
     }
+
+
 
     public String getCategory() {
         return category;
@@ -111,6 +123,19 @@ public class Note {
 
     public String getId() {
         return id;
+    }
+
+    public boolean equalsContent(Note other) {
+        if (other == null) return false;
+        return safeEquals(title, other.title) &&
+                safeEquals(body, other.body) &&
+                safeEquals(category, other.category) &&
+                hide == other.hide;
+        // Du kannst bei Bedarf weitere Felder vergleichen
+    }
+
+    private boolean safeEquals(String a, String b) {
+        return (a == null && b == null) || (a != null && a.equals(b));
     }
 
 }
