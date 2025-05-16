@@ -1,3 +1,5 @@
+<img src="https://github.com/amarradi/leafpad/blob/development/dev/graphics/leaf-512_twig.png" height="200"/>
+
 # leafpad
 simple notebook
 
