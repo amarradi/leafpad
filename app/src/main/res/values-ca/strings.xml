@@ -48,7 +48,7 @@
     <string name="search">recerca</string>
     <string name="action_save">guardar nota</string>
     <string name="share_note">Voleu compartir la nota?</string>
-    <string name="thanks">Gràcies Stefan, Stefan, Manuel, Falk i Stephanie per les teves idees i provant l\'aplicació.</string>
+    <string name="thanks">Gràcies Stefan, Stefan, Manuel, Falk i Stephanie per les vostres idees i per provar l\'aplicació.</string>
     <string name="statement">Escrivim llistes de compres, notes per a converses, llistes d\'embalatge per a vacances o aniversaris d\'amics. Tot són coses bones per no oblidar-les. És molt similar amb Déu, escriu les nostres bones i dolentes escriptures i les salva. Déu està per sobre de tot i simplement sap tot. Déu estima les persones i vol tenir una beca amb ells. Però això només és possible si ens veiem per Déu sense culpa. A través de la fe en Jesucrist, les nostres males escriptures (la nostra culpa) s\'esborren davant Déu. Jesús Crist va atonar per la nostra culpa a la creu del Calvari. Cada persona que accepta aquesta entrada en el llibre de la vida per sempre. Estàs registrat al llibre de la vida?</string>
     <string name="hide_note">faldilla aixecada</string>
     <string name="translation_help">Ajuda\'ns a traduir l\'aplicació al teu idioma</string>
@@ -63,15 +63,15 @@
     <string name="hide_hidden">amagat notes</string>
     <string name="show_note">fer visible la nota</string>
     <string name="show_hidden">veure fotos</string>
-    <string name="note_is_recipe">note is a recipe</string>
-    <string name="note_is_no_recipe">note is no recipe</string>
+    <string name="note_is_recipe">La nota és una recepta</string>
+    <string name="note_is_no_recipe">La nota no és una recepta</string>
     <string name="save">Desa totes les notes com xml</string>
-    <string name="showDeleteConfirmation">Delete notes?</string>
+    <string name="showDeleteConfirmation">Eliminar les notes?</string>
     <string name="backupIsrunning">Backup is running</string>
     <string name="no">No</string>
     <string name="showDeleteConfirmationMessage">All notes will be permanently deleted. Continue?</string>
     <string name="importError">Error when importing notes.</string>
-    <string name="restore">Restore all notes as xml</string>
+    <string name="restore">Restaurar totes les notes des d\'un arxiu xml</string>
     <string name="yes">Sí</string>
     <plurals name="notes_imported">
         <item quantity="one">One note imported</item>
@@ -85,8 +85,8 @@
     <string name="cancel">Cancel·lar</string>
     <string name="showRestoreConfirmation">Restaurar?</string>
     <string name="restore_notes_title">Restore</string>
-    <string name="save_notes_title">Backup</string>
+    <string name="save_notes_title">Còpia de seguretat</string>
     <string name="showRestoreConfirmationMessage">Totes les notes actuals seran substituïdes per la còpia de seguretat. Continuar?</string>
     <string name="toggle">change View</string>
-    <string name="note_shared">Note shared</string>
+    <string name="note_shared">Nota compartida</string>
 </resources>
