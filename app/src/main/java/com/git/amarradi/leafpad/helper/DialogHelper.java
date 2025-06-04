@@ -30,11 +30,13 @@ public class DialogHelper {
                 .show();
     }
 
-    public static void showWarningDialog(Context context, String title, String message, String buttonText) {
+    public static void showUnsavedChangesDialog(Context context, Runnable onSave, Runnable onDiscard) {
         new MaterialAlertDialogBuilder(context)
-                .setTitle(title)
-                .setMessage(message)
-                .setPositiveButton(buttonText, null)
+                .setTitle(R.string.unsaved_changes_title)
+                .setMessage(R.string.unsaved_changes_message)
+                .setPositiveButton(R.string.save_changes, (dialog, which) -> onSave.run())
+                .setNegativeButton(R.string.discard, (dialog, which) -> onDiscard.run())
+                .setNeutralButton(R.string.cancel, null)
                 .show();
     }
 

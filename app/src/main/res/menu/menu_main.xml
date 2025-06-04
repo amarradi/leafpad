@@ -10,13 +10,13 @@
         />
     <item
         android:id="@+id/item_toggle_layout"
-        android:icon="@drawable/action_gridview_on"
+        android:icon="@drawable/gridview"
         android:title="@string/toggle"
         app:showAsAction="ifRoom"
         />
     <item
         android:id="@+id/item_settings"
-        android:icon="@drawable/action_setting"
+        android:icon="@drawable/settings"
         android:title="@string/menu_settings"
         app:showAsAction="ifRoom" />
 </menu>

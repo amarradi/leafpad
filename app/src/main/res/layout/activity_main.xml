@@ -1,14 +1,14 @@
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:id="@+id/coordinator"
     tools:context="MainActivity">
 
-   <com.google.android.material.appbar.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -29,10 +29,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_margin"
-        android:text="@string/action_fab_note"
-        android:contentDescription="@string/contentDescription"
         android:clickable="true"
+        android:contentDescription="@string/contentDescription"
         android:focusable="true"
+        android:text="@string/action_fab_note"
         app:icon="@drawable/action_add_note"
         app:layout_anchor="@id/note_area"
         app:layout_anchorGravity="bottom|right|end" />

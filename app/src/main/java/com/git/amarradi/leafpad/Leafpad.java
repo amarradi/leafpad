@@ -1,9 +1,11 @@
 package com.git.amarradi.leafpad;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.SharedPreferences;
 
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.git.amarradi.leafpad.adapter.NoteAdapter;
@@ -19,6 +21,7 @@ public class Leafpad extends Application {
     public static final String OLD_DESIGN_MODE = "system"; // Alter Schlüssel
     public static final String PREF_LAYOUT_MODE = "layout_mode";// "list" oder "grid"
     public static final String EXTRA_NOTE_ID = "com.git.amarradi.leafpad";
+    public static final String PREF_NOTIFY_ON_CHANGE = "change";
 
     private static Leafpad instance;
 
@@ -28,6 +31,7 @@ public class Leafpad extends Application {
         instance = this;
         migrateOldDesignMode();
         applyTheme();
+        saveShowHidden(false);
     }
 
     public static Leafpad getInstance() {
@@ -37,20 +41,40 @@ public class Leafpad extends Application {
         return instance;
     }
 
+    public static boolean isChangeNotificationEnabled(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean(PREF_NOTIFY_ON_CHANGE, false);
+    }
+
+    public static void setChangeNotificationEnabled(Context context, boolean enabled) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().putBoolean(PREF_NOTIFY_ON_CHANGE, enabled).apply();
+    }
+
     public static SharedPreferences getPrefs() {
         return getInstance().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
     }
 
     public boolean isListLayout() {
-        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        String layout = prefs.getString(PREF_LAYOUT_MODE, "list");
+        //SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        //String layout = prefs.getString(PREF_LAYOUT_MODE, "list");
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String layout = sharedPreferences.getString(PREF_LAYOUT_MODE, "list");
         return "list".equals(layout);
     }
 
     // Speichert den gewünschten Layout-Modus
     public void saveLayoutMode(boolean isList) {
-        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        prefs.edit().putString(PREF_LAYOUT_MODE, isList ? "list" : "grid").apply();
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        if (isList) {
+            editor.putString(PREF_LAYOUT_MODE, "list");
+        } else {
+            editor.putString(PREF_LAYOUT_MODE, "grid");
+        }
+        editor.apply();
+        //SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        //prefs.edit().putString(PREF_LAYOUT_MODE, isList ? "list" : "grid").apply();
     }
 
 
@@ -89,7 +113,9 @@ public class Leafpad extends Application {
 
     // Speichern des aktuellen Status für den Theme
     public void saveTheme(String themeValue) {
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+//        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(DESIGN_MODE, themeValue);
         editor.apply();
@@ -98,8 +124,10 @@ public class Leafpad extends Application {
 
     // Anwenden des gespeicherten Themes
     public void applyTheme() {
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        String themeValue = sharedPreferences.getString(DESIGN_MODE, "system"); // Standard ist system
+//        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+//        String themeValue = sharedPreferences.getString(DESIGN_MODE, "system"); // Standard ist system
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String themeValue = sharedPreferences.getString(DESIGN_MODE, "system");
         AppCompatDelegate.setDefaultNightMode(toNightMode(themeValue));
     }
 

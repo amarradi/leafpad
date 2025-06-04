@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.git.amarradi.leafpad.MainActivity;
-import com.git.amarradi.leafpad.Note;
+import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.R;
 import com.git.amarradi.leafpad.util.NoteDiffCallback;
 import com.google.android.material.card.MaterialCardView;

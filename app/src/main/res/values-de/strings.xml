@@ -43,9 +43,12 @@
     <string name="find_code_on_github_summary">Sie können den Quellcode von Leafpad über das Repository einsehen und überprüfen. Für Änderungswünsche und Fehlermeldungen können Sie gerne ein sogenanntes Issue öffnen.</string>
     <string name="title_licence">Lizenzen</string>
     <string name="licence">Open source Lizenzen</string>
-    <string name="notification_of_change">Benachrichtigung über Änderungen</string>
-    <string name="notification_of_change_description">Aktiviere diese Schalter, wenn du über Änderungen an einer geöffneten Notiz informiert werden möchtest</string>
-
+    <string name="notification_of_change">Benachrichtigung bei Änderungen</string>
+    <string name="notification_of_change_description">Über Änderungen in Notizen informiert benachrichtigen</string>
+    <string name="unsaved_changes_title">Ungespeicherte Änderungen</string>
+    <string name="unsaved_changes_message">Ihre Notiz hat sich geändert. Möchten Sie die Änderungen Speichern oder Verwerfen?</string>
+    <string name="discard">Verwerfen</string>
+    <string name="save_changes">Änderung speichern</string>
     <string name="share_note">Notiz teilen?</string>
     <string name="note_will_be_saved_first">Notiz wird erst gespeichert</string>
     <string name="thanks">Danke Stefan, Stefan, Manuel, Falk, Stephanie und Emil für eure Ideen und das Testen der App.</string>

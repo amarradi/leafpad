@@ -3,13 +3,14 @@
     <style name="CustomToolbarStyle" parent="Widget.Material3.Toolbar">
         <item name="titleTextAppearance">@style/TextAppearance.MyToolbarTitle</item>
         <item name="subtitleTextAppearance">@style/TextAppearance.MyToolbarSubtitle</item>
-        <item name="android:elevation">0dp</item>
+        <item name="android:elevation">1dp</item>
+        <item name="elevationOverlayEnabled">true</item>
     </style>
 
     <style name="CustomToolbarStyleEdit" parent="Widget.Material3.Toolbar">
         <item name="titleTextAppearance">@style/TextAppearance.MyToolbarTitleEdit</item>
         <item name="subtitleTextAppearance">@style/TextAppearance.MyToolbarSubtitleEdit</item>
-        <item name="android:elevation">0dp</item>
+        <item name="android:elevation">1dp</item>
     </style>
 
     <style name="TextAppearance.MyToolbarTitleEdit" parent="TextAppearance.MaterialComponents.Headline6">
@@ -97,5 +98,12 @@
         <item name="android:textAlignment">viewStart</item>
     </style>
 
+    <style name="ThemeOverlay.App.Preference" parent="PreferenceThemeOverlay">
+        <item name="switchPreferenceCompatStyle">@style/PreferenceMaterialSwitch</item>
+    </style>
+
+    <style name="PreferenceMaterialSwitch" parent="@style/Preference.SwitchPreferenceCompat.Material">
+        <item name="widgetLayout">@layout/preference_widget_switch_compat</item>
+    </style>
 
 </resources>

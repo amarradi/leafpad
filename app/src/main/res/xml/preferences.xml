@@ -27,11 +27,18 @@
             android:summary="@string/restore"
             android:icon="@drawable/preference_save_data"
             />
-        <CheckBoxPreference
+       <!--<CheckBoxPreference
             android:selectable="true"
             android:key="change"
             android:title="@string/notification_of_change"
-            android:summary="@string/notification_of_change_description"/>
+            android:summary="@string/notification_of_change_description"/> -->
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="change"
+            android:title="@string/notification_of_change"
+            android:summary="@string/notification_of_change_description"
+            android:defaultValue="true"
+            android:icon="@drawable/preference_notification"
+            />
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/about" >

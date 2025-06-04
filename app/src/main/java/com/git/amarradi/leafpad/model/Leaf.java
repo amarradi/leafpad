@@ -1,10 +1,9 @@
-package com.git.amarradi.leafpad;
+package com.git.amarradi.leafpad.model;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
-import android.util.Log;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -52,11 +51,11 @@ public class Leaf {
                         .comparing((Note o) -> LocalDate.parse(o.getDate(), d))
                         .thenComparing(o -> LocalTime.parse(o.getTime(), t)));
             } catch (DateTimeParseException dateTimeParseException) {
-                Log.d("dateTimeParseException", "loadAll: "+dateTimeParseException.getClass());
+//                Log.d("dateTimeParseException", "loadAll: "+dateTimeParseException.getClass());
             }
         }
         Collections.reverse(notes);
-        Log.d("LeafDebug", "Loaded notes: " + notes.size());
+//        Log.d("LeafDebug", "Loaded notes: " + notes.size());
         return notes;
     }
 

@@ -1,4 +1,4 @@
-package com.git.amarradi.leafpad;
+package com.git.amarradi.leafpad.viewmodel;
 
 import android.app.Application;
 import android.content.Context;
@@ -9,6 +9,9 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
+
+import com.git.amarradi.leafpad.model.Leaf;
+import com.git.amarradi.leafpad.model.Note;
 
 import java.util.List;
 import java.util.Objects;
@@ -28,44 +31,40 @@ public class NoteViewModel extends AndroidViewModel {
             }
     );
 
-    /** Wird aufgerufen, wenn die Activity pausiert oder der Benutzer zurückdrückt */
-//    public void persist() {
-//        Note n = selectedNote.getValue();
-//        if (n == null) return;
-//
-//        if (Boolean.TRUE.equals(isNoteEmpty.getValue())) {
-//            // leere Notiz -> löschen
-//            Leaf.remove(getApplication(), n);
-//            selectedNote.setValue(null);
-//        } else {
-//            // nicht leer -> speichern
-//            Leaf.save(getApplication(), n);
-//        }
-//    }
-
     public void persist() {
         Note n = selectedNote.getValue();
         if (n == null) return;
-        Log.d("NoteViewModel", "observeNote: "+n.getTitle()+"|"+n.getBody());
-        // ** direkt prüfen, nicht über LiveData **
+
         String title = n.getTitle()  == null ? "" : n.getTitle().trim();
         String body  = n.getBody()   == null ? "" : n.getBody().trim();
 
         if (isNewEntry(n)) {
-            // leere Notiz → löschen
             Leaf.remove(getApplication(), n);
-            // wir clearen die Selection, damit die Activity nicht weiter mit 'n' arbeitet
             selectedNote.setValue(null);
         } else {
-            // nicht-leer → speichern
             Leaf.save(getApplication(), n);
         }
-        // und die Liste aktualisieren, falls ihr sofort die MainActivity updaten wollt
         loadNotes();
     }
     public boolean isNewEntry(Note note) {
-        String title = note.getTitle() == null ? "" : note.getTitle().trim();
-        String body  = note.getBody() == null ? "" : note.getBody().trim();
+
+        String title = "";
+        Log.d("NoteViewModel", "isNewEntry: noteTitle"+note.getTitle());
+        if (note.getTitle().isEmpty()) {
+            Log.d("NoteViewModel", "isNewEntry: title"+ title);
+
+            title = "";
+        } else {
+            title = note.getTitle().trim();
+        }
+
+        String body;
+        if (note.getBody() == null) {
+            body = "";
+        } else {
+            body = note.getBody().trim();
+        }
+        Log.d("NoteViewModel","isNewEntry" +title.isEmpty()+"|"+body.isEmpty());
         return title.isEmpty() && body.isEmpty();
     }
 
@@ -76,17 +75,78 @@ public class NoteViewModel extends AndroidViewModel {
         return !current.equalsContent(original);
     });
 
+
     public boolean hasUnsavedChanges() {
         Note current = selectedNote.getValue();
         Note original = originalNote.getValue();
 
-        if (current == null && original == null) return false;
-        if (current == null || original == null) return true;
+//        Log.d("NoteViewModel", "current: "+current.getTitle()+"|"+current.getBody());
 
-        return !current.getTitle().equals(original.getTitle()) ||
-                !current.getBody().equals(original.getBody()) ||
-                !Objects.equals(current.getCategory(), original.getCategory()) ||
-                current.isHide() != original.isHide();
+//        Log.d("NoteViewModel", "original: "+original.getTitle()+"|"+original.getBody());
+
+        if (original == null) {
+            return false;
+        }
+
+        if(current == null) {
+            return false;
+        }
+
+//        String currentTitle = current.getTitle() == null ? "" : current.getTitle();
+//        String currentBody = current.getBody() == null ? "" : current.getBody();
+//        String originalTitle = original.getTitle() == null ? "" : original.getTitle();
+//        String originalBody = original.getBody() == null ? "" : original.getBody();
+
+        String currentTitle;
+        if (current.getTitle() == null) {
+            currentTitle = "";
+        } else {
+            currentTitle = current.getTitle();
+        }
+
+        String currentBody;
+        if (current.getBody() == null) {
+            currentBody = "";
+        } else {
+            currentBody = current.getBody();
+        }
+
+        String originalTitle;
+        if (original.getTitle() == null) {
+            originalTitle = "";
+        } else {
+            originalTitle = original.getTitle();
+        }
+
+        String originalBody;
+        if (original.getBody() == null) {
+            originalBody = "";
+        } else {
+            originalBody = original.getBody();
+        }
+
+
+//        boolean changed =
+//                !currentTitle.equals(originalTitle) ||
+//                        !currentBody.equals(originalBody) ||
+//                        !Objects.equals(current.getCategory(), original.getCategory()) ||
+//                        current.isHide() != original.isHide();
+
+        boolean changed = false;
+
+        if (!currentTitle.equals(originalTitle)) {
+            changed = true;
+        } else if (!currentBody.equals(originalBody)) {
+            changed = true;
+        } else if (!Objects.equals(current.getCategory(), original.getCategory())) {
+            changed = true;
+        } else if (current.isHide() != original.isHide()) {
+            changed = true;
+        }
+
+
+//        Log.d("NoteViewModel", "hasUnsavedChanges = " + changed);
+        return changed;
     }
 
 
@@ -120,6 +180,17 @@ public class NoteViewModel extends AndroidViewModel {
 //        Log.d("NoteViewModel", "Loaded notes: " + allNotes.size());
 //        notesLiveData.postValue(allNotes);}
 
+    public void setNote(Note note) {
+        if (note == null) {
+            originalNote.setValue(null);
+            selectedNote.setValue(null);
+        } else {
+            originalNote.setValue(note);
+            selectedNote.setValue(new Note(note)); // Klon!
+        }
+    }
+
+
     public void loadNotes() {
         Boolean showHidden = showHiddenLiveData.getValue();
         if (showHidden == null) showHidden = false;
@@ -129,7 +200,16 @@ public class NoteViewModel extends AndroidViewModel {
 
     public void selectNote(Note note) {
         selectedNote.setValue(note);
-        originalNote.setValue(new Note(note));
+        originalNote.setValue(new Note(
+                note.getTitle(),
+                note.getBody(),
+                note.getDate(),
+                note.getTime(),
+                note.getCreateDate(),
+                note.isHide(),
+                note.getCategory(),
+                note.getId()
+        ));
     }
 
     public void saveNote(Context context, String title, String body) {
@@ -141,14 +221,12 @@ public class NoteViewModel extends AndroidViewModel {
                 deleteNote(context, note);
             } else {
                 saveNote(context,note);
-                // Optional: Liste neu laden oder Event triggern
             }
         }
     }
 
     public void saveNote(Context context, Note note) {
         Leaf.save(getApplication(), note);
-        //loadNotes(false); // Liste neu laden
         loadNotes();
     }
 
@@ -168,43 +246,44 @@ public class NoteViewModel extends AndroidViewModel {
 //        }
 //    }
 
-    public void updateNoteVisibility(boolean hide) {
-        Note currentNote = selectedNote.getValue();
-        if (currentNote != null) {
-            // Leere Notizen nicht speichern!
-            if ((currentNote.getTitle() == null || currentNote.getTitle().trim().isEmpty()) &&
-                    (currentNote.getBody() == null || currentNote.getBody().trim().isEmpty())) {
-                // Nur Sichtbarkeit ändern, nicht speichern
-                currentNote.setHide(hide);
-                selectedNote.setValue(currentNote);
-                return;
-            }
-
-            currentNote.setHide(hide);
-            Leaf.save(getApplication(), currentNote);
-            selectedNote.setValue(currentNote);
-        }
-    }
+//    public void updateNoteVisibility(boolean hide) {
+//        Note currentNote = selectedNote.getValue();
+//        if (currentNote != null) {
+//
+//            if ((currentNote.getTitle() == null || currentNote.getTitle().trim().isEmpty()) &&
+//                    (currentNote.getBody() == null || currentNote.getBody().trim().isEmpty())) {
+//
+//                currentNote.setHide(hide);
+//                selectedNote.setValue(currentNote);
+//                return;
+//            }
+//            currentNote.setHide(hide);
+//            Leaf.save(getApplication(), currentNote);
+//            selectedNote.setValue(currentNote);
+//        }
+//    }
 
 
     public void updateNoteRecipe(String category) {
-        Log.d("updateNoteRecipe", "updateNoteRecipe entered");
+//        Log.d("updateNoteRecipe", "updateNoteRecipe entered");
         Note currentNote = selectedNote.getValue();
         if (currentNote != null) {
             String currentCategory = currentNote.getCategory();
 
             if (!category.equals(currentCategory)) {
                 currentNote.setCategory(category);
-                Leaf.save(getApplication(), currentNote);
-                Log.d("updateNoteRecipe", "Category updated to: " + category);
+               // Leaf.save(getApplication(), currentNote);
+//                Log.d("updateNoteRecipe", "Category updated to: " + category);
                 selectedNote.setValue(currentNote);
-            } else {
-                Log.d("updateNoteRecipe", "No category update needed.");
             }
-        } else {
-            Log.d("updateNoteRecipe", "currentNote is null, no update performed.");
-
+//            else {
+//                Log.d("updateNoteRecipe", "No category update needed.");
+//            }
         }
+//        else {
+////            Log.d("updateNoteRecipe", "currentNote is null, no update performed.");
+//
+//        }
     }
 
     public static boolean isEmptyEntry(Note note) {

@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:dividerHeight="@dimen/dividerHeight"
-        android:divider="@null"/>
+        android:divider="@null"
+        />
 
     <ImageView
        android:layout_centerInParent="true"

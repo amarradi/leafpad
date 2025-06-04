@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -16,10 +15,13 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreferenceCompat;
 
 import com.git.amarradi.leafpad.helper.DialogHelper;
 import com.git.amarradi.leafpad.helper.NoteBackupHelper;
 import com.git.amarradi.leafpad.helper.NotificationHelper;
+import com.git.amarradi.leafpad.model.Leaf;
+import com.git.amarradi.leafpad.model.Note;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -71,8 +73,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         });
 
         setupClickListener("change", v-> {
-           // notificationRequested();
-            Toast.makeText(requireContext(), "Test", Toast.LENGTH_LONG).show();
             return true;
         });
 
@@ -206,15 +206,37 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         }
     }
 
+//    @Override
+//    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, @Nullable String key) {
+//        if (key != null) {
+//            Preference preference = findPreference(key);
+//            if (preference != null && !(preference instanceof CheckBoxPreference)) {
+//                setPreferenceSummary(preference, sharedPreferences.getString(key, ""));
+//            }
+//        }
+//    }
+
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, @Nullable String key) {
         if (key != null) {
             Preference preference = findPreference(key);
-            if (preference != null && !(preference instanceof CheckBoxPreference)) {
-                setPreferenceSummary(preference, sharedPreferences.getString(key, ""));
+            if (preference != null) {
+                if (preference instanceof SwitchPreferenceCompat || preference instanceof CheckBoxPreference) {
+                    // Boolean-Wert lesen und ggf. Summary setzen oder sonst was machen
+                    boolean value = sharedPreferences.getBoolean(key, false);
+                    // Hier kannst du z.B. den Summary-Text anpassen, wenn nötig,
+                    // oder nichts tun, wenn keine Summary bei Switch erwünscht ist.
+                    // Beispiel (optional):
+                    // preference.setSummary(value ? "Ein" : "Aus");
+                } else {
+                    // Für alle anderen Preferences als String lesen
+                    String value = sharedPreferences.getString(key, "");
+                    setPreferenceSummary(preference, value);
+                }
             }
         }
     }
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

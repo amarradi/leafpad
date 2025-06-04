@@ -5,6 +5,7 @@ import static com.git.amarradi.leafpad.adapter.NoteAdapter.LayoutMode;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -20,10 +21,11 @@ public class LayoutModeHelper {
     private static RecyclerView.ItemDecoration gridSpacingDecoration;
 
 
-
     public static boolean isListMode(Context context) {
-        SharedPreferences prefs = Leafpad.getPrefs();
-        String mode = prefs.getString(PREF_LAYOUT_MODE, "list");
+//        SharedPreferences prefs = Leafpad.getPrefs();
+//        String mode = prefs.getString(PREF_LAYOUT_MODE, "list");
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        String mode = sharedPreferences.getString(PREF_LAYOUT_MODE, "list");
         return "list".equals(mode);
     }
 
@@ -34,13 +36,15 @@ public class LayoutModeHelper {
     }
 
     public static void saveMode(Context context, boolean isList) {
-        SharedPreferences prefs = Leafpad.getPrefs();
+        //SharedPreferences prefs = Leafpad.getPrefs();
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         if (isList) {
-            prefs.edit().putString(PREF_LAYOUT_MODE,"list").apply();
+            editor.putString(PREF_LAYOUT_MODE,"list");
         } else {
-            prefs.edit().putString(PREF_LAYOUT_MODE,"grid").apply();
+            editor.putString(PREF_LAYOUT_MODE,"grid");
         }
-
+        editor.apply();
     }
 
     public static void applyLayout(Context context, RecyclerView recyclerView, NoteAdapter adapter, boolean isList) {
@@ -59,8 +63,8 @@ public class LayoutModeHelper {
         } else {
             recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
             int vert = context.getResources().getDimensionPixelSize(R.dimen.masonry_vertical_spacing);
-            int horz = context.getResources().getDimensionPixelSize(R.dimen.masonry_horizontal_spacing);
-            gridSpacingDecoration = new MasonrySpacingDecoration(vert, horz);
+            int horiz = context.getResources().getDimensionPixelSize(R.dimen.masonry_horizontal_spacing);
+            gridSpacingDecoration = new MasonrySpacingDecoration(vert, horiz);
             recyclerView.addItemDecoration(gridSpacingDecoration);
         }
     }

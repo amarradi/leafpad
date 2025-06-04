@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.MyApp" parent="Theme.Material3.Light.NoActionBar">
         <!-- Farben für Material3 -->
+        <item name="preferenceTheme">@style/ThemeOverlay.App.Preference</item>
 
         <item name="android:windowLightStatusBar">false</item>
 
@@ -43,6 +44,7 @@
         <!-- Runden von UI-Elementen aktivieren -->
       <!--  <item name="android:dialogCornerRadius">28dp</item> -->
 
+        <item name="elevationOverlayEnabled">false</item>
 
     </style>
 

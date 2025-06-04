@@ -96,5 +96,11 @@
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily" >@font/opensans_medium</item>
     </style>
+    <style name="ThemeOverlay.App.Preference" parent="PreferenceThemeOverlay">
+        <item name="switchPreferenceCompatStyle">@style/PreferenceMaterialSwitch</item>
+    </style>
 
+    <style name="PreferenceMaterialSwitch" parent="@style/Preference.SwitchPreferenceCompat.Material">
+        <item name="android:widgetLayout">@layout/preference_widget_switch_compat</item>
+    </style>
 </resources>

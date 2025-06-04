@@ -1,4 +1,4 @@
-package com.git.amarradi.leafpad;
+package com.git.amarradi.leafpad.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

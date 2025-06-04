@@ -2,8 +2,8 @@ package com.git.amarradi.leafpad.helper;
 
 import android.content.Context;
 
-import com.git.amarradi.leafpad.Leaf;
-import com.git.amarradi.leafpad.Note;
+import com.git.amarradi.leafpad.model.Leaf;
+import com.git.amarradi.leafpad.model.Note;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;

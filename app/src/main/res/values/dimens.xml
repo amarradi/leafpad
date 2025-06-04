@@ -68,8 +68,8 @@
     <dimen name="toolbarElevation">2dp</dimen>
 
     <!-- TextSize -->
-    <dimen name="textSize_MyNoteItem">20sp</dimen>
-    <dimen name="textSize_MyNotePreview">15sp</dimen>
+    <dimen name="textSize_MyNoteItem">16sp</dimen>
+    <dimen name="textSize_MyNotePreview">12sp</dimen>
     <dimen name="textSize_MyDateTime">10sp</dimen>
     <dimen name="textSize_MyCategory">10sp</dimen>
     <dimen name="textSize_MyToolbarTitle">24sp</dimen>

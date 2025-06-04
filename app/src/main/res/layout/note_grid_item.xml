@@ -86,7 +86,7 @@
                     android:id="@+id/date_icon"
                     android:layout_width="@dimen/image_listView_layout_width"
                     android:layout_height="@dimen/image_listView_layout_height"
-                    android:src="@drawable/view_calendar_cardviewlist" />
+                    android:src="@drawable/calendar" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/created_at"
@@ -102,7 +102,7 @@
                     android:layout_width="@dimen/image_listView_layout_width"
                     android:layout_height="@dimen/image_listView_layout_height"
                     android:layout_marginStart="@dimen/margin_listItem_distance_top"
-                    android:src="@drawable/view_time_cardviewlist" />
+                    android:src="@drawable/clock" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/time_txt"

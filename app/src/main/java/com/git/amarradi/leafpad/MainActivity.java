@@ -18,6 +18,8 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.git.amarradi.leafpad.adapter.NoteAdapter;
+import com.git.amarradi.leafpad.model.Note;
+import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
@@ -27,15 +29,8 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-    //public static final String EXTRA_NOTE_ID = "com.git.amarradi.leafpad";
-   // private static final String PREF_LAYOUT_MODE = "layout_mode"; // "list" oder "grid"
-
     public RecyclerView recyclerView;
     public NoteAdapter noteAdapter;
-
-    private RecyclerView.ItemDecoration gridSpacingDecoration;
-
-
     private NoteViewModel noteViewModel;
 
     @SuppressLint("RestrictedApi")
@@ -81,15 +76,12 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         recyclerView = findViewById(R.id.note_list_view);
 
-        //noteAdapter = new NoteAdapter(this, new ArrayList<>());
-
         noteAdapter = new NoteAdapter(this, new ArrayList<>(), note -> {
             noteViewModel.selectNote(note);
             Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
             intent.putExtra(Leafpad.EXTRA_NOTE_ID, note.getId());
             startActivity(intent);
         });
-
 
         recyclerView.setAdapter(noteAdapter);
 
@@ -127,7 +119,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     protected void onResume() {
         super.onResume();
-        // Layout‐Modus etc.
         Leafpad.getInstance().applyCurrentLayoutMode(recyclerView, noteAdapter);
         noteViewModel.loadNotes();
     }
@@ -138,8 +129,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public boolean onCreateOptionsMenu(@NonNull android.view.Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         android.view.MenuItem item = menu.findItem(R.id.item_show_hidden);
-        SharedPreferences prefs = Leafpad.getPrefs();
-        String savedLayout = prefs.getString(Leafpad.PREF_LAYOUT_MODE, "list");
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String savedLayout = sharedPreferences.getString(Leafpad.PREF_LAYOUT_MODE, "list");
+      //  SharedPreferences prefs = Leafpad.getPrefs();
+      //  String savedLayout = prefs.getString(Leafpad.PREF_LAYOUT_MODE, "list");
         Boolean showHidden = noteViewModel.getShowHidden().getValue();
         if (showHidden == null) {
             showHidden = false;
@@ -153,9 +147,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
         MenuItem layoutItem = menu.findItem(R.id.item_toggle_layout);
         if ("grid".equals(savedLayout)) {
-            layoutItem.setIcon(R.drawable.action_gridview_off);
+            layoutItem.setIcon(R.drawable.listview);
         } else {
-            layoutItem.setIcon(R.drawable.action_gridview_on);
+            layoutItem.setIcon(R.drawable.gridview);
         }
         return true;
     }
