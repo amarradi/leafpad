@@ -44,7 +44,7 @@
     <string name="title_licence">Lizenzen</string>
     <string name="licence">Open source Lizenzen</string>
     <string name="notification_of_change">Benachrichtigung bei Änderungen</string>
-    <string name="notification_of_change_description">Über Änderungen in Notizen informiert benachrichtigen</string>
+    <string name="notification_of_change_description">Über Änderungen in Notizen benachrichtigen</string>
     <string name="unsaved_changes_title">Ungespeicherte Änderungen</string>
     <string name="unsaved_changes_message">Ihre Notiz hat sich geändert. Möchten Sie die Änderungen Speichern oder Verwerfen?</string>
     <string name="discard">Verwerfen</string>

@@ -4,6 +4,7 @@ import static com.git.amarradi.leafpad.adapter.NoteAdapter.LayoutMode;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.widget.PopupMenu;
 
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,28 +16,26 @@ import com.git.amarradi.leafpad.R;
 import com.git.amarradi.leafpad.adapter.NoteAdapter;
 import com.git.amarradi.leafpad.util.MasonrySpacingDecoration;
 
-public class LayoutModeHelper {
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
+public class LayoutModeHelper {
     private static final String PREF_LAYOUT_MODE = Leafpad.PREF_LAYOUT_MODE;
     private static RecyclerView.ItemDecoration gridSpacingDecoration;
 
-
     public static boolean isListMode(Context context) {
-//        SharedPreferences prefs = Leafpad.getPrefs();
-//        String mode = prefs.getString(PREF_LAYOUT_MODE, "list");
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         String mode = sharedPreferences.getString(PREF_LAYOUT_MODE, "list");
         return "list".equals(mode);
     }
 
-    public static void toggleAndApply(Context context, RecyclerView recyclerView, NoteAdapter adapter) {
-        boolean isList = !isListMode(context);
-        saveMode(context, isList);
-        applyLayout(context, recyclerView, adapter, isList);
-    }
+//    public static void toggleAndApply(Context context, RecyclerView recyclerView, NoteAdapter adapter) {
+//        boolean isList = !isListMode(context);
+//        saveMode(context, isList);
+//        applyLayout(context, recyclerView, adapter, isList);
+//    }
 
     public static void saveMode(Context context, boolean isList) {
-        //SharedPreferences prefs = Leafpad.getPrefs();
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         if (isList) {
@@ -68,4 +67,24 @@ public class LayoutModeHelper {
             recyclerView.addItemDecoration(gridSpacingDecoration);
         }
     }
+
+    public static void forcePopupMenuIcons(PopupMenu popup) {
+        try {
+            Field[] fields = popup.getClass().getDeclaredFields();
+            for (Field field : fields) {
+                if ("mPopup".equals(field.getName())) {
+                    field.setAccessible(true);
+                    Object menuPopupHelper = field.get(popup);
+                    assert menuPopupHelper != null;
+                    Class<?> classPopupHelper = Class.forName(menuPopupHelper.getClass().getName());
+                    Method setForceIcons = classPopupHelper.getMethod("setForceShowIcon", boolean.class);
+                    setForceIcons.invoke(menuPopupHelper, true);
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

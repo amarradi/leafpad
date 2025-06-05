@@ -89,12 +89,10 @@ public class DialogHelper {
                 .setSingleChoiceItems(themeLabels, currentIndex, (dialog, which) -> {
                     prefs.edit().putString("theme", themeValues[which]).apply();
                     Leafpad.getInstance().saveTheme(themeValues[which]);
-                    if (onThemeChanged != null) onThemeChanged.run(); // z. B. recreate()
+                    if (onThemeChanged != null) onThemeChanged.run();
                     dialog.dismiss();
                 })
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();
     }
-
-
 }

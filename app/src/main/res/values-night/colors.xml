@@ -2,6 +2,7 @@
 <resources>
         <!-- hellblaue Kochmütze-->
         <color name="md_theme_recipe">#6699FF</color>
+        <color name="previewTextColor">#E7D9C4</color> <!-- Sanftes Grau-Grün für angenehme Lesbarkeit -->
         <!-- Primärfarben (angepasst für Dunkelmodus) -->
         <color name="md_theme_primaryContainer">#005A33</color>
         <color name="md_theme_cardBackground">#2E2E2E</color> <!-- für Dark Mode dunkler halten -->

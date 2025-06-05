@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -18,11 +20,15 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.git.amarradi.leafpad.adapter.NoteAdapter;
+import com.git.amarradi.leafpad.helper.DialogHelper;
+import com.git.amarradi.leafpad.helper.LayoutModeHelper;
 import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -76,11 +82,19 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         recyclerView = findViewById(R.id.note_list_view);
 
-        noteAdapter = new NoteAdapter(this, new ArrayList<>(), note -> {
-            noteViewModel.selectNote(note);
-            Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
-            intent.putExtra(Leafpad.EXTRA_NOTE_ID, note.getId());
-            startActivity(intent);
+        noteAdapter = new NoteAdapter(this, new ArrayList<>(), new NoteClickListener() {
+            @Override
+            public void onNoteClicked(Note note) {
+                noteViewModel.selectNote(note);
+                Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
+                intent.putExtra(Leafpad.EXTRA_NOTE_ID, note.getId());
+                startActivity(intent);
+            }
+
+            @Override
+            public void onNoteIconClicked(Note note, View anchor) {
+                showPopupMenu(note, anchor);
+            }
         });
 
         recyclerView.setAdapter(noteAdapter);
@@ -100,6 +114,33 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
 
+    private void showPopupMenu(Note note, View anchor) {
+        PopupMenu popup = new PopupMenu(this, anchor);
+        popup.getMenuInflater().inflate(R.menu.menu_popup, popup.getMenu());
+
+        LayoutModeHelper.forcePopupMenuIcons(popup);
+        popup.setOnMenuItemClickListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.action_share_note) {
+                shareNote(note);
+                return true;
+            } else if (id == R.id.action_remove) {
+                DialogHelper.showDeleteSingleNoteDialog(this, () -> noteViewModel.deleteNote(this,note));
+                return true;
+            }
+            return false;
+        });
+
+        popup.show();
+    }
+    private void shareNote(Note note) {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        String content = note.getTitle() + "\n\n" + note.getBody();
+        shareIntent.putExtra(Intent.EXTRA_TEXT, content);
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_note)));
+    }
+
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if ("theme".equals(key)) {
@@ -108,21 +149,12 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
     }
 
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        Leafpad.getInstance().applyCurrentLayoutMode(recyclerView, noteAdapter);
-//        noteViewModel.loadNotes();
-//
-//    }
-
     @Override
     protected void onResume() {
         super.onResume();
         Leafpad.getInstance().applyCurrentLayoutMode(recyclerView, noteAdapter);
         noteViewModel.loadNotes();
     }
-
 
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
@@ -132,8 +164,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String savedLayout = sharedPreferences.getString(Leafpad.PREF_LAYOUT_MODE, "list");
-      //  SharedPreferences prefs = Leafpad.getPrefs();
-      //  String savedLayout = prefs.getString(Leafpad.PREF_LAYOUT_MODE, "list");
         Boolean showHidden = noteViewModel.getShowHidden().getValue();
         if (showHidden == null) {
             showHidden = false;
@@ -194,5 +224,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
     public interface NoteClickListener {
         void onNoteClicked(Note note);
+        void onNoteIconClicked(Note note, View anchor);
     }
+
 }

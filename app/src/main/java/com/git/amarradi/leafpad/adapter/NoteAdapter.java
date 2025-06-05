@@ -5,8 +5,10 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
@@ -44,9 +46,12 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
     private final MainActivity.NoteClickListener listener;
 
+
     private final static String BIBLEVERSE_URL_REGEX = "(?i)\\b(?:https?://)?(?:www\\.)?(bible\\.(com|org)|bibleserver\\.com)(/\\S*)?";
 
-    public NoteAdapter(Context context, List<Note> noteList, MainActivity.NoteClickListener listener) {
+    public NoteAdapter(Context context,
+                       List<Note> noteList,
+                       MainActivity.NoteClickListener listener) {
         this.context = context;
         this.noteList = noteList;
         this.fullNoteList = noteList;
@@ -114,8 +119,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         holder.titleText.setText(note.getTitle());
 
         String body = note.getBody() != null ? note.getBody() : "";
-        if (body.length() > 25) {
-            body = body.substring(0, 25) + "...";
+        if (body.length() > 150) {
+            body = body.substring(0, 150) + "...";
         }
         holder.bodyPreview.setText(body);
 
@@ -143,6 +148,9 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         }
 
         holder.itemView.setOnClickListener(v -> listener.onNoteClicked(note));
+        holder.actionButton.setOnClickListener(v ->{
+            listener.onNoteIconClicked(note, holder.actionButton);
+        });
     }
 
     @Override
@@ -170,6 +178,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     public static class NoteViewHolder extends RecyclerView.ViewHolder {
         TextView titleText, bodyPreview, dateText, timeText, categoryText;
         ImageView bibleIcon, categoryIcon;
+        ImageButton actionButton;
 
         NoteViewHolder(View itemView) {
             super(itemView);
@@ -180,6 +189,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             categoryText = itemView.findViewById(R.id.category_txt);
             bibleIcon = itemView.findViewById(R.id.bible);
             categoryIcon = itemView.findViewById(R.id.category_icon);
+            actionButton = itemView.findViewById(R.id.image_button);
         }
     }
 }

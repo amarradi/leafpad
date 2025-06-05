@@ -2,14 +2,12 @@ package com.git.amarradi.leafpad.viewmodel;
 
 import android.app.Application;
 import android.content.Context;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.git.amarradi.leafpad.model.Leaf;
 import com.git.amarradi.leafpad.model.Note;
@@ -36,8 +34,19 @@ public class NoteViewModel extends AndroidViewModel {
         Note n = selectedNote.getValue();
         if (n == null) return;
 
-        String title = n.getTitle()  == null ? "" : n.getTitle().trim();
-        String body  = n.getBody()   == null ? "" : n.getBody().trim();
+        String title;
+        if (n.getTitle() == null) {
+            title = "";
+        } else {
+            title = n.getTitle().trim();
+        }
+
+        String body;
+        if (n.getBody() == null) {
+            body = "";
+        } else {
+            body = n.getBody().trim();
+        }
 
         if (isNewEntry(n)) {
             Leaf.remove(getApplication(), n);
@@ -50,10 +59,9 @@ public class NoteViewModel extends AndroidViewModel {
     public boolean isNewEntry(Note note) {
 
         String title = "";
-        Log.d("NoteViewModel", "isNewEntry: noteTitle"+note.getTitle());
+//        Log.d("NoteViewModel", "isNewEntry: noteTitle"+note.getTitle());
         if (note.getTitle().isEmpty()) {
-            Log.d("NoteViewModel", "isNewEntry: title"+ title);
-
+//            Log.d("NoteViewModel", "isNewEntry: title"+ title);
             title = "";
         } else {
             title = note.getTitle().trim();
@@ -65,7 +73,7 @@ public class NoteViewModel extends AndroidViewModel {
         } else {
             body = note.getBody().trim();
         }
-        Log.d("NoteViewModel","isNewEntry" +title.isEmpty()+"|"+body.isEmpty());
+//        Log.d("NoteViewModel","isNewEntry" +title.isEmpty()+"|"+body.isEmpty());
         return title.isEmpty() && body.isEmpty();
     }
 
@@ -80,7 +88,6 @@ public class NoteViewModel extends AndroidViewModel {
         Note original = originalNote.getValue();
 
 //        Log.d("NoteViewModel", "current: "+current.getTitle()+"|"+current.getBody());
-
 //        Log.d("NoteViewModel", "original: "+original.getTitle()+"|"+original.getBody());
 
         if (original == null) {
@@ -90,11 +97,6 @@ public class NoteViewModel extends AndroidViewModel {
         if(current == null) {
             return false;
         }
-
-//        String currentTitle = current.getTitle() == null ? "" : current.getTitle();
-//        String currentBody = current.getBody() == null ? "" : current.getBody();
-//        String originalTitle = original.getTitle() == null ? "" : original.getTitle();
-//        String originalBody = original.getBody() == null ? "" : original.getBody();
 
         String currentTitle;
         if (current.getTitle() == null) {
@@ -124,13 +126,6 @@ public class NoteViewModel extends AndroidViewModel {
             originalBody = original.getBody();
         }
 
-
-//        boolean changed =
-//                !currentTitle.equals(originalTitle) ||
-//                        !currentBody.equals(originalBody) ||
-//                        !Objects.equals(current.getCategory(), original.getCategory()) ||
-//                        current.isHide() != original.isHide();
-
         boolean changed = false;
 
         if (!currentTitle.equals(originalTitle)) {
@@ -159,9 +154,9 @@ public class NoteViewModel extends AndroidViewModel {
         return selectedNote;
     }
 
-    public LiveData<Boolean> getIsNoteEmpty() {
-        return isNoteEmpty;
-    }
+//    public LiveData<Boolean> getIsNoteEmpty() {
+//        return isNoteEmpty;
+//    }
 
     public LiveData<Boolean> getShowHidden() {
         return showHiddenLiveData;
@@ -171,11 +166,6 @@ public class NoteViewModel extends AndroidViewModel {
         showHiddenLiveData.setValue(showHidden);
         loadNotes();
     }
-
-//   private void loadNotes(boolean onlyHidden) {
-//        List<Note> allNotes = Leaf.loadAll(getApplication(),onlyHidden);
-//        Log.d("NoteViewModel", "Loaded notes: " + allNotes.size());
-//        notesLiveData.postValue(allNotes);}
 
     public void setNote(Note note) {
         if (note == null) {
@@ -208,18 +198,18 @@ public class NoteViewModel extends AndroidViewModel {
         ));
     }
 
-    public void saveNote(Context context, String title, String body) {
-        Note note = selectedNote.getValue();
-        if (note != null) {
-            note.setTitle(title);
-            note.setBody(body);
-            if (isEmptyEntry(note)){
-                deleteNote(context, note);
-            } else {
-                saveNote(context,note);
-            }
-        }
-    }
+//    public void saveNote(Context context, String title, String body) {
+//        Note note = selectedNote.getValue();
+//        if (note != null) {
+//            note.setTitle(title);
+//            note.setBody(body);
+//            if (isEmptyEntry(note)){
+//                deleteNote(context, note);
+//            } else {
+//                saveNote(context,note);
+//            }
+//        }
+//    }
 
     public void saveNote(Context context, Note note) {
         Leaf.save(getApplication(), note);
@@ -267,7 +257,6 @@ public class NoteViewModel extends AndroidViewModel {
 
             if (!category.equals(currentCategory)) {
                 currentNote.setCategory(category);
-               // Leaf.save(getApplication(), currentNote);
 //                Log.d("updateNoteRecipe", "Category updated to: " + category);
                 selectedNote.setValue(currentNote);
             }
@@ -276,18 +265,11 @@ public class NoteViewModel extends AndroidViewModel {
 //            }
         }
 //        else {
-////            Log.d("updateNoteRecipe", "currentNote is null, no update performed.");
-//
+//            Log.d("updateNoteRecipe", "currentNote is null, no update performed.");
 //        }
     }
 
     public static boolean isEmptyEntry(Note note) {
         return note.getBody().isEmpty() && note.getTitle().isEmpty();
     }
-
-//    private boolean hasUnsavedChanges() {
-//        NoteViewModel viewModel = new ViewModelProvider(this).get(NoteViewModel.class);
-//        return viewModel.hasUnsavedChanges();
-//    }
-
 }
