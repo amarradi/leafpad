@@ -102,4 +102,5 @@
         <item quantity="other">%1$d notes imported</item>
     </plurals>
     <string name="toggle">change View</string>
+    <string name="item_menu_description">menu for item actions</string>
 </resources>

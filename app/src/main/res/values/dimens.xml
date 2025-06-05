@@ -65,12 +65,12 @@
     <dimen name="image_about_section_margin">10dp</dimen>
 
     <!--ToolBar -->
-    <dimen name="toolbarElevation">2dp</dimen>
+    <dimen name="toolbarElevation">0dp</dimen>
 
     <!-- TextSize -->
     <dimen name="textSize_MyNoteItem">16sp</dimen>
     <dimen name="textSize_MyNotePreview">12sp</dimen>
-    <dimen name="textSize_MyDateTime">10sp</dimen>
+    <dimen name="textSize_MyDateTime">9sp</dimen>
     <dimen name="textSize_MyCategory">10sp</dimen>
     <dimen name="textSize_MyToolbarTitle">24sp</dimen>
     <dimen name="textSize_MyToolbarSubtitle">14sp</dimen>
@@ -91,5 +91,7 @@
     <dimen name="constraint_paddingBottom">8dp</dimen>
 
     <dimen name="anchor_height">56dp</dimen>
-
+    
+    <dimen name="image_button_layout_width">40dp</dimen>
+    <dimen name="image_button_layout_height">40dp</dimen>
 </resources>

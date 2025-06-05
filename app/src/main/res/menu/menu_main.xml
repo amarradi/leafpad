@@ -4,7 +4,7 @@
     tools:context="com.git.amarradi.MainActivity">
     <item
         android:id="@+id/item_show_hidden"
-        android:icon="@drawable/action_eye_open"
+        android:icon="@drawable/eye_visible"
         android:title="@string/show_hidden"
         app:showAsAction="ifRoom"
         />

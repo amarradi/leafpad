@@ -139,10 +139,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             showHidden = false;
         }
         if (showHidden) {
-            item.setIcon(getDrawable(R.drawable.action_eye_closed));
+            item.setIcon(getDrawable(R.drawable.eye_invisible));
             item.setTitle(getString(R.string.hide_hidden));
         } else {
-            item.setIcon(getDrawable(R.drawable.action_eye_open));
+            item.setIcon(getDrawable(R.drawable.eye_visible));
             item.setTitle(getString(R.string.show_hidden));
         }
         MenuItem layoutItem = menu.findItem(R.id.item_toggle_layout);
@@ -184,10 +184,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         noteViewModel.setShowHidden(newValue);
 
         if (newValue) {
-            item.setIcon(getDrawable(R.drawable.action_eye_closed));
+            item.setIcon(getDrawable(R.drawable.eye_invisible));
             item.setTitle(getString(R.string.hide_hidden));
         } else {
-            item.setIcon(getDrawable(R.drawable.action_eye_open));
+            item.setIcon(getDrawable(R.drawable.eye_visible));
             item.setTitle(getString(R.string.show_hidden));
         }
         Leafpad.getInstance().saveShowHidden(newValue);

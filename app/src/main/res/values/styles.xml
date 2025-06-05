@@ -56,7 +56,7 @@
     <style name="TextAppearance.MyDateTime" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textSize">@dimen/textSize_MyDateTime</item>
         <item name="android:textColor">@color/md_theme_primary</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textStyle">normal</item>
         <item name="android:fontFamily">@font/opensans_medium</item>
     </style>
 

@@ -151,20 +151,14 @@ public class NoteEditActivity extends AppCompatActivity {
             titleEdit.setText(note.getTitle());
         }
         if (bodyEdit.getText().toString().isEmpty()) {
-            bodyEdit.setText(note.getTitle());
+            bodyEdit.setText(note.getBody());
         }
 
-
-
         if (isNewEntry(note)) {
-            setupToolbarSubtitle(R.string.new_note);
+            setupToolbarSubtitle(getString(R.string.new_note));
         } else {
             setupToolbarSubtitle(note.getTitle());
         }
-    }
-
-    private void setupToolbarSubtitle(int stringResId) {
-        toolbar.setSubtitle(getString(stringResId));
     }
 
     private void setupToolbarSubtitle(String subtitle) {
@@ -318,8 +312,6 @@ public class NoteEditActivity extends AppCompatActivity {
         finish();
     }
 
-
-
     private void setupToolbar() {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -328,7 +320,6 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private void shareNote() {
-
         saveNote();
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
@@ -350,14 +341,24 @@ public class NoteEditActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        shouldPersistOnPause = true;
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if (!shouldPersistOnPause) {
-            return;
+
+//
+//        if (!shouldPersistOnPause) {
+//            return;
+//        }
+
+        if(!isNoteDeleted) {
+            updateNoteFromUI();
+            if (shouldPersistOnPause && noteViewModel.hasUnsavedChanges()) {
+                noteViewModel.persist();
+            }
         }
-        noteViewModel.persist();
+        //noteViewModel.persist();
    }
 }

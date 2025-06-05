@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory
+        android:title="@string/about" >
+        <Preference
+            android:title="@string/about_the_app"
+            android:key="about"
+            android:summary="@string/tell_about"
+            android:icon="@drawable/preference_about_the_app"/>
 
+    </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/general_preference">
         <Preference
@@ -40,15 +48,7 @@
             android:icon="@drawable/preference_notification"
             />
     </PreferenceCategory>
-    <PreferenceCategory
-        android:title="@string/about" >
-        <Preference
-            android:title="@string/about_the_app"
-            android:key="about"
-            android:summary="@string/tell_about"
-            android:icon="@drawable/preference_about_the_app"/>
 
-    </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/participate">
         <Preference

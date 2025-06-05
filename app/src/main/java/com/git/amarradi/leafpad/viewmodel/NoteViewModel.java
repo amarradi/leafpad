@@ -9,6 +9,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.git.amarradi.leafpad.model.Leaf;
 import com.git.amarradi.leafpad.model.Note;
@@ -68,13 +69,11 @@ public class NoteViewModel extends AndroidViewModel {
         return title.isEmpty() && body.isEmpty();
     }
 
-
     public LiveData<Boolean> isNoteModified = Transformations.map(selectedNote, current -> {
         Note original = originalNote.getValue();
         if (original == null || current == null) return false;
         return !current.equalsContent(original);
     });
-
 
     public boolean hasUnsavedChanges() {
         Note current = selectedNote.getValue();
@@ -143,8 +142,6 @@ public class NoteViewModel extends AndroidViewModel {
         } else if (current.isHide() != original.isHide()) {
             changed = true;
         }
-
-
 //        Log.d("NoteViewModel", "hasUnsavedChanges = " + changed);
         return changed;
     }
@@ -189,7 +186,6 @@ public class NoteViewModel extends AndroidViewModel {
             selectedNote.setValue(new Note(note)); // Klon!
         }
     }
-
 
     public void loadNotes() {
         Boolean showHidden = showHiddenLiveData.getValue();
@@ -263,7 +259,6 @@ public class NoteViewModel extends AndroidViewModel {
 //        }
 //    }
 
-
     public void updateNoteRecipe(String category) {
 //        Log.d("updateNoteRecipe", "updateNoteRecipe entered");
         Note currentNote = selectedNote.getValue();
@@ -289,4 +284,10 @@ public class NoteViewModel extends AndroidViewModel {
     public static boolean isEmptyEntry(Note note) {
         return note.getBody().isEmpty() && note.getTitle().isEmpty();
     }
+
+//    private boolean hasUnsavedChanges() {
+//        NoteViewModel viewModel = new ViewModelProvider(this).get(NoteViewModel.class);
+//        return viewModel.hasUnsavedChanges();
+//    }
+
 }

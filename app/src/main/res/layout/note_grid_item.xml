@@ -17,11 +17,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:paddingStart="@dimen/paddingStartlistItem"
-            android:paddingTop="@dimen/paddingToplistItem"
             android:paddingEnd="@dimen/paddingEndlistItem"
+            android:paddingTop="@dimen/paddingToplistItem"
             android:paddingBottom="@dimen/paddingBottomlistItem">
+
+        <!-- Inhalt links -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <!-- Titel -->
             <com.google.android.material.textview.MaterialTextView
@@ -113,6 +120,18 @@
                     android:text=""
                     android:textAppearance="@style/TextAppearance.MyDateTime" />
             </LinearLayout>
+        </LinearLayout>
+            <!-- Menübutton rechts -->
+            <ImageButton
+                android:id="@+id/menu_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/item_menu_description"
+
+                android:scaleType="centerCrop"
+                android:src="@drawable/item_menu" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 </LinearLayout>
