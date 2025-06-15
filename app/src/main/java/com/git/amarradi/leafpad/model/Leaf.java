@@ -27,6 +27,7 @@ public class Leaf {
     private final static String BODY_PREFIX = "note_body_";
     private final static boolean HIDE = false;
     private final static String CATEGORY ="note_category_";
+
     public static ArrayList<Note> loadAll(Context context, boolean includeHidden) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
         ArrayList<Note> notes = new ArrayList<>();

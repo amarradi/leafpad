@@ -59,18 +59,33 @@ public class NoteEditActivity extends AppCompatActivity {
     private void handleIntent(Intent intent) {
         String noteId = intent.getStringExtra(Leafpad.EXTRA_NOTE_ID);
         Note note = Leaf.load(this, noteId);
-
-        if (Intent.ACTION_SEND.equals(intent.getAction())&&"text/plain".equals(intent.getType())) {
-            String shareText = intent.getStringExtra(Intent.EXTRA_TEXT);
-            note.setTitle(getString(R.string.imported));
-            note.setBody(shareText);
-        }
         if (isNewEntry(note)) {
             note.setNotedate();
             note.setNotetime();
         }
+            if (Intent.ACTION_SEND.equals(intent.getAction()) && "text/plain".equals(intent.getType())) {
+
+                String shareText = intent.getStringExtra(Intent.EXTRA_TEXT);
+                if (shareText != null && !shareText.isEmpty()) {
+                    note.setTitle(getString(R.string.imported));
+                    note.setNotedate();
+                    note.setNotetime();
+                    note.setBody(shareText);
+                    noteViewModel.createAndSaveNote(note, this);
+                    // shouldPersistOnPause = true;
+                    //noteViewModel.selectNote(note);
+                }
+
+            }
+
+
+
 
         noteViewModel.selectNote(note);
+
+//        Log.d("NoteEditActivity", "handleIntent: shouldPersistOnPause=" + shouldPersistOnPause +
+//                ", hasUnsavedChanges=" + noteViewModel.hasUnsavedChanges());
+
 //        Log.d("NoteEditActivity", "Selected note: " + noteViewModel.getSelectedNote().getValue());
     }
 
@@ -136,7 +151,7 @@ public class NoteEditActivity extends AppCompatActivity {
         }
 
         recipeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            Log.d("NoteEditActivity", "Recipe switch toggled: " + isChecked);
+//            Log.d("NoteEditActivity", "Recipe switch toggled: " + isChecked);
             if (isChecked) {
                 noteViewModel.updateNoteRecipe(cat);
             } else {

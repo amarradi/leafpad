@@ -222,6 +222,12 @@ public class NoteViewModel extends AndroidViewModel {
         loadNotes();
     }
 
+    public void createAndSaveNote(Note note, Context context) {
+        selectNote(note); // Für UI-Bindung
+        Leaf.save(context, note); // Persistenz
+    }
+
+
     // Im ViewModel:
 //    public void updateNoteVisibility(boolean hide) {
 //        Note currentNote = selectedNote.getValue();
