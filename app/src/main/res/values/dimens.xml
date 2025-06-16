@@ -57,6 +57,7 @@
     <dimen name="layout_width">0dp</dimen>
     <dimen name="icon_text_distance_start">4dp</dimen>
     <dimen name="icon_text_distance_end">0dp</dimen>
+    <dimen name="icon_text_distance_category_end">4dp</dimen>
     <dimen name="margin_listItem_distance_top">5dp</dimen>
     <!--ImageViews -->
 
@@ -97,4 +98,11 @@
     
     <dimen name="image_button_layout_width">40dp</dimen>
     <dimen name="image_button_layout_height">40dp</dimen>
+    <!-- category -->
+    <dimen name="category_padding_left">2pt</dimen>
+    <dimen name="category_padding_right">2pt</dimen>
+    <dimen name="category_padding_top">2pt</dimen>
+    <dimen name="category_padding_bottom">2pt</dimen>
+
+    <dimen name="category_label_radius">8dp</dimen>
 </resources>

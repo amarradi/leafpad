@@ -102,6 +102,7 @@
                     android:src="@drawable/togue" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    style="@style/CategoryLabel"
                     android:id="@+id/category_txt"
                     android:visibility="gone"
 
@@ -110,7 +111,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:paddingStart="@dimen/icon_text_distance_start"
-                    android:paddingEnd="@dimen/icon_text_distance_end" />
+                    android:paddingEnd="@dimen/icon_text_distance_category_end" />
 
                 <ImageView
                     android:id="@+id/bible"

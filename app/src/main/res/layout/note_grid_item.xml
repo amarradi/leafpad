@@ -67,12 +67,13 @@
                     android:visibility="gone" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    style="@style/CategoryLabel"
                     android:id="@+id/category_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin_listItem_distance_top"
                     android:paddingStart="@dimen/icon_text_distance_start"
-                    android:paddingEnd="@dimen/icon_text_distance_end"
+                    android:paddingEnd="@dimen/icon_text_distance_category_end"
                     android:layout_gravity="center"
                     android:textAppearance="@style/TextAppearance.MyCategoryText"
                     android:visibility="gone" />

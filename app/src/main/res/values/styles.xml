@@ -119,4 +119,10 @@
         <!-- Oder spezifische Farbe -->
     </style>
 
+    <style name="CategoryLabel" parent="">
+        <item name="android:background">@drawable/bg_category_label</item>
+        <item name="android:padding">2pt</item>
+        <item name="android:textAppearance">@style/TextAppearance.MyCategoryText</item>
+    </style>
+
 </resources>
