@@ -42,7 +42,7 @@ public class DialogHelper {
 
     public static void showDeleteSingleNoteDialog(Context context, Runnable onConfirm) {
         new MaterialAlertDialogBuilder(context)
-                .setIcon(R.drawable.dialog_delete)
+                .setIcon(R.drawable.delete)
                 .setTitle(R.string.remove_dialog_title)
                 .setMessage(R.string.remove_dailog_message)
                 .setPositiveButton(R.string.action_remove, (dialog, which) -> {

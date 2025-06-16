@@ -71,7 +71,11 @@ public class NoteEditActivity extends AppCompatActivity {
                     note.setNotedate();
                     note.setNotetime();
                     note.setBody(shareText);
+                    // Direkt speichern
                     noteViewModel.createAndSaveNote(note, this);
+
+                    finish(); // Optional: schließen nach dem Import
+                    return;
                     // shouldPersistOnPause = true;
                     //noteViewModel.selectNote(note);
                 }
@@ -161,7 +165,7 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private void configureUIFromNote(Note note) {
-        toolbar.setTitle(R.string.action_edit_note);
+     //   toolbar.setTitle(R.string.action_edit_note);
         if (titleEdit.getText().toString().isEmpty()) {
             titleEdit.setText(note.getTitle());
         }
@@ -169,15 +173,15 @@ public class NoteEditActivity extends AppCompatActivity {
             bodyEdit.setText(note.getBody());
         }
 
-        if (isNewEntry(note)) {
-            setupToolbarSubtitle(getString(R.string.new_note));
-        } else {
-            setupToolbarSubtitle(note.getTitle());
-        }
+//        if (isNewEntry(note)) {
+//            setupToolbarSubtitle(getString(R.string.new_note));
+//        } else {
+//            setupToolbarSubtitle(note.getTitle());
+//        }
     }
 
     private void setupToolbarSubtitle(String subtitle) {
-        toolbar.setSubtitle(subtitle);
+      //  toolbar.setSubtitle(subtitle);
     }
 
     private void initViews() {
@@ -233,7 +237,7 @@ public class NoteEditActivity extends AppCompatActivity {
         int id = item.getItemId();
         return switch (id) {
             case R.id.action_share_note -> {
-                shareNote();
+                shareNote(note);
                 yield true;
             }
             case R.id.action_remove -> {
@@ -313,7 +317,7 @@ public class NoteEditActivity extends AppCompatActivity {
         } else {
             Leaf.set(this, note);
             noteViewModel.saveNote(getApplication(), note);
-            toolbar.setSubtitle(note.getTitle());
+          //  toolbar.setSubtitle(note.getTitle());
         }
     }
 
@@ -330,29 +334,21 @@ public class NoteEditActivity extends AppCompatActivity {
     private void setupToolbar() {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(v -> checkForUnsavedChanges());
     }
 
-    private void shareNote() {
+    private void shareNote(Note note) {
         saveNote();
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, getExportString());
         sendIntent.setType("text/plain");
+        String content = note.getTitle() + "\n\n" + note.getBody();
+        sendIntent.putExtra(Intent.EXTRA_TEXT, content);
         startActivity(Intent.createChooser(sendIntent, getString(R.string.share_note)));
     }
 
-    public String getExportString() {
-        StringBuilder exportString = new StringBuilder();
-        if (!note.getTitle().isEmpty()) {
-            exportString.append(getString(R.string.action_share_title)).append(": ").append(note.getTitle()).append("\n");
-        }
-        if (!note.getBody().isEmpty()) {
-            exportString.append(getString(R.string.action_share_body)).append(": ").append(note.getBody());
-        }
-        return exportString.toString().trim();
-    }
     @Override
     protected void onResume() {
         super.onResume();

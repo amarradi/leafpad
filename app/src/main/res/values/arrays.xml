@@ -10,5 +10,5 @@
         <item>@string/lightmode_preference</item>
         <item>@string/darkmode_preference</item>
     </array>
-    <integer name="maxLines">1</integer>
+    <integer name="maxLines">2</integer>
 </resources>
