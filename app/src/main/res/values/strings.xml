@@ -103,4 +103,5 @@
     </plurals>
     <string name="toggle">change View</string>
     <string name="item_menu_description">menu for item actions</string>
+    <string name="empty_list">No notes available in the list</string>
 </resources>

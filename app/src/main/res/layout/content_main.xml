@@ -22,7 +22,7 @@
         android:id="@+id/emptyElement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/leafpad_work"
+        android:contentDescription="@string/empty_list"
         android:src="@drawable/leafpad_svg_twig"
         android:visibility="gone" />
 

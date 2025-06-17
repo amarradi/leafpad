@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -36,6 +35,8 @@ public class NoteEditActivity extends AppCompatActivity {
     private boolean shouldPersistOnPause = true;
     private boolean isNoteDeleted = false; // <--- Flag setzen!
 
+    private boolean isNewNote = false;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class NoteEditActivity extends AppCompatActivity {
         String noteId = intent.getStringExtra(Leafpad.EXTRA_NOTE_ID);
         Note note = Leaf.load(this, noteId);
         if (isNewEntry(note)) {
+            isNewNote = true;
             note.setNotedate();
             note.setNotetime();
         }
@@ -180,10 +182,6 @@ public class NoteEditActivity extends AppCompatActivity {
 //        }
     }
 
-    private void setupToolbarSubtitle(String subtitle) {
-      //  toolbar.setSubtitle(subtitle);
-    }
-
     private void initViews() {
         TextInputLayout titleLayout = findViewById(R.id.default_text_input_layout);
         TextInputLayout bodyLayout = findViewById(R.id.body_text_input_layout);
@@ -202,19 +200,19 @@ public class NoteEditActivity extends AppCompatActivity {
 //    }
     private boolean isNewEntry(Note note) {
         if (note.getTitle() == null) {
-            Log.d("NoteEditActivity", "isNewEntry: title "+note.getTitle());
+//            Log.d("NoteEditActivity", "isNewEntry: title "+note.getTitle());
             return true;
         }
         if (note.getTitle().isEmpty()) {
-            Log.d("NoteEditActivity", "isNewEntry: title "+note.getTitle());
+//            Log.d("NoteEditActivity", "isNewEntry: title "+note.getTitle());
             return true;
         }
         if (note.getBody() == null) {
-            Log.d("NoteEditActivity", "isNewEntry: body "+note.getBody());
+//            Log.d("NoteEditActivity", "isNewEntry: body "+note.getBody());
             return true;
         }
         if (note.getBody().isEmpty()) {
-            Log.d("NoteEditActivity", "isNewEntry: body "+note.getBody());
+//            Log.d("NoteEditActivity", "isNewEntry: body "+note.getBody());
             return true;
         }
         return false;
@@ -236,6 +234,7 @@ public class NoteEditActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         return switch (id) {
+
             case R.id.action_share_note -> {
                 shareNote(note);
                 yield true;
@@ -284,7 +283,7 @@ public class NoteEditActivity extends AppCompatActivity {
             current.setBody(bodyEdit.getText().toString());
         }
 
-        if(noteViewModel.hasUnsavedChanges() && ! isNewEntry(Objects.requireNonNull(current))) {
+        if(noteViewModel.hasUnsavedChanges() && !isNewNote) {
             if(Leafpad.isChangeNotificationEnabled(this) ){
                 DialogHelper.showUnsavedChangesDialog(
                         NoteEditActivity.this,

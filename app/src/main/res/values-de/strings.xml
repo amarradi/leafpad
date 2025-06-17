@@ -97,4 +97,5 @@
     <string name="showRestoreConfirmationMessage">Alle aktuellen Notizen werden durch die Sicherungskopie ersetzt. Weiter?</string>
     <string name="toggle">Ansicht umschalten</string>
     <string name="note_shared">Note shared</string>
+    <string name="empty_list">Keine Notizen in der Liste</string>
 </resources>
