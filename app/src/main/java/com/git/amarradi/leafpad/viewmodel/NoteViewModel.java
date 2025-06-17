@@ -154,10 +154,6 @@ public class NoteViewModel extends AndroidViewModel {
         return selectedNote;
     }
 
-//    public LiveData<Boolean> getIsNoteEmpty() {
-//        return isNoteEmpty;
-//    }
-
     public LiveData<Boolean> getShowHidden() {
         return showHiddenLiveData;
     }
@@ -173,7 +169,8 @@ public class NoteViewModel extends AndroidViewModel {
             selectedNote.setValue(null);
         } else {
             originalNote.setValue(note);
-            selectedNote.setValue(new Note(note)); // Klon!
+            // Copy to compare
+            selectedNote.setValue(new Note(note));
         }
     }
 
@@ -198,19 +195,6 @@ public class NoteViewModel extends AndroidViewModel {
         ));
     }
 
-//    public void saveNote(Context context, String title, String body) {
-//        Note note = selectedNote.getValue();
-//        if (note != null) {
-//            note.setTitle(title);
-//            note.setBody(body);
-//            if (isEmptyEntry(note)){
-//                deleteNote(context, note);
-//            } else {
-//                saveNote(context,note);
-//            }
-//        }
-//    }
-
     public void saveNote(Context context, Note note) {
         Leaf.save(getApplication(), note);
         loadNotes();
@@ -226,34 +210,6 @@ public class NoteViewModel extends AndroidViewModel {
         selectNote(note); // Für UI-Bindung
         Leaf.save(context, note); // Persistenz
     }
-
-
-    // Im ViewModel:
-//    public void updateNoteVisibility(boolean hide) {
-//        Note currentNote = selectedNote.getValue();
-//        if (currentNote != null) {
-//            currentNote.setHide(hide);
-//            Leaf.save(getApplication(), currentNote);
-//            selectedNote.setValue(currentNote); // damit Beobachter aktualisiert werden
-//        }
-//    }
-
-//    public void updateNoteVisibility(boolean hide) {
-//        Note currentNote = selectedNote.getValue();
-//        if (currentNote != null) {
-//
-//            if ((currentNote.getTitle() == null || currentNote.getTitle().trim().isEmpty()) &&
-//                    (currentNote.getBody() == null || currentNote.getBody().trim().isEmpty())) {
-//
-//                currentNote.setHide(hide);
-//                selectedNote.setValue(currentNote);
-//                return;
-//            }
-//            currentNote.setHide(hide);
-//            Leaf.save(getApplication(), currentNote);
-//            selectedNote.setValue(currentNote);
-//        }
-//    }
 
     public void updateNoteRecipe(String category) {
 //        Log.d("updateNoteRecipe", "updateNoteRecipe entered");

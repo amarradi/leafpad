@@ -56,8 +56,6 @@ public class Leafpad extends Application {
     }
 
     public boolean isListLayout() {
-        //SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        //String layout = prefs.getString(PREF_LAYOUT_MODE, "list");
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String layout = sharedPreferences.getString(PREF_LAYOUT_MODE, "list");
         return "list".equals(layout);
@@ -73,8 +71,6 @@ public class Leafpad extends Application {
             editor.putString(PREF_LAYOUT_MODE, "grid");
         }
         editor.apply();
-        //SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        //prefs.edit().putString(PREF_LAYOUT_MODE, isList ? "list" : "grid").apply();
     }
 
 
@@ -89,17 +85,17 @@ public class Leafpad extends Application {
         LayoutModeHelper.applyLayout(this, recyclerView, adapter, isList);
     }
 
-    public boolean isListLayoutMode() {
-        return LayoutModeHelper.isListMode(this);
-    }
+//    public boolean isListLayoutMode() {
+//        return LayoutModeHelper.isListMode(this);
+//    }
 
 
     // Schaltet den Modus um und gibt den neuen Zustand zurück
-    public boolean toggleLayoutMode() {
-        boolean newMode = !isListLayout();
-        saveLayoutMode(newMode);
-        return newMode;
-    }
+//    public boolean toggleLayoutMode() {
+//        boolean newMode = !isListLayout();
+//        saveLayoutMode(newMode);
+//        return newMode;
+//    }
 
     public boolean getSavedShowHidden() {
         SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
@@ -113,8 +109,6 @@ public class Leafpad extends Application {
 
     // Speichern des aktuellen Status für den Theme
     public void saveTheme(String themeValue) {
-//        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-//        SharedPreferences.Editor editor = sharedPreferences.edit();
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(DESIGN_MODE, themeValue);
@@ -124,8 +118,6 @@ public class Leafpad extends Application {
 
     // Anwenden des gespeicherten Themes
     public void applyTheme() {
-//        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-//        String themeValue = sharedPreferences.getString(DESIGN_MODE, "system"); // Standard ist system
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String themeValue = sharedPreferences.getString(DESIGN_MODE, "system");
         AppCompatDelegate.setDefaultNightMode(toNightMode(themeValue));

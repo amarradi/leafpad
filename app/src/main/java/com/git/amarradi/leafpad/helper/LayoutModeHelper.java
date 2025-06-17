@@ -29,12 +29,6 @@ public class LayoutModeHelper {
         return "list".equals(mode);
     }
 
-//    public static void toggleAndApply(Context context, RecyclerView recyclerView, NoteAdapter adapter) {
-//        boolean isList = !isListMode(context);
-//        saveMode(context, isList);
-//        applyLayout(context, recyclerView, adapter, isList);
-//    }
-
     public static void saveMode(Context context, boolean isList) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();

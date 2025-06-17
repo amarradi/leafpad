@@ -25,7 +25,7 @@
             android:key="save"
             android:title="@string/save_notes_title"
             android:summary="@string/save"
-            android:icon="@drawable/preference_restore_data"
+            android:icon="@drawable/save_backup"
             />
 
         <Preference
@@ -33,7 +33,7 @@
             android:key="restore"
             android:title="@string/restore_notes_title"
             android:summary="@string/restore"
-            android:icon="@drawable/preference_save_data"
+            android:icon="@drawable/load_backup"
             />
        <!--<CheckBoxPreference
             android:selectable="true"

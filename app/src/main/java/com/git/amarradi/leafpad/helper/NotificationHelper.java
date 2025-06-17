@@ -11,26 +11,4 @@ public class NotificationHelper {
                     .show();
         }
     }
-
-    public static void showSnackbar(View view, String message,int duration, View anchorView) {
-        if (view != null) {
-            Snackbar.make(view, message, duration)
-                    .setAnchorView(anchorView)
-                    .show();
-        }
-    }
-
-    public static void showSnackbar(View view, String message, int duration) {
-        if (view != null) {
-            Snackbar.make(view, message, duration).show();
-        }
-    }
-
-    public static void showSnackbar(View view, String message, int duration, String actionText, View.OnClickListener actionListener) {
-        if (view != null) {
-            Snackbar.make(view, message, duration)
-                    .setAction(actionText, actionListener)
-                    .show();
-        }
-    }
 }

@@ -38,10 +38,7 @@ public class Note {
         this.hide = hide;
         this.category = category;
         this.id = id;
-
     }
-
-
 
     public String getCategory() {
         return category;
@@ -131,11 +128,9 @@ public class Note {
                 safeEquals(body, other.body) &&
                 safeEquals(category, other.category) &&
                 hide == other.hide;
-        // Du kannst bei Bedarf weitere Felder vergleichen
     }
 
     private boolean safeEquals(String a, String b) {
         return (a == null && b == null) || (a != null && a.equals(b));
     }
-
 }

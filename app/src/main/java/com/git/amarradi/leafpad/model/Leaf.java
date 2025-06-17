@@ -56,27 +56,8 @@ public class Leaf {
             }
         }
         Collections.reverse(notes);
-//        Log.d("LeafDebug", "Loaded notes: " + notes.size());
         return notes;
     }
-
-    /**public static Note load(Context context, String noteId) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
-        boolean noteHide;
-
-        if (sharedPreferences.contains(HIDE + noteId)) {
-            noteHide = sharedPreferences.getBoolean(HIDE + noteId, false);
-            sharedPreferences.edit().remove(HIDE + noteId).putBoolean(HIDE + "_" + noteId, noteHide).apply();
-
-        }
-            sharedPreferences.edit()
-                    .remove(HIDE + noteId)
-                    .putBoolean(HIDE + "_" + noteId, noteHide)
-                    .apply();
-           // Log.d("Leaf", "Migrating old hide key for noteId: " + noteId + ", Value: " + noteHide);
-        }
-        return load(sharedPreferences, noteId);
-    }**/
 
     public static Note load(Context context, String noteId) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
@@ -126,12 +107,10 @@ public class Leaf {
         editor.putString(BODY_PREFIX + note.getId(), note.getBody());
         editor.putString(ADDDATE + note.getId(), note.getDate());
         editor.putString(ADDTIME + note.getId(), note.getTime());
-        //editor.putBoolean(HIDE + note.getId(), note.isHide());
 
         // Migriere alten Schlüssel, falls vorhanden
         if (sharedPreferences.contains(HIDE + note.getId())) {
             boolean oldHide = sharedPreferences.getBoolean(HIDE + note.getId(), false);
-          //  Log.d("Leaf", "Migrating old hide key: " + oldHide);
             editor.remove(HIDE + note.getId()); // Alten Schlüssel entfernen
             editor.putBoolean(HIDE + "_" + note.getId(), oldHide); // Neuen Schlüssel setzen
         } else {

@@ -284,7 +284,7 @@ public class NoteEditActivity extends AppCompatActivity {
             current.setBody(bodyEdit.getText().toString());
         }
 
-        if(noteViewModel.hasUnsavedChanges()) {
+        if(noteViewModel.hasUnsavedChanges() && ! isNewEntry(Objects.requireNonNull(current))) {
             if(Leafpad.isChangeNotificationEnabled(this) ){
                 DialogHelper.showUnsavedChangesDialog(
                         NoteEditActivity.this,
@@ -358,18 +358,11 @@ public class NoteEditActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-
-//
-//        if (!shouldPersistOnPause) {
-//            return;
-//        }
-
-        if(!isNoteDeleted) {
+        if(!isNoteDeleted && !isNewEntry(note)) {
             updateNoteFromUI();
             if (shouldPersistOnPause && noteViewModel.hasUnsavedChanges()) {
                 noteViewModel.persist();
             }
         }
-        //noteViewModel.persist();
    }
 }

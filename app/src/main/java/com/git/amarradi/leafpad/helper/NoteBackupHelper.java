@@ -26,7 +26,6 @@ public class NoteBackupHelper {
         return formatter.format(new java.util.Date());
     }
 
-
     public static void backupNotesToStream(Context context, OutputStream outputStream) throws Exception {
         List<Note> notes = Leaf.loadAll(context, true);
         XmlSerializer serializer = XmlPullParserFactory.newInstance().newSerializer();
@@ -38,7 +37,6 @@ public class NoteBackupHelper {
 
         for (Note note : notes) {
             serializer.startTag("", "note");
-
             serializer.startTag("", "id").text(note.getId()).endTag("", "id");
             serializer.startTag("", "title").text(note.getTitle()).endTag("", "title");
             serializer.startTag("", "body").text(note.getBody()).endTag("", "body");
@@ -49,7 +47,6 @@ public class NoteBackupHelper {
             serializer.startTag("", "category").text(note.getCategory()).endTag("", "category");
             serializer.endTag("", "note");
         }
-
         serializer.endTag("", "notes");
         serializer.endDocument();
 
