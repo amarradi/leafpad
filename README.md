@@ -46,5 +46,7 @@ If you have found a bug or are missing a function, you can simply open a new iss
 ### first version of leafpad
 _Many thanks to Dominik Schmidt for providing the initial source code in 2017._
 
-# Support me
+# Support for leafpad
+If you would like to support the work on leafpad, you are welcome to do so via liberapay
+
 <a href="https://liberapay.com/amarrradi/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
