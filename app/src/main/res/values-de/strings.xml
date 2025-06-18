@@ -98,4 +98,5 @@
     <string name="toggle">Ansicht umschalten</string>
     <string name="note_shared">Note shared</string>
     <string name="empty_list">Keine Notizen in der Liste</string>
+    <string name="not_initialized">Leafpad noch nicht initialisiert!</string>
 </resources>

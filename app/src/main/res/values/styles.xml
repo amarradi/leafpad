@@ -124,5 +124,12 @@
         <item name="android:padding">2pt</item>
         <item name="android:textAppearance">@style/TextAppearance.MyCategoryText</item>
     </style>
-
+    <style name="Widget.App.ExtendedFloatingActionButton" parent="Widget.Material3.ExtendedFloatingActionButton.Icon.Primary">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.FloatingActionButton</item>
+    </style>
+    <style name="ThemeOverlay.App.FloatingActionButton" parent="">
+        <item name="colorContainer">@color/md_theme_primary</item>
+        <item name="colorOnContainer">@color/md_theme_onPrimary</item>
+        <item name="android:layout_margin">@dimen/fab_margin</item>
+    </style>
 </resources>

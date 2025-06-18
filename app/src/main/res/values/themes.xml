@@ -45,7 +45,7 @@
       <!--  <item name="android:dialogCornerRadius">28dp</item> -->
 
         <item name="elevationOverlayEnabled">false</item>
-
+        <item name="extendedFloatingActionButtonStyle">@style/Widget.App.ExtendedFloatingActionButton</item>
 
     </style>
 
