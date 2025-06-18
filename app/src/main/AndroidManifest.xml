@@ -38,6 +38,16 @@
                 android:resource="@xml/shortcuts" />
         </activity>
         <activity
+            android:name=".SearchActivity"
+            android:label="@string/search"
+            android:theme="@style/Theme.MyApp"
+            android:parentActivityName=".MainActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.git.amarradi.leafpad.MainActivity" />
+        </activity>
+        <activity
             android:name=".NoteEditActivity"
             android:exported="true"
             android:label="@string/title_activity_note_edit"

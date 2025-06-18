@@ -195,6 +195,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 Leafpad.getInstance().toggleLayoutMode(recyclerView, noteAdapter);
                 invalidateOptionsMenu();
                 return true;
+            case R.id.action_open_search:
+                Intent searchIntent = new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(searchIntent);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
