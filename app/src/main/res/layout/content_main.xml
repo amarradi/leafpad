@@ -8,6 +8,7 @@
     tools:context="MainActivity"
     tools:showIn="@layout/activity_main">
 
+
     <androidx.recyclerview.widget.RecyclerView
 
         android:id="@+id/note_list_view"

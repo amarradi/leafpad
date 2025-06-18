@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public NoteAdapter noteAdapter;
     private NoteViewModel noteViewModel;
 
+
     @SuppressLint("RestrictedApi")
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -195,8 +196,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 Leafpad.getInstance().toggleLayoutMode(recyclerView, noteAdapter);
                 invalidateOptionsMenu();
                 return true;
-            case R.id.action_open_search:
-                Intent searchIntent = new Intent(MainActivity.this, SearchActivity.class);
+            case R.id.action_search:
+                Intent searchIntent = new Intent(this, SearchActivity.class);
                 startActivity(searchIntent);
                 return true;
         }
@@ -227,5 +228,4 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         void onNoteClicked(Note note);
         void onNoteIconClicked(Note note, View anchor);
     }
-
 }

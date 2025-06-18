@@ -171,7 +171,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new NoteDiffCallback(this.noteList, newFilteredList));
         this.noteList = newFilteredList;
         diffResult.dispatchUpdatesTo(this);
-
     }
 
     public static class NoteViewHolder extends RecyclerView.ViewHolder {
@@ -191,4 +190,32 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             actionButton = itemView.findViewById(R.id.image_button);
         }
     }
+
+    public void filter(String query) {
+        List<Note> filtered = new ArrayList<>();
+
+        for (Note note : fullNoteList) {
+            if (!showOnlyHidden && note.isHide()) {
+                continue;
+            }
+            if (showOnlyHidden && !note.isHide()) {
+                continue;
+            }
+
+            String title = note.getTitle() != null ? note.getTitle().toLowerCase() : "";
+            String body  = note.getBody() != null ? note.getBody().toLowerCase() : "";
+            String category = note.getCategory() != null ? note.getCategory().toLowerCase() : "";
+
+            if (title.contains(query.toLowerCase())
+                    || body.contains(query.toLowerCase())
+                    || category.contains(query.toLowerCase())) {
+                filtered.add(note);
+            }
+        }
+
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new NoteDiffCallback(this.noteList, filtered));
+        this.noteList = filtered;
+        diffResult.dispatchUpdatesTo(this);
+    }
+
 }

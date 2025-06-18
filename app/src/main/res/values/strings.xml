@@ -67,8 +67,8 @@
     <string name="note_will_be_saved_first">Note will be saved first</string>
     <string name="action_save">save note</string>
     <string name="action_note_saved">saved</string>
-    <string name="search">search</string>
-    <string name="search_hint">type search terms</string>
+
+
     <string name="participate">Participate</string>
     <string name="translate">Translate the app on Weblate</string>
     <string name="translation_help">Help us translate the app into your language on weblate</string>
@@ -106,4 +106,8 @@
     <string name="item_menu_description">menu for item actions</string>
     <string name="empty_list">No notes available in the list</string>
     <string name="not_initialized">Leafpad not initialized yet!</string>
+    <string name="search">search notes</string>
+    <string name="search_hint">What are you looking for?</string>
+    <string name="no_search_results">Nothing found</string>
+    <string name="startIconDescription">A search field</string>
 </resources>

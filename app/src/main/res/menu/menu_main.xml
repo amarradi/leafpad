@@ -2,17 +2,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.git.amarradi.MainActivity">
+
+    <item
+        android:id="@+id/action_search"
+        android:title="Suche"
+        android:icon="@drawable/action_search"
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/item_show_hidden"
         android:icon="@drawable/eye_visible"
         android:title="@string/show_hidden"
         app:showAsAction="ifRoom"
         />
-    <item
-        android:id="@+id/action_open_search"
-        android:title="@string/search"
-        android:icon="@drawable/action_search"
-        app:showAsAction="ifRoom" />
+
     <item
         android:id="@+id/item_toggle_layout"
         android:icon="@drawable/gridview"

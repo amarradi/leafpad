@@ -54,7 +54,7 @@
     <string name="thanks">Danke Stefan, Stefan, Manuel, Falk, Stephanie und Emil für eure Ideen und das Testen der App.</string>
     <string name="action_save">Notiz speichern</string>
     <string name="action_note_saved">gespeichert</string>
-    <string name="search">suchen</string>
+
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="lightmode_preference" translatable="false">lightmode</string>
@@ -99,4 +99,8 @@
     <string name="note_shared">Note shared</string>
     <string name="empty_list">Keine Notizen in der Liste</string>
     <string name="not_initialized">Leafpad noch nicht initialisiert!</string>
+    <string name="search">Notizen suchen</string>
+    <string name="search_hint">Wonach suchen Sie?</string>
+    <string name="no_search_results">Nichts gefunden</string>
+    <string name="startIconDescription">Ein Suchfeld</string>
 </resources>

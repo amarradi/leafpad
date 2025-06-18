@@ -1,35 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:orientation="vertical"
-	android:fitsSystemWindows="true"
- 	android:padding="16dp">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".SearchActivity">
 
-	<!-- Toolbar -->
-	<com.google.android.material.appbar.AppBarLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:fitsSystemWindows="true">
+    <com.google.android.material.appbar.AppBarLayout
 
-		<com.google.android.material.appbar.MaterialToolbar
-			android:id="@+id/search_toolbar"
-			android:layout_width="match_parent"
-			android:layout_height="?attr/actionBarSize"
-			android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-			/>
-	</com.google.android.material.appbar.AppBarLayout>
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/searchtoolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
- 	<com.google.android.material.search.SearchView
- 		android:id="@+id/search_view"
- 		android:layout_width="match_parent"
- 		android:layout_height="wrap_content"
- 		android:queryHint="@string/search_hint"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
-	<ListView
-		android:id="@+id/list_search_results"
-		android:layout_width="match_parent"
-		android:layout_height="0dp"
-		android:layout_weight="1"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/switch_layout_marginStart"
+        android:paddingEnd="@dimen/switch_layout_marginEnd"
+        android:hint="@string/search_hint"
+        app:endIconMode="clear_text"
+        app:startIconDrawable="@drawable/action_search"
+        app:startIconContentDescription="">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/search_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:paddingStart="@dimen/switch_layout_marginStart"
+            android:paddingEnd="@dimen/switch_layout_marginEnd"
+            android:imeOptions="actionSearch" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_results_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        android:layout_weight="1" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/switch_layout_marginStart"
+        android:paddingEnd="@dimen/switch_layout_marginEnd">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/no_results_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_search_results"
+            android:gravity="center"
+            android:visibility="gone"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:padding="16dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 </LinearLayout>

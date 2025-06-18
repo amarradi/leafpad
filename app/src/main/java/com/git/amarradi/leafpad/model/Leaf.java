@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.util.Log;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -60,6 +61,9 @@ public class Leaf {
     }
 
     public static Note load(Context context, String noteId) {
+        if (noteId == null) {
+            return null;
+        }
         SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);
         boolean noteHide;
 
@@ -85,6 +89,7 @@ public class Leaf {
         //boolean noteHide = sharedPreferences.getBoolean(HIDE + noteId,false); //der alte Schlüssel bis version 1.14
         boolean noteHide = sharedPreferences.getBoolean(HIDE + "_" + noteId, false);
         String noteCategory = sharedPreferences.getString(CATEGORY + noteId,"");
+        Log.d("Leaf.load", "Loading noteId=" + noteId + " title='" + title + "' body='" + body + "'");
         return new Note(title, body, noteDate, noteTime, noteCreateDate, noteHide, noteCategory, noteId);
     }
 

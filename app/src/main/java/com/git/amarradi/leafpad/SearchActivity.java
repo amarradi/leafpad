@@ -1,85 +1,98 @@
 package com.git.amarradi.leafpad;
 
-import androidx.appcompat.widget.SearchView;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import androidx.appcompat.app.AppCompatActivity;
-import java.util.*;
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.TextView;
 
+import androidx.activity.EdgeToEdge;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.git.amarradi.leafpad.adapter.SearchAdapter;
+import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class SearchActivity extends AppCompatActivity {
-	private SearchView searchView;
-	private ListView listView;
-	private MaterialToolbar toolbar;
-	private SimpleAdapter adapter;
-	private List<Note> notes;
-	private List<Map<String,String>> data = new ArrayList<>();
 
-	private final int PREVIEW = 25;
+	private TextInputEditText searchInput;
+	private RecyclerView recyclerView;
+	private TextView noResultsText;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState)  {
+	private SearchAdapter searchAdapter;
+	private NoteViewModel noteViewModel;
+
+	@SuppressLint("RestrictedApi")
+    @Override
+	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search);
-
-		searchView = findViewById(R.id.search_view);
-		listView = findViewById(R.id.list_search_results);
-		toolbar = findViewById(R.id.search_toolbar);
-
-		setSupportActionBar(toolbar);
+		EdgeToEdge.enable(this);
+		MaterialToolbar searchtoolbar = findViewById(R.id.searchtoolbar);
+		setSupportActionBar(searchtoolbar);
 		Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+		searchtoolbar.setTitle(getString(R.string.search));
+		searchInput = findViewById(R.id.search_input);
+		recyclerView = findViewById(R.id.search_results_recycler_view);
+		noResultsText = findViewById(R.id.no_results_text);
+		noResultsText.setVisibility(View.GONE); // Start: nicht anzeigen
 
-		notes = Leaf.loadAll(this,true);
+		recyclerView.setLayoutManager(new LinearLayoutManager(this));
+		searchAdapter = new SearchAdapter(new ArrayList<>(), note -> {
+			Intent intent = new Intent(SearchActivity.this, NoteEditActivity.class);
+			intent.putExtra("fromSearch", true); // Herkunft mitgeben
+			intent.putExtra("noteId", note.getId());
+			startActivity(intent);
+		});
+		recyclerView.setAdapter(searchAdapter);
 
-		adapter = new SimpleAdapter(this, data, R.layout.note_list_item, new String[]{"title","body","date","time","category"},
-							new int[]{R.id.title_text, R.id.note_preview, R.id.created_at, R.id.time_txt, R.id.category_txt});
+		noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
+		noteViewModel.loadNotes();
 
-		listView.setAdapter(adapter);
+		noteViewModel.getSearchResults().observe(this, results -> {
+			searchAdapter.updateNotes(results);
 
+			String currentQuery = searchInput.getText() != null ? searchInput.getText().toString().trim() : "";
+			boolean queryIsEmpty = currentQuery.isEmpty();
 
-		searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-			@Override
-			public boolean onQueryTextSubmit(String query) {	
-				filterNotes(query);
-				return true;
-			}
-
-			@Override
-			public boolean onQueryTextChange(String newText)  {
-				filterNotes(newText);
-				return true;
+			if (!queryIsEmpty && (results == null || results.isEmpty())) {
+				noResultsText.setVisibility(View.VISIBLE);
+			} else {
+				noResultsText.setVisibility(View.GONE);
 			}
 		});
 
-		filterNotes("");
+		searchInput.addTextChangedListener(new TextWatcher() {
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				noteViewModel.setSearchQuery(s.toString());
+			}
+
+			@Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+			@Override public void afterTextChanged(Editable s) {}
+		});
+
+		searchInput.setOnEditorActionListener((v, actionId, event) -> {
+			if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+				String query = searchInput.getText() != null ? searchInput.getText().toString() : "";
+				noteViewModel.setSearchQuery(query);
+				return true;
+			}
+			return false;
+		});
 
 	}
 
-	private void filterNotes(String query) {
-		String lowerQuery = query.toLowerCase();
-		data.clear();
 
-		for(Note note: notes) {
-			if (note.getTitle().toLowerCase().contains(lowerQuery) || note.getBody().toLowerCase().contains(lowerQuery) ) {
-				Map<String, String> datum = new HashMap<>();
-				datum.put("id", note.getId());
-				datum.put("title", note.getTitle());
-
-				String previewText = note.getBody();
-				if (previewText.length()> PREVIEW) {
-					previewText = previewText.substring(0, PREVIEW) + "...";
-				}
-				datum.put("body", previewText);
-				datum.put("date", note.getDate());
-				datum.put("time", note.getTime());
-				datum.put("category", note.getCategory());
-				data.add(datum);
-			}
-		}
-
-		adapter.notifyDataSetChanged();
-	}		
 }

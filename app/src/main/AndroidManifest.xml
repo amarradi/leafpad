@@ -42,7 +42,7 @@
             android:label="@string/search"
             android:theme="@style/Theme.MyApp"
             android:parentActivityName=".MainActivity"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.git.amarradi.leafpad.MainActivity" />

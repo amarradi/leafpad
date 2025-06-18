@@ -6,12 +6,14 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 
 import com.git.amarradi.leafpad.model.Leaf;
 import com.git.amarradi.leafpad.model.Note;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -29,6 +31,9 @@ public class NoteViewModel extends AndroidViewModel {
                         (note.getBody()  == null || note.getBody().trim().isEmpty());
             }
     );
+
+    private final MutableLiveData<String> searchQuery = new MutableLiveData<>("");
+    private final MediatorLiveData<List<Note>> filteredNotes = new MediatorLiveData<>();
 
     public void persist() {
         Note n = selectedNote.getValue();
@@ -59,9 +64,7 @@ public class NoteViewModel extends AndroidViewModel {
     public boolean isNewEntry(Note note) {
 
         String title = "";
-//        Log.d("NoteViewModel", "isNewEntry: noteTitle"+note.getTitle());
         if (note.getTitle().isEmpty()) {
-//            Log.d("NoteViewModel", "isNewEntry: title"+ title);
             title = "";
         } else {
             title = note.getTitle().trim();
@@ -73,7 +76,6 @@ public class NoteViewModel extends AndroidViewModel {
         } else {
             body = note.getBody().trim();
         }
-//        Log.d("NoteViewModel","isNewEntry" +title.isEmpty()+"|"+body.isEmpty());
         return title.isEmpty() && body.isEmpty();
     }
 
@@ -86,9 +88,6 @@ public class NoteViewModel extends AndroidViewModel {
     public boolean hasUnsavedChanges() {
         Note current = selectedNote.getValue();
         Note original = originalNote.getValue();
-
-//        Log.d("NoteViewModel", "current: "+current.getTitle()+"|"+current.getBody());
-//        Log.d("NoteViewModel", "original: "+original.getTitle()+"|"+original.getBody());
 
         if (original == null) {
             return false;
@@ -137,13 +136,46 @@ public class NoteViewModel extends AndroidViewModel {
         } else if (current.isHide() != original.isHide()) {
             changed = true;
         }
-//        Log.d("NoteViewModel", "hasUnsavedChanges = " + changed);
         return changed;
     }
 
 
     public NoteViewModel(@NonNull Application application) {
         super(application);
+
+        filteredNotes.addSource(notesLiveData, notes -> applySearchQuery());
+        filteredNotes.addSource(searchQuery, q -> applySearchQuery());
+    }
+
+
+    private void applySearchQuery() {
+        List<Note> allNotes = notesLiveData.getValue();
+        String query = searchQuery.getValue();
+
+        if (allNotes == null || query == null || query.isEmpty()) {
+            filteredNotes.setValue(new ArrayList<>());
+            return;
+        }
+
+        List<Note> filtered = new ArrayList<>();
+        String lowerQuery = query.toLowerCase();
+
+        for (Note note : allNotes) {
+            if ((note.getTitle() != null && note.getTitle().toLowerCase().contains(lowerQuery)) ||
+                    (note.getBody() != null && note.getBody().toLowerCase().contains(lowerQuery)) ||
+                    (note.getCategory() != null && note.getCategory().toLowerCase().contains(lowerQuery))) {
+                filtered.add(note);
+            }
+        }
+        filteredNotes.setValue(filtered);
+    }
+
+    public void setSearchQuery(String query) {
+        searchQuery.setValue(query);
+    }
+
+    public LiveData<List<Note>> getSearchResults() {
+        return filteredNotes;
     }
 
     public LiveData<List<Note>> getNotes() {
@@ -202,7 +234,6 @@ public class NoteViewModel extends AndroidViewModel {
 
     public void deleteNote(Context context, Note note) {
         Leaf.remove(getApplication(), note);
-        //loadNotes( false);
         loadNotes();
     }
 
@@ -212,26 +243,41 @@ public class NoteViewModel extends AndroidViewModel {
     }
 
     public void updateNoteRecipe(String category) {
-//        Log.d("updateNoteRecipe", "updateNoteRecipe entered");
         Note currentNote = selectedNote.getValue();
         if (currentNote != null) {
             String currentCategory = currentNote.getCategory();
 
             if (!category.equals(currentCategory)) {
                 currentNote.setCategory(category);
-//                Log.d("updateNoteRecipe", "Category updated to: " + category);
                 selectedNote.setValue(currentNote);
             }
-//            else {
-//                Log.d("updateNoteRecipe", "No category update needed.");
-//            }
         }
-//        else {
-//            Log.d("updateNoteRecipe", "currentNote is null, no update performed.");
-//        }
     }
 
     public static boolean isEmptyEntry(Note note) {
         return note.getBody().isEmpty() && note.getTitle().isEmpty();
+    }
+
+    public LiveData<List<Note>> searchNotes(String query) {
+        MutableLiveData<List<Note>> result = new MutableLiveData<>();
+        List<Note> allNotes = notesLiveData.getValue();
+
+        if (allNotes == null) {
+            result.setValue(new ArrayList<>());
+            return result;
+        }
+
+        List<Note> filtered = new ArrayList<>();
+        String lowerQuery = query.toLowerCase();
+
+        for (Note note : allNotes) {
+            if ((note.getTitle() != null && note.getTitle().toLowerCase().contains(lowerQuery)) ||
+                    (note.getBody() != null && note.getBody().toLowerCase().contains(lowerQuery))) {
+                filtered.add(note);
+            }
+        }
+
+        result.setValue(filtered);
+        return result;
     }
 }
