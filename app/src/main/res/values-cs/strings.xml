@@ -14,8 +14,8 @@
     <string name="leafpad_work">Leafpad ukládá všechna data lokálně na vašem smartphonu. Poznámky nebo metadata, jako je datum a čas nejsou uloženy v zádném cloudu a nejsou sdíleny s někým. Žádné textové analýzy se neprovádí. Poznámky patří k vám. Vy rozhodujete, co s nimi děláte.</string>
     <string name="new_note">nová poznámka</string>
     <string name="imported">poznámka byla odeslána na leafpad</string>
-    <string name="rate_the_app">Co třeba recenze v Google PlayStore?</string>
-    <string name="add_shortcut_short_label">Napište nový</string>
+    <string name="rate_the_app">Co třeba recenzi v Google PlayStore?</string>
+    <string name="add_shortcut_short_label">Napsat novou</string>
     <string name="action_note_saved">uložené</string>
     <string name="tell_about">Co chci vám říct o Leafpad</string>
     <string name="action_share_body">Poznámka</string>
@@ -25,7 +25,7 @@
     <string name="title_activity_note_edit">Upravit poznámku</string>
     <string name="translate">Přeložit aplikaci na Weblate</string>
     <string name="change">verze</string>
-    <string name="system_preference_key">podle systému (standardní)</string>
+    <string name="system_preference_key">podle systému (výchozí)</string>
     <string name="contentDescription">přidat novou poznámku</string>
     <string name="action_edit_note">Upravit poznámku</string>
     <string name="note_will_be_saved_first">Poznámka bude uložena první</string>
@@ -49,10 +49,10 @@
     <string name="action_save">uložit poznámku</string>
     <string name="share_note">Sdílet Poznámku?</string>
     <string name="thanks">Děkuji Stefane, Stefane, Manuele, Falku, Stephanie a Emile pro vaše nápady a testování aplikace.</string>
-    <string name="statement">Vypíšeme seznamy obchodů, poznámky pro rozhovory, balíčky pro dovolenou nebo narozeniny přátel. To jsou všechny dobré věci, abychom je nezapomněli. Je to velmi podobné s Bohem, píše své dobré a špatné skutky a uloží je. Bůh je nad vším a jednoduše ví všechno. Bůh miluje lidi a chce mít přátelství s nimi. Ale to je možné pouze v případě, že jsme viděli Bohem jako neškodný. Prostřednictvím víry v Ježíši Kristu, naše špatné skutky (naše viny) se před Bohem otřít. Ježíš Kristus atoned pro naše viny na kříži Calvary. Každá osoba, která přijímá tuto knihu života navždy. Jste registrováni v knize života?</string>
+    <string name="statement">Vypíšeme seznamy obchodů, poznámky pro rozhovory, balíčky pro dovolenou nebo narozeniny přátel. To jsou všechny dobré věci, abychom je nezapomněli. Je to velmi podobné s Bohem, píše své dobré a špatné skutky a uloží je. Bůh je nad vším a jednoduše ví všechno. Bůh miluje lidi a chce mít přátelství s nimi. Ale to je možné pouze v případě, že jsme viděli Bohem jako neškodný. Prostřednictvím víry v Ježíši Kristu, naše špatné skutky (naše viny) jsou vymazány před Bohem. Ježíš Kristus odčinil pro naše viny na kříži Kalvárie. Každá osoba, která souhlasí, je v knize života navždy. Jste registrováni v knize života?</string>
     <string name="hide_note">neviditelná poznámka</string>
     <string name="translation_help">Pomožte aplikaci přeložit do vašeho jazyka na Weblate</string>
-    <string name="rev20_12">A viděl jsem mrtvý, velký a malý, stojící před trůnem; a knihy byly otevřeny: a další kniha byla otevřena, která je kniha života: a mrtvý byli posuzováni z věcí, které byly napsány v knihách, podle jejich děl. Zjevení 20:12</string>
+    <string name="rev20_12">A viděl jsem mrtvé, velcí a malí, stojící před trůnem; a knihy byly otevřeny: a další kniha byla otevřena, která je kniha života: a mrtvý byli posuzováni z věcí, které byly napsány v knihách, podle jejich děl. Zjevení 20:12</string>
     <string name="its_opensource">Leafpad je Open Source a je zdarma</string>
     <string name="satisfied">Užíváte si leafpad?</string>
     <string name="app_name">Leafpad</string>
@@ -74,19 +74,19 @@
     <string name="showDeleteConfirmationMessage">Všechny poznámky budou trvale smazány. Pokračovat?</string>
     <string name="yes">Ano</string>
     <plurals name="notes_imported">
-        <item quantity="one">One note imported</item>
-        <item quantity="few">%1$d notes imported</item>
-        <item quantity="other">%1$d notes imported</item>
+        <item quantity="one">Jedna poznámka importována</item>
+        <item quantity="few">%1$d poznámky importovány</item>
+        <item quantity="other">%1$d poznámek importováno</item>
     </plurals>
     <string name="fileOpeningError">Chyba při otevření souboru.</string>
     <string name="delete">Odstranit</string>
-    <string name="backupfinish">Backup finishes</string>
-    <string name="invalidFile">Neplatný záložní soubor. Import byl zrušen.</string>
+    <string name="backupfinish">Záloha dokončena</string>
+    <string name="invalidFile">Neplatný záložní soubor. Import byl zastaven.</string>
     <string name="cancel">Zrušit</string>
     <string name="showRestoreConfirmation">Obnovit?</string>
     <string name="restore_notes_title">Obnovit</string>
     <string name="save_notes_title">Zálohovat</string>
     <string name="showRestoreConfirmationMessage">Všechny aktuální poznámky budou nahrazeny zálohou. Pokračovat?</string>
-    <string name="toggle">change View</string>
+    <string name="toggle">změna zobrazení</string>
     <string name="note_shared">Poznámka sdělena</string>
 </resources>
