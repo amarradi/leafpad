@@ -68,7 +68,7 @@
     <string name="save">Uložit všechny poznámky jako xml</string>
     <string name="showDeleteConfirmation">Odstranit poznámky?</string>
     <string name="restore">Obnovit všechny poznámky od xml souborů</string>
-    <string name="backupIsrunning">Backup is running</string>
+    <string name="backupIsrunning">Zálohování běží</string>
     <string name="no">Ne</string>
     <string name="importError">Chyba při importu poznámek.</string>
     <string name="showDeleteConfirmationMessage">Všechny poznámky budou trvale smazány. Pokračovat?</string>
