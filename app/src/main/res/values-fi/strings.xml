@@ -88,4 +88,16 @@
     <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
     <string name="toggle">change View</string>
     <string name="note_shared">Note shared</string>
+    <string name="discard">discard</string>
+    <string name="no_search_results">Nothing found</string>
+    <string name="item_menu_description">menu for item actions</string>
+    <string name="save_changes">save changes</string>
+    <string name="search_hint">What are you looking for?</string>
+    <string name="startIconDescription">A search field</string>
+    <string name="notification_of_change_description">Notify about changes in notes</string>
+    <string name="notification_of_change">Notification of changes</string>
+    <string name="unsaved_changes_message">Your note has changed. Do you want to save or discard the changes?</string>
+    <string name="not_initialized">Leafpad not initialized yet!</string>
+    <string name="unsaved_changes_title">Unsaved changes</string>
+    <string name="empty_list">No notes available in the list</string>
 </resources>

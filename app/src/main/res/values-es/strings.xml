@@ -75,7 +75,7 @@
     <string name="yes">Sí</string>
     <plurals name="notes_imported">
         <item quantity="one">Una nota importada</item>
-        <item quantity="many"></item>
+        <item quantity="many"/>
         <item quantity="other">%1$d Notas importadas</item>
     </plurals>
     <string name="fileOpeningError">Error al abrir el archivo.</string>
@@ -89,4 +89,16 @@
     <string name="showRestoreConfirmationMessage">Todas las notas actuales serán reemplazadas por la copia de seguridad. ¿Continuar?</string>
     <string name="toggle">cambiar vista</string>
     <string name="note_shared">Nota compartida</string>
+    <string name="save_changes">save changes</string>
+    <string name="discard">discard</string>
+    <string name="notification_of_change_description">Notify about changes in notes</string>
+    <string name="notification_of_change">Notification of changes</string>
+    <string name="unsaved_changes_message">Your note has changed. Do you want to save or discard the changes?</string>
+    <string name="unsaved_changes_title">Unsaved changes</string>
+    <string name="item_menu_description">menu for item actions</string>
+    <string name="search_hint">What are you looking for?</string>
+    <string name="not_initialized">Leafpad not initialized yet!</string>
+    <string name="no_search_results">Nothing found</string>
+    <string name="empty_list">No notes available in the list</string>
+    <string name="startIconDescription">A search field</string>
 </resources>
