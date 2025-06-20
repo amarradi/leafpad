@@ -28,7 +28,7 @@
     <string name="contentDescription">shtoni Shënim të ri</string>
     <string name="action_edit_note">Përpunoni Shënim</string>
     <string name="note_will_be_saved_first">Shënimi së pari do të ruhet</string>
-    <string name="general_preference">Të përgjithshme</string>
+    <string name="general_preference">Rregullime të përgjithshme</string>
     <string name="title_licence">Licenca</string>
     <string name="remove_dailog_message">Ky shënim do të fshihet përgjithnjë. Nuk mund të rikthehet më pas.</string>
     <string name="version">version</string>
@@ -47,7 +47,7 @@
     <string name="lightmode_preference_key">mënyra e çelët</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="darkmode_preference_key">mënyra e errët</string>
-    <string name="search">kërko</string>
+    <string name="search">kërko për shënime</string>
     <string name="action_save">ruaje shënimin</string>
     <string name="share_note">Të Ndahet Shënimi Me të Tjerë?</string>
     <string name="thanks">Faleminderit Stefanit, Stefanit, Manuelit, Falkut, Stefanisë dhe Emilit për idetë tuaja dhe për testimin e aplikacionit.</string>
@@ -88,16 +88,16 @@
     <string name="showRestoreConfirmationMessage">Krejt shënimet e tanishme do të zëvendësohen nga kopjeruajtja. Të vazhdohet?</string>
     <string name="toggle">ndryshoni Pamje</string>
     <string name="note_shared">Shënimi u nda me të tjerë</string>
-    <string name="item_menu_description">menu for item actions</string>
-    <string name="save_changes">save changes</string>
-    <string name="search_hint">What are you looking for?</string>
-    <string name="discard">discard</string>
-    <string name="startIconDescription">A search field</string>
-    <string name="notification_of_change_description">Notify about changes in notes</string>
-    <string name="notification_of_change">Notification of changes</string>
-    <string name="not_initialized">Leafpad not initialized yet!</string>
-    <string name="unsaved_changes_message">Your note has changed. Do you want to save or discard the changes?</string>
-    <string name="unsaved_changes_title">Unsaved changes</string>
-    <string name="no_search_results">Nothing found</string>
-    <string name="empty_list">No notes available in the list</string>
+    <string name="item_menu_description">menu për veprime mbi objekte</string>
+    <string name="save_changes">ruaji ndryshimet</string>
+    <string name="search_hint">Për ç’po shihni?</string>
+    <string name="discard">hidhi tej</string>
+    <string name="startIconDescription">Fushë kërkimesh</string>
+    <string name="notification_of_change_description">Njofto rreth ndryshimesh në shënime</string>
+    <string name="notification_of_change">Njoftim ndryshimesh</string>
+    <string name="not_initialized">Leafpad-i ende i pagatitur!</string>
+    <string name="unsaved_changes_message">Shënimi juaj është ndryshuar. Doni të ruhen ndryshimet, apo të hidhen tej?</string>
+    <string name="unsaved_changes_title">Ndryshime të paruajtura</string>
+    <string name="no_search_results">S’u gjet gjë</string>
+    <string name="empty_list">Te lista s’ka shënime</string>
 </resources>
