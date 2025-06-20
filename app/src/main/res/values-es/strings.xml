@@ -75,7 +75,7 @@
     <string name="yes">Sí</string>
     <plurals name="notes_imported">
         <item quantity="one">Una nota importada</item>
-        <item quantity="many"></item>
+        <item quantity="many"/>
         <item quantity="other">%1$d Notas importadas</item>
     </plurals>
     <string name="fileOpeningError">Error al abrir el archivo.</string>
