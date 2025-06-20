@@ -21,7 +21,7 @@
     <string name="action_share_body">Poznámka</string>
     <string name="remove_dialog_abort">Zrušit</string>
     <string name="menu_settings">Nastavení</string>
-    <string name="action_fab_note">Vytvořit poznámku</string>
+    <string name="action_fab_note">vytvořit poznámku</string>
     <string name="title_activity_note_edit">Upravit poznámku</string>
     <string name="translate">Přeložit aplikaci na Weblate</string>
     <string name="change">verze</string>
@@ -29,7 +29,7 @@
     <string name="contentDescription">přidat novou poznámku</string>
     <string name="action_edit_note">Upravit poznámku</string>
     <string name="note_will_be_saved_first">Poznámka bude uložena první</string>
-    <string name="general_preference">Obecné</string>
+    <string name="general_preference">Obecné nastavení</string>
     <string name="remove_dailog_message">Tato poznámka bude trvale odstraněna. Potom nemůže být obnovená.</string>
     <string name="version">verze</string>
     <string name="action_share_title">Název</string>
@@ -45,7 +45,7 @@
     <string name="lightmode_preference_key">světlý režim</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="darkmode_preference_key">tvamý režim</string>
-    <string name="search">hledat</string>
+    <string name="search">hledat poznámky</string>
     <string name="action_save">uložit poznámku</string>
     <string name="share_note">Sdílet Poznámku?</string>
     <string name="thanks">Děkuji Stefane, Stefane, Manuele, Falku, Stephanie a Emile pro vaše nápady a testování aplikace.</string>
@@ -54,7 +54,7 @@
     <string name="translation_help">Pomožte aplikaci přeložit do vašeho jazyka na Weblate</string>
     <string name="rev20_12">A viděl jsem mrtvé, velcí a malí, stojící před trůnem; a knihy byly otevřeny: a další kniha byla otevřena, která je kniha života: a mrtvý byli posuzováni z věcí, které byly napsány v knihách, podle jejich děl. Zjevení 20:12</string>
     <string name="its_opensource">Leafpad je Open Source a je zdarma</string>
-    <string name="satisfied">Užíváte si leafpad?</string>
+    <string name="satisfied">Líbí se vám leafpad?</string>
     <string name="app_name">Leafpad</string>
     <string name="about_the_app">O aplikaci</string>
     <string name="remove_dialog_title">Jste si jist?</string>
@@ -89,16 +89,16 @@
     <string name="showRestoreConfirmationMessage">Všechny aktuální poznámky budou nahrazeny zálohou. Pokračovat?</string>
     <string name="toggle">změna zobrazení</string>
     <string name="note_shared">Poznámka sdělena</string>
-    <string name="save_changes">save changes</string>
-    <string name="notification_of_change_description">Notify about changes in notes</string>
-    <string name="discard">discard</string>
-    <string name="item_menu_description">menu for item actions</string>
-    <string name="not_initialized">Leafpad not initialized yet!</string>
-    <string name="empty_list">No notes available in the list</string>
-    <string name="search_hint">What are you looking for?</string>
-    <string name="startIconDescription">A search field</string>
-    <string name="notification_of_change">Notification of changes</string>
-    <string name="unsaved_changes_message">Your note has changed. Do you want to save or discard the changes?</string>
-    <string name="unsaved_changes_title">Unsaved changes</string>
-    <string name="no_search_results">Nothing found</string>
+    <string name="save_changes">uložit změny</string>
+    <string name="notification_of_change_description">Oznámit o změnách ve poznámkách</string>
+    <string name="discard">zahodit</string>
+    <string name="item_menu_description">menu pro akce položky</string>
+    <string name="not_initialized">Leafpad nebyl ještě inicializován!</string>
+    <string name="empty_list">Žádné poznámky k dizpozici ve seznamu</string>
+    <string name="search_hint">Co hledáte?</string>
+    <string name="startIconDescription">Vyhledávájící pole</string>
+    <string name="notification_of_change">Oznámení o změnách</string>
+    <string name="unsaved_changes_message">Vaše poznámka byla upravená. Chcete uložit nebo zahodit změny?</string>
+    <string name="unsaved_changes_title">Neuložené změny</string>
+    <string name="no_search_results">Nic nenalezeno</string>
 </resources>
