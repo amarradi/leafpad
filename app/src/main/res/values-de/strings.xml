@@ -54,7 +54,6 @@
     <string name="thanks">Danke Stefan, Stefan, Manuel, Falk, Stephanie und Emil für eure Ideen und das Testen der App.</string>
     <string name="action_save">Notiz speichern</string>
     <string name="action_note_saved">gespeichert</string>
-
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="lightmode_preference" translatable="false">lightmode</string>
@@ -104,4 +103,5 @@
     <string name="no_search_results">Nichts gefunden</string>
     <string name="startIconDescription">Ein Suchfeld</string>
     <string name="note_shared">Geteilte Notiz</string>
+    <string name="item_menu_description">menu for item actions</string>
 </resources>
