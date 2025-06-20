@@ -22,6 +22,9 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.Material3.TextInputLayout.FilledBox"
+        app:boxBackgroundColor="?attr/colorSurface"
+        app:boxBackgroundMode="filled"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="@dimen/switch_layout_marginStart"
@@ -33,6 +36,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/search_input"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
