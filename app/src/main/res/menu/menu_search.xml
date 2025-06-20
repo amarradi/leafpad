@@ -1,0 +1,9 @@
+<!-- res/menu/menu_searchbar.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_open_search"
+        android:icon="@drawable/action_search"
+        android:title="@string/search"
+        app:showAsAction="always" />
+</menu>

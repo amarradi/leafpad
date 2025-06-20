@@ -1,7 +1,11 @@
 package com.git.amarradi.leafpad.helper;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
+import androidx.preference.PreferenceManager;
+
+import com.git.amarradi.leafpad.Leafpad;
 import com.git.amarradi.leafpad.R;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -26,17 +30,19 @@ public class DialogHelper {
                 .show();
     }
 
-    public static void showWarningDialog(Context context, String title, String message, String buttonText) {
+    public static void showUnsavedChangesDialog(Context context, Runnable onSave, Runnable onDiscard) {
         new MaterialAlertDialogBuilder(context)
-                .setTitle(title)
-                .setMessage(message)
-                .setPositiveButton(buttonText, null)
+                .setTitle(R.string.unsaved_changes_title)
+                .setMessage(R.string.unsaved_changes_message)
+                .setPositiveButton(R.string.save_changes, (dialog, which) -> onSave.run())
+                .setNegativeButton(R.string.discard, (dialog, which) -> onDiscard.run())
+                .setNeutralButton(R.string.cancel, null)
                 .show();
     }
 
     public static void showDeleteSingleNoteDialog(Context context, Runnable onConfirm) {
         new MaterialAlertDialogBuilder(context)
-                .setIcon(R.drawable.dialog_delete)
+                .setIcon(R.drawable.delete)
                 .setTitle(R.string.remove_dialog_title)
                 .setMessage(R.string.remove_dailog_message)
                 .setPositiveButton(R.string.action_remove, (dialog, which) -> {
@@ -70,5 +76,23 @@ public class DialogHelper {
         );
     }
 
+    public static void showThemeSelectionDialog(Context context, Runnable onThemeChanged) {
+        String[] themeLabels = context.getResources().getStringArray(R.array.design_mode_preference_key);
+        String[] themeValues = context.getResources().getStringArray(R.array.design_mode_preference_value);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String currentValue = prefs.getString("theme", "system");
+        int currentIndex = java.util.Arrays.asList(themeValues).indexOf(currentValue);
+
+        new MaterialAlertDialogBuilder(context)
+                .setTitle(R.string.theme_preference)
+                .setSingleChoiceItems(themeLabels, currentIndex, (dialog, which) -> {
+                    prefs.edit().putString("theme", themeValues[which]).apply();
+                    Leafpad.getInstance().saveTheme(themeValues[which]);
+                    if (onThemeChanged != null) onThemeChanged.run();
+                    dialog.dismiss();
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
+    }
 }

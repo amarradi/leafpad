@@ -67,6 +67,7 @@ dependencies {
     def constraintlayout = "2.2.1"
     def preference_version = "1.2.1"
     def activity_version = '1.10.1'
+    def lifecycle = '2.9.0'
 
     implementation "androidx.core:core:$core"
     implementation "androidx.coordinatorlayout:coordinatorlayout:$coordinatorLayout"
@@ -76,4 +77,5 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
     implementation "androidx.preference:preference:$preference_version"
     implementation "androidx.activity:activity:$activity_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle"
 }

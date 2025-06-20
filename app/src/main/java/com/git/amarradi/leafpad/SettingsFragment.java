@@ -15,10 +15,13 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreferenceCompat;
 
 import com.git.amarradi.leafpad.helper.DialogHelper;
 import com.git.amarradi.leafpad.helper.NoteBackupHelper;
 import com.git.amarradi.leafpad.helper.NotificationHelper;
+import com.git.amarradi.leafpad.model.Leaf;
+import com.git.amarradi.leafpad.model.Note;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -33,10 +36,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
     private ActivityResultLauncher<Intent> exportLauncher;
     private ActivityResultLauncher<Intent> importLauncher;
-
-
-
-
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -57,6 +56,12 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             }
         }
 
+        setupClickListener("theme", preference -> {
+            DialogHelper.showThemeSelectionDialog(requireContext(), () -> requireActivity().recreate());
+            return true;
+        });
+
+
         setupClickListener("save", v -> {
             startExportIntent();
             return true;
@@ -64,6 +69,10 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
         setupClickListener("restore", v -> {
             startImportIntent();
+            return true;
+        });
+
+        setupClickListener("change", v-> {
             return true;
         });
 
@@ -201,11 +210,17 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, @Nullable String key) {
         if (key != null) {
             Preference preference = findPreference(key);
-            if (preference != null && !(preference instanceof CheckBoxPreference)) {
-                setPreferenceSummary(preference, sharedPreferences.getString(key, ""));
+            if (preference != null) {
+                if (preference instanceof SwitchPreferenceCompat || preference instanceof CheckBoxPreference) {
+                    boolean value = sharedPreferences.getBoolean(key, false);
+                } else {
+                    String value = sharedPreferences.getString(key, "");
+                    setPreferenceSummary(preference, value);
+                }
             }
         }
     }
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

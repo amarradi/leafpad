@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="CustomToolbarStyle" parent="Widget.Material3.Toolbar">
         <item name="titleTextAppearance">@style/TextAppearance.MyToolbarTitle</item>
         <item name="subtitleTextAppearance">@style/TextAppearance.MyToolbarSubtitle</item>
-        <item name="android:elevation">0dp</item>
+        <item name="android:elevation">1dp</item>
+        <item name="elevationOverlayEnabled">true</item>
     </style>
 
     <style name="CustomToolbarStyleEdit" parent="Widget.Material3.Toolbar">
         <item name="titleTextAppearance">@style/TextAppearance.MyToolbarTitleEdit</item>
         <item name="subtitleTextAppearance">@style/TextAppearance.MyToolbarSubtitleEdit</item>
-        <item name="android:elevation">0dp</item>
+        <item name="android:elevation">1dp</item>
     </style>
 
     <style name="TextAppearance.MyToolbarTitleEdit" parent="TextAppearance.MaterialComponents.Headline6">
@@ -28,7 +30,7 @@
 
 
     <style name="TextAppearance.MyToolbarTitle" parent="TextAppearance.MaterialComponents.Headline6">
-        <item name="android:fontFamily">@font/opensans_medium</item>
+        <item name="android:fontFamily">@font/notosans_medium</item>
         <item name="android:textSize">@dimen/textSize_MyToolbarTitle</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/md_theme_primary</item>
@@ -46,16 +48,18 @@
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">@font/opensans_medium</item>
     </style>
+
     <style name="TextAppearance.MyNotePreview" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textSize">@dimen/textSize_MyNotePreview</item>
         <item name="android:textColor">@color/previewTextColor</item>
         <item name="android:textStyle">normal</item>
         <item name="android:fontFamily">@font/opensans_medium</item>
     </style>
+
     <style name="TextAppearance.MyDateTime" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textSize">@dimen/textSize_MyDateTime</item>
         <item name="android:textColor">@color/md_theme_primary</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textStyle">normal</item>
         <item name="android:fontFamily">@font/opensans_medium</item>
     </style>
 
@@ -63,19 +67,21 @@
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/md_theme_primary</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:fontFamily" >@font/opensans_medium</item>
+        <item name="android:fontFamily">@font/opensans_medium</item>
     </style>
+
     <style name="TextAppearance.MyAboutPageTitle" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/md_theme_primary</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily" >@font/opensans_medium</item>
+        <item name="android:fontFamily">@font/opensans_medium</item>
     </style>
+
     <style name="TextAppearance.MyCategoryText" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textSize">@dimen/textSize_MyCategory</item>
         <item name="android:textColor">@color/md_theme_recipe</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily" >@font/opensans_medium</item>
+        <item name="android:fontFamily">@font/opensans_medium</item>
     </style>
     <!-- Custom style für MaterialCardView -->
     <style name="CustomCardViewStyle" parent="Widget.Material3.CardView.Elevated">
@@ -97,5 +103,33 @@
         <item name="android:textAlignment">viewStart</item>
     </style>
 
+    <style name="ThemeOverlay.App.Preference" parent="PreferenceThemeOverlay">
+        <item name="switchPreferenceCompatStyle">@style/PreferenceMaterialSwitch</item>
+    </style>
 
+    <style name="PreferenceMaterialSwitch" parent="@style/Preference.SwitchPreferenceCompat.Material">
+        <item name="widgetLayout">@layout/preference_widget_switch_compat</item>
+    </style>
+    <style name="TextAppearance.MyNoteTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">@dimen/textSizeTitle</item>
+        <item name="android:textStyle">bold</item>
+
+        <item name="android:fontFamily">@font/opensans_medium</item>
+
+        <!-- Oder spezifische Farbe -->
+    </style>
+
+    <style name="CategoryLabel" parent="">
+        <item name="android:background">@drawable/bg_category_label</item>
+        <item name="android:padding">2pt</item>
+        <item name="android:textAppearance">@style/TextAppearance.MyCategoryText</item>
+    </style>
+    <style name="Widget.App.ExtendedFloatingActionButton" parent="Widget.Material3.ExtendedFloatingActionButton.Icon.Primary">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.FloatingActionButton</item>
+    </style>
+    <style name="ThemeOverlay.App.FloatingActionButton" parent="">
+        <item name="colorContainer">@color/md_theme_primary</item>
+        <item name="colorOnContainer">@color/md_theme_onPrimary</item>
+        <item name="android:layout_margin">@dimen/fab_margin</item>
+    </style>
 </resources>

@@ -1,11 +1,11 @@
 package com.git.amarradi.leafpad.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,14 +14,15 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.git.amarradi.leafpad.MainActivity;
-import com.git.amarradi.leafpad.Note;
-import com.git.amarradi.leafpad.NoteDiffCallback;
-import com.git.amarradi.leafpad.NoteEditActivity;
+import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.R;
+import com.git.amarradi.leafpad.util.NoteDiffCallback;
 import com.google.android.material.card.MaterialCardView;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -30,24 +31,48 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     private final Context context;
     private List<Note> noteList;
     private boolean showOnlyHidden = false;
-    private List<Note> fullNoteList = new ArrayList<>();
-    private boolean isGridMode = false;
+    private List<Note> fullNoteList;
+    private LayoutMode layoutMode = LayoutMode.LIST;
+
+    public enum LayoutMode {
+        LIST, GRID
+    }
+
+    public void setLayoutMode(LayoutMode mode) {
+        this.layoutMode = mode;
+        notifyItemRangeChanged(0, getItemCount(), null);
+    }
+
+    private final MainActivity.NoteClickListener listener;
 
 
     private final static String BIBLEVERSE_URL_REGEX = "(?i)\\b(?:https?://)?(?:www\\.)?(bible\\.(com|org)|bibleserver\\.com)(/\\S*)?";
 
-    public NoteAdapter(Context context, List<Note> noteList) {
+    public NoteAdapter(Context context,
+                       List<Note> noteList,
+                       MainActivity.NoteClickListener listener) {
         this.context = context;
         this.noteList = noteList;
+        this.fullNoteList = noteList;
+        this.listener = listener;
         this.noteList = filterNotes(showOnlyHidden);
+        setHasStableIds(true);
     }
 
-    public void setLayoutMode(boolean isGrid) {
-        this.isGridMode = isGrid;
+    @Override
+    public long getItemId(int position) {
+        if (position >= 0 && position < noteList.size()) {
+            String id = noteList.get(position).getId();
+            if (id != null) {
+                return UUID.nameUUIDFromBytes(id.getBytes(StandardCharsets.UTF_8)).getMostSignificantBits();
+            }
+        }
+        return RecyclerView.NO_ID;
     }
+
     @Override
     public int getItemViewType(int position) {
-        if (isGridMode) {
+        if (layoutMode == LayoutMode.GRID) {
             return 1;
         } else {
             return 0;
@@ -56,8 +81,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
     public void setShowOnlyHidden(boolean showHidden) {
         this.showOnlyHidden = showHidden;
-        this.noteList = filterNotes(showHidden);
-        updateNotes(this.fullNoteList);
+        applyFilterAndUpdate();
     }
 
     private List<Note> filterNotes(boolean showHidden) {
@@ -78,22 +102,24 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     public NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
         if (viewType == 0) {
-            view = LayoutInflater.from(context).inflate(R.layout.note_grid_item, parent, false);
-        } else {
             view = LayoutInflater.from(context).inflate(R.layout.note_list_item, parent, false);
+        } else {
+            view = LayoutInflater.from(context).inflate(R.layout.note_grid_item, parent, false);
         }
         return new NoteViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(NoteViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NoteViewHolder holder, int position) {
+        if (position < 0 || position >= noteList.size()) return;
+
         Note note = noteList.get(position);
 
         holder.titleText.setText(note.getTitle());
 
-        String body = note.getBody();
-        if (body.length() > 25) {
-            body = body.substring(0, 25) + "...";
+        String body = note.getBody() != null ? note.getBody() : "";
+        if (body.length() > 150) {
+            body = body.substring(0, 150) + "...";
         }
         holder.bodyPreview.setText(body);
 
@@ -120,10 +146,9 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             holder.bibleIcon.setVisibility(View.GONE);
         }
 
-        holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, NoteEditActivity.class);
-            intent.putExtra(MainActivity.EXTRA_NOTE_ID, note.getId());
-            context.startActivity(intent);
+        holder.itemView.setOnClickListener(v -> listener.onNoteClicked(note));
+        holder.actionButton.setOnClickListener(v ->{
+            listener.onNoteIconClicked(note, holder.actionButton);
         });
     }
 
@@ -133,22 +158,25 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     }
 
     public void updateNotes(List<Note> newNotes) {
-        if (newNotes.equals(this.fullNoteList)) {
-            return;
-        }
-        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new NoteDiffCallback(this.noteList, newNotes));
         this.fullNoteList = newNotes;
-        this.noteList = filterNotes(showOnlyHidden);
-        diffResult.dispatchUpdatesTo(this);
-       // notifyDataSetChanged();
+        applyFilterAndUpdate();
+
     }
     public boolean isFilteredListEmpty() {
         return noteList == null || noteList.isEmpty();
     }
 
+    private void applyFilterAndUpdate() {
+        List<Note> newFilteredList = filterNotes(showOnlyHidden);
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new NoteDiffCallback(this.noteList, newFilteredList));
+        this.noteList = newFilteredList;
+        diffResult.dispatchUpdatesTo(this);
+    }
+
     public static class NoteViewHolder extends RecyclerView.ViewHolder {
         TextView titleText, bodyPreview, dateText, timeText, categoryText;
         ImageView bibleIcon, categoryIcon;
+        ImageButton actionButton;
 
         NoteViewHolder(View itemView) {
             super(itemView);
@@ -159,6 +187,35 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             categoryText = itemView.findViewById(R.id.category_txt);
             bibleIcon = itemView.findViewById(R.id.bible);
             categoryIcon = itemView.findViewById(R.id.category_icon);
+            actionButton = itemView.findViewById(R.id.image_button);
         }
     }
+
+    public void filter(String query) {
+        List<Note> filtered = new ArrayList<>();
+
+        for (Note note : fullNoteList) {
+            if (!showOnlyHidden && note.isHide()) {
+                continue;
+            }
+            if (showOnlyHidden && !note.isHide()) {
+                continue;
+            }
+
+            String title = note.getTitle() != null ? note.getTitle().toLowerCase() : "";
+            String body  = note.getBody() != null ? note.getBody().toLowerCase() : "";
+            String category = note.getCategory() != null ? note.getCategory().toLowerCase() : "";
+
+            if (title.contains(query.toLowerCase())
+                    || body.contains(query.toLowerCase())
+                    || category.contains(query.toLowerCase())) {
+                filtered.add(note);
+            }
+        }
+
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new NoteDiffCallback(this.noteList, filtered));
+        this.noteList = filtered;
+        diffResult.dispatchUpdatesTo(this);
+    }
+
 }

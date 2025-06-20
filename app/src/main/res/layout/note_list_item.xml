@@ -17,11 +17,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:paddingStart="@dimen/paddingStartlistItem"
             android:paddingEnd="@dimen/paddingEndlistItem"
             android:paddingTop="@dimen/paddingToplistItem"
             android:paddingBottom="@dimen/paddingBottomlistItem">
+
+        <!-- Inhalt links -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
             <!-- Titel -->
             <com.google.android.material.textview.MaterialTextView
@@ -56,13 +63,14 @@
                     android:id="@+id/date_icon"
                     android:layout_width="@dimen/image_listView_layout_width"
                     android:layout_height="@dimen/image_listView_layout_height"
-                    android:src="@drawable/view_calendar_cardviewlist" />
+                    android:src="@drawable/calendar" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/created_at"
                     android:textAppearance="@style/TextAppearance.MyDateTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text=""
                     android:paddingStart="@dimen/icon_text_distance_start"
                     android:paddingEnd="@dimen/icon_text_distance_end" />
@@ -71,7 +79,7 @@
                     android:id="@+id/time_icon"
                     android:layout_width="@dimen/image_listView_layout_width"
                     android:layout_height="@dimen/image_listView_layout_height"
-                    android:src="@drawable/view_time_cardviewlist"
+                    android:src="@drawable/clock"
                     android:layout_marginStart="@dimen/margin_listItem_distance_top" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -79,6 +87,7 @@
                     android:textAppearance="@style/TextAppearance.MyDateTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text=""
                     android:paddingStart="@dimen/icon_text_distance_start"
                     android:paddingEnd="@dimen/icon_text_distance_end" />
@@ -89,16 +98,21 @@
                     android:layout_width="@dimen/image_listView_layout_width"
                     android:layout_height="@dimen/image_listView_layout_height"
                     android:layout_marginStart="@dimen/margin_listItem_distance_top"
+                    android:layout_marginEnd="@dimen/margin_listItem_distance_end"
+                    android:layout_gravity="center"
                     android:src="@drawable/togue" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    style="@style/CategoryLabel"
                     android:id="@+id/category_txt"
                     android:visibility="gone"
+
                     android:textAppearance="@style/TextAppearance.MyCategoryText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:paddingStart="@dimen/icon_text_distance_start"
-                    android:paddingEnd="@dimen/icon_text_distance_end" />
+                    android:paddingEnd="@dimen/icon_text_distance_category_end" />
 
                 <ImageView
                     android:id="@+id/bible"
@@ -109,5 +123,18 @@
                     android:src="@drawable/bible" />
             </LinearLayout>
         </LinearLayout>
+            <!-- Menübutton rechts -->
+            <ImageButton
+                android:id="@+id/image_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/item_menu_description"
+                android:scaleType="centerCrop"
+                android:src="@drawable/item_menu" />
+        </LinearLayout>
+
+
     </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

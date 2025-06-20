@@ -2,21 +2,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.git.amarradi.MainActivity">
+
+    <item
+        android:id="@+id/action_search"
+        android:title="Suche"
+        android:icon="@drawable/action_search"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/item_toggle_layout"
+        android:icon="@drawable/gridview"
+        android:title="@string/toggle"
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/item_show_hidden"
-        android:icon="@drawable/action_eye_open"
+        android:icon="@drawable/eye_visible"
         android:title="@string/show_hidden"
         app:showAsAction="ifRoom"
         />
     <item
-        android:id="@+id/item_toggle_layout"
-        android:icon="@drawable/action_gridview_on"
-        android:title="@string/toggle"
-        app:showAsAction="ifRoom"
-        />
-    <item
         android:id="@+id/item_settings"
-        android:icon="@drawable/action_setting"
+        android:icon="@drawable/settings"
         android:title="@string/menu_settings"
         app:showAsAction="ifRoom" />
 </menu>

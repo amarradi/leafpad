@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.git.amarradi.MainActivity">
+
+    <item
+        android:id="@+id/action_share_note"
+        android:icon="@drawable/share"
+        android:title="@string/action_share_note"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_remove"
+        android:icon="@drawable/delete"
+        android:title="@string/action_remove"
+        app:showAsAction="never" />
+</menu>

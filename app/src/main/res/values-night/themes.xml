@@ -39,6 +39,6 @@
 
         <!-- Runden von UI-Elementen aktivieren -->
        <!-- <item name="android:dialogCornerRadius">28dp</item> -->
-
+        <item name="extendedFloatingActionButtonStyle">@style/Widget.App.ExtendedFloatingActionButton</item>
     </style>
 </resources>

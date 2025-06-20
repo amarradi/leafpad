@@ -58,7 +58,7 @@
     <style name="TextAppearance.MyDateTime" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textSize">@dimen/textSize_MyDateTime</item>
         <item name="android:textColor">@color/md_theme_primary</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textStyle">normal</item>
         <item name="android:fontFamily">@font/opensans_medium</item>
     </style>
     <style name="TextAppearance.MyCategoryText" parent="TextAppearance.MaterialComponents.Body1">
@@ -96,5 +96,31 @@
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily" >@font/opensans_medium</item>
     </style>
+    <style name="ThemeOverlay.App.Preference" parent="PreferenceThemeOverlay">
+        <item name="switchPreferenceCompatStyle">@style/PreferenceMaterialSwitch</item>
+    </style>
 
+    <style name="PreferenceMaterialSwitch" parent="@style/Preference.SwitchPreferenceCompat.Material">
+        <item name="android:widgetLayout">@layout/preference_widget_switch_compat</item>
+    </style>
+
+    <style name="TextAppearance.MyNoteTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">@dimen/textSizeTitle</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/opensans_medium</item>
+        <!-- Oder spezifische Farbe -->
+    </style>
+    <style name="CategoryLabel" parent="">
+        <item name="android:background">@drawable/bg_category_label</item>
+        <item name="android:padding">2pt</item>
+        <item name="android:textAppearance">@style/TextAppearance.MyCategoryText</item>
+    </style>
+
+    <style name="Widget.App.ExtendedFloatingActionButton" parent="Widget.Material3.ExtendedFloatingActionButton.Icon.Primary">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.FloatingActionButton</item>
+    </style>
+    <style name="ThemeOverlay.App.FloatingActionButton" parent="">
+        <item name="colorContainer">@color/md_theme_primary</item>
+        <item name="colorOnContainer">@color/md_theme_onPrimary</item>
+    </style>
 </resources>

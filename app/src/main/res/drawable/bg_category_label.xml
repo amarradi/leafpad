@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <solid android:color="@color/md_theme_category_background" /> <!-- Heller Blauton -->
+    <corners android:radius="@dimen/category_label_radius" /> <!-- Abgerundete Ecken -->
+
+</shape>
