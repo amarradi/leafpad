@@ -98,7 +98,7 @@
     <string name="search_hint">Co hledáte?</string>
     <string name="startIconDescription">Vyhledávájící pole</string>
     <string name="notification_of_change">Oznámení o změnách</string>
-    <string name="unsaved_changes_message">Vaše poznámka byla upravená. Chcete uložit nebo zahodit změny?</string>
+    <string name="unsaved_changes_message">Vaše poznámka byla upravena. Chcete uložit nebo zahodit změny?</string>
     <string name="unsaved_changes_title">Neuložené změny</string>
     <string name="no_search_results">Nic nenalezeno</string>
 </resources>
