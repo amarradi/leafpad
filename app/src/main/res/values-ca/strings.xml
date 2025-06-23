@@ -45,7 +45,7 @@
     <string name="body_hint">Nota</string>
     <string name="lightmode_preference_key">mode clar</string>
     <string name="darkmode_preference_key">mode fosc</string>
-    <string name="search">recerca</string>
+    <string name="search">cerca notes</string>
     <string name="action_save">guardar nota</string>
     <string name="share_note">Voleu compartir la nota?</string>
     <string name="thanks">Gràcies Stefan, Stefan, Manuel, Falk i Stephanie per les vostres idees i per provar l\'aplicació.</string>
@@ -89,16 +89,16 @@
     <string name="showRestoreConfirmationMessage">Totes les notes actuals seran substituïdes per la còpia de seguretat. Continuar?</string>
     <string name="toggle">change View</string>
     <string name="note_shared">Nota compartida</string>
-    <string name="save_changes">save changes</string>
-    <string name="discard">discard</string>
+    <string name="save_changes">guarda els canvis</string>
+    <string name="discard">descarta</string>
     <string name="notification_of_change_description">Notify about changes in notes</string>
     <string name="notification_of_change">Notificació de canvis</string>
     <string name="unsaved_changes_message">Your note has changed. Do you want to save or discard the changes?</string>
-    <string name="unsaved_changes_title">Unsaved changes</string>
+    <string name="unsaved_changes_title">Canvis no guardats</string>
     <string name="item_menu_description">menu for item actions</string>
     <string name="not_initialized">Leafpad not initialized yet!</string>
-    <string name="search_hint">What are you looking for?</string>
-    <string name="startIconDescription">A search field</string>
-    <string name="no_search_results">Nothing found</string>
+    <string name="search_hint">Què estàs buscant?</string>
+    <string name="startIconDescription">Un camp de cerca</string>
+    <string name="no_search_results">No s\'ha trobat res</string>
     <string name="empty_list">No notes available in the list</string>
 </resources>
