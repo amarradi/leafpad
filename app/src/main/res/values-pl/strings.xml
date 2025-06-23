@@ -17,7 +17,7 @@
     <string name="add_shortcut_short_label">Zapisz nową</string>
     <string name="title_hint">Tytuł</string>
     <string name="body_hint">Notatka</string>
-    <string name="general_preference">Ogólne</string>
+    <string name="general_preference">Ustawienia ogólne</string>
     <string name="lightmode_preference_key">tryb jasny</string>
     <string name="darkmode_preference_key">tryb ciemny</string>
     <string name="about">O nas</string>
@@ -30,7 +30,7 @@
     <string name="action_note_saved">zapisano</string>
     <string name="note_will_be_saved_first">Notatka zostanie najpierw zapisana</string>
     <string name="licence">Licencje typu open source</string>
-    <string name="search">wyszukaj</string>
+    <string name="search">wyszukaj notatki</string>
     <string name="statement">Zapisujemy listy zakupów, notatki do rozmów, listy rzeczy do spakowania na wakacje lub urodziny przyjaciół. To wszystko są dobre rzeczy, abyśmy o nich nie zapomnieli. Podobnie jest z Bogiem, który zapisuje nasze dobre i złe uczynki i je zapisuje. Bóg jest ponad wszystkim i po prostu wszystko wie. Bóg kocha ludzi i chce mieć z nimi społeczność. Ale jest to możliwe tylko wtedy, gdy jesteśmy postrzegani przez Boga jako nienaganni. Przez wiarę w Jezusa Chrystusa nasze złe uczynki (nasza wina) zostają wymazane przed Bogiem. Jezus Chrystus odkupił naszą winę na krzyżu na Golgocie. Każda osoba, która to przyjmuje, zostaje wpisana do księgi życia na zawsze. Czy jesteś zapisany w księdze życia?</string>
     <string name="leafpad_work">Leafpad zapisuje wszystkie dane lokalnie na Twoim smartfonie. Notatki lub metadane, takie jak data i godzina, nie są przechowywane w żadnej chmurze i nie są nikomu udostępniane. Nie jest również przeprowadzana żadna analiza tekstu. Notatki należą do Ciebie. Ty decydujesz, co z nimi zrobisz.</string>
     <string name="new_note">nowa notatka</string>
@@ -90,16 +90,16 @@
     <string name="showRestoreConfirmationMessage">Wszystkie bieżące notatki zostaną zastąpione kopią zapasową. Kontynuować?</string>
     <string name="toggle">zmień widok</string>
     <string name="note_shared">Notatka udostępniona</string>
-    <string name="save_changes">save changes</string>
-    <string name="item_menu_description">menu for item actions</string>
-    <string name="search_hint">What are you looking for?</string>
-    <string name="discard">discard</string>
-    <string name="startIconDescription">A search field</string>
-    <string name="notification_of_change_description">Notify about changes in notes</string>
-    <string name="notification_of_change">Notification of changes</string>
-    <string name="not_initialized">Leafpad not initialized yet!</string>
-    <string name="unsaved_changes_message">Your note has changed. Do you want to save or discard the changes?</string>
-    <string name="unsaved_changes_title">Unsaved changes</string>
-    <string name="no_search_results">Nothing found</string>
-    <string name="empty_list">No notes available in the list</string>
+    <string name="save_changes">zapisz zmiany</string>
+    <string name="item_menu_description">menu dla działań elementów</string>
+    <string name="search_hint">Czego szukasz?</string>
+    <string name="discard">odrzuć</string>
+    <string name="startIconDescription">Pole wyszukiwania</string>
+    <string name="notification_of_change_description">Powiadom o zmianach w notatkach</string>
+    <string name="notification_of_change">Powiadomienie o zmianach</string>
+    <string name="not_initialized">Leafpad nie został jeszcze zainicjowany!</string>
+    <string name="unsaved_changes_message">Twoja notatka została zmieniona. Chcesz zapisać czy odrzucić zmiany?</string>
+    <string name="unsaved_changes_title">Niezapisane zmiany</string>
+    <string name="no_search_results">Nic nie znaleziono</string>
+    <string name="empty_list">Brak notatek na liście</string>
 </resources>
