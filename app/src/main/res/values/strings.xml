@@ -69,7 +69,7 @@
     <string name="action_note_saved">saved</string>
 
 
-    <string name="participate">Participate</string>
+    <string name="participate">Participate or Contribute</string>
     <string name="translate">Translate the app on Weblate</string>
     <string name="translation_help">Help us translate the app into your language on weblate</string>
     <string name="hide_note">make the note invisible</string>

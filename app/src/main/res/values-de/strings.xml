@@ -61,7 +61,7 @@
     <string name="darkmode_preference" translatable="false">darkmode</string>
     <string name="system_preference" translatable="false">system</string>
     <string name="system_preference_option_value" translatable="false">system</string>
-    <string name="participate">Mitmachen</string>
+    <string name="participate">Mitmachen oder Beitragen</string>
     <string name="translate">Übersetzen Sie die App auf Weblate</string>
     <string name="translation_help">Hilf uns bei der Übersetzung der App in deine Sprache auf weblate</string>
     <string name="hide_note">Die Notiz unsichtbar machen</string>
