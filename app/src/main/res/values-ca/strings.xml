@@ -87,7 +87,7 @@
     <string name="restore_notes_title">Restaura</string>
     <string name="save_notes_title">Còpia de seguretat</string>
     <string name="showRestoreConfirmationMessage">Totes les notes actuals seran substituïdes per la còpia de seguretat. Continuar?</string>
-    <string name="toggle">change View</string>
+    <string name="toggle">canviar la vista</string>
     <string name="note_shared">Nota compartida</string>
     <string name="save_changes">guarda els canvis</string>
     <string name="discard">descarta</string>
