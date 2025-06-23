@@ -69,7 +69,7 @@
     <string name="showDeleteConfirmation">Eliminar les notes?</string>
     <string name="backupIsrunning">Backup is running</string>
     <string name="no">No</string>
-    <string name="showDeleteConfirmationMessage">All notes will be permanently deleted. Continue?</string>
+    <string name="showDeleteConfirmationMessage">Totes les notes seran esborrades permanentment. Continuar?</string>
     <string name="importError">Error when importing notes.</string>
     <string name="restore">Restaurar totes les notes des d\'un arxiu xml</string>
     <string name="yes">Sí</string>
