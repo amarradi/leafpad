@@ -138,16 +138,12 @@ public class NoteViewModel extends AndroidViewModel {
         }
         return changed;
     }
-
-
     public NoteViewModel(@NonNull Application application) {
         super(application);
 
         filteredNotes.addSource(notesLiveData, notes -> applySearchQuery());
         filteredNotes.addSource(searchQuery, q -> applySearchQuery());
     }
-
-
     private void applySearchQuery() {
         List<Note> allNotes = notesLiveData.getValue();
         String query = searchQuery.getValue();
@@ -169,7 +165,6 @@ public class NoteViewModel extends AndroidViewModel {
         }
         filteredNotes.setValue(filtered);
     }
-
     public void setSearchQuery(String query) {
         searchQuery.setValue(query);
     }
@@ -205,14 +200,12 @@ public class NoteViewModel extends AndroidViewModel {
             selectedNote.setValue(new Note(note));
         }
     }
-
     public void loadNotes() {
         Boolean showHidden = showHiddenLiveData.getValue();
         if (showHidden == null) showHidden = false;
         List<Note> allNotes = Leaf.loadAll(getApplication(), showHidden);
         notesLiveData.postValue(allNotes);
     }
-
     public void selectNote(Note note) {
         selectedNote.setValue(note);
         originalNote.setValue(new Note(
@@ -226,22 +219,14 @@ public class NoteViewModel extends AndroidViewModel {
                 note.getId()
         ));
     }
-
     public void saveNote(Context context, Note note) {
         Leaf.save(getApplication(), note);
         loadNotes();
     }
-
     public void deleteNote(Context context, Note note) {
         Leaf.remove(getApplication(), note);
         loadNotes();
     }
-
-    public void createAndSaveNote(Note note, Context context) {
-        selectNote(note); // Für UI-Bindung
-        Leaf.save(context, note); // Persistenz
-    }
-
     public void updateNoteRecipe(String category) {
         Note currentNote = selectedNote.getValue();
         if (currentNote != null) {
@@ -253,11 +238,9 @@ public class NoteViewModel extends AndroidViewModel {
             }
         }
     }
-
     public static boolean isEmptyEntry(Note note) {
         return note.getBody().isEmpty() && note.getTitle().isEmpty();
     }
-
     public LiveData<List<Note>> searchNotes(String query) {
         MutableLiveData<List<Note>> result = new MutableLiveData<>();
         List<Note> allNotes = notesLiveData.getValue();

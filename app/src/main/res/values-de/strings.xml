@@ -95,7 +95,6 @@
     <string name="save_notes_title">Notizen sichern</string>
     <string name="showRestoreConfirmationMessage">Alle aktuellen Notizen werden durch die Sicherungskopie ersetzt. Weiter?</string>
     <string name="toggle">Ansicht umschalten</string>
-    <string name="note_shared">Note shared</string>
     <string name="empty_list">Keine Notizen in der Liste</string>
     <string name="not_initialized">Leafpad noch nicht initialisiert!</string>
     <string name="search">Notizen suchen</string>

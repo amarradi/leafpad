@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.git.amarradi.leafpad.helper.DialogHelper;
+import com.git.amarradi.leafpad.helper.ShareHelper;
 import com.git.amarradi.leafpad.model.Leaf;
 import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
@@ -47,8 +48,6 @@ public class NoteEditActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_note_edit);
         res = getResources();
@@ -60,12 +59,8 @@ public class NoteEditActivity extends AppCompatActivity {
         if (noteId != null) {
             List<Note> allNotes = Leaf.loadAll(this, true); // oder false, je nach ShowHidden
             for (Note note : allNotes) {
-                Log.d("NoteEditActivity", "Checking note: " + note.getId());
                 if (note.getId().equals(noteId)) {
-                    Log.d("NoteEditActivity", "Match found for noteId: " + noteId);
-                    // ins ViewModel setzen (falls du MVVM nutzt)
                     noteViewModel.setNote(note);
-
                     break;
                 }
             }
@@ -82,58 +77,62 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private void handleIntent(Intent intent) {
-        String noteId = intent.getStringExtra(Leafpad.EXTRA_NOTE_ID);
-        if (noteId == null) {
-            Log.e("NoteEditActivity", "handleIntent: noteId is null");
-            return; // oder alternative Behandlung
+        if (Intent.ACTION_SEND.equals(intent.getAction()) && "text/plain".equals(intent.getType())) {
+            String shareText = intent.getStringExtra(Intent.EXTRA_TEXT);
+            if (shareText != null && !shareText.isEmpty()) {
+                Note newNote = new Note("", "", "", "", "", false, "", Note.makeId());
+                newNote.setTitle(getString(R.string.imported));
+                newNote.setBody(shareText);
+                newNote.setNotedate();
+                newNote.setNotetime();
+                newNote.setCreateDate();
+
+                Leaf.set(this, newNote);
+                noteViewModel.loadNotes();
+
+                // Optional: Feedback zeigen oder Activity direkt schließen
+                setResult(RESULT_OK);
+                finish();
+                return;
+            }
         }
+
+        // Fall 2: Normale Bearbeitung einer bestehenden oder neuen Note
+//        String noteId = intent.getStringExtra(Leafpad.EXTRA_NOTE_ID);
+        String noteId = getIntent().getStringExtra(Leafpad.EXTRA_NOTE_ID);
+
+        if (noteId == null) {
+            Log.e("NoteEditActivity", "handleIntent: Keine noteId vorhanden, neue leere Notiz wird erzeugt");
+
+            Note newNote = new Note("", "", "", "", "", false, "", Note.makeId());
+            newNote.setNotedate();
+            newNote.setNotetime();
+            newNote.setCreateDate();
+
+            noteViewModel.selectNote(newNote);
+            isNewNote = true;
+            return;
+        }
+
         Note note = Leaf.load(this, noteId);
         if (note == null) {
-            Log.e("NoteEditActivity", "handleIntent: loaded note is null for noteId=" + noteId);
-            return; // oder alternative Behandlung
+            Log.e("NoteEditActivity", "handleIntent: Note konnte nicht geladen werden für noteId=" + noteId);
+            return;
         }
-
-
-        //Note note = Leaf.load(this, noteId);
-
 
         if (isNewEntry(note)) {
             isNewNote = true;
             note.setNotedate();
             note.setNotetime();
         }
-        if (Intent.ACTION_SEND.equals(intent.getAction()) && "text/plain".equals(intent.getType())) {
-
-            String shareText = intent.getStringExtra(Intent.EXTRA_TEXT);
-            if (shareText != null && !shareText.isEmpty()) {
-                note.setTitle(getString(R.string.imported));
-                note.setNotedate();
-                note.setNotetime();
-                note.setBody(shareText);
-                // Direkt speichern
-                noteViewModel.createAndSaveNote(note, this);
-
-                finish(); // Optional: schließen nach dem Import
-                return;
-                // shouldPersistOnPause = true;
-                //noteViewModel.selectNote(note);
-            }
-        }
-
 
         noteViewModel.selectNote(note);
-
-//        Log.d("NoteEditActivity", "handleIntent: shouldPersistOnPause=" + shouldPersistOnPause +
-//                ", hasUnsavedChanges=" + noteViewModel.hasUnsavedChanges());
-
-//        Log.d("NoteEditActivity", "Selected note: " + noteViewModel.getSelectedNote().getValue());
     }
 
     private void observeNote() {
         noteViewModel.getSelectedNote().observe(this, note -> {
             if (note != null) {
                 this.note = note;
-//                Log.d("NoteEditActivity", "observeNote: 1 " + note.getTitle() + "|" + note.getBody());
                 if (!isUIConfigured) {
                     configureUIFromNote(note);
                     isUIConfigured = true;
@@ -181,7 +180,6 @@ public class NoteEditActivity extends AppCompatActivity {
     @SuppressLint("UseCompatLoadingForDrawables")
     private void setupRecipeSwitch(Note note) {
         String cat = res.getStringArray(R.array.category)[0];
-
         recipeSwitch.setOnCheckedChangeListener(null);
         boolean isRecipe = cat.equals(note.getCategory());
         recipeSwitch.setChecked(isRecipe);
@@ -195,7 +193,6 @@ public class NoteEditActivity extends AppCompatActivity {
         }
 
         recipeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-//            Log.d("NoteEditActivity", "Recipe switch toggled: " + isChecked);
             if (isChecked) {
                 noteViewModel.updateNoteRecipe(cat);
             } else {
@@ -205,15 +202,6 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private void configureUIFromNote(Note note) {
-     //   toolbar.setTitle(R.string.action_edit_note);
-//        if (titleEdit.getText().toString().isEmpty()) {
-//            titleEdit.setText(note.getTitle());
-//        }
-//        if (bodyEdit.getText().toString().isEmpty()) {
-//            bodyEdit.setText(note.getBody());
-//        }
-
-
             if (note.getTitle() != null) {
                 titleEdit.setText(note.getTitle());
             } else {
@@ -225,17 +213,6 @@ public class NoteEditActivity extends AppCompatActivity {
             } else {
                 bodyEdit.setText("");
             }
-
-
-
-        Log.d("NoteEditActivity", "configureUIFromNote: title='" + note.getTitle() + "', body='" + note.getBody() + "'");
-
-
-//        if (isNewEntry(note)) {
-//            setupToolbarSubtitle(getString(R.string.new_note));
-//        } else {
-//            setupToolbarSubtitle(note.getTitle());
-//        }
     }
 
     private void initViews() {
@@ -248,35 +225,21 @@ public class NoteEditActivity extends AppCompatActivity {
         titleLayout.setHintEnabled(false);
         bodyLayout.setHintEnabled(false);
     }
-//    private boolean isNewEntry(Note note) {
-//        return note.getTitle() == null ||
-//                note.getTitle().isEmpty() ||
-//                note.getBody() == null ||
-//                note.getBody().isEmpty();
-//    }
+
     private boolean isNewEntry(Note note) {
         if (note.getTitle() == null) {
-//            Log.d("NoteEditActivity", "isNewEntry: title "+note.getTitle());
             return true;
         }
         if (note.getTitle().isEmpty()) {
-//            Log.d("NoteEditActivity", "isNewEntry: title "+note.getTitle());
             return true;
         }
         if (note.getBody() == null) {
-//            Log.d("NoteEditActivity", "isNewEntry: body "+note.getBody());
             return true;
         }
         if (note.getBody().isEmpty()) {
-//            Log.d("NoteEditActivity", "isNewEntry: body "+note.getBody());
             return true;
         }
         return false;
-    }
-
-
-    public boolean isEmptyEntry(Note note) {
-        return note.getBody().isEmpty() && note.getTitle().isEmpty();
     }
 
     @Override
@@ -292,7 +255,7 @@ public class NoteEditActivity extends AppCompatActivity {
         return switch (id) {
 
             case R.id.action_share_note -> {
-                shareNote(note);
+                ShareHelper.shareNote(this,note);
                 yield true;
             }
             case R.id.action_remove -> {
@@ -309,24 +272,16 @@ public class NoteEditActivity extends AppCompatActivity {
 
     public void updateNoteFromUI() {
         Note current = noteViewModel.getSelectedNote().getValue();
-//        Log.d("NoteEditActivity", "updateNoteFromUI: "+noteViewModel.getSelectedNote().getValue().getBody()
-//                + "|"+noteViewModel.getSelectedNote().getValue().getBody()
-//                + "|"+noteViewModel.getSelectedNote().getValue().getTitle()
-//                + "|"+noteViewModel.getSelectedNote().getValue().getCategory()
-//                + "|"+noteViewModel.getSelectedNote().getValue().isHide());
         if (current == null) return;
 
         current.setTitle(titleEdit.getText().toString());
         current.setBody(bodyEdit.getText().toString());
         if (recipeSwitch.isChecked()) {
-//            Log.d("NoteEditActivity", "updateNoteFromUI: recipeSwitch = "+recipeSwitch.isChecked());
             current.setCategory(res.getStringArray(R.array.category)[0]);
         } else {
-//            Log.d("NoteEditActivity", "updateNoteFromUI: recipeSwitch = "+recipeSwitch.isChecked());
             current.setCategory("");
         }
         current.setHide(visibleSwitch.isChecked());
-//        Log.d("NoteEditActivity", "updateNoteFromUI: visibleSwitch = "+visibleSwitch.isChecked());
     }
 
     private void exitNoteEdit() {
@@ -336,10 +291,8 @@ public class NoteEditActivity extends AppCompatActivity {
             startActivity(intent);
         } else {
             NoteEditActivity.this.finish();
-            //finish();
         }
     }
-
 
     private void checkForUnsavedChanges() {
         updateNoteFromUI();
@@ -357,21 +310,17 @@ public class NoteEditActivity extends AppCompatActivity {
                             shouldPersistOnPause = true;
                             noteViewModel.persist();
                             exitNoteEdit();
-                            //NoteEditActivity.this.finish();
                         },
                         () ->{
                             shouldPersistOnPause = false;
                             exitNoteEdit();
-                            //NoteEditActivity.this.finish();
                         }
                 );
             } else {
                 exitNoteEdit();
-                //NoteEditActivity.this.finish();
             }
         } else {
             exitNoteEdit();
-            //NoteEditActivity.this.finish();
         }
     }
 
@@ -386,7 +335,6 @@ public class NoteEditActivity extends AppCompatActivity {
         } else {
             Leaf.set(this, note);
             noteViewModel.saveNote(getApplication(), note);
-          //  toolbar.setSubtitle(note.getTitle());
         }
     }
 
@@ -406,16 +354,6 @@ public class NoteEditActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(v -> checkForUnsavedChanges());
-    }
-
-    private void shareNote(Note note) {
-        saveNote();
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.setType("text/plain");
-        String content = note.getTitle() + "\n\n" + note.getBody();
-        sendIntent.putExtra(Intent.EXTRA_TEXT, content);
-        startActivity(Intent.createChooser(sendIntent, getString(R.string.share_note)));
     }
 
     @Override

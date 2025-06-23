@@ -52,7 +52,8 @@ public class SearchActivity extends AppCompatActivity {
 		searchAdapter = new SearchAdapter(new ArrayList<>(), note -> {
 			Intent intent = new Intent(SearchActivity.this, NoteEditActivity.class);
 			intent.putExtra("fromSearch", true); // Herkunft mitgeben
-			intent.putExtra("noteId", note.getId());
+			intent.putExtra(Leafpad.EXTRA_NOTE_ID, note.getId());
+			//intent.putExtra("noteId", note.getId());
 			startActivity(intent);
 		});
 		recyclerView.setAdapter(searchAdapter);

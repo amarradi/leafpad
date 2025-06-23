@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.git.amarradi.leafpad.adapter.NoteAdapter;
 import com.git.amarradi.leafpad.helper.DialogHelper;
 import com.git.amarradi.leafpad.helper.LayoutModeHelper;
+import com.git.amarradi.leafpad.helper.ShareHelper;
 import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -35,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public RecyclerView recyclerView;
     public NoteAdapter noteAdapter;
     private NoteViewModel noteViewModel;
-
 
     @SuppressLint("RestrictedApi")
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         noteViewModel.loadNotes();
         noteViewModel.getNotes().observe(this, notes -> {
-            //Log.d("MainActivity", "Observed notes: " + notes.size());
             noteAdapter.updateNotes(notes);
             recyclerView.post(()->recyclerView.scrollToPosition(0));
 
@@ -120,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         popup.setOnMenuItemClickListener(item -> {
             int id = item.getItemId();
             if (id == R.id.action_share_note) {
-                shareNote(note);
+                ShareHelper.shareNote(this,note);
                 return true;
             } else if (id == R.id.action_remove) {
                 DialogHelper.showDeleteSingleNoteDialog(this, () -> noteViewModel.deleteNote(this,note));
@@ -130,13 +129,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         });
 
         popup.show();
-    }
-    private void shareNote(Note note) {
-        Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.setType("text/plain");
-        String content = note.getTitle() + "\n\n" + note.getBody();
-        shareIntent.putExtra(Intent.EXTRA_TEXT, content);
-        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_note)));
     }
 
     @Override
