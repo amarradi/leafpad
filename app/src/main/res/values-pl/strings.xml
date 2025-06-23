@@ -56,7 +56,7 @@
     <string name="remove_dialog_title">Na pewno?</string>
     <string name="action_add_note">Dodaj notatkę</string>
     <string name="action_share_note">Udostępnij notatkę</string>
-    <string name="participate">Weź udział</string>
+    <string name="participate">Weź udział lub wnieś wkład</string>
     <string name="translate">Pomóż w tłumaczeniu aplikacji przez Weblate</string>
     <string name="translation_help">Pomóż nam przetłumaczyć aplikację na Twój język poprzez Weblate</string>
     <string name="hide_note">uczyń notatkę niewidoczną</string>
