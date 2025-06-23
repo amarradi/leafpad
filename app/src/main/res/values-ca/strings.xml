@@ -27,7 +27,7 @@
     <string name="contentDescription">afegir a la cistella</string>
     <string name="action_edit_note">Edita Traducció</string>
     <string name="note_will_be_saved_first">La nota es desarà primer</string>
-    <string name="general_preference">Generals</string>
+    <string name="general_preference">Configuració general</string>
     <string name="title_licence">Llicències</string>
     <string name="remove_dailog_message">Aquesta nota s\'esborrarà permanentment. No es pot restaurar.</string>
     <string name="version">versió</string>
@@ -91,9 +91,9 @@
     <string name="note_shared">Nota compartida</string>
     <string name="save_changes">guarda els canvis</string>
     <string name="discard">descarta</string>
-    <string name="notification_of_change_description">Notify about changes in notes</string>
+    <string name="notification_of_change_description">Notifica els canvis en les notes</string>
     <string name="notification_of_change">Notificació de canvis</string>
-    <string name="unsaved_changes_message">Your note has changed. Do you want to save or discard the changes?</string>
+    <string name="unsaved_changes_message">La teva nota ha canviat. Vols estalviar o descartar els canvis?</string>
     <string name="unsaved_changes_title">Canvis no guardats</string>
     <string name="item_menu_description">menu for item actions</string>
     <string name="not_initialized">Leafpad not initialized yet!</string>
