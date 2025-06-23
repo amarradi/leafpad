@@ -84,7 +84,7 @@
     <string name="invalidFile">Invalid backup file. The import was cancelled.</string>
     <string name="cancel">Cancel·lar</string>
     <string name="showRestoreConfirmation">Restaurar?</string>
-    <string name="restore_notes_title">Restore</string>
+    <string name="restore_notes_title">Restaura</string>
     <string name="save_notes_title">Còpia de seguretat</string>
     <string name="showRestoreConfirmationMessage">Totes les notes actuals seran substituïdes per la còpia de seguretat. Continuar?</string>
     <string name="toggle">change View</string>
@@ -93,7 +93,7 @@
     <string name="discard">descarta</string>
     <string name="notification_of_change_description">Notifica els canvis en les notes</string>
     <string name="notification_of_change">Notificació de canvis</string>
-    <string name="unsaved_changes_message">La teva nota ha canviat. Vols estalviar o descartar els canvis?</string>
+    <string name="unsaved_changes_message">La teva nota ha canviat. Vols guardar-la o descartar els canvis?</string>
     <string name="unsaved_changes_title">Canvis no guardats</string>
     <string name="item_menu_description">menu for item actions</string>
     <string name="not_initialized">Leafpad not initialized yet!</string>
