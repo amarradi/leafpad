@@ -33,7 +33,7 @@
     <string name="remove_dailog_message">Tato poznámka bude trvale odstraněna. Potom nemůže být obnovená.</string>
     <string name="version">verze</string>
     <string name="action_share_title">Název</string>
-    <string name="participate">Zúčastnit se</string>
+    <string name="participate">Zúčastnit se nebo Přispět</string>
     <string name="title_hint">Název</string>
     <string name="about">O aplikaci</string>
     <string name="theme_summary">Přepnout mezi tmavým a světlým tématem</string>
