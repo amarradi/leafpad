@@ -31,7 +31,8 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class SettingsFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-    public static final String GITHUBPATH = "https://github.com/amarradi/leafpad";
+    public static final String GITHUBPATH = "https://github.com/amarradi/leafpad/issues";
+
     public static final String WEBLATEPATH = "https://hosted.weblate.org/projects/leafpad/";
 
     private ActivityResultLauncher<Intent> exportLauncher;
@@ -87,7 +88,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         });
 
         setupClickListener("github", v -> {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(GITHUBPATH)));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(GITHUBPATH.trim())));
             return true;
         });
 
