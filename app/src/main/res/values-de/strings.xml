@@ -48,7 +48,7 @@
     <string name="unsaved_changes_title">Ungespeicherte Änderungen</string>
     <string name="unsaved_changes_message">Ihre Notiz hat sich geändert. Möchten Sie die Änderungen Speichern oder Verwerfen?</string>
     <string name="discard">Verwerfen</string>
-    <string name="save_changes">Änderung speichern</string>
+    <string name="save_changes">Änderungen speichern</string>
     <string name="share_note">Notiz teilen?</string>
     <string name="note_will_be_saved_first">Notiz wird erst gespeichert</string>
     <string name="thanks">Danke Stefan, Stefan, Manuel, Falk, Stephanie und Emil für eure Ideen und das Testen der App.</string>
