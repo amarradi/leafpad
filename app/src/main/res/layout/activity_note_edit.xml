@@ -1,11 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/all"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
     android:animateLayoutChanges="true"
     android:fitsSystemWindows="true"
+    android:scrollbars="vertical"
     tools:context="com.git.amarradi.leafpad.NoteEditActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -40,6 +42,7 @@
                 style="@style/Widget.Material3.TextInputLayout.FilledBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:hint="@string/title_hint"
                 android:paddingStart="@dimen/switch_layout_marginStart"
                 android:paddingEnd="@dimen/switch_layout_marginEnd"
@@ -53,15 +56,19 @@
                     android:layout_height="wrap_content"
                     android:gravity="top|start"
                     android:inputType="textMultiLine"
+
                     android:maxLines="@integer/maxLines"
-                    android:textAppearance="@style/TextAppearance.MyNoteTitle" />
+
+                    android:textAppearance="@style/TextAppearance.MyNoteTitle"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/body_text_input_layout"
                 style="@style/Widget.Material3.TextInputLayout.FilledBox"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:hint="@string/body_hint"
                 android:paddingStart="@dimen/switch_layout_marginStart"
                 android:paddingEnd="@dimen/switch_layout_marginEnd"
@@ -73,12 +80,15 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/body_edit"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="300dp"
+                    android:layout_height="match_parent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:gravity="top|start"
+                    android:includeFontPadding="false"
                     android:inputType="textMultiLine|textCapSentences|textWebEmailAddress|textAutoCorrect|textPersonName"
-                    android:overScrollMode="never"
-                    android:scrollbars="none"
+                    android:overScrollMode="always"
+                    android:paddingTop="@dimen/paddingTop_noteEditText"
+                    android:scrollbars="vertical"
                     android:textAlignment="viewStart" />
             </com.google.android.material.textfield.TextInputLayout>
 
