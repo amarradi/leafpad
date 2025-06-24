@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<releasenote>
+    <title>Leafpad 1.19</title>
+    <content>
+        * Umschalten Zwischen List- und Rasteransicht
+        * Kontextmenu für das Teilen und Löschen in der Übersicht
+        * Hinweis falls sich die Notizen geändert haben
+        * Eine Suchfunktion für Notizen
+        * Diese Releasenotes in der Übersicht
+    </content>
+    <date>20.06.2025</date>
+    <time>10:15</time>
+</releasenote>
