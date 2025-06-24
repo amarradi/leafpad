@@ -1,4 +1,4 @@
-<img src="https://github.com/amarradi/leafpad/blob/development/dev/graphics/leaf-512_twig.png" height="200"/>
+<p align="center"><img src="https://github.com/amarradi/leafpad/blob/development/dev/graphics/leaf-512_twig.png" height="200"/></p>
 
 # leafpad
 simple notebook
@@ -50,3 +50,11 @@ _Many thanks to Dominik Schmidt for providing the initial source code in 2017._
 If you would like to support the work on leafpad, you are welcome to do so via liberapay
 
 <a href="https://liberapay.com/amarrradi/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
+
+
+[![GitHub release](https://img.shields.io/github/v/release/amarradi/leafpad)](https://github.com/amarradi/leafpad/releases/latest)
+[![License](https://img.shields.io/github/license/amarradi/leafpad)](https://github.com/amarradi/leafpad/blob/main/LICENSE)
+[![Top language](https://img.shields.io/github/languages/top/amarradi/leafpad)](https://github.com/amarradi/leafpad)
+
+
+
