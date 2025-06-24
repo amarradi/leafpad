@@ -10,7 +10,7 @@
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="new_note">Shënim i ri</string>
     <string name="action_note_saved">u ruajt</string>
-    <string name="participate">Merrni pjesë</string>
+    <string name="participate">Merrni pjesë, ose Jepni Kontribut</string>
     <string name="leafpad_work">Leafpad-i i ruan lokalisht në telefonin tuaj krejt të dhënat. Shënimet, ose tejtëdhëna të tilla si data dhe koha nuk depozitohen në ndonjë re dhe s’i jepen njeriu. As bëhet ndonjë analizim teksti. Shënimet ju përkasin juve. Ju vendosni ç’të bëhet me to.</string>
     <string name="imported">shënimi u dërgua te leafpad</string>
     <string name="rate_the_app">Si thoni për një shqyrtim në Google\'s PlayStore?</string>
@@ -21,7 +21,7 @@
     <string name="menu_settings">Rregullime</string>
     <string name="action_fab_note">bëni një shënim</string>
     <string name="title_activity_note_edit">Përpunoni Shënim</string>
-    <string name="translate">Përkthejeni aplikacioni në Weblate</string>
+    <string name="translate">Përkthejeni aplikacionin në Weblate</string>
     <string name="hide_hidden">fshihi shënimet e fshehura</string>
     <string name="change">version</string>
     <string name="system_preference_key">ndiq sistemin (standard)</string>
