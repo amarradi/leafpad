@@ -3,6 +3,7 @@ package com.git.amarradi.leafpad;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -220,6 +221,20 @@ public class NoteEditActivity extends AppCompatActivity {
         TextInputLayout bodyLayout = findViewById(R.id.body_text_input_layout);
         titleEdit = findViewById(R.id.title_edit);
         bodyEdit = findViewById(R.id.body_edit);
+        bodyEdit.post(new Runnable() {
+            @Override
+            public void run() {
+                Rect visibleBounds = new Rect();
+                getWindow().getDecorView().getWindowVisibleDisplayFrame(visibleBounds);
+
+                int availableHeight = visibleBounds.height();
+
+                // Beispiel: 40% der tatsächlich sichtbaren Fensterhöhe als Mindesthöhe
+                int minHeight = (int) (availableHeight * 0.68);
+
+                bodyEdit.setMinHeight(minHeight);
+            }
+        });
         visibleSwitch = findViewById(R.id.visible_switch);
         recipeSwitch = findViewById(R.id.recipe_switch);
         titleLayout.setHintEnabled(false);
