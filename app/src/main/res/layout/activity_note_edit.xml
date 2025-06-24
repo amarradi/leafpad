@@ -1,122 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/all"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:animateLayoutChanges="true"
-    android:fitsSystemWindows="true"
-    tools:context="com.git.amarradi.leafpad.NoteEditActivity">
+    android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+        app:elevation="4dp">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             style="@style/CustomToolbarStyleEdit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            app:menu="@menu/menu_note_edit" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/ScrollView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/marginLayout"
-        android:fillViewport="true"
-        android:scrollbars="vertical"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+        android:orientation="vertical"
+        android:paddingStart="@dimen/marginLayout"
+        android:paddingEnd="@dimen/marginLayout"
+        android:paddingBottom="@dimen/marginLayout">
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/default_text_input_layout"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:hint="@string/title_hint"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:hintTextAppearance="@style/MyHintStyle">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/default_text_input_layout"
-                style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/title_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/title_hint"
-                android:paddingStart="@dimen/switch_layout_marginStart"
-                android:paddingEnd="@dimen/switch_layout_marginEnd"
-                app:boxBackgroundColor="?attr/colorSurface"
-                app:boxBackgroundMode="filled"
-                app:hintTextAppearance="@style/MyHintStyle">
+                android:maxLines="1"
+                android:inputType="textCapSentences"
+                android:textAppearance="@style/TextAppearance.MyNoteTitle" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/title_edit"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="top|start"
-                    android:inputType="textMultiLine"
-                    android:maxLines="@integer/maxLines"
-                    android:textAppearance="@style/TextAppearance.MyNoteTitle" />
-            </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/body_text_input_layout"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="@string/body_hint"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:hintTextAppearance="@style/MyHintStyle">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/body_text_input_layout"
-                style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/body_edit"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/body_hint"
-                android:paddingStart="@dimen/switch_layout_marginStart"
-                android:paddingEnd="@dimen/switch_layout_marginEnd"
-                app:boxBackgroundColor="?attr/colorSurface"
-                app:boxBackgroundMode="filled"
-                app:boxCollapsedPaddingTop="@dimen/boxCollapsedPaddingTop"
-                app:hintTextAppearance="@style/MyHintStyle">
+                android:layout_height="match_parent"
+                android:gravity="top|start"
+                android:inputType="textMultiLine|textCapSentences|textAutoCorrect"
+                android:overScrollMode="always"
+                android:scrollbars="vertical" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/body_edit"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="300dp"
-                    android:gravity="top|start"
-                    android:inputType="textMultiLine|textCapSentences|textWebEmailAddress|textAutoCorrect|textPersonName"
-                    android:overScrollMode="never"
-                    android:scrollbars="none"
-                    android:textAlignment="viewStart" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="@dimen/switch_layout_marginStart"
-                android:paddingTop="@dimen/constraint_paddingTop"
-                android:paddingEnd="@dimen/switch_layout_marginEnd"
-                android:paddingBottom="@dimen/constraint_paddingBottom">
-
-                <com.google.android.material.materialswitch.MaterialSwitch
-                    android:id="@+id/recipe_switch"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/switch_layout_margin_recipe"
-                    android:text="@string/note_is_recipe"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/visible_switch"
-                    app:layout_constraintHorizontal_weight="1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.materialswitch.MaterialSwitch
-                    android:id="@+id/visible_switch"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/switch_layout_margin_visible"
-                    android:text="@string/hide_note"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_weight="1"
-                    app:layout_constraintStart_toEndOf="@id/recipe_switch"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 
     <View
         android:id="@+id/snackbar_anchor"
