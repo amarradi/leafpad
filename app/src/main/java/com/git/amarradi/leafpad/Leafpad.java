@@ -24,6 +24,10 @@ public class Leafpad extends Application {
 
     public static final String PREF_NOTIFY_ON_CHANGE = "change";
 
+    public static final String RELEASE_NOTE_SEEN_VERSION ="release_note_seen_version";
+    public static final String RELEASE_NOTE_DISMISSED = "release_note_dismissed";
+
+
     private static Leafpad instance;
 
     @Override
@@ -41,6 +45,45 @@ public class Leafpad extends Application {
         }
         return instance;
     }
+// ReleaseNotes-Hilfsmethoden (Kopie aus oben)
+
+    public static int getCurrentAppVersion(Context context) {
+        try {
+            return context.getPackageManager()
+                    .getPackageInfo(context.getPackageName(), 0).versionCode;
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
+    public static int getReleaseNoteSeenVersion(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getInt(RELEASE_NOTE_SEEN_VERSION, 0);
+    }
+
+    public static void setReleaseNoteSeenVersion(Context context, int version) {
+        PreferenceManager.getDefaultSharedPreferences(context)
+                .edit().putInt(RELEASE_NOTE_SEEN_VERSION, version).apply();
+    }
+
+    public static boolean isReleaseNoteDismissed(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getBoolean(RELEASE_NOTE_DISMISSED, false);
+    }
+
+    public static void setReleaseNoteDismissed(Context context, boolean dismissed) {
+        PreferenceManager.getDefaultSharedPreferences(context)
+                .edit().putBoolean(RELEASE_NOTE_DISMISSED, dismissed).apply();
+    }
+
+    public static boolean shouldShowReleaseNotes(Context context) {
+        int current = getCurrentAppVersion(context);
+        int seen = getReleaseNoteSeenVersion(context);
+        boolean dismissed = isReleaseNoteDismissed(context);
+        return !dismissed && current > seen;
+    }
+
+
 
     public static boolean isChangeNotificationEnabled(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);

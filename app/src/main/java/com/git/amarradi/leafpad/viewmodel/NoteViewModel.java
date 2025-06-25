@@ -1,5 +1,11 @@
 package com.git.amarradi.leafpad.viewmodel;
 
+import static com.git.amarradi.leafpad.Leafpad.getCurrentAppVersion;
+import static com.git.amarradi.leafpad.Leafpad.getReleaseNoteSeenVersion;
+import static com.git.amarradi.leafpad.Leafpad.isReleaseNoteDismissed;
+import static com.git.amarradi.leafpad.Leafpad.setReleaseNoteDismissed;
+import static com.git.amarradi.leafpad.Leafpad.setReleaseNoteSeenVersion;
+
 import android.app.Application;
 import android.content.Context;
 
@@ -23,6 +29,40 @@ public class NoteViewModel extends AndroidViewModel {
     private static final MutableLiveData<Note> selectedNote = new MutableLiveData<>();
     private final MutableLiveData<Note> originalNote = new MutableLiveData<>();
     private final MutableLiveData<Boolean> showHiddenLiveData = new MutableLiveData<>(false);
+
+    private final MutableLiveData<Boolean> showReleaseNotes = new MutableLiveData<>(false);
+
+    public LiveData<Boolean> getShowReleaseNotes() {
+        return showReleaseNotes;
+    }
+
+    // Diese Methode prüft, ob die ReleaseNotes angezeigt werden sollen:
+    public void checkReleaseNoteStatus(Context context) {
+        int currentVersion = getCurrentAppVersion(context);
+        int seenVersion = getReleaseNoteSeenVersion(context);
+
+        boolean dismissed = isReleaseNoteDismissed(context); // z.B. aus SharedPreferences
+        if (!dismissed && currentVersion > seenVersion) {
+            showReleaseNotes.postValue(true);
+        } else {
+            showReleaseNotes.postValue(false);
+        }
+    }
+
+    // Beim Schließen der ReleaseNotes
+    public void dismissReleaseNotes(Context context) {
+        setReleaseNoteDismissed(context, true); // in SharedPrefs
+        setReleaseNoteSeenVersion(context, getCurrentAppVersion(context));
+        showReleaseNotes.postValue(false);
+    }
+
+    // Beim manuellen Wiederherstellen
+    public void showReleaseNotesAgain(Context context) {
+        setReleaseNoteDismissed(context, false);
+        showReleaseNotes.postValue(true);
+    }
+
+
     private final LiveData<Boolean> isNoteEmpty = Transformations.map(
             selectedNote,
             note -> {

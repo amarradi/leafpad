@@ -76,15 +76,19 @@
                     android:paddingStart="@dimen/icon_text_distance_start" />
             </LinearLayout>
             </LinearLayout>
-            <ImageButton
-            android:id="@+id/release_note_close_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/close"
-            android:visibility="visible"
-            android:contentDescription="@string/close_release_note" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/release_note_close_button"
+                style="@style/Widget.Material3.Button.IconButton.Outlined"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:background="?attr/selectableItemBackgroundBorderless"
+
+                android:contentDescription="@string/close_release_note"
+                android:minWidth="48dp"
+                android:src="@drawable/close"
+                android:visibility="visible" />
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
