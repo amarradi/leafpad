@@ -23,10 +23,14 @@ leafpad remove your note completely, when you delete your note
 * <b>leafpad is now available in many languages, for example English, German, French, Polish. If languages are still missing, you are welcome to participate.</b>
 
 # Thanks
-Many thanks for the work for the leafpadproject goes to <a href='https://github.com/stdx'>@stdx</a>, <a href=https://github.com/sealor>@sealor</a>, <a href='https://github.com/alejandromartincarrera'>@alejandromartincarrera</a>, Manuel, Emil, Falk, Stephanie and many others
+Many thanks for the ork for the leafpadproject goes to <a href='https://github.com/stdx'>@stdx</a>, <a href=https://github.com/sealor>@sealor</a>, <a href='https://github.com/alejandromartincarrera'>@alejandromartincarrera</a>, Manuel, Emil, Falk, Stephanie and many others
+
 
 # Translation
 Help translate at <a href='https://hosted.weblate.org/engage/leafpad/'>Weblate</a>
+
+## Thanks for the translations
+**Albanian**: Besnik Bleta (Besnik_b); **Catalan**: Adolfo Jayme Barrientos (Fito), Toni Gurguí (tgurgui); **Czech**: MessingWithComputers (MessingWithComputers); **English**: Yurt Page (yurtpage), zergio inzunza (n1kf4m3l); **French**: Leonart (Leonart); **German**: Maximilian Hüttner (MaxHue); **Greek**: Jim Kats (jimkats1); **Hindi**: Harshit Sethi (hstsethi); **Hindi (Latin script)**: Saurmanđal (Saurmandal); **Indonesian**: Reza Almanda (rezaalmanda), Antx (antx); **Italian**: pastic cerre (pasti), Akiakizero (Akiakizero); **Polish**: Matthaiks (Kityn), Krzysztof Kolumb (Kolumb76), Eryk Michalak (gnu-ewm), OskarO 140 (oskarek.o140); **Portuguese**: Lucas Alves Rego (devlulcas); **Russian**: Kirill Isakov (crowbar), Yurt Page (yurtpage), Sotski Eugene (jekakmail), Rachel Podya (homicide@disroot.org); **Spanish**: Deleted User (deleted-48943), Zarahi Ander (TradZarahi), Jose David M (jposada202020@gmail.com), Leopoldo Antonio Motto Murua (leomotto), Francisco Gabriel Chardin (FranChardin), Abraham Mendoza (1Alide1), zergio inzunza (n1kf4m3l); **Tamil**: தமிழ்நேரம் (TamilNeram);
 
 <a href="https://hosted.weblate.org/engage/leafpad/">
 <img src="https://hosted.weblate.org/widget/leafpad/leafpad/open-graph.png" alt="Übersetzungsstatus" />
