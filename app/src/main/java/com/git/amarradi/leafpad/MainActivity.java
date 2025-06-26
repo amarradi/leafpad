@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -21,8 +22,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.git.amarradi.leafpad.adapter.NoteAdapter;
 import com.git.amarradi.leafpad.helper.DialogHelper;
 import com.git.amarradi.leafpad.helper.LayoutModeHelper;
+import com.git.amarradi.leafpad.helper.ReleaseNoteHelper;
 import com.git.amarradi.leafpad.helper.ShareHelper;
 import com.git.amarradi.leafpad.model.Note;
+import com.git.amarradi.leafpad.model.ReleaseNote;
 import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
@@ -44,6 +47,17 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        NoteViewModel viewModel= new ViewModelProvider(this).get(NoteViewModel.class);
+        viewModel.checkAndLoadReleaseNote(this);
+        viewModel.getReleaseNote().observe(this, releaseNote ->{
+            noteAdapter.setReleaseNoteHeader(releaseNote);
+            if (releaseNote != null) {
+                Log.d("ReleaseNoteTest", releaseNote.getTitle() + " / " + releaseNote.getContent());
+            } else {
+                Log.e("ReleaseNoteTest", "ReleaseNote ist NULL!");
+            }
+        });
 
         noteViewModel = new ViewModelProvider(
                 this,

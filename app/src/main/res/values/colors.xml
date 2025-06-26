@@ -53,5 +53,5 @@
         <color name="md_theme_bookspine">#003321</color>
 
         <color name="md_theme_category_background">#D0E8FF</color>
-
+        <color name="md_theme_releasenotes">#FF3D00</color>
 </resources>
