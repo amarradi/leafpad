@@ -1,11 +1,5 @@
 package com.git.amarradi.leafpad.viewmodel;
 
-import static com.git.amarradi.leafpad.Leafpad.getCurrentAppVersion;
-import static com.git.amarradi.leafpad.Leafpad.getReleaseNoteSeenVersion;
-import static com.git.amarradi.leafpad.Leafpad.isReleaseNoteDismissed;
-import static com.git.amarradi.leafpad.Leafpad.setReleaseNoteDismissed;
-import static com.git.amarradi.leafpad.Leafpad.setReleaseNoteSeenVersion;
-
 import android.app.Application;
 import android.content.Context;
 
@@ -16,8 +10,10 @@ import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 
+import com.git.amarradi.leafpad.Leafpad;
 import com.git.amarradi.leafpad.model.Leaf;
 import com.git.amarradi.leafpad.model.Note;
+import com.git.amarradi.leafpad.model.ReleaseNoteHeader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,39 +25,116 @@ public class NoteViewModel extends AndroidViewModel {
     private static final MutableLiveData<Note> selectedNote = new MutableLiveData<>();
     private final MutableLiveData<Note> originalNote = new MutableLiveData<>();
     private final MutableLiveData<Boolean> showHiddenLiveData = new MutableLiveData<>(false);
+    private final MediatorLiveData<List<Object>> combinedNotes = new MediatorLiveData<>();
+    public LiveData<List<Object>> getCombinedNotes() { return combinedNotes; }
+    // ---- ReleaseNotes-Handling ----
+    private final MutableLiveData<Boolean> showReleaseNote = new MutableLiveData<>(false);
 
-    private final MutableLiveData<Boolean> showReleaseNotes = new MutableLiveData<>(false);
+    private final MutableLiveData<Boolean> releaseNoteVisibleLiveData = new MutableLiveData<>();
 
-    public LiveData<Boolean> getShowReleaseNotes() {
-        return showReleaseNotes;
+    private final MutableLiveData<Boolean> showReleaseNoteLiveData = new MutableLiveData<>(false);
+
+    // Getter für die Activity/Fragment:
+    public LiveData<Boolean> getShowReleaseNoteLiveData() {
+        return showReleaseNoteLiveData;
+    }
+    public LiveData<Boolean> getReleaseNoteVisible() {
+        return releaseNoteVisibleLiveData;
     }
 
-    // Diese Methode prüft, ob die ReleaseNotes angezeigt werden sollen:
-    public void checkReleaseNoteStatus(Context context) {
-        int currentVersion = getCurrentAppVersion(context);
-        int seenVersion = getReleaseNoteSeenVersion(context);
+    public void updateShowReleaseNoteState(Context context) {
+        boolean dismissed = Leafpad.isReleaseNoteDismissed(context);
+        int currentVersion = Leafpad.getCurrentAppVersion(context);
+        int seenVersion = Leafpad.getReleaseNoteSeenVersion(context);
 
-        boolean dismissed = isReleaseNoteDismissed(context); // z.B. aus SharedPreferences
         if (!dismissed && currentVersion > seenVersion) {
-            showReleaseNotes.postValue(true);
+            showReleaseNoteLiveData.setValue(true);
         } else {
-            showReleaseNotes.postValue(false);
+            showReleaseNoteLiveData.setValue(false);
         }
     }
 
-    // Beim Schließen der ReleaseNotes
+
+    public NoteViewModel(@NonNull Application application) {
+        super(application);
+        // Beobachte Notes & Suchanfrage für Filter-Logik
+        filteredNotes.addSource(notesLiveData, notes -> applySearchQuery());
+        filteredNotes.addSource(searchQuery, q -> applySearchQuery());
+
+        // Reagiere auf Notizen-Änderungen
+        combinedNotes.addSource(notesLiveData, notes -> updateCombinedNotes());
+        // Reagiere auf Header-Änderungen
+        combinedNotes.addSource(showReleaseNote, show -> updateCombinedNotes());
+
+        // ReleaseNotes-Anzeige initial setzen
+        updateReleaseNotesVisibility();
+    }
+
+    // ---- ReleaseNotes MVVM API ----
+
+    private void updateCombinedNotes() {
+        List<Object> items = new ArrayList<>();
+        if (showReleaseNote.getValue() != null && showReleaseNote.getValue()) {
+            items.add(new ReleaseNoteHeader());
+        }
+        List<Note> notes = notesLiveData.getValue();
+        if (notes != null) items.addAll(notes);
+        combinedNotes.postValue(items);
+    }
+
+    public void checkAndShowReleaseNotes(Context context) {
+        // Prüfe, ob ReleaseNotes angezeigt werden müssen
+        boolean show = Leafpad.shouldShowReleaseNotes(context);
+        showReleaseNote.postValue(show);
+        updateCombinedNotes();
+    }
+
+    public void reloadReleaseNoteState() {
+        boolean visible = !Leafpad.isReleaseNoteDismissed(getApplication());
+        releaseNoteVisibleLiveData.postValue(visible);
+    }
+
+    // Wird beim Schließen vom Nutzer aufgerufen:
     public void dismissReleaseNotes(Context context) {
-        setReleaseNoteDismissed(context, true); // in SharedPrefs
-        setReleaseNoteSeenVersion(context, getCurrentAppVersion(context));
-        showReleaseNotes.postValue(false);
+        Leafpad.isReleaseNoteDismissed(context);
+        showReleaseNote.postValue(false);
+        updateCombinedNotes();
+    }
+    public LiveData<Boolean> getShowReleaseNote() {
+        return showReleaseNote;
     }
 
-    // Beim manuellen Wiederherstellen
-    public void showReleaseNotesAgain(Context context) {
-        setReleaseNoteDismissed(context, false);
-        showReleaseNotes.postValue(true);
+    // Prüfe, ob ReleaseNotes angezeigt werden sollen (z.B. nach Update/Neuinstallation)
+    public void updateReleaseNotesVisibility() {
+        Application app = getApplication();
+        boolean dismissed = Leafpad.isReleaseNoteDismissed(app);
+        int currentVersion = Leafpad.getCurrentAppVersion(app);
+        int seenVersion = Leafpad.getReleaseNoteSeenVersion(app);
+        // Zeige ReleaseNotes, wenn...
+        // - Sie nicht explizit dismissed wurden ODER
+        // - ...der VersionCode seitdem erhöht wurde
+        if (!dismissed || currentVersion > seenVersion) {
+            showReleaseNote.setValue(true);
+        } else {
+            showReleaseNote.setValue(false);
+        }
     }
 
+    // Vom UI aufrufen, wenn ReleaseNotes geschlossen wurden (über das X)
+//    public void dismissReleaseNotes(Context context) {
+//        int currentVersion = Leafpad.getCurrentAppVersion(context);
+//        Leafpad.setReleaseNoteSeenVersion(context, currentVersion); // Merke, welche Version der Nutzer gesehen hat
+//        Leafpad.setReleaseNoteDismissed(context, true);             // Merke, dass sie weggeklickt wurden
+//        showReleaseNotes.setValue(false);                           // LiveData für UI
+//    }
+
+    // Optional: Vom UI/Settings aufrufen, um ReleaseNotes wieder sichtbar zu machen
+    public void resetReleaseNotes(Context context) {
+        Leafpad.setReleaseNoteDismissed(context, false);
+        showReleaseNote.setValue(true);
+    }
+
+    // ---- Standard Notiz-Logik ----
 
     private final LiveData<Boolean> isNoteEmpty = Transformations.map(
             selectedNote,
@@ -79,19 +152,8 @@ public class NoteViewModel extends AndroidViewModel {
         Note n = selectedNote.getValue();
         if (n == null) return;
 
-        String title;
-        if (n.getTitle() == null) {
-            title = "";
-        } else {
-            title = n.getTitle().trim();
-        }
-
-        String body;
-        if (n.getBody() == null) {
-            body = "";
-        } else {
-            body = n.getBody().trim();
-        }
+        String title = n.getTitle() == null ? "" : n.getTitle().trim();
+        String body = n.getBody() == null ? "" : n.getBody().trim();
 
         if (isNewEntry(n)) {
             Leaf.remove(getApplication(), n);
@@ -101,21 +163,10 @@ public class NoteViewModel extends AndroidViewModel {
         }
         loadNotes();
     }
+
     public boolean isNewEntry(Note note) {
-
-        String title = "";
-        if (note.getTitle().isEmpty()) {
-            title = "";
-        } else {
-            title = note.getTitle().trim();
-        }
-
-        String body;
-        if (note.getBody() == null) {
-            body = "";
-        } else {
-            body = note.getBody().trim();
-        }
+        String title = note.getTitle() == null ? "" : note.getTitle().trim();
+        String body = note.getBody() == null ? "" : note.getBody().trim();
         return title.isEmpty() && body.isEmpty();
     }
 
@@ -128,74 +179,25 @@ public class NoteViewModel extends AndroidViewModel {
     public boolean hasUnsavedChanges() {
         Note current = selectedNote.getValue();
         Note original = originalNote.getValue();
-
-        if (original == null) {
-            return false;
-        }
-
-        if(current == null) {
-            return false;
-        }
-
-        String currentTitle;
-        if (current.getTitle() == null) {
-            currentTitle = "";
-        } else {
-            currentTitle = current.getTitle();
-        }
-
-        String currentBody;
-        if (current.getBody() == null) {
-            currentBody = "";
-        } else {
-            currentBody = current.getBody();
-        }
-
-        String originalTitle;
-        if (original.getTitle() == null) {
-            originalTitle = "";
-        } else {
-            originalTitle = original.getTitle();
-        }
-
-        String originalBody;
-        if (original.getBody() == null) {
-            originalBody = "";
-        } else {
-            originalBody = original.getBody();
-        }
+        if (original == null || current == null) return false;
 
         boolean changed = false;
-
-        if (!currentTitle.equals(originalTitle)) {
-            changed = true;
-        } else if (!currentBody.equals(originalBody)) {
-            changed = true;
-        } else if (!Objects.equals(current.getCategory(), original.getCategory())) {
-            changed = true;
-        } else if (current.isHide() != original.isHide()) {
-            changed = true;
-        }
+        if (!Objects.equals(current.getTitle(), original.getTitle())) changed = true;
+        else if (!Objects.equals(current.getBody(), original.getBody())) changed = true;
+        else if (!Objects.equals(current.getCategory(), original.getCategory())) changed = true;
+        else if (current.isHide() != original.isHide()) changed = true;
         return changed;
     }
-    public NoteViewModel(@NonNull Application application) {
-        super(application);
 
-        filteredNotes.addSource(notesLiveData, notes -> applySearchQuery());
-        filteredNotes.addSource(searchQuery, q -> applySearchQuery());
-    }
     private void applySearchQuery() {
         List<Note> allNotes = notesLiveData.getValue();
         String query = searchQuery.getValue();
-
         if (allNotes == null || query == null || query.isEmpty()) {
             filteredNotes.setValue(new ArrayList<>());
             return;
         }
-
         List<Note> filtered = new ArrayList<>();
         String lowerQuery = query.toLowerCase();
-
         for (Note note : allNotes) {
             if ((note.getTitle() != null && note.getTitle().toLowerCase().contains(lowerQuery)) ||
                     (note.getBody() != null && note.getBody().toLowerCase().contains(lowerQuery)) ||
@@ -205,38 +207,32 @@ public class NoteViewModel extends AndroidViewModel {
         }
         filteredNotes.setValue(filtered);
     }
+
     public void setSearchQuery(String query) {
         searchQuery.setValue(query);
     }
-
     public LiveData<List<Note>> getSearchResults() {
         return filteredNotes;
     }
-
     public LiveData<List<Note>> getNotes() {
         return notesLiveData;
     }
-
     public LiveData<Note> getSelectedNote() {
         return selectedNote;
     }
-
     public LiveData<Boolean> getShowHidden() {
         return showHiddenLiveData;
     }
-
     public void setShowHidden(boolean showHidden) {
         showHiddenLiveData.setValue(showHidden);
         loadNotes();
     }
-
     public void setNote(Note note) {
         if (note == null) {
             originalNote.setValue(null);
             selectedNote.setValue(null);
         } else {
             originalNote.setValue(note);
-            // Copy to compare
             selectedNote.setValue(new Note(note));
         }
     }
@@ -245,6 +241,7 @@ public class NoteViewModel extends AndroidViewModel {
         if (showHidden == null) showHidden = false;
         List<Note> allNotes = Leaf.loadAll(getApplication(), showHidden);
         notesLiveData.postValue(allNotes);
+        updateCombinedNotes();
     }
     public void selectNote(Note note) {
         selectedNote.setValue(note);
@@ -271,7 +268,6 @@ public class NoteViewModel extends AndroidViewModel {
         Note currentNote = selectedNote.getValue();
         if (currentNote != null) {
             String currentCategory = currentNote.getCategory();
-
             if (!category.equals(currentCategory)) {
                 currentNote.setCategory(category);
                 selectedNote.setValue(currentNote);
