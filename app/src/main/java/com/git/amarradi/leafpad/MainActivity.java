@@ -20,6 +20,7 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.git.amarradi.leafpad.adapter.NoteAdapter;
+import com.git.amarradi.leafpad.adapter.OnReleaseNoteCloseListener;
 import com.git.amarradi.leafpad.helper.DialogHelper;
 import com.git.amarradi.leafpad.helper.LayoutModeHelper;
 import com.git.amarradi.leafpad.helper.ReleaseNoteHelper;
@@ -34,11 +35,12 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 
-public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, OnReleaseNoteCloseListener {
 
     public RecyclerView recyclerView;
     public NoteAdapter noteAdapter;
     private NoteViewModel noteViewModel;
+
 
     @SuppressLint("RestrictedApi")
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -52,11 +54,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         viewModel.checkAndLoadReleaseNote(this);
         viewModel.getReleaseNote().observe(this, releaseNote ->{
             noteAdapter.setReleaseNoteHeader(releaseNote);
-            if (releaseNote != null) {
-                Log.d("ReleaseNoteTest", releaseNote.getTitle() + " / " + releaseNote.getContent());
-            } else {
-                Log.e("ReleaseNoteTest", "ReleaseNote ist NULL!");
-            }
+            updateEmptyState();
         });
 
         noteViewModel = new ViewModelProvider(
@@ -72,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             recyclerView.post(()->recyclerView.scrollToPosition(0));
 
             ImageView emptyElement = findViewById(R.id.emptyElement);
-            if (noteAdapter.isFilteredListEmpty()) {
+            if (noteAdapter.getItemCount()==0) {
                 emptyElement.setVisibility(View.VISIBLE);
                 recyclerView.setVisibility(View.INVISIBLE);
             } else {
@@ -106,7 +104,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             public void onNoteIconClicked(Note note, View anchor) {
                 showPopupMenu(note, anchor);
             }
-        });
+        },this);
+
 
         recyclerView.setAdapter(noteAdapter);
 
@@ -118,6 +117,21 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             intent.putExtra(Leafpad.EXTRA_NOTE_ID, Note.makeId());
             startActivity(intent);
         });
+    }
+    @Override
+    public void onReleaseNoteClosed() {
+        noteAdapter.setReleaseNoteHeader(null);
+        updateEmptyState();
+    }
+    private void updateEmptyState() {
+        ImageView emptyElement = findViewById(R.id.emptyElement);
+        if (noteAdapter.getItemCount() == 0) {
+            emptyElement.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.INVISIBLE);
+        } else {
+            emptyElement.setVisibility(View.INVISIBLE);
+            recyclerView.setVisibility(View.VISIBLE);
+        }
     }
 
     private void setupSharedPreferences() {

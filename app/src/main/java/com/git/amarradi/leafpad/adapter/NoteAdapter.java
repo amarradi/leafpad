@@ -2,6 +2,7 @@ package com.git.amarradi.leafpad.adapter;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +47,7 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
     private List<Object> currentList = new ArrayList<>();
 
     private final MainActivity.NoteClickListener listener;
+    private final OnReleaseNoteCloseListener releaseNoteCloseListener;
 
     public enum LayoutMode {
         LIST, GRID
@@ -53,7 +55,7 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
 
     private final static String BIBLEVERSE_URL_REGEX = "(?i)\\b(?:https?://)?(?:www\\.)?(bible\\.(com|org)|bibleserver\\.com)(/\\S*)?";
 
-    public NoteAdapter(Context context, List<Note> noteList, MainActivity.NoteClickListener listener) {
+    public NoteAdapter(Context context, List<Note> noteList, MainActivity.NoteClickListener listener,OnReleaseNoteCloseListener releaseNoteCloseListener) {
         this.context = context;
         this.noteList = noteList;
         this.fullNoteList = noteList;
@@ -61,11 +63,13 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         this.noteList = filterNotes(showOnlyHidden);
         setHasStableIds(true);
         buildCombinedListAndNotify();
+        this.releaseNoteCloseListener = releaseNoteCloseListener;
     }
 
     // ReleaseNote-Header setzen oder entfernen
     public void setReleaseNoteHeader(ReleaseNote releaseNote) {
         this.releaseNoteHeader = releaseNote;
+        Log.d("setReleaseNoteHeader", "setReleaseNoteHeader aufgerufen, Wert: " + (releaseNote != null ? releaseNote.getTitle() : "null"));
         buildCombinedListAndNotify();
     }
 
@@ -225,6 +229,7 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
     @Override
     public void onReleaseNoteClosed() {
         setReleaseNoteHeader(null);
+
     }
 
     // ReleaseNote-Header ViewHolder
