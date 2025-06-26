@@ -62,7 +62,7 @@ public class Leafpad extends Application {
     }
     public static void setCurrentLeafpadVersionCode(Context context) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        sharedPreferences.edit().putInt(CURRENT_LEAFPAD_VERSION_CODE,Leafpad.getInstance().getCurrentVersionCode()).apply();
+        sharedPreferences.edit().putInt(CURRENT_LEAFPAD_VERSION_CODE,Leafpad.getCurrentVersionCode(context)).apply();
     }
     public static int getCurrentLeafpadVersionCode(Context context) {
         int versionCode;
@@ -179,16 +179,13 @@ public class Leafpad extends Application {
         }
     }
 
-    public int getCurrentVersionCode() {
-        PackageManager packageManager = getApplicationContext().getPackageManager();
-        String pkgName = getApplicationContext().getPackageName();
-        PackageInfo packageInfo = null;
+    public static int getCurrentVersionCode(Context context) {
         try {
-            packageInfo = packageManager.getPackageInfo(pkgName, 0);
+            return context.getPackageManager().getPackageInfo(context.getPackageName(),0).versionCode;
         } catch (PackageManager.NameNotFoundException e) {
             e.getLocalizedMessage();
+            return 0;
         }
-        return Objects.requireNonNull(packageInfo).versionCode;
     }
 
     public void close() throws IOException {

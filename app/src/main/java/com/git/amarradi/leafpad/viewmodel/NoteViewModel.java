@@ -45,12 +45,13 @@ public class NoteViewModel extends AndroidViewModel {
         return releaseNoteLiveData;
     }
     public void checkAndLoadReleaseNote(Context context) {
-//        ReleaseNote note = ReleaseNoteHelper.loadReleaseNote(context);
-//        releaseNoteLiveData.setValue(note);
-//        Log.d("checkAndLoadReleaseNote","Version "+Leafpad.getInstance().getCurrentVersionCode());
-        if (!Leafpad.isReleaseNoteClosed(context) && !(Leafpad.getCurrentLeafpadVersionCode(context)<=Leafpad.getInstance().getCurrentVersionCode())) {
+        if (!Leafpad.isReleaseNoteClosed(context)) {
+                ReleaseNote note = ReleaseNoteHelper.loadReleaseNote(context);
+                releaseNoteLiveData.setValue(note);
+        } else if (Leafpad.isReleaseNoteClosed(context) && (Leafpad.getCurrentLeafpadVersionCode(context)<Leafpad.getCurrentVersionCode(context))){
             ReleaseNote note = ReleaseNoteHelper.loadReleaseNote(context);
             releaseNoteLiveData.setValue(note);
+            Leafpad.resetReleaseNoteClosed(context);
         } else {
             releaseNoteLiveData.setValue(null);
         }
