@@ -71,7 +71,7 @@
     <string name="backupIsrunning">Zálohování běží</string>
     <string name="no">Ne</string>
     <string name="importError">Chyba při importu poznámek.</string>
-    <string name="showDeleteConfirmationMessage">Všechny poznámky budou trvale smazány. Pokračovat?</string>
+    <string name="showDeleteConfirmationMessage">Všechny poznámky budou trvale odstraněny. Pokračovat?</string>
     <string name="yes">Ano</string>
     <plurals name="notes_imported">
         <item quantity="one">Jedna poznámka importována</item>
