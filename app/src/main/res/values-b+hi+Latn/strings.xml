@@ -70,7 +70,7 @@
     <string name="showDeleteConfirmation">Notes mitaayein?</string>
     <string name="backupIsrunning">Backup is running</string>
     <string name="no">Nahin</string>
-    <string name="importError">Notes aayaat karte samay error aaya.</string>
+    <string name="importError">Notes aayaat karte samay error.</string>
     <string name="showDeleteConfirmationMessage">Sabhi notes hamesha ke liye mita diye jaayenge. Aage badhein?</string>
     <string name="yes">Haan</string>
     <plurals name="notes_imported">
@@ -80,7 +80,7 @@
     <string name="fileOpeningError">File kholte samay error.</string>
     <string name="delete">Mitaayein</string>
     <string name="backupfinish">Backup finishes</string>
-    <string name="invalidFile">Invalid backup file. The import was cancelled.</string>
+    <string name="invalidFile">Amaany backup file hai. Import cancel kar diya gaya.</string>
     <string name="cancel">Cancel karein</string>
     <string name="showRestoreConfirmation">Restore karein?</string>
     <string name="restore_notes_title">Restore karein</string>
