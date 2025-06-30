@@ -100,4 +100,6 @@
     <string name="unsaved_changes_message">Aapka note badla gaya hai. Aap badlaav save ya khaarij karna chaahte hain?</string>
     <string name="unsaved_changes_title">Save na kiye hue badlaav</string>
     <string name="no_search_results">Kuchh bhi nahin mila</string>
+    <string name="set">It is a recipe</string>
+    <string name="close_release_note">Close Button\n</string>
 </resources>
