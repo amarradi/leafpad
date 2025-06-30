@@ -1,7 +1,5 @@
 package com.git.amarradi.leafpad.viewmodel;
 
-import static com.git.amarradi.leafpad.helper.ReleaseNoteHelper.loadReleaseNote;
-
 import android.app.Application;
 import android.content.Context;
 import android.util.Log;
@@ -44,6 +42,10 @@ public class NoteViewModel extends AndroidViewModel {
     public LiveData<ReleaseNote> getReleaseNote() {
         return releaseNoteLiveData;
     }
+    // In NoteViewModel.java
+    private final MediatorLiveData<List<Object>> combinedNotes = new MediatorLiveData<>();
+    public LiveData<List<Object>> getCombinedNotes() { return combinedNotes; }
+
     public void checkAndLoadReleaseNote(Context context) {
         int savedVersion = Leafpad.getCurrentLeafpadVersionCode(context); // default = 0
         int currentVersion = Leafpad.getCurrentVersionCode(context);

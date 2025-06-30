@@ -23,10 +23,8 @@ import com.git.amarradi.leafpad.adapter.NoteAdapter;
 import com.git.amarradi.leafpad.adapter.OnReleaseNoteCloseListener;
 import com.git.amarradi.leafpad.helper.DialogHelper;
 import com.git.amarradi.leafpad.helper.LayoutModeHelper;
-import com.git.amarradi.leafpad.helper.ReleaseNoteHelper;
 import com.git.amarradi.leafpad.helper.ShareHelper;
 import com.git.amarradi.leafpad.model.Note;
-import com.git.amarradi.leafpad.model.ReleaseNote;
 import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
@@ -41,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public NoteAdapter noteAdapter;
     private NoteViewModel noteViewModel;
 
-
     @SuppressLint("RestrictedApi")
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -52,9 +49,13 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         NoteViewModel viewModel= new ViewModelProvider(this).get(NoteViewModel.class);
         viewModel.checkAndLoadReleaseNote(this);
-        viewModel.getReleaseNote().observe(this, releaseNote ->{
-            noteAdapter.setReleaseNoteHeader(releaseNote);
-            updateEmptyState();
+        viewModel.getReleaseNote().observe(this, releaseNote -> {
+            if (!Leafpad.isReleaseNoteClosed(this) ||
+                    Leafpad.getCurrentVersionCode(this)>Leafpad.getCurrentLeafpadVersionCode(this)) {
+                noteAdapter.setReleaseNoteHeader(releaseNote);
+                Leafpad.resetReleaseNoteClosed(this);
+                updateEmptyState();
+            }
         });
 
         noteViewModel = new ViewModelProvider(
@@ -69,19 +70,20 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             noteAdapter.updateNotes(notes);
             recyclerView.post(()->recyclerView.scrollToPosition(0));
 
-            ImageView emptyElement = findViewById(R.id.emptyElement);
-            if (noteAdapter.getItemCount()==0) {
-                emptyElement.setVisibility(View.VISIBLE);
-                recyclerView.setVisibility(View.INVISIBLE);
-            } else {
-                emptyElement.setVisibility(View.INVISIBLE);
-                recyclerView.setVisibility(View.VISIBLE);
-            }
+            updateEmptyState();
         });
 
         noteViewModel.getShowHidden().observe(this, showHidden -> {
             noteAdapter.setShowOnlyHidden(showHidden);
+            updateEmptyState();
         });
+
+        // In MainActivity.java, im onCreate z. B.
+        viewModel.getCombinedNotes().observe(this, combinedList -> {
+            noteAdapter.setCombinedList(combinedList);
+            updateEmptyState();
+        });
+
 
         setupSharedPreferences();
 
@@ -120,12 +122,16 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
     @Override
     public void onReleaseNoteClosed() {
+        Leafpad.setReleaseNoteClosed(this);
+        Leafpad.setCurrentLeafpadVersionCode(this);
         noteAdapter.setReleaseNoteHeader(null);
-        updateEmptyState();
+        recyclerView.post(this::updateEmptyState);
     }
     private void updateEmptyState() {
+        int count = noteAdapter.getItemCount();
+        Log.d("MainActivity", "updateEmptyState - itemCount: " + count);
         ImageView emptyElement = findViewById(R.id.emptyElement);
-        if (noteAdapter.getItemCount() == 0) {
+        if (count == 0) {
             emptyElement.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.INVISIBLE);
         } else {

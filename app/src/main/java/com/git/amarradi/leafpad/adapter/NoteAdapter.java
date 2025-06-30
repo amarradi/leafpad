@@ -2,7 +2,6 @@ package com.git.amarradi.leafpad.adapter;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,13 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.git.amarradi.leafpad.Leafpad;
 import com.git.amarradi.leafpad.MainActivity;
+import com.git.amarradi.leafpad.R;
 import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.model.ReleaseNote;
-import com.git.amarradi.leafpad.R;
-import com.git.amarradi.leafpad.util.NoteDiffCallback;
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 
 import java.nio.charset.StandardCharsets;
@@ -30,11 +26,11 @@ import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements OnReleaseNoteCloseListener {
+public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private static final int VIEWTYPE_RELEASE_NOTE = 100;
-    private static final int VIEWTYPE_NOTE_LIST = 0;
-    private static final int VIEWTYPE_NOTE_GRID = 1;
+    public static final int VIEWTYPE_RELEASE_NOTE = 100;
+    public static final int VIEWTYPE_NOTE_LIST = 0;
+    public static final int VIEWTYPE_NOTE_GRID = 1;
 
     private final Context context;
     private List<Note> noteList;
@@ -43,9 +39,7 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
     private LayoutMode layoutMode = LayoutMode.LIST;
     private ReleaseNote releaseNoteHeader = null;
 
-    // Für gemischte Anzeige (Header + Notizen) mit DiffUtil:
     private List<Object> currentList = new ArrayList<>();
-
     private final MainActivity.NoteClickListener listener;
     private final OnReleaseNoteCloseListener releaseNoteCloseListener;
 
@@ -55,27 +49,37 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
 
     private final static String BIBLEVERSE_URL_REGEX = "(?i)\\b(?:https?://)?(?:www\\.)?(bible\\.(com|org)|bibleserver\\.com)(/\\S*)?";
 
-    public NoteAdapter(Context context, List<Note> noteList, MainActivity.NoteClickListener listener,OnReleaseNoteCloseListener releaseNoteCloseListener) {
+    public NoteAdapter(Context context, List<Note> noteList, MainActivity.NoteClickListener listener, OnReleaseNoteCloseListener releaseNoteCloseListener) {
         this.context = context;
         this.noteList = noteList;
         this.fullNoteList = noteList;
         this.listener = listener;
-        this.noteList = filterNotes(showOnlyHidden);
-        setHasStableIds(true);
-        buildCombinedListAndNotify();
         this.releaseNoteCloseListener = releaseNoteCloseListener;
+        setHasStableIds(true);
+        applyFilterAndUpdate();
     }
 
-    // ReleaseNote-Header setzen oder entfernen
+    // Setter für ReleaseNote-Header (aufrufen, wenn angezeigt werden soll)
     public void setReleaseNoteHeader(ReleaseNote releaseNote) {
         this.releaseNoteHeader = releaseNote;
-        Log.d("setReleaseNoteHeader", "setReleaseNoteHeader aufgerufen, Wert: " + (releaseNote != null ? releaseNote.getTitle() : "null"));
         buildCombinedListAndNotify();
+    }
+
+    // Setter für kombinierte Liste (z. B. bei MVVM direkt vom ViewModel)
+    public void setCombinedList(List<Object> list) {
+        if (list != null) {
+            DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new NoteMixedDiffCallback(currentList, list));
+            currentList = new ArrayList<>(list);
+            diffResult.dispatchUpdatesTo(this);
+        } else {
+            currentList = new ArrayList<>();
+            notifyDataSetChanged();
+        }
     }
 
     public void setLayoutMode(LayoutMode mode) {
         this.layoutMode = mode;
-        notifyItemRangeChanged(0, getItemCount(), null);
+        notifyDataSetChanged();
     }
 
     public void setShowOnlyHidden(boolean showHidden) {
@@ -92,7 +96,7 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         return noteList == null || noteList.isEmpty();
     }
 
-    // List mit ReleaseNote (optional) und Notes aufbauen und DiffUtil benutzen
+    // Kombiniert ReleaseNote (sofern gesetzt) und die Notizen zu einer Liste
     private void buildCombinedListAndNotify() {
         List<Object> newCombined = new ArrayList<>();
         if (releaseNoteHeader != null) {
@@ -114,11 +118,13 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
 
     private List<Note> filterNotes(boolean showHidden) {
         List<Note> filtered = new ArrayList<>();
-        for (Note note : fullNoteList) {
-            if (showHidden && note.isHide()) {
-                filtered.add(note);
-            } else if (!showHidden && !note.isHide()) {
-                filtered.add(note);
+        if (fullNoteList != null) {
+            for (Note note : fullNoteList) {
+                if (showHidden && note.isHide()) {
+                    filtered.add(note);
+                } else if (!showHidden && !note.isHide()) {
+                    filtered.add(note);
+                }
             }
         }
         return filtered;
@@ -126,20 +132,14 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
 
     @Override
     public int getItemCount() {
-        int count;
-        if (currentList != null) {
-            count = currentList.size();
-        } else {
-            count = 0;
-        }
-        return count;
+        return currentList != null ? currentList.size() : 0;
     }
 
     @Override
     public long getItemId(int position) {
         Object item = currentList.get(position);
         if (item instanceof ReleaseNote) {
-            return -1; // Fester Wert für Header
+            return -1;
         } else if (item instanceof Note) {
             String id = ((Note) item).getId();
             if (id != null) {
@@ -181,7 +181,7 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Object item = currentList.get(position);
         if (getItemViewType(position) == VIEWTYPE_RELEASE_NOTE && item instanceof ReleaseNote) {
-            ((ReleaseNoteViewHolder) holder).bind((ReleaseNote) item, this);
+            ((ReleaseNoteViewHolder) holder).bind((ReleaseNote) item, releaseNoteCloseListener);
             return;
         }
         if (item instanceof Note) {
@@ -219,20 +219,11 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
             }
 
             noteHolder.itemView.setOnClickListener(v -> listener.onNoteClicked(note));
-            noteHolder.actionButton.setOnClickListener(v -> {
-                listener.onNoteIconClicked(note, noteHolder.actionButton);
-            });
+            noteHolder.actionButton.setOnClickListener(v -> listener.onNoteIconClicked(note, noteHolder.actionButton));
         }
     }
 
-    // Implementation des Listener-Callbacks
-    @Override
-    public void onReleaseNoteClosed() {
-        setReleaseNoteHeader(null);
-
-    }
-
-    // ReleaseNote-Header ViewHolder
+    // ViewHolder für ReleaseNote-Header
     public static class ReleaseNoteViewHolder extends RecyclerView.ViewHolder {
         TextView title, content, date, time;
         ImageButton closeButton;
@@ -252,19 +243,19 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
             date.setText(note.getDate());
             time.setText(note.getTime());
             closeButton.setOnClickListener(v -> {
-                Context context = itemView.getContext(); // <-- Das hier ist der Trick!
-                Leafpad.setReleaseNoteClosed(context);
-                Leafpad.setCurrentLeafpadVersionCode(context);
-                listener.onReleaseNoteClosed();
+                // Speicherflag wird im ViewModel/Activity gesetzt!
+
+
+                if (listener != null) listener.onReleaseNoteClosed();
             });
         }
     }
 
-    // Normaler Notiz-ViewHolder (wie bisher)
+    // Notiz-ViewHolder
     public static class NoteViewHolder extends RecyclerView.ViewHolder {
         TextView titleText, bodyPreview, dateText, timeText, categoryText;
         ImageView bibleIcon, categoryIcon;
-        android.widget.ImageButton actionButton;
+        ImageButton actionButton;
 
         NoteViewHolder(View itemView) {
             super(itemView);
@@ -285,18 +276,18 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         private final List<Object> newList;
 
         public NoteMixedDiffCallback(List<Object> oldList, List<Object> newList) {
-            this.oldList = oldList;
-            this.newList = newList;
+            this.oldList = oldList != null ? oldList : new ArrayList<>();
+            this.newList = newList != null ? newList : new ArrayList<>();
         }
 
         @Override
         public int getOldListSize() {
-            return oldList != null ? oldList.size() : 0;
+            return oldList.size();
         }
 
         @Override
         public int getNewListSize() {
-            return newList != null ? newList.size() : 0;
+            return newList.size();
         }
 
         @Override
@@ -305,8 +296,7 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
             Object newItem = newList.get(newItemPosition);
 
             if (oldItem instanceof ReleaseNote && newItem instanceof ReleaseNote)
-                return true; // Es gibt maximal einen ReleaseNote-Header
-
+                return true;
             if (oldItem instanceof Note && newItem instanceof Note)
                 return ((Note) oldItem).getId().equals(((Note) newItem).getId());
             return false;
@@ -327,25 +317,21 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         }
     }
 
+    // (Optional) Suche/Filter in den Notizen
     public void filter(String query) {
         List<Note> filtered = new ArrayList<>();
-
-        for (Note note : fullNoteList) {
-            if (!showOnlyHidden && note.isHide()) {
-                continue;
-            }
-            if (showOnlyHidden && !note.isHide()) {
-                continue;
-            }
-
-            String title = note.getTitle() != null ? note.getTitle().toLowerCase() : "";
-            String body  = note.getBody() != null ? note.getBody().toLowerCase() : "";
-            String category = note.getCategory() != null ? note.getCategory().toLowerCase() : "";
-
-            if (title.contains(query.toLowerCase())
-                    || body.contains(query.toLowerCase())
-                    || category.contains(query.toLowerCase())) {
-                filtered.add(note);
+        if (fullNoteList != null) {
+            for (Note note : fullNoteList) {
+                if (!showOnlyHidden && note.isHide()) continue;
+                if (showOnlyHidden && !note.isHide()) continue;
+                String title = note.getTitle() != null ? note.getTitle().toLowerCase() : "";
+                String body = note.getBody() != null ? note.getBody().toLowerCase() : "";
+                String category = note.getCategory() != null ? note.getCategory().toLowerCase() : "";
+                if (title.contains(query.toLowerCase())
+                        || body.contains(query.toLowerCase())
+                        || category.contains(query.toLowerCase())) {
+                    filtered.add(note);
+                }
             }
         }
         this.noteList = filtered;
