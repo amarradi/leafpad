@@ -100,4 +100,6 @@
     <string name="not_initialized">Leafpad not initialized yet!</string>
     <string name="unsaved_changes_title">Unsaved changes</string>
     <string name="empty_list">No notes available in the list</string>
+    <string name="set">It is a recipe</string>
+    <string name="close_release_note">Close Button\n</string>
 </resources>
