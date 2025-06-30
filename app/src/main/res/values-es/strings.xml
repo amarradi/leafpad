@@ -101,4 +101,6 @@
     <string name="no_search_results">Nothing found</string>
     <string name="empty_list">No notes available in the list</string>
     <string name="startIconDescription">A search field</string>
+    <string name="set">It is a recipe</string>
+    <string name="close_release_note">Close Button\n</string>
 </resources>
