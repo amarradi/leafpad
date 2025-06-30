@@ -101,4 +101,6 @@
     <string name="unsaved_changes_message">Vaše poznámka byla upravena. Chcete uložit nebo zahodit změny?</string>
     <string name="unsaved_changes_title">Neuložené změny</string>
     <string name="no_search_results">Nic nenalezeno</string>
+    <string name="set">It is a recipe</string>
+    <string name="close_release_note">Close Button\n</string>
 </resources>
