@@ -2,6 +2,7 @@ package com.git.amarradi.leafpad.viewmodel;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -10,8 +11,11 @@ import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 
+import com.git.amarradi.leafpad.Leafpad;
+import com.git.amarradi.leafpad.helper.ReleaseNoteHelper;
 import com.git.amarradi.leafpad.model.Leaf;
 import com.git.amarradi.leafpad.model.Note;
+import com.git.amarradi.leafpad.model.ReleaseNote;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +38,26 @@ public class NoteViewModel extends AndroidViewModel {
 
     private final MutableLiveData<String> searchQuery = new MutableLiveData<>("");
     private final MediatorLiveData<List<Note>> filteredNotes = new MediatorLiveData<>();
+    private final MutableLiveData<ReleaseNote> releaseNoteLiveData = new MutableLiveData<>();
+    public LiveData<ReleaseNote> getReleaseNote() {
+        return releaseNoteLiveData;
+    }
+    // In NoteViewModel.java
+    private final MediatorLiveData<List<Object>> combinedNotes = new MediatorLiveData<>();
+    public LiveData<List<Object>> getCombinedNotes() { return combinedNotes; }
 
+    public void checkAndLoadReleaseNote(Context context) {
+        int savedVersion = Leafpad.getCurrentLeafpadVersionCode(context); // default = 0
+        int currentVersion = Leafpad.getCurrentVersionCode(context);
+
+        if (savedVersion <= currentVersion) {
+            Log.d("checkAndLoadReleaseNote","saved: "+savedVersion+" current:"+currentVersion);
+                ReleaseNote note = ReleaseNoteHelper.loadReleaseNote(context);
+                releaseNoteLiveData.setValue(note);
+        } else {
+            releaseNoteLiveData.setValue(null);
+        }
+    }
     public void persist() {
         Note n = selectedNote.getValue();
         if (n == null) return;
@@ -143,6 +166,12 @@ public class NoteViewModel extends AndroidViewModel {
 
         filteredNotes.addSource(notesLiveData, notes -> applySearchQuery());
         filteredNotes.addSource(searchQuery, q -> applySearchQuery());
+
+        loadReleaseNote(getApplication().getApplicationContext());
+    }
+    public void loadReleaseNote(Context context) {
+        ReleaseNote note = ReleaseNoteHelper.loadReleaseNote(context);
+        releaseNoteLiveData.setValue(note);
     }
     private void applySearchQuery() {
         List<Note> allNotes = notesLiveData.getValue();

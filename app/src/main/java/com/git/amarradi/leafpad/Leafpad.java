@@ -3,6 +3,9 @@ package com.git.amarradi.leafpad;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceManager;
@@ -12,6 +15,7 @@ import com.git.amarradi.leafpad.adapter.NoteAdapter;
 import com.git.amarradi.leafpad.helper.LayoutModeHelper;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Leafpad extends Application {
 
@@ -21,8 +25,9 @@ public class Leafpad extends Application {
     public static final String OLD_DESIGN_MODE = "system"; // Alter Schlüssel
     public static final String PREF_LAYOUT_MODE = "layout_mode";// "list" oder "grid"
     public static final String EXTRA_NOTE_ID = "com.git.amarradi.leafpad.extra.NOTE_ID";
-
     public static final String PREF_NOTIFY_ON_CHANGE = "change";
+    public static final String KEY_RELEASE_NOTE_CLOSED = "release_note_closed";
+    public static final String CURRENT_LEAFPAD_VERSION_CODE = "current_leafpad_version_code";
 
     private static Leafpad instance;
 
@@ -33,6 +38,7 @@ public class Leafpad extends Application {
         migrateOldDesignMode();
         applyTheme();
         saveShowHidden(false);
+
     }
 
     public static Leafpad getInstance() {
@@ -42,6 +48,28 @@ public class Leafpad extends Application {
         return instance;
     }
 
+    public static boolean isReleaseNoteClosed(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean(KEY_RELEASE_NOTE_CLOSED, false);
+    }
+    public static void setReleaseNoteClosed(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().putBoolean(KEY_RELEASE_NOTE_CLOSED, true).apply();
+    }
+    public static void resetReleaseNoteClosed(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().putBoolean(KEY_RELEASE_NOTE_CLOSED, false).apply();
+    }
+    public static void setCurrentLeafpadVersionCode(Context context) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        sharedPreferences.edit().putInt(CURRENT_LEAFPAD_VERSION_CODE,Leafpad.getCurrentVersionCode(context)).apply();
+    }
+    public static int getCurrentLeafpadVersionCode(Context context) {
+        int versionCode;
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        versionCode = sharedPreferences.getInt(CURRENT_LEAFPAD_VERSION_CODE,0);
+        return versionCode;
+    }
     public static boolean isChangeNotificationEnabled(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         return prefs.getBoolean(PREF_NOTIFY_ON_CHANGE, false);
@@ -148,6 +176,15 @@ public class Leafpad extends Application {
             // Lösche den alten Schlüssel
             editor.remove(OLD_DESIGN_MODE);
             editor.apply();
+        }
+    }
+
+    public static int getCurrentVersionCode(Context context) {
+        try {
+            return context.getPackageManager().getPackageInfo(context.getPackageName(),0).versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.getLocalizedMessage();
+            return 0;
         }
     }
 

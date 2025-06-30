@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,6 +20,7 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.git.amarradi.leafpad.adapter.NoteAdapter;
+import com.git.amarradi.leafpad.adapter.OnReleaseNoteCloseListener;
 import com.git.amarradi.leafpad.helper.DialogHelper;
 import com.git.amarradi.leafpad.helper.LayoutModeHelper;
 import com.git.amarradi.leafpad.helper.ShareHelper;
@@ -31,7 +33,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 
-public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, OnReleaseNoteCloseListener {
 
     public RecyclerView recyclerView;
     public NoteAdapter noteAdapter;
@@ -45,6 +47,17 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        NoteViewModel viewModel= new ViewModelProvider(this).get(NoteViewModel.class);
+        viewModel.checkAndLoadReleaseNote(this);
+        viewModel.getReleaseNote().observe(this, releaseNote -> {
+            if (!Leafpad.isReleaseNoteClosed(this) ||
+                    Leafpad.getCurrentVersionCode(this)>Leafpad.getCurrentLeafpadVersionCode(this)) {
+                noteAdapter.setReleaseNoteHeader(releaseNote);
+                Leafpad.resetReleaseNoteClosed(this);
+                updateEmptyState();
+            }
+        });
+
         noteViewModel = new ViewModelProvider(
                 this,
                 new ViewModelProvider.AndroidViewModelFactory(getApplication())
@@ -57,19 +70,20 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             noteAdapter.updateNotes(notes);
             recyclerView.post(()->recyclerView.scrollToPosition(0));
 
-            ImageView emptyElement = findViewById(R.id.emptyElement);
-            if (noteAdapter.isFilteredListEmpty()) {
-                emptyElement.setVisibility(View.VISIBLE);
-                recyclerView.setVisibility(View.INVISIBLE);
-            } else {
-                emptyElement.setVisibility(View.INVISIBLE);
-                recyclerView.setVisibility(View.VISIBLE);
-            }
+            updateEmptyState();
         });
 
         noteViewModel.getShowHidden().observe(this, showHidden -> {
             noteAdapter.setShowOnlyHidden(showHidden);
+            updateEmptyState();
         });
+
+        // In MainActivity.java, im onCreate z. B.
+        viewModel.getCombinedNotes().observe(this, combinedList -> {
+            noteAdapter.setCombinedList(combinedList);
+            updateEmptyState();
+        });
+
 
         setupSharedPreferences();
 
@@ -92,7 +106,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             public void onNoteIconClicked(Note note, View anchor) {
                 showPopupMenu(note, anchor);
             }
-        });
+        },this);
+
 
         recyclerView.setAdapter(noteAdapter);
 
@@ -104,6 +119,25 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             intent.putExtra(Leafpad.EXTRA_NOTE_ID, Note.makeId());
             startActivity(intent);
         });
+    }
+    @Override
+    public void onReleaseNoteClosed() {
+        Leafpad.setReleaseNoteClosed(this);
+        Leafpad.setCurrentLeafpadVersionCode(this);
+        noteAdapter.setReleaseNoteHeader(null);
+        recyclerView.post(this::updateEmptyState);
+    }
+    private void updateEmptyState() {
+        int count = noteAdapter.getItemCount();
+        Log.d("MainActivity", "updateEmptyState - itemCount: " + count);
+        ImageView emptyElement = findViewById(R.id.emptyElement);
+        if (count == 0) {
+            emptyElement.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.INVISIBLE);
+        } else {
+            emptyElement.setVisibility(View.INVISIBLE);
+            recyclerView.setVisibility(View.VISIBLE);
+        }
     }
 
     private void setupSharedPreferences() {
