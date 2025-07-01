@@ -4,16 +4,24 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.Layout;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.widget.NestedScrollView;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.git.amarradi.leafpad.helper.DialogHelper;
+import com.git.amarradi.leafpad.helper.EditorMinHeightHelper;
 import com.git.amarradi.leafpad.helper.ShareHelper;
 import com.git.amarradi.leafpad.model.Leaf;
 import com.git.amarradi.leafpad.model.Note;
@@ -32,10 +40,11 @@ public class NoteEditActivity extends AppCompatActivity {
     private NoteViewModel noteViewModel;
     private MaterialToolbar toolbar;
     private Resources res;
-    //private MaterialSwitch visibleSwitch;
-    //private MaterialSwitch recipeSwitch;
     private boolean shouldPersistOnPause = true;
     private boolean isNoteDeleted = false; // <--- Flag setzen!
+    private NestedScrollView bodyScroll;
+
+
 
     private boolean isNewNote = false;
 
@@ -49,6 +58,16 @@ public class NoteEditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_note_edit);
+        View root = findViewById(R.id.body_scroll); // oder R.id.all wenn du CoordinatorLayout paddest
+
+        ViewCompat.setOnApplyWindowInsetsListener(root, (view, insets) -> {
+            int ime = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
+            int nav = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            int bottom = Math.max(ime, nav);
+            view.setPadding(0, 0, 0, bottom);
+            return insets;
+        });
+
         res = getResources();
         initViews();
         setupToolbar();
@@ -67,6 +86,13 @@ public class NoteEditActivity extends AppCompatActivity {
         handleIntent(getIntent());
         fromSearch = getIntent().getBooleanExtra("fromSearch", false);
         observeNote();
+
+        View rootEdit = findViewById(R.id.all);
+        View toolbar = findViewById(R.id.toolbar);
+        View title = findViewById(R.id.default_text_input_layout); // oder null, wenn nicht vorhanden
+        EditText bodyEdit = findViewById(R.id.body_edit);
+
+        EditorMinHeightHelper.adjustMinHeight(rootEdit, toolbar, title, bodyEdit);
     }
 
     @Override
@@ -95,9 +121,6 @@ public class NoteEditActivity extends AppCompatActivity {
                 return;
             }
         }
-
-        // Fall 2: Normale Bearbeitung einer bestehenden oder neuen Note
-//        String noteId = intent.getStringExtra(Leafpad.EXTRA_NOTE_ID);
         String noteId = getIntent().getStringExtra(Leafpad.EXTRA_NOTE_ID);
 
         if (noteId == null) {
@@ -128,21 +151,6 @@ public class NoteEditActivity extends AppCompatActivity {
         noteViewModel.selectNote(note);
     }
 
-//    private void observeNote() {
-//        noteViewModel.getSelectedNote().observe(this, note -> {
-//            if (note != null) {
-//                this.note = note;
-//                if (!isUIConfigured) {
-//                    configureUIFromNote(note);
-//                    isUIConfigured = true;
-//                }
-//
-//              // setupRecipeSwitch(note);
-//              //  setupVisibilitySwitch(note);
-//            }
-//        });
-//    }
-
     private void observeNote() {
         noteViewModel.getSelectedNote().observe(this, note -> {
             if (note != null) {
@@ -156,64 +164,6 @@ public class NoteEditActivity extends AppCompatActivity {
             }
         });
     }
-
-
-//    @SuppressLint("UseCompatLoadingForDrawables")
-//    private void setupVisibilitySwitch(Note note) {
-//        visibleSwitch.setOnCheckedChangeListener(null);
-//        boolean isHidden = note.isHide();
-//        visibleSwitch.setChecked(isHidden);
-//        updateVisibilityUI(isHidden);
-//        visibleSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-//            note.setHide(isChecked);
-//            updateVisibilityUI(isChecked);
-//        });
-//
-//        if (isHidden) {
-//            visibleSwitch.setChecked(true);
-//            visibleSwitch.setText(getString(R.string.show_note));
-//            visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_closed));
-//        } else {
-//            visibleSwitch.setChecked(false);
-//            visibleSwitch.setText(getString(R.string.hide_note));
-//            visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_open));
-//        }
-//    }
-
-//    @SuppressLint("UseCompatLoadingForDrawables")
-//    private void updateVisibilityUI(boolean isHidden) {
-//        if (isHidden) {
-//            visibleSwitch.setText(R.string.show_note);
-//            visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_closed));
-//        } else {
-//            visibleSwitch.setText(R.string.hide_note);
-//            visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_open));
-//        }
-//    }
-
-//    @SuppressLint("UseCompatLoadingForDrawables")
-//    private void setupRecipeSwitch(Note note) {
-//        String cat = res.getStringArray(R.array.category)[0];
-//        recipeSwitch.setOnCheckedChangeListener(null);
-//        boolean isRecipe = cat.equals(note.getCategory());
-//        recipeSwitch.setChecked(isRecipe);
-//
-//        if (isRecipe) {
-//            recipeSwitch.setText(R.string.note_is_no_recipe);
-//            recipeSwitch.setThumbIconDrawable(getDrawable(R.drawable.togue));
-//        } else {
-//            recipeSwitch.setText(R.string.note_is_recipe);
-//            recipeSwitch.setThumbIconDrawable(getDrawable(R.drawable.togue_strikethrough));
-//        }
-//
-//        recipeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-//            if (isChecked) {
-//                noteViewModel.updateNoteRecipe(cat);
-//            } else {
-//                noteViewModel.updateNoteRecipe("");
-//            }
-//        });
-//    }
 
     private void configureUIFromNote(Note note) {
             if (note.getTitle() != null) {
@@ -234,8 +184,53 @@ public class NoteEditActivity extends AppCompatActivity {
         TextInputLayout bodyLayout = findViewById(R.id.body_text_input_layout);
         titleEdit = findViewById(R.id.title_edit);
         bodyEdit = findViewById(R.id.body_edit);
-//        visibleSwitch = findViewById(R.id.visible_switch);
-//        recipeSwitch = findViewById(R.id.recipe_switch);
+
+        bodyScroll = findViewById(R.id.body_scroll);
+
+        bodyEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Stelle sicher, dass Cursor immer sichtbar ist
+                bodyEdit.post(() -> {
+                    int selection = bodyEdit.getSelectionStart();
+                    Layout layout = bodyEdit.getLayout();
+                    if (layout != null && selection > 0) {
+                        int line = layout.getLineForOffset(selection);
+                        int y = layout.getLineBottom(line);
+                        bodyScroll.smoothScrollTo(0, y);
+                    }
+                });
+            }
+        });
+
+        bodyEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Stelle sicher, dass Cursor immer sichtbar ist
+                bodyEdit.post(() -> {
+                    int selection = bodyEdit.getSelectionStart();
+                    Layout layout = bodyEdit.getLayout();
+                    if (layout != null && selection > 0) {
+                        int line = layout.getLineForOffset(selection);
+                        int y = layout.getLineBottom(line);
+                        bodyScroll.smoothScrollTo(0, y);
+                    }
+                });
+            }
+        });
+
         titleLayout.setHintEnabled(false);
         bodyLayout.setHintEnabled(false);
     }
@@ -324,20 +319,6 @@ public class NoteEditActivity extends AppCompatActivity {
             default -> super.onOptionsItemSelected(item);
         };
     }
-
-//    public void updateNoteFromUI() {
-//        Note current = noteViewModel.getSelectedNote().getValue();
-//        if (current == null) return;
-//
-//        current.setTitle(titleEdit.getText().toString());
-//        current.setBody(bodyEdit.getText().toString());
-//        if (recipeSwitch.isChecked()) {
-//            current.setCategory(res.getStringArray(R.array.category)[0]);
-//        } else {
-//            current.setCategory("");
-//        }
-//        current.setHide(visibleSwitch.isChecked());
-//    }
 
     public void updateNoteFromUI() {
         Note current = noteViewModel.getSelectedNote().getValue();

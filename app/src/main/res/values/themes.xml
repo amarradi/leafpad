@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.MyApp" parent="Theme.Material3.Light.NoActionBar">
         <!-- Farben für Material3 -->
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
         <item name="preferenceTheme">@style/ThemeOverlay.App.Preference</item>
 
         <item name="android:windowLightStatusBar">false</item>

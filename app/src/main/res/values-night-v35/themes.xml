@@ -1,4 +1,6 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
     <style name="Theme.MyApp" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
 
@@ -35,12 +37,18 @@
         <item name="android:shadowColor">@color/md_theme_shadow</item>
 
         <!-- Abgerundete Ecken für Material3 -->
-        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Material3.SmallComponent</item>
-        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Material3.MediumComponent</item>
-        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Material3.LargeComponent</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Material3.SmallComponent
+        </item>
+        <item name="shapeAppearanceMediumComponent">
+            @style/ShapeAppearance.Material3.MediumComponent
+        </item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Material3.LargeComponent
+        </item>
 
         <!-- Runden von UI-Elementen aktivieren -->
-       <!-- <item name="android:dialogCornerRadius">28dp</item> -->
-        <item name="extendedFloatingActionButtonStyle">@style/Widget.App.ExtendedFloatingActionButton</item>
+        <!-- <item name="android:dialogCornerRadius">28dp</item> -->
+        <item name="extendedFloatingActionButtonStyle">
+            @style/Widget.App.ExtendedFloatingActionButton
+        </item>
     </style>
 </resources>
