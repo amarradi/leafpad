@@ -49,6 +49,7 @@
         </activity>
         <activity
             android:name=".NoteEditActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="true"
             android:label="@string/title_activity_note_edit"
             android:parentActivityName=".MainActivity"
