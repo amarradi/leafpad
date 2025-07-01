@@ -81,7 +81,7 @@
     <dimen name="textSize_MyToolbarTitleEdit">14sp</dimen>
     <dimen name="textSize_MyToolbarSubtitleEdit">24sp</dimen>
 
-    <dimen name="textSizeTitle">28sp</dimen>
+    <dimen name="textSizeTitle">24sp</dimen>
 
 
     <dimen name="textMargin_top">5dp</dimen>

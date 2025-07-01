@@ -82,8 +82,7 @@
                 android:paddingTop="@dimen/paddingTop_noteEditText"
                 android:background="@android:color/transparent"
                 android:textAlignment="viewStart"
-                android:overScrollMode="always"
-                />
+                android:overScrollMode="always" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
