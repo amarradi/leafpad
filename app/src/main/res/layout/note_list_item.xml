@@ -100,7 +100,7 @@
                     android:layout_marginStart="@dimen/margin_listItem_distance_top"
                     android:layout_marginEnd="@dimen/margin_listItem_distance_end"
                     android:layout_gravity="center"
-                    android:src="@drawable/togue" />
+                    android:src="@drawable/chefhat" />
 
                 <com.google.android.material.textview.MaterialTextView
                     style="@style/CategoryLabel"

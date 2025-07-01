@@ -112,11 +112,7 @@ public class NoteViewModel extends AndroidViewModel {
         Note current = selectedNote.getValue();
         Note original = originalNote.getValue();
 
-        if (original == null) {
-            return false;
-        }
-
-        if(current == null) {
+        if (original == null || current == null) {
             return false;
         }
 
@@ -148,18 +144,19 @@ public class NoteViewModel extends AndroidViewModel {
             originalBody = original.getBody();
         }
 
-        boolean changed = false;
-
         if (!currentTitle.equals(originalTitle)) {
-            changed = true;
-        } else if (!currentBody.equals(originalBody)) {
-            changed = true;
-        } else if (!Objects.equals(current.getCategory(), original.getCategory())) {
-            changed = true;
-        } else if (current.isHide() != original.isHide()) {
-            changed = true;
+            return true;
         }
-        return changed;
+        if (!currentBody.equals(originalBody)) {
+            return true;
+        }
+        if (!Objects.equals(current.getCategory(), original.getCategory())) {
+            return true;
+        }
+        if (current.isHide() != original.isHide()) {
+            return true;
+        }
+        return false;
     }
     public NoteViewModel(@NonNull Application application) {
         super(application);

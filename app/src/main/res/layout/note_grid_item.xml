@@ -62,7 +62,7 @@
                     android:id="@+id/category_icon"
                     android:layout_width="@dimen/image_listView_layout_width"
                     android:layout_height="@dimen/image_listView_layout_height"
-                    android:src="@drawable/togue"
+                    android:src="@drawable/chefhat"
                     android:layout_marginEnd="@dimen/margin_listItem_distance_end"
                     android:layout_gravity="center"
                     android:visibility="gone" />

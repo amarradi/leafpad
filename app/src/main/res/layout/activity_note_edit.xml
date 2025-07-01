@@ -92,39 +92,6 @@
                     android:textAlignment="viewStart" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="@dimen/switch_layout_marginStart"
-                android:paddingTop="@dimen/constraint_paddingTop"
-                android:paddingEnd="@dimen/switch_layout_marginEnd"
-                android:paddingBottom="@dimen/constraint_paddingBottom">
-
-                <com.google.android.material.materialswitch.MaterialSwitch
-                    android:id="@+id/recipe_switch"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/switch_layout_margin_recipe"
-                    android:text="@string/note_is_recipe"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/visible_switch"
-                    app:layout_constraintHorizontal_weight="1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.materialswitch.MaterialSwitch
-                    android:id="@+id/visible_switch"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/switch_layout_margin_visible"
-                    android:text="@string/hide_note"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_weight="1"
-                    app:layout_constraintStart_toEndOf="@id/recipe_switch"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
