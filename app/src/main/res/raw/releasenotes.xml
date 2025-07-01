@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <releasenote>
-    <title>Leafpad 1.19 was gibts neues</title>
+    <title>Leafpad 1.19 - Was hat sich verändert</title>
     <content>
-        * bla bla bla
+        * Leafpad hat eine Suchfunktion -> einfach die Lupe anklicken
+        * Umschalten zwischen Listen- und Kachelansicht
+        * Änderungsbenachrichtigung
+        -> versehentliche Änderungen können rückgänig gemacht  werden
+        * alle Funktionen des Texteditor sind jetzt über das Menü erreichbar
+        * Das Texteditorfeld wird jetzt beliebig groß, ohne Scrollbalken
     </content>
-    <date>30.06.2025</date>
-    <time>21:20</time>
+    <date>01.07.2025</date>
+    <time>19:20</time>
 </releasenote>

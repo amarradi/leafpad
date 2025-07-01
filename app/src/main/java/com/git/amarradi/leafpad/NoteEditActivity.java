@@ -19,7 +19,6 @@ import com.git.amarradi.leafpad.model.Leaf;
 import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.List;
@@ -33,8 +32,8 @@ public class NoteEditActivity extends AppCompatActivity {
     private NoteViewModel noteViewModel;
     private MaterialToolbar toolbar;
     private Resources res;
-    private MaterialSwitch visibleSwitch;
-    private MaterialSwitch recipeSwitch;
+    //private MaterialSwitch visibleSwitch;
+    //private MaterialSwitch recipeSwitch;
     private boolean shouldPersistOnPause = true;
     private boolean isNoteDeleted = false; // <--- Flag setzen!
 
@@ -129,6 +128,21 @@ public class NoteEditActivity extends AppCompatActivity {
         noteViewModel.selectNote(note);
     }
 
+//    private void observeNote() {
+//        noteViewModel.getSelectedNote().observe(this, note -> {
+//            if (note != null) {
+//                this.note = note;
+//                if (!isUIConfigured) {
+//                    configureUIFromNote(note);
+//                    isUIConfigured = true;
+//                }
+//
+//              // setupRecipeSwitch(note);
+//              //  setupVisibilitySwitch(note);
+//            }
+//        });
+//    }
+
     private void observeNote() {
         noteViewModel.getSelectedNote().observe(this, note -> {
             if (note != null) {
@@ -137,69 +151,69 @@ public class NoteEditActivity extends AppCompatActivity {
                     configureUIFromNote(note);
                     isUIConfigured = true;
                 }
-
-                setupRecipeSwitch(note);
-                setupVisibilitySwitch(note);
+                // Menü updaten:
+                invalidateOptionsMenu();
             }
         });
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
-    private void setupVisibilitySwitch(Note note) {
-        visibleSwitch.setOnCheckedChangeListener(null);
-        boolean isHidden = note.isHide();
-        visibleSwitch.setChecked(isHidden);
-        updateVisibilityUI(isHidden);
-        visibleSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            note.setHide(isChecked);
-            updateVisibilityUI(isChecked);
-        });
 
-        if (isHidden) {
-            visibleSwitch.setChecked(true);
-            visibleSwitch.setText(getString(R.string.show_note));
-            visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_closed));
-        } else {
-            visibleSwitch.setChecked(false);
-            visibleSwitch.setText(getString(R.string.hide_note));
-            visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_open));
-        }
-    }
+//    @SuppressLint("UseCompatLoadingForDrawables")
+//    private void setupVisibilitySwitch(Note note) {
+//        visibleSwitch.setOnCheckedChangeListener(null);
+//        boolean isHidden = note.isHide();
+//        visibleSwitch.setChecked(isHidden);
+//        updateVisibilityUI(isHidden);
+//        visibleSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+//            note.setHide(isChecked);
+//            updateVisibilityUI(isChecked);
+//        });
+//
+//        if (isHidden) {
+//            visibleSwitch.setChecked(true);
+//            visibleSwitch.setText(getString(R.string.show_note));
+//            visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_closed));
+//        } else {
+//            visibleSwitch.setChecked(false);
+//            visibleSwitch.setText(getString(R.string.hide_note));
+//            visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_open));
+//        }
+//    }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
-    private void updateVisibilityUI(boolean isHidden) {
-        if (isHidden) {
-            visibleSwitch.setText(R.string.show_note);
-            visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_closed));
-        } else {
-            visibleSwitch.setText(R.string.hide_note);
-            visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_open));
-        }
-    }
+//    @SuppressLint("UseCompatLoadingForDrawables")
+//    private void updateVisibilityUI(boolean isHidden) {
+//        if (isHidden) {
+//            visibleSwitch.setText(R.string.show_note);
+//            visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_closed));
+//        } else {
+//            visibleSwitch.setText(R.string.hide_note);
+//            visibleSwitch.setThumbIconDrawable(getDrawable(R.drawable.action_eye_open));
+//        }
+//    }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
-    private void setupRecipeSwitch(Note note) {
-        String cat = res.getStringArray(R.array.category)[0];
-        recipeSwitch.setOnCheckedChangeListener(null);
-        boolean isRecipe = cat.equals(note.getCategory());
-        recipeSwitch.setChecked(isRecipe);
-
-        if (isRecipe) {
-            recipeSwitch.setText(R.string.note_is_no_recipe);
-            recipeSwitch.setThumbIconDrawable(getDrawable(R.drawable.togue));
-        } else {
-            recipeSwitch.setText(R.string.note_is_recipe);
-            recipeSwitch.setThumbIconDrawable(getDrawable(R.drawable.togue_strikethrough));
-        }
-
-        recipeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                noteViewModel.updateNoteRecipe(cat);
-            } else {
-                noteViewModel.updateNoteRecipe("");
-            }
-        });
-    }
+//    @SuppressLint("UseCompatLoadingForDrawables")
+//    private void setupRecipeSwitch(Note note) {
+//        String cat = res.getStringArray(R.array.category)[0];
+//        recipeSwitch.setOnCheckedChangeListener(null);
+//        boolean isRecipe = cat.equals(note.getCategory());
+//        recipeSwitch.setChecked(isRecipe);
+//
+//        if (isRecipe) {
+//            recipeSwitch.setText(R.string.note_is_no_recipe);
+//            recipeSwitch.setThumbIconDrawable(getDrawable(R.drawable.togue));
+//        } else {
+//            recipeSwitch.setText(R.string.note_is_recipe);
+//            recipeSwitch.setThumbIconDrawable(getDrawable(R.drawable.togue_strikethrough));
+//        }
+//
+//        recipeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+//            if (isChecked) {
+//                noteViewModel.updateNoteRecipe(cat);
+//            } else {
+//                noteViewModel.updateNoteRecipe("");
+//            }
+//        });
+//    }
 
     private void configureUIFromNote(Note note) {
             if (note.getTitle() != null) {
@@ -220,8 +234,8 @@ public class NoteEditActivity extends AppCompatActivity {
         TextInputLayout bodyLayout = findViewById(R.id.body_text_input_layout);
         titleEdit = findViewById(R.id.title_edit);
         bodyEdit = findViewById(R.id.body_edit);
-        visibleSwitch = findViewById(R.id.visible_switch);
-        recipeSwitch = findViewById(R.id.recipe_switch);
+//        visibleSwitch = findViewById(R.id.visible_switch);
+//        recipeSwitch = findViewById(R.id.recipe_switch);
         titleLayout.setHintEnabled(false);
         bodyLayout.setHintEnabled(false);
     }
@@ -245,6 +259,30 @@ public class NoteEditActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_note_edit, menu);
+        if (note != null) {
+            MenuItem recipeItem = menu.findItem(R.id.action_recipe);
+            boolean isRecipe = note.getCategory() != null && note.getCategory().equals(res.getStringArray(R.array.category)[0]);
+            recipeItem.setChecked(isRecipe);
+
+            if(isRecipe) {
+                recipeItem.setIcon(R.drawable.chefhat_active);
+                invalidateOptionsMenu();
+            } else {
+                recipeItem.setIcon(R.drawable.chefhat);
+                invalidateOptionsMenu();
+            }
+
+            MenuItem hideItem = menu.findItem(R.id.action_hide);
+            hideItem.setChecked(note.isHide());
+
+            if(note.isHide()) {
+                hideItem.setIcon(R.drawable.eye_invisible);
+                invalidateOptionsMenu();
+            } else {
+                hideItem.setIcon(R.drawable.eye_visible);
+                invalidateOptionsMenu();
+            }
+        }
         return true;
     }
 
@@ -253,6 +291,23 @@ public class NoteEditActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         return switch (id) {
+
+            case R.id.action_recipe -> {
+                // Toggle Rezept-Status
+                item.setChecked(!item.isChecked());
+                if (item.isChecked()) {
+                    note.setCategory(res.getStringArray(R.array.category)[0]);
+                } else {
+                    note.setCategory("");
+                }
+                yield true;
+            }
+            case R.id.action_hide -> {
+                // Toggle Sichtbarkeit
+                item.setChecked(!item.isChecked());
+                note.setHide(item.isChecked());
+                yield true;
+            }
 
             case R.id.action_share_note -> {
                 ShareHelper.shareNote(this,note);
@@ -270,18 +325,27 @@ public class NoteEditActivity extends AppCompatActivity {
         };
     }
 
+//    public void updateNoteFromUI() {
+//        Note current = noteViewModel.getSelectedNote().getValue();
+//        if (current == null) return;
+//
+//        current.setTitle(titleEdit.getText().toString());
+//        current.setBody(bodyEdit.getText().toString());
+//        if (recipeSwitch.isChecked()) {
+//            current.setCategory(res.getStringArray(R.array.category)[0]);
+//        } else {
+//            current.setCategory("");
+//        }
+//        current.setHide(visibleSwitch.isChecked());
+//    }
+
     public void updateNoteFromUI() {
         Note current = noteViewModel.getSelectedNote().getValue();
         if (current == null) return;
 
         current.setTitle(titleEdit.getText().toString());
         current.setBody(bodyEdit.getText().toString());
-        if (recipeSwitch.isChecked()) {
-            current.setCategory(res.getStringArray(R.array.category)[0]);
-        } else {
-            current.setCategory("");
-        }
-        current.setHide(visibleSwitch.isChecked());
+
     }
 
     private void exitNoteEdit() {
