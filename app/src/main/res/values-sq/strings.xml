@@ -100,4 +100,6 @@
     <string name="unsaved_changes_title">Ndryshime të paruajtura</string>
     <string name="no_search_results">S’u gjet gjë</string>
     <string name="empty_list">Te lista s’ka shënime</string>
+    <string name="set">It is a recipe</string>
+    <string name="close_release_note">Close Button\n</string>
 </resources>

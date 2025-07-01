@@ -6,14 +6,14 @@
     <string name="action_share_note">Compartir nota</string>
     <string name="action_share_body">Nota</string>
     <string name="action_remove">Borrar nota</string>
-    <string name="action_fab_note">hacer una nota</string>
+    <string name="action_fab_note">Crear una nota</string>
     <string name="add_shortcut_short_label">Escribir algo nuevo</string>
     <string name="title_hint">Título</string>
     <string name="body_hint">Nota</string>
-    <string name="contentDescription">añadir nueva nota</string>
-    <string name="imported">nota fue enviada a leafpad</string>
-    <string name="new_note">Nota nueva</string>
-    <string name="satisfied">¿Te gusta leafpad?</string>
+    <string name="contentDescription">Añadir nueva nota</string>
+    <string name="imported">La nota fué enviada a Leafpad</string>
+    <string name="new_note">Nueva nota</string>
+    <string name="satisfied">¿Te gusta Leafpad?</string>
     <string name="rate_the_app">¿Qué tal una reseña en la PlayStore de Google?</string>
     <string name="remove_dialog_title">¿Estás seguro?</string>
     <string name="remove_dialog_abort">Cancelar</string>
@@ -101,4 +101,6 @@
     <string name="no_search_results">Nothing found</string>
     <string name="empty_list">No notes available in the list</string>
     <string name="startIconDescription">A search field</string>
+    <string name="set">It is a recipe</string>
+    <string name="close_release_note">Close Button\n</string>
 </resources>

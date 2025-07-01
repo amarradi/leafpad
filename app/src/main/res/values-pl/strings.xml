@@ -102,4 +102,6 @@
     <string name="unsaved_changes_title">Niezapisane zmiany</string>
     <string name="no_search_results">Nic nie znaleziono</string>
     <string name="empty_list">Brak notatek na liście</string>
+    <string name="set">To jest przepis</string>
+    <string name="close_release_note">Zamknij\n</string>
 </resources>
