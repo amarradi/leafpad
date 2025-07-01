@@ -4,16 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/all"
     android:layout_width="match_parent"
-    android:layout_height="fill_parent"
-    android:animateLayoutChanges="true"
-    android:fitsSystemWindows="true"
-    android:scrollbars="vertical"
+    android:layout_height="match_parent"
     tools:context="com.git.amarradi.leafpad.NoteEditActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <com.google.android.material.appbar.MaterialToolbar
@@ -23,78 +21,74 @@
             android:layout_height="wrap_content" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/ScrollView"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/content_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/marginLayout"
-        android:fillViewport="true"
-        android:scrollbars="vertical"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <!-- Optional: Titelfeld oben, kann auch entfernt werden -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/default_text_input_layout"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:boxBackgroundMode="filled"
+            app:hintTextAppearance="@style/MyHintStyle"
+            android:hint="@string/title_hint"
+            android:paddingStart="@dimen/switch_layout_marginStart"
+            android:paddingEnd="@dimen/switch_layout_marginEnd"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/default_text_input_layout"
-                style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/title_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="top|start"
+                android:inputType="textMultiLine"
+                android:maxLines="@integer/maxLines"
+                android:textAppearance="@style/TextAppearance.MyNoteTitle"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-                android:hint="@string/title_hint"
-                android:paddingStart="@dimen/switch_layout_marginStart"
-                android:paddingEnd="@dimen/switch_layout_marginEnd"
-                app:boxBackgroundColor="?attr/colorSurface"
-                app:boxBackgroundMode="filled"
-                app:hintTextAppearance="@style/MyHintStyle">
+        <!-- Das body_text_input_layout füllt jetzt alles darunter -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/body_text_input_layout"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:boxBackgroundMode="filled"
+            app:hintTextAppearance="@style/MyHintStyle"
+            android:hint="@string/body_hint"
+            android:paddingStart="@dimen/switch_layout_marginStart"
+            android:paddingEnd="@dimen/switch_layout_marginEnd"
+            app:layout_constraintTop_toBottomOf="@id/default_text_input_layout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/title_edit"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="top|start"
-                    android:inputType="textMultiLine"
-
-                    android:maxLines="@integer/maxLines"
-
-                    android:textAppearance="@style/TextAppearance.MyNoteTitle"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/body_text_input_layout"
-                style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/body_edit"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:hint="@string/body_hint"
-                android:paddingStart="@dimen/switch_layout_marginStart"
-                android:paddingEnd="@dimen/switch_layout_marginEnd"
-                app:boxBackgroundColor="?attr/colorSurface"
-                app:boxBackgroundMode="filled"
-                app:boxCollapsedPaddingTop="@dimen/boxCollapsedPaddingTop"
-                app:hintTextAppearance="@style/MyHintStyle">
+                android:layout_height="match_parent"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="top|start"
+                android:inputType="textMultiLine|textCapSentences|textAutoCorrect"
+                android:paddingTop="@dimen/paddingTop_noteEditText"
+                android:background="@android:color/transparent"
+                android:textAlignment="viewStart"
+                android:overScrollMode="always"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/body_edit"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
-                    android:gravity="top|start"
-                    android:includeFontPadding="false"
-                    android:inputType="textMultiLine|textCapSentences|textWebEmailAddress|textAutoCorrect|textPersonName"
-                    android:overScrollMode="always"
-                    android:paddingTop="@dimen/paddingTop_noteEditText"
-                    android:scrollbars="vertical"
-                    android:textAlignment="viewStart" />
-            </com.google.android.material.textfield.TextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
-
+    <!-- Snackbar anchor bleibt unten -->
     <View
         android:id="@+id/snackbar_anchor"
         android:layout_width="match_parent"
