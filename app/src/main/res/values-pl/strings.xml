@@ -74,7 +74,7 @@
     <string name="showDeleteConfirmationMessage">Wszystkie notatki zostaną trwale usunięte. Kontynuować?</string>
     <string name="yes">Tak</string>
     <plurals name="notes_imported">
-        <item quantity="one">Zaimportowano jedną notatkę</item>
+        <item quantity="one">Zaimportowano %1$d notatkę</item>
         <item quantity="few">Zaimportowano %1$d notatki</item>
         <item quantity="many">Zaimportowano %1$d notatek</item>
         <item quantity="other">Zaimportowano %1$d notatek</item>
