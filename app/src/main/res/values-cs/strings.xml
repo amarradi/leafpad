@@ -74,10 +74,13 @@
     <string name="showDeleteConfirmationMessage">Všechny poznámky budou trvale odstraněny. Pokračovat?</string>
     <string name="yes">Ano</string>
     <plurals name="notes_imported">
-        <item quantity="one">Jedna poznámka importována</item>
+        <item quantity="one">%1$d poznámka importována</item>
         <item quantity="few">%1$d poznámky importovány</item>
+        <item quantity="many">%1$d poznámek importováno</item>
         <item quantity="other">%1$d poznámek importováno</item>
     </plurals>
+
+
     <string name="fileOpeningError">Chyba při otevření souboru.</string>
     <string name="delete">Odstranit</string>
     <string name="backupfinish">Záloha dokončena</string>

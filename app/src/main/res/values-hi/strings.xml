@@ -74,7 +74,7 @@
     <string name="showDeleteConfirmationMessage">All notes will be permanently deleted. Continue?</string>
     <string name="yes">हाँ</string>
     <plurals name="notes_imported">
-        <item quantity="one">One note imported</item>
+        <item quantity="one">%1$d note imported</item>
         <item quantity="other">%1$d notes imported</item>
     </plurals>
     <string name="fileOpeningError">Error when opening the file।</string>

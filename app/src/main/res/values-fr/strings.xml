@@ -74,7 +74,7 @@
     <string name="showDeleteConfirmationMessage">Toutes les notes seront définitivement supprimées. Continuez ?</string>
     <string name="yes">Oui</string>
     <plurals name="notes_imported">
-        <item quantity="one">Une note importées</item>
+        <item quantity="one">%1$d note importées</item>
         <item quantity="many">%1$d notes importées</item>
         <item quantity="other">%1$d notes importées</item>
     </plurals>
