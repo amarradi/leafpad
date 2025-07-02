@@ -7,6 +7,7 @@
     <string name="action_share_note">Share note</string>
     <string name="action_share_title">Title</string>
     <string name="action_share_body">Note</string>
+    <string name="note_shared">Note shared</string>
     <string name="action_remove">Remove note</string>
     <string name="action_fab_note">make a note</string>
     <string name="add_shortcut_short_label">Write down new</string>
@@ -24,7 +25,7 @@
     <string name="remove_dialog_abort">Cancel</string>
     <string name="menu_settings">Settings</string>
     <!-- Messages Preferences -->
-    <string name="general_preference">General</string>
+    <string name="general_preference">General settings</string>
     <!-- Key name for theme preference in SharedPreferences -->
     <string name="theme_key" translatable="false">theme</string>
     <!-- Value in SharedPreferences for lightmode option -->
@@ -41,6 +42,12 @@
     <string name="darkmode_preference_key">darkmode</string>
     <string name="system_preference_key">follow system (standard)</string>
     <string name="theme_summary">Toggle between dark and light theme</string>
+    <string name="notification_of_change">Notification of changes</string>
+    <string name="notification_of_change_description">Notify about changes in notes</string>
+    <string name="unsaved_changes_title">Unsaved changes</string>
+    <string name="unsaved_changes_message">Your note has changed. Do you want to save or discard the changes?</string>
+    <string name="save_changes">save changes</string>
+    <string name="discard">discard</string>
     <string name="about">About</string>
     <string name="about_the_app">About the App</string>
     <string name="tell_about">What I want to tell you about Leafpad</string>
@@ -60,8 +67,9 @@
     <string name="note_will_be_saved_first">Note will be saved first</string>
     <string name="action_save">save note</string>
     <string name="action_note_saved">saved</string>
-    <string name="search">search</string>
-    <string name="participate">Participate</string>
+
+
+    <string name="participate">Participate or Contribute</string>
     <string name="translate">Translate the app on Weblate</string>
     <string name="translation_help">Help us translate the app into your language on weblate</string>
     <string name="hide_note">make the note invisible</string>
@@ -71,12 +79,12 @@
     <string name="note_is_recipe">note is a recipe</string>
     <string name="note_is_no_recipe">note is no recipe</string>
     <string-array name="category">
-         <item>recipe</item>
+        <item>recipe</item>
     </string-array>
     <string name="save_notes_title">Backup</string>
     <string name="save">Save all notes as xml</string>
     <string name="restore_notes_title">Restore</string>
-    <string name="restore">Restore all notes as xml</string>
+    <string name="restore">Restore all notes from an xml file</string>
     <string name="showRestoreConfirmation">Restore?</string>
     <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
     <string name="yes">Yes</string>
@@ -89,9 +97,20 @@
     <string name="fileOpeningError">Error when opening the file.</string>
     <string name="invalidFile">Invalid backup file. The import was cancelled.</string>
     <string name="backupIsrunning">Backup is running</string>
-    <string name="backupfinish">Backup finishes</string>
+    <string name="backupfinish">Backup finished</string>
     <plurals name="notes_imported">
         <item quantity="one">One note imported</item>
         <item quantity="other">%1$d notes imported</item>
     </plurals>
+    <string name="toggle">change View</string>
+    <string name="item_menu_description">menu for item actions</string>
+    <string name="empty_list">No notes available in the list</string>
+    <string name="not_initialized">Leafpad not initialized yet!</string>
+    <string name="search">search notes</string>
+    <string name="search_hint">What are you looking for?</string>
+    <string name="no_search_results">Nothing found</string>
+    <string name="startIconDescription">A search field</string>
+    <string name="close_release_note">Close Button\n</string>
+
+    <string name="set">It is a recipe</string>
 </resources>

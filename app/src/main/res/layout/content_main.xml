@@ -8,19 +8,22 @@
     tools:context="MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <ListView
+
+    <androidx.recyclerview.widget.RecyclerView
 
         android:id="@+id/note_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:dividerHeight="@dimen/dividerHeight"
-        android:divider="@null"/>
+        android:divider="@null"
+        />
 
     <ImageView
        android:layout_centerInParent="true"
         android:id="@+id/emptyElement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/empty_list"
         android:src="@drawable/leafpad_svg_twig"
         android:visibility="gone" />
 

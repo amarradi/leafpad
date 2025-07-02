@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<releasenote>
+    <title>Leafpad 1.19 - Was hat sich verändert</title>
+    <content>
+        * Leafpad hat eine Suchfunktion
+        * Umschalten zwischen Listen- und Kachelansicht
+        * Änderungsbenachrichtigung
+        * Die Oberfläche ist übersichtlicher gestaltet
+        * alle Funktionen sind jetzt über das Menü erreichbar
+        * Das Texteditorfeld arbeitet jetzt ohne Scrollbalken
+        Das ist geplant
+        * Überschriften hervorheben, Text fett darstellen
+    </content>
+    <date>02.07.2025</date>
+    <time>07:30</time>
+</releasenote>

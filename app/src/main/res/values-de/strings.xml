@@ -23,7 +23,7 @@
     <string name="remove_dailog_message">Diese Notiz wird endgültig gelöscht. Danach kann sie nicht wiederhergestellt werden.</string>
     <string name="remove_dialog_abort">Abbrechen</string>
     <string name="menu_settings">Einstellungen</string>
-    <string name="general_preference">Allgemein</string>
+    <string name="general_preference">Allgemeine Einstellungen</string>
     <string name="theme_preference" translatable="false">Theme</string>
     <string name="lightmode_preference_key">Hell</string>
     <string name="darkmode_preference_key">Dunkel</string>
@@ -43,12 +43,17 @@
     <string name="find_code_on_github_summary">Sie können den Quellcode von Leafpad über das Repository einsehen und überprüfen. Für Änderungswünsche und Fehlermeldungen können Sie gerne ein sogenanntes Issue öffnen.</string>
     <string name="title_licence">Lizenzen</string>
     <string name="licence">Open source Lizenzen</string>
+    <string name="notification_of_change">Benachrichtigung bei Änderungen</string>
+    <string name="notification_of_change_description">Über Änderungen in Notizen benachrichtigen</string>
+    <string name="unsaved_changes_title">Ungespeicherte Änderungen</string>
+    <string name="unsaved_changes_message">Ihre Notiz hat sich geändert. Möchten Sie die Änderungen Speichern oder Verwerfen?</string>
+    <string name="discard">Verwerfen</string>
+    <string name="save_changes">Änderungen speichern</string>
     <string name="share_note">Notiz teilen?</string>
     <string name="note_will_be_saved_first">Notiz wird erst gespeichert</string>
     <string name="thanks">Danke Stefan, Stefan, Manuel, Falk, Stephanie und Emil für eure Ideen und das Testen der App.</string>
     <string name="action_save">Notiz speichern</string>
     <string name="action_note_saved">gespeichert</string>
-    <string name="search">suchen</string>
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="lightmode_preference" translatable="false">lightmode</string>
@@ -56,7 +61,7 @@
     <string name="darkmode_preference" translatable="false">darkmode</string>
     <string name="system_preference" translatable="false">system</string>
     <string name="system_preference_option_value" translatable="false">system</string>
-    <string name="participate">Mitmachen</string>
+    <string name="participate">Mitmachen oder Beitragen</string>
     <string name="translate">Übersetzen Sie die App auf Weblate</string>
     <string name="translation_help">Hilf uns bei der Übersetzung der App in deine Sprache auf weblate</string>
     <string name="hide_note">Die Notiz unsichtbar machen</string>
@@ -77,16 +82,27 @@
     <string-array name="category">
         <item>Rezept</item>
     </string-array>
-    <string name="no">No</string>
-    <string name="save">Save all notes as xml</string>
-    <string name="showDeleteConfirmation">Delete notes?</string>
-    <string name="restore">Restore all notes as xml</string>
-    <string name="showDeleteConfirmationMessage">All notes will be permanently deleted. Continue?</string>
-    <string name="yes">Yes</string>
-    <string name="delete">Delete</string>
-    <string name="cancel">Cancel</string>
-    <string name="showRestoreConfirmation">Restore?</string>
-    <string name="restore_notes_title">Restore</string>
-    <string name="save_notes_title">Backup</string>
-    <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
+    <string name="no">Nein</string>
+    <string name="save">Alle Notizen als xml-Datei speichern</string>
+    <string name="showDeleteConfirmation">Notizen löschen?</string>
+    <string name="restore">Alle Notizen aus einer xml-Datei wiederherstellen</string>
+    <string name="showDeleteConfirmationMessage">Alle Notizen werden endgültig gelöscht. Weiter?</string>
+    <string name="yes">Ja</string>
+    <string name="delete">Löschen</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="showRestoreConfirmation">Wiederherstellen?</string>
+    <string name="restore_notes_title">Wiederherstellen</string>
+    <string name="save_notes_title">Notizen sichern</string>
+    <string name="showRestoreConfirmationMessage">Alle aktuellen Notizen werden durch die Sicherungskopie ersetzt. Weiter?</string>
+    <string name="toggle">Ansicht umschalten</string>
+    <string name="empty_list">Keine Notizen in der Liste</string>
+    <string name="not_initialized">Leafpad noch nicht initialisiert!</string>
+    <string name="search">Notizen suchen</string>
+    <string name="search_hint">Wonach suchen Sie?</string>
+    <string name="no_search_results">Nichts gefunden</string>
+    <string name="startIconDescription">Ein Suchfeld</string>
+    <string name="note_shared">Geteilte Notiz</string>
+    <string name="item_menu_description">menu for item actions</string>
+    <string name="set">Es ist ein Rezept</string>
+    <string name="close_release_note">Button zum Schließen\n</string>
 </resources>

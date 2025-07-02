@@ -10,7 +10,7 @@
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="new_note">Shënim i ri</string>
     <string name="action_note_saved">u ruajt</string>
-    <string name="participate">Merrni pjesë</string>
+    <string name="participate">Merrni pjesë, ose Jepni Kontribut</string>
     <string name="leafpad_work">Leafpad-i i ruan lokalisht në telefonin tuaj krejt të dhënat. Shënimet, ose tejtëdhëna të tilla si data dhe koha nuk depozitohen në ndonjë re dhe s’i jepen njeriu. As bëhet ndonjë analizim teksti. Shënimet ju përkasin juve. Ju vendosni ç’të bëhet me to.</string>
     <string name="imported">shënimi u dërgua te leafpad</string>
     <string name="rate_the_app">Si thoni për një shqyrtim në Google\'s PlayStore?</string>
@@ -21,14 +21,14 @@
     <string name="menu_settings">Rregullime</string>
     <string name="action_fab_note">bëni një shënim</string>
     <string name="title_activity_note_edit">Përpunoni Shënim</string>
-    <string name="translate">Përkthejeni aplikacioni në Weblate</string>
+    <string name="translate">Përkthejeni aplikacionin në Weblate</string>
     <string name="hide_hidden">fshihi shënimet e fshehura</string>
     <string name="change">version</string>
     <string name="system_preference_key">ndiq sistemin (standard)</string>
     <string name="contentDescription">shtoni Shënim të ri</string>
     <string name="action_edit_note">Përpunoni Shënim</string>
     <string name="note_will_be_saved_first">Shënimi së pari do të ruhet</string>
-    <string name="general_preference">Të përgjithshme</string>
+    <string name="general_preference">Rregullime të përgjithshme</string>
     <string name="title_licence">Licenca</string>
     <string name="remove_dailog_message">Ky shënim do të fshihet përgjithnjë. Nuk mund të rikthehet më pas.</string>
     <string name="version">version</string>
@@ -47,7 +47,7 @@
     <string name="lightmode_preference_key">mënyra e çelët</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="darkmode_preference_key">mënyra e errët</string>
-    <string name="search">kërko</string>
+    <string name="search">kërko për shënime</string>
     <string name="action_save">ruaje shënimin</string>
     <string name="share_note">Të Ndahet Shënimi Me të Tjerë?</string>
     <string name="thanks">Faleminderit Stefanit, Stefanit, Manuelit, Falkut, Stefanisë dhe Emilit për idetë tuaja dhe për testimin e aplikacionit.</string>
@@ -70,7 +70,7 @@
     <string name="showDeleteConfirmation">Të fshihen shënimet?</string>
     <string name="backupIsrunning">Kopjeruajtja po bëhet</string>
     <string name="importError">Gabim gjatë importimit të shënimeve.</string>
-    <string name="restore">Rikthe krejt shënimet si xml</string>
+    <string name="restore">Rikthe krejt shënimet që nga kartelë xml</string>
     <string name="showDeleteConfirmationMessage">Krejt shënimet do të fshihen përfundimisht. Të vazhdohet?</string>
     <string name="yes">Po</string>
     <plurals name="notes_imported">
@@ -79,11 +79,27 @@
     </plurals>
     <string name="fileOpeningError">Gabim kur hapet kartela.</string>
     <string name="delete">Fshije</string>
-    <string name="backupfinish">Kopjeruajtja përfundon</string>
+    <string name="backupfinish">Kopjeruajtja përfundoi</string>
     <string name="invalidFile">Kartelë kopjeruajtje e pavlefshme. Importimi u anulua.</string>
     <string name="cancel">Anuloje</string>
     <string name="showRestoreConfirmation">Të ritkhehet?</string>
     <string name="restore_notes_title">Riktheje</string>
     <string name="save_notes_title">Kopjeruajtje</string>
     <string name="showRestoreConfirmationMessage">Krejt shënimet e tanishme do të zëvendësohen nga kopjeruajtja. Të vazhdohet?</string>
+    <string name="toggle">ndryshoni Pamje</string>
+    <string name="note_shared">Shënimi u nda me të tjerë</string>
+    <string name="item_menu_description">menu për veprime mbi objekte</string>
+    <string name="save_changes">ruaji ndryshimet</string>
+    <string name="search_hint">Për ç’po shihni?</string>
+    <string name="discard">hidhi tej</string>
+    <string name="startIconDescription">Fushë kërkimesh</string>
+    <string name="notification_of_change_description">Njofto rreth ndryshimesh në shënime</string>
+    <string name="notification_of_change">Njoftim ndryshimesh</string>
+    <string name="not_initialized">Leafpad-i ende i pagatitur!</string>
+    <string name="unsaved_changes_message">Shënimi juaj është ndryshuar. Doni të ruhen ndryshimet, apo të hidhen tej?</string>
+    <string name="unsaved_changes_title">Ndryshime të paruajtura</string>
+    <string name="no_search_results">S’u gjet gjë</string>
+    <string name="empty_list">Te lista s’ka shënime</string>
+    <string name="set">It is a recipe</string>
+    <string name="close_release_note">Close Button\n</string>
 </resources>

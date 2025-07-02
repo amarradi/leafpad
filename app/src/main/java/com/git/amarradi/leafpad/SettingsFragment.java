@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -17,8 +15,13 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreferenceCompat;
 
-import com.google.android.material.snackbar.Snackbar;
+import com.git.amarradi.leafpad.helper.DialogHelper;
+import com.git.amarradi.leafpad.helper.NoteBackupHelper;
+import com.git.amarradi.leafpad.helper.NotificationHelper;
+import com.git.amarradi.leafpad.model.Leaf;
+import com.git.amarradi.leafpad.model.Note;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -28,7 +31,8 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class SettingsFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-    public static final String GITHUBPATH = "https://github.com/amarradi/leafpad";
+    public static final String GITHUBPATH = "https://github.com/amarradi/leafpad/issues";
+
     public static final String WEBLATEPATH = "https://hosted.weblate.org/projects/leafpad/";
 
     private ActivityResultLauncher<Intent> exportLauncher;
@@ -48,10 +52,16 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         for (int i = 0; i < preferenceScreen.getPreferenceCount(); i++) {
             Preference preference = preferenceScreen.getPreference(i);
             if (!(preference instanceof CheckBoxPreference)) {
-                String value = sharedPreferences.getString(preference.getKey(), "");
+                String value = Objects.requireNonNull(sharedPreferences).getString(preference.getKey(), "");
                 setPreferenceSummary(preference, value);
             }
         }
+
+        setupClickListener("theme", preference -> {
+            DialogHelper.showThemeSelectionDialog(requireContext(), () -> requireActivity().recreate());
+            return true;
+        });
+
 
         setupClickListener("save", v -> {
             startExportIntent();
@@ -60,6 +70,10 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
         setupClickListener("restore", v -> {
             startImportIntent();
+            return true;
+        });
+
+        setupClickListener("change", v-> {
             return true;
         });
 
@@ -74,7 +88,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         });
 
         setupClickListener("github", v -> {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(GITHUBPATH)));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(GITHUBPATH.trim())));
             return true;
         });
 
@@ -97,7 +111,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
                         Uri uri = result.getData().getData();
                         if (uri != null) {
                             backupToUri(uri);
-
                         }
                     }
                 }
@@ -134,15 +147,14 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
     private void backupToUri(Uri uri) {
         new Thread(() -> {
-            requireActivity().runOnUiThread(() -> showSnackbar(getString(R.string.backupIsrunning)));
+            requireActivity().runOnUiThread(() -> NotificationHelper.showSnackbar(requireView(),getString(R.string.backupIsrunning)));
             try (OutputStream outputStream = requireContext().getContentResolver().openOutputStream(uri)) {
                 if (outputStream != null) {
                     NoteBackupHelper.backupNotesToStream(requireContext(), outputStream);
-                    requireActivity().runOnUiThread(() -> showSnackbar(getString(R.string.backupfinish)));
-                    Log.d("Backup", "Backup erfolgreich geschrieben.");
+                    requireActivity().runOnUiThread(() -> NotificationHelper.showSnackbar(requireView(),getString(R.string.backupfinish)));
                 }
             } catch (Exception e) {
-                Log.e("Backup", "Fehler beim Schreiben des Backups", e);
+                NotificationHelper.showSnackbar(requireView(),e.getLocalizedMessage());
             }
         }).start();
     }
@@ -151,7 +163,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         try {
             AtomicReference<InputStream> inputStream = new AtomicReference<>(requireContext().getContentResolver().openInputStream(uri));
             if (inputStream.get() == null) {
-                showToast(getString(R.string.fileOpeningError));
+                NotificationHelper.showSnackbar(requireView(), getString(R.string.fileOpeningError));
                 return;
             }
 
@@ -159,7 +171,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             inputStream.get().close();
 
             if (!isValid) {
-                showToast(getString(R.string.invalidFile));
+                NotificationHelper.showSnackbar(requireView(), getString(R.string.invalidFile));
                 return;
             }
 
@@ -167,25 +179,21 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
                 try {
                     inputStream.set(requireContext().getContentResolver().openInputStream(uri));
                     if (inputStream.get() == null) {
-                        showToast(getString(R.string.fileOpeningError));
+                        NotificationHelper.showSnackbar(requireView(), getString(R.string.fileOpeningError));
                         return;
                     }
                     Leaf.deleteAll(requireContext());
                     List<Note> restored = NoteBackupHelper.restoreNotesFromStream(requireContext(), inputStream.get());
                     int count = restored.size();
                     String message = getResources().getQuantityString(R.plurals.notes_imported, count, count);
-                    showSnackbar(message);
+                    NotificationHelper.showSnackbar(requireView(),message);
                     inputStream.get().close();
                 } catch (Exception e) {
-                    e.printStackTrace();
-                    showToast(getString(R.string.importError));
-                    Log.e("Restore", "Fehler beim Wiederherstellen", e);
+                    NotificationHelper.showSnackbar(requireView(),getString(R.string.importError)+" "+e.getLocalizedMessage());
                 }
             });
         } catch (Exception e) {
-            e.printStackTrace();
-            showToast(getString(R.string.importError));
-            Log.e("Restore", "Fehler beim Wiederherstellen", e);
+            NotificationHelper.showSnackbar(requireView(), getString(R.string.importError)+" "+e.getLocalizedMessage());
         }
     }
 
@@ -203,18 +211,15 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, @Nullable String key) {
         if (key != null) {
             Preference preference = findPreference(key);
-            if (preference != null && !(preference instanceof CheckBoxPreference)) {
-                setPreferenceSummary(preference, sharedPreferences.getString(key, ""));
+            if (preference != null) {
+                if (preference instanceof SwitchPreferenceCompat || preference instanceof CheckBoxPreference) {
+                    boolean value = sharedPreferences.getBoolean(key, false);
+                } else {
+                    String value = sharedPreferences.getString(key, "");
+                    setPreferenceSummary(preference, value);
+                }
             }
         }
-    }
-
-    private void showToast(String text) {
-        Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show();
-    }
-
-    private void showSnackbar(String text) {
-        Snackbar.make(requireView(), text, Snackbar.LENGTH_SHORT).show();
     }
 
 

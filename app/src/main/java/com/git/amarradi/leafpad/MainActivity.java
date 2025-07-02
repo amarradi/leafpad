@@ -3,196 +3,141 @@ package com.git.amarradi.leafpad;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
 
+import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.content.ContextCompat;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.git.amarradi.leafpad.adapter.NoteAdapter;
+import com.git.amarradi.leafpad.adapter.OnReleaseNoteCloseListener;
+import com.git.amarradi.leafpad.helper.DialogHelper;
+import com.git.amarradi.leafpad.helper.LayoutModeHelper;
+import com.git.amarradi.leafpad.helper.ShareHelper;
+import com.git.amarradi.leafpad.model.Note;
+import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Objects;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-    public final static String EXTRA_NOTE_ID = "com.git.amarradi.leafpad";
-    public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String DESIGN_MODE = "system";
+public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, OnReleaseNoteCloseListener {
 
-    public final static String BIBLEVERSE_URL_REGEX = "(?i)\\b(?:https?://)?(?:www\\.)?bible\\.(com|org)(/\\S*)?";
-
-    public List<Note> notes;
-    public SimpleAdapter adapter;
-    public ListView listView;
-
-    private boolean showHidden = false;
-
-    List<Map<String, Object>> data = new ArrayList<>();
-
+    public RecyclerView recyclerView;
+    public NoteAdapter noteAdapter;
+    private NoteViewModel noteViewModel;
 
     @SuppressLint("RestrictedApi")
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        NoteViewModel viewModel= new ViewModelProvider(this).get(NoteViewModel.class);
+        viewModel.checkAndLoadReleaseNote(this);
+        viewModel.getReleaseNote().observe(this, releaseNote -> {
+            if (!Leafpad.isReleaseNoteClosed(this) ||
+                    Leafpad.getCurrentVersionCode(this)>Leafpad.getCurrentLeafpadVersionCode(this)) {
+                noteAdapter.setReleaseNoteHeader(releaseNote);
+                Leafpad.resetReleaseNoteClosed(this);
+                updateEmptyState();
+            }
+        });
+
+        noteViewModel = new ViewModelProvider(
+                this,
+                new ViewModelProvider.AndroidViewModelFactory(getApplication())
+        ).get(NoteViewModel.class);
+        boolean savedShowHidden = Leafpad.getInstance().getSavedShowHidden();
+        noteViewModel.setShowHidden(savedShowHidden);
+
+        noteViewModel.loadNotes();
+        noteViewModel.getNotes().observe(this, notes -> {
+            noteAdapter.updateNotes(notes);
+            recyclerView.post(()->recyclerView.scrollToPosition(0));
+
+            updateEmptyState();
+        });
+
+        noteViewModel.getShowHidden().observe(this, showHidden -> {
+            noteAdapter.setShowOnlyHidden(showHidden);
+            updateEmptyState();
+        });
+
+        // In MainActivity.java, im onCreate z. B.
+        viewModel.getCombinedNotes().observe(this, combinedList -> {
+            noteAdapter.setCombinedList(combinedList);
+            updateEmptyState();
+        });
+
+
         setupSharedPreferences();
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        String themes = sharedPreferences.getString(DESIGN_MODE, "");
-        changeTheme(themes);
 
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         Objects.requireNonNull(getSupportActionBar()).setDefaultDisplayHomeAsUpEnabled(true);
 
-        adapter = new SimpleAdapter(this, data,
-                R.layout.note_list_item,
-                new String[]{"title", "body","date", "time", "category", "bible"},
-                new int[]{R.id.title_text, R.id.note_preview, R.id.created_at, R.id.time_txt, R.id.category_txt, R.id.bible});
+        recyclerView = findViewById(R.id.note_list_view);
 
-        adapter.setViewBinder((view, data, textRepresentation) -> {
-            int viewId = view.getId();
-            // Bible Icon
-            if (viewId == R.id.bible && data instanceof String) {
-                String body = (String) data;
-                Pattern biblePattern = Pattern.compile(BIBLEVERSE_URL_REGEX);
-                Matcher matcher = biblePattern.matcher(body);
-                view.setVisibility(matcher.find() ? View.VISIBLE : View.GONE);
-                return true;
-            }
-
-
-            if (viewId == R.id.category_txt) {
-                if (data instanceof String) {
-                    String category = (String) data;
-                    Log.d("setViewBinder", "category: "+data.toString());
-                    // Setze den Text explizit (da der Default-Binding unterdrückt wird)
-                    ((TextView) view).setText(category);
-                    // Bestimme, ob der Dunkelmodus aktiv ist
-                    int currentNightMode = view.getContext().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
-                    boolean isDarkMode;
-                    if (currentNightMode == Configuration.UI_MODE_NIGHT_YES) {
-                        isDarkMode = true;
-                    } else {
-                        isDarkMode = false;
-                    }
-                    // Finde das übergeordnete MaterialCardView
-                    View parent = (View) view.getParent();
-                    while (parent != null && !(parent instanceof com.google.android.material.card.MaterialCardView)) {
-                        parent = (View) parent.getParent();
-                    }
-                    if (parent != null) {
-                        com.google.android.material.card.MaterialCardView cardView = (com.google.android.material.card.MaterialCardView) parent;
-                        //  int highlightColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_light_recipe);
-
-                        // Farben abhängig vom Modus setzen
-                        int highlightColor;
-                        if (isDarkMode) {
-                            highlightColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_dark_recipe);
-                        } else {
-                            highlightColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_light_recipe);
-                        }
-
-                        int iconColor;
-                        if (isDarkMode) {
-                            // iconColor = ContextCompat.getColor(view.getContext(), android.R.color.white);
-                            iconColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_dark_recipe);
-                        } else {
-                            iconColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_light_recipe);
-                        }
-
-                        int defaultStrokeColor = ContextCompat.getColor(view.getContext(), R.color.md_theme_light_primaryContainer);
-
-                        if (!android.text.TextUtils.isEmpty(category)) {
-                            // Kategorie vorhanden: Rahmen auf Highlight-Farbe setzen
-                            cardView.setStrokeColor(highlightColor);
-                            // Zeige das Kategorie-Textfeld
-                            view.setVisibility(View.VISIBLE);
-                            // Icon sichtbar machen
-                            View icon = ((View) view.getParent()).findViewById(R.id.category_icon);
-                            if (icon != null) {
-                                icon.setVisibility(View.VISIBLE);
-                            }
-                        } else {
-                            // Keine Kategorie: Rahmen zurücksetzen
-                            cardView.setStrokeColor(defaultStrokeColor);
-                            cardView.invalidate(); // Erzwingt Neuzeichnen
-                            // Verstecke das Kategorie-Textfeld
-                            view.setVisibility(View.GONE);
-                            // Verstecke auch das Icon
-                            View icon = ((View) view.getParent()).findViewById(R.id.category_icon);
-                            if (icon != null) {
-                                icon.setVisibility(View.GONE);
-                            }
-                        }
-                    }
-                }
-                return true;
-            }
-            return false;
-        });
-
-        //updateDataset();
-
-        listView = findViewById(R.id.note_list_view);
-
-        listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener((adapter, v, position, id) -> {
-
-            // Hole die ID aus der angezeigten Datenliste
-            String noteId = (String) data.get(position).get("id");
-
-            // Finde die Notiz in der "notes"-Liste anhand der ID
-            Note selectedNote = null;
-            for (Note note : notes) {
-                if (note.getId().equals(noteId)) {
-
-                    selectedNote = note;
-                    break;
-                }
-            }
-
-            if (selectedNote != null) {
+        noteAdapter = new NoteAdapter(this, new ArrayList<>(), new NoteClickListener() {
+            @Override
+            public void onNoteClicked(Note note) {
+                noteViewModel.selectNote(note);
                 Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
-                intent.putExtra(EXTRA_NOTE_ID, selectedNote.getId());
-                // Log.d("MainActivity", "Selected Note: ID=" + selectedNote.getId() + ", Title=" + selectedNote.getTitle());
+                intent.putExtra(Leafpad.EXTRA_NOTE_ID, note.getId());
                 startActivity(intent);
-            } //else {
-            //  Log.e("MainActivity", "Error: Note not found for ID=" + noteId);
-            //}
-        });
+            }
 
-        ExtendedFloatingActionButton extendedFloatingActionButton = findViewById(R.id.fab_action_add);
-        extendedFloatingActionButton.setOnClickListener(v -> {
+            @Override
+            public void onNoteIconClicked(Note note, View anchor) {
+                showPopupMenu(note, anchor);
+            }
+        },this);
+
+
+        recyclerView.setAdapter(noteAdapter);
+
+        Leafpad.getInstance().applyCurrentLayoutMode(recyclerView, noteAdapter);
+
+        ExtendedFloatingActionButton fab = findViewById(R.id.fab_action_add);
+        fab.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
-            intent.putExtra(EXTRA_NOTE_ID, Note.makeId());
+            intent.putExtra(Leafpad.EXTRA_NOTE_ID, Note.makeId());
             startActivity(intent);
         });
-        listView.setEmptyView(findViewById(R.id.emptyElement));
-
+    }
+    @Override
+    public void onReleaseNoteClosed() {
+        Leafpad.setReleaseNoteClosed(this);
+        Leafpad.setCurrentLeafpadVersionCode(this);
+        noteAdapter.setReleaseNoteHeader(null);
+        recyclerView.post(this::updateEmptyState);
+    }
+    private void updateEmptyState() {
+        int count = noteAdapter.getItemCount();
+        Log.d("MainActivity", "updateEmptyState - itemCount: " + count);
+        ImageView emptyElement = findViewById(R.id.emptyElement);
+        if (count == 0) {
+            emptyElement.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.INVISIBLE);
+        } else {
+            emptyElement.setVisibility(View.INVISIBLE);
+            recyclerView.setVisibility(View.VISIBLE);
+        }
     }
 
     private void setupSharedPreferences() {
@@ -200,72 +145,86 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
 
+    private void showPopupMenu(Note note, View anchor) {
+        PopupMenu popup = new PopupMenu(this, anchor);
+        popup.getMenuInflater().inflate(R.menu.menu_popup, popup.getMenu());
+
+        LayoutModeHelper.forcePopupMenuIcons(popup);
+        popup.setOnMenuItemClickListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.action_share_note) {
+                ShareHelper.shareNote(this,note);
+                return true;
+            } else if (id == R.id.action_remove) {
+                DialogHelper.showDeleteSingleNoteDialog(this, () -> noteViewModel.deleteNote(this,note));
+                return true;
+            }
+            return false;
+        });
+
+        popup.show();
+    }
+
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if ("theme".equals(key)) {
-            loadThemeFromPreference(sharedPreferences);
+            String newValue = sharedPreferences.getString("theme", "system");
+            Leafpad.getInstance().saveTheme(newValue);
         }
-    }
-
-    private void loadThemeFromPreference(SharedPreferences sharedPreferences) {
-        changeTheme(sharedPreferences.getString(getString(R.string.theme_key), getString(R.string.system_preference_option_value)));
-    }
-
-    private void changeTheme(String themeValue) {
-        AppCompatDelegate.setDefaultNightMode(toNightMode(themeValue));
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(DESIGN_MODE, themeValue);
-        editor.apply();
-    }
-
-    private int toNightMode(String themeValue) {
-        if("lightmode".equals(themeValue)) {
-            return AppCompatDelegate.MODE_NIGHT_NO;
-        }
-        if("darkmode".equals(themeValue)) {
-            return AppCompatDelegate.MODE_NIGHT_YES;
-        }
-        return AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
-    }
-    @Override
-    protected void onPause() {
-        super.onPause();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        updateListView();
+        Leafpad.getInstance().applyCurrentLayoutMode(recyclerView, noteAdapter);
+        noteViewModel.loadNotes();
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_main, menu);
-        MenuItem item = menu.findItem(R.id.item_show_hidden);
+    public boolean onCreateOptionsMenu(@NonNull android.view.Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        android.view.MenuItem item = menu.findItem(R.id.item_show_hidden);
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String savedLayout = sharedPreferences.getString(Leafpad.PREF_LAYOUT_MODE, "list");
+        Boolean showHidden = noteViewModel.getShowHidden().getValue();
+        if (showHidden == null) {
+            showHidden = false;
+        }
         if (showHidden) {
-            item.setIcon(getDrawable(R.drawable.action_eye_closed));
+            item.setIcon(getDrawable(R.drawable.eye_invisible));
             item.setTitle(getString(R.string.hide_hidden));
         } else {
-            item.setIcon(getDrawable(R.drawable.action_eye_open));
+            item.setIcon(getDrawable(R.drawable.eye_visible));
             item.setTitle(getString(R.string.show_hidden));
         }
-        //invalidateOptionsMenu();
+        MenuItem layoutItem = menu.findItem(R.id.item_toggle_layout);
+        if ("grid".equals(savedLayout)) {
+            layoutItem.setIcon(R.drawable.listview);
+        } else {
+            layoutItem.setIcon(R.drawable.gridview);
+        }
         return true;
     }
 
-    @SuppressLint({"NonConstantResourceId"})
+    @SuppressLint("NonConstantResourceId")
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull android.view.MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_settings:
-                Intent settingsIntent = new Intent(this, SettingsActivity.class);
-                startActivity(settingsIntent);
+                startActivity(new Intent(this, SettingsActivity.class));
                 return true;
             case R.id.item_show_hidden:
                 toggleShowHidden(item);
+                return true;
+            case R.id.item_toggle_layout:
+                Leafpad.getInstance().toggleLayoutMode(recyclerView, noteAdapter);
+                invalidateOptionsMenu();
+                return true;
+            case R.id.action_search:
+                Intent searchIntent = new Intent(this, SearchActivity.class);
+                startActivity(searchIntent);
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -273,70 +232,26 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     @SuppressLint("UseCompatLoadingForDrawables")
     private void toggleShowHidden(MenuItem item) {
-        showHidden = !showHidden;
-        if (!showHidden) {
-            item.setIcon(getDrawable(R.drawable.action_eye_closed));
+
+        Boolean current = noteViewModel.getShowHidden().getValue();
+        if (current == null) {
+            current = false;
+        }
+
+        boolean newValue = !current;
+        noteViewModel.setShowHidden(newValue);
+
+        if (newValue) {
+            item.setIcon(getDrawable(R.drawable.eye_invisible));
             item.setTitle(getString(R.string.hide_hidden));
         } else {
-            item.setIcon(getDrawable(R.drawable.action_eye_open));
+            item.setIcon(getDrawable(R.drawable.eye_visible));
             item.setTitle(getString(R.string.show_hidden));
         }
-        updateListView();
-        invalidateOptionsMenu();
+        Leafpad.getInstance().saveShowHidden(newValue);
     }
-
-
-    public void updateListView() {
-        updateDataset();
-        ((SimpleAdapter) listView.getAdapter()).notifyDataSetChanged();
+    public interface NoteClickListener {
+        void onNoteClicked(Note note);
+        void onNoteIconClicked(Note note, View anchor);
     }
-
-
-    public void updateDataset() {
-        //Log.d("MainActivity", "updateDataset() called");
-        notes = Leaf.loadAll(this, showHidden);
-        data.clear();
-
-        for (Note note : notes) {
-            int PREVIEW = 25;
-            if (showHidden && note.isHide()) {
-                Map<String, Object> datum = new HashMap<>();
-                datum.put("id", note.getId());
-                datum.put("title", note.getTitle());
-                // Kürze den Notiztext auf maximal 50 Zeichen
-                String previewText = note.getBody();
-                if (previewText.length() > PREVIEW) {
-                    previewText = previewText.substring(0, PREVIEW) + "...";
-                }
-                datum.put("body", previewText);
-                datum.put("date", note.getDate());
-                datum.put("time", note.getTime());
-                datum.put("category", note.getCategory());
-                datum.put("bible", note.getBody());
-                data.add(datum);
-            } else if(!showHidden && !note.isHide()){
-                Map<String, Object> datum = new HashMap<>();
-                datum.put("id", note.getId());
-                datum.put("title", note.getTitle());
-                // Kürze den Notiztext auf maximal 50 Zeichen
-                String previewText = note.getBody();
-                if (previewText.length() > PREVIEW) {
-                    previewText = previewText.substring(0, PREVIEW) + "...";
-                }
-                datum.put("body", previewText);
-                datum.put("date", note.getDate());
-                datum.put("time", note.getTime());
-                datum.put("category", note.getCategory());
-                datum.put("bible", note.getBody());
-                data.add(datum);
-            }
-        }
-        // Debugging: Ausgabe der geladenen Daten
-        //for (Map<String, String> datum : data) {
-        //    Log.d("MainActivity", "Datum: " + datum);  // Hier wird jedes Element der Liste geloggt
-        //}
-
-        //Log.d("MainActivity", "Displayed Notes: " + data.size());
-    }
-
 }

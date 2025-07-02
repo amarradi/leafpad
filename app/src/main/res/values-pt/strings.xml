@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="darkmode_preference" translatable="false">darkmode</string>
+    <string name="system_preference" translatable="false">system</string>
+    <string name="theme_key" translatable="false">theme</string>
+    <string name="lightmode_preference" translatable="false">lightmode</string>
+    <string name="system_preference_option_value" translatable="false">system</string>
+    <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
+    <string name="theme_preference" translatable="false">Theme</string>
+    <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
+    <string name="what_is_leafpad">Leafpad é um aplicativo simples para criar notas.</string>
+    <string name="translate">Traduza o app no Weblate</string>
+    <string name="show_note">tornar a nota visível</string>
+    <string name="leafpad_work">O Leafpad salva todos os dados localmente no seu smartphone. As notas ou metadados, como data e hora, não são armazenados em nenhum servidor na nuvem e não são compartilhados com ninguém. Nenhuma análise de texto é realizada também. As notas pertencem a você. Você decide o que fazer com elas.</string>
+    <string name="new_note">nova nota</string>
+    <string name="imported">nota enviada para o Leafpad</string>
+    <string name="rate_the_app">Que tal uma avaliação na Google PlayStore?</string>
+    <string name="add_shortcut_short_label">Escrever algo novo</string>
+    <string name="action_note_saved">salvo</string>
+    <string name="tell_about">O que quero lhe contar sobre o Leafpad</string>
+    <string name="action_share_body">Nota</string>
+    <string name="remove_dialog_abort">Cancelar</string>
+    <string name="menu_settings">Configurações</string>
+    <string name="action_fab_note">criar uma nota</string>
+    <string name="title_activity_note_edit">Editar Nota</string>
+    <string name="hide_hidden">esconder notas ocultas</string>
+    <string name="change">versão</string>
+    <string name="system_preference_key">seguir o sistema (padrão)</string>
+    <string name="contentDescription">adicionar nova nota</string>
+    <string name="action_edit_note">Editar nota</string>
+    <string name="note_will_be_saved_first">Nota será salva primeiramente</string>
+    <string name="general_preference">Geral</string>
+    <string name="title_licence">Licenças</string>
+    <string name="remove_dailog_message">Esta nota será permanentemente excluída. Ela não poderá ser restaurada posteriormente.</string>
+    <string name="version">versão</string>
+    <string name="find_code_on_github_summary">Você pode visualizar e verificar o código fonte no repositório. Você é bem-vindo para abrir uma issue para solicitar alterações ou relatar mensagens de erro.</string>
+    <string name="action_share_title">Título</string>
+    <string name="participate">Participar</string>
+    <string name="title_hint">Título</string>
+    <string name="about">Sobre</string>
+    <string name="theme_summary">Alternar entre o tema claro e escuro</string>
+    <string name="created_txt">criado em</string>
+    <string name="action_remove">Remover nota</string>
+    <string name="licence">Licenças de código aberto</string>
+    <string name="edited_text">editado em</string>
+    <string name="body_hint">Nota</string>
+    <string name="lightmode_preference_key">Modo claro</string>
+    <string name="find_code_on_github">GitHub</string>
+    <string name="darkmode_preference_key">Modo escuro</string>
+    <string name="search">Pesquisar</string>
+    <string name="action_save">salvar nota</string>
+    <string name="share_note">Compartilhar Anotação?</string>
+    <string name="thanks">Obrigado Stefan, Stefan, Manuel, Falk e Stephanie por suas ideias e por testar o aplicativo.</string>
+    <string name="statement">Escrevemos listas de compras, notas de conversas, listas de o que levar para férias ou aniversários de amigos. São coisas boas para não esquecermos. É muito semelhante a Deus, ele escreve nossas boas e más ações e as salva. Deus está acima de tudo e simplesmente sabe tudo. Deus ama as pessoas e quer ter comunhão com elas. Mas isso só é possível se somos vistos por Deus sem a culpa de nossas ações. Através da fé em Jesus Cristo, nossas más ações (nossa culpa) são exterminadas diante de Deus. Jesus Cristo expiou por nossa culpa na cruz do Calvário. Toda pessoa que aceita isso é inserida no livro da vida para sempre. Você está registado no livro da vida?</string>
+    <string name="hide_note">tornar a nota invisível</string>
+    <string name="translation_help">Ajude-nos a traduzir o aplicativo em seu idioma no weblate</string>
+    <string name="rev20_12">E vi os mortos, grandes e pequenos, que estavam diante de Deus, e abriram-se os livros; e abriu-se outro livro, que é o da vida. E os mortos foram julgados pelas coisas que estavam escritas nos livros, segundo as suas obras. Apocalipse 20:12</string>
+    <string name="its_opensource">Leafpad é um aplicativo de código aberto e gratuito</string>
+    <string name="satisfied">Gostando do Leafpad?</string>
+    <string name="app_name">Leafpad</string>
+    <string name="about_the_app">Sobre o aplicativo</string>
+    <string name="remove_dialog_title">Tem certeza?</string>
+    <string name="action_add_note">Adicionar nota</string>
+    <string name="show_hidden">mostrar notas ocultas</string>
+    <string name="action_share_note">Compartilhar nota</string>
+    <string name="note_is_recipe">nota é uma receita</string>
+    <string name="note_is_no_recipe">nota não é receita</string>
+    <string name="no">No</string>
+    <string name="save">Save all notes as xml</string>
+    <string name="showDeleteConfirmation">Delete notes?</string>
+    <string name="backupIsrunning">Backup is running</string>
+    <string name="importError">Error when importing notes.</string>
+    <string name="restore">Restore all notes as xml</string>
+    <string name="showDeleteConfirmationMessage">All notes will be permanently deleted. Continue?</string>
+    <string name="yes">Yes</string>
+    <plurals name="notes_imported">
+        <item quantity="one">One note imported</item>
+        <item quantity="many">%1$d notes imported</item>
+        <item quantity="other">%1$d notes imported</item>
+    </plurals>
+    <string name="fileOpeningError">Error when opening the file.</string>
+    <string name="delete">Delete</string>
+    <string name="backupfinish">Backup finishes</string>
+    <string name="invalidFile">Invalid backup file. The import was cancelled.</string>
+    <string name="cancel">Cancel</string>
+    <string name="showRestoreConfirmation">Restore?</string>
+    <string name="restore_notes_title">Restore</string>
+    <string name="save_notes_title">Backup</string>
+    <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
+    <string name="toggle">change View</string>
+    <string name="note_shared">Nota compartilhada</string>
+    <string name="item_menu_description">menu for item actions</string>
+    <string name="not_initialized">Leafpad not initialized yet!</string>
+    <string name="empty_list">No notes available in the list</string>
+    <string name="save_changes">save changes</string>
+    <string name="discard">discard</string>
+    <string name="search_hint">What are you looking for?</string>
+    <string name="startIconDescription">A search field</string>
+    <string name="notification_of_change_description">Notify about changes in notes</string>
+    <string name="notification_of_change">Notification of changes</string>
+    <string name="unsaved_changes_message">Your note has changed. Do you want to save or discard the changes?</string>
+    <string name="unsaved_changes_title">Unsaved changes</string>
+    <string name="no_search_results">Nothing found</string>
+    <string name="set">It is a recipe</string>
+    <string name="close_release_note">Close Button\n</string>
+</resources>
