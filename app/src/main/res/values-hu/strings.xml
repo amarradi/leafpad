@@ -101,5 +101,5 @@
     <string name="unsaved_changes_message">Your note has changed. Do you want to save or discard the changes?</string>
     <string name="unsaved_changes_title">Unsaved changes</string>
     <string name="set">It is a recipe</string>
-    <string name="close_release_note">Close Button\n</string>
+    <string name="close_release_note">Close Button</string>
 </resources>

@@ -101,5 +101,5 @@
     <string name="startIconDescription">A search field</string>
     <string name="no_search_results">Nothing found</string>
     <string name="set">It is a recipe</string>
-    <string name="close_release_note">Close Button\n</string>
+    <string name="close_release_note">Close Button</string>
 </resources>

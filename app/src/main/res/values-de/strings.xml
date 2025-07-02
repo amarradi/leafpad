@@ -104,5 +104,5 @@
     <string name="note_shared">Geteilte Notiz</string>
     <string name="item_menu_description">menu for item actions</string>
     <string name="set">Es ist ein Rezept</string>
-    <string name="close_release_note">Button zum Schließen\n</string>
+    <string name="close_release_note">Button zum Schließen</string>
 </resources>
