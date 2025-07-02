@@ -46,7 +46,7 @@
     <string name="notification_of_change">Benachrichtigung bei Änderungen</string>
     <string name="notification_of_change_description">Über Änderungen in Notizen benachrichtigen</string>
     <string name="unsaved_changes_title">Ungespeicherte Änderungen</string>
-    <string name="unsaved_changes_message">Ihre Notiz hat sich geändert. Möchten Sie die Änderungen Speichern oder Verwerfen?</string>
+    <string name="unsaved_changes_message">Ihre Notiz hat sich geändert. Möchten Sie die Änderungen speichern oder verwerfen?</string>
     <string name="discard">Verwerfen</string>
     <string name="save_changes">Änderungen speichern</string>
     <string name="share_note">Notiz teilen?</string>
