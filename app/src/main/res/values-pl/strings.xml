@@ -21,9 +21,9 @@
     <string name="lightmode_preference_key">Tryb jasny</string>
     <string name="darkmode_preference_key">Tryb ciemny</string>
     <string name="about">O nas</string>
-    <string name="tell_about">Co chcę powiedzieć o Leafpad</string>
-    <string name="change">wersja</string>
-    <string name="thanks">Dziękujemy Stefanowi, Stefanowi, Manuelowi, Falkowi, Stephanie i Emilowi za pomysły i testowanie aplikacji.</string>
+    <string name="tell_about">Co chcę Ci powiedzieć o Leafpadzie</string>
+    <string name="change">Wersja</string>
+    <string name="thanks">Dziękujemy Stefanowi, Stefanowi, Manuelowi, Falkowi, Stephanie i Emilowi za pomysły i testowanie aplikacji.</string>
     <string name="its_opensource">Leafpad to otwarta i wolna aplikacja</string>
     <string name="title_licence">Licencje</string>
     <string name="find_code_on_github">GitHub</string>
@@ -31,7 +31,7 @@
     <string name="note_will_be_saved_first">Notatka zostanie najpierw zapisana</string>
     <string name="licence">Licencje typu open source</string>
     <string name="search">Szukaj notatek</string>
-    <string name="statement">Zapisujemy listy zakupów, notatki do rozmów, listy rzeczy do spakowania na wakacje lub urodziny przyjaciół. To wszystko są dobre rzeczy, abyśmy o nich nie zapomnieli. Podobnie jest z Bogiem, który zapisuje nasze dobre i złe uczynki i je zapisuje. Bóg jest ponad wszystkim i po prostu wszystko wie. Bóg kocha ludzi i chce mieć z nimi społeczność. Ale jest to możliwe tylko wtedy, gdy jesteśmy postrzegani przez Boga jako nienaganni. Przez wiarę w Jezusa Chrystusa nasze złe uczynki (nasza wina) zostają wymazane przed Bogiem. Jezus Chrystus odkupił naszą winę na krzyżu na Golgocie. Każda osoba, która to przyjmuje, zostaje wpisana do księgi życia na zawsze. Czy jesteś zapisany w księdze życia?</string>
+    <string name="statement">Zapisujemy listy zakupów, notatki do rozmów, listy rzeczy do spakowania na wakacje lub urodziny przyjaciół. To wszystko są dobre rzeczy, abyśmy o nich nie zapomnieli. Podobnie jest z Bogiem, który zapisuje nasze dobre i złe uczynki. Bóg jest ponad wszystkim i po prostu wszystko wie. Bóg kocha ludzi i chce mieć z nimi społeczność. Ale jest to możliwe tylko wtedy, gdy jesteśmy postrzegani przez Boga jako nienaganni. Przez wiarę w Jezusa Chrystusa nasze złe uczynki (nasze winy) zostają wymazane przed Bogiem. Jezus Chrystus odkupił nasze winy na krzyżu na Golgocie. Każda osoba, która to przyjmuje, zostaje wpisana do księgi życia na zawsze. Czy jesteś w księdze życia?</string>
     <string name="leafpad_work">Leafpad zapisuje wszystkie dane lokalnie na Twoim smartfonie. Notatki lub metadane, takie jak data i godzina, nie są przechowywane w żadnej chmurze i nie są nikomu udostępniane. Nie jest również przeprowadzana żadna analiza tekstu. Notatki należą do Ciebie. Ty decydujesz, co z nimi zrobisz.</string>
     <string name="new_note">Nowa notatka</string>
     <string name="imported">Notatka została wysłana do Leafpada</string>
@@ -41,7 +41,7 @@
     <string name="system_preference_key">Taki jak systemowy (domyślny)</string>
     <string name="contentDescription">Dodaj nową notatkę</string>
     <string name="remove_dailog_message">Ta notatka zostanie bezpowrotnie usunięta. Potem nie da się jej przywrócić.</string>
-    <string name="version">wersja</string>
+    <string name="version">Wersja</string>
     <string name="find_code_on_github_summary">Możesz przeglądać i sprawdzać kod źródłowy za pośrednictwem repozytorium. Zapraszamy do otwierania zagadnień w celu wprowadzenia zmian lub zgłoszenia błędów.</string>
     <string name="theme_summary">Przełącz między trybem ciemnym a jasnym</string>
     <string name="what_is_leafpad">Leafpad jest prostą aplikacją do tworzenia notatek.</string>
@@ -50,7 +50,7 @@
     <string name="edited_text">Edytowano dnia</string>
     <string name="action_save">Zapisz notatkę</string>
     <string name="share_note">Udostępnić notatkę?</string>
-    <string name="rev20_12">I ujrzałem umarłych, wielkich i małych, stojących przed tronem; i otworzyły się księgi: i została otwarta jeszcze inna księga, która jest księgą życia: i osądzono umarłych z tego, co było napisane w księgach, według ich dzieł, Objawienia 20:12</string>
+    <string name="rev20_12">I widziałem umarłych, wielkich i małych, stojących przed tronem; i księgi zastały otwarte; również inna księga, księga żywota została otwarta; i osądzeni zostali umarli na podstawie tego, co zgodnie z ich uczynkami było napisane w księgach. Objawienie 20:12</string>
     <string name="satisfied">Podoba Ci się Leafpad?</string>
     <string name="about_the_app">O aplikacji</string>
     <string name="remove_dialog_title">Czy na pewno?</string>
@@ -93,12 +93,12 @@
     <string name="save_changes">Zapisz zmiany</string>
     <string name="item_menu_description">Menu dla działań elementów</string>
     <string name="search_hint">Czego szukasz?</string>
-    <string name="discard">Anuluj</string>
+    <string name="discard">Porzuć</string>
     <string name="startIconDescription">Pole wyszukiwania</string>
     <string name="notification_of_change_description">Powiadom o zmianach w notatkach</string>
     <string name="notification_of_change">Powiadomienie o zmianach</string>
     <string name="not_initialized">Leafpad nie został jeszcze zainicjowany!</string>
-    <string name="unsaved_changes_message">Twoja notatka została zmieniona. Zapisać czy anulować zmiany?</string>
+    <string name="unsaved_changes_message">Twoja notatka została zmieniona. Zapisać czy porzucić zmiany?</string>
     <string name="unsaved_changes_title">Niezapisane zmiany</string>
     <string name="no_search_results">Nic nie znaleziono</string>
     <string name="empty_list">Brak notatek na liście</string>
