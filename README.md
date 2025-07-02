@@ -30,7 +30,7 @@ Many thanks for the ork for the leafpadproject goes to <a href='https://github.c
 Help translate at <a href='https://hosted.weblate.org/engage/leafpad/'>Weblate</a>
 
 ## Thanks for the translations
-**Catalan**: Adolfo Jayme Barrientos(@Fito); **Czech**: zergio inzunza(@n1kf4m3l); **Hindi (Latin script)**: Saurmanđal(@Saurmandal); **Indonesian**: Reza Almanda(@rezaalmanda), Antx(@antx); **Italian**: pastic cerre(@pasti); **Polish**: Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140); **Russian**: Kirill Isakov(@crowbar); **Spanish**: Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1)
+**Catalan**: Adolfo Jayme Barrientos(@Fito); **Czech**: zergio inzunza(@n1kf4m3l), MessingWithComputers(@MessingWithComputers); **Hindi (Latin script)**: Saurmanđal(@Saurmandal); **Indonesian**: Reza Almanda(@rezaalmanda), Antx(@antx); **Italian**: pastic cerre(@pasti); **Polish**: Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140), Matthaiks(@Kityn); **Russian**: Kirill Isakov(@crowbar); **Spanish**: Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1), LittleWorm(@LittlerWorm)
 
 <a href="https://hosted.weblate.org/engage/leafpad/">
 <img src="https://hosted.weblate.org/widget/leafpad/leafpad/open-graph.png" alt="Übersetzungsstatus" />
