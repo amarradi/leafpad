@@ -4,6 +4,13 @@
     tools:context="com.git.amarradi.MainActivity">
 
     <item
+        android:id="@+id/action_hide_note"
+
+        android:title="@string/hide_note"
+        app:showAsAction="never"/>
+
+
+    <item
         android:id="@+id/action_share_note"
         android:icon="@drawable/share"
         android:title="@string/action_share_note"

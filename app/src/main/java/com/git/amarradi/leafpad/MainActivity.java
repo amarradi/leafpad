@@ -145,13 +145,27 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private void showPopupMenu(Note note, View anchor) {
         PopupMenu popup = new PopupMenu(this, anchor);
         popup.getMenuInflater().inflate(R.menu.menu_popup, popup.getMenu());
-
+        MenuItem menuItem = popup.getMenu().findItem(R.id.action_hide_note);
+        if (note.isHide()) {
+            menuItem.setTitle(getString(R.string.show_note));
+            menuItem.setIcon(getDrawable(R.drawable.eye_visible));
+        } else {
+            menuItem.setTitle(getString(R.string.hide_hidden));
+            menuItem.setIcon(getDrawable(R.drawable.eye_invisible));
+        }
         LayoutModeHelper.forcePopupMenuIcons(popup);
         popup.setOnMenuItemClickListener(item -> {
             int id = item.getItemId();
+            if(id == R.id.action_hide_note) {
+                noteViewModel.selectNote(note);    // <--- Das hat gefehlt!
+                noteViewModel.setNoteHide();
+                noteViewModel.saveNote(this, note);
+                return true;
+            }
             if (id == R.id.action_share_note) {
                 ShareHelper.shareNote(this,note);
                 return true;
