@@ -74,7 +74,7 @@
     <string name="showDeleteConfirmationMessage">Wszystkie notatki zostaną trwale usunięte. Kontynuować?</string>
     <string name="yes">Tak</string>
     <plurals name="notes_imported">
-        <item quantity="one">Zaimportowano jedną notatkę</item>
+        <item quantity="one">Zaimportowano %1$d notatkę</item>
         <item quantity="few">Zaimportowano %1$d notatki</item>
         <item quantity="many">Zaimportowano %1$d notatek</item>
         <item quantity="other">Zaimportowano %1$d notatek</item>
@@ -104,4 +104,5 @@
     <string name="empty_list">Brak notatek na liście</string>
     <string name="set">To jest przepis</string>
     <string name="close_release_note">Zamknij</string>
+    <string name="thank_weblate"><b>Kataloński</b>: Adolfo Jayme Barrientos(@Fito); <b>Czeski</b>: zergio inzunza(@n1kf4m3l); <b>Hindi (pismo łacińskie)</b>: Saurmanđal(@Saurmandal); <b>Indonezyjski</b>: Reza Almanda(@rezaalmanda), Antx(@antx); <b>Włoski</b>: pastic cerre(@pasti); <b>Polski</b>: Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140); <b>Rosyjski</b>: Kirill Isakov(@crowbar); <b>Hiszpański</b>: Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1)</string>
 </resources>
