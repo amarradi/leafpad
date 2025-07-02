@@ -72,7 +72,7 @@
     <string name="importError">Error when importing notes.</string>
     <string name="restore">Restore all notes as xml</string>
     <plurals name="notes_imported">
-        <item quantity="one">One note imported</item>
+        <item quantity="one">%1$d note imported</item>
         <item quantity="few">%1$d notes imported</item>
         <item quantity="many">%1$d notes imported</item>
         <item quantity="other">%1$d notes imported</item>

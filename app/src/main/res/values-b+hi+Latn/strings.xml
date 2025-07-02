@@ -74,7 +74,7 @@
     <string name="showDeleteConfirmationMessage">Sabhi notes hamesha ke liye mita diye jaayenge. Aage badhein?</string>
     <string name="yes">Haan</string>
     <plurals name="notes_imported">
-        <item quantity="one">Ek note import kiya gaya</item>
+        <item quantity="one">%1$d note import kiya gaya</item>
         <item quantity="other">%1$d notes import kiye gaye</item>
     </plurals>
     <string name="fileOpeningError">File kholte samay error.</string>

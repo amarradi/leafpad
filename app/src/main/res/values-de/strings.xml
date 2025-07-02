@@ -76,7 +76,7 @@
     <string name="backupIsrunning">Backup läuft</string>
     <string name="backupfinish">Backup abgeschlossen</string>
     <plurals name="notes_imported">
-        <item quantity="one">Eine Notiz importiert</item>
+        <item quantity="one">%1$d Notiz importiert</item>
         <item quantity="other">%1$d Notizen importiert</item>
     </plurals>
     <string-array name="category">

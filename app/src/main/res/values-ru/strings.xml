@@ -74,7 +74,7 @@
     <string name="showDeleteConfirmationMessage">Все заметки будут удалены навсегда. Продолжить?</string>
     <string name="yes">Да</string>
     <plurals name="notes_imported">
-        <item quantity="one">Одна заметка импортирована</item>
+        <item quantity="one">%1$d заметка импортирована</item>
         <item quantity="few">%1$d заметки импортировано</item>
         <item quantity="many">%1$d заметок импортировано</item>
         <item quantity="other">%1$d заметок импортировано</item>
