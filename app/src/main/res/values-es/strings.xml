@@ -53,7 +53,7 @@
     <string name="lightmode_preference" translatable="false">lightmode</string>
     <string name="system_preference_option_value" translatable="false">system</string>
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
-    <string name="theme_preference" translatable="false">Theme</string>
+    <string name="theme_preference">Theme</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="system_preference" translatable="false">system</string>
     <string name="participate">Participar</string>

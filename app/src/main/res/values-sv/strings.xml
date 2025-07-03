@@ -6,7 +6,7 @@
     <string name="lightmode_preference" translatable="false">lightmode</string>
     <string name="system_preference_option_value" translatable="false">system</string>
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
-    <string name="theme_preference" translatable="false">Theme</string>
+    <string name="theme_preference">Theme</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="remove_dialog_abort">Avbokning</string>
     <string name="leafpad_work">Leafpad sparar all data lokalt på din smartphone. Anteckningar eller metadata som datum och tid lagras inte i något moln och delas inte med någon. Ingen textanalys utförs heller. Anteckningarna tillhör dig. Du bestämmer vad du gör med dem.</string>

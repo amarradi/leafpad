@@ -24,7 +24,7 @@
     <string name="remove_dialog_abort">Abbrechen</string>
     <string name="menu_settings">Einstellungen</string>
     <string name="general_preference">Allgemeine Einstellungen</string>
-    <string name="theme_preference" translatable="false">Theme</string>
+    <string name="theme_preference">Erscheinungsbild</string>
     <string name="lightmode_preference_key">Hell</string>
     <string name="darkmode_preference_key">Dunkel</string>
     <string name="system_preference_key">Systemstandard (standard)</string>
