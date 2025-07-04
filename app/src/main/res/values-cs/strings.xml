@@ -21,7 +21,7 @@
     <string name="action_share_body">Poznámka</string>
     <string name="remove_dialog_abort">Zrušit</string>
     <string name="menu_settings">Nastavení</string>
-    <string name="action_fab_note">Vytvořit poznámku</string>
+    <string name="action_fab_note">vytvořit poznámku</string>
     <string name="title_activity_note_edit">Upravit poznámku</string>
     <string name="translate">Přeložit aplikaci na Weblate</string>
     <string name="change">verze</string>
@@ -40,13 +40,13 @@
     <string name="created_txt">vytvořeno na</string>
     <string name="action_remove">Odebrat poznámku</string>
     <string name="licence">Open source licence</string>
-    <string name="edited_text">Upraveno na</string>
+    <string name="edited_text">upraveno na</string>
     <string name="body_hint">Poznámka</string>
     <string name="lightmode_preference_key">světlý režim</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="darkmode_preference_key">tvamý režim</string>
     <string name="search">hledat poznámky</string>
-    <string name="action_save">uložit poznámku</string>
+    <string name="action_save">Uložit poznámku</string>
     <string name="share_note">Sdílet Poznámku?</string>
     <string name="thanks">Děkuji Stefane, Stefane, Manuele, Falku, Stephanie a Emile pro vaše nápady a testování aplikace.</string>
     <string name="statement">Vypíšeme seznamy obchodů, poznámky pro rozhovory, balíčky pro dovolenou nebo narozeniny přátel. To jsou všechny dobré věci, abychom je nezapomněli. Je to velmi podobné s Bohem, píše své dobré a špatné skutky a uloží je. Bůh je nad vším a jednoduše ví všechno. Bůh miluje lidi a chce mít přátelství s nimi. Ale to je možné pouze v případě, že jsme viděli Bohem jako neškodný. Prostřednictvím víry v Ježíši Kristu, naše špatné skutky (naše viny) jsou vymazány před Bohem. Ježíš Kristus odčinil pro naše viny na kříži Kalvárie. Každá osoba, která souhlasí, je v knize života navždy. Jste registrováni v knize života?</string>
