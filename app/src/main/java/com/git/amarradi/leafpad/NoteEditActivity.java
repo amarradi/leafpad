@@ -23,6 +23,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.git.amarradi.leafpad.helper.DialogHelper;
 import com.git.amarradi.leafpad.helper.EditorMinHeightHelper;
 import com.git.amarradi.leafpad.helper.ShareHelper;
+import com.git.amarradi.leafpad.helper.TextStyleHelper;
 import com.git.amarradi.leafpad.model.Leaf;
 import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
@@ -87,12 +88,56 @@ public class NoteEditActivity extends AppCompatActivity {
         fromSearch = getIntent().getBooleanExtra("fromSearch", false);
         observeNote();
 
+        noteViewModel.getStyledBody().observe(this, styled -> {
+            bodyEdit.setText(styled);
+            bodyEdit.setSelection(Math.min(styled.length(), bodyEdit.length()));
+        });
+
         View rootEdit = findViewById(R.id.all);
-        View toolbar = findViewById(R.id.toolbar);
         View title = findViewById(R.id.default_text_input_layout); // oder null, wenn nicht vorhanden
-        EditText bodyEdit = findViewById(R.id.body_edit);
 
         EditorMinHeightHelper.adjustMinHeight(rootEdit, toolbar, title, bodyEdit);
+
+        bodyEdit.setCustomSelectionActionModeCallback(new android.view.ActionMode.Callback() {
+            @Override
+            public boolean onCreateActionMode(android.view.ActionMode mode, Menu menu) {
+                menu.add("Heading");
+                menu.add("Underline");
+                menu.add("Bullet");
+                menu.add("Link");
+                return true;
+            }
+
+            @Override
+            public boolean onPrepareActionMode(android.view.ActionMode mode, Menu menu) {
+                return false;
+            }
+
+            @Override
+            public boolean onActionItemClicked(android.view.ActionMode mode, MenuItem item) {
+                int start = bodyEdit.getSelectionStart();
+                int end = bodyEdit.getSelectionEnd();
+                String action = item.getTitle().toString();
+
+                switch (action) {
+                    case "Heading" -> noteViewModel.applyStyleToSelection(NoteViewModel.TextStyle.HEADING, start, end, null);
+                    case "Underline" -> noteViewModel.applyStyleToSelection(NoteViewModel.TextStyle.UNDERLINE, start, end, null);
+                    case "Bullet" -> noteViewModel.applyStyleToSelection(NoteViewModel.TextStyle.BULLET, start, end, null);
+                    case "Link" -> {
+                        String selected = bodyEdit.getText().subSequence(start, end).toString();
+                        String url = selected.startsWith("http") ? selected : "https://" + selected;
+                        noteViewModel.applyStyleToSelection(NoteViewModel.TextStyle.LINK, start, end, url);
+                    }
+                }
+
+                mode.finish();
+                return true;
+            }
+
+            @Override
+            public void onDestroyActionMode(android.view.ActionMode mode) {
+            }
+        });
     }
 
     @Override
@@ -173,7 +218,7 @@ public class NoteEditActivity extends AppCompatActivity {
             }
 
             if (note.getBody() != null) {
-                bodyEdit.setText(note.getBody());
+                noteViewModel.initStyledBodyFromNote(note);
             } else {
                 bodyEdit.setText("");
             }
@@ -325,8 +370,7 @@ public class NoteEditActivity extends AppCompatActivity {
         if (current == null) return;
 
         current.setTitle(titleEdit.getText().toString());
-        current.setBody(bodyEdit.getText().toString());
-
+        current.setBody(noteViewModel.getStyledBodyAsHtml());
     }
 
     private void exitNoteEdit() {
@@ -340,13 +384,9 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private void checkForUnsavedChanges() {
-        updateNoteFromUI();
+        updateNoteFromUI(); // Already updates title and body with styles from ViewModel
         Note current = noteViewModel.getSelectedNote().getValue();
 
-        if (current != null) {
-            current.setTitle(titleEdit.getText().toString());
-            current.setBody(bodyEdit.getText().toString());
-        }
         if(noteViewModel.hasUnsavedChanges() && !isNewNote) {
             if(Leafpad.isChangeNotificationEnabled(this) ){
                 DialogHelper.showUnsavedChangesDialog(
