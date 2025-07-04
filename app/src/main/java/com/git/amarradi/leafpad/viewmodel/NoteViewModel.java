@@ -13,6 +13,7 @@ import androidx.lifecycle.Transformations;
 
 import com.git.amarradi.leafpad.Leafpad;
 import com.git.amarradi.leafpad.helper.ReleaseNoteHelper;
+import com.git.amarradi.leafpad.helper.TextStyleHelper;
 import com.git.amarradi.leafpad.model.Leaf;
 import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.model.ReleaseNote;
@@ -21,12 +22,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class    NoteViewModel extends AndroidViewModel {
+public class NoteViewModel extends AndroidViewModel {
 
     private final MutableLiveData<List<Note>> notesLiveData = new MutableLiveData<>();
     private static final MutableLiveData<Note> selectedNote = new MutableLiveData<>();
     private final MutableLiveData<Note> originalNote = new MutableLiveData<>();
     private final MutableLiveData<Boolean> showHiddenLiveData = new MutableLiveData<>(false);
+    private final MutableLiveData<Spannable> styledBody = new MutableLiveData<>();
     private final LiveData<Boolean> isNoteEmpty = Transformations.map(
             selectedNote,
             note -> {
@@ -45,8 +47,7 @@ public class    NoteViewModel extends AndroidViewModel {
     // In NoteViewModel.java
     private final MediatorLiveData<List<Object>> combinedNotes = new MediatorLiveData<>();
     public LiveData<List<Object>> getCombinedNotes() { return combinedNotes; }
-
-
+    public LiveData<Spannable> getStyledBody() { return styledBody; }
 
     public void checkAndLoadReleaseNote(Context context) {
         int savedVersion = Leafpad.getCurrentLeafpadVersionCode(context); // default = 0
@@ -291,6 +292,7 @@ public class    NoteViewModel extends AndroidViewModel {
                 note.getCategory(),
                 note.getId()
         ));
+        initStyledBodyFromNote(note);
     }
     public void saveNote(Context context, Note note) {
         Leaf.save(getApplication(), note);
@@ -335,5 +337,36 @@ public class    NoteViewModel extends AndroidViewModel {
 
         result.setValue(filtered);
         return result;
+    }
+
+    public void initStyledBodyFromNote(Note note) {
+        if (note != null && note.getBody() != null) {
+            styledBody.setValue((Spannable) android.text.Html.fromHtml(note.getBody(), Html.FROM_HTML_MODE_LEGACY));
+        } else {
+            styledBody.setValue(new android.text.SpannableString(""));
+        }
+    }
+
+    public void applyStyleToSelection(TextStyle type, int start, int end, @Nullable String url) {
+        Spannable text = new SpannableStringBuilder(styledBody.getValue());
+        switch (type) {
+            case HEADING -> TextStyleHelper.applyHeading(text, start, end);
+            case UNDERLINE -> TextStyleHelper.applyUnderline(text, start, end);
+            case BULLET -> TextStyleHelper.applyBullet(text, start, end);
+            case LINK -> {
+                if (url != null) {
+                    TextStyleHelper.applyLink(text, start, end, url);
+                }
+            }
+        }
+        styledBody.setValue(text);
+    }
+
+    public String getStyledBodyAsHtml() {
+        return Html.toHtml(new SpannableStringBuilder(styledBody.getValue()), Html.TO_HTML_PARAGRAPH_LINES_INDIVIDUAL);
+    }
+
+    public enum TextStyle {
+        HEADING, UNDERLINE, BULLET, LINK
     }
 }
