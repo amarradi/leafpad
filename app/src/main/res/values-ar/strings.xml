@@ -24,7 +24,7 @@
     <string name="add_shortcut_short_label">Write down new</string>
     <string name="tell_about">What I want to tell you about Leafpad</string>
     <string name="action_fab_note">make a note</string>
-    <string name="title_activity_note_edit">Edit Note</string>
+    <string name="title_activity_note_edit">تعديل الملاحظة</string>
     <string name="translate">Translate the app on Weblate</string>
     <string name="hide_hidden">hide hidden notes</string>
     <string name="system_preference_key">follow system (standard)</string>

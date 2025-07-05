@@ -6,11 +6,11 @@
     <string name="system_preference" translatable="false">system</string>
     <string name="lightmode_preference" translatable="false">lightmode</string>
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
-    <string name="theme_preference">Theme</string>
+    <string name="theme_preference">Tema</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="find_code_on_github_summary">Anda dapat melihat dan memeriksa kode sumber melalui repositori. Anda dipersilakan untuk membuka masalah untuk mengubah permintaan dan pesan kesalahan.</string>
     <string name="action_share_title">Judul</string>
-    <string name="title_hint">Login</string>
+    <string name="title_hint">Judul</string>
     <string name="about">Sitemap</string>
     <string name="theme_summary">Beralih antara tema gelap dan ringan</string>
     <string name="what_is_leafpad">Leafpad adalah aplikasi sederhana untuk mengambil catatan.</string>
@@ -18,14 +18,14 @@
     <string name="action_remove">Hapus catatan</string>
     <string name="licence">Lisensi sumber terbuka</string>
     <string name="edited_text">diedit</string>
-    <string name="body_hint">Login</string>
-    <string name="lightmode_preference_key">login</string>
+    <string name="body_hint">Catatan</string>
+    <string name="lightmode_preference_key">mode terang</string>
     <string name="find_code_on_github">Login</string>
-    <string name="darkmode_preference_key">login</string>
-    <string name="search">login</string>
+    <string name="darkmode_preference_key">mode gelap</string>
+    <string name="search">cari catatan</string>
     <string name="action_save">login</string>
     <string name="share_note">Catatan Saham?</string>
-    <string name="thanks">Thank you Stefan, Stefan, Manuel, Falk,and Stephanie for your ideas and testing the app.</string>
+    <string name="thanks">Terima kasih Stefan, Stefan, Manuel, Falk, Stephanie dan Emil untuk ide kalian dan pengujian aplikasi.</string>
     <string name="statement">Kami menulis daftar belanja, catatan untuk percakapan, daftar kemasan untuk liburan atau ulang tahun teman. Ini adalah semua hal yang baik sehingga kita tidak melupakannya. Meme it Ini sangat mirip dengan Allah, ia menulis ke bawah perbuatan baik dan buruk kita dan menyelamatkan mereka. Allah di atas segala sesuatu dan hanya tahu segala sesuatu. Allah mencintai orang-orang dan ingin memiliki perseroan dengan mereka. Tapi ini hanya mungkin jika kita melihat oleh Allah sebagai tidak bersalah. Melalui iman dalam Yesus Kristus, perbuatan-perbuatan yang buruk (kesalahan kita) dihapus sebelum Allah. Yesus Kristus bertabur untuk bersalah kita atas salib Calvary. Setiap orang yang menerima ini dimasukkan dalam buku kehidupan selamanya. Apakah Anda terdaftar dalam buku kehidupan?</string>
     <string name="rev20_12">Dan saya melihat mati, yang bagus dan kecil, berdiri sebelum takhta; dan buku dibuka: dan buku lain dibuka, yang merupakan buku kehidupan: dan mati dihakimi dari hal-hal yang ditulis dalam buku-buku, menurut karya mereka. Wahyu 20:12</string>
     <string name="its_opensource">Leafpad adalah OpenSource dan gratis</string>
@@ -36,8 +36,8 @@
     <string name="action_add_note">Tambahkan Catatan</string>
     <string name="action_share_note">Bagikan catatan</string>
     <string name="add_shortcut_short_label">Tulis baru</string>
-    <string name="action_share_body">Login</string>
-    <string name="action_fab_note">login</string>
+    <string name="action_share_body">Catatan</string>
+    <string name="action_fab_note">buat catatan</string>
     <string name="title_activity_note_edit">Ubah Catatan</string>
     <string name="new_note">catatan baru</string>
     <string name="tell_about">Apa yang ingin saya ceritakan tentang Leafpad</string>
@@ -52,7 +52,7 @@
     <string name="contentDescription">tambahkan Catatan baru</string>
     <string name="action_edit_note">Ubah Catatan</string>
     <string name="note_will_be_saved_first">Catatan akan disimpan terlebih dahulu</string>
-    <string name="general_preference">Sitemap</string>
+    <string name="general_preference">Pengaturan umum</string>
     <string name="title_licence">Login</string>
     <string name="remove_dailog_message">Catatan ini akan dihapus secara permanen. Setelah itu tidak bisa dipulihkan.</string>
     <string name="version">sitemap</string>
@@ -65,11 +65,11 @@
     <string name="show_hidden">menunjukkan catatan tersembunyi</string>
     <string name="note_is_recipe">note is a recipe</string>
     <string name="note_is_no_recipe">note is no recipe</string>
-    <string name="restore">Restore all notes as xml</string>
+    <string name="restore">Pulihkan semua catatan dari berkas xml</string>
     <string name="yes">Yes</string>
-    <string name="showRestoreConfirmation">Restore?</string>
-    <string name="restore_notes_title">Restore</string>
-    <string name="save">Save all notes as xml</string>
+    <string name="showRestoreConfirmation">Pulihkan?</string>
+    <string name="restore_notes_title">Pulihkan</string>
+    <string name="save">Simpan semua catatan sebagai xml</string>
     <string name="showDeleteConfirmation">Delete notes?</string>
     <string name="backupIsrunning">Backup is running</string>
     <string name="no">No</string>
@@ -79,22 +79,22 @@
         <item quantity="other">One note imported</item>
     </plurals>
     <string name="fileOpeningError">Error when opening the file.</string>
-    <string name="delete">Delete</string>
+    <string name="delete">Hapus</string>
     <string name="backupfinish">Backup finishes</string>
     <string name="invalidFile">Invalid backup file. The import was cancelled.</string>
     <string name="cancel">Cancel</string>
     <string name="save_notes_title">Backup</string>
     <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
     <string name="toggle">change View</string>
-    <string name="note_shared">Note shared</string>
-    <string name="save_changes">save changes</string>
+    <string name="note_shared">Catatan dibagikan</string>
+    <string name="save_changes">simpan perubahan</string>
     <string name="discard">discard</string>
     <string name="item_menu_description">menu for item actions</string>
     <string name="search_hint">What are you looking for?</string>
     <string name="not_initialized">Leafpad not initialized yet!</string>
-    <string name="startIconDescription">A search field</string>
-    <string name="notification_of_change_description">Notify about changes in notes</string>
-    <string name="notification_of_change">Notification of changes</string>
+    <string name="startIconDescription">Kolom pencarian</string>
+    <string name="notification_of_change_description">Beri tahu perubahan pada catatan</string>
+    <string name="notification_of_change">Notifikasi perubahan</string>
     <string name="unsaved_changes_message">Your note has changed. Do you want to save or discard the changes?</string>
     <string name="unsaved_changes_title">Unsaved changes</string>
     <string name="no_search_results">Nothing found</string>
