@@ -6,11 +6,11 @@
     <string name="system_preference" translatable="false">system</string>
     <string name="lightmode_preference" translatable="false">lightmode</string>
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
-    <string name="theme_preference">Theme</string>
+    <string name="theme_preference">Tema</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="find_code_on_github_summary">Anda dapat melihat dan memeriksa kode sumber melalui repositori. Anda dipersilakan untuk membuka masalah untuk mengubah permintaan dan pesan kesalahan.</string>
     <string name="action_share_title">Judul</string>
-    <string name="title_hint">Title</string>
+    <string name="title_hint">Judul</string>
     <string name="about">Sitemap</string>
     <string name="theme_summary">Beralih antara tema gelap dan ringan</string>
     <string name="what_is_leafpad">Leafpad adalah aplikasi sederhana untuk mengambil catatan.</string>
@@ -18,10 +18,10 @@
     <string name="action_remove">Hapus catatan</string>
     <string name="licence">Lisensi sumber terbuka</string>
     <string name="edited_text">diedit</string>
-    <string name="body_hint">Login</string>
-    <string name="lightmode_preference_key">login</string>
+    <string name="body_hint">Catatan</string>
+    <string name="lightmode_preference_key">mode terang</string>
     <string name="find_code_on_github">Login</string>
-    <string name="darkmode_preference_key">login</string>
+    <string name="darkmode_preference_key">mode gelap</string>
     <string name="search">cari catatan</string>
     <string name="action_save">login</string>
     <string name="share_note">Catatan Saham?</string>
@@ -36,8 +36,8 @@
     <string name="action_add_note">Tambahkan Catatan</string>
     <string name="action_share_note">Bagikan catatan</string>
     <string name="add_shortcut_short_label">Tulis baru</string>
-    <string name="action_share_body">Login</string>
-    <string name="action_fab_note">login</string>
+    <string name="action_share_body">Catatan</string>
+    <string name="action_fab_note">buat catatan</string>
     <string name="title_activity_note_edit">Ubah Catatan</string>
     <string name="new_note">catatan baru</string>
     <string name="tell_about">Apa yang ingin saya ceritakan tentang Leafpad</string>
