@@ -54,7 +54,10 @@ public class LayoutModeHelper {
                 recyclerView.removeItemDecoration(gridSpacingDecoration);
             }
         } else {
-            recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+            StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+            staggeredGridLayoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE); //maybe ths
+            recyclerView.setLayoutManager(staggeredGridLayoutManager);
+            //recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL),recyclerView.setLayoutManager());
             int vert = context.getResources().getDimensionPixelSize(R.dimen.masonry_vertical_spacing);
             int horiz = context.getResources().getDimensionPixelSize(R.dimen.masonry_horizontal_spacing);
             gridSpacingDecoration = new MasonrySpacingDecoration(vert, horiz);
