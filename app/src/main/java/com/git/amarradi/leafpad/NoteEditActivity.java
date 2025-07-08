@@ -196,43 +196,32 @@ public class NoteEditActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                // Stelle sicher, dass Cursor immer sichtbar ist
-                bodyEdit.post(() -> {
-                    int selection = bodyEdit.getSelectionStart();
-                    Layout layout = bodyEdit.getLayout();
-                    if (layout != null && selection > 0) {
-                        int line = layout.getLineForOffset(selection);
-                        int y = layout.getLineBottom(line);
-                        bodyScroll.smoothScrollTo(0, y);
-                    }
-                });
+                bodyEdit.post(() -> scrollToCursor());
             }
         });
 
-        bodyEdit.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                // Stelle sicher, dass Cursor immer sichtbar ist
-                bodyEdit.post(() -> {
-                    int selection = bodyEdit.getSelectionStart();
-                    Layout layout = bodyEdit.getLayout();
-                    if (layout != null && selection > 0) {
-                        int line = layout.getLineForOffset(selection);
-                        int y = layout.getLineBottom(line);
-                        bodyScroll.smoothScrollTo(0, y);
-                    }
-                });
+        bodyEdit.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                bodyEdit.postDelayed(this::scrollToCursor, 250);
             }
+        });
+
+        bodyEdit.setOnClickListener(v -> {
+            bodyEdit.postDelayed(this::scrollToCursor, 250);
         });
 
         titleLayout.setHintEnabled(false);
         bodyLayout.setHintEnabled(false);
+    }
+
+    private void scrollToCursor() {
+        int selection = bodyEdit.getSelectionStart();
+        Layout layout = bodyEdit.getLayout();
+        if (layout != null && selection > 0) {
+            int line = layout.getLineForOffset(selection);
+            int y = layout.getLineBottom(line);
+            bodyScroll.smoothScrollTo(0, y);
+        }
     }
 
     private boolean isNewEntry(Note note) {
