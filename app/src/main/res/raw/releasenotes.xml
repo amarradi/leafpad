@@ -2,7 +2,9 @@
 <releasenote>
     <title>Leafpad 1.20 - Was hat sich verändert</title>
     <content>
-        * Das Gridlayout scrollt jetzt flüssiger
+        Fehlerkorrekturen
+        * Das Gridlayout scrollt jetzt flüssiger ##176
+        * Ein Anzeigefehler bei langen Notizen ist behoben #188
         * weitere Texte wurden übersetzt
     </content>
     <date>02.07.2025</date>
