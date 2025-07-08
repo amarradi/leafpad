@@ -55,7 +55,7 @@ public class LayoutModeHelper {
             }
         } else {
             StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
-            staggeredGridLayoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE); //maybe ths
+            staggeredGridLayoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
             recyclerView.setLayoutManager(staggeredGridLayoutManager);
             //recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL),recyclerView.setLayoutManager());
             int vert = context.getResources().getDimensionPixelSize(R.dimen.masonry_vertical_spacing);

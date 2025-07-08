@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     protected void onResume() {
         super.onResume();
         Leafpad.getInstance().applyCurrentLayoutMode(recyclerView, noteAdapter);
-        noteViewModel.loadNotes();
+        //noteViewModel.loadNotes();
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
