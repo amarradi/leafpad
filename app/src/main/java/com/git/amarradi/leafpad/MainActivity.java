@@ -125,6 +125,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         Leafpad.setReleaseNoteClosed(this);
         Leafpad.setCurrentLeafpadVersionCode(this);
         noteAdapter.setReleaseNoteHeader(null);
+        noteViewModel.loadNotes();
         recyclerView.post(this::updateEmptyState);
     }
     private void updateEmptyState() {
