@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>getClasspath</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+<link href="../../../images/gradle-logo.svg">
+<link href="../../../styles/gradle.css" rel="Stylesheet">
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>gradle</span>
+            </a>
+    </div>
+    <div>
+8.2    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":docs/java_api">Java API</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="member" id="content" pageIds="gradle::org.gradle.external.javadoc/CoreJavadocOptions/getClasspath/#/PointingToDeclaration//1981474856">
+  <div class="breadcrumbs"><a href="../../../index.html">gradle</a><span class="delimiter">/</span><a href="../index.html">org.gradle.external.javadoc</a><span class="delimiter">/</span><a href="index.html">CoreJavadocOptions</a><span class="delimiter">/</span><span class="current">getClasspath</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>get</span><wbr></wbr><span><span>Classpath</span></span></h1>
+  </div>
+  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":docs/java_api" data-filterable-set=":docs/java_api" data-active="" data-toggle=":docs/java_api">Java API</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":docs/java_api"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-classpath.html"><span class="token function">getClasspath</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/File.html">File</a><span class="token operator">&gt;</span></div><p class="paragraph">-classpath classpathlist </p><p class="paragraph"> Specifies the paths where javadoc will look for referenced classes (.class files) -- these are the documented classes plus any classes referenced by those classes. The classpathlist can contain multiple paths by separating them with a semicolon (;). The Javadoc tool will search in all subdirectories of the specified paths. Follow the instructions in class path documentation for specifying classpathlist. </p><p class="paragraph"> If -sourcepath is omitted, the Javadoc tool uses -classpath to find the source files as well as class files (for backward compatibility). Therefore, if you want to search for source and class files in separate paths, use both -sourcepath and -classpath. </p><p class="paragraph"> For example, if you want to document com.mypackage, whose source files reside in the directory C:/user/src/com/mypackage, and if this package relies on a library in C:/user/lib, you would specify: </p><p class="paragraph"> javadoc -classpath /user/lib -sourcepath /user/src com.mypackage </p><p class="paragraph"> As with other tools, if you do not specify -classpath, the Javadoc tool uses the CLASSPATH environment variable, if it is set. If both are not set, the Javadoc tool searches for classes from the current directory. </p><p class="paragraph"> For an in-depth description of how the Javadoc tool uses -classpath to find user classes as it relates to extension classes and bootstrap classes, see How Classes Are Found.</p></div>  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>Gradle Kotlin DSL Reference</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
