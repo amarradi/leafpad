@@ -95,6 +95,8 @@ public class NoteEditActivity extends AppCompatActivity {
         EditorMinHeightHelper.adjustMinHeight(rootEdit, toolbar, title, bodyEdit);
     }
 
+
+
     @Override
     public boolean onSupportNavigateUp() {
         getOnBackPressedDispatcher().onBackPressed();
@@ -343,6 +345,7 @@ public class NoteEditActivity extends AppCompatActivity {
                         ()-> {
                             shouldPersistOnPause = true;
                             noteViewModel.persist();
+                            setResult(RESULT_OK);
                             exitNoteEdit();
                         },
                         () ->{
@@ -369,7 +372,10 @@ public class NoteEditActivity extends AppCompatActivity {
         } else {
             Leaf.set(this, note);
             noteViewModel.saveNote(getApplication(), note);
+            noteViewModel.markSaved();
         }
+        setResult(RESULT_OK);
+       // finish();
     }
 
     private void removeNote() {
@@ -403,6 +409,7 @@ public class NoteEditActivity extends AppCompatActivity {
             updateNoteFromUI();
             if (shouldPersistOnPause && noteViewModel.hasUnsavedChanges()) {
                 noteViewModel.persist();
+                setResult(RESULT_OK);
             }
         }
    }

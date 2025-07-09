@@ -336,4 +336,13 @@ public class    NoteViewModel extends AndroidViewModel {
         result.setValue(filtered);
         return result;
     }
+
+    public void markSaved() {
+        Note selected = selectedNote.getValue();
+        if (selected != null) {
+            // originalNote ist das Vergleichsobjekt für hasUnsavedChanges
+            // Deep copy!
+            originalNote.setValue(new Note(selected)); // Nutze einen Copy-Konstruktor oder einen eigenen Clone
+        }
+    }
 }

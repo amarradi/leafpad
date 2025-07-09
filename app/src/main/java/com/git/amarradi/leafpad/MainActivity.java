@@ -8,13 +8,18 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -99,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 noteViewModel.selectNote(note);
                 Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
                 intent.putExtra(Leafpad.EXTRA_NOTE_ID, note.getId());
-                startActivity(intent);
+                noteEditLauncher.launch(intent);
             }
 
             @Override
@@ -114,12 +119,29 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         Leafpad.getInstance().applyCurrentLayoutMode(recyclerView, noteAdapter);
 
         ExtendedFloatingActionButton fab = findViewById(R.id.fab_action_add);
+
+        ViewCompat.setOnApplyWindowInsetsListener(fab, (v, insets) -> {
+            int bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+            int fabMargin = getResources().getDimensionPixelSize(R.dimen.fab_margin);
+            lp.bottomMargin = bottomInset + fabMargin;
+            v.setLayoutParams(lp);
+            return insets;
+        });
+
         fab.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
             intent.putExtra(Leafpad.EXTRA_NOTE_ID, Note.makeId());
-            startActivity(intent);
+            noteEditLauncher.launch(intent);
         });
     }
+    private final ActivityResultLauncher<Intent> noteEditLauncher =
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                    result -> {
+                        if (result.getResultCode() == RESULT_OK) {
+                            noteViewModel.loadNotes(); // Hier wird nach Speichern neu geladen!
+                        }
+                    });
     @Override
     public void onReleaseNoteClosed() {
         Leafpad.setReleaseNoteClosed(this);
@@ -192,7 +214,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     protected void onResume() {
         super.onResume();
         Leafpad.getInstance().applyCurrentLayoutMode(recyclerView, noteAdapter);
-        //noteViewModel.loadNotes();
+       //noteViewModel.loadNotes();
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
