@@ -32,7 +32,7 @@
     <string name="remove_dailog_message">Αυτή η σημείωση θα διαγραφεί μόνιμα. Μετά δεν θα μπορεί να αποκατασταθεί.</string>
     <string name="version">έκδοση</string>
     <string name="show_note">make the note visible</string>
-    <string name="find_code_on_github_summary">You can view and check the source code via the repository. You are welcome to open an issue for change requests and error messages.</string>
+    <string name="find_code_on_github_summary">Μπορείτε να δείτε και να ελέγξετε τον πηγαίο κώδικα μέσω του αποθετηρίου. Είστε ευπρόσδεκτοι να ανοίξετε ένα ζήτημα για τα αιτήματα αλλαγής και τα μηνύματα σφάλματος.</string>
     <string name="action_share_title">Τίτλος</string>
     <string name="participate">Συμμετοχή ή Συνεισφορά</string>
     <string name="title_hint">Τίτλος</string>
