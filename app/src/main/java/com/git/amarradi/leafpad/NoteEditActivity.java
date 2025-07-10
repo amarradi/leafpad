@@ -251,10 +251,10 @@ public class NoteEditActivity extends AppCompatActivity {
             recipeItem.setChecked(isRecipe);
 
             if(isRecipe) {
-                recipeItem.setIcon(R.drawable.chefhat_active);
+                recipeItem.setIcon(R.drawable.btn_chefhat_active);
                 invalidateOptionsMenu();
             } else {
-                recipeItem.setIcon(R.drawable.chefhat);
+                recipeItem.setIcon(R.drawable.btn_chefhat);
                 invalidateOptionsMenu();
             }
 
@@ -262,10 +262,10 @@ public class NoteEditActivity extends AppCompatActivity {
             hideItem.setChecked(note.isHide());
 
             if(note.isHide()) {
-                hideItem.setIcon(R.drawable.eye_invisible);
+                hideItem.setIcon(R.drawable.btn_hide);
                 invalidateOptionsMenu();
             } else {
-                hideItem.setIcon(R.drawable.eye_visible);
+                hideItem.setIcon(R.drawable.btn_show);
                 invalidateOptionsMenu();
             }
         }

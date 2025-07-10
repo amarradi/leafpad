@@ -12,13 +12,13 @@
 
     <item
         android:id="@+id/action_share_note"
-        android:icon="@drawable/share"
+        android:icon="@drawable/ic_share"
         android:title="@string/action_share_note"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_remove"
-        android:icon="@drawable/delete"
+        android:icon="@drawable/ic_delete"
         android:title="@string/action_remove"
         app:showAsAction="never" />
 </menu>

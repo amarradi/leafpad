@@ -31,7 +31,7 @@
         android:paddingEnd="@dimen/switch_layout_marginEnd"
         android:hint="@string/search_hint"
         app:endIconMode="clear_text"
-        app:startIconDrawable="@drawable/action_search"
+        app:startIconDrawable="@drawable/btn_search"
         app:startIconContentDescription="">
 
         <com.google.android.material.textfield.TextInputEditText

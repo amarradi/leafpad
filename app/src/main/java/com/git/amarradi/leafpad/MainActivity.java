@@ -177,10 +177,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         MenuItem menuItem = popup.getMenu().findItem(R.id.action_hide_note);
         if (note.isHide()) {
             menuItem.setTitle(getString(R.string.show_note));
-            menuItem.setIcon(getDrawable(R.drawable.eye_visible));
+            menuItem.setIcon(getDrawable(R.drawable.btn_show));
         } else {
             menuItem.setTitle(getString(R.string.hide_hidden));
-            menuItem.setIcon(getDrawable(R.drawable.eye_invisible));
+            menuItem.setIcon(getDrawable(R.drawable.btn_hide));
         }
         LayoutModeHelper.forcePopupMenuIcons(popup);
         popup.setOnMenuItemClickListener(item -> {
@@ -232,17 +232,17 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             showHidden = false;
         }
         if (showHidden) {
-            item.setIcon(getDrawable(R.drawable.eye_invisible));
+            item.setIcon(getDrawable(R.drawable.btn_hide));
             item.setTitle(getString(R.string.hide_hidden));
         } else {
-            item.setIcon(getDrawable(R.drawable.eye_visible));
+            item.setIcon(getDrawable(R.drawable.btn_show));
             item.setTitle(getString(R.string.show_hidden));
         }
         MenuItem layoutItem = menu.findItem(R.id.item_toggle_layout);
         if ("grid".equals(savedLayout)) {
-            layoutItem.setIcon(R.drawable.listview);
+            layoutItem.setIcon(R.drawable.ic_listview);
         } else {
-            layoutItem.setIcon(R.drawable.gridview);
+            layoutItem.setIcon(R.drawable.ic_gridview);
         }
         return true;
     }
@@ -281,10 +281,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         noteViewModel.setShowHidden(newValue);
 
         if (newValue) {
-            item.setIcon(getDrawable(R.drawable.eye_invisible));
+            item.setIcon(getDrawable(R.drawable.btn_hide));
             item.setTitle(getString(R.string.hide_hidden));
         } else {
-            item.setIcon(getDrawable(R.drawable.eye_visible));
+            item.setIcon(getDrawable(R.drawable.btn_show));
             item.setTitle(getString(R.string.show_hidden));
         }
         Leafpad.getInstance().saveShowHidden(newValue);
