@@ -193,7 +193,9 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             if (body.length() > 150) {
                 body = body.substring(0, 150) + "...";
             }
-            noteHolder.bodyPreview.setText(body);
+
+            Spanned styledBody = Html.fromHtml(body, Html.FROM_HTML_MODE_LEGACY);
+            noteHolder.bodyPreview.setText(styledBody);
 
             noteHolder.dateText.setText(note.getDate());
             noteHolder.timeText.setText(note.getTime());
