@@ -73,8 +73,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         noteViewModel.loadNotes();
         noteViewModel.getNotes().observe(this, notes -> {
             noteAdapter.updateNotes(notes);
+            Log.d("MainActivity", "----- Alle geladenen Notizen nach loadNotes(): ------");
             recyclerView.post(()->recyclerView.scrollToPosition(0));
-
+            for (Note n : notes) {
+                Log.d("MainActivity", "Note: " + n.getId() + " | Titel: " + n.getTitle() + " | Versteckt: " + n.isHide());
+            }
             updateEmptyState();
         });
 
@@ -83,12 +86,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             updateEmptyState();
         });
 
-        // In MainActivity.java, im onCreate z. B.
         viewModel.getCombinedNotes().observe(this, combinedList -> {
             noteAdapter.setCombinedList(combinedList);
             updateEmptyState();
         });
-
 
         setupSharedPreferences();
 
@@ -130,8 +131,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         });
 
         fab.setOnClickListener(v -> {
+            String newNoteId = Note.makeId();
             Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
-            intent.putExtra(Leafpad.EXTRA_NOTE_ID, Note.makeId());
+            intent.putExtra(Leafpad.EXTRA_NOTE_ID, newNoteId);
             noteEditLauncher.launch(intent);
         });
     }

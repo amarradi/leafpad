@@ -321,6 +321,7 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private void exitNoteEdit() {
+        setResult(RESULT_OK);
         if (fromSearch) {
             Intent intent = new Intent(this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -373,6 +374,7 @@ public class NoteEditActivity extends AppCompatActivity {
             Leaf.set(this, note);
             noteViewModel.saveNote(getApplication(), note);
             noteViewModel.markSaved();
+
         }
         setResult(RESULT_OK);
        // finish();
@@ -405,10 +407,11 @@ public class NoteEditActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        if(!isNoteDeleted && !isNewEntry(note)) {
+        if(!isNoteDeleted && note != null && !NoteViewModel.isEmptyEntry(note)) {
             updateNoteFromUI();
             if (shouldPersistOnPause && noteViewModel.hasUnsavedChanges()) {
                 noteViewModel.persist();
+                noteViewModel.markSaved();
                 setResult(RESULT_OK);
             }
         }
