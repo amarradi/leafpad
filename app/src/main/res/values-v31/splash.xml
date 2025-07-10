@@ -4,8 +4,8 @@
     <style name="Theme.App.Starting" parent="@style/Theme.MyApp">
 
         <item name="windowSplashScreenBackground">?attr/colorPrimary</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/leafpad_svg_twig</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_olive_leaf</item>
         <item name="postSplashScreenTheme">@style/Theme.MyApp</item>
-        <item name="android:windowSplashScreenBrandingImage">@drawable/leafpad_svg_twig</item>
+        <item name="android:windowSplashScreenBrandingImage">@drawable/ic_olive_leaf</item>
     </style>
 </resources>

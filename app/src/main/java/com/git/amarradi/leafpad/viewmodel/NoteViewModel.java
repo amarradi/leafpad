@@ -2,9 +2,13 @@ package com.git.amarradi.leafpad.viewmodel;
 
 import android.app.Application;
 import android.content.Context;
+import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
@@ -44,7 +48,6 @@ public class NoteViewModel extends AndroidViewModel {
     public LiveData<ReleaseNote> getReleaseNote() {
         return releaseNoteLiveData;
     }
-    // In NoteViewModel.java
     private final MediatorLiveData<List<Object>> combinedNotes = new MediatorLiveData<>();
     public LiveData<List<Object>> getCombinedNotes() { return combinedNotes; }
     public LiveData<Spannable> getStyledBody() { return styledBody; }
@@ -382,5 +385,14 @@ public class NoteViewModel extends AndroidViewModel {
 
     public enum TextStyle {
         HEADING, UNDERLINE, BULLET, LINK
+    }
+
+    public void markSaved() {
+        Note selected = selectedNote.getValue();
+        if (selected != null) {
+            // originalNote ist das Vergleichsobjekt für hasUnsavedChanges
+            // Deep copy!
+            originalNote.setValue(new Note(selected)); // Nutze einen Copy-Konstruktor oder einen eigenen Clone
+        }
     }
 }

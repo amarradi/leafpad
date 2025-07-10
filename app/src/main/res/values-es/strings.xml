@@ -18,7 +18,7 @@
     <string name="remove_dialog_title">¿Estás seguro?</string>
     <string name="remove_dialog_abort">Cancelar</string>
     <string name="menu_settings">Ajustes</string>
-    <string name="general_preference">General</string>
+    <string name="general_preference">Ajustes generales</string>
     <string name="lightmode_preference_key">lightmode</string>
     <string name="darkmode_preference_key">darkmode</string>
     <string name="system_preference_key">del sistema (estándar)</string>
@@ -47,16 +47,16 @@
     <string name="statement">Anotamos listas de compras, notas para conversaciones, listas de embalaje para vacaciones o cumpleaños de amigos. Todas son cosas buenas para que no las olvidemos. Es muy similar a Dios, escribe nuestras obras buenas y malas y las salva. Dios está por encima de todo y simplemente sabe todo. Dios ama a la gente y quiere tener comunión con ellos. Pero esto sólo es posible si somos vistos por Dios como intachables. A través de la fe en Jesucristo, nuestras malas obras (nuestra culpa) son borradas ante Dios. Jesucristo expió por nuestra culpa en la cruz del Calvario. Cada persona que acepta esto se introduce en el libro de la vida para siempre. ¿Estás registrado en el libro de la vida?</string>
     <string name="app_name">Leafpad</string>
     <string name="created_txt">Creado en</string>
-    <string name="search">buscar</string>
+    <string name="search">Buscar notas</string>
     <string name="darkmode_preference" translatable="false">darkmode</string>
     <string name="theme_key" translatable="false">theme</string>
     <string name="lightmode_preference" translatable="false">lightmode</string>
     <string name="system_preference_option_value" translatable="false">system</string>
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
-    <string name="theme_preference">Theme</string>
+    <string name="theme_preference">Tema</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="system_preference" translatable="false">system</string>
-    <string name="participate">Participar</string>
+    <string name="participate">Participar o contribuir</string>
     <string name="translate">Traducir la aplicación en Weblate</string>
     <string name="translation_help">Ayúdanos a traducir la aplicación a tu idioma en weblate</string>
     <string name="hide_note">hacer la nota invisible</string>
@@ -75,7 +75,7 @@
     <string name="yes">Sí</string>
     <plurals name="notes_imported">
         <item quantity="one">Una nota importada</item>
-        <item quantity="many"/>
+        <item quantity="many">%1$d Notas importadas</item>
         <item quantity="other">%1$d Notas importadas</item>
     </plurals>
     <string name="fileOpeningError">Error al abrir el archivo.</string>
@@ -89,19 +89,19 @@
     <string name="showRestoreConfirmationMessage">Todas las notas actuales serán reemplazadas por la copia de seguridad. ¿Continuar?</string>
     <string name="toggle">cambiar vista</string>
     <string name="note_shared">Nota compartida</string>
-    <string name="save_changes">save changes</string>
-    <string name="discard">discard</string>
-    <string name="notification_of_change_description">Notify about changes in notes</string>
-    <string name="notification_of_change">Notification of changes</string>
-    <string name="unsaved_changes_message">Your note has changed. Do you want to save or discard the changes?</string>
-    <string name="unsaved_changes_title">Unsaved changes</string>
-    <string name="item_menu_description">menu for item actions</string>
-    <string name="search_hint">What are you looking for?</string>
-    <string name="not_initialized">Leafpad not initialized yet!</string>
-    <string name="no_search_results">Nothing found</string>
-    <string name="empty_list">No notes available in the list</string>
-    <string name="startIconDescription">A search field</string>
-    <string name="set">It is a recipe</string>
-    <string name="close_release_note">Close Button</string>
-    <string name="thank_weblate"><b>Catalan</b>: Adolfo Jayme Barrientos(@Fito); <b>Czech</b>: zergio inzunza(@n1kf4m3l); <b>Hindi (Latin script)</b>: Saurmanđal(@Saurmandal); <b>Indonesian</b>: Reza Almanda(@rezaalmanda), Antx(@antx); <b>Italian</b>: pastic cerre(@pasti); <b>Polish</b>: Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140); <b>Russian</b>: Kirill Isakov(@crowbar); <b>Spanish</b>: Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1)</string>
+    <string name="save_changes">Guardar cambios</string>
+    <string name="discard">Descartar</string>
+    <string name="notification_of_change_description">Notifica sobre cambios en notas</string>
+    <string name="notification_of_change">Notificación de cambios</string>
+    <string name="unsaved_changes_message">Tu nota ha cambiado. Quieres guardar o desechar los cambios?</string>
+    <string name="unsaved_changes_title">Cambios sin guardar</string>
+    <string name="item_menu_description">Menú para acciones de objetos</string>
+    <string name="search_hint">Que estas buscando?</string>
+    <string name="not_initialized">Leafpad no ha sido iniciado todavia!</string>
+    <string name="no_search_results">No se encontró nada</string>
+    <string name="empty_list">Ninguna nota disponible en la lista</string>
+    <string name="startIconDescription">Un campo de busqueda</string>
+    <string name="set">Eso es una receta</string>
+    <string name="close_release_note">Boton de cerrado</string>
+    <string name="thank_weblate"><b>Catalan</b>: Adolfo Jayme Barrientos(@Fito); <b>Czech</b>: zergio inzunza(@n1kf4m3l); <b>Hindi (Latin script)</b>: Saurmanđal(@Saurmandal); <b>Indonesian</b>: Reza Almanda(@rezaalmanda), Antx(@antx); <b>Italian</b>: pastic cerre(@pasti); <b>Polish</b>: Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140); <b>Russian</b>: Kirill Isakov(@crowbar); <b>Spanish</b>: Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1), Santiago Centeno (@Java16)</string>
 </resources>

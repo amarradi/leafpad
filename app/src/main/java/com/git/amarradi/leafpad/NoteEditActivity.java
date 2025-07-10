@@ -140,6 +140,8 @@ public class NoteEditActivity extends AppCompatActivity {
         });
     }
 
+
+
     @Override
     public boolean onSupportNavigateUp() {
         getOnBackPressedDispatcher().onBackPressed();
@@ -241,43 +243,32 @@ public class NoteEditActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                // Stelle sicher, dass Cursor immer sichtbar ist
-                bodyEdit.post(() -> {
-                    int selection = bodyEdit.getSelectionStart();
-                    Layout layout = bodyEdit.getLayout();
-                    if (layout != null && selection > 0) {
-                        int line = layout.getLineForOffset(selection);
-                        int y = layout.getLineBottom(line);
-                        bodyScroll.smoothScrollTo(0, y);
-                    }
-                });
+                bodyEdit.post(() -> scrollToCursor());
             }
         });
 
-        bodyEdit.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                // Stelle sicher, dass Cursor immer sichtbar ist
-                bodyEdit.post(() -> {
-                    int selection = bodyEdit.getSelectionStart();
-                    Layout layout = bodyEdit.getLayout();
-                    if (layout != null && selection > 0) {
-                        int line = layout.getLineForOffset(selection);
-                        int y = layout.getLineBottom(line);
-                        bodyScroll.smoothScrollTo(0, y);
-                    }
-                });
+        bodyEdit.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                bodyEdit.postDelayed(this::scrollToCursor, 250);
             }
+        });
+
+        bodyEdit.setOnClickListener(v -> {
+            bodyEdit.postDelayed(this::scrollToCursor, 250);
         });
 
         titleLayout.setHintEnabled(false);
         bodyLayout.setHintEnabled(false);
+    }
+
+    private void scrollToCursor() {
+        int selection = bodyEdit.getSelectionStart();
+        Layout layout = bodyEdit.getLayout();
+        if (layout != null && selection > 0) {
+            int line = layout.getLineForOffset(selection);
+            int y = layout.getLineBottom(line);
+            bodyScroll.smoothScrollTo(0, y);
+        }
     }
 
     private boolean isNewEntry(Note note) {
@@ -305,10 +296,10 @@ public class NoteEditActivity extends AppCompatActivity {
             recipeItem.setChecked(isRecipe);
 
             if(isRecipe) {
-                recipeItem.setIcon(R.drawable.chefhat_active);
+                recipeItem.setIcon(R.drawable.btn_chefhat_active);
                 invalidateOptionsMenu();
             } else {
-                recipeItem.setIcon(R.drawable.chefhat);
+                recipeItem.setIcon(R.drawable.btn_chefhat);
                 invalidateOptionsMenu();
             }
 
@@ -316,10 +307,10 @@ public class NoteEditActivity extends AppCompatActivity {
             hideItem.setChecked(note.isHide());
 
             if(note.isHide()) {
-                hideItem.setIcon(R.drawable.eye_invisible);
+                hideItem.setIcon(R.drawable.btn_hide);
                 invalidateOptionsMenu();
             } else {
-                hideItem.setIcon(R.drawable.eye_visible);
+                hideItem.setIcon(R.drawable.btn_show);
                 invalidateOptionsMenu();
             }
         }
@@ -374,6 +365,7 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private void exitNoteEdit() {
+        setResult(RESULT_OK);
         if (fromSearch) {
             Intent intent = new Intent(this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -394,6 +386,7 @@ public class NoteEditActivity extends AppCompatActivity {
                         ()-> {
                             shouldPersistOnPause = true;
                             noteViewModel.persist();
+                            setResult(RESULT_OK);
                             exitNoteEdit();
                         },
                         () ->{
@@ -420,7 +413,11 @@ public class NoteEditActivity extends AppCompatActivity {
         } else {
             Leaf.set(this, note);
             noteViewModel.saveNote(getApplication(), note);
+            noteViewModel.markSaved();
+
         }
+        setResult(RESULT_OK);
+       // finish();
     }
 
     private void removeNote() {
@@ -450,10 +447,12 @@ public class NoteEditActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        if(!isNoteDeleted && !isNewEntry(note)) {
+        if(!isNoteDeleted && note != null && !NoteViewModel.isEmptyEntry(note)) {
             updateNoteFromUI();
             if (shouldPersistOnPause && noteViewModel.hasUnsavedChanges()) {
                 noteViewModel.persist();
+                noteViewModel.markSaved();
+                setResult(RESULT_OK);
             }
         }
    }

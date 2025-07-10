@@ -8,13 +8,18 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -68,8 +73,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         noteViewModel.loadNotes();
         noteViewModel.getNotes().observe(this, notes -> {
             noteAdapter.updateNotes(notes);
+            Log.d("MainActivity", "----- Alle geladenen Notizen nach loadNotes(): ------");
             recyclerView.post(()->recyclerView.scrollToPosition(0));
-
+            for (Note n : notes) {
+                Log.d("MainActivity", "Note: " + n.getId() + " | Titel: " + n.getTitle() + " | Versteckt: " + n.isHide());
+            }
             updateEmptyState();
         });
 
@@ -78,12 +86,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             updateEmptyState();
         });
 
-        // In MainActivity.java, im onCreate z. B.
         viewModel.getCombinedNotes().observe(this, combinedList -> {
             noteAdapter.setCombinedList(combinedList);
             updateEmptyState();
         });
-
 
         setupSharedPreferences();
 
@@ -99,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 noteViewModel.selectNote(note);
                 Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
                 intent.putExtra(Leafpad.EXTRA_NOTE_ID, note.getId());
-                startActivity(intent);
+                noteEditLauncher.launch(intent);
             }
 
             @Override
@@ -114,17 +120,36 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         Leafpad.getInstance().applyCurrentLayoutMode(recyclerView, noteAdapter);
 
         ExtendedFloatingActionButton fab = findViewById(R.id.fab_action_add);
+
+        ViewCompat.setOnApplyWindowInsetsListener(fab, (v, insets) -> {
+            int bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+            int fabMargin = getResources().getDimensionPixelSize(R.dimen.fab_margin);
+            lp.bottomMargin = bottomInset + fabMargin;
+            v.setLayoutParams(lp);
+            return insets;
+        });
+
         fab.setOnClickListener(v -> {
+            String newNoteId = Note.makeId();
             Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
-            intent.putExtra(Leafpad.EXTRA_NOTE_ID, Note.makeId());
-            startActivity(intent);
+            intent.putExtra(Leafpad.EXTRA_NOTE_ID, newNoteId);
+            noteEditLauncher.launch(intent);
         });
     }
+    private final ActivityResultLauncher<Intent> noteEditLauncher =
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                    result -> {
+                        if (result.getResultCode() == RESULT_OK) {
+                            noteViewModel.loadNotes(); // Hier wird nach Speichern neu geladen!
+                        }
+                    });
     @Override
     public void onReleaseNoteClosed() {
         Leafpad.setReleaseNoteClosed(this);
         Leafpad.setCurrentLeafpadVersionCode(this);
         noteAdapter.setReleaseNoteHeader(null);
+        noteViewModel.loadNotes();
         recyclerView.post(this::updateEmptyState);
     }
     private void updateEmptyState() {
@@ -152,10 +177,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         MenuItem menuItem = popup.getMenu().findItem(R.id.action_hide_note);
         if (note.isHide()) {
             menuItem.setTitle(getString(R.string.show_note));
-            menuItem.setIcon(getDrawable(R.drawable.eye_visible));
+            menuItem.setIcon(getDrawable(R.drawable.btn_show));
         } else {
             menuItem.setTitle(getString(R.string.hide_hidden));
-            menuItem.setIcon(getDrawable(R.drawable.eye_invisible));
+            menuItem.setIcon(getDrawable(R.drawable.btn_hide));
         }
         LayoutModeHelper.forcePopupMenuIcons(popup);
         popup.setOnMenuItemClickListener(item -> {
@@ -191,7 +216,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     protected void onResume() {
         super.onResume();
         Leafpad.getInstance().applyCurrentLayoutMode(recyclerView, noteAdapter);
-        noteViewModel.loadNotes();
+       //noteViewModel.loadNotes();
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -207,17 +232,17 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             showHidden = false;
         }
         if (showHidden) {
-            item.setIcon(getDrawable(R.drawable.eye_invisible));
+            item.setIcon(getDrawable(R.drawable.btn_hide));
             item.setTitle(getString(R.string.hide_hidden));
         } else {
-            item.setIcon(getDrawable(R.drawable.eye_visible));
+            item.setIcon(getDrawable(R.drawable.btn_show));
             item.setTitle(getString(R.string.show_hidden));
         }
         MenuItem layoutItem = menu.findItem(R.id.item_toggle_layout);
         if ("grid".equals(savedLayout)) {
-            layoutItem.setIcon(R.drawable.listview);
+            layoutItem.setIcon(R.drawable.ic_listview);
         } else {
-            layoutItem.setIcon(R.drawable.gridview);
+            layoutItem.setIcon(R.drawable.ic_gridview);
         }
         return true;
     }
@@ -256,10 +281,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         noteViewModel.setShowHidden(newValue);
 
         if (newValue) {
-            item.setIcon(getDrawable(R.drawable.eye_invisible));
+            item.setIcon(getDrawable(R.drawable.btn_hide));
             item.setTitle(getString(R.string.hide_hidden));
         } else {
-            item.setIcon(getDrawable(R.drawable.eye_visible));
+            item.setIcon(getDrawable(R.drawable.btn_show));
             item.setTitle(getString(R.string.show_hidden));
         }
         Leafpad.getInstance().saveShowHidden(newValue);
