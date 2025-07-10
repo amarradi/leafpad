@@ -10,18 +10,18 @@
         android:id="@+id/note_card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/marginLayout"
-        app:cardCornerRadius="@dimen/cornerRadiusCardElement"
-        app:cardElevation="@dimen/cardElevation">
+        android:layout_margin="@dimen/margin_layout"
+        app:cardCornerRadius="@dimen/corner_radius_alert_dialog"
+        app:cardElevation="@dimen/card_elevation">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingStart="@dimen/paddingStartlistItem"
-            android:paddingEnd="@dimen/paddingEndlistItem"
-            android:paddingTop="@dimen/paddingToplistItem"
-            android:paddingBottom="@dimen/paddingBottomlistItem">
+            android:paddingStart="@dimen/padding_start_list_item"
+            android:paddingEnd="@dimen/padding_end_list_item"
+            android:paddingTop="@dimen/padding_top_list_item"
+            android:paddingBottom="@dimen/padding_bottom_list_item">
 
         <!-- Inhalt links -->
         <LinearLayout

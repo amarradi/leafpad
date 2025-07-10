@@ -1,110 +1,57 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
 
-    <dimen name="activity_margin">16dp</dimen>
-    <dimen name="dividerHeight">2dp</dimen>
+    <dimen name="divider_height">2dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
-
-    <dimen name="CornerRadiusTextView">5dp</dimen>
-    <dimen name="fabRadius">15dp</dimen>
-    <dimen name="list_vertical_padding">8dp</dimen>
     <dimen name="large_icon_size">40dp</dimen>
-
     <dimen name="text_about_section_margin">10dp</dimen>
-    <dimen name="new_margin">56dp</dimen>
     <dimen name="margin_about">5dp</dimen>
 
-    <dimen name="toolbarPaddingLeft">8dp</dimen>
-    <dimen name="toolbarPaddingRight">24dp</dimen>
-    <dimen name="listElementTitle">16sp</dimen>
     <!-- note edit -->
-    <dimen name="marginLayout">3dp</dimen>
-    <dimen name="marginTop_noteEdit">5dp</dimen>
-    <dimen name="marginBottom_noteEdit">0dp</dimen>
-    <dimen name="paddingStartEnd_noteEdit">8dp</dimen>
-    <dimen name="paddingTop_noteEditText">7dp</dimen>
-
-    <dimen name="boxCollapsedPaddingTop">5dp</dimen>
+    <dimen name="margin_layout">3dp</dimen>
 
     <!-- listItem note overview-->
-    <dimen name="margin_listItem">2dp</dimen>
-    <dimen name="paddingStartlistItem">10dp</dimen>
-    <dimen name="paddingEndlistItem">5dp</dimen>
-    <dimen name="paddingToplistItem">5dp</dimen>
-    <dimen name="paddingBottomlistItem">5dp</dimen>
-    <dimen name="padding_listViewItem">10dp</dimen>
-    <dimen name="marginLeft_listItem">5dp</dimen>
-    <dimen name="marginRight_listItem">5dp</dimen>
-    <dimen name="marginTop_listItem">5dp</dimen>
-    <dimen name="marginBottom_listItem">2dp</dimen>
+    <dimen name="padding_start_list_item">10dp</dimen>
+    <dimen name="padding_end_list_item">5dp</dimen>
+    <dimen name="padding_top_list_item">5dp</dimen>
+    <dimen name="padding_bottom_list_item">5dp</dimen>
 
     <!-- CardView -->
-
-    <dimen name="cardElevation">0dp</dimen>
-    <dimen name="cornerRadiusAlertDialog">15dp</dimen>
-    <dimen name="cornerRadiusCardElement">6dp</dimen>
-    <dimen name="strokeWidth">1dp</dimen>
-    <dimen name="grid_spacing">0dp</dimen>
-    <dimen name="list_spacing">0dp</dimen>
+    <dimen name="card_elevation">0dp</dimen>
+    <dimen name="corner_radius_alert_dialog">6dp</dimen>
+    <dimen name="stroke_width">1dp</dimen>
     <dimen name="masonry_vertical_spacing">0dp</dimen>
     <dimen name="masonry_horizontal_spacing">0dp</dimen>
 
-
-    <!--ExtendedFloatingActionButton -->
-    <dimen name="ExtendedFloatingActionButton">20dp</dimen>
-
     <!-- MaterialView -->
-
-    <dimen name="layout_width">0dp</dimen>
     <dimen name="icon_text_distance_start">4dp</dimen>
     <dimen name="icon_text_distance_end">0dp</dimen>
     <dimen name="icon_text_distance_category_end">4dp</dimen>
     <dimen name="margin_listItem_distance_end">2dp</dimen>
     <dimen name="margin_listItem_distance_top">5dp</dimen>
-    <!--ImageViews -->
 
+    <!--ImageViews -->
     <dimen name="image_listView_layout_width">20dp</dimen>
     <dimen name="image_listView_layout_height">20dp</dimen>
     <dimen name="image_about_section_margin">10dp</dimen>
 
-    <!--ToolBar -->
-    <dimen name="toolbarElevation">0dp</dimen>
-
     <!-- TextSize -->
-    <dimen name="textSize_MyNoteItem">17sp</dimen>
-    <dimen name="textSize_MyNotePreview">14.5sp</dimen>
-    <dimen name="textSize_MyDateTime">10sp</dimen>
-    <dimen name="textSize_MyCategory">10sp</dimen>
-    <dimen name="textSize_MyToolbarTitle">24sp</dimen>
-    <dimen name="textSize_MyToolbarSubtitle">14sp</dimen>
+    <dimen name="text_size_my_note_item">17sp</dimen>
+    <dimen name="text_size_my_note_preview">14.5sp</dimen>
+    <dimen name="text_size_my_date_time">10sp</dimen>
+    <dimen name="text_size_my_category">10sp</dimen>
+    <dimen name="text_size_my_toolbar_title">24sp</dimen>
+    <dimen name="text_size_my_toolbar_subtitle">14sp</dimen>
+    <dimen name="text_size_my_toolbar_title_edit">14sp</dimen>
+    <dimen name="text_size_my_toolbar_subtitle_edit">24sp</dimen>
+    <dimen name="text_size_title">24sp</dimen>
 
-    <dimen name="textSize_MyToolbarTitleEdit">14sp</dimen>
-    <dimen name="textSize_MyToolbarSubtitleEdit">24sp</dimen>
-
-    <dimen name="textSizeTitle">24sp</dimen>
-
-
-    <dimen name="textMargin_top">5dp</dimen>
 
     <!-- EditView -->
-    <dimen name="switch_layout_marginStart">5dp</dimen>
-    <dimen name="switch_layout_marginEnd">5dp</dimen>
-
-    <dimen name="switch_layout_margin_recipe">3dp</dimen>
-    <dimen name="switch_layout_margin_visible">3dp</dimen>
-
-    <dimen name="constraint_paddingTop">8dp</dimen>
-    <dimen name="constraint_paddingBottom">8dp</dimen>
-
+    <dimen name="switch_layout_margin_start">5dp</dimen>
+    <dimen name="switch_layout_margin_end">5dp</dimen>
     <dimen name="anchor_height">56dp</dimen>
-    
-    <dimen name="image_button_layout_width">40dp</dimen>
-    <dimen name="image_button_layout_height">40dp</dimen>
-    <!-- category -->
-    <dimen name="category_padding_left">2dp</dimen>
-    <dimen name="category_padding_right">2dp</dimen>
-    <dimen name="category_padding_top">20dp</dimen>
-    <dimen name="category_padding_bottom">20dp</dimen>
 
+    <!-- category -->
     <dimen name="category_label_radius">16dp</dimen>
 </resources>
