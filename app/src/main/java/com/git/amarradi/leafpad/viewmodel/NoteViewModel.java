@@ -349,12 +349,26 @@ public class NoteViewModel extends AndroidViewModel {
 
     public void applyStyleToSelection(TextStyle type, int start, int end, @Nullable String url) {
         Spannable text = new SpannableStringBuilder(styledBody.getValue());
+
         switch (type) {
-            case HEADING -> TextStyleHelper.applyHeading(text, start, end);
-            case UNDERLINE -> TextStyleHelper.applyUnderline(text, start, end);
-            case BULLET -> TextStyleHelper.applyBullet(text, start, end);
+            case HEADING -> {
+                if (!TextStyleHelper.hasStyle(text, start, end, StyleSpan.class) &&
+                        !TextStyleHelper.hasStyle(text, start, end, RelativeSizeSpan.class)) {
+                    TextStyleHelper.applyHeading(text, start, end);
+                }
+            }
+            case UNDERLINE -> {
+                if (!TextStyleHelper.hasStyle(text, start, end, UnderlineSpan.class)) {
+                    TextStyleHelper.applyUnderline(text, start, end);
+                }
+            }
+            case BULLET -> {
+                if (!TextStyleHelper.hasStyle(text, start, end, BulletSpan.class)) {
+                    TextStyleHelper.applyBullet(text, start, end);
+                }
+            }
             case LINK -> {
-                if (url != null) {
+                if (url != null && !TextStyleHelper.hasUrl(text, start, end, url)) {
                     TextStyleHelper.applyLink(text, start, end, url);
                 }
             }

@@ -25,4 +25,19 @@ public class TextStyleHelper {
     public static void applyLink(Spannable text, int start, int end, String url) {
         text.setSpan(new URLSpan(url), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
+
+    public static boolean hasStyle(Spannable text, int start, int end, Class<?> spanClass) {
+        Object[] spans = text.getSpans(start, end, spanClass);
+        return spans != null && spans.length > 0;
+    }
+
+    public static boolean hasUrl(Spannable text, int start, int end, String url) {
+        URLSpan[] spans = text.getSpans(start, end, URLSpan.class);
+        for (URLSpan span : spans) {
+            if (span.getURL().equals(url)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
