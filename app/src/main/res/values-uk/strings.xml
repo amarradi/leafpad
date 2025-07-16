@@ -21,8 +21,8 @@
     <string name="action_note_saved">saved</string>
     <string name="tell_about">What I want to tell you about Leafpad</string>
     <string name="action_share_body">Нотатка</string>
-    <string name="remove_dialog_abort">Cancel</string>
-    <string name="menu_settings">Settings</string>
+    <string name="remove_dialog_abort">Зареєструватися</string>
+    <string name="menu_settings">Налаштування</string>
     <string name="backupIsrunning">Backup is running</string>
     <string name="action_fab_note">Занотувати</string>
     <string name="title_activity_note_edit">Редагування нотаток</string>
@@ -47,7 +47,7 @@
     <string name="fileOpeningError">Error when opening the file.</string>
     <string name="note_will_be_saved_first">Note will be saved first</string>
     <string name="delete">Delete</string>
-    <string name="general_preference">General settings</string>
+    <string name="general_preference">Загальні налаштування</string>
     <string name="title_licence">Licences</string>
     <string name="remove_dailog_message">Ця нотатка буде остаточно видалена. Після відновлення не можна.</string>
     <string name="version">version</string>
