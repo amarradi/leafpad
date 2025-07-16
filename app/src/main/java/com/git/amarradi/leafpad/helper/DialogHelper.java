@@ -95,4 +95,13 @@ public class DialogHelper {
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();
     }
+
+    public static void showTitleRequiredDialog(Context context) {
+        new MaterialAlertDialogBuilder(context)
+                .setTitle(R.string.title_required)
+                .setMessage(R.string.please_enter_a_title)
+                .setPositiveButton(android.R.string.ok, null)
+                .show();
+    }
+
 }

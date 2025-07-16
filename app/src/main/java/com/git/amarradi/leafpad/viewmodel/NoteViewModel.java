@@ -2,13 +2,9 @@ package com.git.amarradi.leafpad.viewmodel;
 
 import android.app.Application;
 import android.content.Context;
-import android.text.Html;
-import android.text.Spannable;
-import android.text.SpannableStringBuilder;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
@@ -48,6 +44,8 @@ public class    NoteViewModel extends AndroidViewModel {
     }
     private final MediatorLiveData<List<Object>> combinedNotes = new MediatorLiveData<>();
     public LiveData<List<Object>> getCombinedNotes() { return combinedNotes; }
+    private final MediatorLiveData<Boolean> isNoteModified = new MediatorLiveData<>();
+
 
 
 
@@ -152,12 +150,6 @@ public class    NoteViewModel extends AndroidViewModel {
         return title.isEmpty() && body.isEmpty();
     }
 
-    public LiveData<Boolean> isNoteModified = Transformations.map(selectedNote, current -> {
-        Note original = originalNote.getValue();
-        if (original == null || current == null) return false;
-        return !current.equalsContent(original);
-    });
-
     public boolean hasUnsavedChanges() {
         Note current = selectedNote.getValue();
         Note original = originalNote.getValue();
@@ -211,11 +203,28 @@ public class    NoteViewModel extends AndroidViewModel {
     public NoteViewModel(@NonNull Application application) {
         super(application);
 
+        isNoteModified.addSource(selectedNote, n -> checkModified());
+        isNoteModified.addSource(originalNote, n -> checkModified());
         filteredNotes.addSource(notesLiveData, notes -> applySearchQuery());
         filteredNotes.addSource(searchQuery, q -> applySearchQuery());
 
         loadReleaseNote(getApplication().getApplicationContext());
     }
+
+    private void checkModified() {
+        Note current = selectedNote.getValue();
+        Note original = originalNote.getValue();
+        if (original == null || current == null) {
+            isNoteModified.setValue(false);
+        } else {
+            isNoteModified.setValue(!current.equalsContent(original));
+        }
+    }
+    public LiveData<Boolean> getIsNoteModified() {
+        return isNoteModified;
+    }
+
+
     public void loadReleaseNote(Context context) {
         ReleaseNote note = ReleaseNoteHelper.loadReleaseNote(context);
         releaseNoteLiveData.setValue(note);
