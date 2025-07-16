@@ -9,14 +9,14 @@
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="item_menu_description">menu for item actions</string>
     <string name="leafpad_work">Leafpad saves all data locally on your smartphone. The notes or metadata such as date and time are not stored in any cloud and are not shared with anyone. No text analysis is carried out either. The notes belong to you. You decide what you do with them.</string>
-    <string name="new_note">new Note</string>
+    <string name="new_note">нова Примітка</string>
     <string name="save_changes">save changes</string>
     <string name="save">Save all notes as xml</string>
     <string name="showDeleteConfirmation">Delete notes?</string>
     <string name="set">It is a recipe</string>
     <string name="toggle">change View</string>
-    <string name="imported">note was send to leafpad</string>
-    <string name="rate_the_app">How about a review in Google\'s PlayStore?</string>
+    <string name="imported">замітка була відправлена в блокнот</string>
+    <string name="rate_the_app">Як про огляд в Google PlayStore?</string>
     <string name="add_shortcut_short_label">Write down new</string>
     <string name="action_note_saved">saved</string>
     <string name="tell_about">What I want to tell you about Leafpad</string>
@@ -49,7 +49,7 @@
     <string name="delete">Delete</string>
     <string name="general_preference">General settings</string>
     <string name="title_licence">Licences</string>
-    <string name="remove_dailog_message">This note will be permanently deleted. Afterwards it cannot be restored.</string>
+    <string name="remove_dailog_message">Ця замітка буде остаточно видалена. Після відновлення не можна.</string>
     <string name="version">version</string>
     <string name="discard">discard</string>
     <string name="backupfinish">Backup finished</string>
@@ -65,14 +65,14 @@
     <string name="what_is_leafpad">Leafpad is a simple app for taking notes.</string>
     <string name="note_shared">Note shared</string>
     <string name="theme_preference">Theme</string>
-    <string name="created_txt">created at</string>
+    <string name="created_txt">створення</string>
     <string name="notification_of_change_description">Notify about changes in notes</string>
     <string name="cancel">Cancel</string>
     <string name="thank_weblate"><b>Catalan</b>: Adolfo Jayme Barrientos(@Fito); <b>Czech</b>: zergio inzunza(@n1kf4m3l), MessingWithComputers(@MessingWithComputers); <b>Hindi (Latin script)</b>: Saurmanđal(@Saurmandal); <b>Indonesian</b>: Reza Almanda(@rezaalmanda), Antx(@antx); <b>Italian</b>: pastic cerre(@pasti); <b>Polish</b>: Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140), Matthaiks(@Kityn); <b>Russian</b>: Kirill Isakov(@crowbar); <b>Spanish</b>: Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1), LittleWorm(@LittlerWorm)</string>
     <string name="action_remove">Remove note</string>
     <string name="licence">Open source licenses</string>
     <string name="notification_of_change">Notification of changes</string>
-    <string name="edited_text">edited at</string>
+    <string name="edited_text">редагування</string>
     <string name="not_initialized">Leafpad not initialized yet!</string>
     <string name="body_hint">Note</string>
     <string name="lightmode_preference_key">lightmode</string>
@@ -97,10 +97,10 @@
     <string name="save_notes_title">Backup</string>
     <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
     <string name="its_opensource">Leafpad is OpenSource and its free</string>
-    <string name="satisfied">Enjoying leafpad?</string>
+    <string name="satisfied">Насолоджуйтеся листівкою?</string>
     <string name="app_name">Leafpad</string>
     <string name="about_the_app">About the App</string>
-    <string name="remove_dialog_title">Are you sure?</string>
+    <string name="remove_dialog_title">Ви впевнені?</string>
     <string name="action_add_note">Додати нотатку</string>
     <string name="show_hidden">show hidden notes</string>
     <string name="empty_list">No notes available in the list</string>
