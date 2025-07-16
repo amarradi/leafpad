@@ -105,4 +105,6 @@
     <string name="set">Je to recept</string>
     <string name="close_release_note">Tlačítko na Zavření</string>
     <string name="thank_weblate"><b>Katalánština</b>: Adolfo Jayme Barrientos(@Fito); <b>Čeština</b>: zergio inzunza(@n1kf4m3l), MessingWithComputers(@MessingWithComputers); <b>Hindština (Latinské písmo)</b>: Saurmanđal(@Saurmandal); <b>Indonéština</b>: Reza Almanda(@rezaalmanda), Antx(@antx); <b>Italština</b>: pastic cerre(@pasti); <b>Polština</b>: Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140), Matthaiks(@Kityn); <b>Ruština</b>: Kirill Isakov(@crowbar); <b>Španělětina</b>: Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1), LittleWorm(@LittlerWorm)</string>
+    <string name="please_enter_a_title">Please enter a title for the note before you can save it.</string>
+    <string name="title_required">Title required</string>
 </resources>
