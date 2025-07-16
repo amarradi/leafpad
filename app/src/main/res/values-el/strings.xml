@@ -103,4 +103,6 @@
     <string name="set">Είναι μια συνταγή</string>
     <string name="close_release_note">Κουμπί Κλεισίματος</string>
     <string name="thank_weblate"><b>Καταλανικά</b>: Adolfo Jayme Barrientos(@Fito); <b>Τσέχικα</b>: zergio inzunza(@n1kf4m3l); <b>Χίντι (Λατινική γραφή)</b>: Saurmanđal(@Saurmandal); <b>Ινδονησιακά</b>: Reza Almanda(@rezaalmanda), Antx(@antx); <b>Ιταλικά</b>: pastic cerre(@pasti); <b>Πολωνικά</b>: Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140); <b>Ρώσικα</b>: Kirill Isakov(@crowbar); <b>Ισπανικά</b>: Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1)</string>
+    <string name="please_enter_a_title">Please enter a title for the note before you can save it.</string>
+    <string name="title_required">Title required</string>
 </resources>
