@@ -25,7 +25,7 @@
     <string name="menu_settings">Settings</string>
     <string name="backupIsrunning">Backup is running</string>
     <string name="action_fab_note">make a note</string>
-    <string name="title_activity_note_edit">Edit Note</string>
+    <string name="title_activity_note_edit">Редагувати нотатку</string>
     <string name="translate">Translate the app on Weblate</string>
     <string name="no">No</string>
     <string name="hide_hidden">hide hidden notes</string>
@@ -101,7 +101,7 @@
     <string name="app_name">Leafpad</string>
     <string name="about_the_app">About the App</string>
     <string name="remove_dialog_title">Are you sure?</string>
-    <string name="action_add_note">Add Note</string>
+    <string name="action_add_note">Додати нотатку</string>
     <string name="show_hidden">show hidden notes</string>
     <string name="empty_list">No notes available in the list</string>
     <string name="action_share_note">Share note</string>
