@@ -105,4 +105,6 @@
     <string name="show_hidden">show hidden notes</string>
     <string name="empty_list">No notes available in the list</string>
     <string name="action_share_note">Поділитись нотаткою</string>
+    <string name="please_enter_a_title">Please enter a title for the note before you can save it.</string>
+    <string name="title_required">Title required</string>
 </resources>
