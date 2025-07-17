@@ -56,7 +56,7 @@ public class NoteViewModel extends AndroidViewModel {
             return Html.fromHtml("", Html.FROM_HTML_MODE_LEGACY);
         }
         String html = MarkdownParser.parse(note.getBody());
-        // Use Html.fromHtml to convert our HTML to an Spanned objecto that TextView can render
+        // Use Html.fromHtml to convert our HTML to an Spanned object that TextView can render
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             return Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY);
         } else {

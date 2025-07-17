@@ -183,7 +183,7 @@ public class NoteEditActivity extends AppCompatActivity {
     private void initViews() {
         titleEdit = findViewById(R.id.title_edit);
         bodyEdit = findViewById(R.id.body_edit);
-        previewBody = findViewById(R.id.preview_body); // NUEVO: Inicializamos el TextView
+        previewBody = findViewById(R.id.preview_body); // Initialize TextView
         bodyScroll = findViewById(R.id.body_scroll);
 
         // clickable links on preview
