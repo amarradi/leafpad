@@ -202,7 +202,7 @@ public class NoteEditActivity extends AppCompatActivity {
         TextInputLayout bodyLayout = findViewById(R.id.body_text_input_layout);
         titleEdit = findViewById(R.id.title_edit);
         bodyEdit = findViewById(R.id.body_edit);
-        previewBody = findViewById(R.id.preview_body); // NUEVO: Inicializamos el TextView
+        previewBody = findViewById(R.id.preview_body); // Initialize TextView
         bodyScroll = findViewById(R.id.body_scroll);
 
         titleLayout.setHintEnabled(false);
