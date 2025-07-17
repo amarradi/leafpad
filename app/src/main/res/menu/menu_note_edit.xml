@@ -20,6 +20,13 @@
         android:icon="@drawable/share"
         android:title="@string/action_share_note"
         app:showAsAction="ifRoom" />
+
+    <item
+            android:id="@+id/action_preview"
+            android:icon="@drawable/ic_preview"
+            android:title="@string/action_preview"
+            app:showAsAction="ifRoom" />
+
     <item
         android:id="@+id/action_save"
         android:icon="@drawable/save"
