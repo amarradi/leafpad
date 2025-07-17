@@ -47,7 +47,6 @@ public class NoteViewModel extends AndroidViewModel {
     public LiveData<ReleaseNote> getReleaseNote() {
         return releaseNoteLiveData;
     }
-    // In NoteViewModel.java
     private final MediatorLiveData<List<Object>> combinedNotes = new MediatorLiveData<>();
     public LiveData<List<Object>> getCombinedNotes() { return combinedNotes; }
     private final MutableLiveData<Boolean> isPreviewActive = new MutableLiveData<>(false);
@@ -57,11 +56,10 @@ public class NoteViewModel extends AndroidViewModel {
             return Html.fromHtml("", Html.FROM_HTML_MODE_LEGACY);
         }
         String html = MarkdownParser.parse(note.getBody());
-        // Usamos Html.fromHtml para convertir nuestro HTML a un objeto Spanned que TextView puede renderizar.
+        // Use Html.fromHtml to convert our HTML to an Spanned objecto that TextView can render
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             return Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY);
         } else {
-            // Versión deprecada para APIs antiguas
             return Html.fromHtml(html);
         }
     });
