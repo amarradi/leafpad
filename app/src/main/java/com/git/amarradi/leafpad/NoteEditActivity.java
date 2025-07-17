@@ -32,6 +32,9 @@ import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textfield.TextInputLayout;
 
+import android.text.method.LinkMovementMethod;
+import android.widget.TextView;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -39,17 +42,22 @@ public class NoteEditActivity extends AppCompatActivity {
 
     private EditText titleEdit;
     private EditText bodyEdit;
+    private TextView previewBody;
+    private Note note;
     private NoteViewModel noteViewModel;
     private MaterialToolbar toolbar;
     private Resources res;
     private boolean shouldPersistOnPause = true;
-    private boolean isNoteDeleted = false;
+    private boolean isNoteDeleted = false; // <--- Flag setzen!
     private NestedScrollView bodyScroll;
+
     private boolean isNewNote = false;
+
     private boolean fromSearch = false;
     private boolean isUIConfigured = false;
     private MenuItem saveMenuItem;
     private TextWatcher modificationWatcher;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -62,7 +70,7 @@ public class NoteEditActivity extends AppCompatActivity {
         }
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_note_edit);
-        View root = findViewById(R.id.body_scroll);
+        View root = findViewById(R.id.body_scroll); // oder R.id.all wenn du CoordinatorLayout paddest
 
         ViewCompat.setOnApplyWindowInsetsListener(root, (view, insets) -> {
             int ime = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
@@ -95,7 +103,7 @@ public class NoteEditActivity extends AppCompatActivity {
         }
         handleIntent(getIntent());
         fromSearch = getIntent().getBooleanExtra("fromSearch", false);
-        observeNote();
+        observeViewModel();
 
         View rootEdit = findViewById(R.id.all);
         View toolbar = findViewById(R.id.toolbar);
@@ -194,6 +202,7 @@ public class NoteEditActivity extends AppCompatActivity {
         TextInputLayout bodyLayout = findViewById(R.id.body_text_input_layout);
         titleEdit = findViewById(R.id.title_edit);
         bodyEdit = findViewById(R.id.body_edit);
+        previewBody = findViewById(R.id.preview_body); // NUEVO: Inicializamos el TextView
         bodyScroll = findViewById(R.id.body_scroll);
 
         titleLayout.setHintEnabled(false);
@@ -205,6 +214,8 @@ public class NoteEditActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {}
+        // clickable links on preview
+        previewBody.setMovementMethod(LinkMovementMethod.getInstance());
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -234,11 +245,77 @@ public class NoteEditActivity extends AppCompatActivity {
             int y = layout.getLineBottom(line);
             bodyScroll.smoothScrollTo(0, y);
         }
+        // one TextWatcher to update ViewModel on real time
+        TextWatcher textWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (noteViewModel.getSelectedNote().getValue() != null) {
+                    if (getCurrentFocus() == titleEdit) {
+                        noteViewModel.updateNoteTitle(s.toString());
+                    } else if (getCurrentFocus() == bodyEdit) {
+                        noteViewModel.updateNoteBody(s.toString());
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (getCurrentFocus() == bodyEdit) {
+                    // Stelle sicher, dass Cursor immer sichtbar ist
+                    bodyEdit.post(() -> {
+                        int selection = bodyEdit.getSelectionStart();
+                        Layout layout = bodyEdit.getLayout();
+                        if (layout != null && selection > 0) {
+                            int line = layout.getLineForOffset(selection);
+                            int y = layout.getLineBottom(line);
+                            bodyScroll.smoothScrollTo(0, y);
+                        }
+                    });
+                }
+            }
+        };
+
+        titleEdit.addTextChangedListener(textWatcher);
+        bodyEdit.addTextChangedListener(textWatcher);
     }
 
     private boolean isNewEntry(Note note) {
         return (note.getTitle() == null || note.getTitle().isEmpty() ||
                 note.getBody() == null || note.getBody().isEmpty());
+    }
+
+    private void observeViewModel() {
+        // Observer for selected note (initial launch)
+        noteViewModel.getSelectedNote().observe(this, currentNote -> {
+            if (currentNote != null && !isUIConfigured) {
+                this.note = currentNote;
+                titleEdit.setText(currentNote.getTitle());
+                bodyEdit.setText(currentNote.getBody());
+                isUIConfigured = true; // Prevents reload when rotating screen
+                invalidateOptionsMenu();
+            }
+        });
+
+        // observer for state of the preview
+        noteViewModel.isPreviewActive().observe(this, isActive -> {
+            bodyEdit.setVisibility(isActive ? View.GONE : View.VISIBLE);
+            previewBody.setVisibility(isActive ? View.VISIBLE : View.GONE);
+
+            // if preview is active, force refresh of Spanned
+            if (isActive) {
+                noteViewModel.getSelectedNote().setValue(noteViewModel.getSelectedNote().getValue());
+            }
+
+            invalidateOptionsMenu(); // refresh menu icon
+        });
+
+        // Observer for parsed body (updates TextView of the preview)
+        noteViewModel.parsedBodyAsSpanned.observe(this, spanned -> {
+            previewBody.setText(spanned);
+        });
     }
 
     @Override
@@ -251,6 +328,16 @@ public class NoteEditActivity extends AppCompatActivity {
         }
         Note current = noteViewModel.getSelectedNote().getValue();
         if (current != null) {
+
+        // Updates preview icon depending on state
+        MenuItem previewItem = menu.findItem(R.id.action_preview);
+        if (noteViewModel.isPreviewActive().getValue() != null && noteViewModel.isPreviewActive().getValue()) {
+            previewItem.setIcon(R.drawable.ic_edit); // Changes to icon "edit"
+        } else {
+            previewItem.setIcon(R.drawable.ic_preview); // icon "preview"
+        }
+
+        if (note != null) {
             MenuItem recipeItem = menu.findItem(R.id.action_recipe);
             boolean isRecipe = current.getCategory() != null &&
                     current.getCategory().equals(res.getStringArray(R.array.category)[0]);
@@ -273,6 +360,17 @@ public class NoteEditActivity extends AppCompatActivity {
             case R.id.action_recipe: {
                 Note current = noteViewModel.getSelectedNote().getValue();
                 if (current != null) {
+
+        if (id == R.id.action_preview) {
+            noteViewModel.togglePreview();
+            return true;
+        }
+
+        return switch (id) {
+
+            case R.id.action_recipe -> {
+                // Toggle Rezept-Status
+                item.setChecked(!item.isChecked());
                     if (item.isChecked()) {
                         current.setCategory("");
                     } else {
