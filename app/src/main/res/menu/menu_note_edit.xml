@@ -5,19 +5,19 @@
 
     <item
         android:id="@+id/action_recipe"
-        android:icon="@drawable/chefhat"
+        android:icon="@drawable/btn_chefhat"
         android:title="@string/note_is_recipe"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_hide"
-        android:icon="@drawable/eye_invisible"
+        android:icon="@drawable/btn_hide"
         android:title="@string/hide_note"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/action_share_note"
-        android:icon="@drawable/share"
+        android:icon="@drawable/ic_share"
         android:title="@string/action_share_note"
         app:showAsAction="ifRoom" />
 
@@ -29,12 +29,12 @@
 
     <item
         android:id="@+id/action_save"
-        android:icon="@drawable/save"
+        android:icon="@drawable/btn_save_note"
         android:title="@string/action_save"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_remove"
-        android:icon="@drawable/delete"
+        android:icon="@drawable/ic_delete"
         android:title="@string/action_remove"
         app:showAsAction="ifRoom" />
 </menu>

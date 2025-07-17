@@ -63,6 +63,8 @@ public class NoteViewModel extends AndroidViewModel {
             return Html.fromHtml(html);
         }
     });
+    private final MediatorLiveData<Boolean> isNoteModified = new MediatorLiveData<>();
+
 
     public LiveData<Boolean> isPreviewActive() {
         return isPreviewActive;
@@ -173,12 +175,6 @@ public class NoteViewModel extends AndroidViewModel {
         return title.isEmpty() && body.isEmpty();
     }
 
-    public LiveData<Boolean> isNoteModified = Transformations.map(selectedNote, current -> {
-        Note original = originalNote.getValue();
-        if (original == null || current == null) return false;
-        return !current.equalsContent(original);
-    });
-
     public boolean hasUnsavedChanges() {
         Note current = selectedNote.getValue();
         Note original = originalNote.getValue();
@@ -232,11 +228,28 @@ public class NoteViewModel extends AndroidViewModel {
     public NoteViewModel(@NonNull Application application) {
         super(application);
 
+        isNoteModified.addSource(selectedNote, n -> checkModified());
+        isNoteModified.addSource(originalNote, n -> checkModified());
         filteredNotes.addSource(notesLiveData, notes -> applySearchQuery());
         filteredNotes.addSource(searchQuery, q -> applySearchQuery());
 
         loadReleaseNote(getApplication().getApplicationContext());
     }
+
+    private void checkModified() {
+        Note current = selectedNote.getValue();
+        Note original = originalNote.getValue();
+        if (original == null || current == null) {
+            isNoteModified.setValue(false);
+        } else {
+            isNoteModified.setValue(!current.equalsContent(original));
+        }
+    }
+    public LiveData<Boolean> getIsNoteModified() {
+        return isNoteModified;
+    }
+
+
     public void loadReleaseNote(Context context) {
         ReleaseNote note = ReleaseNoteHelper.loadReleaseNote(context);
         releaseNoteLiveData.setValue(note);
@@ -372,5 +385,14 @@ public class NoteViewModel extends AndroidViewModel {
 
         result.setValue(filtered);
         return result;
+    }
+
+    public void markSaved() {
+        Note selected = selectedNote.getValue();
+        if (selected != null) {
+            // originalNote ist das Vergleichsobjekt für hasUnsavedChanges
+            // Deep copy!
+            originalNote.setValue(new Note(selected)); // Nutze einen Copy-Konstruktor oder einen eigenen Clone
+        }
     }
 }

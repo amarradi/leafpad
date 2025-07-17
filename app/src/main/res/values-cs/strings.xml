@@ -6,14 +6,14 @@
     <string name="lightmode_preference" translatable="false">lightmode</string>
     <string name="system_preference_option_value" translatable="false">system</string>
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
-    <string name="theme_preference">Theme</string>
+    <string name="theme_preference">Téma</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="what_is_leafpad">Leafpad je jednoduchá aplikace pro poznámky.</string>
     <string name="title_licence">Licence</string>
     <string name="find_code_on_github_summary">Můžete zobrazit a zkontrolovat zdrojový kód přes repozitář. Máte možnost otevřít problém/issue pro změny a chybové zprávy.</string>
     <string name="leafpad_work">Leafpad ukládá všechna data lokálně na vašem smartphonu. Poznámky nebo metadata, jako je datum a čas nejsou uloženy v zádném cloudu a nejsou sdíleny s někým. Žádné textové analýzy se neprovádí. Poznámky patří k vám. Vy rozhodujete, co s nimi děláte.</string>
-    <string name="new_note">nová poznámka</string>
-    <string name="imported">poznámka byla odeslána na leafpad</string>
+    <string name="new_note">Nová poznámka</string>
+    <string name="imported">Poznámka byla odeslána na leafpad</string>
     <string name="rate_the_app">Co třeba recenzi v Google PlayStore?</string>
     <string name="add_shortcut_short_label">Napsat novou</string>
     <string name="action_note_saved">uložené</string>
@@ -26,7 +26,7 @@
     <string name="translate">Přeložit aplikaci na Weblate</string>
     <string name="change">verze</string>
     <string name="system_preference_key">podle systému (výchozí)</string>
-    <string name="contentDescription">přidat novou poznámku</string>
+    <string name="contentDescription">Přidat novou poznámku</string>
     <string name="action_edit_note">Upravit poznámku</string>
     <string name="note_will_be_saved_first">Poznámka bude uložena první</string>
     <string name="general_preference">Obecné nastavení</string>
@@ -46,7 +46,7 @@
     <string name="find_code_on_github">GitHub</string>
     <string name="darkmode_preference_key">tvamý režim</string>
     <string name="search">hledat poznámky</string>
-    <string name="action_save">uložit poznámku</string>
+    <string name="action_save">Uložit poznámku</string>
     <string name="share_note">Sdílet Poznámku?</string>
     <string name="thanks">Děkuji Stefane, Stefane, Manuele, Falku, Stephanie a Emile pro vaše nápady a testování aplikace.</string>
     <string name="statement">Vypíšeme seznamy obchodů, poznámky pro rozhovory, balíčky pro dovolenou nebo narozeniny přátel. To jsou všechny dobré věci, abychom je nezapomněli. Je to velmi podobné s Bohem, píše své dobré a špatné skutky a uloží je. Bůh je nad vším a jednoduše ví všechno. Bůh miluje lidi a chce mít přátelství s nimi. Ale to je možné pouze v případě, že jsme viděli Bohem jako neškodný. Prostřednictvím víry v Ježíši Kristu, naše špatné skutky (naše viny) jsou vymazány před Bohem. Ježíš Kristus odčinil pro naše viny na kříži Kalvárie. Každá osoba, která souhlasí, je v knize života navždy. Jste registrováni v knize života?</string>
@@ -104,5 +104,7 @@
     <string name="no_search_results">Nic nenalezeno</string>
     <string name="set">Je to recept</string>
     <string name="close_release_note">Tlačítko na Zavření</string>
-    <string name="thank_weblate"><b>Catalan</b>: Adolfo Jayme Barrientos(@Fito); <b>Czech</b>: zergio inzunza(@n1kf4m3l); <b>Hindi (Latin script)</b>: Saurmanđal(@Saurmandal); <b>Indonesian</b>: Reza Almanda(@rezaalmanda), Antx(@antx); <b>Italian</b>: pastic cerre(@pasti); <b>Polish</b>: Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140); <b>Russian</b>: Kirill Isakov(@crowbar); <b>Spanish</b>: Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1)</string>
+    <string name="thank_weblate"><b>Katalánština</b>: Adolfo Jayme Barrientos(@Fito); <b>Čeština</b>: zergio inzunza(@n1kf4m3l), MessingWithComputers(@MessingWithComputers); <b>Hindština (Latinské písmo)</b>: Saurmanđal(@Saurmandal); <b>Indonéština</b>: Reza Almanda(@rezaalmanda), Antx(@antx); <b>Italština</b>: pastic cerre(@pasti); <b>Polština</b>: Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140), Matthaiks(@Kityn); <b>Ruština</b>: Kirill Isakov(@crowbar); <b>Španělětina</b>: Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1), LittleWorm(@LittlerWorm)</string>
+    <string name="please_enter_a_title">Please enter a title for the note before you can save it.</string>
+    <string name="title_required">Title required</string>
 </resources>

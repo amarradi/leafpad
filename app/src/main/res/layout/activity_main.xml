@@ -33,7 +33,7 @@
         android:contentDescription="@string/contentDescription"
         android:focusable="true"
         android:text="@string/action_fab_note"
-        app:icon="@drawable/action_add_note"
+        app:icon="@drawable/btn_add_note"
         app:layout_anchor="@id/note_area"
         app:layout_anchorGravity="bottom|right|end" />
 

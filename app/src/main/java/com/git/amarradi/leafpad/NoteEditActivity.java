@@ -1,6 +1,7 @@
 package com.git.amarradi.leafpad;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
@@ -45,13 +47,14 @@ public class NoteEditActivity extends AppCompatActivity {
     private MaterialToolbar toolbar;
     private Resources res;
     private boolean shouldPersistOnPause = true;
-    private boolean isNoteDeleted = false; // <--- Flag setzen!
+    private boolean isNoteDeleted = false;
     private NestedScrollView bodyScroll;
 
     private boolean isNewNote = false;
-
     private boolean fromSearch = false;
     private boolean isUIConfigured = false;
+
+    private MenuItem saveMenuItem;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -59,7 +62,7 @@ public class NoteEditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_note_edit);
-        View root = findViewById(R.id.body_scroll); // oder R.id.all wenn du CoordinatorLayout paddest
+        View root = findViewById(R.id.body_scroll);
 
         ViewCompat.setOnApplyWindowInsetsListener(root, (view, insets) -> {
             int ime = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
@@ -74,12 +77,18 @@ public class NoteEditActivity extends AppCompatActivity {
         setupToolbar();
         noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
 
+        noteViewModel.getIsNoteModified().observe(this, isModified -> {
+            if (saveMenuItem != null) {
+                saveMenuItem.setEnabled(Boolean.TRUE.equals(isModified));
+            }
+        });
+
         String noteId = getIntent().getStringExtra("noteId");
         if (noteId != null) {
             List<Note> allNotes = Leaf.loadAll(this, true); // oder false, je nach ShowHidden
-            for (Note note : allNotes) {
-                if (note.getId().equals(noteId)) {
-                    noteViewModel.setNote(note);
+            for (Note n : allNotes) {
+                if (n.getId().equals(noteId)) {
+                    noteViewModel.setNote(n);
                     break;
                 }
             }
@@ -90,7 +99,7 @@ public class NoteEditActivity extends AppCompatActivity {
 
         View rootEdit = findViewById(R.id.all);
         View toolbar = findViewById(R.id.toolbar);
-        View title = findViewById(R.id.default_text_input_layout); // oder null, wenn nicht vorhanden
+        View title = findViewById(R.id.default_text_input_layout);
         EditText bodyEdit = findViewById(R.id.body_edit);
 
         EditorMinHeightHelper.adjustMinHeight(rootEdit, toolbar, title, bodyEdit);
@@ -116,7 +125,6 @@ public class NoteEditActivity extends AppCompatActivity {
                 Leaf.set(this, newNote);
                 noteViewModel.loadNotes();
 
-                // Optional: Feedback zeigen oder Activity direkt schließen
                 setResult(RESULT_OK);
                 finish();
                 return;
@@ -137,52 +145,41 @@ public class NoteEditActivity extends AppCompatActivity {
             return;
         }
 
-        Note note = Leaf.load(this, noteId);
-        if (note == null) {
+        Note loaded = Leaf.load(this, noteId);
+        if (loaded == null) {
             Log.e("NoteEditActivity", "handleIntent: Note konnte nicht geladen werden für noteId=" + noteId);
             return;
         }
 
-        if (isNewEntry(note)) {
+        if (isNewEntry(loaded)) {
             isNewNote = true;
-            note.setNotedate();
-            note.setNotetime();
+            loaded.setNotedate();
+            loaded.setNotetime();
         }
 
-        noteViewModel.selectNote(note);
+        noteViewModel.selectNote(loaded);
     }
 
     private void observeNote() {
         noteViewModel.getSelectedNote().observe(this, note -> {
-            if (note != null) {
-                this.note = note;
-                if (!isUIConfigured) {
-                    configureUIFromNote(note);
-                    isUIConfigured = true;
-                }
-                // Menü updaten:
-                invalidateOptionsMenu();
+            if (note != null && !isUIConfigured) {
+                configureUIFromNote(note);
+                isUIConfigured = true;
             }
+            // Menü immer updaten!
+            invalidateOptionsMenu();
         });
     }
 
     private void configureUIFromNote(Note note) {
-            if (note.getTitle() != null) {
-                titleEdit.setText(note.getTitle());
-            } else {
-                titleEdit.setText("");
-            }
-
-            if (note.getBody() != null) {
-                bodyEdit.setText(note.getBody());
-            } else {
-                bodyEdit.setText("");
-            }
+        titleEdit.setText(note.getTitle() != null ? note.getTitle() : "");
+        bodyEdit.setText(note.getBody() != null ? note.getBody() : "");
     }
 
     private void initViews() {
         titleEdit = findViewById(R.id.title_edit);
         bodyEdit = findViewById(R.id.body_edit);
+
         previewBody = findViewById(R.id.preview_body); // Initialize TextView
         bodyScroll = findViewById(R.id.body_scroll);
 
@@ -226,20 +223,19 @@ public class NoteEditActivity extends AppCompatActivity {
         bodyEdit.addTextChangedListener(textWatcher);
     }
 
+    private void scrollToCursor() {
+        int selection = bodyEdit.getSelectionStart();
+        Layout layout = bodyEdit.getLayout();
+        if (layout != null && selection > 0) {
+            int line = layout.getLineForOffset(selection);
+            int y = layout.getLineBottom(line);
+            bodyScroll.smoothScrollTo(0, y);
+        }
+    }
+
     private boolean isNewEntry(Note note) {
-        if (note.getTitle() == null) {
-            return true;
-        }
-        if (note.getTitle().isEmpty()) {
-            return true;
-        }
-        if (note.getBody() == null) {
-            return true;
-        }
-        if (note.getBody().isEmpty()) {
-            return true;
-        }
-        return false;
+        return (note.getTitle() == null || note.getTitle().isEmpty() ||
+                note.getBody() == null || note.getBody().isEmpty());
     }
 
     private void observeViewModel() {
@@ -287,27 +283,14 @@ public class NoteEditActivity extends AppCompatActivity {
 
         if (note != null) {
             MenuItem recipeItem = menu.findItem(R.id.action_recipe);
-            boolean isRecipe = note.getCategory() != null && note.getCategory().equals(res.getStringArray(R.array.category)[0]);
+            boolean isRecipe = current.getCategory() != null &&
+                    current.getCategory().equals(res.getStringArray(R.array.category)[0]);
             recipeItem.setChecked(isRecipe);
-
-            if(isRecipe) {
-                recipeItem.setIcon(R.drawable.chefhat_active);
-                invalidateOptionsMenu();
-            } else {
-                recipeItem.setIcon(R.drawable.chefhat);
-                invalidateOptionsMenu();
-            }
+            recipeItem.setIcon(isRecipe ? R.drawable.btn_chefhat_active : R.drawable.btn_chefhat);
 
             MenuItem hideItem = menu.findItem(R.id.action_hide);
-            hideItem.setChecked(note.isHide());
-
-            if(note.isHide()) {
-                hideItem.setIcon(R.drawable.eye_invisible);
-                invalidateOptionsMenu();
-            } else {
-                hideItem.setIcon(R.drawable.eye_visible);
-                invalidateOptionsMenu();
-            }
+            hideItem.setChecked(current.isHide());
+            hideItem.setIcon(current.isHide() ? R.drawable.btn_hide : R.drawable.btn_show);
         }
         return true;
     }
@@ -322,39 +305,45 @@ public class NoteEditActivity extends AppCompatActivity {
             return true;
         }
 
-        return switch (id) {
-
-            case R.id.action_recipe -> {
-                // Toggle Rezept-Status
-                item.setChecked(!item.isChecked());
-                if (item.isChecked()) {
-                    note.setCategory(res.getStringArray(R.array.category)[0]);
-                } else {
-                    note.setCategory("");
+        switch (id) {
+            case R.id.action_recipe: {
+                Note current = noteViewModel.getSelectedNote().getValue();
+                if (current != null) {
+                    if (item.isChecked()) {
+                        current.setCategory("");
+                    } else {
+                        current.setCategory(res.getStringArray(R.array.category)[0]);
+                    }
                 }
-                yield true;
+                invalidateOptionsMenu();
+                return true;
             }
-            case R.id.action_hide -> {
-                // Toggle Sichtbarkeit
-                item.setChecked(!item.isChecked());
-                note.setHide(item.isChecked());
-                yield true;
+            case R.id.action_hide: {
+                Note current = noteViewModel.getSelectedNote().getValue();
+                if (current != null) {
+                    current.setHide(!item.isChecked());
+                }
+                invalidateOptionsMenu();
+                return true;
             }
-
-            case R.id.action_share_note -> {
-                ShareHelper.shareNote(this,note);
-                yield true;
+            case R.id.action_share_note: {
+                Note current = noteViewModel.getSelectedNote().getValue();
+                if (current != null) {
+                    ShareHelper.shareNote(this, current);
+                }
+                return true;
             }
-            case R.id.action_remove -> {
+            case R.id.action_remove: {
                 DialogHelper.showDeleteSingleNoteDialog(NoteEditActivity.this, this::removeNote);
-                yield true;
+                return true;
             }
-            case R.id.action_save -> {
+            case R.id.action_save: {
                 saveNote();
-                yield true;
+                return true;
             }
-            default -> super.onOptionsItemSelected(item);
-        };
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void updateNoteFromUI() {
@@ -366,6 +355,7 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private void exitNoteEdit() {
+        setResult(RESULT_OK);
         if (fromSearch) {
             Intent intent = new Intent(this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -379,20 +369,31 @@ public class NoteEditActivity extends AppCompatActivity {
         updateNoteFromUI();
         Note current = noteViewModel.getSelectedNote().getValue();
 
+        if (current != null && (current.getTitle() == null || current.getTitle().trim().isEmpty())) {
+            DialogHelper.showTitleRequiredDialog(this);
+            titleEdit.requestFocus();
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (imm != null) {
+                imm.showSoftInput(titleEdit, InputMethodManager.SHOW_IMPLICIT);
+            }
+            return;
+        }
+
         if (current != null) {
             current.setTitle(titleEdit.getText().toString());
             current.setBody(bodyEdit.getText().toString());
         }
-        if(noteViewModel.hasUnsavedChanges() && !isNewNote) {
-            if(Leafpad.isChangeNotificationEnabled(this) ){
+        if (noteViewModel.hasUnsavedChanges() && !isNewNote) {
+            if (Leafpad.isChangeNotificationEnabled(this)) {
                 DialogHelper.showUnsavedChangesDialog(
                         NoteEditActivity.this,
-                        ()-> {
+                        () -> {
                             shouldPersistOnPause = true;
                             noteViewModel.persist();
+                            setResult(RESULT_OK);
                             exitNoteEdit();
                         },
-                        () ->{
+                        () -> {
                             shouldPersistOnPause = false;
                             exitNoteEdit();
                         }
@@ -406,23 +407,36 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private void saveNote() {
-        if (note == null) {
+        Note current = noteViewModel.getSelectedNote().getValue();
+        if (current == null) {
             return;
         }
         updateNoteFromUI();
 
-        if (NoteViewModel.isEmptyEntry(note)) {
-            Leaf.remove(this, note);
-        } else {
-            Leaf.set(this, note);
-            noteViewModel.saveNote(getApplication(), note);
+        if(current.getTitle() == null || current.getTitle().trim().isEmpty()) {
+            DialogHelper.showTitleRequiredDialog(this);
+            titleEdit.requestFocus();
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (imm != null) {
+                imm.showSoftInput(titleEdit, InputMethodManager.SHOW_IMPLICIT);
+            }
+            return;
         }
+
+        if (NoteViewModel.isEmptyEntry(current)) {
+            Leaf.remove(this, current);
+        } else {
+            Leaf.set(this, current);
+            noteViewModel.saveNote(getApplication(), current);
+            noteViewModel.markSaved();
+        }
+        setResult(RESULT_OK);
     }
 
     private void removeNote() {
-        if (note != null) {
-            noteViewModel.deleteNote(getApplication(), note);
-            note = null;
+        Note current = noteViewModel.getSelectedNote().getValue();
+        if (current != null) {
+            noteViewModel.deleteNote(getApplication(), current);
             isNoteDeleted = true;
         }
         setResult(RESULT_OK);
@@ -446,11 +460,14 @@ public class NoteEditActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        if(!isNoteDeleted && !isNewEntry(note)) {
+        Note current = noteViewModel.getSelectedNote().getValue();
+        if (!isNoteDeleted && current != null && !NoteViewModel.isEmptyEntry(current)) {
             updateNoteFromUI();
             if (shouldPersistOnPause && noteViewModel.hasUnsavedChanges()) {
                 noteViewModel.persist();
+                noteViewModel.markSaved();
+                setResult(RESULT_OK);
             }
         }
-   }
+    }
 }

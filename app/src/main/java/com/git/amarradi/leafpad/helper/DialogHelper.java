@@ -42,7 +42,7 @@ public class DialogHelper {
 
     public static void showDeleteSingleNoteDialog(Context context, Runnable onConfirm) {
         new MaterialAlertDialogBuilder(context)
-                .setIcon(R.drawable.delete)
+                .setIcon(R.drawable.ic_delete)
                 .setTitle(R.string.remove_dialog_title)
                 .setMessage(R.string.remove_dailog_message)
                 .setPositiveButton(R.string.action_remove, (dialog, which) -> {
@@ -95,4 +95,13 @@ public class DialogHelper {
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();
     }
+
+    public static void showTitleRequiredDialog(Context context) {
+        new MaterialAlertDialogBuilder(context)
+                .setTitle(R.string.title_required)
+                .setMessage(R.string.please_enter_a_title)
+                .setPositiveButton(android.R.string.ok, null)
+                .show();
+    }
+
 }

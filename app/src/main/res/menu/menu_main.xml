@@ -6,22 +6,22 @@
     <item
         android:id="@+id/action_search"
         android:title="Suche"
-        android:icon="@drawable/action_search"
+        android:icon="@drawable/btn_search"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/item_toggle_layout"
-        android:icon="@drawable/gridview"
+        android:icon="@drawable/ic_gridview"
         android:title="@string/toggle"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/item_show_hidden"
-        android:icon="@drawable/eye_visible"
+        android:icon="@drawable/btn_show"
         android:title="@string/show_hidden"
         app:showAsAction="ifRoom"
         />
     <item
         android:id="@+id/item_settings"
-        android:icon="@drawable/settings"
+        android:icon="@drawable/ic_settings"
         android:title="@string/menu_settings"
         app:showAsAction="ifRoom" />
 </menu>

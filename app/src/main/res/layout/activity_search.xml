@@ -27,11 +27,11 @@
         app:boxBackgroundMode="filled"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="@dimen/switch_layout_marginStart"
-        android:paddingEnd="@dimen/switch_layout_marginEnd"
+        android:paddingStart="@dimen/switch_layout_margin_start"
+        android:paddingEnd="@dimen/switch_layout_margin_end"
         android:hint="@string/search_hint"
         app:endIconMode="clear_text"
-        app:startIconDrawable="@drawable/action_search"
+        app:startIconDrawable="@drawable/btn_search"
         app:startIconContentDescription="">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -40,8 +40,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:paddingStart="@dimen/switch_layout_marginStart"
-            android:paddingEnd="@dimen/switch_layout_marginEnd"
+            android:paddingStart="@dimen/switch_layout_margin_start"
+            android:paddingEnd="@dimen/switch_layout_margin_end"
             android:imeOptions="actionSearch" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,8 +55,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="@dimen/switch_layout_marginStart"
-        android:paddingEnd="@dimen/switch_layout_marginEnd">
+        android:paddingStart="@dimen/switch_layout_margin_start"
+        android:paddingEnd="@dimen/switch_layout_margin_end">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/no_results_text"
