@@ -46,9 +46,6 @@ public class    NoteViewModel extends AndroidViewModel {
     public LiveData<List<Object>> getCombinedNotes() { return combinedNotes; }
     private final MediatorLiveData<Boolean> isNoteModified = new MediatorLiveData<>();
 
-
-
-
     public void checkAndLoadReleaseNote(Context context) {
         int savedVersion = Leafpad.getCurrentLeafpadVersionCode(context); // default = 0
         int currentVersion = Leafpad.getCurrentVersionCode(context);

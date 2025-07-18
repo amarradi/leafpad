@@ -65,6 +65,11 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         buildCombinedListAndNotify();
     }
 
+    public boolean isShowOnlyHidden() {
+        return showOnlyHidden;
+    }
+
+
     // Setter für kombinierte Liste (z. B. bei MVVM direkt vom ViewModel)
     public void setCombinedList(List<Object> list) {
         if (list != null) {
