@@ -102,7 +102,6 @@
     <string name="empty_list">Καμία σημείωση διαθέσιμη στη λίστα</string>
     <string name="set">Είναι μια συνταγή</string>
     <string name="close_release_note">Κουμπί Κλεισίματος</string>
-    <string name="thank_weblate"></string>
     <string name="please_enter_a_title">Παρακαλούμε εισάγετε τίτλο για τη σημείωση πριν μπορέσετε να την αποθηκεύσετε.</string>
     <string name="title_required">Απαιτείται τίτλος</string>
 </resources>
