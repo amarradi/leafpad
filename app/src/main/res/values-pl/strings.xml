@@ -35,7 +35,7 @@
     <string name="leafpad_work">Leafpad zapisuje wszystkie dane lokalnie na Twoim smartfonie. Notatki lub metadane, takie jak data i godzina, nie są przechowywane w żadnej chmurze i nie są nikomu udostępniane. Nie jest również przeprowadzana żadna analiza tekstu. Notatki należą do Ciebie. Ty decydujesz, co z nimi zrobisz.</string>
     <string name="new_note">Nowa notatka</string>
     <string name="imported">Notatka została wysłana do Leafpada</string>
-    <string name="rate_the_app">Co powiesz na recenzję w sklepie Google PlayStore?</string>
+    <string name="rate_the_app">Co powiesz na recenzję w sklepie Google PlayStore?</string>
     <string name="remove_dialog_abort">Cofnij</string>
     <string name="menu_settings">Ustawienia</string>
     <string name="system_preference_key">Systemowy (domyślny)</string>
