@@ -10,7 +10,7 @@
     <string name="theme_preference">Theme</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="created_txt">crée le</string>
-    <string name="remove_dailog_message">Cette note sera définitivement supprimée. Après coup, elle ne pourra plus être restaurée.</string>
+    <string name="remove_dailog_message">Cette note sera définitivement supprimée, et ne pourra plus être réstaurée</string>
     <string name="remove_dialog_abort">Annuler</string>
     <string name="menu_settings">Réglages</string>
     <string name="general_preference">General</string>
