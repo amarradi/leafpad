@@ -35,11 +35,6 @@
             android:summary="@string/restore"
             android:icon="@drawable/ic_restore_all"
             />
-       <!--<CheckBoxPreference
-            android:selectable="true"
-            android:key="change"
-            android:title="@string/notification_of_change"
-            android:summary="@string/notification_of_change_description"/> -->
         <androidx.preference.SwitchPreferenceCompat
             android:key="change"
             android:title="@string/notification_of_change"
@@ -52,6 +47,11 @@
     <PreferenceCategory
         android:title="@string/participate">
         <Preference
+            android:icon="@drawable/ic_goto_play_store"
+            android:key="rating"
+            android:title="@string/satisfied"
+            android:summary="@string/rate_the_app" />
+        <Preference
             android:selectable="true"
             android:icon="@drawable/ic_github_logo"
             android:key="github"
@@ -63,10 +63,5 @@
             android:icon="@drawable/ic_translation"
             android:title="@string/translate"
             android:summary="@string/translation_help"/>
-        <Preference
-            android:icon="@drawable/ic_goto_play_store"
-            android:key="rating"
-            android:title="@string/satisfied"
-            android:summary="@string/rate_the_app" />
     </PreferenceCategory>
 </PreferenceScreen>

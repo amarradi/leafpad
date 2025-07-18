@@ -17,7 +17,7 @@
     <string name="edited_text">Bearbeitet am</string>
     <string name="new_note">neue Notiz</string>
     <string name="satisfied">Gefällt Ihnen leafpad?</string>
-    <string name="rate_the_app">Wie wäre es mit einer Bewertung im PlayStore von Google?</string>
+    <string name="rate_the_app">Wie wäre es mit einer Bewertung im PlayStore von Google? Dann öffne direkt Google Play.</string>
     <string name="created_txt">Notiz erstellt am</string>
     <string name="remove_dialog_title">Sind Sie sicher?</string>
     <string name="remove_dailog_message">Diese Notiz wird endgültig gelöscht. Danach kann sie nicht wiederhergestellt werden.</string>
