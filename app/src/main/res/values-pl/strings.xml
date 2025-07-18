@@ -35,7 +35,7 @@
     <string name="leafpad_work">Leafpad zapisuje wszystkie dane lokalnie na Twoim smartfonie. Notatki lub metadane, takie jak data i godzina, nie są przechowywane w żadnej chmurze i nie są nikomu udostępniane. Nie jest również przeprowadzana żadna analiza tekstu. Notatki należą do Ciebie. Ty decydujesz, co z nimi zrobisz.</string>
     <string name="new_note">Nowa notatka</string>
     <string name="imported">Notatka została wysłana do Leafpada</string>
-    <string name="rate_the_app">Co powiesz na recenzję w sklepie Google PlayStore?</string>
+    <string name="rate_the_app">A może napiszesz recenzję w Google Play? Przejdź bezpośrednio do Google Play.</string>
     <string name="remove_dialog_abort">Cofnij</string>
     <string name="menu_settings">Ustawienia</string>
     <string name="system_preference_key">Systemowy (domyślny)</string>
@@ -104,7 +104,7 @@
     <string name="empty_list">Brak notatek na liście</string>
     <string name="set">To jest przepis</string>
     <string name="close_release_note">Zamknij</string>
-    <string name="thank_weblate"><b>Kataloński</b>: Adolfo Jayme Barrientos(@Fito); <b>Czeski</b>: zergio inzunza(@n1kf4m3l), MessingWithComputers(@MessingWithComputers); <b>Hindi (pismo łacińskie)</b>: Saurmanđal(@Saurmandal); <b>Indonezyjski</b>: Reza Almanda(@rezaalmanda), Antx(@antx); <b>Włoski</b>: pastic cerre(@pasti); <b>Polski</b>: Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140), Matthaiks(@Kityn); <b>Rosyjski</b>: Kirill Isakov(@crowbar); <b>Hiszpański</b>: Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1), LittleWorm(@LittlerWorm)</string>
+    <string name="thank_weblate"><b>Arabski</b>: Asaad Zein(@asaadzx); <b>Angielski</b>: Santiago Centeno(@Java16); <b>Francuski</b>: Leonart(@Leonart); <b>Grecki</b>: Jim Kats(@jimkats1); <b>Kataloński</b>: Adolfo Jayme Barrientos(@Fito); <b>Czeski</b>: zergio inzunza(@n1kf4m3l), MessingWithComputers(@MessingWithComputers); <b>Hindi (pismo łacińskie)</b>: Saurmanđal(@Saurmandal); <b>Indonezyjski</b>: Reza Almanda(@rezaalmanda), Antx(@antx); toposets(@toposets); <b>Włoski</b>: pastic cerre(@pasti); <b>Polski</b>: Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140), Matthaiks(@Kityn); <b>Rosyjski</b>: Kirill Isakov(@crowbar); Maksim_220 Кабанов(@law820314); <b>Ukraiński</b>: Stepan Andriiovych(@Stepan); <b>Hiszpański</b>: Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1), LittleWorm(@LittlerWorm)</string>
     <string name="please_enter_a_title">Wpisz tytuł notatki przed jej zapisaniem.</string>
     <string name="title_required">Wymagany tytuł</string>
 </resources>
