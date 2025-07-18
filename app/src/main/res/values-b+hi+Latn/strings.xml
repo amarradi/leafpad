@@ -82,8 +82,8 @@
     <string name="backupfinish">Backup khatm hua</string>
     <string name="invalidFile">Amaany backup file hai. Import cancel kar diya gaya.</string>
     <string name="cancel">Cancel karein</string>
-    <string name="showRestoreConfirmation">Restore karein?</string>
-    <string name="restore_notes_title">Restore karein</string>
+    <string name="showRestoreConfirmation">पुनर्स्थापित?</string>
+    <string name="restore_notes_title">स्टोर</string>
     <string name="save_notes_title">Backup karein</string>
     <string name="showRestoreConfirmationMessage">Vartmaan sabhi notes backup se badal diye jaayenge. Aage badhein?</string>
     <string name="toggle">View badlein</string>
