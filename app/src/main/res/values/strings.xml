@@ -16,6 +16,8 @@
     <string name="contentDescription">add new Note</string>
     <string name="imported">note was send to leafpad</string>
     <string name="edited_text">edited at</string>
+    <string name="action_preview">preview</string>
+    <string name="bullet_point_symbol">• </string>
     <string name="new_note">new Note</string>
     <string name="satisfied">Enjoying leafpad?</string>
     <string name="rate_the_app">How about a review in Google\'s PlayStore? Then open Google Play directly.</string>
