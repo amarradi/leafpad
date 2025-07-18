@@ -113,10 +113,7 @@
     <style name="TextAppearance.MyNoteTitle" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textSize">@dimen/text_size_title</item>
         <item name="android:textStyle">bold</item>
-
         <item name="android:fontFamily">@font/opensans_medium</item>
-
-        <!-- Oder spezifische Farbe -->
     </style>
 
     <style name="CategoryLabel" parent="">

@@ -47,16 +47,22 @@
                 app:boxBackgroundColor="?attr/colorSurface"
                 app:boxBackgroundMode="filled"
                 app:hintTextAppearance="@style/MyHintStyle"
+                android:gravity="top|start"
                 android:paddingStart="@dimen/switch_layout_margin_start"
                 android:paddingEnd="@dimen/switch_layout_margin_end">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/title_edit"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="top|start"
-                    android:inputType="textMultiLine"
-                    android:maxLines="@integer/max_lines"
+                    android:gravity="start|center_vertical"
+                    android:inputType="textMultiLine|text"
+                    android:singleLine="false"
+                    android:ellipsize="end"
+
+                    android:scrollHorizontally="true"
                     android:textAppearance="@style/TextAppearance.MyNoteTitle" />
             </com.google.android.material.textfield.TextInputLayout>
 
