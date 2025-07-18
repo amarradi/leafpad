@@ -14,7 +14,7 @@
     <string name="leafpad_work">Leafpad ukládá všechna data lokálně na vašem smartphonu. Poznámky nebo metadata, jako je datum a čas nejsou uloženy v zádném cloudu a nejsou sdíleny s někým. Žádné textové analýzy se neprovádí. Poznámky patří k vám. Vy rozhodujete, co s nimi děláte.</string>
     <string name="new_note">Nová poznámka</string>
     <string name="imported">Poznámka byla odeslána na leafpad</string>
-    <string name="rate_the_app">Co třeba recenzi v Google PlayStore?</string>
+    <string name="rate_the_app">Co třeba recenzi v Google PlayStore? Klepněte pro otevření Google Play přímo.</string>
     <string name="add_shortcut_short_label">Napsat novou</string>
     <string name="action_note_saved">uložené</string>
     <string name="tell_about">Co chci vám říct o Leafpad</string>
@@ -88,7 +88,7 @@
     <string name="restore_notes_title">Obnovit</string>
     <string name="save_notes_title">Zálohovat</string>
     <string name="showRestoreConfirmationMessage">Všechny aktuální poznámky budou nahrazeny zálohou. Pokračovat?</string>
-    <string name="toggle">změna zobrazení</string>
+    <string name="toggle">Změna zobrazení</string>
     <string name="note_shared">Poznámka sdělena</string>
     <string name="save_changes">uložit změny</string>
     <string name="notification_of_change_description">Oznámit o změnách ve poznámkách</string>
