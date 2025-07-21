@@ -42,6 +42,12 @@
             android:defaultValue="true"
             android:icon="@drawable/ic_change_notification"
             />
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="keep_screen_on"
+            android:title="@string/keep_screen_on_title"
+            android:summary="@string/keep_screen_on_summary"
+            android:defaultValue="false"
+            android:icon="@drawable/ic_clock" />
     </PreferenceCategory>
 
     <PreferenceCategory

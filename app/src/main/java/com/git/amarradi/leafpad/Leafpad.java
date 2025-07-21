@@ -28,6 +28,7 @@ public class Leafpad extends Application {
     public static final String PREF_NOTIFY_ON_CHANGE = "change";
     public static final String KEY_RELEASE_NOTE_CLOSED = "release_note_closed";
     public static final String CURRENT_LEAFPAD_VERSION_CODE = "current_leafpad_version_code";
+    public static final String PREF_KEEP_SCREEN_ON = "keep_screen_on";
 
     private static Leafpad instance;
 
@@ -190,5 +191,14 @@ public class Leafpad extends Application {
 
     public void close() throws IOException {
         // Ressourcen freigeben – z. B. Datenbank, Caches etc.
+    }
+
+    public static boolean isKeepScreenOnEnabled(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean(PREF_KEEP_SCREEN_ON, false);
+    }
+    public static void setKeepScreenOnEnabled(Context context, boolean enabled) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().putBoolean(PREF_KEEP_SCREEN_ON, enabled).apply();
     }
 }
