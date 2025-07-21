@@ -22,6 +22,7 @@ import com.git.amarradi.leafpad.helper.NoteBackupHelper;
 import com.git.amarradi.leafpad.helper.NotificationHelper;
 import com.git.amarradi.leafpad.model.Leaf;
 import com.git.amarradi.leafpad.model.Note;
+import com.git.amarradi.leafpad.Leafpad;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -43,6 +44,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         addPreferencesFromResource(R.xml.preferences);
         setupActivityResultLaunchers();
         setupPreferences();
+        setupKeepScreenOnSwitch();
     }
 
     private void setupPreferences() {
@@ -242,6 +244,25 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             activity.startActivity(intent);
         } catch (android.content.ActivityNotFoundException e) {
             activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + packageName)));
+        }
+    }
+
+    private void setupKeepScreenOnSwitch() {
+        SwitchPreferenceCompat keepScreenOnSwitch = findPreference(Leafpad.PREF_KEEP_SCREEN_ON);
+        if (keepScreenOnSwitch != null) {
+            keepScreenOnSwitch.setOnPreferenceChangeListener((preference, newValue) -> {
+                boolean enable = (Boolean) newValue;
+                if (enable) {
+                    DialogHelper.showKeepScreenOnWarningDialog(requireContext(), () -> {
+                        keepScreenOnSwitch.setChecked(true);
+                        Leafpad.setKeepScreenOnEnabled(requireContext(), true);
+                    });
+                    return false;
+                } else {
+                    Leafpad.setKeepScreenOnEnabled(requireContext(), false);
+                    return true;
+                }
+            });
         }
     }
 }
