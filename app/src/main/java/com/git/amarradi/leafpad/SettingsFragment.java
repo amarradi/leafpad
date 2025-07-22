@@ -248,20 +248,23 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     }
 
     private void setupKeepScreenOnSwitch() {
-        SwitchPreferenceCompat keepScreenOnSwitch = findPreference(Leafpad.PREF_KEEP_SCREEN_ON);
+        androidx.preference.SwitchPreferenceCompat keepScreenOnSwitch = findPreference("keep_screen_on");
         if (keepScreenOnSwitch != null) {
             keepScreenOnSwitch.setOnPreferenceChangeListener((preference, newValue) -> {
-                boolean enable = (Boolean) newValue;
-                if (enable) {
-                    DialogHelper.showKeepScreenOnWarningDialog(requireContext(), () -> {
-                        keepScreenOnSwitch.setChecked(true);
-                        Leafpad.setKeepScreenOnEnabled(requireContext(), true);
-                    });
+                if ((Boolean) newValue) {
+                    new com.google.android.material.dialog.MaterialAlertDialogBuilder(requireContext())
+                        .setTitle(R.string.keep_screen_on_dialog_title)
+                        .setMessage(R.string.keep_screen_on_dialog_message)
+                        .setPositiveButton(R.string.keep_screen_on_dialog_yes, (dialog, which) -> {
+                            keepScreenOnSwitch.setChecked(true);
+                        })
+                        .setNegativeButton(R.string.keep_screen_on_dialog_no, (dialog, which) -> {
+                            keepScreenOnSwitch.setChecked(false);
+                        })
+                        .show();
                     return false;
-                } else {
-                    Leafpad.setKeepScreenOnEnabled(requireContext(), false);
-                    return true;
                 }
+                return true;
             });
         }
     }

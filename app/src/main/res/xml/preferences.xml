@@ -47,7 +47,7 @@
             android:title="@string/keep_screen_on_title"
             android:summary="@string/keep_screen_on_summary"
             android:defaultValue="false"
-            android:icon="@drawable/ic_clock" />
+            android:icon="@drawable/ic_keep_screen_on" />
     </PreferenceCategory>
 
     <PreferenceCategory

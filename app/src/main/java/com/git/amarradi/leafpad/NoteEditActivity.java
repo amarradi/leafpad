@@ -392,11 +392,10 @@ public class NoteEditActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        shouldPersistOnPause = true;
         if (Leafpad.isKeepScreenOnEnabled(this)) {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         } else {
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            getWindow().clearFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
     }
 
