@@ -47,7 +47,7 @@
                             android:layout_height="@dimen/large_icon_size"
                             android:contentDescription="@string/leafpad_work"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/ic_logo_leafpad_new"
+                            android:src="@drawable/ic_olive_leaf"
                             android:layout_margin="@dimen/image_about_section_margin" />
 
                         <com.google.android.material.textview.MaterialTextView
@@ -120,7 +120,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/text_about_section_margin"
-                            android:textAppearance="@style/TextAppearance.MyAboutPage"
+                            android:textAppearance="@style/TextAppearance.MyAboutPageBibleVerse"
                             android:text="@string/rev20_12" />
                     </LinearLayout>
                 </LinearLayout>

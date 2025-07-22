@@ -64,9 +64,16 @@
     </style>
 
     <style name="TextAppearance.MyAboutPage" parent="TextAppearance.MaterialComponents.Body1">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">13sp</item>
         <item name="android:textColor">@color/md_theme_primary</item>
         <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/opensans_medium</item>
+    </style>
+
+    <style name="TextAppearance.MyAboutPageBibleVerse" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/md_theme_bibleverse</item>
+        <item name="android:textStyle">italic|bold</item>
         <item name="android:fontFamily">@font/opensans_medium</item>
     </style>
 
