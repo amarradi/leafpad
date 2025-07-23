@@ -111,6 +111,6 @@
     <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
     <string name="keep_screen_on_dialog_no">No</string>
     <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
-    <string name="keep_screen_on_title">Keep screen on</string>
+    <string name="keep_screen_on_title">Сохранить экран</string>
     <string name="keep_screen_on_dialog_title">Battery usage warning</string>
 </resources>
