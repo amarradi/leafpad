@@ -106,4 +106,10 @@
     <string name="thank_weblate"><b>Catalan</b>: Adolfo Jayme Barrientos(@Fito); <b>Czech</b>: zergio inzunza(@n1kf4m3l), MessingWithComputers(@MessingXwithComputers); <b>Hindi (Écriture latine)</b> Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1), LittleWorm(@LittlerWorm)</string>
     <string name="please_enter_a_title">Veuillez entrer un titre pour la note avant de pouvoir la sauvegarder.</string>
     <string name="title_required">Titre requis</string>
+    <string name="keep_screen_on_dialog_yes">Yes</string>
+    <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
+    <string name="keep_screen_on_dialog_no">No</string>
+    <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
+    <string name="keep_screen_on_title">Keep screen on</string>
+    <string name="keep_screen_on_dialog_title">Battery usage warning</string>
 </resources>
