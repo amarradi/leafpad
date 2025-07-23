@@ -16,8 +16,8 @@ public class DialogHelper {
     }
 
     public static void showConfirmDialog(Context context, String title, String message,
-                                         String positiveText, String negativeText,
-                                         OnDialogConfirmedListener listener) {
+            String positiveText, String negativeText,
+            OnDialogConfirmedListener listener) {
         new MaterialAlertDialogBuilder(context)
                 .setTitle(title)
                 .setMessage(message)
@@ -42,7 +42,7 @@ public class DialogHelper {
 
     public static void showDeleteSingleNoteDialog(Context context, Runnable onConfirm) {
         new MaterialAlertDialogBuilder(context)
-                .setIcon(R.drawable.delete)
+                .setIcon(R.drawable.ic_delete)
                 .setTitle(R.string.remove_dialog_title)
                 .setMessage(R.string.remove_dailog_message)
                 .setPositiveButton(R.string.action_remove, (dialog, which) -> {
@@ -53,7 +53,6 @@ public class DialogHelper {
                 .show();
     }
 
-
     public static void showDeleteConfirmation(Context context, OnDialogConfirmedListener listener) {
         showConfirmDialog(
                 context,
@@ -61,8 +60,7 @@ public class DialogHelper {
                 context.getString(R.string.showDeleteConfirmationMessage),
                 context.getString(R.string.delete),
                 context.getString(R.string.cancel),
-                listener
-        );
+                listener);
     }
 
     public static void showRestoreConfirmation(Context context, OnDialogConfirmedListener listener) {
@@ -72,8 +70,7 @@ public class DialogHelper {
                 context.getString(R.string.showRestoreConfirmationMessage),
                 context.getString(R.string.yes),
                 context.getString(R.string.cancel),
-                listener
-        );
+                listener);
     }
 
     public static void showThemeSelectionDialog(Context context, Runnable onThemeChanged) {
@@ -89,10 +86,32 @@ public class DialogHelper {
                 .setSingleChoiceItems(themeLabels, currentIndex, (dialog, which) -> {
                     prefs.edit().putString("theme", themeValues[which]).apply();
                     Leafpad.getInstance().saveTheme(themeValues[which]);
-                    if (onThemeChanged != null) onThemeChanged.run();
+                    if (onThemeChanged != null)
+                        onThemeChanged.run();
                     dialog.dismiss();
                 })
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();
     }
+
+    public static void showTitleRequiredDialog(Context context) {
+        new MaterialAlertDialogBuilder(context)
+                .setTitle(R.string.title_required)
+                .setMessage(R.string.please_enter_a_title)
+                .setPositiveButton(android.R.string.ok, null)
+                .show();
+    }
+
+    public static void showKeepScreenOnWarningDialog(Context context, OnDialogConfirmedListener listener) {
+        new MaterialAlertDialogBuilder(context)
+                .setTitle(R.string.keep_screen_on_dialog_title)
+                .setMessage(R.string.keep_screen_on_dialog_message)
+                .setPositiveButton(R.string.keep_screen_on_dialog_yes, (dialog, which) -> {
+                    if (listener != null)
+                        listener.onConfirmed();
+                })
+                .setNegativeButton(R.string.keep_screen_on_dialog_no, null)
+                .show();
+    }
+
 }

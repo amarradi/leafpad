@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class NoteViewModel extends AndroidViewModel {
+public class    NoteViewModel extends AndroidViewModel {
 
     private final MutableLiveData<List<Note>> notesLiveData = new MutableLiveData<>();
     private static final MutableLiveData<Note> selectedNote = new MutableLiveData<>();
@@ -42,9 +42,64 @@ public class NoteViewModel extends AndroidViewModel {
     public LiveData<ReleaseNote> getReleaseNote() {
         return releaseNoteLiveData;
     }
-    // In NoteViewModel.java
     private final MediatorLiveData<List<Object>> combinedNotes = new MediatorLiveData<>();
     public LiveData<List<Object>> getCombinedNotes() { return combinedNotes; }
+    private final MediatorLiveData<Boolean> isNoteModified = new MediatorLiveData<>();
+
+    private Object releaseNoteHeader;
+
+    public void setReleaseNoteHeader(Object releaseNoteHeader) {
+        this.releaseNoteHeader = releaseNoteHeader;
+        updateCombinedNotes(); // Liste neu aufbauen
+    }
+
+    public Object getReleaseNoteHeader() {
+        return releaseNoteHeader;
+    }
+
+
+
+    public void updateSingleNote(Note updatedNote) {
+        List<Note> currentNotes = notesLiveData.getValue();
+        if (currentNotes == null) {
+            currentNotes = new ArrayList<>();
+        } else {
+            currentNotes = new ArrayList<>(currentNotes); // kopieren, um LiveData nicht direkt zu verändern
+        }
+
+        boolean replaced = false;
+
+        for (int i = 0; i < currentNotes.size(); i++) {
+            if (currentNotes.get(i).getId().equals(updatedNote.getId())) {
+                currentNotes.set(i, updatedNote); // ersetze vorhandene Notiz
+                replaced = true;
+                break;
+            }
+        }
+
+        if (!replaced) {
+            currentNotes.add(0, updatedNote); // neue Notiz ganz oben einfügen
+        }
+
+        notesLiveData.setValue(currentNotes);
+
+        // Wenn du auch combinedNotesLiveData nutzt (z. B. für ReleaseNotes), hier ebenfalls setzen:
+        updateCombinedNotes();
+    }
+
+    private void updateCombinedNotes() {
+        List<Note> visibleNotes = notesLiveData.getValue();
+        List<Object> combined = new ArrayList<>();
+        if (releaseNoteHeader != null) {
+            combined.add(releaseNoteHeader);
+        }
+        if (visibleNotes != null) {
+            combined.addAll(visibleNotes);
+        }
+        combinedNotes.setValue(combined);
+    }
+
+
 
     public void checkAndLoadReleaseNote(Context context) {
         int savedVersion = Leafpad.getCurrentLeafpadVersionCode(context); // default = 0
@@ -58,6 +113,53 @@ public class NoteViewModel extends AndroidViewModel {
             releaseNoteLiveData.setValue(null);
         }
     }
+
+
+
+    public void setNoteHide() {
+        // 1. Hole die aktuell ausgewählte Notiz.
+        Note note = selectedNote.getValue();
+        if (note == null) {
+            // Falls keine Notiz ausgewählt ist, abbrechen.
+            return;
+        }
+
+        // 2. Toggle den Versteckt-Status der Notiz.
+        note.setHide(!note.isHide());
+
+        // 3. Hole die aktuelle Notizenliste aus dem LiveData.
+        List<Note> oldList = notesLiveData.getValue();
+        if (oldList == null) {
+            // Falls die Liste leer oder nicht initialisiert ist, abbrechen.
+            return;
+        }
+        // 4. Erstelle eine neue Kopie der Liste (damit LiveData die Änderung erkennt).
+        List<Note> newList = new ArrayList<>(oldList);
+
+        // 5. Finde die Position der geänderten Notiz in der Liste.
+        int index = -1;
+        for (int i = 0; i < newList.size(); i++) {
+            Note n = newList.get(i);
+            // Hier solltest du vergleichen, ob es wirklich dieselbe Notiz ist.
+            // Am besten anhand einer eindeutigen ID (z. B. note.getId()).
+            if (n.getId().equals(note.getId())) {
+                index = i;
+                break;
+            }
+        }
+
+        if (index != -1) {
+            // 6. Ersetze die alte Notiz durch die geänderte Version.
+            newList.set(index, note);
+
+            // 7. Setze die aktualisierte Liste als neuen Wert im LiveData.
+            notesLiveData.setValue(newList);
+
+            // (Optional: setze das geänderte Note-Objekt auch erneut im selectedNote-LiveData, falls nötig)
+            selectedNote.setValue(note);
+        }
+    }
+
     public void persist() {
         Note n = selectedNote.getValue();
         if (n == null) return;
@@ -101,12 +203,6 @@ public class NoteViewModel extends AndroidViewModel {
         }
         return title.isEmpty() && body.isEmpty();
     }
-
-    public LiveData<Boolean> isNoteModified = Transformations.map(selectedNote, current -> {
-        Note original = originalNote.getValue();
-        if (original == null || current == null) return false;
-        return !current.equalsContent(original);
-    });
 
     public boolean hasUnsavedChanges() {
         Note current = selectedNote.getValue();
@@ -161,11 +257,28 @@ public class NoteViewModel extends AndroidViewModel {
     public NoteViewModel(@NonNull Application application) {
         super(application);
 
+        isNoteModified.addSource(selectedNote, n -> checkModified());
+        isNoteModified.addSource(originalNote, n -> checkModified());
         filteredNotes.addSource(notesLiveData, notes -> applySearchQuery());
         filteredNotes.addSource(searchQuery, q -> applySearchQuery());
 
         loadReleaseNote(getApplication().getApplicationContext());
     }
+
+    private void checkModified() {
+        Note current = selectedNote.getValue();
+        Note original = originalNote.getValue();
+        if (original == null || current == null) {
+            isNoteModified.setValue(false);
+        } else {
+            isNoteModified.setValue(!current.equalsContent(original));
+        }
+    }
+    public LiveData<Boolean> getIsNoteModified() {
+        return isNoteModified;
+    }
+
+
     public void loadReleaseNote(Context context) {
         ReleaseNote note = ReleaseNoteHelper.loadReleaseNote(context);
         releaseNoteLiveData.setValue(note);
@@ -288,5 +401,14 @@ public class NoteViewModel extends AndroidViewModel {
 
         result.setValue(filtered);
         return result;
+    }
+
+    public void markSaved() {
+        Note selected = selectedNote.getValue();
+        if (selected != null) {
+            // originalNote ist das Vergleichsobjekt für hasUnsavedChanges
+            // Deep copy!
+            originalNote.setValue(new Note(selected)); // Nutze einen Copy-Konstruktor oder einen eigenen Clone
+        }
     }
 }

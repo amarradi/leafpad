@@ -57,4 +57,6 @@
         
         <color name="md_theme_releasenotes">#FF3D00</color>
         <color name="md_theme_eye_invisible">#AB47BC</color>
+
+        <color name="md_theme_bibleverse">#FFA726</color>
 </resources>

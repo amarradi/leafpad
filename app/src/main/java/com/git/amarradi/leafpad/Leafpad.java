@@ -1,11 +1,12 @@
 package com.git.amarradi.leafpad;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.util.Log;
+import android.os.PowerManager;
+import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceManager;
@@ -15,7 +16,6 @@ import com.git.amarradi.leafpad.adapter.NoteAdapter;
 import com.git.amarradi.leafpad.helper.LayoutModeHelper;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class Leafpad extends Application {
 
@@ -28,6 +28,8 @@ public class Leafpad extends Application {
     public static final String PREF_NOTIFY_ON_CHANGE = "change";
     public static final String KEY_RELEASE_NOTE_CLOSED = "release_note_closed";
     public static final String CURRENT_LEAFPAD_VERSION_CODE = "current_leafpad_version_code";
+    public static final String PREF_KEEP_SCREEN_ON = "keep_screen_on";
+    private static PowerManager.WakeLock wakeLock;
 
     private static Leafpad instance;
 
@@ -39,6 +41,21 @@ public class Leafpad extends Application {
         applyTheme();
         saveShowHidden(false);
 
+    }
+    public static void enableWakeLock(Context context) {
+        if (wakeLock == null || !wakeLock.isHeld()) {
+            PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+            wakeLock = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP, "Leafpad:KeepScreenOn");
+            wakeLock.setReferenceCounted(false);
+            wakeLock.acquire();
+        }
+    }
+
+    public static void disableWakeLock() {
+        if (wakeLock != null && wakeLock.isHeld()) {
+            wakeLock.release();
+        }
+        wakeLock = null;
     }
 
     public static Leafpad getInstance() {
@@ -190,5 +207,31 @@ public class Leafpad extends Application {
 
     public void close() throws IOException {
         // Ressourcen freigeben – z. B. Datenbank, Caches etc.
+    }
+
+//    public static boolean isKeepScreenOnEnabled(Context context) {
+//        SharedPreferences prefs = androidx.preference.PreferenceManager.getDefaultSharedPreferences(context);
+//        return prefs.getBoolean(PREF_KEEP_SCREEN_ON, false);
+//    }
+    public static void setKeepScreenOnEnabled(Context context, boolean enabled) {
+        SharedPreferences prefs = androidx.preference.PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().putBoolean(PREF_KEEP_SCREEN_ON, enabled).apply();
+    }
+
+    public static boolean isKeepScreenOnEnabled(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean("pref_keep_screen_on", false);
+    }
+
+    public static void applyKeepScreenOnFlag(Activity activity) {
+        if (isKeepScreenOnEnabled(activity)) {
+            activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        } else {
+            activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
+    }
+
+    public static void clearKeepScreenOnFlag(Activity activity) {
+        activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 }

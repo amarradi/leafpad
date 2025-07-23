@@ -18,7 +18,7 @@
     <string name="edited_text">edited at</string>
     <string name="new_note">new Note</string>
     <string name="satisfied">Enjoying leafpad?</string>
-    <string name="rate_the_app">How about a review in Google\'s PlayStore?</string>
+    <string name="rate_the_app">How about a review in Google\'s PlayStore? Then open Google Play directly.</string>
     <string name="created_txt">created at</string>
     <string name="remove_dialog_title">Are you sure?</string>
     <string name="remove_dailog_message">This note will be permanently deleted. Afterwards it cannot be restored.</string>
@@ -34,7 +34,7 @@
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <!-- Value in SharedPreferences for system_preference option -->
     <string name="system_preference_option_value" translatable="false">system</string>
-    <string name="theme_preference" translatable="false">Theme</string>
+    <string name="theme_preference">Theme</string>
     <string name="darkmode_preference" translatable="false">darkmode</string>
     <string name="lightmode_preference" translatable="false">lightmode</string>
     <string name="system_preference" translatable="false">system</string>
@@ -113,7 +113,13 @@
     <string name="close_release_note">Close Button</string>
 
     <string name="set">It is a recipe</string>
-    <string name="thank_weblate"><b>Catalan</b>: Adolfo Jayme Barrientos(@Fito); <b>Czech</b>: zergio inzunza(@n1kf4m3l); <b>Hindi (Latin script)</b>: Saurmanđal(@Saurmandal); <b>Indonesian</b>: Reza Almanda(@rezaalmanda), Antx(@antx); <b>Italian</b>: pastic cerre(@pasti); <b>Polish</b>: Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140); <b>Russian</b>: Kirill Isakov(@crowbar); <b>Spanish</b>: Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1)
-</string>
-
+    <string name="thank_weblate"><b>Albanian</b>: Besnik Bleta(@Besnik_b); <b>Arabic</b>: Asaad Zein(@asaadzx); <b>Catalan</b>: Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui); <b>Czech</b>: MessingWithComputers(@MessingWithComputers); <b>English</b>: Santiago Centeno(@Java16), Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l); <b>French</b>: Leonart(@Leonart); <b>German</b>: Maximilian Hüttner(@MaxHue); <b>Greek</b>: Jim Kats(@jimkats1); <b>Hindi</b>: Harshit Sethi(@hstsethi); <b>Hindi (Latin script)</b>: Saurmanđal(@Saurmandal); <b>Indonesian</b>: toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx); <b>Italian</b>: pastic cerre(@pasti), Akiakizero(@Akiakizero); <b>Polish</b>: Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140); <b>Portuguese</b>: Lucas Alves Rego(@devlulcas); <b>Russian</b>: Kirill Isakov(@crowbar), Maksim_220 Кабанов(@law820314), Sotski Eugene(@jekakmail), Rachel Podya(@homicide@disroot.org); <b>Spanish</b>: Zarahi Ander(@TradZarahi), LittleWorm(@LittlerWorm), Jose David M(@jposada202020@gmail.com), Leopoldo Antonio Motto Murua(@leomotto), Francisco Gabriel Chardin(@FranChardin), Abraham Mendoza(@1Alide1); <b>Tamil</b>: தமிழ்நேரம்(@TamilNeram); <b>Ukrainian</b>: Stepan Andriiovych(@Stepan)</string>
+    <string name="title_required">Title required</string>
+    <string name="please_enter_a_title">Please enter a title for the note before you can save it.</string>
+    <string name="keep_screen_on_title">Keep screen on</string>
+    <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
+    <string name="keep_screen_on_dialog_title">Battery usage warning</string>
+    <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
+    <string name="keep_screen_on_dialog_yes">Yes</string>
+    <string name="keep_screen_on_dialog_no">No</string>
 </resources>

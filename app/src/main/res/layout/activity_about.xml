@@ -47,7 +47,7 @@
                             android:layout_height="@dimen/large_icon_size"
                             android:contentDescription="@string/leafpad_work"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/leafpad_svg_twig"
+                            android:src="@drawable/ic_olive_leaf"
                             android:layout_margin="@dimen/image_about_section_margin" />
 
                         <com.google.android.material.textview.MaterialTextView
@@ -77,7 +77,7 @@
                         android:importantForAccessibility="no"
                         android:scaleType="centerCrop"
                         android:layout_margin="@dimen/image_about_section_margin"
-                        android:src="@drawable/leafpad_svg_twig" />
+                        android:src="@drawable/ic_olive_leaf" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/textView_data"
@@ -113,14 +113,14 @@
                             android:importantForAccessibility="no"
                             android:scaleType="centerCrop"
                             android:layout_margin="@dimen/image_about_section_margin"
-                            android:src="@drawable/about_book" />
+                            android:src="@drawable/ic_about_book" />
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/tv_biblevers"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/text_about_section_margin"
-                            android:textAppearance="@style/TextAppearance.MyAboutPage"
+                            android:textAppearance="@style/TextAppearance.MyAboutPageBibleVerse"
                             android:text="@string/rev20_12" />
                     </LinearLayout>
                 </LinearLayout>
@@ -146,7 +146,7 @@
 
                         <ImageView
                             android:importantForAccessibility="no"
-                            android:src="@drawable/about_article"
+                            android:src="@drawable/ic_about_article"
                             android:layout_width="@dimen/large_icon_size"
                             android:layout_height="@dimen/large_icon_size"
                             android:scaleType="centerCrop"
@@ -187,7 +187,7 @@
                             android:importantForAccessibility="no"
                             android:scaleType="centerCrop"
                             android:layout_margin="@dimen/image_about_section_margin"
-                            android:src="@drawable/leafpad_svg_twig" />
+                            android:src="@drawable/ic_olive_leaf" />
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/thank_you"
@@ -222,7 +222,7 @@
                             android:importantForAccessibility="no"
                             android:scaleType="centerCrop"
                             android:layout_margin="@dimen/image_about_section_margin"
-                            android:src="@drawable/preference_translate_logo" />
+                            android:src="@drawable/ic_translation" />
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/thank_you_for_weblate"

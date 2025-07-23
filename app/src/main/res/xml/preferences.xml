@@ -7,7 +7,7 @@
             android:title="@string/about_the_app"
             android:key="about"
             android:summary="@string/tell_about"
-            android:icon="@drawable/preference_about_the_app"/>
+            android:icon="@drawable/ic_about_the_app"/>
 
     </PreferenceCategory>
     <PreferenceCategory
@@ -16,7 +16,7 @@
             android:key="@string/theme_key"
             android:title="@string/theme_preference"
             android:summary="@string/theme_summary"
-            android:icon="@drawable/switch_dn_mode"
+            android:icon="@drawable/ic_switch_daynight_mode"
             android:entries="@array/design_mode_preference_key"
             android:defaultValue="@string/system_preference_option_value"
             android:entryValues="@array/design_mode_preference_value" />
@@ -25,7 +25,7 @@
             android:key="save"
             android:title="@string/save_notes_title"
             android:summary="@string/save"
-            android:icon="@drawable/save_backup"
+            android:icon="@drawable/ic_save_all_data"
             />
 
         <Preference
@@ -33,40 +33,42 @@
             android:key="restore"
             android:title="@string/restore_notes_title"
             android:summary="@string/restore"
-            android:icon="@drawable/load_backup"
+            android:icon="@drawable/ic_restore_all"
             />
-       <!--<CheckBoxPreference
-            android:selectable="true"
-            android:key="change"
-            android:title="@string/notification_of_change"
-            android:summary="@string/notification_of_change_description"/> -->
         <androidx.preference.SwitchPreferenceCompat
             android:key="change"
             android:title="@string/notification_of_change"
             android:summary="@string/notification_of_change_description"
             android:defaultValue="true"
-            android:icon="@drawable/preference_notification"
+            android:icon="@drawable/ic_change_notification"
             />
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="keep_screen_on"
+            android:title="@string/keep_screen_on_title"
+            android:summary="@string/keep_screen_on_summary"
+            android:defaultValue="false"
+            android:icon="@drawable/ic_display_timer" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
         android:title="@string/participate">
         <Preference
+            android:icon="@drawable/ic_goto_play_store"
+            android:key="rating"
+            android:title="@string/satisfied"
+            android:summary="@string/rate_the_app" />
+        <Preference
             android:selectable="true"
-            android:icon="@drawable/preference_github_logo"
+            android:icon="@drawable/ic_github_logo"
             android:key="github"
             android:title="@string/its_opensource"
             android:summary="@string/find_code_on_github_summary" />
         <Preference
             android:selectable="true"
             android:key="translate"
-            android:icon="@drawable/preference_translate_logo"
+            android:icon="@drawable/ic_translation"
             android:title="@string/translate"
             android:summary="@string/translation_help"/>
-        <Preference
-            android:icon="@drawable/preference_rating"
-            android:key="rating"
-            android:title="@string/satisfied"
-            android:summary="@string/rate_the_app" />
     </PreferenceCategory>
 </PreferenceScreen>

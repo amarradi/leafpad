@@ -13,8 +13,8 @@ android {
         applicationId "com.git.amarradi.leafpad"
         minSdkVersion 25
         targetSdkVersion 35
-        versionCode 27
-        versionName "1.19"
+        versionCode 28
+        versionName "1.20"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
@@ -61,9 +61,9 @@ dependencies {
 
     def core = "1.16.0"
     def coordinatorLayout = "1.3.0"
-    def appcompat = "1.7.0"
+    def appcompat = "1.7.1"
     def material= "1.12.0"
-    def splashscreen = "1.2.0-beta02"
+    def splashscreen = "1.2.0-rc01"
     def constraintlayout = "2.2.1"
     def preference_version = "1.2.1"
     def activity_version = '1.10.1'

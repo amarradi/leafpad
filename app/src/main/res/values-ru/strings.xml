@@ -6,7 +6,7 @@
     <string name="lightmode_preference" translatable="false">lightmode</string>
     <string name="system_preference_option_value" translatable="false">system</string>
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
-    <string name="theme_preference" translatable="false">Theme</string>
+    <string name="theme_preference">Theme</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="app_name">Leafpad</string>
     <string name="new_note">новая заметка</string>
@@ -28,7 +28,7 @@
     <string name="action_note_saved">сохранена</string>
     <string name="licence">Лицензии с открытым исходным кодом</string>
     <string name="find_code_on_github">GitHub</string>
-    <string name="search">поиск</string>
+    <string name="search">заметки для поиска</string>
     <string name="action_save">сохранить заметку</string>
     <string name="share_note">Поделиться Заметкой?</string>
     <string name="thanks">Спасибо Стефану Д, Стефану Р, Мануэлю, Фальку, Стефани и Эмилю за ваши идеи и тестирование приложения.</string>
@@ -45,7 +45,7 @@
     <string name="contentDescription">добавить новую заметку</string>
     <string name="action_edit_note">Править заметку</string>
     <string name="note_will_be_saved_first">Сначала заметка будет сохранена</string>
-    <string name="general_preference">Основные</string>
+    <string name="general_preference">Общие настройки</string>
     <string name="title_licence">Лицензии</string>
     <string name="remove_dailog_message">Настоящая заметка будет навсегда удалена. Её нельзя будет восстановить.</string>
     <string name="version">версия</string>
@@ -56,7 +56,7 @@
     <string name="theme_summary">Переключение между тёмной и светлой темой</string>
     <string name="what_is_leafpad">Leafpad - это простое приложение для заметок.</string>
     <string name="its_opensource">Leafpad - это свободное и бесплатное приложение</string>
-    <string name="participate">Помочь проекту</string>
+    <string name="participate">Участвовать или вносить свой вклад</string>
     <string name="translate">Помогите с переводом на Weblate</string>
     <string name="translation_help">Помогите нам перевести приложение на ваш язык в Weblate</string>
     <string name="hide_note">сделать заметку невидимой</string>
@@ -90,18 +90,27 @@
     <string name="showRestoreConfirmationMessage">Все текущие заметки будут заменены резервной копией. Продолжить?</string>
     <string name="toggle">изменить вид</string>
     <string name="note_shared">Заметка отправлена</string>
-    <string name="item_menu_description">menu for item actions</string>
-    <string name="save_changes">save changes</string>
-    <string name="search_hint">What are you looking for?</string>
-    <string name="discard">discard</string>
-    <string name="startIconDescription">A search field</string>
-    <string name="notification_of_change_description">Notify about changes in notes</string>
-    <string name="notification_of_change">Notification of changes</string>
-    <string name="not_initialized">Leafpad not initialized yet!</string>
-    <string name="unsaved_changes_message">Your note has changed. Do you want to save or discard the changes?</string>
-    <string name="unsaved_changes_title">Unsaved changes</string>
-    <string name="no_search_results">Nothing found</string>
-    <string name="empty_list">No notes available in the list</string>
-    <string name="set">It is a recipe</string>
-    <string name="close_release_note">Close Button</string>
+    <string name="item_menu_description">меню для действий с элементами</string>
+    <string name="save_changes">сохранить изменения</string>
+    <string name="search_hint">Что вы ищете?</string>
+    <string name="discard">отклонить</string>
+    <string name="startIconDescription">Поле поиска</string>
+    <string name="notification_of_change_description">Уведомление об изменениях в заметках</string>
+    <string name="notification_of_change">Уведомление об изменениях</string>
+    <string name="not_initialized">Leafpad еще не инициализирован!</string>
+    <string name="unsaved_changes_message">Ваша заметка изменилась. Вы хотите сохранить или отменить изменения?</string>
+    <string name="unsaved_changes_title">Несохраненные изменения</string>
+    <string name="no_search_results">Ничего не найдено</string>
+    <string name="empty_list">В списке отсутствуют заметки</string>
+    <string name="set">Это рецепт</string>
+    <string name="close_release_note">Кнопка закрытия</string>
+    <string name="thank_weblate"><b>Каталонский</b>: Адольфо Джейм Барриентос (@Fito); <b>Чешский</b>: зергио инцунца(@n1kf4m3l), MessingWithComputers(@MessingWithComputers); <b>Хинди(Latin script)</b>: Саурманджал(@Saurmandal); <b>Индонезийский</b>: Реза Альманда(@rezaalmanda), Antx(@antx); <b>Итальянский</b>: pastic cerre(@pasti); <b>Польский</b>: Христофор Колумб(@Kolumb76), Эрик Михалак(@gnu-ewm), OskarO 140(@oskarek.o140), Маттайкс(@Kityn); <b>Русский</b>: Кирилл Исаков(@crowbar); <b>Испанский</b>: Хосе Давид M(@jposada202020@gmail.com), Франциско Габриэль Шарден(@FranChardin), Леопольд Антонио Мотто Муруа(@leomotto), зергио инцунца(@n1kf4m3l), Авраам Мендоса(@1Alide1), LittleWorm(@LittlerWorm)</string>
+    <string name="please_enter_a_title">Please enter a title for the note before you can save it.</string>
+    <string name="title_required">Title required</string>
+    <string name="keep_screen_on_dialog_yes">Yes</string>
+    <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
+    <string name="keep_screen_on_dialog_no">No</string>
+    <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
+    <string name="keep_screen_on_title">Keep screen on</string>
+    <string name="keep_screen_on_dialog_title">Battery usage warning</string>
 </resources>

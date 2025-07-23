@@ -14,7 +14,7 @@
         android:id="@+id/note_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:dividerHeight="@dimen/dividerHeight"
+        android:dividerHeight="@dimen/divider_height"
         android:divider="@null"
         />
 
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/empty_list"
-        android:src="@drawable/leafpad_svg_twig"
+        android:src="@drawable/ic_logo_leafpad"
         android:visibility="gone" />
 
 </RelativeLayout>
