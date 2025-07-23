@@ -36,10 +36,10 @@
     <dimen name="image_about_section_margin">10dp</dimen>
 
     <!-- TextSize -->
-    <dimen name="text_size_my_note_item">13sp</dimen>
-    <dimen name="text_size_my_note_preview">11sp</dimen>
-    <dimen name="text_size_my_date_time">9sp</dimen>
-    <dimen name="text_size_my_category">9sp</dimen>
+    <dimen name="text_size_my_note_item">15sp</dimen>
+    <dimen name="text_size_my_note_preview">13.5sp</dimen>
+    <dimen name="text_size_my_date_time">9.5sp</dimen>
+    <dimen name="text_size_my_category">9.5sp</dimen>
     <dimen name="text_size_my_toolbar_title">24sp</dimen>
     <dimen name="text_size_my_toolbar_subtitle">14sp</dimen>
     <dimen name="text_size_my_toolbar_title_edit">14sp</dimen>
