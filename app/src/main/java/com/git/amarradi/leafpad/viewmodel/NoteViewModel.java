@@ -46,6 +46,27 @@ public class    NoteViewModel extends AndroidViewModel {
     public LiveData<List<Object>> getCombinedNotes() { return combinedNotes; }
     private final MediatorLiveData<Boolean> isNoteModified = new MediatorLiveData<>();
 
+    public void updateSingleNote(Note updatedNote) {
+        if (updatedNote == null) return;
+
+        List<Note> currentList = notesLiveData.getValue();
+        if (currentList == null) return;
+
+        List<Note> newList = new ArrayList<>(currentList);
+        for (int i = 0; i < newList.size(); i++) {
+            if (newList.get(i).getId().equals(updatedNote.getId())) {
+                newList.set(i, updatedNote);
+                notesLiveData.setValue(newList);
+                return;
+            }
+        }
+
+        // Falls es eine neue Notiz ist, ergänzen
+        newList.add(0, updatedNote); // Optional: an den Anfang setzen
+        notesLiveData.setValue(newList);
+    }
+
+
     public void checkAndLoadReleaseNote(Context context) {
         int savedVersion = Leafpad.getCurrentLeafpadVersionCode(context); // default = 0
         int currentVersion = Leafpad.getCurrentVersionCode(context);
@@ -58,6 +79,8 @@ public class    NoteViewModel extends AndroidViewModel {
             releaseNoteLiveData.setValue(null);
         }
     }
+
+
 
     public void setNoteHide() {
         // 1. Hole die aktuell ausgewählte Notiz.
