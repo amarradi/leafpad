@@ -13,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.view.WindowManager;
 import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
@@ -397,17 +396,23 @@ public class NoteEditActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Leafpad.applyKeepScreenOnFlag(this);
         if (Leafpad.isKeepScreenOnEnabled(this)) {
-            getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        } else {
-            getWindow().clearFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            Leafpad.enableWakeLock(this);
         }
+//        if (Leafpad.isKeepScreenOnEnabled(this)) {
+//            getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+//        } else {
+//            getWindow().clearFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+//        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        Leafpad.clearKeepScreenOnFlag(this);
+        Leafpad.disableWakeLock();
+       // getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         Note current = noteViewModel.getSelectedNote().getValue();
         if (!isNoteDeleted && current != null && !NoteViewModel.isEmptyEntry(current)) {
             updateNoteFromUI();
