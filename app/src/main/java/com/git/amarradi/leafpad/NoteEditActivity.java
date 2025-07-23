@@ -368,7 +368,12 @@ public class NoteEditActivity extends AppCompatActivity {
             noteViewModel.saveNote(getApplication(), current);
             noteViewModel.markSaved();
         }
-        setResult(RESULT_OK);
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("updated_note", current);
+        resultIntent.putExtra("is_new_note", noteViewModel.isNewEntry(current));
+        setResult(RESULT_OK, resultIntent);
+        finish(); // optional hier direkt beenden, wenn nicht schon an anderer Stelle
+
     }
 
     private void removeNote() {

@@ -1,11 +1,16 @@
 package com.git.amarradi.leafpad.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.UUID;
 
-public class Note {
+public class Note implements Parcelable {
 
     private String title;
     private String body;
@@ -133,4 +138,45 @@ public class Note {
     private boolean safeEquals(String a, String b) {
         return (a == null && b == null) || (a != null && a.equals(b));
     }
+
+    protected Note(android.os.Parcel in) {
+        title = in.readString();
+        body = in.readString();
+        notedate = in.readString();
+        notetime = in.readString();
+        create_date = in.readString();
+        id = in.readString();
+        hide = in.readByte() != 0;
+        category = in.readString();
+    }
+
+    public static final Creator<Note> CREATOR = new Creator<Note>() {
+        @Override
+        public Note createFromParcel(android.os.Parcel in) {
+            return new Note(in);
+        }
+
+        @Override
+        public Note[] newArray(int size) {
+            return new Note[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(android.os.Parcel parcel, int flags) {
+        parcel.writeString(title);
+        parcel.writeString(body);
+        parcel.writeString(notedate);
+        parcel.writeString(notetime);
+        parcel.writeString(create_date);
+        parcel.writeString(id);
+        parcel.writeByte((byte) (hide ? 1 : 0));
+        parcel.writeString(category);
+    }
+
 }
