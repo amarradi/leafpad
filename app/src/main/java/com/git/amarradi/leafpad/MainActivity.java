@@ -165,7 +165,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                             boolean isNewNote = data.getBooleanExtra("is_new_note", false);
 
                             if (updatedNote != null) {
-                                noteViewModel.updateSingleNote(updatedNote);
+                                // Lade die gesamte Liste neu, damit auch neue Notizen sichtbar werden
+                                noteViewModel.loadNotes();
 
                                 if (isNewNote) {
                                     recyclerView.post(() -> recyclerView.scrollToPosition(0));
@@ -184,6 +185,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                             }
                         }
                     });
+
 
     @Override
     public void onReleaseNoteClosed() {
