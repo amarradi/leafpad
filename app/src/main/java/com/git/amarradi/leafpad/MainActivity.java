@@ -165,8 +165,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                             boolean isNewNote = data.getBooleanExtra("is_new_note", false);
 
                             if (updatedNote != null) {
-                                // Lade die gesamte Liste neu, damit auch neue Notizen sichtbar werden
-                                noteViewModel.loadNotes();
+                                noteViewModel.updateSingleNote(updatedNote);
 
                                 if (isNewNote) {
                                     recyclerView.post(() -> recyclerView.scrollToPosition(0));
@@ -265,7 +264,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     protected void onResume() {
         super.onResume();
         Leafpad.getInstance().applyCurrentLayoutMode(recyclerView, noteAdapter);
-       //noteViewModel.loadNotes();
+        noteViewModel.loadNotes();
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
