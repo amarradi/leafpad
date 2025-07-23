@@ -107,10 +107,10 @@
     <string name="thank_weblate"><b>Албанский</b>: Бесник Блета (@Besnik_b); <b>Арабский</b>: Асаад Зейн (@asaadzx); <b>Каталанский</b>: Тони Гурги (@tgurgui), Адольфо Хайме Барриентос (@Fito); <b>Чешский</b>: MessiingWithComputers(@MessingWithComputers); <b>Английский</b>: Юрт Пейдж(@yurtpage), zergio inzunza(@n1kf4m3l), Сантьяго Сентено(@Java16); <b>На французском</b>: Леонарт(@Leonart); <b>Немецкий</b>: Максимилиан Хюттнер (@MaxHue); <b>Греческий</b>: Джим Катс(@jimkats1); <b>Хинди</b>: Харшит Сетхи (@hstsethi); <b>Хинди (латиница)</b>: Саурманđал (@Saurmandal); <b>Индонезийский</b>: Анткс (@antx), Реза Альманда (@rezaalmanda), топосец (@toposets); <b>Итальянский</b>: Акиакизеро (@Akiakizero), пастик церре (@pasti); <b>Польский</b>: Оскар О 140 (@oskarek.o140), Эрик Михалак (@gnu-ewm), Кшиштоф Колумб (@Kolumb76), Маттайкс (@Kityn); <b>Португальский</b>: Лукас Алвес Рего (@devlulcas); <b>Russian</b>: Rachel Podya(@homicide@disroot.org), Sotski Eugene(@jekakmail), Maksim_220 Кабанов(@law820314), Kirill Isakov(@crowbar); <b>Spanish</b>: Abraham Mendoza(@1Alide1), Leopoldo Antonio Motto Murua(@leomotto), Francisco Gabriel Chardin(@FranChardin), Jose David M(@jposada202020@gmail.com), LittleWorm(@LittlerWorm), Zarahi Ander(@TradZarahi); <b>Tamil</b>: தமிழ்நேரம்(@TamilNeram); <b>Ukrainian</b>: Stepan Andriiovych(@Stepan)</string>
     <string name="please_enter_a_title">Пожалуйста, введите заголовок для заметки, прежде чем её сохранить.</string>
     <string name="title_required">Требуется название</string>
-    <string name="keep_screen_on_dialog_yes">Yes</string>
-    <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
-    <string name="keep_screen_on_dialog_no">No</string>
-    <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
+    <string name="keep_screen_on_dialog_yes">Да</string>
+    <string name="keep_screen_on_dialog_message">Сохранение экрана может значительно увеличить потребление батареи. Вы уверены, что хотите включить эту функцию?</string>
+    <string name="keep_screen_on_dialog_no">Нет</string>
+    <string name="keep_screen_on_summary">Предотвращение выключения экрана при использовании Leafpad</string>
     <string name="keep_screen_on_title">Держать экран включённым</string>
-    <string name="keep_screen_on_dialog_title">Battery usage warning</string>
+    <string name="keep_screen_on_dialog_title">Предупреждение об использовании батареи</string>
 </resources>
