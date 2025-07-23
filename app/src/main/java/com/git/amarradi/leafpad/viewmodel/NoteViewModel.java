@@ -46,25 +46,59 @@ public class    NoteViewModel extends AndroidViewModel {
     public LiveData<List<Object>> getCombinedNotes() { return combinedNotes; }
     private final MediatorLiveData<Boolean> isNoteModified = new MediatorLiveData<>();
 
+    private Object releaseNoteHeader;
+
+    public void setReleaseNoteHeader(Object releaseNoteHeader) {
+        this.releaseNoteHeader = releaseNoteHeader;
+        updateCombinedNotes(); // Liste neu aufbauen
+    }
+
+    public Object getReleaseNoteHeader() {
+        return releaseNoteHeader;
+    }
+
+
+
     public void updateSingleNote(Note updatedNote) {
-        if (updatedNote == null) return;
+        List<Note> currentNotes = notesLiveData.getValue();
+        if (currentNotes == null) {
+            currentNotes = new ArrayList<>();
+        } else {
+            currentNotes = new ArrayList<>(currentNotes); // kopieren, um LiveData nicht direkt zu verändern
+        }
 
-        List<Note> currentList = notesLiveData.getValue();
-        if (currentList == null) return;
+        boolean replaced = false;
 
-        List<Note> newList = new ArrayList<>(currentList);
-        for (int i = 0; i < newList.size(); i++) {
-            if (newList.get(i).getId().equals(updatedNote.getId())) {
-                newList.set(i, updatedNote);
-                notesLiveData.setValue(newList);
-                return;
+        for (int i = 0; i < currentNotes.size(); i++) {
+            if (currentNotes.get(i).getId().equals(updatedNote.getId())) {
+                currentNotes.set(i, updatedNote); // ersetze vorhandene Notiz
+                replaced = true;
+                break;
             }
         }
 
-        // Falls es eine neue Notiz ist, ergänzen
-        newList.add(0, updatedNote); // Optional: an den Anfang setzen
-        notesLiveData.setValue(newList);
+        if (!replaced) {
+            currentNotes.add(0, updatedNote); // neue Notiz ganz oben einfügen
+        }
+
+        notesLiveData.setValue(currentNotes);
+
+        // Wenn du auch combinedNotesLiveData nutzt (z. B. für ReleaseNotes), hier ebenfalls setzen:
+        updateCombinedNotes();
     }
+
+    private void updateCombinedNotes() {
+        List<Note> visibleNotes = notesLiveData.getValue();
+        List<Object> combined = new ArrayList<>();
+        if (releaseNoteHeader != null) {
+            combined.add(releaseNoteHeader);
+        }
+        if (visibleNotes != null) {
+            combined.addAll(visibleNotes);
+        }
+        combinedNotes.setValue(combined);
+    }
+
 
 
     public void checkAndLoadReleaseNote(Context context) {
