@@ -105,7 +105,7 @@
     <string name="set">Это рецепт</string>
     <string name="close_release_note">Кнопка закрытия</string>
     <string name="thank_weblate"><b>Каталонский</b>: Адольфо Джейм Барриентос (@Fito); <b>Чешский</b>: зергио инцунца(@n1kf4m3l), MessingWithComputers(@MessingWithComputers); <b>Хинди(Latin script)</b>: Саурманджал(@Saurmandal); <b>Индонезийский</b>: Реза Альманда(@rezaalmanda), Antx(@antx); <b>Итальянский</b>: pastic cerre(@pasti); <b>Польский</b>: Христофор Колумб(@Kolumb76), Эрик Михалак(@gnu-ewm), OskarO 140(@oskarek.o140), Маттайкс(@Kityn); <b>Русский</b>: Кирилл Исаков(@crowbar); <b>Испанский</b>: Хосе Давид M(@jposada202020@gmail.com), Франциско Габриэль Шарден(@FranChardin), Леопольд Антонио Мотто Муруа(@leomotto), зергио инцунца(@n1kf4m3l), Авраам Мендоса(@1Alide1), LittleWorm(@LittlerWorm)</string>
-    <string name="please_enter_a_title">Please enter a title for the note before you can save it.</string>
+    <string name="please_enter_a_title">Пожалуйста, введите заголовок для ноты, прежде чем вы сможете его сохранить.</string>
     <string name="title_required">Название требуется</string>
     <string name="keep_screen_on_dialog_yes">Yes</string>
     <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
