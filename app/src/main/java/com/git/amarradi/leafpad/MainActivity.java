@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 
@@ -22,7 +23,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.git.amarradi.leafpad.adapter.NoteAdapter;
 import com.git.amarradi.leafpad.adapter.OnReleaseNoteCloseListener;
@@ -43,6 +46,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public RecyclerView recyclerView;
     public NoteAdapter noteAdapter;
     private NoteViewModel noteViewModel;
+
+    private int lastScrollPosition = 0;
+
 
     @SuppressLint("RestrictedApi")
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -102,11 +108,24 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         noteAdapter = new NoteAdapter(this, new ArrayList<>(), new NoteClickListener() {
             @Override
             public void onNoteClicked(Note note) {
+                // Aktuelle Scrollposition merken
+                RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
+                if (layoutManager instanceof LinearLayoutManager) {
+                    lastScrollPosition = ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition();
+                } else if (layoutManager instanceof StaggeredGridLayoutManager staggered) {
+                    int[] firstVisibleItems = staggered.findFirstVisibleItemPositions(null);
+                    if (firstVisibleItems != null && firstVisibleItems.length > 0) {
+                        lastScrollPosition = firstVisibleItems[0];
+                    }
+                }
+
                 noteViewModel.selectNote(note);
                 Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
                 intent.putExtra(Leafpad.EXTRA_NOTE_ID, note.getId());
+                intent.putExtra("is_new_note", false);
                 noteEditLauncher.launch(intent);
             }
+
 
             @Override
             public void onNoteIconClicked(Note note, View anchor) {
@@ -140,10 +159,32 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private final ActivityResultLauncher<Intent> noteEditLauncher =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
                     result -> {
-                        if (result.getResultCode() == RESULT_OK) {
-                            noteViewModel.loadNotes(); // Hier wird nach Speichern neu geladen!
+                        if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                            Intent data = result.getData();
+                            Note updatedNote = data.getParcelableExtra("updated_note");
+                            boolean isNewNote = data.getBooleanExtra("is_new_note", false);
+
+                            if (updatedNote != null) {
+                                noteViewModel.updateSingleNote(updatedNote);
+
+                                if (isNewNote) {
+                                    recyclerView.post(() -> recyclerView.scrollToPosition(0));
+                                } else {
+                                    recyclerView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                                        @Override
+                                        public void onGlobalLayout() {
+                                            recyclerView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                                            if (recyclerView.getLayoutManager() != null &&
+                                                    noteAdapter.getItemCount() > lastScrollPosition) {
+                                                recyclerView.scrollToPosition(lastScrollPosition);
+                                            }
+                                        }
+                                    });
+                                }
+                            }
                         }
                     });
+
     @Override
     public void onReleaseNoteClosed() {
         Leafpad.setReleaseNoteClosed(this);
