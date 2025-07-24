@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class    NoteViewModel extends AndroidViewModel {
+public class NoteViewModel extends AndroidViewModel {
 
     private final MutableLiveData<List<Note>> notesLiveData = new MutableLiveData<>();
     private static final MutableLiveData<Note> selectedNote = new MutableLiveData<>();
@@ -44,7 +44,7 @@ public class    NoteViewModel extends AndroidViewModel {
     }
     private final MediatorLiveData<List<Object>> combinedNotes = new MediatorLiveData<>();
     public LiveData<List<Object>> getCombinedNotes() { return combinedNotes; }
-    private final MediatorLiveData<Boolean> isNoteModified = new MediatorLiveData<>();
+    private final MediatorLiveData<Boolean> isNoteModified = new MediatorLiveData<>(false);
 
     private Object releaseNoteHeader;
 
@@ -203,6 +203,16 @@ public class    NoteViewModel extends AndroidViewModel {
         }
         return title.isEmpty() && body.isEmpty();
     }
+    public void updateNoteFromUI(String title, String body) {
+        Note current = selectedNote.getValue();
+        if (current == null) return;
+        current.setTitle(title);
+        current.setBody(body);
+        selectedNote.setValue(current);
+    }
+    public void updateModificationState() {
+        isNoteModified.setValue(hasUnsavedChanges());
+    }
 
     public boolean hasUnsavedChanges() {
         Note current = selectedNote.getValue();
@@ -278,6 +288,9 @@ public class    NoteViewModel extends AndroidViewModel {
         return isNoteModified;
     }
 
+    public void setNoteModified(boolean modified) {
+        isNoteModified.setValue(modified);
+    }
 
     public void loadReleaseNote(Context context) {
         ReleaseNote note = ReleaseNoteHelper.loadReleaseNote(context);
@@ -410,5 +423,7 @@ public class    NoteViewModel extends AndroidViewModel {
             // Deep copy!
             originalNote.setValue(new Note(selected)); // Nutze einen Copy-Konstruktor oder einen eigenen Clone
         }
+        isNoteModified.setValue(false);
     }
+
 }
