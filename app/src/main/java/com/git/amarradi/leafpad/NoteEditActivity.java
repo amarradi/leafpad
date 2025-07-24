@@ -48,6 +48,7 @@ public class NoteEditActivity extends AppCompatActivity {
     private boolean fromSearch = false;
     private boolean isUIConfigured = false;
     private MenuItem saveMenuItem;
+    private TextWatcher modificationWatcher;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -155,9 +156,11 @@ public class NoteEditActivity extends AppCompatActivity {
 
     private void observeNote() {
         noteViewModel.getSelectedNote().observe(this, note -> {
-            if (note != null && !isUIConfigured) {
-                configureUIFromNote(note);
-                isUIConfigured = true;
+            if (note != null) {
+                if (!isUIConfigured) {
+                    configureUIFromNote(note);
+                    isUIConfigured = true;
+                }
             }
             // Menü immer updaten!
             invalidateOptionsMenu();
@@ -165,8 +168,19 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private void configureUIFromNote(Note note) {
+        titleEdit.removeTextChangedListener(modificationWatcher);
+        bodyEdit.removeTextChangedListener(modificationWatcher);
+
         titleEdit.setText(note.getTitle() != null ? note.getTitle() : "");
         bodyEdit.setText(note.getBody() != null ? note.getBody() : "");
+
+        titleEdit.addTextChangedListener(modificationWatcher);
+        bodyEdit.addTextChangedListener(modificationWatcher);
+
+        bodyEdit.postDelayed(() -> {
+            bodyEdit.getText().length();
+            scrollToCursor();
+        },150);
     }
 
     private void initViews() {
@@ -176,30 +190,15 @@ public class NoteEditActivity extends AppCompatActivity {
         bodyEdit = findViewById(R.id.body_edit);
         bodyScroll = findViewById(R.id.body_scroll);
 
-        bodyEdit.addTextChangedListener(new TextWatcher() {
+        titleLayout.setHintEnabled(false);
+        bodyLayout.setHintEnabled(false);
+
+        modificationWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
-            @Override
-            public void afterTextChanged(Editable s) {
-                bodyEdit.post(() -> scrollToCursor());
-               // noteViewModel.setNoteModified(true);
-                noteViewModel.updateNoteFromUI(titleEdit.getText().toString(), bodyEdit.getText().toString());
-               // noteViewModel.updateModificationState();
-            }
-        });
-
-        titleEdit.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -208,7 +207,7 @@ public class NoteEditActivity extends AppCompatActivity {
                         bodyEdit.getText().toString()
                 );
             }
-        });
+        };
 
         bodyEdit.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) {
@@ -219,9 +218,6 @@ public class NoteEditActivity extends AppCompatActivity {
         bodyEdit.setOnClickListener(v -> {
             bodyEdit.postDelayed(this::scrollToCursor, 250);
         });
-
-        titleLayout.setHintEnabled(false);
-        bodyLayout.setHintEnabled(false);
     }
 
     private void scrollToCursor() {
