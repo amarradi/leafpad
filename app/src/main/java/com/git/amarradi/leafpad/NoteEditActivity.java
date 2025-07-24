@@ -75,7 +75,7 @@ public class NoteEditActivity extends AppCompatActivity {
 
         res = getResources();
         initViews();
-        setupToolbar();
+       // setupToolbar();
         noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
 
         noteViewModel.getIsNoteModified().observe(this, isModified -> {

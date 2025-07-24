@@ -2,6 +2,9 @@ package com.git.amarradi.leafpad.viewmodel;
 
 import android.app.Application;
 import android.content.Context;
+import android.os.Build;
+import android.text.Html;
+import android.text.Spanned;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -60,7 +63,7 @@ public class NoteViewModel extends AndroidViewModel {
             return Html.fromHtml(html);
         }
     });
-    private final MediatorLiveData<Boolean> isNoteModified = new MediatorLiveData<>();
+
     private final MediatorLiveData<Boolean> isNoteModified = new MediatorLiveData<>(false);
 
     private Object releaseNoteHeader;
