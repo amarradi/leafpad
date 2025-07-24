@@ -206,9 +206,22 @@ public class NoteViewModel extends AndroidViewModel {
     public void updateNoteFromUI(String title, String body) {
         Note current = selectedNote.getValue();
         if (current == null) return;
-        current.setTitle(title);
-        current.setBody(body);
-        selectedNote.setValue(current);
+
+        boolean changed = false;
+
+        if (!Objects.equals(current.getTitle(), title)) {
+            current.setTitle(title);
+            changed = true;
+        }
+
+        if (!Objects.equals(current.getBody(), body)) {
+            current.setBody(body);
+            changed = true;
+        }
+
+        if (changed) {
+            selectedNote.setValue(current); // nur wenn sich wirklich was geändert hat!
+        }
     }
     public void updateModificationState() {
         isNoteModified.setValue(hasUnsavedChanges());

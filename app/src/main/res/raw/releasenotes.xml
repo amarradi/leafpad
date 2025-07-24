@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <releasenote>
-    <title>Leafpad 1.20 - Was hat sich verändert</title>
+    <title>Leafpad 1.21 - Was hat sich verändert</title>
     <content>
-        * Das Gridlayout scrollt jetzt etwas flüssiger (nicht so toll)
-        * Ein Anzeigefehler bei langen Notizen ist behoben
-        * weitere Textteile wurden übersetzt
-        * Der Bereich 'versteckte Notizen' ist besser zu erkennen
-        * Es gibt einen Lesemodus, bei dem das Display dauerhaft an bleibt. Eventuell erhöhter Akkuverbrauch
-        * * Fehlerkorrekturen
+        *Speichern-Button: nur aktiviert, wenn die Notiz tatsächlich verändert
     </content>
     <date>23.07.2025</date>
     <time>17:17</time>
