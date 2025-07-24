@@ -12,6 +12,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 
 import com.git.amarradi.leafpad.Leafpad;
+import com.git.amarradi.leafpad.helper.MarkdownParser;
 import com.git.amarradi.leafpad.helper.ReleaseNoteHelper;
 import com.git.amarradi.leafpad.model.Leaf;
 import com.git.amarradi.leafpad.model.Note;
@@ -20,6 +21,7 @@ import com.git.amarradi.leafpad.model.ReleaseNote;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 
 public class NoteViewModel extends AndroidViewModel {
 
@@ -44,6 +46,21 @@ public class NoteViewModel extends AndroidViewModel {
     }
     private final MediatorLiveData<List<Object>> combinedNotes = new MediatorLiveData<>();
     public LiveData<List<Object>> getCombinedNotes() { return combinedNotes; }
+    private final MutableLiveData<Boolean> isPreviewActive = new MutableLiveData<>(false);
+
+    public final LiveData<Spanned> parsedBodyAsSpanned = Transformations.map(selectedNote, note -> {
+        if (note == null || note.getBody() == null) {
+            return Html.fromHtml("", Html.FROM_HTML_MODE_LEGACY);
+        }
+        String html = MarkdownParser.parse(note.getBody());
+        // Use Html.fromHtml to convert our HTML to an Spanned object that TextView can render
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY);
+        } else {
+            return Html.fromHtml(html);
+        }
+    });
+    private final MediatorLiveData<Boolean> isNoteModified = new MediatorLiveData<>();
     private final MediatorLiveData<Boolean> isNoteModified = new MediatorLiveData<>(false);
 
     private Object releaseNoteHeader;
@@ -99,7 +116,13 @@ public class NoteViewModel extends AndroidViewModel {
         combinedNotes.setValue(combined);
     }
 
+    public LiveData<Boolean> isPreviewActive() {
+        return isPreviewActive;
+    }
 
+    public void togglePreview() {
+        isPreviewActive.setValue(Boolean.FALSE.equals(isPreviewActive.getValue()));
+    }
 
     public void checkAndLoadReleaseNote(Context context) {
         int savedVersion = Leafpad.getCurrentLeafpadVersionCode(context); // default = 0
@@ -363,6 +386,19 @@ public class NoteViewModel extends AndroidViewModel {
             originalNote.setValue(note);
             // Copy to compare
             selectedNote.setValue(new Note(note));
+        }
+    }
+    public void updateNoteBody(String newBody) {
+        Note currentNote = selectedNote.getValue();
+        if (currentNote != null && !Objects.equals(currentNote.getBody(), newBody)) {
+            currentNote.setBody(newBody);
+        }
+    }
+
+    public void updateNoteTitle(String newTitle) {
+        Note currentNote = selectedNote.getValue();
+        if (currentNote != null && !Objects.equals(currentNote.getTitle(), newTitle)) {
+            currentNote.setTitle(newTitle);
         }
     }
     public void loadNotes() {
