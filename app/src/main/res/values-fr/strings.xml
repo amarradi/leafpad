@@ -10,7 +10,7 @@
     <string name="theme_preference">Theme</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="created_txt">crée le</string>
-    <string name="remove_dailog_message">Cette note sera définitivement supprimée, et ne pourra plus être réstaurée</string>
+    <string name="remove_dailog_message">Cette note sera définitivement supprimée, et ne pourra plus être réstaurée.</string>
     <string name="remove_dialog_abort">Annuler</string>
     <string name="menu_settings">Réglages</string>
     <string name="general_preference">Paramètres généraux</string>
@@ -40,7 +40,7 @@
     <string name="edited_text">édité le</string>
     <string name="new_note">nouvelle note</string>
     <string name="satisfied">Appréciez-vous Leafpad ?</string>
-    <string name="rate_the_app">Que diriez-vous de laisser un avis sur le Google PlayStore ?</string>
+    <string name="rate_the_app">Que diriez-vous d\'un avis sur le PlayStore de Google ? Alors ouvrez directement Google Play.</string>
     <string name="system_preference_key">suivre le système (standard)</string>
     <string name="theme_summary">Basculer entre le thème sombre et le thème clair</string>
     <string name="about">À propos</string>
@@ -84,14 +84,14 @@
     <string name="invalidFile">Fichier de sauvegarde invalide. L\'importation a été annulée.</string>
     <string name="cancel">Annuler</string>
     <string name="showRestoreConfirmation">Restauration ?</string>
-    <string name="restore_notes_title">Restore</string>
+    <string name="restore_notes_title">Restaurer</string>
     <string name="save_notes_title">Sauvegarde</string>
     <string name="showRestoreConfirmationMessage">Toutes les notes actuelles seront remplacées par la sauvegarde. Continuez ?</string>
     <string name="toggle">change</string>
     <string name="note_shared">Note partagée</string>
     <string name="save_changes">des changements</string>
-    <string name="discard">discard</string>
-    <string name="unsaved_changes_message">Votre note a changé. Voulez-vous enregistrer ou supprimer les changements?</string>
+    <string name="discard">rejeter</string>
+    <string name="unsaved_changes_message">Votre note a changé. Voulez-vous enregistrer ou supprimer les changements ?</string>
     <string name="item_menu_description">menu pour les actions des éléments</string>
     <string name="search_hint">Tu cherches quoi ?</string>
     <string name="startIconDescription">Un champ de recherche</string>
@@ -103,13 +103,13 @@
     <string name="empty_list">Aucune note disponible dans la liste</string>
     <string name="set">C\'est une recette</string>
     <string name="close_release_note">Fermer Button</string>
-    <string name="thank_weblate"><b>Catalan</b>: Adolfo Jayme Barrientos(@Fito); <b>Czech</b>: zergio inzunza(@n1kf4m3l), MessingWithComputers(@MessingXwithComputers); <b>Hindi (Écriture latine)</b> Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1), LittleWorm(@LittlerWorm)</string>
+    <string name="thank_weblate"><b>Albanais</b>: Besnik Bleta(@Besnik_b); <b>Arabe</b>: Asaad Zein(@asaadzx); <b>Catalan</b>: Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui); <b>Tchèque</b>: MessingWithComputers(@MessingWithComputers); <b>Anglais</b>: Santiago Centeno(@Java16), Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l); <b>Français</b>: Leonart(@Leonart); <b>Allemand</b>: Maximilian Hüttner(@MaxHue); <b>Grec</b>: Jim Kats(@jimkats1); <b>Hindou</b>: Harshit Sethi(@hstsethi); <b>Hindou (script Latin)</b>: Saurmanđal(@Saurmandal); <b>Indonesien</b>: toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx); <b>Italien</b>: pastic cerre(@pasti), Akiakizero(@Akiakizero); <b>Polonais</b>: Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140); <b>Portugais</b>: Lucas Alves Rego(@devlulcas); <b>Russe</b>: Kirill Isakov(@crowbar), Maksim_220 Кабанов(@law820314), Sotski Eugene(@jekakmail), Rachel Podya(@homicide@disroot.org); <b>Espagnol</b>: Zarahi Ander(@TradZarahi), LittleWorm(@LittlerWorm), Jose David M(@jposada202020@gmail.com), Leopoldo Antonio Motto Murua(@leomotto), Francisco Gabriel Chardin(@FranChardin), Abraham Mendoza(@1Alide1); <b>Tamoul</b>: தமிழ்நேரம்(@TamilNeram); <b>Ukrainien</b>: Stepan Andriiovych(@Stepan)</string>
     <string name="please_enter_a_title">Veuillez entrer un titre pour la note avant de pouvoir la sauvegarder.</string>
     <string name="title_required">Titre requis</string>
-    <string name="keep_screen_on_dialog_yes">Yes</string>
-    <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
+    <string name="keep_screen_on_dialog_yes">Oui</string>
+    <string name="keep_screen_on_dialog_message">Le fait de laisser l\'écran allumé peut augmenter considérablement la consommation de la batterie. Êtes-vous sûr de vouloir activer cette fonctionnalité ?</string>
     <string name="keep_screen_on_dialog_no">No</string>
-    <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
-    <string name="keep_screen_on_title">Keep screen on</string>
-    <string name="keep_screen_on_dialog_title">Battery usage warning</string>
+    <string name="keep_screen_on_summary">Empêcher l\'écran de s\'éteindre pendant l\'utilisation de Leafpad</string>
+    <string name="keep_screen_on_title">Garder écran allumé</string>
+    <string name="keep_screen_on_dialog_title">Avertissement d\'utilisation de la batterie</string>
 </resources>
