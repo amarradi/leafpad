@@ -48,6 +48,7 @@ public class NoteEditActivity extends AppCompatActivity {
     private boolean fromSearch = false;
     private boolean isUIConfigured = false;
     private MenuItem saveMenuItem;
+    private TextWatcher modificationWatcher;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -155,9 +156,11 @@ public class NoteEditActivity extends AppCompatActivity {
 
     private void observeNote() {
         noteViewModel.getSelectedNote().observe(this, note -> {
-            if (note != null && !isUIConfigured) {
-                configureUIFromNote(note);
-                isUIConfigured = true;
+            if (note != null) {
+                if (!isUIConfigured) {
+                    configureUIFromNote(note);
+                    isUIConfigured = true;
+                }
             }
             // Menü immer updaten!
             invalidateOptionsMenu();
@@ -165,8 +168,19 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private void configureUIFromNote(Note note) {
+        titleEdit.removeTextChangedListener(modificationWatcher);
+        bodyEdit.removeTextChangedListener(modificationWatcher);
+
         titleEdit.setText(note.getTitle() != null ? note.getTitle() : "");
         bodyEdit.setText(note.getBody() != null ? note.getBody() : "");
+
+        titleEdit.addTextChangedListener(modificationWatcher);
+        bodyEdit.addTextChangedListener(modificationWatcher);
+
+        bodyEdit.postDelayed(() -> {
+            bodyEdit.getText().length();
+            scrollToCursor();
+        },150);
     }
 
     private void initViews() {
@@ -176,16 +190,24 @@ public class NoteEditActivity extends AppCompatActivity {
         bodyEdit = findViewById(R.id.body_edit);
         bodyScroll = findViewById(R.id.body_scroll);
 
-        bodyEdit.addTextChangedListener(new TextWatcher() {
+        titleLayout.setHintEnabled(false);
+        bodyLayout.setHintEnabled(false);
+
+        modificationWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
             @Override
             public void afterTextChanged(Editable s) {
-                bodyEdit.post(() -> scrollToCursor());
+                noteViewModel.updateNoteFromUI(
+                        titleEdit.getText().toString(),
+                        bodyEdit.getText().toString()
+                );
             }
-        });
+        };
 
         bodyEdit.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) {
@@ -196,9 +218,6 @@ public class NoteEditActivity extends AppCompatActivity {
         bodyEdit.setOnClickListener(v -> {
             bodyEdit.postDelayed(this::scrollToCursor, 250);
         });
-
-        titleLayout.setHintEnabled(false);
-        bodyLayout.setHintEnabled(false);
     }
 
     private void scrollToCursor() {
@@ -220,8 +239,9 @@ public class NoteEditActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_note_edit, menu);
         saveMenuItem = menu.findItem(R.id.action_save);
+        Boolean modified = noteViewModel.getIsNoteModified().getValue();
         if (saveMenuItem != null) {
-            saveMenuItem.setEnabled(false); // Initial disabled
+            saveMenuItem.setEnabled(modified != null && modified);
         }
         Note current = noteViewModel.getSelectedNote().getValue();
         if (current != null) {
@@ -234,6 +254,7 @@ public class NoteEditActivity extends AppCompatActivity {
             MenuItem hideItem = menu.findItem(R.id.action_hide);
             hideItem.setChecked(current.isHide());
             hideItem.setIcon(current.isHide() ? R.drawable.btn_hide : R.drawable.btn_show);
+
         }
         return true;
     }
@@ -251,6 +272,7 @@ public class NoteEditActivity extends AppCompatActivity {
                     } else {
                         current.setCategory(res.getStringArray(R.array.category)[0]);
                     }
+                    noteViewModel.updateModificationState();
                 }
                 invalidateOptionsMenu();
                 return true;
@@ -259,6 +281,8 @@ public class NoteEditActivity extends AppCompatActivity {
                 Note current = noteViewModel.getSelectedNote().getValue();
                 if (current != null) {
                     current.setHide(!item.isChecked());
+                    noteViewModel.updateModificationState();
+
                 }
                 invalidateOptionsMenu();
                 return true;

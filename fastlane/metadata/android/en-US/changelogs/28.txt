@@ -1,0 +1,6 @@
+* The grid layout now scrolls a little more smoothly (not so great)
+* A display error with long notes has been fixed
+* More text parts have been translated
+* The “hidden notes” area is easier to recognise
+* There is a reading mode in which the display remains permanently on. Possibly increased battery consumption
+* Bug fixes
