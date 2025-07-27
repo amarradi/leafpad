@@ -108,7 +108,7 @@
     <string name="title_required">Titre requis</string>
     <string name="keep_screen_on_dialog_yes">Oui</string>
     <string name="keep_screen_on_dialog_message">Le fait de laisser l\'écran allumé peut augmenter considérablement la consommation de la batterie. Êtes-vous sûr de vouloir activer cette fonctionnalité ?</string>
-    <string name="keep_screen_on_dialog_no">No</string>
+    <string name="keep_screen_on_dialog_no">Non</string>
     <string name="keep_screen_on_summary">Empêcher l\'écran de s\'éteindre pendant l\'utilisation de Leafpad</string>
     <string name="keep_screen_on_title">Garder écran allumé</string>
     <string name="keep_screen_on_dialog_title">Avertissement d\'utilisation de la batterie</string>
