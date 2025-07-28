@@ -1,0 +1,6 @@
+* Układ siatki przewija się teraz nieco płynniej (niezbyt dobrze)
+* Naprawiono błąd wyświetlania długich notatek
+* Przetłumaczono więcej fragmentów tekstu
+* Obszar „ukrytych notatek” jest łatwiejszy do rozpoznania
+* Dostępny jest tryb czytania, w którym wyświetlacz pozostaje stale włączony. Może zwiększyć zużycie baterii
+* Naprawiono błędy
