@@ -331,7 +331,9 @@ public class NoteEditActivity extends AppCompatActivity {
         Note current = noteViewModel.getSelectedNote().getValue();
 
         if (current != null && (current.getTitle() == null || current.getTitle().trim().isEmpty())) {
-            DialogHelper.showTitleRequiredDialog(this);
+            DialogHelper.showTitleRequiredDialog(this,  (dialog, which) -> {
+                finish();
+                    });
             titleEdit.requestFocus();
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             if (imm != null) {
@@ -375,7 +377,9 @@ public class NoteEditActivity extends AppCompatActivity {
         updateNoteFromUI();
 
         if(current.getTitle() == null || current.getTitle().trim().isEmpty()) {
-            DialogHelper.showTitleRequiredDialog(this);
+            DialogHelper.showTitleRequiredDialog(this, (dialog, which) -> {
+                finish();
+            });
             titleEdit.requestFocus();
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             if (imm != null) {

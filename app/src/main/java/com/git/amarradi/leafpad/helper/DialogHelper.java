@@ -1,6 +1,7 @@
 package com.git.amarradi.leafpad.helper;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 
 import androidx.preference.PreferenceManager;
@@ -94,11 +95,12 @@ public class DialogHelper {
                 .show();
     }
 
-    public static void showTitleRequiredDialog(Context context) {
+    public static void showTitleRequiredDialog(Context context,  DialogInterface.OnClickListener discardListener) {
         new MaterialAlertDialogBuilder(context)
                 .setTitle(R.string.title_required)
                 .setMessage(R.string.please_enter_a_title)
                 .setPositiveButton(android.R.string.ok, null)
+                .setNegativeButton(R.string.discard, discardListener)
                 .show();
     }
 
