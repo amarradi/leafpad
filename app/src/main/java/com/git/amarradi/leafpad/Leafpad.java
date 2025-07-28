@@ -220,10 +220,12 @@ public class Leafpad extends Application {
 
     public static boolean isKeepScreenOnEnabled(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getBoolean("pref_keep_screen_on", false);
+        return prefs.getBoolean(PREF_KEEP_SCREEN_ON, false);
     }
 
-    public static void applyKeepScreenOnFlag(Activity activity) {
+    public static void applyKeepScreenOnFlag(Context context) {
+        if (!(context instanceof Activity)) return;
+        Activity activity = (Activity) context;
         if (isKeepScreenOnEnabled(activity)) {
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         } else {

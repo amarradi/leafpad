@@ -22,7 +22,6 @@ import com.git.amarradi.leafpad.helper.NoteBackupHelper;
 import com.git.amarradi.leafpad.helper.NotificationHelper;
 import com.git.amarradi.leafpad.model.Leaf;
 import com.git.amarradi.leafpad.model.Note;
-import com.git.amarradi.leafpad.Leafpad;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -252,16 +251,9 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         if (keepScreenOnSwitch != null) {
             keepScreenOnSwitch.setOnPreferenceChangeListener((preference, newValue) -> {
                 if ((Boolean) newValue) {
-                    new com.google.android.material.dialog.MaterialAlertDialogBuilder(requireContext())
-                        .setTitle(R.string.keep_screen_on_dialog_title)
-                        .setMessage(R.string.keep_screen_on_dialog_message)
-                        .setPositiveButton(R.string.keep_screen_on_dialog_yes, (dialog, which) -> {
-                            keepScreenOnSwitch.setChecked(true);
-                        })
-                        .setNegativeButton(R.string.keep_screen_on_dialog_no, (dialog, which) -> {
-                            keepScreenOnSwitch.setChecked(false);
-                        })
-                        .show();
+                    DialogHelper.showKeepScreenOnWarningDialog(requireContext(), ()->{
+                        keepScreenOnSwitch.setChecked(true);
+                    });
                     return false;
                 }
                 return true;

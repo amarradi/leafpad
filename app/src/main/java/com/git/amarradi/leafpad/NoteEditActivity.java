@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
@@ -54,6 +55,11 @@ public class NoteEditActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Leafpad.isKeepScreenOnEnabled(this)) {
+            Log.d("KeepScreenOn", "Preference says: " + Leafpad.isKeepScreenOnEnabled(this));
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            Log.d("KeepScreenOn", "FLAG_KEEP_SCREEN_ON gesetzt");
+        }
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_note_edit);
         View root = findViewById(R.id.body_scroll);
@@ -425,6 +431,9 @@ public class NoteEditActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Leafpad.applyKeepScreenOnFlag(this);
+        int flags = getWindow().getAttributes().flags;
+        boolean isFlagSet = (flags & android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON) != 0;
+        Log.d("NoteEditActivity", "KEEP_SCREEN_ON flag is " + (isFlagSet ? "SET" : "NOT SET"));
         if (Leafpad.isKeepScreenOnEnabled(this)) {
             Leafpad.enableWakeLock(this);
         }
