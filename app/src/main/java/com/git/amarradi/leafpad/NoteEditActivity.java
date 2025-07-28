@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.Layout;
 import android.text.TextWatcher;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,9 +33,6 @@ import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textfield.TextInputLayout;
-
-import android.text.method.LinkMovementMethod;
-import android.widget.TextView;
 
 import java.util.List;
 import java.util.Objects;
@@ -213,9 +212,11 @@ public class NoteEditActivity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                previewBody.setMovementMethod(LinkMovementMethod.getInstance());
+            }
         // clickable links on preview
-        previewBody.setMovementMethod(LinkMovementMethod.getInstance());
+
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -306,7 +307,7 @@ public class NoteEditActivity extends AppCompatActivity {
 
             // if preview is active, force refresh of Spanned
             if (isActive) {
-                noteViewModel.getSelectedNote().setValue(noteViewModel.getSelectedNote().getValue());
+               // noteViewModel.getSelectedNote().setValue(noteViewModel.getSelectedNote().getValue());
             }
 
             invalidateOptionsMenu(); // refresh menu icon
@@ -329,73 +330,64 @@ public class NoteEditActivity extends AppCompatActivity {
         Note current = noteViewModel.getSelectedNote().getValue();
         if (current != null) {
 
-        // Updates preview icon depending on state
-        MenuItem previewItem = menu.findItem(R.id.action_preview);
-        if (noteViewModel.isPreviewActive().getValue() != null && noteViewModel.isPreviewActive().getValue()) {
-            previewItem.setIcon(R.drawable.ic_edit); // Changes to icon "edit"
-        } else {
-            previewItem.setIcon(R.drawable.ic_preview); // icon "preview"
+            // Updates preview icon depending on state
+            MenuItem previewItem = menu.findItem(R.id.action_preview);
+            if (noteViewModel.isPreviewActive().getValue() != null && noteViewModel.isPreviewActive().getValue()) {
+                previewItem.setIcon(R.drawable.ic_edit); // Changes to icon "edit"
+            } else {
+                previewItem.setIcon(R.drawable.ic_preview); // icon "preview"
+            }
+
+            if (note != null) {
+                MenuItem recipeItem = menu.findItem(R.id.action_recipe);
+                boolean isRecipe = current.getCategory() != null &&
+                        current.getCategory().equals(res.getStringArray(R.array.category)[0]);
+                recipeItem.setChecked(isRecipe);
+                recipeItem.setIcon(isRecipe ? R.drawable.btn_chefhat_active : R.drawable.btn_chefhat);
+
+                MenuItem hideItem = menu.findItem(R.id.action_hide);
+                hideItem.setChecked(current.isHide());
+                hideItem.setIcon(current.isHide() ? R.drawable.btn_hide : R.drawable.btn_show);
+
+            }
+            return true;
         }
-
-        if (note != null) {
-            MenuItem recipeItem = menu.findItem(R.id.action_recipe);
-            boolean isRecipe = current.getCategory() != null &&
-                    current.getCategory().equals(res.getStringArray(R.array.category)[0]);
-            recipeItem.setChecked(isRecipe);
-            recipeItem.setIcon(isRecipe ? R.drawable.btn_chefhat_active : R.drawable.btn_chefhat);
-
-            MenuItem hideItem = menu.findItem(R.id.action_hide);
-            hideItem.setChecked(current.isHide());
-            hideItem.setIcon(current.isHide() ? R.drawable.btn_hide : R.drawable.btn_show);
-
-        }
-        return true;
+        return false;
     }
-
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        switch (id) {
-            case R.id.action_recipe: {
-                Note current = noteViewModel.getSelectedNote().getValue();
-                if (current != null) {
-
-        if (id == R.id.action_preview) {
-            noteViewModel.togglePreview();
-            return true;
+        Note current = noteViewModel.getSelectedNote().getValue();
+        if (current == null) {
+            return false;
         }
 
-        return switch (id) {
-
-            case R.id.action_recipe -> {
+        switch (id) {
+            case R.id.action_preview: {
+                noteViewModel.togglePreview();
+                return true;
+            }
+            case R.id.action_recipe: {
                 // Toggle Rezept-Status
                 item.setChecked(!item.isChecked());
-                    if (item.isChecked()) {
-                        current.setCategory("");
-                    } else {
-                        current.setCategory(res.getStringArray(R.array.category)[0]);
-                    }
-                    noteViewModel.updateModificationState();
+                if (item.isChecked()) {
+                    current.setCategory("");
+                } else {
+                    current.setCategory(res.getStringArray(R.array.category)[0]);
                 }
+                noteViewModel.updateModificationState();
                 invalidateOptionsMenu();
                 return true;
             }
             case R.id.action_hide: {
-                Note current = noteViewModel.getSelectedNote().getValue();
-                if (current != null) {
-                    current.setHide(!item.isChecked());
-                    noteViewModel.updateModificationState();
-
-                }
+                current.setHide(!item.isChecked());
+                noteViewModel.updateModificationState();
                 invalidateOptionsMenu();
                 return true;
             }
             case R.id.action_share_note: {
-                Note current = noteViewModel.getSelectedNote().getValue();
-                if (current != null) {
-                    ShareHelper.shareNote(this, current);
-                }
+                ShareHelper.shareNote(this, current);
                 return true;
             }
             case R.id.action_remove: {
@@ -410,7 +402,6 @@ public class NoteEditActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
     public void updateNoteFromUI() {
         Note current = noteViewModel.getSelectedNote().getValue();
         if (current == null) return;
@@ -524,6 +515,8 @@ public class NoteEditActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(v -> checkForUnsavedChanges());
     }
+
+
 
     @Override
     protected void onResume() {
