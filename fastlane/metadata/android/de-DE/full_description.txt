@@ -1,0 +1,3 @@
+Ein einfaches Notizbuch zum Schreiben von Text ohne Cloud-Verbindung und ohne Datenbank, keine Berechtigungen erforderlich.
+
+Es ist Open Source. Sie können Notizen schreiben, bearbeiten und vor neugierigen Blicken verbergen.

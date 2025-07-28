@@ -2,8 +2,10 @@
 <releasenote>
     <title>Leafpad 1.21 - Was hat sich verändert</title>
     <content>
-        *Speichern-Button: nur aktiviert, wenn die Notiz tatsächlich verändert
+        * Speichern-Button: nur aktiviert, wenn die Notiz tatsächlich verändert
+        * Lesemodus wird nun richtig verwendet
+        * leere Notizen lassen sich jetzt verwerfen
     </content>
-    <date>23.07.2025</date>
+    <date>28.07.2025</date>
     <time>17:17</time>
 </releasenote>
