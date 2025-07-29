@@ -1,0 +1,3 @@
+Prosty notatnik do zapisywania tekstu bez połączenia z chmurą, bez bazy danych i bez wymaganych uprawnień.
+
+Jest to oprogramowanie typu open source. Możesz pisać, edytować notatki i ukrywać je przed ciekawskimi oczami.
