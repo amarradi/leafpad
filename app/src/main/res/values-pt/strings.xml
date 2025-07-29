@@ -59,7 +59,7 @@
     <string name="satisfied">Gostando do Leafpad?</string>
     <string name="app_name">Leafpad</string>
     <string name="about_the_app">Sobre o aplicativo</string>
-    <string name="remove_dialog_title">Tem certeza?</string>
+    <string name="remove_dialog_title">Você tem certeza?</string>
     <string name="action_add_note">Adicionar nota</string>
     <string name="show_hidden">mostrar notas ocultas</string>
     <string name="action_share_note">Compartilhar nota</string>
