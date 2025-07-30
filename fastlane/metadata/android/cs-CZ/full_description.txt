@@ -1,0 +1,3 @@
+Jednoduchý deník pro psaní beze cloudového připojení, beze databáze a žádné oprávnění potřeba.
+
+Je open source. Můžete psát, upravovat a skrýt poznámky od zvědavých očích.
