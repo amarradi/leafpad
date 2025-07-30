@@ -11,7 +11,7 @@ Repo: https://github.com/amarradi/leafpad.git
 Builds:
   - versionName: "1.20"
     versionCode: 28
-    commit: dbf77f835874c250e3883e721641dd4ea601c905
+    commit: leafpad_1.20
     subdir: .
     gradle:
       - assembleRelease
