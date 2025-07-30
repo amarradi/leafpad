@@ -5,14 +5,17 @@ SourceCode: https://github.com/amarradi/leafpad
 IssueTracker: https://github.com/amarradi/leafpad/issues
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: "1220"
+CurrentVersion: "1.20"
+CurrentVersionCode: 28
 RepoType: git
 Repo: https://github.com/amarradi/leafpad.git
 Builds:
   - versionName: "1.20"
     versionCode: 28
-    commit: dbf77f835874c250e3883e721641dd4ea601c905
+    commit: leafpad_1.20
     subdir: .
     gradle:
       - assembleRelease
     output: app/build/outputs/apk/release/app-release.apk
+    scanignore:
+      - .tmp/
