@@ -1,21 +1,29 @@
 Categories:
   - Writing
 License: GPL-3.0-only
+AuthorName: Marcus Radisch
+WebSite: https://github.com/amarradi/leafpad
 SourceCode: https://github.com/amarradi/leafpad
 IssueTracker: https://github.com/amarradi/leafpad/issues
-AutoUpdateMode: Version
-UpdateCheckMode: Tags
-CurrentVersion: "1.20"
-CurrentVersionCode: 28
+Changelog: https://github.com/amarradi/leafpad/releases
+
+AutoName: Leafpad
+
 RepoType: git
 Repo: https://github.com/amarradi/leafpad.git
+
 Builds:
-  - versionName: "1.20"
+  - versionName: '1.20'
     versionCode: 28
     commit: leafpad_1.20
-    subdir: .
+    subdir: app
     gradle:
-      - assembleRelease
-    output: app/build/outputs/apk/release/app-release.apk
+      - yes
+    output: app/release/app-release.apk
     scanignore:
       - .tmp/
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: '1.20'
+CurrentVersionCode: 28
