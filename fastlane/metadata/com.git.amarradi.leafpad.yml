@@ -1,4 +1,3 @@
-GNU nano 8.5                     metadata/com.git.amarradi.leafpad.yml
 Categories:
   - Writing
 License: GPL-3.0-only
@@ -20,7 +19,14 @@ Builds:
     subdir: app
     gradle:
       - yes
-    output: app/release/app-release.apk
+    prebuild: |
+      # Remove temporary folder safely before build
+      if [ -d ".tmp" ]; then
+        echo "Removing .tmp directory before build..."
+        rm -rf .tmp
+      else
+        echo ".tmp directory not found, skipping removal."
+      fi
     scanignore:
       - .tmp/
 
