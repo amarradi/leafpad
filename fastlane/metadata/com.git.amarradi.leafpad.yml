@@ -28,7 +28,7 @@ Builds:
         echo ".tmp directory not found, skipping removal."
       fi
     scanignore:
-      - .tmp/
+      - .fettmp/
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
