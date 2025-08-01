@@ -20,7 +20,7 @@ android {
                 cppFlags ''
             }
         }
-        resConfigs "aeb", "ar", "be", "bg", "br", "ca", "ce", "cs", "da", "de", "el", "es", "fi", "fr", "hi", "hu", "id", "it", "nb", "nl", "pl", "pt", "ru", "sq", "sv", "ta", "ur"
+        resourceConfigurations += ['aeb', 'ar', 'be', 'bg', 'br', 'ca', 'ce', 'cs', 'da', 'de', 'el', 'es', 'fi', 'fr', 'hi', 'hu', 'id', 'it', 'nb', 'nl', 'pl', 'pt', 'ru', 'sq', 'sv', 'ta', 'ur']
 
 
         //version types: alpha, beta, r
