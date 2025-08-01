@@ -150,4 +150,6 @@
     <string name="country_title_translator_german">Maximilian Hüttner (@MaxHue)</string>
     <string name="country_title_hindi_latin">Hindi (Latin script)</string>
     <string name="country_title_hindi">Hindi</string>
+    <string name="country_title_translator_estonian">Priit Jõerüüt(@jrthwlate)</string>
+    <string name="country_title_estonian">Estonian</string>
 </resources>
