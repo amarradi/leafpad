@@ -1,0 +1,6 @@
+* Seznam mřížky teď reaguje trochu lépe (stále moc dobře nereaguje)
+* Problém se zobrazení dlouhých poznámkách byl opraven
+* Aplikace byla více přeložena
+* Zobrazení "skrytých poznámek" se rozlišuje lépe.
+* Je tam už čtecí řežim, který nechá obrazovku zařízení navždy zapnutou. Možná vyšší spotřeba baterie
+* Oprava chyb
