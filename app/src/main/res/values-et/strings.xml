@@ -70,7 +70,7 @@
     <string name="created_txt">created at</string>
     <string name="notification_of_change_description">Notify about changes in notes</string>
     <string name="cancel">Cancel</string>
-    <string name="thank_weblate"><b>Albanian</b>: Besnik Bleta(@Besnik_b); <b>Arabic</b>: Asaad Zein(@asaadzx); <b>Catalan</b>: Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui); <b>Czech</b>: MessingWithComputers(@MessingWithComputers); <b>English</b>: Santiago Centeno(@Java16), Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l); <b>French</b>: Leonart(@Leonart); <b>German</b>: Maximilian Hüttner(@MaxHue); <b>Greek</b>: Jim Kats(@jimkats1); <b>Hindi</b>: Harshit Sethi(@hstsethi); <b>Hindi (Latin script)</b>: Saurmanđal(@Saurmandal); <b>Indonesian</b>: toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx); <b>Italian</b>: pastic cerre(@pasti), Akiakizero(@Akiakizero); <b>Polish</b>: Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140); <b>Portuguese</b>: Lucas Alves Rego(@devlulcas); <b>Russian</b>: Kirill Isakov(@crowbar), Maksim_220 Кабанов(@law820314), Sotski Eugene(@jekakmail), Rachel Podya(@homicide@disroot.org); <b>Spanish</b>: Zarahi Ander(@TradZarahi), LittleWorm(@LittlerWorm), Jose David M(@jposada202020@gmail.com), Leopoldo Antonio Motto Murua(@leomotto), Francisco Gabriel Chardin(@FranChardin), Abraham Mendoza(@1Alide1); <b>Tamil</b>: தமிழ்நேரம்(@TamilNeram); <b>Ukrainian</b>: Stepan Andriiovych(@Stepan)</string>
+
     <string name="action_remove">Eemalda märge</string>
     <string name="licence">Open source licenses</string>
     <string name="title_required">Title required</string>

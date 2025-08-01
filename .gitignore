@@ -18,3 +18,4 @@ app/release/*
 local.properties
 wrapper/dists/
 /.tmp/*
+/remove_thank_weblate.py
