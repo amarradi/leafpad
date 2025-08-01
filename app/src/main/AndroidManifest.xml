@@ -11,9 +11,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApp">
-        <activity
-            android:name=".InfoTextActivity"
-            android:exported="false" />
+
         <activity
             android:name=".AboutActivity"
             android:exported="false"
