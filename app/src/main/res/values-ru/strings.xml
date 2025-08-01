@@ -121,7 +121,7 @@
     <string name="country_title_indonesian">Indonesian</string>
     <string name="country_title_russian">Russian</string>
     <string name="country_title_translator_greek">Jim Kats (@jimkats1)</string>
-    <string name="please_enter_a_title">Please enter a title for the note before you can save it.</string>
+    <string name="please_enter_a_title">Пожалуйста, введите название заметки, прежде чем сохранить её.</string>
     <string name="country_title_tamil">Tamil</string>
     <string name="country_title_translator_hindi_latin">Saurmanđal (@Saurmandal)</string>
     <string name="country_title_translator_hindi">Harshit Sethi (@hstsethi)</string>
