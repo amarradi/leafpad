@@ -103,8 +103,6 @@
     <string name="no_search_results">Nothing found</string>
     <string name="set">It is a recipe</string>
     <string name="close_release_note">Close Button</string>
-    <string name="thank_weblate"><b>Catalan</b>: Adolfo Jayme Barrientos(@Fito); <b>Czech</b>: zergio inzunza(@n1kf4m3l); <b>Hindi (Latin script)</b>: Saurmanđal(@Saurmandal); <b>Indonesian</b>: Reza Almanda(@rezaalmanda), Antx(@antx); <b>Italian</b>: pastic cerre(@pasti); <b>Polish</b>: Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140); <b>Russian</b>: Kirill Isakov(@crowbar); <b>Spanish</b>: Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1)</string>
-    <string name="please_enter_a_title">Please enter a title for the note before you can save it.</string>
     <string name="title_required">Title required</string>
     <string name="keep_screen_on_dialog_yes">Yes</string>
     <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>

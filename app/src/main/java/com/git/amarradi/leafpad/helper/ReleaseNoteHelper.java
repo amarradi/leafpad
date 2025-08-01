@@ -1,6 +1,4 @@
 package com.git.amarradi.leafpad.helper;
-import com.git.amarradi.leafpad.R;
-
 
 import android.content.Context;
 import android.util.Xml;
@@ -14,7 +12,7 @@ import java.io.InputStream;
 public class ReleaseNoteHelper {
 
     public static ReleaseNote loadReleaseNote(Context context) {
-        try (InputStream is = context.getResources().openRawResource(R.raw.releasenotes)) {
+        try (InputStream is = context.getAssets().open("releasenotes.xml")) {
             XmlPullParser parser = Xml.newPullParser();
             parser.setInput(is, null);
 

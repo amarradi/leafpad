@@ -9,6 +9,7 @@ import android.os.Bundle;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.git.amarradi.leafpad.helper.TranslationThanksBuilder;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textview.MaterialTextView;
 
@@ -29,7 +30,8 @@ public class AboutActivity extends AppCompatActivity {
         MaterialTextView materialTextViewStatement = findViewById(R.id.textView_statement);
         materialTextViewAppNameVersion.setText(getApplicationName(getBaseContext()) + " " + getApplicationNumber());
         materialTextViewStatement.setText(R.string.statement);
-
+        MaterialTextView weblateView = findViewById(R.id.thank_you_for_weblate);
+        weblateView.setText(TranslationThanksBuilder.build(this));
     }
 
     public String getApplicationNumber() {
