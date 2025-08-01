@@ -29,6 +29,9 @@ public class TranslationThanksBuilder {
         appendBoldCountry(builder, context.getString(R.string.country_title_english));
         builder.append(context.getString(R.string.country_title_translator_english)).append("\n");
 
+        appendBoldCountry(builder, context.getString(R.string.country_title_estonian));
+        builder.append(context.getString(R.string.country_title_translator_estonian)).append("\n");
+
         appendBoldCountry(builder, context.getString(R.string.country_title_french));
         builder.append(context.getString(R.string.country_title_translator_french)).append("\n");
 
