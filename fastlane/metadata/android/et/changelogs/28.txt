@@ -1,0 +1,6 @@
+* Ruudustikuvaate kerimine on nüüd sujuvam (aga mitte veel parim)
+* Pikkade märgete kuvamisviga on parandatud
+* Täiendavad tõlked
+* „Peidetud märkmete“ ala on kergemini eristatav
+* Lisandus lugemisvaade, kus ekraan on pidevalt sisselülitatuna. Aga see võib ka akukasutust suurendada
+* Veaparandused
