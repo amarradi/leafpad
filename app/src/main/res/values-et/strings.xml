@@ -31,12 +31,12 @@
     <string name="no">Ei</string>
     <string name="hide_hidden">peida peidetud märkeid</string>
     <string name="change">versioon</string>
-    <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
+    <string name="keep_screen_on_dialog_message">Ekraani sisselülitatuna hoidmine võib märgatavalt suurendada akukasutust. Kas oled kindel, et soovid selle võimaluse sisse lülitada?</string>
     <string name="system_preference_key">süsteemi kujundus (standard)</string>
     <string name="importError">Viga märgete importimisel.</string>
     <string name="restore">Taasta kõik märked xml-failist</string>
     <string name="contentDescription">lisa uus märge</string>
-    <string name="please_enter_a_title">Please enter a title for the note before you can save it.</string>
+    <string name="please_enter_a_title">Enne salvestamist palun lisa märkele pealkiri.</string>
     <string name="action_edit_note">Muuda märget</string>
     <string name="search_hint">What are you looking for?</string>
     <string name="showDeleteConfirmationMessage">Kõik märked kustutatakse jäädavalt. Kas jätkame?</string>
@@ -73,7 +73,7 @@
     <string name="action_remove">Eemalda märge</string>
     <string name="licence">Avatud lähtekoodiga tarkvara litsentsid</string>
     <string name="title_required">Pealkiri on nõutav</string>
-    <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
+    <string name="keep_screen_on_summary">Takista Leafpadi kasutamise ajal ekraani väljalülitamist</string>
     <string name="notification_of_change">Teavitus muudatustest</string>
     <string name="edited_text">muudetud</string>
     <string name="not_initialized">Leafpad not initialized yet!</string>
@@ -85,7 +85,7 @@
     <string name="note_is_recipe">märge on retsept</string>
     <string name="search">search notes</string>
     <string name="showRestoreConfirmation">Kas taastame?</string>
-    <string name="keep_screen_on_title">Keep screen on</string>
+    <string name="keep_screen_on_title">Hoia ekraan sisselülitatuna</string>
     <string name="action_save">salvesta märge</string>
     <string name="share_note">Kas tahad märget jagada?</string>
     <string name="thanks">Suur tänu teile: Stefan, Stefan, Manuel, Falk, Stephanie ja Emil. Aitasite arendust nii ideede kui testimisega.</string>
@@ -103,7 +103,7 @@
     <string name="its_opensource">Leafpad on vaba ja tasuta ning avatud lähtekoodiga</string>
     <string name="satisfied">Kas Leafpad meeldib?</string>
     <string name="app_name">Leafpad</string>
-    <string name="keep_screen_on_dialog_title">Battery usage warning</string>
+    <string name="keep_screen_on_dialog_title">Akukasutuse hoiatus</string>
     <string name="about_the_app">Selle rakenduse teave</string>
     <string name="remove_dialog_title">Kas oled kindel?</string>
     <string name="action_add_note">Lisa märge</string>
