@@ -7,13 +7,13 @@
     <string name="system_preference_option_value" translatable="false">system</string>
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
-    <string name="item_menu_description">menu for item actions</string>
-    <string name="leafpad_work">Leafpad saves all data locally on your smartphone. The notes or metadata such as date and time are not stored in any cloud and are not shared with anyone. No text analysis is carried out either. The notes belong to you. You decide what you do with them.</string>
+    <string name="item_menu_description">menüü toimingute jaoks</string>
+    <string name="leafpad_work">Leafpad salvestab andmed vaid sinu nutiseadmes. Ka märkmete metateave nagu näiteks koostamise ja muutmise ajatempel pole salvestatud pilves ega jagatud teiste osapooltega. Pole ka kasutusel ühtegi sisestatud teksti analüüsimise meetodit. Sinu märkmed on sinu omad. Sina otsustad, mida tahad nendega teha.</string>
     <string name="new_note">uus märge</string>
     <string name="save_changes">salvesta muudatused</string>
     <string name="save">Salvesta kõik märked xml-failina</string>
     <string name="showDeleteConfirmation">Kas kustutame kõik märked?</string>
-    <string name="set">It is a recipe</string>
+    <string name="set">See on retsept</string>
     <string name="toggle">Muuda vaadet</string>
     <string name="imported">märge on saadetud Leafpadi</string>
     <string name="rate_the_app">Koosta Google PlayStore\'is arvustus? Ava Google Play otse siit.</string>
@@ -38,7 +38,7 @@
     <string name="contentDescription">lisa uus märge</string>
     <string name="please_enter_a_title">Enne salvestamist palun lisa märkele pealkiri.</string>
     <string name="action_edit_note">Muuda märget</string>
-    <string name="search_hint">What are you looking for?</string>
+    <string name="search_hint">Mida sa otsid?</string>
     <string name="showDeleteConfirmationMessage">Kõik märked kustutatakse jäädavalt. Kas jätkame?</string>
     <string name="yes">Jah</string>
     <plurals name="notes_imported">
@@ -61,7 +61,7 @@
     <string name="participate">Osale või tee kaastööd</string>
     <string name="title_hint">Pealkiri</string>
     <string name="about">Rakenduse teave</string>
-    <string name="startIconDescription">A search field</string>
+    <string name="startIconDescription">Otsinguväli</string>
     <string name="keep_screen_on_dialog_no">Ei</string>
     <string name="theme_summary">Vaheta heledat ja tumedat kujundust</string>
     <string name="what_is_leafpad">Leafpad on lihtne rakendus märkmete ülestähendamiseks.</string>
@@ -76,28 +76,28 @@
     <string name="keep_screen_on_summary">Takista Leafpadi kasutamise ajal ekraani väljalülitamist</string>
     <string name="notification_of_change">Teavitus muudatustest</string>
     <string name="edited_text">muudetud</string>
-    <string name="not_initialized">Leafpad not initialized yet!</string>
+    <string name="not_initialized">Leafpad on veel valmendamata!</string>
     <string name="body_hint">Märge</string>
     <string name="lightmode_preference_key">hele kujundus</string>
     <string name="unsaved_changes_message">Sinu märge on muutunud. Kas tahad muudatustest loobuda või nad salvestada?</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="darkmode_preference_key">tume kujundus</string>
     <string name="note_is_recipe">märge on retsept</string>
-    <string name="search">search notes</string>
+    <string name="search">otsi märkmeid</string>
     <string name="showRestoreConfirmation">Kas taastame?</string>
     <string name="keep_screen_on_title">Hoia ekraan sisselülitatuna</string>
     <string name="action_save">salvesta märge</string>
     <string name="share_note">Kas tahad märget jagada?</string>
     <string name="thanks">Suur tänu teile: Stefan, Stefan, Manuel, Falk, Stephanie ja Emil. Aitasite arendust nii ideede kui testimisega.</string>
     <string name="note_is_no_recipe">märge ei ole retsept</string>
-    <string name="statement">We write down shopping lists, notes for conversations, packing lists for vacations or friends\' birthdays. These are all good things so that we don\'t forget them. It\'s very similar with God, he writes down our good and bad deeds and saves them. God is above everything and simply knows everything. God loves people and wants to have fellowship with them. But this is only possible if we are seen by God as blameless. Through faith in Jesus Christ, our bad deeds (our guilt) are wiped out before God. Jesus Christ atoned for our guilt on the cross of Calvary. Every person who accepts this is entered in the book of life forever. Are you registered in the book of life?</string>
+    <string name="statement">Me koostame ostunimekirju, vestluste märkmeid, pakkimisloendeid puhkuse jaoks või tegevusplaane sõprade sünnipäevaks. Kõik need on hirmus vahvad asjad ja nii me ei unusta midagi. See on väga sarnane Jumala tegevusega, kes märgib üles meie head ja vead. Jumal on kõigest kõrgemal ja teab lihtsalt kõike. Jumal armastab inimesi ja tahab nendega osadust. Kuid see on võimalik ainult siis, kui Jumal näeb meid süüdimatutena. Usu kaudu Jeesusesse Kristusesse on meie halvad teod (meie süü) Jumala ees kustutatud. Jeesus Kristus lepitas meie süü Kolgata mäe ristil. Iga inimene, kes selle vastu võtab, kantakse igavesti eluraamatusse. Kas sina oled kantud eluraamatusse?</string>
     <string name="hide_note">muuda märge nähtamatuks</string>
     <string name="restore_notes_title">Taastamine</string>
-    <string name="close_release_note">Close Button</string>
+    <string name="close_release_note">Sulgemisnupp</string>
     <string name="unsaved_changes_title">Salvestamata muudatused</string>
     <string name="translation_help">Aita meil rakendust tõlkida sinu keelde Weblate\'i teenuse abil</string>
     <string name="rev20_12">Ja ma nägin surnuid, suuri ja pisikesi, seisvat trooni ees, ning raamatud avati. Teine raamat avati, see on eluraamat. Ja surnute üle mõisteti kohut sedamööda, kuidas raamatuisse oli kirjutatud, nende tegude järgi. Johannese ilmutus 20:12</string>
-    <string name="no_search_results">Nothing found</string>
+    <string name="no_search_results">Ei leidunud mitte midagi</string>
     <string name="save_notes_title">Varundus</string>
     <string name="showRestoreConfirmationMessage">Kõik olemasolevad märked asendatakse varukoopias leiduvatega. Kas jätkame?</string>
     <string name="its_opensource">Leafpad on vaba ja tasuta ning avatud lähtekoodiga</string>
@@ -108,7 +108,7 @@
     <string name="remove_dialog_title">Kas oled kindel?</string>
     <string name="action_add_note">Lisa märge</string>
     <string name="show_hidden">näita peidetud märkeid</string>
-    <string name="empty_list">No notes available in the list</string>
+    <string name="empty_list">Loendis pole märkmeid</string>
     <string name="action_share_note">Jaga märget</string>
     <string name="country_title_translator_czech" translatable="false">MessingWithComputers(@MessingWithComputers)</string>
     <string name="country_title_french">prantsuse keel</string>
