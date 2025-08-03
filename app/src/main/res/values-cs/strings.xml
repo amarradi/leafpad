@@ -44,7 +44,7 @@
     <string name="body_hint">Poznámka</string>
     <string name="lightmode_preference_key">světlý režim</string>
     <string name="find_code_on_github">GitHub</string>
-    <string name="darkmode_preference_key">tvamý režim</string>
+    <string name="darkmode_preference_key">tmavý režim</string>
     <string name="search">hledat poznámky</string>
     <string name="action_save">Uložit poznámku</string>
     <string name="share_note">Sdílet Poznámku?</string>
