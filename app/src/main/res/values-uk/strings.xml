@@ -103,7 +103,7 @@
     <string name="show_hidden">показати приховані нотатки</string>
     <string name="empty_list">У списку немає нотаток</string>
     <string name="action_share_note">Поділитись нотаткою</string>
-    <string name="please_enter_a_title">Будь ласка, введіть назву нотатки, перш ніж ви зможете її зберегти.</string>
+    <string name="please_enter_a_title">Будь ласка, введіть назву нотатки, щоб зберегти або видалити її.</string>
     <string name="title_required">Потрібна посада</string>
     <string name="keep_screen_on_dialog_yes">Так</string>
     <string name="keep_screen_on_dialog_message">Якщо екран буде ввімкнено, це може значно збільшити споживання заряду батареї. Ви впевнені, що хочете ввімкнути цю функцію?</string>
