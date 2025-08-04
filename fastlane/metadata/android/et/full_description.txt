@@ -1,0 +1,3 @@
+Lihtne märkmik, mis ei vaja tööks ühendust pilveteenusega ega eelda andmebaasi kasutamist ning õigusi nutiseadmes.
+
+Rakendus on avatud lähtekoodiga. Võid märkmeid koostada ja muuta ning peida kõrvaliste vaatajate eest.
