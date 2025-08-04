@@ -67,8 +67,6 @@
     <string name="note_will_be_saved_first">Note will be saved first</string>
     <string name="action_save">save note</string>
     <string name="action_note_saved">saved</string>
-
-
     <string name="participate">Participate or Contribute</string>
     <string name="translate">Translate the app on Weblate</string>
     <string name="translation_help">Help us translate the app into your language on weblate</string>
@@ -111,9 +109,7 @@
     <string name="no_search_results">Nothing found</string>
     <string name="startIconDescription">A search field</string>
     <string name="close_release_note">Close Button</string>
-
     <string name="set">It is a recipe</string>
-
     <string name="country_title_albanian">Albanian</string>
     <string translatable="false" name="country_title_translator_albanian">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_arabic">Arabic</string>
@@ -152,10 +148,8 @@
     <string translatable="false" name="country_title_translator_tamil">தமிழ்நேரம்(@TamilNeram)</string>
     <string name="country_title_ukrainian">Ukrainian</string>
     <string translatable="false" name="country_title_translator_ukrainian">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
-
-
     <string name="title_required">Title required</string>
-    <string name="please_enter_a_title">Please enter a title for the note before you can save it.</string>
+    <string name="please_enter_a_title">Please enter a title for the note to save or discard the note.</string>
     <string name="keep_screen_on_title">Keep screen on</string>
     <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
     <string name="keep_screen_on_dialog_title">Battery usage warning</string>
