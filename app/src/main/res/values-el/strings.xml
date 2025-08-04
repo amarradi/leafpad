@@ -102,7 +102,7 @@
     <string name="empty_list">Καμία σημείωση διαθέσιμη στη λίστα</string>
     <string name="set">Είναι μια συνταγή</string>
     <string name="close_release_note">Κουμπί Κλεισίματος</string>
-    <string name="please_enter_a_title">Παρακαλούμε εισάγετε τίτλο για τη σημείωση πριν μπορέσετε να την αποθηκεύσετε.</string>
+    <string name="please_enter_a_title">Παρακαλούμε εισάγετε τίτλο για τη σημείωση για να την αποθηκεύσετε ή απορρίψτε την σημείωση.</string>
     <string name="title_required">Απαιτείται τίτλος</string>
     <string name="keep_screen_on_dialog_message">Με το να διατηρείται η οθόνη αναμμένη, ίσως ανεβάσει σημαντικά την κατανάλωση μπαταρίας. Είστε βέβαιοι ότι θέλετε να ενεργοποιήσετε αυτό το χαρακτηριστικό;</string>
     <string name="keep_screen_on_dialog_no">Όχι</string>
