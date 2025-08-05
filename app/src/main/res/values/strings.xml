@@ -119,7 +119,7 @@
     <string name="country_title_czech">Czech</string>
     <string translatable="false" name="country_title_translator_czech">MessingWithComputers(@MessingWithComputers)</string>
     <string name="country_title_english">English</string>
-    <string name="country_title_translator_english">Santiago Centeno(@Java16), Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l)</string>
+    <string translatable="false" name="country_title_translator_english">Santiago Centeno(@Java16), Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l)</string>
     <string name="country_title_estonian">Estonian</string>
     <string translatable="false" name="country_title_translator_estonian">Priit Jõerüüt(@jrthwlate)</string>
     <string name="country_title_french">French</string>
