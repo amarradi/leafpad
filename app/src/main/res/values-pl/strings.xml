@@ -121,7 +121,7 @@
     <string name="country_title_indonesian">Indonezyjski</string>
     <string name="country_title_russian">Rosyjski</string>
     <string name="country_title_translator_greek">Jim Kats(@jimkats1)</string>
-    <string name="please_enter_a_title">Wpisz tytuł notatki przed jej zapisaniem.</string>
+    <string name="please_enter_a_title">Wpisz tytuł notatki do zapisania lub ją odrzuć.</string>
     <string name="country_title_tamil">Tamilski</string>
     <string name="country_title_translator_hindi_latin">Saurmanđal(@Saurmandal)</string>
     <string name="country_title_translator_hindi">Harshit Sethi(@hstsethi)</string>

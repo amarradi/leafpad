@@ -36,7 +36,7 @@
     <string name="importError">Viga märgete importimisel.</string>
     <string name="restore">Taasta kõik märked xml-failist</string>
     <string name="contentDescription">lisa uus märge</string>
-    <string name="please_enter_a_title">Enne salvestamist palun lisa märkele pealkiri.</string>
+    <string name="please_enter_a_title">Enne salvestamist palun lisa märkele pealkiri või loobu salvestamisest.</string>
     <string name="action_edit_note">Muuda märget</string>
     <string name="search_hint">Mida sa otsid?</string>
     <string name="showDeleteConfirmationMessage">Kõik märked kustutatakse jäädavalt. Kas jätkame?</string>
