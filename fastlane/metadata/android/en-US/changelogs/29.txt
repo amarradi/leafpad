@@ -1,0 +1,5 @@
+* Save button: only activated when the note has actually been changed
+* Read mode is now used correctly
+* Empty notes can now be discarded
+* Translators now have a clearer thank you section
+* Several bugs have been fixed
