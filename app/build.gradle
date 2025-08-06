@@ -60,6 +60,15 @@ android {
         // Disables dependency metadata when building Android App Bundles.
         includeInBundle = false
     }
+
+    applicationVariants.all { variant ->
+        if (variant.buildType.name == "release") {
+            variant.outputs.all { output ->
+                def apkName = "app-release.apk"
+                outputFileName = apkName
+            }
+        }
+    }
 }
 
 dependencies {
