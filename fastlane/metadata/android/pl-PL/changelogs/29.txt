@@ -1,0 +1,5 @@
+* Przycisk zapisywania: aktywacja tylko po faktycznej zmianie notatki
+* Tryb czytania jest teraz używany poprawnie
+* Puste notatki można teraz usunąć
+* Tłumacze mają teraz bardziej przejrzystą sekcję podziękowań
+* Naprawiono kilka błędów

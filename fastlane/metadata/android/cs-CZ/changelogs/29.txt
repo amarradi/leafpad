@@ -1,0 +1,5 @@
+* Tlačítko na uložení je jenom dostupné, když poznámka byla upravena
+* Režim čtení je teď správně použitý
+* Prázdné poznámky mohou být zahozeny
+* Překladatelé mají jasnější sekci poděkování
+* Několik chyb bylo opraveno

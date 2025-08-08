@@ -1,0 +1,5 @@
+* Salvestusnupp muutub kasutatavaks, kui märge on muutunud
+* Lugemisvaade on kasutusel korrektselt
+* Tühjaks jäänud märkmed saad nüüd kustutada
+* Tõlkijate tänamise vaade on nüüd ülevaatlikum
+* Mitmed veaparandused
