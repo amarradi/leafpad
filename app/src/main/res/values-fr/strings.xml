@@ -111,7 +111,7 @@
     <string name="keep_screen_on_title">Garder écran allumé</string>
     <string name="keep_screen_on_dialog_title">Avertissement d\'utilisation de la batterie</string>
     <string name="country_title_translator_czech" translatable="false">MessingWithComputers(@MessingWithComputers)</string>
-    <string name="country_title_french">French</string>
+    <string name="country_title_french">Français</string>
     <string name="country_title_translator_portuguese" translatable="false">Lucas Alves Rego(@devlulcas), Ettlu selva rula(@Ttormor)</string>
     <string name="country_title_catalan">Catalan</string>
     <string name="country_title_spanish">Spanish</string>
