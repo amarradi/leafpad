@@ -118,7 +118,7 @@
     <string name="country_title_spanish">Spanish</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram)</string>
     <string name="country_title_albanian">Albanian</string>
-    <string name="country_title_indonesian">Indonesian</string>
+    <string name="country_title_indonesian">Индонезия</string>
     <string name="country_title_russian">Russian</string>
     <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
     <string name="please_enter_a_title">Пожалуйста, введите название заметки, прежде чем сохранить её.</string>
@@ -128,12 +128,12 @@
     <string name="country_title_translator_english">Santiago Centeno (@Java16), Yurt Page (@yurtpage), zergio inzunza (@n1kf4m3l)</string>
     <string name="country_title_polish">Polish</string>
     <string name="country_title_translator_indonesian" translatable="false">toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
-    <string name="country_title_german">German</string>
+    <string name="country_title_german">Немецкий</string>
     <string name="country_title_translator_french" translatable="false">Leonart(@Leonart), michte(@michte)</string>
     <string name="country_title_translator_arabic" translatable="false">Asaad Zein(@asaadzx)</string>
     <string name="country_title_ukrainian">Ukrainian</string>
     <string name="country_title_translator_spanish" translatable="false">Zarahi Ander(@TradZarahi), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), Abraham Mendoza(@1Alide1), zergio inzunza(@n1kf4m3l)</string>
-    <string name="country_title_greek">Greek</string>
+    <string name="country_title_greek">Греческий</string>
     <string name="country_title_translator_polish" translatable="false">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
     <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero)</string>
     <string name="country_title_arabic">Арабский</string>
@@ -146,8 +146,8 @@
     <string name="country_title_portuguese">Portuguese</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Maximilian Hüttner(@MaxHue)</string>
-    <string name="country_title_hindi_latin">Hindi (Latin script)</string>
-    <string name="country_title_hindi">Hindi</string>
+    <string name="country_title_hindi_latin">Хинди (латинский сценарий)</string>
+    <string name="country_title_hindi">Хинди</string>
     <string name="country_title_translator_estonian">Priit Jõerüüt(@jrthwlate)</string>
     <string name="country_title_estonian">Estonian</string>
 </resources>
