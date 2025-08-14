@@ -102,7 +102,7 @@
     <string name="no_search_results">Nothing found</string>
     <string name="empty_list">No notes available in the list</string>
     <string name="set">It is a recipe</string>
-    <string name="close_release_note">Close Button</string>
+    <string name="close_release_note">Pulsante chiuso</string>
     <string name="title_required">Title required</string>
     <string name="keep_screen_on_dialog_yes">Yes</string>
     <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
@@ -113,10 +113,10 @@
     <string name="country_title_translator_czech" translatable="false">MessingWithComputers(@MessingWithComputers)</string>
     <string name="country_title_french">French</string>
     <string name="country_title_translator_portuguese" translatable="false">Lucas Alves Rego(@devlulcas), Ettlu selva rula(@Ttormor)</string>
-    <string name="country_title_catalan">Catalan</string>
+    <string name="country_title_catalan">Catalano</string>
     <string name="country_title_spanish">Spanish</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram)</string>
-    <string name="country_title_albanian">Albanian</string>
+    <string name="country_title_albanian">Albanese</string>
     <string name="country_title_indonesian">Indonesian</string>
     <string name="country_title_russian">Russian</string>
     <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
@@ -135,7 +135,7 @@
     <string name="country_title_greek">Greek</string>
     <string name="country_title_translator_polish" translatable="false">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
     <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero)</string>
-    <string name="country_title_arabic">Arabic</string>
+    <string name="country_title_arabic">Arabo</string>
     <string name="country_title_italian">Italian</string>
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_translator_ukrainian" translatable="false">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
