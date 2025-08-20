@@ -10,7 +10,7 @@
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="new_note">புதிய குறிப்பு</string>
     <string name="leafpad_work">Leafpad saves all data locally on your smartphone. The notes or metadata such as date and time are not stored in any cloud and are not shared with anyone. No text analysis is carried out either. The notes belong to you. You decide what you do with them.</string>
-    <string name="action_note_saved">saved</string>
+    <string name="action_note_saved">சேமிக்கப்பட்டது</string>
     <string name="imported">குறிப்பு leafpadக்கு அனுப்பப்பட்டது</string>
     <string name="rate_the_app">How about a review in Google\'s PlayStore?</string>
     <string name="add_shortcut_short_label">புதிதாக எழுது</string>
@@ -20,21 +20,21 @@
     <string name="menu_settings">அமைப்புகள்</string>
     <string name="action_fab_note">குறிப்பை உருவாக்கு</string>
     <string name="title_activity_note_edit">குறிப்பை மாற்று</string>
-    <string name="translate">Translate the app on Weblate</string>
+    <string name="translate">Weblateஇல் செயலியை மொழிபெயர்க்க</string>
     <string name="hide_hidden">hide hidden notes</string>
     <string name="change">பதிப்பு</string>
     <string name="system_preference_key">follow system (standard)</string>
     <string name="contentDescription">புதிய குறிப்பு சேர்</string>
     <string name="action_edit_note">குறிப்பை மாற்று</string>
-    <string name="note_will_be_saved_first">Note will be saved first</string>
-    <string name="general_preference">General</string>
+    <string name="note_will_be_saved_first">குறிப்பு முதலில் சேமிக்கப்படும்</string>
+    <string name="general_preference">போது அமைப்புகள்</string>
     <string name="title_licence">Licences</string>
-    <string name="remove_dailog_message">இந்த குறிப்பு நிரந்திரமாக அழிக்கப்படும் . Afterwards it cannot be restored.</string>
+    <string name="remove_dailog_message">இந்த குறிப்பு நிரந்திரமாக அழிக்கப்படும் . பிறகு மீட்க இயலாது.</string>
     <string name="version">பதிப்பு</string>
     <string name="show_note">make the note visible</string>
     <string name="find_code_on_github_summary">You can view and check the source code via the repository. You are welcome to open an issue for change requests and error messages.</string>
     <string name="action_share_title">தலைப்பு</string>
-    <string name="participate">Participate</string>
+    <string name="participate">பங்கேற்க அல்லது பங்கெடுக்க</string>
     <string name="title_hint">தலைப்பு</string>
     <string name="about">பற்றி</string>
     <string name="theme_summary">Toggle between dark and light theme</string>
@@ -47,15 +47,15 @@
     <string name="lightmode_preference_key">lightmode</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="darkmode_preference_key">darkmode</string>
-    <string name="search">search</string>
-    <string name="action_save">save note</string>
-    <string name="share_note">Share Note?</string>
+    <string name="search">குறிப்புகளில் தேடு</string>
+    <string name="action_save">குறிப்பை செமி</string>
+    <string name="share_note">குறிப்பை பகிர?</string>
     <string name="thanks">Thank you Stefan, Stefan, Manuel, Falk and Stephanie for your ideas and testing the app.</string>
     <string name="statement">We write down shopping lists, notes for conversations, packing lists for vacations or friends\' birthdays. These are all good things so that we don\'t forget them. It\'s very similar with God, he writes down our good and bad deeds and saves them. God is above everything and simply knows everything. God loves people and wants to have fellowship with them. But this is only possible if we are seen by God as blameless. Through faith in Jesus Christ, our bad deeds (our guilt) are wiped out before God. Jesus Christ atoned for our guilt on the cross of Calvary. Every person who accepts this is entered in the book of life forever. Are you registered in the book of life?</string>
     <string name="hide_note">make the note invisible</string>
-    <string name="translation_help">Help us translate the app into your language on weblate</string>
+    <string name="translation_help">weblateஇல் செயலியை உங்கள் மொழிக்கு மொழிபெயர்க்க உதவுங்கள்</string>
     <string name="rev20_12">And I saw the dead, the great and the small, standing before the throne; and books were opened: and another book was opened, which is the book of life: and the dead were judged out of the things which were written in the books, according to their works. Revelation 20:12</string>
-    <string name="its_opensource">Leafpad is OpenSource and its free</string>
+    <string name="its_opensource">Leafpad இலவசமானது மற்றும் திறந்த மூலக்கோடு உடையது</string>
     <string name="satisfied">leafpadஐ விரும்பிகீர்களா ?</string>
     <string name="app_name">Leafpad</string>
     <string name="about_the_app">செயலியை பற்றி</string>
@@ -63,89 +63,89 @@
     <string name="action_add_note">குறிப்பை சேர்</string>
     <string name="show_hidden">show hidden notes</string>
     <string name="action_share_note">குறிப்பை பகிர்</string>
-    <string name="note_is_recipe">note is a recipe</string>
-    <string name="note_is_no_recipe">note is no recipe</string>
-    <string name="save">Save all notes as xml</string>
+    <string name="note_is_recipe">குறிப்பு ஒரு சமையல் குறிப்பு</string>
+    <string name="note_is_no_recipe">குறிப்பு சமையல் குறிப்பல்ல</string>
+    <string name="save">அனைத்து குறிப்புகளையும் xmlஆக சேமி</string>
     <string name="showDeleteConfirmation">குறிப்புகளை நீக்க?</string>
-    <string name="backupIsrunning">Backup is running</string>
+    <string name="backupIsrunning">பிரதிகாப்பு உருவாக்கப்படுகிறது</string>
     <string name="no">இல்லை</string>
-    <string name="importError">Error when importing notes.</string>
-    <string name="restore">Restore all notes as xml</string>
+    <string name="importError">குறிப்புகளை இறக்குமதி செய்வதில் பிழை.</string>
+    <string name="restore">xml கோப்பிள் இருந்து அனைத்து குறிப்புகளையும் மீட்டெடு</string>
     <plurals name="notes_imported">
-        <item quantity="one">One note imported</item>
-        <item quantity="other">%1$d notes imported</item>
+        <item quantity="one">%1$d குறிப்பு இறக்குமதி செய்யப்பட்டது</item>
+        <item quantity="other">%1$d குறிப்புகள் இறக்குமதி செய்யபட்டன</item>
     </plurals>
     <string name="showDeleteConfirmationMessage">அனைத்து குறிப்புகளும் நிரந்திரமாக நீக்கப்படும். தொடர்க?</string>
-    <string name="fileOpeningError">Error when opening the file.</string>
+    <string name="fileOpeningError">கோப்பை திறப்பதில் பிழை.</string>
     <string name="yes">ஆம்</string>
     <string name="delete">நீக்கு</string>
-    <string name="backupfinish">Backup finishes</string>
-    <string name="invalidFile">Invalid backup file. The import was cancelled.</string>
+    <string name="backupfinish">காப்புப்பிரதி நிறைவடைந்தது</string>
+    <string name="invalidFile">தவறான காப்புபிரதி. இறக்குமதி ரத்து செய்யபடுகிறது.</string>
     <string name="cancel">ரத்து செய்</string>
-    <string name="showRestoreConfirmation">Restore?</string>
-    <string name="restore_notes_title">Restore</string>
-    <string name="save_notes_title">Backup</string>
+    <string name="showRestoreConfirmation">மீட்டெடுக்க?</string>
+    <string name="restore_notes_title">மீட்டெடு</string>
+    <string name="save_notes_title">பிரதிகாப்பு</string>
     <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
     <string name="toggle">change View</string>
     <string name="note_shared">குறிப்பு பகிரப்பட்டது</string>
-    <string name="discard">discard</string>
+    <string name="discard">நிராகரி</string>
     <string name="item_menu_description">menu for item actions</string>
     <string name="not_initialized">Leafpad not initialized yet!</string>
-    <string name="empty_list">No notes available in the list</string>
-    <string name="save_changes">save changes</string>
-    <string name="search_hint">What are you looking for?</string>
+    <string name="empty_list">பட்டியலில் குறிப்புகள் இல்லை</string>
+    <string name="save_changes">மாற்றங்களை சேமி</string>
+    <string name="search_hint">நீங்கள் எதை தேடுகிறீர்கள்?</string>
     <string name="startIconDescription">A search field</string>
     <string name="notification_of_change_description">Notify about changes in notes</string>
     <string name="notification_of_change">Notification of changes</string>
-    <string name="unsaved_changes_message">Your note has changed. Do you want to save or discard the changes?</string>
-    <string name="unsaved_changes_title">Unsaved changes</string>
-    <string name="no_search_results">Nothing found</string>
-    <string name="set">It is a recipe</string>
-    <string name="close_release_note">Close Button</string>
-    <string name="title_required">Title required</string>
-    <string name="keep_screen_on_dialog_yes">Yes</string>
+    <string name="unsaved_changes_message">உங்கள் குறிப்பு மாற்றப்பட்டுள்ளது. மாற்றத்தை சேமிக்க வேண்டுமா அல்லது ரத்து செய்ய வேண்டுமா?</string>
+    <string name="unsaved_changes_title">சேமிக்கபடாத மாற்றங்கள்</string>
+    <string name="no_search_results">எதுவும் கண்டறியபடவில்லை</string>
+    <string name="set">இது ஒரு சமையல் குறிப்பு</string>
+    <string name="close_release_note">மூடு பொத்தான்</string>
+    <string name="title_required">தலைப்பு தேவை</string>
+    <string name="keep_screen_on_dialog_yes">ஆம்</string>
     <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
-    <string name="keep_screen_on_dialog_no">No</string>
+    <string name="keep_screen_on_dialog_no">இல்லை</string>
     <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
     <string name="keep_screen_on_title">Keep screen on</string>
-    <string name="keep_screen_on_dialog_title">Battery usage warning</string>
+    <string name="keep_screen_on_dialog_title">மின்கல பயன்பாடு எச்சரிக்கை</string>
     <string name="country_title_translator_czech" translatable="false">MessingWithComputers(@MessingWithComputers)</string>
-    <string name="country_title_french">French</string>
+    <string name="country_title_french">பிரஞ்சு</string>
     <string name="country_title_translator_portuguese" translatable="false">Lucas Alves Rego(@devlulcas), Ettlu selva rula(@Ttormor)</string>
     <string name="country_title_catalan">Catalan</string>
     <string name="country_title_spanish">Spanish</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram)</string>
     <string name="country_title_albanian">Albanian</string>
-    <string name="country_title_indonesian">Indonesian</string>
-    <string name="country_title_russian">Russian</string>
+    <string name="country_title_indonesian">இந்தோனேசியன்</string>
+    <string name="country_title_russian">ரஷியன்</string>
     <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
-    <string name="please_enter_a_title">Please enter a title for the note before you can save it.</string>
-    <string name="country_title_tamil">Tamil</string>
+    <string name="please_enter_a_title">குறிப்பை சேமிக்க தலைப்பை உள்ளிடவும்.</string>
+    <string name="country_title_tamil">தமிழ்</string>
     <string name="country_title_translator_hindi_latin" translatable="false">Saurmanđal(@Saurmandal)</string>
     <string name="country_title_translator_hindi" translatable="false">Harshit Sethi(@hstsethi)</string>
-    <string name="country_title_translator_english">Santiago Centeno (@Java16), Yurt Page (@yurtpage), zergio inzunza (@n1kf4m3l)</string>
+    <string name="country_title_translator_english">Santiago Centeno(@Java16), Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l)</string>
     <string name="country_title_polish">Polish</string>
     <string name="country_title_translator_indonesian" translatable="false">toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
-    <string name="country_title_german">German</string>
+    <string name="country_title_german">ஜெர்மன்</string>
     <string name="country_title_translator_french" translatable="false">Leonart(@Leonart), michte(@michte)</string>
     <string name="country_title_translator_arabic" translatable="false">Asaad Zein(@asaadzx)</string>
     <string name="country_title_ukrainian">Ukrainian</string>
     <string name="country_title_translator_spanish" translatable="false">Zarahi Ander(@TradZarahi), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), Abraham Mendoza(@1Alide1), zergio inzunza(@n1kf4m3l)</string>
-    <string name="country_title_greek">Greek</string>
+    <string name="country_title_greek">கிரேக்கம்</string>
     <string name="country_title_translator_polish" translatable="false">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
     <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero)</string>
-    <string name="country_title_arabic">Arabic</string>
-    <string name="country_title_italian">Italian</string>
+    <string name="country_title_arabic">அரபு</string>
+    <string name="country_title_italian">இத்தாலியன்</string>
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_translator_ukrainian" translatable="false">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
     <string name="country_title_translator_russian" translatable="false">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), Maksim_220 Кабанов(@law820314), Sotski Eugene(@jekakmail), Rachel Podya(@homicide@disroot.org), Santiago Centeno(@Java16)</string>
     <string name="country_title_czech">Czech</string>
-    <string name="country_title_english">English</string>
+    <string name="country_title_english">ஆங்கிலம்</string>
     <string name="country_title_portuguese">Portuguese</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Maximilian Hüttner(@MaxHue)</string>
-    <string name="country_title_hindi_latin">Hindi (Latin script)</string>
-    <string name="country_title_hindi">Hindi</string>
+    <string name="country_title_hindi_latin">ஹிந்தி (லத்தின் எழுத்து)</string>
+    <string name="country_title_hindi">ஹிந்தி</string>
     <string name="country_title_translator_estonian">Priit Jõerüüt(@jrthwlate)</string>
     <string name="country_title_estonian">Estonian</string>
 </resources>
