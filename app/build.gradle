@@ -20,7 +20,46 @@ android {
                 cppFlags ''
             }
         }
-        resourceConfigurations += ['aeb', 'ar', 'be', 'bg', 'br', 'ca', 'ce', 'cs', 'da', 'de', 'el', 'es', 'fi', 'fr', 'hi', 'hu', 'id', 'it', 'nb', 'nl', 'pl', 'pt', 'ru', 'sq', 'sv', 'ta', 'ur']
+        resourceConfigurations += [
+                'aeb',     // Tunisian Arabic
+                'ar',      // Arabic
+                'be',      // Belarusian
+                'bg',      // Bulgarian
+                'br',      // Breton
+                'ca',      // Catalan
+                'ce',      // Chechen
+                'cs',      // Czech
+                'da',      // Danish
+                'de',      // German
+                'el',      // Greek
+                'es',      // Spanish
+                'et',      // Estonian
+                'fi',      // Finnish
+                'fr',      // French
+                'hi',      // Hindi (Devanagari)
+                'hu',      // Hungarian
+                'id',      // Indonesian
+                'it',      // Italian
+                'nb',      // Norwegian Bokmål
+                'nl',      // Dutch
+                'pl',      // Polish
+                'pt',      // Portuguese
+                'ru',      // Russian
+                'sq',      // Albanian
+                'sv',      // Swedish
+                'ta',      // Tamil
+                'uk',      // Ukrainian
+                'ur',      // Urdu
+                'uz',      // Uzbek
+                'zh-rCN',  // Chinese (Simplified)
+                'zh-rTW',  // Chinese (Traditional)
+
+                // Optional / Sonderfall:
+                // BCP-47 Locale für Hindi in lateinischer Schrift.
+                // Kann von Android unterstützt werden, aber nicht alle Tools erkennen es sauber.
+                'b+hi+Latn'
+        ]
+
 
 
         //version types: alpha, beta, r

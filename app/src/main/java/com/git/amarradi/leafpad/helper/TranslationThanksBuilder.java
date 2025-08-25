@@ -23,6 +23,12 @@ public class TranslationThanksBuilder {
         appendBoldCountry(builder, context.getString(R.string.country_title_catalan));
         builder.append(context.getString(R.string.country_title_translator_catalan)).append("\n");
 
+        appendBoldCountry(builder, context.getString(R.string.country_title_chinese_simplified_han_script));
+        builder.append(context.getString(R.string.country_title_translator_chinese_simplified_han_script)).append("\n");
+
+        appendBoldCountry(builder, context.getString(R.string.country_title_chinese_traditional_han_script));
+        builder.append(context.getString(R.string.country_title_translator_chinese_simplified_han_script)).append("\n");
+
         appendBoldCountry(builder, context.getString(R.string.country_title_czech));
         builder.append(context.getString(R.string.country_title_translator_czech)).append("\n");
 
@@ -44,8 +50,11 @@ public class TranslationThanksBuilder {
         appendBoldCountry(builder, context.getString(R.string.country_title_hindi));
         builder.append(context.getString(R.string.country_title_translator_hindi)).append("\n");
 
-        appendBoldCountry(builder, context.getString(R.string.country_title_hindi_latin));
-        builder.append(context.getString(R.string.country_title_translator_hindi_latin)).append("\n");
+        appendBoldCountry(builder, context.getString(R.string.country_title_hindi_latin_script));
+        builder.append(context.getString(R.string.country_title_translator_hindi_latin_script)).append("\n");
+
+        appendBoldCountry(builder, context.getString(R.string.country_title_hindi));
+        builder.append(context.getString(R.string.country_title_translator_hindi)).append("\n");
 
         appendBoldCountry(builder, context.getString(R.string.country_title_indonesian));
         builder.append(context.getString(R.string.country_title_translator_indonesian)).append("\n");
@@ -56,11 +65,19 @@ public class TranslationThanksBuilder {
         appendBoldCountry(builder, context.getString(R.string.country_title_portuguese));
         builder.append(context.getString(R.string.country_title_translator_portuguese)).append("\n");
 
+        appendBoldCountry(builder, context.getString(R.string.country_title_russian));
+        builder.append(context.getString(R.string.country_title_translator_russian)).append("\n");
+
         appendBoldCountry(builder, context.getString(R.string.country_title_spanish));
         builder.append(context.getString(R.string.country_title_translator_spanish)).append("\n");
+        appendBoldCountry(builder, context.getString(R.string.country_title_tamil));
+        builder.append(context.getString(R.string.country_title_translator_tamil));
 
         appendBoldCountry(builder, context.getString(R.string.country_title_ukrainian));
-        builder.append(context.getString(R.string.country_title_translator_ukrainian));
+        builder.append(context.getString(R.string.country_title_translator_ukrainian)).append("\n");
+
+        appendBoldCountry(builder, context.getString(R.string.country_title_uzbek));
+        builder.append(context.getString(R.string.country_title_translator_uzbek));
         return builder;
     }
 
