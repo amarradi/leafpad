@@ -3,26 +3,26 @@
     <string translatable="false" name="country_title_translator_czech">MessingWithComputers(@MessingWithComputers)</string>
     <string name="darkmode_preference" translatable="false">darkmode</string>
     <string translatable="false" name="country_title_translator_portuguese">Lucas Alves Rego(@devlulcas), Ettlu selva rula(@Ttormor)</string>
-    <string translatable="false" name="country_title_translator_tamil">தமிழ்நேரம்(@TamilNeram)</string>
+    <string translatable="false" name="country_title_translator_tamil">Kolappan N(@kolappan), தமிழ்நேரம்(@TamilNeram)</string>
     <string translatable="false" name="country_title_translator_greek">Jim Kats(@jimkats1)</string>
     <string name="system_preference" translatable="false">system</string>
     <string translatable="false" name="country_title_translator_hindi_latin">Saurmanđal(@Saurmandal)</string>
     <string translatable="false" name="country_title_translator_hindi">Harshit Sethi(@hstsethi)</string>
     <string name="theme_key" translatable="false">theme</string>
     <string translatable="false" name="country_title_translator_indonesian">toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
-    <string translatable="false" name="country_title_translator_french">Leonart(@Leonart), michte(@michte)</string>
+    <string translatable="false" name="country_title_translator_french">Leonart(@Leonart), Omgeta(@Omgeta), michte(@michte)</string>
     <string name="lightmode_preference" translatable="false">lightmode</string>
     <string translatable="false" name="country_title_translator_arabic">Asaad Zein(@asaadzx)</string>
     <string translatable="false" name="country_title_translator_estonian">Priit Jõerüüt(@jrthwlate)</string>
     <string name="system_preference_option_value" translatable="false">system</string>
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
-    <string translatable="false" name="country_title_translator_spanish">Zarahi Ander(@TradZarahi), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), Abraham Mendoza(@1Alide1), zergio inzunza(@n1kf4m3l)</string>
+    <string translatable="false" name="country_title_translator_spanish">Zarahi Ander(@TradZarahi), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Jose David M(@jposada202020@gmail.com), Leopoldo Antonio Motto Murua(@leomotto), Francisco Gabriel Chardin(@FranChardin), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1)</string>
     <string translatable="false" name="country_title_translator_polish">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
-    <string translatable="false" name="country_title_translator_italian">pastic cerre(@pasti), Akiakizero(@Akiakizero)</string>
+    <string translatable="false" name="country_title_translator_italian">pastic cerre(@pasti), Akiakizero(@Akiakizero), Davide Secco(@davidesecco)</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string translatable="false" name="country_title_translator_albanian">Besnik Bleta(@Besnik_b)</string>
     <string translatable="false" name="country_title_translator_ukrainian">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
-    <string translatable="false" name="country_title_translator_russian">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), Maksim_220 Кабанов(@law820314), Sotski Eugene(@jekakmail), Rachel Podya(@homicide@disroot.org), Santiago Centeno(@Java16)</string>
+    <string translatable="false" name="country_title_translator_russian">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), vanapro1(@vanapro1), Sotski Eugene(@jekakmail), Rachel Podya(@homicide@disroot.org), SnIPeRSnIPeR(@SnIPeRSnIPeR), Santiago Centeno(@Java16)</string>
     <string translatable="false" name="country_title_translator_catalan">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string translatable="false" name="country_title_translator_german">Maximilian Hüttner(@MaxHue)</string>
     <string name="item_menu_description">menu for item actions</string>
@@ -72,7 +72,7 @@
     <string name="fileOpeningError">Error when opening the file.</string>
     <string name="note_will_be_saved_first">Note will be saved first</string>
     <string name="delete">Delete</string>
-    <string name="country_title_translator_english">Santiago Centeno(@Java16), Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l)</string>
+    <string name="country_title_translator_english" translatable="false">Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l), Santiago Centeno(@Java16)</string>
     <string name="country_title_polish">Polish</string>
     <string name="general_preference">General settings</string>
     <string name="title_licence">Licences</string>
@@ -147,4 +147,12 @@
     <string name="empty_list">No notes available in the list</string>
     <string name="action_share_note">Share note</string>
     <string name="country_title_hindi">Hindi</string>
+    <string name="country_title_translator_chinese_traditional_han_script" translatable="false">imcc(@imcc)</string>
+    <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
+    <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
+    <string name="country_title_translator_chinese_simplified_han_script" translatable="false">imcc(@imcc)</string>
+    <string name="country_title_chinese_simplified_han_script">Chinese (Simplified Han script)</string>
+    <string name="country_title_chinese_traditional_han_script">Chinese (Traditional Han script)</string>
+    <string name="country_title_hindi_latin_script">Hindi (Latin script)</string>
+    <string name="country_title_uzbek">Uzbek</string>
 </resources>
