@@ -43,6 +43,9 @@ If you have found a bug or are missing a function, you can simply open a new iss
 
 <a href='https://github.com/amarradi/leafpad/issues/'>Post a GitHub Issue</a>
 
+## Contributing
+If you want to contribute leafpad you can read <a href='https://github.com/amarradi/leafpad/blob/development/CONTRIBUTING.md'>Contribute</a> and start.
+
 ## Support for leafpad
 If you would like to support the work on leafpad, you are welcome to do so via Liberapay
 
