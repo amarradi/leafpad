@@ -6,13 +6,13 @@
     <string name="lightmode_preference" translatable="false">lightmode</string>
     <string name="system_preference_option_value" translatable="false">system</string>
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
-    <string name="theme_preference">Theme</string>
+    <string name="theme_preference">கருப்பொருள்</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="new_note">புதிய குறிப்பு</string>
-    <string name="leafpad_work">Leafpad saves all data locally on your smartphone. The notes or metadata such as date and time are not stored in any cloud and are not shared with anyone. No text analysis is carried out either. The notes belong to you. You decide what you do with them.</string>
+    <string name="leafpad_work">உங்கள் ச்மார்ட்போனில் உள்ளூரில் உள்ள அனைத்து தரவையும் லீச்பேட் சேமிக்கிறது. தேதி மற்றும் நேரம் போன்ற குறிப்புகள் அல்லது மேனிலை தரவு எந்த மேகத்திலும் சேமிக்கப்படவில்லை, அவை யாருடனும் பகிரப்படவில்லை. உரை பகுப்பாய்வு எதுவும் மேற்கொள்ளப்படவில்லை. குறிப்புகள் உங்களுக்கு சொந்தமானவை. நீங்கள் அவர்களுடன் என்ன செய்கிறீர்கள் என்பதை நீங்கள் தீர்மானிக்கிறீர்கள்.</string>
     <string name="action_note_saved">சேமிக்கப்பட்டது</string>
     <string name="imported">குறிப்பு leafpadக்கு அனுப்பப்பட்டது</string>
-    <string name="rate_the_app">How about a review in Google\'s PlayStore?</string>
+    <string name="rate_the_app">கூகிளின் பிளேச்டோரில் ஒரு மதிப்பாய்வு எப்படி? பின்னர் கூகிள் பிளேயை நேரடியாகத் திறக்கவும்.</string>
     <string name="add_shortcut_short_label">புதிதாக எழுது</string>
     <string name="tell_about">Leafpadஐ பற்றி நான் உங்களுக்கு கூற விரும்புவது</string>
     <string name="action_share_body">குறிப்பு</string>
@@ -21,47 +21,47 @@
     <string name="action_fab_note">குறிப்பை உருவாக்கு</string>
     <string name="title_activity_note_edit">குறிப்பை மாற்று</string>
     <string name="translate">Weblateஇல் செயலியை மொழிபெயர்க்க</string>
-    <string name="hide_hidden">hide hidden notes</string>
+    <string name="hide_hidden">மறைக்கப்பட்ட குறிப்புகளை மறைக்கவும்</string>
     <string name="change">பதிப்பு</string>
-    <string name="system_preference_key">follow system (standard)</string>
+    <string name="system_preference_key">அமைப்பைப் பின்தொடரவும் (தரநிலை)</string>
     <string name="contentDescription">புதிய குறிப்பு சேர்</string>
     <string name="action_edit_note">குறிப்பை மாற்று</string>
     <string name="note_will_be_saved_first">குறிப்பு முதலில் சேமிக்கப்படும்</string>
     <string name="general_preference">போது அமைப்புகள்</string>
-    <string name="title_licence">Licences</string>
+    <string name="title_licence">உரிமங்கள்</string>
     <string name="remove_dailog_message">இந்த குறிப்பு நிரந்திரமாக அழிக்கப்படும் . பிறகு மீட்க இயலாது.</string>
     <string name="version">பதிப்பு</string>
-    <string name="show_note">make the note visible</string>
-    <string name="find_code_on_github_summary">You can view and check the source code via the repository. You are welcome to open an issue for change requests and error messages.</string>
+    <string name="show_note">குறிப்பைக் காணச் செய்யுங்கள்</string>
+    <string name="find_code_on_github_summary">களஞ்சியத்தின் வழியாக மூலக் குறியீட்டைக் காணலாம் மற்றும் சரிபார்க்கலாம். மாற்ற கோரிக்கைகள் மற்றும் பிழை செய்திகளுக்கு ஒரு சிக்கலைத் திறக்க உங்களை வரவேற்கிறோம்.</string>
     <string name="action_share_title">தலைப்பு</string>
     <string name="participate">பங்கேற்க அல்லது பங்கெடுக்க</string>
     <string name="title_hint">தலைப்பு</string>
     <string name="about">பற்றி</string>
-    <string name="theme_summary">Toggle between dark and light theme</string>
+    <string name="theme_summary">இருண்ட மற்றும் ஒளி கருப்பொருளுக்கு இடையில் மாற்றவும்</string>
     <string name="what_is_leafpad">Leafpad குறிப்புகள் எடுக்க பயன்படும் ஒரு எளிய செயலி.</string>
     <string name="created_txt">உருவாக்கபட்ட நேரம்</string>
     <string name="action_remove">குறிப்பை நீக்கு</string>
-    <string name="licence">Open source licenses</string>
+    <string name="licence">திறந்த மூல உரிமங்கள்</string>
     <string name="edited_text">திருத்தப்பட்டது</string>
     <string name="body_hint">குறிப்பு</string>
-    <string name="lightmode_preference_key">lightmode</string>
-    <string name="find_code_on_github">GitHub</string>
-    <string name="darkmode_preference_key">darkmode</string>
+    <string name="lightmode_preference_key">லைட்மோட்</string>
+    <string name="find_code_on_github">கிரப்</string>
+    <string name="darkmode_preference_key">இருண்ட முறை</string>
     <string name="search">குறிப்புகளில் தேடு</string>
     <string name="action_save">குறிப்பை செமி</string>
     <string name="share_note">குறிப்பை பகிர?</string>
-    <string name="thanks">Thank you Stefan, Stefan, Manuel, Falk and Stephanie for your ideas and testing the app.</string>
-    <string name="statement">We write down shopping lists, notes for conversations, packing lists for vacations or friends\' birthdays. These are all good things so that we don\'t forget them. It\'s very similar with God, he writes down our good and bad deeds and saves them. God is above everything and simply knows everything. God loves people and wants to have fellowship with them. But this is only possible if we are seen by God as blameless. Through faith in Jesus Christ, our bad deeds (our guilt) are wiped out before God. Jesus Christ atoned for our guilt on the cross of Calvary. Every person who accepts this is entered in the book of life forever. Are you registered in the book of life?</string>
-    <string name="hide_note">make the note invisible</string>
+    <string name="thanks">உங்கள் சிந்தனைகள் மற்றும் பயன்பாட்டை சோதித்ததற்கு ச்டீபன், ச்டீபன், மானுவல், பால்க், ச்டீபனி மற்றும் எமில் ஆகியோருக்கு நன்றி.</string>
+    <string name="statement">நாங்கள் சாப்பிங் பட்டியல்கள், உரையாடல்களுக்கான குறிப்புகள், விடுமுறைக்கான பொதி பட்டியல்கள் அல்லது நண்பர்களின் பிறந்த நாள் எழுதுகிறோம். இவை அனைத்தும் நல்ல விசயங்கள், எனவே அவற்றை நாம் மறக்க வேண்டாம். இது கடவுளுடன் மிகவும் ஒத்திருக்கிறது, அவர் நம்முடைய நல்ல மற்றும் கெட்ட செயல்களை எழுதி அவற்றைக் காப்பாற்றுகிறார். கடவுள் எல்லாவற்றிற்கும் மேலாக இருக்கிறார், எல்லாவற்றையும் அறிந்திருக்கிறார். கடவுள் மக்களை நேசிக்கிறார், அவர்களுடன் கூட்டுறவு கொள்ள விரும்புகிறார். ஆனால் கடவுளால் குற்றமற்றவர் என்று நாம் பார்த்தால் மட்டுமே இது சாத்தியமாகும். இயேசு கிறிச்துவின் மீதான விசுவாசத்தின் மூலம், நம்முடைய கெட்ட செயல்கள் (நம்முடைய குற்ற உணர்வு) கடவுளுக்கு முன்பாக அழிக்கப்படுகின்றன. கல்வரியின் சிலுவையில் நம்முடைய குற்றத்திற்காக இயேசு கிறிச்து பரிகாரம் செய்தார். இதை ஏற்றுக்கொள்ளும் ஒவ்வொரு நபரும் வாழ்க்கை புத்தகத்தில் என்றென்றும் நுழைந்தனர். நீங்கள் வாழ்க்கை புத்தகத்தில் பதிவு செய்யப்பட்டுள்ளீர்களா?</string>
+    <string name="hide_note">குறிப்பை கண்ணுக்கு தெரியாததாக ஆக்குங்கள்</string>
     <string name="translation_help">weblateஇல் செயலியை உங்கள் மொழிக்கு மொழிபெயர்க்க உதவுங்கள்</string>
-    <string name="rev20_12">And I saw the dead, the great and the small, standing before the throne; and books were opened: and another book was opened, which is the book of life: and the dead were judged out of the things which were written in the books, according to their works. Revelation 20:12</string>
+    <string name="rev20_12">நான் இறந்தவர்களையும், பெரியவனையும், சிறியவனையும் பார்த்தேன்; புத்தகங்கள் திறக்கப்பட்டன: மற்றொரு நூல் திறக்கப்பட்டது, இது வாழ்க்கை புத்தகம்: மற்றும் இறந்தவர்கள் புத்தகங்களில் எழுதப்பட்ட விசயங்களிலிருந்து தீர்மானிக்கப்பட்டனர், அவற்றின் படைப்புகளின்படி. வெளிப்படுத்துதல் 20:12</string>
     <string name="its_opensource">Leafpad இலவசமானது மற்றும் திறந்த மூலக்கோடு உடையது</string>
     <string name="satisfied">leafpadஐ விரும்பிகீர்களா ?</string>
-    <string name="app_name">Leafpad</string>
+    <string name="app_name">லீச்பேட்</string>
     <string name="about_the_app">செயலியை பற்றி</string>
     <string name="remove_dialog_title">நீங்கள் உறுதியாக உள்ளீர்களா?</string>
     <string name="action_add_note">குறிப்பை சேர்</string>
-    <string name="show_hidden">show hidden notes</string>
+    <string name="show_hidden">மறைக்கப்பட்ட குறிப்புகளைக் காட்டு</string>
     <string name="action_share_note">குறிப்பை பகிர்</string>
     <string name="note_is_recipe">குறிப்பு ஒரு சமையல் குறிப்பு</string>
     <string name="note_is_no_recipe">குறிப்பு சமையல் குறிப்பல்ல</string>
@@ -85,18 +85,18 @@
     <string name="showRestoreConfirmation">மீட்டெடுக்க?</string>
     <string name="restore_notes_title">மீட்டெடு</string>
     <string name="save_notes_title">பிரதிகாப்பு</string>
-    <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
-    <string name="toggle">change View</string>
+    <string name="showRestoreConfirmationMessage">தற்போதைய அனைத்து குறிப்புகளும் காப்புப்பிரதி மூலம் மாற்றப்படும். தொடரவா?</string>
+    <string name="toggle">பார்வையை மாற்றவும்</string>
     <string name="note_shared">குறிப்பு பகிரப்பட்டது</string>
     <string name="discard">நிராகரி</string>
-    <string name="item_menu_description">menu for item actions</string>
-    <string name="not_initialized">Leafpad not initialized yet!</string>
+    <string name="item_menu_description">உருப்படி செயல்களுக்கான பட்டியல்</string>
+    <string name="not_initialized">லீச்பேட் இன்னும் துவக்கப்படவில்லை!</string>
     <string name="empty_list">பட்டியலில் குறிப்புகள் இல்லை</string>
     <string name="save_changes">மாற்றங்களை சேமி</string>
     <string name="search_hint">நீங்கள் எதை தேடுகிறீர்கள்?</string>
-    <string name="startIconDescription">A search field</string>
-    <string name="notification_of_change_description">Notify about changes in notes</string>
-    <string name="notification_of_change">Notification of changes</string>
+    <string name="startIconDescription">ஒரு தேடல் புலம்</string>
+    <string name="notification_of_change_description">குறிப்புகளில் ஏற்படும் மாற்றங்கள் குறித்து அறிவிக்கவும்</string>
+    <string name="notification_of_change">மாற்றங்களின் அறிவிப்பு</string>
     <string name="unsaved_changes_message">உங்கள் குறிப்பு மாற்றப்பட்டுள்ளது. மாற்றத்தை சேமிக்க வேண்டுமா அல்லது ரத்து செய்ய வேண்டுமா?</string>
     <string name="unsaved_changes_title">சேமிக்கபடாத மாற்றங்கள்</string>
     <string name="no_search_results">எதுவும் கண்டறியபடவில்லை</string>
@@ -104,18 +104,18 @@
     <string name="close_release_note">மூடு பொத்தான்</string>
     <string name="title_required">தலைப்பு தேவை</string>
     <string name="keep_screen_on_dialog_yes">ஆம்</string>
-    <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
+    <string name="keep_screen_on_dialog_message">திரையை வைத்திருப்பது பேட்டரி நுகர்வு கணிசமாக அதிகரிக்கும். இந்த அம்சத்தை இயக்க விரும்புகிறீர்களா?</string>
     <string name="keep_screen_on_dialog_no">இல்லை</string>
-    <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
-    <string name="keep_screen_on_title">Keep screen on</string>
+    <string name="keep_screen_on_summary">லீச்பேட்டைப் பயன்படுத்தும் போது திரை அணைக்கப்படுவதைத் தடுக்கவும்</string>
+    <string name="keep_screen_on_title">திரையை தொடர்ந்து வைத்திருங்கள்</string>
     <string name="keep_screen_on_dialog_title">மின்கல பயன்பாடு எச்சரிக்கை</string>
     <string name="country_title_translator_czech" translatable="false">MessingWithComputers(@MessingWithComputers)</string>
     <string name="country_title_french">பிரஞ்சு</string>
     <string name="country_title_translator_portuguese" translatable="false">Lucas Alves Rego(@devlulcas), Ettlu selva rula(@Ttormor)</string>
-    <string name="country_title_catalan">Catalan</string>
-    <string name="country_title_spanish">Spanish</string>
+    <string name="country_title_catalan">கற்றலான்</string>
+    <string name="country_title_spanish">ச்பானிச்</string>
     <string name="country_title_translator_tamil" translatable="false">Kolappan N(@kolappan), தமிழ்நேரம்(@TamilNeram)</string>
-    <string name="country_title_albanian">Albanian</string>
+    <string name="country_title_albanian">அல்பேனிய</string>
     <string name="country_title_indonesian">இந்தோனேசியன்</string>
     <string name="country_title_russian">ரஷியன்</string>
     <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
@@ -124,12 +124,12 @@
     <string name="country_title_translator_hindi_latin" translatable="false">Saurmanđal(@Saurmandal)</string>
     <string name="country_title_translator_hindi" translatable="false">Harshit Sethi(@hstsethi)</string>
     <string name="country_title_translator_english" translatable="false">Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l), Santiago Centeno(@Java16)</string>
-    <string name="country_title_polish">Polish</string>
+    <string name="country_title_polish">போலீச்</string>
     <string name="country_title_translator_indonesian" translatable="false">toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
     <string name="country_title_german">ஜெர்மன்</string>
     <string name="country_title_translator_french" translatable="false">Leonart(@Leonart), Omgeta(@Omgeta), michte(@michte)</string>
     <string name="country_title_translator_arabic" translatable="false">Asaad Zein(@asaadzx)</string>
-    <string name="country_title_ukrainian">Ukrainian</string>
+    <string name="country_title_ukrainian">உக்ரேனிய</string>
     <string name="country_title_translator_spanish" translatable="false">Zarahi Ander(@TradZarahi), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Jose David M(@jposada202020@gmail.com), Leopoldo Antonio Motto Murua(@leomotto), Francisco Gabriel Chardin(@FranChardin), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1)</string>
     <string name="country_title_greek">கிரேக்கம்</string>
     <string name="country_title_translator_polish" translatable="false">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
@@ -139,21 +139,21 @@
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_translator_ukrainian" translatable="false">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
     <string name="country_title_translator_russian" translatable="false">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), vanapro1(@vanapro1), Sotski Eugene(@jekakmail), Rachel Podya(@homicide@disroot.org), SnIPeRSnIPeR(@SnIPeRSnIPeR), Santiago Centeno(@Java16)</string>
-    <string name="country_title_czech">Czech</string>
+    <string name="country_title_czech">செக்</string>
     <string name="country_title_english">ஆங்கிலம்</string>
-    <string name="country_title_portuguese">Portuguese</string>
+    <string name="country_title_portuguese">போர்த்துகீசியம்</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Maximilian Hüttner(@MaxHue)</string>
     <string name="country_title_hindi_latin">ஹிந்தி (லத்தின் எழுத்து)</string>
     <string name="country_title_hindi">ஹிந்தி</string>
     <string name="country_title_translator_estonian">Priit Jõerüüt(@jrthwlate)</string>
-    <string name="country_title_estonian">Estonian</string>
+    <string name="country_title_estonian">எச்டோனிய</string>
     <string name="country_title_translator_chinese_traditional_han_script" translatable="false">imcc(@imcc)</string>
     <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
     <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
     <string name="country_title_translator_chinese_simplified_han_script" translatable="false">imcc(@imcc)</string>
-    <string name="country_title_chinese_simplified_han_script">Chinese (Simplified Han script)</string>
-    <string name="country_title_chinese_traditional_han_script">Chinese (Traditional Han script)</string>
-    <string name="country_title_hindi_latin_script">Hindi (Latin script)</string>
-    <string name="country_title_uzbek">Uzbek</string>
+    <string name="country_title_chinese_simplified_han_script">சீன (எளிமைப்படுத்தப்பட்ட ஆன் ச்கிரிப்ட்)</string>
+    <string name="country_title_chinese_traditional_han_script">சீன (பாரம்பரிய ஆன் ச்கிரிப்ட்)</string>
+    <string name="country_title_hindi_latin_script">இந்தி (லத்தீன் ச்கிரிப்ட்)</string>
+    <string name="country_title_uzbek">உச்பெக்</string>
 </resources>
