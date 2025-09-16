@@ -86,7 +86,7 @@
     <string name="restore_notes_title">Terugzetten</string>
     <string name="save_notes_title">Backup</string>
     <string name="showRestoreConfirmationMessage">Alle huidige notities worden vervangen door de back-up. Doorgaan?</string>
-    <string name="toggle">Weergave wijzigen</string>
+    <string name="toggle">verander View</string>
     <string name="note_shared">Notitie gedeeld</string>
     <string name="save_changes">wijzigingen opslaan</string>
     <string name="discard">weggooien</string>
