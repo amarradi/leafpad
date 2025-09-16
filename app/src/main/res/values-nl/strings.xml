@@ -74,8 +74,8 @@
     <string name="showDeleteConfirmationMessage">Alle notities worden definitief verwijderd. Doorgaan?</string>
     <string name="yes">Ja</string>
     <plurals name="notes_imported">
-        <item quantity="one">Notitie geïmporteerd</item>
-        <item quantity="other">Notities geïmporteerd</item>
+        <item quantity="one">Een briefje geïmporteerd</item>
+        <item quantity="other">Notes geïmporteerd</item>
     </plurals>
     <string name="fileOpeningError">Fout bij het openen van het bestand.</string>
     <string name="delete">Verwijderen</string>
