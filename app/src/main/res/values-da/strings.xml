@@ -8,33 +8,33 @@
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
     <string name="theme_preference">Theme</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
-    <string name="action_share_body">Bemærk</string>
+    <string name="action_share_body">Note</string>
     <string name="action_share_title">Titel</string>
     <string name="new_note">ny note</string>
-    <string name="imported">noter blev sendt til bladpad</string>
-    <string name="rate_the_app">Hvordan om en gennemgang i Googles PlayStore?</string>
+    <string name="imported">noter blev sendt til Leafpad</string>
+    <string name="rate_the_app">Hvad med en anmeldelse i Google\'s Play Butik? Åben derefter Google Play Butik direkte.</string>
     <string name="lightmode_preference_key">lightmode</string>
     <string name="system_preference_key">følg system (standard)</string>
     <string name="darkmode_preference_key">darkmode</string>
     <string name="theme_summary">Skift mellem mørkt og lys tema</string>
     <string name="about">Om</string>
     <string name="tell_about">Hvad jeg vil fortælle dig om Leafpad</string>
-    <string name="thanks">Tak Stefan D, Stefan R, Manuel, Falk og Stephanie for dine idéer og test app.</string>
+    <string name="thanks">Tak Stefan, Stefan, Manuel, Falk og Stephanie for dine idéer og for at teste appn.</string>
     <string name="find_code_on_github_summary">Du kan se og kontrollere kildekoden via lageret. Du er velkommen til at åbne et problem for ændringer anmodninger og fejlmeddelelser.</string>
     <string name="find_code_on_github">GitHub</string>
-    <string name="search">søg efter søgning</string>
+    <string name="search">søg efter note</string>
     <string name="change">version</string>
     <string name="leafpad_work">Leafpad gemmer alle data lokalt på din smartphone. Noter eller metadata såsom dato og tidspunkt gemmes ikke i nogen cloud og deles ikke med nogen. Ingen tekstanalyse udføres enten. Noterne tilhører dig. Du beslutter, hvad du gør med dem.</string>
     <string name="add_shortcut_short_label">Skriv ned ny</string>
     <string name="action_note_saved">gemte</string>
     <string name="remove_dialog_abort">Annuller</string>
-    <string name="menu_settings">Indstillinger for indstillinger</string>
-    <string name="action_fab_note">en note</string>
-    <string name="title_activity_note_edit">Ret til redigering</string>
+    <string name="menu_settings">Indstillinger</string>
+    <string name="action_fab_note">opret note</string>
+    <string name="title_activity_note_edit">Rediger note</string>
     <string name="contentDescription">tilføj ny note</string>
-    <string name="action_edit_note">Ret til redigering</string>
+    <string name="action_edit_note">Rediger note</string>
     <string name="note_will_be_saved_first">Bemærk vil blive gemt først</string>
-    <string name="general_preference">Generelle</string>
+    <string name="general_preference">Generelle indstillinger</string>
     <string name="title_licence">Licenslicenser</string>
     <string name="remove_dailog_message">Denne note slettes permanent. Bagefter kan den ikke gendannes.</string>
     <string name="version">version</string>
@@ -50,110 +50,110 @@
     <string name="statement">Vi skriver ned indkøbslister, noter til samtaler, pakningslister til ferier eller venners fødselsdage. Disse er alle gode ting, så vi ikke glemmer dem. Det er meget lig med Gud, han skriver ned vores gode og dårlige gerninger og gemmer dem. Gud er over alt og kender simpelthen alt. Gud elsker mennesker og ønsker at have fællesskab med dem. Men det er kun muligt, hvis vi ses af Gud som skyldless. Gennem tro på Jesus Kristus er vores dårlige gerninger (vores skyld) udslettet før Gud. Jesus Kristus spiste for vores skyld på korset af Calvary. Enhver, der accepterer dette, er indgået i livets bog for evigt. Er du registreret i livets bog?</string>
     <string name="rev20_12">Og jeg så de døde, den store og de små, der stod foran Tronen; og bøger blev åbnet; og en anden Bog blev åbnet, som er Livsbogen, og de døde blev dømt ud af de ting, der blev skrevet i bøgerne, efter deres Gerninger. Åbenbaringen 20:12</string>
     <string name="its_opensource">Leafpad er OpenSource og dens gratis</string>
-    <string name="satisfied">Nyde bladpad?</string>
+    <string name="satisfied">Nyder du Leafpad?</string>
     <string name="app_name">Leafpad</string>
     <string name="about_the_app">Om App\'en</string>
-    <string name="remove_dialog_title">Er du sikker på?</string>
+    <string name="remove_dialog_title">Er du sikker?</string>
     <string name="action_add_note">Tilføj Note</string>
-    <string name="action_share_note">Aktie note</string>
-    <string name="participate">Deltag</string>
+    <string name="action_share_note">Del note</string>
+    <string name="participate">Deltag eller bidrag</string>
     <string name="translate">Oversæt app på Weblate</string>
     <string name="translation_help">Hjælp os med at oversætte appen til dit sprog på weblate</string>
     <string name="hide_note">gør note usynlig</string>
     <string name="hide_hidden">skjul skjulte noter</string>
     <string name="show_note">gør note synlig</string>
     <string name="show_hidden">vis skjulte noter</string>
-    <string name="note_is_recipe">note is a recipe</string>
-    <string name="note_is_no_recipe">note is no recipe</string>
-    <string name="showDeleteConfirmation">Delete notes?</string>
-    <string name="backupIsrunning">Backup is running</string>
-    <string name="importError">Error when importing notes.</string>
-    <string name="save">Save all notes as xml</string>
-    <string name="no">No</string>
-    <string name="restore">Restore all notes as xml</string>
-    <string name="showDeleteConfirmationMessage">All notes will be permanently deleted. Continue?</string>
-    <string name="yes">Yes</string>
+    <string name="note_is_recipe">note er en opskrift</string>
+    <string name="note_is_no_recipe">note er ikke en opskrift</string>
+    <string name="showDeleteConfirmation">Slet noter?</string>
+    <string name="backupIsrunning">Sikkerhedskopiering kører</string>
+    <string name="importError">Fejl ved import af noter.</string>
+    <string name="save">Gem alle noter som xml</string>
+    <string name="no">Nej</string>
+    <string name="restore">Gendan alle noter fra en xml fil</string>
+    <string name="showDeleteConfirmationMessage">Alle noter vil blive permanent slettet. Fortsæt?</string>
+    <string name="yes">Ja</string>
     <plurals name="notes_imported">
-        <item quantity="one">One note imported</item>
-        <item quantity="other">%1$d notes imported</item>
+        <item quantity="one">En note er importeret</item>
+        <item quantity="other">%1$d noter er importeret</item>
     </plurals>
-    <string name="fileOpeningError">Error when opening the file.</string>
-    <string name="delete">Delete</string>
-    <string name="backupfinish">Backup finishes</string>
+    <string name="fileOpeningError">Fejl ved åbning af filen.</string>
+    <string name="delete">Slet</string>
+    <string name="backupfinish">Sikkerhedskopiering er færdig</string>
     <string name="invalidFile">Invalid backup file. The import was cancelled.</string>
-    <string name="cancel">Cancel</string>
-    <string name="showRestoreConfirmation">Restore?</string>
-    <string name="save_notes_title">Backup</string>
-    <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
-    <string name="restore_notes_title">Restore</string>
+    <string name="cancel">Annuller</string>
+    <string name="showRestoreConfirmation">Gendan?</string>
+    <string name="save_notes_title">Sikkerhedskopier</string>
+    <string name="showRestoreConfirmationMessage">Alle nuværende noter vil blive erstattet af sikkerhedskopien. Fortsæt?</string>
+    <string name="restore_notes_title">Gendan</string>
     <string name="toggle">change View</string>
-    <string name="note_shared">Note shared</string>
-    <string name="save_changes">save changes</string>
-    <string name="discard">discard</string>
+    <string name="note_shared">Note delt</string>
+    <string name="save_changes">gem ændringer</string>
+    <string name="discard">kasser</string>
     <string name="item_menu_description">menu for item actions</string>
-    <string name="search_hint">What are you looking for?</string>
-    <string name="startIconDescription">A search field</string>
-    <string name="notification_of_change_description">Notify about changes in notes</string>
-    <string name="notification_of_change">Notification of changes</string>
-    <string name="not_initialized">Leafpad not initialized yet!</string>
+    <string name="search_hint">Hvad leder du efter?</string>
+    <string name="startIconDescription">Et søgefelt</string>
+    <string name="notification_of_change_description">Giv besked om ændringer i noter</string>
+    <string name="notification_of_change">Meddelelse om ændringer</string>
+    <string name="not_initialized">Leafpad er ikke initialiseret endnu!</string>
     <string name="unsaved_changes_message">Your note has changed. Do you want to save or discard the changes?</string>
-    <string name="unsaved_changes_title">Unsaved changes</string>
-    <string name="no_search_results">Nothing found</string>
-    <string name="empty_list">No notes available in the list</string>
-    <string name="set">It is a recipe</string>
-    <string name="close_release_note">Close Button</string>
-    <string name="title_required">Title required</string>
-    <string name="keep_screen_on_dialog_yes">Yes</string>
-    <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
-    <string name="keep_screen_on_dialog_no">No</string>
-    <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
-    <string name="keep_screen_on_title">Keep screen on</string>
-    <string name="keep_screen_on_dialog_title">Battery usage warning</string>
+    <string name="unsaved_changes_title">Ugemte ændringer</string>
+    <string name="no_search_results">Intet fundet</string>
+    <string name="empty_list">Ingen noter tilgængelige på listen</string>
+    <string name="set">Det er en opskrift</string>
+    <string name="close_release_note">Luk knap</string>
+    <string name="title_required">Titel påkrævet</string>
+    <string name="keep_screen_on_dialog_yes">Ja</string>
+    <string name="keep_screen_on_dialog_message">At holde skærmen tændt kan øge batteriforbruget betydeligt. Er du sikker på du vil aktivere denne funktion?</string>
+    <string name="keep_screen_on_dialog_no">Nej</string>
+    <string name="keep_screen_on_summary">Forhindr skærmen i at slukke, mens du bruger Leafpad</string>
+    <string name="keep_screen_on_title">Hold skærmen tændt</string>
+    <string name="keep_screen_on_dialog_title">Advarsel om batteriforbrug</string>
     <string name="country_title_translator_czech" translatable="false">MessingWithComputers(@MessingWithComputers)</string>
-    <string name="country_title_french">French</string>
+    <string name="country_title_french">Fransk</string>
     <string name="country_title_translator_portuguese" translatable="false">Lucas Alves Rego(@devlulcas), Ettlu selva rula(@Ttormor)</string>
-    <string name="country_title_catalan">Catalan</string>
-    <string name="country_title_spanish">Spanish</string>
+    <string name="country_title_catalan">Catalansk</string>
+    <string name="country_title_spanish">Spansk</string>
     <string name="country_title_translator_tamil" translatable="false">Kolappan N(@kolappan), தமிழ்நேரம்(@TamilNeram)</string>
-    <string name="country_title_albanian">Albanian</string>
+    <string name="country_title_albanian">Albansk</string>
     <string name="country_title_indonesian">Indonesian</string>
-    <string name="country_title_russian">Russian</string>
+    <string name="country_title_russian">Russisk</string>
     <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
-    <string name="please_enter_a_title">Please enter a title for the note before you can save it.</string>
-    <string name="country_title_tamil">Tamil</string>
+    <string name="please_enter_a_title">Indtast venligst en titel til noten for at gemmen eller kassere noten.</string>
+    <string name="country_title_tamil">Tamilsk</string>
     <string name="country_title_translator_hindi_latin" translatable="false">Saurmanđal(@Saurmandal)</string>
     <string name="country_title_translator_hindi" translatable="false">Harshit Sethi(@hstsethi)</string>
     <string name="country_title_translator_english" translatable="false">Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l), Santiago Centeno(@Java16)</string>
-    <string name="country_title_polish">Polish</string>
+    <string name="country_title_polish">Polsk</string>
     <string name="country_title_translator_indonesian" translatable="false">toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
-    <string name="country_title_german">German</string>
+    <string name="country_title_german">Tysk</string>
     <string name="country_title_translator_french" translatable="false">Leonart(@Leonart), Omgeta(@Omgeta), michte(@michte)</string>
     <string name="country_title_translator_arabic" translatable="false">Asaad Zein(@asaadzx)</string>
-    <string name="country_title_ukrainian">Ukrainian</string>
+    <string name="country_title_ukrainian">Ukrainsk</string>
     <string name="country_title_translator_spanish" translatable="false">Zarahi Ander(@TradZarahi), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Jose David M(@jposada202020@gmail.com), Leopoldo Antonio Motto Murua(@leomotto), Francisco Gabriel Chardin(@FranChardin), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1)</string>
-    <string name="country_title_greek">Greek</string>
+    <string name="country_title_greek">Græsk</string>
     <string name="country_title_translator_polish" translatable="false">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
     <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero), Davide Secco(@davidesecco)</string>
-    <string name="country_title_arabic">Arabic</string>
+    <string name="country_title_arabic">Arabisk</string>
     <string name="country_title_italian">Italian</string>
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_translator_ukrainian" translatable="false">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
     <string name="country_title_translator_russian" translatable="false">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), vanapro1(@vanapro1), Sotski Eugene(@jekakmail), Rachel Podya(@homicide@disroot.org), SnIPeRSnIPeR(@SnIPeRSnIPeR), Santiago Centeno(@Java16)</string>
-    <string name="country_title_czech">Czech</string>
-    <string name="country_title_english">English</string>
-    <string name="country_title_portuguese">Portuguese</string>
+    <string name="country_title_czech">Tjekkisk</string>
+    <string name="country_title_english">Engelsk</string>
+    <string name="country_title_portuguese">Portugisisk</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Maximilian Hüttner(@MaxHue)</string>
     <string name="country_title_hindi_latin">Hindi (Latin script)</string>
     <string name="country_title_hindi">Hindi</string>
     <string name="country_title_translator_estonian">Priit Jõerüüt(@jrthwlate)</string>
-    <string name="country_title_estonian">Estonian</string>
+    <string name="country_title_estonian">Estisk</string>
     <string name="country_title_translator_chinese_traditional_han_script" translatable="false">imcc(@imcc)</string>
     <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
     <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
     <string name="country_title_translator_chinese_simplified_han_script" translatable="false">imcc(@imcc)</string>
-    <string name="country_title_chinese_simplified_han_script">Chinese (Simplified Han script)</string>
-    <string name="country_title_chinese_traditional_han_script">Chinese (Traditional Han script)</string>
+    <string name="country_title_chinese_simplified_han_script">Kinesisk (forenklet han-skrift)</string>
+    <string name="country_title_chinese_traditional_han_script">Kinesisk (Traditionelt Han-skrift)</string>
     <string name="country_title_hindi_latin_script">Hindi (Latin script)</string>
-    <string name="country_title_uzbek">Uzbek</string>
+    <string name="country_title_uzbek">Usbekisk</string>
 </resources>
