@@ -80,23 +80,23 @@
     <string name="fileOpeningError">Fejl ved åbning af filen.</string>
     <string name="delete">Slet</string>
     <string name="backupfinish">Sikkerhedskopiering er færdig</string>
-    <string name="invalidFile">Invalid backup file. The import was cancelled.</string>
+    <string name="invalidFile">Ugyldig backup fil. Importen blev annulleret.</string>
     <string name="cancel">Annuller</string>
     <string name="showRestoreConfirmation">Gendan?</string>
     <string name="save_notes_title">Sikkerhedskopier</string>
     <string name="showRestoreConfirmationMessage">Alle nuværende noter vil blive erstattet af sikkerhedskopien. Fortsæt?</string>
     <string name="restore_notes_title">Gendan</string>
-    <string name="toggle">change View</string>
+    <string name="toggle">skift visning</string>
     <string name="note_shared">Note delt</string>
     <string name="save_changes">gem ændringer</string>
     <string name="discard">kasser</string>
-    <string name="item_menu_description">menu for item actions</string>
+    <string name="item_menu_description">menu til elementhandlinger</string>
     <string name="search_hint">Hvad leder du efter?</string>
     <string name="startIconDescription">Et søgefelt</string>
     <string name="notification_of_change_description">Giv besked om ændringer i noter</string>
     <string name="notification_of_change">Meddelelse om ændringer</string>
     <string name="not_initialized">Leafpad er ikke initialiseret endnu!</string>
-    <string name="unsaved_changes_message">Your note has changed. Do you want to save or discard the changes?</string>
+    <string name="unsaved_changes_message">Din note er ændret. Vil du gemme eller kassere ændringerne?</string>
     <string name="unsaved_changes_title">Ugemte ændringer</string>
     <string name="no_search_results">Intet fundet</string>
     <string name="empty_list">Ingen noter tilgængelige på listen</string>
@@ -116,7 +116,7 @@
     <string name="country_title_spanish">Spansk</string>
     <string name="country_title_translator_tamil" translatable="false">Kolappan N(@kolappan), தமிழ்நேரம்(@TamilNeram)</string>
     <string name="country_title_albanian">Albansk</string>
-    <string name="country_title_indonesian">Indonesian</string>
+    <string name="country_title_indonesian">Indonesisk</string>
     <string name="country_title_russian">Russisk</string>
     <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
     <string name="please_enter_a_title">Indtast venligst en titel til noten for at gemmen eller kassere noten.</string>
@@ -135,7 +135,7 @@
     <string name="country_title_translator_polish" translatable="false">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
     <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero), Davide Secco(@davidesecco)</string>
     <string name="country_title_arabic">Arabisk</string>
-    <string name="country_title_italian">Italian</string>
+    <string name="country_title_italian">Italiensk</string>
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_translator_ukrainian" translatable="false">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
     <string name="country_title_translator_russian" translatable="false">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), vanapro1(@vanapro1), Sotski Eugene(@jekakmail), Rachel Podya(@homicide@disroot.org), SnIPeRSnIPeR(@SnIPeRSnIPeR), Santiago Centeno(@Java16)</string>
@@ -154,6 +154,6 @@
     <string name="country_title_translator_chinese_simplified_han_script" translatable="false">imcc(@imcc)</string>
     <string name="country_title_chinese_simplified_han_script">Kinesisk (forenklet han-skrift)</string>
     <string name="country_title_chinese_traditional_han_script">Kinesisk (Traditionelt Han-skrift)</string>
-    <string name="country_title_hindi_latin_script">Hindi (Latin script)</string>
+    <string name="country_title_hindi_latin_script">Hindi (latinsk script)</string>
     <string name="country_title_uzbek">Usbekisk</string>
 </resources>
