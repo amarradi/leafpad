@@ -21,7 +21,7 @@
     <string name="find_code_on_github">GitHub</string>
     <string name="its_opensource">Leafpad is OpenSource en kan vrij gebruikt worden</string>
     <string name="action_note_saved">opgeslagen</string>
-    <string name="imported">het briefje werd naar bladzijde gestuurd</string>
+    <string name="imported">Notitie verzonden vanuit Leafpad</string>
     <string name="rate_the_app">Wat dacht je van een beoordeling in Google\'s PlayStore? Open dan Google Play direct.</string>
     <string name="action_share_body">Notitie</string>
     <string name="remove_dialog_abort">Annuleer</string>
@@ -56,7 +56,7 @@
     <string name="rev20_12">En ik zag de doden, de grote en de kleine, staande voor de troon, en boeken werden geopend, en een ander boek werd geopend, dat is het boek van het leven, en de doden werden uitgeschreven uit de boeken, volgens hun werk. Openbaring 20:12</string>
     <string name="satisfied">Geniet je van bladpad?</string>
     <string name="about_the_app">Over de App</string>
-    <string name="participate">Deelnemen of bijdragen</string>
+    <string name="participate">Deelnemen of Bijdragen</string>
     <string name="translate">Vertaal de app op Weblate</string>
     <string name="translation_help">Help ons de app te vertalen in je taal op Weblate</string>
     <string name="hide_note">Maak de notitie onzichtbaar</string>
@@ -152,8 +152,8 @@
     <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
     <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
     <string name="country_title_translator_chinese_simplified_han_script" translatable="false">imcc(@imcc)</string>
-    <string name="country_title_chinese_simplified_han_script">Chinees (vereenvoudigd Han-schrift)</string>
-    <string name="country_title_chinese_traditional_han_script">Chinees (traditioneel Han-schrift)</string>
+    <string name="country_title_chinese_simplified_han_script">Chinees (vereenvoudigd)</string>
+    <string name="country_title_chinese_traditional_han_script">Chinees (traditioneel)</string>
     <string name="country_title_hindi_latin_script">Hindi (Latijns schrift)</string>
     <string name="country_title_uzbek">Oezbeeks</string>
 </resources>
