@@ -92,7 +92,7 @@
     <string name="discard">weggooien</string>
     <string name="unsaved_changes_title">Wijzigingen niet opgeslagen</string>
     <string name="item_menu_description">actie-menu</string>
-    <string name="not_initialized">Leafpad nog niet geïnitialiseerd!</string>
+    <string name="not_initialized">Leafpad nog niet gestart!</string>
     <string name="search_hint">Wat zoek je?</string>
     <string name="startIconDescription">Een zoekveld</string>
     <string name="notification_of_change_description">Meld wijzigingen in notities</string>
