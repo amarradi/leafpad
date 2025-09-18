@@ -31,7 +31,7 @@
     <string name="system_preference_key">Volg systeem (standard)</string>
     <string name="contentDescription">schrijf nieuwe notitie</string>
     <string name="note_will_be_saved_first">Notitie wordt eerst opgeslagen</string>
-    <string name="general_preference">Generaal setting</string>
+    <string name="general_preference">Algemene instellingen</string>
     <string name="title_licence">Licenties</string>
     <string name="remove_dailog_message">Deze notitie wordt permanent gewist. Daarna kan het niet worden hersteld.</string>
     <string name="version">versie</string>
