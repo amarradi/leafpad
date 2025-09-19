@@ -36,6 +36,7 @@ android {
                 'et',      // Estonian
                 'fi',      // Finnish
                 'fr',      // French
+                'got',     // Gothic (ISO 639-3)
                 'hi',      // Hindi (Devanagari)
                 'hu',      // Hungarian
                 'id',      // Indonesian
