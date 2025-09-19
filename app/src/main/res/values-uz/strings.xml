@@ -6,7 +6,7 @@
     <string translatable="false" name="country_title_translator_tamil">Kolappan N(@kolappan), தமிழ்நேரம்(@TamilNeram)</string>
     <string translatable="false" name="country_title_translator_greek">Jim Kats(@jimkats1)</string>
     <string name="system_preference" translatable="false">system</string>
-    <string translatable="false" name="country_title_translator_hindi_latin">Saurmanđal(@Saurmandal)</string>
+    <string translatable="false" name="country_title_translator_hindi_latin"></string>
     <string translatable="false" name="country_title_translator_hindi">Harshit Sethi(@hstsethi)</string>
     <string name="theme_key" translatable="false">theme</string>
     <string translatable="false" name="country_title_translator_indonesian">toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
