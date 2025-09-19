@@ -123,7 +123,7 @@
     <string name="country_title_translator_greek">Jim Kats(@jimkats1)</string>
     <string name="please_enter_a_title">Wpisz tytuł notatki do zapisania lub ją odrzuć.</string>
     <string name="country_title_tamil">Tamilski</string>
-    <string name="country_title_translator_hindi_latin">Saurmanđal(@Saurmandal)</string>
+    <string name="country_title_translator_hindi_latin"></string>
     <string name="country_title_translator_hindi">Harshit Sethi(@hstsethi)</string>
     <string name="country_title_translator_english" translatable="false">Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l), Santiago Centeno(@Java16)</string>
     <string name="country_title_polish">Polski</string>
