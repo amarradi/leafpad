@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <releasenote>
-    <title>Leafpad 1.21 - Was hat sich verändert</title>
+    <title>Leafpad 1.22 - Was hat sich verändert</title>
     <content>
-        * Speichern-Button: nur aktiviert, wenn die Notiz tatsächlich verändert
-        * Lesemodus wird nun richtig verwendet
-        * leere Notizen lassen sich jetzt verwerfen
-        * Übersetzer bekommen einen übersichtlicheren Dankesbereich
-        * einige Fehler wurden behoben
+        * Fehlerbehebung: leere Notizen werden jetzt wirklich verworfen
     </content>
     <date>01.08.2025</date>
     <time>17:17</time>

@@ -451,6 +451,13 @@ public class NoteEditActivity extends AppCompatActivity {
         Leafpad.disableWakeLock();
        // getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         Note current = noteViewModel.getSelectedNote().getValue();
+
+       // ❗ Abbrechen, wenn Titel leer ist (egal ob Body gefüllt oder nicht)
+       assert current != null;
+       if (current.getTitle() == null || current.getTitle().trim().isEmpty()) {
+           return;
+       }
+
         if (!isNoteDeleted && current != null && !NoteViewModel.isEmptyEntry(current)) {
             updateNoteFromUI();
             if (shouldPersistOnPause && noteViewModel.hasUnsavedChanges()) {
