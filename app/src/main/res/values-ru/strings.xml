@@ -123,7 +123,7 @@
     <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
     <string name="please_enter_a_title">Введите название заметки, чтобы сохранить или отменить ее.</string>
     <string name="country_title_tamil">Тамильский</string>
-    <string name="country_title_translator_hindi_latin" translatable="false">Saurmanđal(@Saurmandal)</string>
+    <string name="country_title_translator_hindi_latin" translatable="false"></string>
     <string name="country_title_translator_hindi" translatable="false">Harshit Sethi(@hstsethi)</string>
     <string name="country_title_translator_english" translatable="false">Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l), Santiago Centeno(@Java16)</string>
     <string name="country_title_polish">Польский</string>
