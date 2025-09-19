@@ -152,8 +152,8 @@
     <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
     <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
     <string name="country_title_translator_chinese_simplified_han_script" translatable="false">imcc(@imcc)</string>
-    <string name="country_title_chinese_simplified_han_script">Chinese (Simplified Han script)</string>
-    <string name="country_title_chinese_traditional_han_script">Chinese (Traditional Han script)</string>
-    <string name="country_title_hindi_latin_script">Hindi (Latin script)</string>
-    <string name="country_title_uzbek">Uzbek</string>
+    <string name="country_title_chinese_simplified_han_script">hiina keel (lihtsustatud)</string>
+    <string name="country_title_chinese_traditional_han_script">hiina keel (traditsiooniline)</string>
+    <string name="country_title_hindi_latin_script">hindi keel (ladina transliteratsioonis)</string>
+    <string name="country_title_uzbek">usbeki keel</string>
 </resources>

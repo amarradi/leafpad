@@ -43,10 +43,21 @@ If you have found a bug or are missing a function, you can simply open a new iss
 
 <a href='https://github.com/amarradi/leafpad/issues/'>Post a GitHub Issue</a>
 
+## Contributing
+If you want to contribute leafpad you can read <a href='https://github.com/amarradi/leafpad/blob/development/CONTRIBUTING.md'>Contribute</a> and start.
+
 ## Support for leafpad
 If you would like to support the work on leafpad, you are welcome to do so via Liberapay
 
 <a href="https://liberapay.com/amarrradi/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
+
+Bitcoin (BTC): bc1qqpra3mk4zeufzwf6y6gpeaeaqsl3lp9fjfhjgx
+
+Ethereum (ETH): 0x6071755459d98cAB41826656719Ae4707e5Dd000 
+
+Stellst Lumen (XLM): GAN7UENINMC65PZBA5R5UV7TBZEWJWBG5OP34RI2FVTSUNTVALQTQQQE
+
+Memo ID: 2755499291 
 
 ## Thanks
 Many thanks for the ork for the leafpadproject goes to <a href='https://github.com/stdx'>@stdx</a>, <a href=https://github.com/sealor>@sealor</a>, <a href='https://github.com/alejandromartincarrera'>@alejandromartincarrera</a>, Manuel, Emil, Falk, Stephanie and many others
