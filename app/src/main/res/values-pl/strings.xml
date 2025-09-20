@@ -145,7 +145,6 @@
     <string name="country_title_portuguese">Portugalski</string>
     <string name="country_title_translator_catalan">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german">Maximilian Hüttner(@MaxHue)</string>
-    <string name="country_title_hindi_latin"></string>
     <string name="country_title_hindi">Hindi</string>
     <string name="country_title_translator_estonian">Priit Jõerüüt(@jrthwlate)</string>
     <string name="country_title_estonian">Estoński</string>
@@ -157,5 +156,4 @@
     <string name="country_title_chinese_traditional_han_script">Chiński (tradycyjny alfabet Han)</string>
     <string name="country_title_hindi_latin_script">Hindi (alfabet łaciński)</string>
     <string name="country_title_uzbek">Uzbecki</string>
-    <string name="country_title_translator_hindi_latin" translatable="false"></string>
 </resources>
