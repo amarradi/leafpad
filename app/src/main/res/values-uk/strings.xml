@@ -145,7 +145,7 @@
     <string name="country_title_portuguese">Португальська</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Maximilian Hüttner(@MaxHue)</string>
-    <string name="country_title_hindi_latin">Хінді (латинська абетка)</string>
+    <string name="country_title_hindi_latin">\'</string>
     <string name="country_title_hindi">Хінді</string>
     <string name="country_title_translator_estonian" translatable="false">Priit Jõerüüt(@jrthwlate)</string>
     <string name="country_title_estonian">Естонська</string>
@@ -157,4 +157,5 @@
     <string name="country_title_chinese_traditional_han_script">Китайська (традиційне письмо Хань)</string>
     <string name="country_title_hindi_latin_script">Хінді (латинська абетка)</string>
     <string name="country_title_uzbek">Узбецька</string>
+    <string name="country_title_translator_hindi_latin" translatable="false">\'</string>
 </resources>
