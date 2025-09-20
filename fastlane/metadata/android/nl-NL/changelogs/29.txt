@@ -1,0 +1,5 @@
+* Opslaan-knop: wordt alleen geactiveerd wanneer de notitie daadwerkelijk is gewijzigd
+* Leesmodus wordt nu correct gebruikt
+* Lege notities kunnen nu worden verwijderd
+* Vertalers hebben nu een duidelijker bedankgedeelte
+* Verschillende bugs zijn verholpen
