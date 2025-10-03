@@ -13,7 +13,7 @@
     <string name="participate">Merrni pjesë, ose Jepni Kontribut</string>
     <string name="leafpad_work">Leafpad-i i ruan lokalisht në telefonin tuaj krejt të dhënat. Shënimet, ose tejtëdhëna të tilla si data dhe koha nuk depozitohen në ndonjë re dhe s’i jepen njeriu. As bëhet ndonjë analizim teksti. Shënimet ju përkasin juve. Ju vendosni ç’të bëhet me to.</string>
     <string name="imported">shënimi u dërgua te leafpad</string>
-    <string name="rate_the_app">Si thoni për një shqyrtim në Google\'s PlayStore?</string>
+    <string name="rate_the_app">Si thoni për një shqyrtim në Google\'s PlayStore? Mandej hapni Google Play drejtpërdrejt.</string>
     <string name="add_shortcut_short_label">Shkruani një të ri</string>
     <string name="tell_about">Ç’dua t’ju them rreth Leafpad-it</string>
     <string name="action_share_body">Shënim</string>
@@ -74,7 +74,7 @@
     <string name="showDeleteConfirmationMessage">Krejt shënimet do të fshihen përfundimisht. Të vazhdohet?</string>
     <string name="yes">Po</string>
     <plurals name="notes_imported">
-        <item quantity="one">U importua një shënim</item>
+        <item quantity="one">U importua %1$d shënim</item>
         <item quantity="other">U importuan %1$d shënime</item>
     </plurals>
     <string name="fileOpeningError">Gabim kur hapet kartela.</string>
@@ -100,59 +100,59 @@
     <string name="unsaved_changes_title">Ndryshime të paruajtura</string>
     <string name="no_search_results">S’u gjet gjë</string>
     <string name="empty_list">Te lista s’ka shënime</string>
-    <string name="set">It is a recipe</string>
-    <string name="close_release_note">Close Button</string>
-    <string name="title_required">Title required</string>
-    <string name="keep_screen_on_dialog_yes">Yes</string>
-    <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
-    <string name="keep_screen_on_dialog_no">No</string>
-    <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
-    <string name="keep_screen_on_title">Keep screen on</string>
-    <string name="keep_screen_on_dialog_title">Battery usage warning</string>
+    <string name="set">Është një recetë</string>
+    <string name="close_release_note">Buton Mbylljeje</string>
+    <string name="title_required">Titulli është i domosdoshëm</string>
+    <string name="keep_screen_on_dialog_yes">Po</string>
+    <string name="keep_screen_on_dialog_message">Mbajtja ndezur e ekrani mund të shtojë në mënyrë domethënëse harxhimin e baterisë. Jeni i sigurt se doni të aktivizohet kjo veçori?</string>
+    <string name="keep_screen_on_dialog_no">Jo</string>
+    <string name="keep_screen_on_summary">Pengo fikjen e ekranit, teksa përdoret Leafpad-i</string>
+    <string name="keep_screen_on_title">Mbaje ekranin hapur</string>
+    <string name="keep_screen_on_dialog_title">Sinjalizim përdorimi baterie</string>
     <string name="country_title_translator_czech" translatable="false">MessingWithComputers(@MessingWithComputers)</string>
-    <string name="country_title_french">French</string>
+    <string name="country_title_french">Frëngjisht</string>
     <string name="country_title_translator_portuguese" translatable="false">Lucas Alves Rego(@devlulcas), Ettlu selva rula(@Ttormor)</string>
-    <string name="country_title_catalan">Catalan</string>
-    <string name="country_title_spanish">Spanish</string>
+    <string name="country_title_catalan">Katalane</string>
+    <string name="country_title_spanish">Spanjisht</string>
     <string name="country_title_translator_tamil" translatable="false">Kolappan N(@kolappan), தமிழ்நேரம்(@TamilNeram)</string>
-    <string name="country_title_albanian">Albanian</string>
-    <string name="country_title_indonesian">Indonesian</string>
-    <string name="country_title_russian">Russian</string>
+    <string name="country_title_albanian">Shqip</string>
+    <string name="country_title_indonesian">Indonezisht</string>
+    <string name="country_title_russian">Rusisht</string>
     <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
-    <string name="please_enter_a_title">Please enter a title for the note before you can save it.</string>
-    <string name="country_title_tamil">Tamil</string>
+    <string name="please_enter_a_title">Që të ruhet ose hidhet tej shënimi, ju lutemi, jepni një titull për të.</string>
+    <string name="country_title_tamil">Tamilisht</string>
     <string name="country_title_translator_hindi" translatable="false">Harshit Sethi(@hstsethi)</string>
     <string name="country_title_translator_english" translatable="false">Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l), Santiago Centeno(@Java16)</string>
-    <string name="country_title_polish">Polish</string>
+    <string name="country_title_polish">Polonisht</string>
     <string name="country_title_translator_indonesian" translatable="false">toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
-    <string name="country_title_german">German</string>
+    <string name="country_title_german">Gjermanisht</string>
     <string name="country_title_translator_french" translatable="false">Leonart(@Leonart), Omgeta(@Omgeta), michte(@michte)</string>
     <string name="country_title_translator_arabic" translatable="false">Asaad Zein(@asaadzx)</string>
-    <string name="country_title_ukrainian">Ukrainian</string>
+    <string name="country_title_ukrainian">Ukrainisht</string>
     <string name="country_title_translator_spanish" translatable="false">Zarahi Ander(@TradZarahi), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Jose David M(@jposada202020@gmail.com), Leopoldo Antonio Motto Murua(@leomotto), Francisco Gabriel Chardin(@FranChardin), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1)</string>
-    <string name="country_title_greek">Greek</string>
+    <string name="country_title_greek">Greqisht</string>
     <string name="country_title_translator_polish" translatable="false">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
     <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero), Davide Secco(@davidesecco)</string>
-    <string name="country_title_arabic">Arabic</string>
-    <string name="country_title_italian">Italian</string>
+    <string name="country_title_arabic">Arabisht</string>
+    <string name="country_title_italian">Italisht</string>
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_translator_ukrainian" translatable="false">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
     <string name="country_title_translator_russian" translatable="false">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), vanapro1(@vanapro1), Sotski Eugene(@jekakmail), Rachel Podya(@homicide@disroot.org), SnIPeRSnIPeR(@SnIPeRSnIPeR), Santiago Centeno(@Java16)</string>
-    <string name="country_title_czech">Czech</string>
-    <string name="country_title_english">English</string>
-    <string name="country_title_portuguese">Portuguese</string>
+    <string name="country_title_czech">Çekisht</string>
+    <string name="country_title_english">Anglisht</string>
+    <string name="country_title_portuguese">Portugalisht</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Maximilian Hüttner(@MaxHue)</string>
-    <string name="country_title_hindi_latin">Hindi (Latin script)</string>
-    <string name="country_title_hindi">Hindi</string>
+    <string name="country_title_hindi_latin">Indisht (Me shkronja latine)</string>
+    <string name="country_title_hindi">Indisht</string>
     <string name="country_title_translator_estonian">Priit Jõerüüt(@jrthwlate)</string>
-    <string name="country_title_estonian">Estonian</string>
+    <string name="country_title_estonian">Estonisht</string>
     <string name="country_title_translator_chinese_traditional_han_script" translatable="false">imcc(@imcc)</string>
     <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
     <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
     <string name="country_title_translator_chinese_simplified_han_script" translatable="false">imcc(@imcc)</string>
-    <string name="country_title_chinese_simplified_han_script">Chinese (Simplified Han script)</string>
-    <string name="country_title_chinese_traditional_han_script">Chinese (Traditional Han script)</string>
-    <string name="country_title_hindi_latin_script">Hindi (Latin script)</string>
-    <string name="country_title_uzbek">Uzbek</string>
+    <string name="country_title_chinese_simplified_han_script">Kineze (Shkrim Han i thjeshtuara)</string>
+    <string name="country_title_chinese_traditional_han_script">Kineze (Shkrim Han Tradicional)</string>
+    <string name="country_title_hindi_latin_script">Indisht (Shkrim me shkronja latine)</string>
+    <string name="country_title_uzbek">Uzbeke</string>
 </resources>
