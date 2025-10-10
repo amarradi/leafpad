@@ -143,7 +143,7 @@
     <string name="country_title_portuguese">Portugees</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Maximilian Hüttner(@MaxHue)</string>
-    <string name="country_title_hindi_latin">Hindi (Latin script)</string>
+    <string name="country_title_hindi_latin">Hindi (Latijns schrift)</string>
     <string name="country_title_hindi">Hindi</string>
     <string name="country_title_translator_estonian">Priit Jõerüüt(@jrthwlate)</string>
     <string name="country_title_estonian">Estisch</string>
@@ -155,4 +155,5 @@
     <string name="country_title_chinese_traditional_han_script">Chinees (traditioneel)</string>
     <string name="country_title_hindi_latin_script">Hindi (Latijns schrift)</string>
     <string name="country_title_uzbek">Oezbeeks</string>
+    <string name="country_title_translator_hindi_latin" translatable="false">Hindi (Latijns schrift)</string>
 </resources>
