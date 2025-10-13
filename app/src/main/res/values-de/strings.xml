@@ -122,7 +122,7 @@
     <string name="country_title_indonesian">Indonesisch</string>
     <string name="country_title_russian">Russisch</string>
     <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
-    <string name="please_enter_a_title">Bitte einen Titel für die Notiz eingeben, um zu Speichern oder Notiz verwerfen.</string>
+    <string name="please_enter_a_title">Bitte einen Titel für die Notiz eingeben, um zu Speichern. Andernfalls Notiz verwerfen.</string>
     <string name="country_title_tamil">Tamil</string>
     <string name="country_title_translator_hindi" translatable="false">Harshit Sethi(@hstsethi)</string>
     <string name="country_title_translator_english" translatable="false">Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l), Santiago Centeno(@Java16)</string>
@@ -146,7 +146,7 @@
     <string name="country_title_portuguese">Portugiesisch</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Maximilian Hüttner(@MaxHue)</string>
-    <string name="country_title_hindi_latin">Indisch (lateinisch Schrift)</string>
+    <string name="country_title_hindi_latin">Indisch (lateinische Schrift)</string>
     <string name="country_title_hindi">Indisch</string>
     <string name="country_title_translator_estonian">Priit Jõerüüt(@jrthwlate)</string>
     <string name="country_title_estonian">Estnisch</string>
@@ -154,8 +154,8 @@
     <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
     <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
     <string name="country_title_translator_chinese_simplified_han_script" translatable="false">imcc(@imcc)</string>
-    <string name="country_title_chinese_simplified_han_script">Chinese (Simplified Han script)</string>
-    <string name="country_title_chinese_traditional_han_script">Chinese (Traditional Han script)</string>
+    <string name="country_title_chinese_simplified_han_script">Chinesisch (Vereinfachte Han-Schrift)</string>
+    <string name="country_title_chinese_traditional_han_script">Chinesisch (Traditionelle Han-Schrift)</string>
     <string name="country_title_hindi_latin_script">Hindi (Latin script)</string>
-    <string name="country_title_uzbek">Uzbek</string>
+    <string name="country_title_uzbek">Usbekisch</string>
 </resources>
