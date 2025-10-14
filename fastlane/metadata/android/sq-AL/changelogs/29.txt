@@ -1,0 +1,5 @@
+* Buton ruajtjeje: i aktivizuar vetëm kur shënimi është ndryshuar faktikisht
+* Mënyra lexim tani përdoret saktë
+* Shënime të zbrazëta tanimë mund të hidhen tej
+* Përkthyesit tanimë kanë një ndarje më të qartë për falënderime
+* U ndreqën disa të meta
