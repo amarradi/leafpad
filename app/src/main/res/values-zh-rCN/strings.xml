@@ -38,7 +38,7 @@
     <string name="add_shortcut_short_label">写下新内容</string>
     <string name="action_note_saved">已保存</string>
     <string name="tell_about">关于 Leafpad 我想告诉你的事</string>
-    <string name="action_share_body">笔记</string>
+    <string name="action_share_body">说明</string>
     <string name="remove_dialog_abort">取消</string>
     <string name="menu_settings">设置</string>
     <string name="backupIsrunning">正在进行备份</string>
@@ -87,7 +87,7 @@
     <string name="invalidFile">无效的备份文件，导入取消。</string>
     <string name="participate">参与或贡献</string>
     <string name="country_title_estonian">爱沙尼亚语</string>
-    <string name="title_hint">Title</string>
+    <string name="title_hint">标题</string>
     <string name="about">关于</string>
     <string name="startIconDescription">搜索栏</string>
     <string name="keep_screen_on_dialog_no">否</string>
