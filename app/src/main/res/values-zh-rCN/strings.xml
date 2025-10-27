@@ -34,7 +34,7 @@
     <string name="toggle">切换视图</string>
     <string name="imported">笔记已导入至 leafpad</string>
     <string name="country_title_french">法语</string>
-    <string name="rate_the_app">在 Google Play 商店评价一下如何？那么请立即打开 Google Play 吧。</string>
+    <string name="rate_the_app">在 Google Play 商店评价一下如何？那么请直接打开 Google Play 吧。</string>
     <string name="add_shortcut_short_label">写下新内容</string>
     <string name="action_note_saved">已保存</string>
     <string name="tell_about">关于 Leafpad 我想告诉你的事</string>
