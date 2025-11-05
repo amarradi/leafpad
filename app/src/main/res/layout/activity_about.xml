@@ -4,128 +4,123 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:scrollbars="vertical"
-    tools:context=".AboutActivity">
+    tools:context=".AboutActivity"
+    android:fitsSystemWindows="true">
 
-    <androidx.core.widget.NestedScrollView
-        android:scrollbars="vertical"
+    <!-- Toolbar oben -->
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
 
-        <com.google.android.material.appbar.AppBarLayout
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="?attr/actionBarSize"
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?actionBarSize"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            android:fitsSystemWindows="true"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
+    <!-- Scrollbarer Inhalt -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/margin_about">
+
+            <!-- Version -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_about">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:clipToPadding="false"
-                    android:orientation="horizontal">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        tools:ignore="UselessParent">
-
-                        <ImageView
-                            android:layout_width="@dimen/large_icon_size"
-                            android:layout_height="@dimen/large_icon_size"
-                            android:contentDescription="@string/leafpad_work"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/ic_olive_leaf"
-                            android:layout_margin="@dimen/image_about_section_margin" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/textView_version"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/text_about_section_margin"
-                            android:textAppearance="@style/TextAppearance.MyAboutPageTitle" />
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_about">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
                     <ImageView
                         android:layout_width="@dimen/large_icon_size"
                         android:layout_height="@dimen/large_icon_size"
-                        android:importantForAccessibility="no"
-                        android:scaleType="centerCrop"
                         android:layout_margin="@dimen/image_about_section_margin"
-                        android:src="@drawable/ic_olive_leaf" />
+                        android:src="@drawable/ic_olive_leaf"
+                        android:contentDescription="@null" />
 
                     <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/textView_data"
-                        android:layout_width="match_parent"
+                        android:id="@+id/textView_version"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/text_about_section_margin"
+                        android:layout_marginStart="@dimen/text_about_section_margin"
+                        android:textAppearance="@style/TextAppearance.MyAboutPageTitle" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Bibelvers -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_about">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/large_icon_size"
+                        android:layout_height="@dimen/large_icon_size"
+                        android:layout_margin="@dimen/image_about_section_margin"
+                        android:src="@drawable/ic_about_book"
+                        android:contentDescription="@null" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_biblevers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_about_section_margin"
+                        android:textAppearance="@style/TextAppearance.MyAboutPageBibleVerse"
+                        android:text="@string/rev20_12" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Statement -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_about">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/large_icon_size"
+                        android:layout_height="@dimen/large_icon_size"
+                        android:layout_margin="@dimen/image_about_section_margin"
+                        android:src="@drawable/ic_about_article"
+                        android:contentDescription="@null" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/textView_statement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_about_section_margin"
                         android:textAppearance="@style/TextAppearance.MyAboutPage"
-                        android:text="@string/leafpad_work"/>
+                        android:text="@string/what_is_leafpad" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_about">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        tools:ignore="UselessParent">
-
-                        <ImageView
-                            android:layout_width="@dimen/large_icon_size"
-                            android:layout_height="@dimen/large_icon_size"
-                            android:importantForAccessibility="no"
-                            android:scaleType="centerCrop"
-                            android:layout_margin="@dimen/image_about_section_margin"
-                            android:src="@drawable/ic_about_book" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/tv_biblevers"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/text_about_section_margin"
-                            android:textAppearance="@style/TextAppearance.MyAboutPageBibleVerse"
-                            android:text="@string/rev20_12" />
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
+            <!-- Danke -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -134,36 +129,27 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:layout_width="@dimen/large_icon_size"
+                        android:layout_height="@dimen/large_icon_size"
+                        android:layout_margin="@dimen/image_about_section_margin"
+                        android:src="@drawable/ic_olive_leaf"
+                        android:contentDescription="@null" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/thank_you"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        tools:ignore="UselessParent">
-
-                        <ImageView
-                            android:importantForAccessibility="no"
-                            android:src="@drawable/ic_about_article"
-                            android:layout_width="@dimen/large_icon_size"
-                            android:layout_height="@dimen/large_icon_size"
-                            android:scaleType="centerCrop"
-                            android:layout_margin="@dimen/image_about_section_margin" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/textView_statement"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/text_about_section_margin"
-                            android:textAppearance="@style/TextAppearance.MyAboutPage"
-                            android:text="@string/what_is_leafpad" />
-                    </LinearLayout>
-
+                        android:layout_marginStart="@dimen/text_about_section_margin"
+                        android:textAppearance="@style/TextAppearance.MyAboutPage"
+                        android:text="@string/thanks" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Danke für Weblate -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -171,69 +157,120 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:layout_width="@dimen/large_icon_size"
+                        android:layout_height="@dimen/large_icon_size"
+                        android:layout_margin="@dimen/image_about_section_margin"
+                        android:src="@drawable/ic_translation"
+                        android:contentDescription="@null" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/thank_you_for_weblate"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        tools:ignore="UselessParent">
-
-                        <ImageView
-                            android:layout_width="@dimen/large_icon_size"
-                            android:layout_height="@dimen/large_icon_size"
-                            android:importantForAccessibility="no"
-                            android:scaleType="centerCrop"
-                            android:layout_margin="@dimen/image_about_section_margin"
-                            android:src="@drawable/ic_olive_leaf" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/thank_you"
-                            android:text="@string/thanks"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyAboutPage"
-                            android:layout_margin="@dimen/text_about_section_margin" />
-                    </LinearLayout>
+                        android:layout_marginStart="@dimen/text_about_section_margin"
+                        android:textAppearance="@style/TextAppearance.MyAboutPage"
+                        android:text="@string/tell_about" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
+
+            <!-- NEU: Bewerten -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_rate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_about">
+                android:layout_margin="@dimen/margin_about"
+                android:foreground="?attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:layout_width="@dimen/large_icon_size"
+                        android:layout_height="@dimen/large_icon_size"
+                        android:layout_margin="@dimen/image_about_section_margin"
+                        android:src="@drawable/ic_about_book"
+                        android:contentDescription="@null" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_rate"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        tools:ignore="UselessParent">
-
-                        <ImageView
-                            android:layout_width="@dimen/large_icon_size"
-                            android:layout_height="@dimen/large_icon_size"
-                            android:importantForAccessibility="no"
-                            android:scaleType="centerCrop"
-                            android:layout_margin="@dimen/image_about_section_margin"
-                            android:src="@drawable/ic_translation" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/thank_you_for_weblate"
-
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyAboutPage"
-                            android:layout_margin="@dimen/text_about_section_margin" />
-                    </LinearLayout>
+                        android:layout_marginStart="@dimen/text_about_section_margin"
+                        android:textAppearance="@style/TextAppearance.MyAboutPage"
+                        android:text="@string/thanks" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
-        </com.google.android.material.appbar.AppBarLayout>
+
+            <!-- NEU: GitHub -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_github"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_about"
+                android:foreground="?attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/large_icon_size"
+                        android:layout_height="@dimen/large_icon_size"
+                        android:layout_margin="@dimen/image_about_section_margin"
+                        android:src="@drawable/ic_github_logo"
+                        android:contentDescription="@null" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_github"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_about_section_margin"
+                        android:textAppearance="@style/TextAppearance.MyAboutPage"
+                        android:text="@string/thanks" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- NEU: Weblate -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_weblate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_about"
+                android:foreground="?attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/large_icon_size"
+                        android:layout_height="@dimen/large_icon_size"
+                        android:layout_margin="@dimen/image_about_section_margin"
+                        android:src="@drawable/ic_translation"
+                        android:contentDescription="@null" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_weblate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_about_section_margin"
+                        android:textAppearance="@style/TextAppearance.MyAboutPage"
+                        android:text="@string/thanks" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

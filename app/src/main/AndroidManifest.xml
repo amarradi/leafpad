@@ -16,7 +16,8 @@
             android:name=".AboutActivity"
             android:exported="false"
             android:label="@string/about"
-            android:parentActivityName=".SettingsActivity" />
+            android:parentActivityName=".SettingsActivity"
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".SettingsActivity"
             android:exported="false"
