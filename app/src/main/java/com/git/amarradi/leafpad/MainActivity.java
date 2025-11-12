@@ -313,6 +313,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 Intent searchIntent = new Intent(this, SearchActivity.class);
                 startActivity(searchIntent);
                 return true;
+            case R.id.item_about:
+                Intent aboutIntent = new Intent(this, AboutActivity.class);
+                startActivity(aboutIntent);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

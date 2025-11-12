@@ -2,8 +2,10 @@
 <releasenote>
     <title>Leafpad 1.22 - Was hat sich verändert</title>
     <content>
+        * Trennung der Einstellungen mit About
         * Fehlerbehebung: leere Notizen werden jetzt wirklich verworfen
+        * Übersetzungen aktualisiert
     </content>
-    <date>01.08.2025</date>
-    <time>17:17</time>
+    <date>12.11.2025</date>
+    <time>07:07</time>
 </releasenote>
