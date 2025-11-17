@@ -156,4 +156,5 @@
     <string name="country_title_chinese_traditional_han_script">Chino (Tradicional)</string>
     <string name="country_title_hindi_latin_script">Hindi (alfabeto latino)</string>
     <string name="country_title_uzbek">Uzbeko</string>
+    <string name="country_title_translator_hindi_latin" translatable="false">" "</string>
 </resources>
