@@ -156,6 +156,6 @@
     <string name="country_title_translator_chinese_simplified_han_script" translatable="false">imcc(@imcc)</string>
     <string name="country_title_chinese_simplified_han_script">Chinesisch (Vereinfachte Han-Schrift)</string>
     <string name="country_title_chinese_traditional_han_script">Chinesisch (Traditionelle Han-Schrift)</string>
-    <string name="country_title_hindi_latin_script">Hindi (Latin script)</string>
+    <string name="country_title_hindi_latin_script">Hindi (Latin-Skript)</string>
     <string name="country_title_uzbek">Usbekisch</string>
 </resources>
