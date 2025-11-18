@@ -3,27 +3,27 @@
     <string translatable="false" name="country_title_translator_czech">MessingWithComputers(@MessingWithComputers)</string>
     <string name="darkmode_preference" translatable="false">darkmode</string>
     <string translatable="false" name="country_title_translator_portuguese">Lucas Alves Rego(@devlulcas), Ettlu selva rula(@Ttormor)</string>
-    <string translatable="false" name="country_title_translator_tamil">Kolappan N(@kolappan), தமிழ்நேரம்(@TamilNeram)</string>
+    <string translatable="false" name="country_title_translator_tamil">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
     <string translatable="false" name="country_title_translator_greek">Jim Kats(@jimkats1)</string>
     <string name="system_preference" translatable="false">system</string>
     <string translatable="false" name="country_title_translator_hindi">Harshit Sethi(@hstsethi)</string>
     <string name="theme_key" translatable="false">theme</string>
-    <string translatable="false" name="country_title_translator_indonesian">toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
-    <string translatable="false" name="country_title_translator_french">Leonart(@Leonart), Omgeta(@Omgeta), michte(@michte)</string>
+    <string translatable="false" name="country_title_translator_indonesian">Arif Budiman(@arifpedia), toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
+    <string translatable="false" name="country_title_translator_french">Leonart(@Leonart), Omgeta(@Omgeta), michte(@michte), David D.(@Dadu042)</string>
     <string name="lightmode_preference" translatable="false">lightmode</string>
     <string translatable="false" name="country_title_translator_arabic">Asaad Zein(@asaadzx)</string>
     <string translatable="false" name="country_title_translator_estonian">Priit Jõerüüt(@jrthwlate)</string>
     <string name="system_preference_option_value" translatable="false">system</string>
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
-    <string translatable="false" name="country_title_translator_spanish">Zarahi Ander(@TradZarahi), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Jose David M(@jposada202020@gmail.com), Leopoldo Antonio Motto Murua(@leomotto), Francisco Gabriel Chardin(@FranChardin), zergio inzunza(@n1kf4m3l), Abraham Mendoza(@1Alide1)</string>
+    <string translatable="false" name="country_title_translator_spanish">Sofia Gutierrez(@SofiaIrina9), Zarahi Ander(@TradZarahi), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Marco(@Megido), Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), Abraham Mendoza(@1Alide1), zergio inzunza(@n1kf4m3l)</string>
     <string translatable="false" name="country_title_translator_polish">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
     <string translatable="false" name="country_title_translator_italian">pastic cerre(@pasti), Akiakizero(@Akiakizero), Davide Secco(@davidesecco)</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string translatable="false" name="country_title_translator_albanian">Besnik Bleta(@Besnik_b)</string>
     <string translatable="false" name="country_title_translator_ukrainian">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
-    <string translatable="false" name="country_title_translator_russian">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), vanapro1(@vanapro1), Sotski Eugene(@jekakmail), Rachel Podya(@homicide@disroot.org), SnIPeRSnIPeR(@SnIPeRSnIPeR), Santiago Centeno(@Java16)</string>
+    <string translatable="false" name="country_title_translator_russian">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), vanapro1(@vanapro1), Sotski Eugene(@jekakmail), MrSliv69(@MrSliv69), Rachel Podya(@homicide@disroot.org), Steven Barash(@stevenbarash), Santiago Centeno(@Java16), SnIPeRSnIPeR(@SnIPeRSnIPeR)</string>
     <string translatable="false" name="country_title_translator_catalan">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
-    <string translatable="false" name="country_title_translator_german">Maximilian Hüttner(@MaxHue)</string>
+    <string translatable="false" name="country_title_translator_german">Blubberland(@Blubberland), Maximilian Hüttner(@MaxHue)</string>
     <string name="item_menu_description">menu for item actions</string>
     <string name="leafpad_work">Leafpad saves all data locally on your smartphone. The notes or metadata such as date and time are not stored in any cloud and are not shared with anyone. No text analysis is carried out either. The notes belong to you. You decide what you do with them.</string>
     <string name="new_note">新筆記</string>
@@ -149,9 +149,12 @@
     <string name="country_title_translator_chinese_traditional_han_script" translatable="false">imcc(@imcc)</string>
     <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
     <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
-    <string name="country_title_translator_chinese_simplified_han_script" translatable="false">imcc(@imcc)</string>
+    <string name="country_title_translator_chinese_simplified_han_script" translatable="false">雲の中を漂う船(@KumoNoFune), imcc(@imcc)</string>
     <string name="country_title_chinese_simplified_han_script">Chinese (Simplified Han script)</string>
     <string name="country_title_chinese_traditional_han_script">Chinese (Traditional Han script)</string>
     <string name="country_title_hindi_latin_script">Hindi (Latin script)</string>
     <string name="country_title_uzbek">Uzbek</string>
+    <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
+    <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
+    <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
 </resources>
