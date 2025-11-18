@@ -35,14 +35,14 @@
     <string name="leafpad_work">Leafpad zapisuje wszystkie dane lokalnie na Twoim smartfonie. Notatki lub metadane, takie jak data i godzina, nie są przechowywane w żadnej chmurze i nie są nikomu udostępniane. Nie jest również przeprowadzana żadna analiza tekstu. Notatki należą do Ciebie. Ty decydujesz, co z nimi zrobisz.</string>
     <string name="new_note">Nowa notatka</string>
     <string name="imported">Notatka została wysłana do Leafpada</string>
-    <string name="rate_the_app">A może napiszesz recenzję w Google Play? Przejdź bezpośrednio do Google Play.</string>
+    <string name="rate_the_app">A może napiszesz recenzję w Google Play? Przejdź bezpośrednio do Google Play.</string>
     <string name="remove_dialog_abort">Cofnij</string>
     <string name="menu_settings">Ustawienia</string>
     <string name="system_preference_key">Systemowy (domyślny)</string>
     <string name="contentDescription">Dodaj nową notatkę</string>
     <string name="remove_dailog_message">Ta notatka zostanie bezpowrotnie usunięta. Potem nie da się jej przywrócić.</string>
     <string name="version">Wersja</string>
-    <string name="find_code_on_github_summary">Możesz przeglądać i sprawdzać kod źródłowy za pośrednictwem repozytorium. Zapraszamy do otwierania zagadnień w celu wprowadzenia zmian lub zgłoszenia błędów.</string>
+    <string name="find_code_on_github_summary">Możesz przeglądać i sprawdzać kod źródłowy za pośrednictwem repozytorium. Zapraszamy do otwierania zagadnień w celu wprowadzenia zmian lub zgłoszenia błędów.</string>
     <string name="theme_summary">Przełącz między trybem ciemnym a jasnym</string>
     <string name="what_is_leafpad">Leafpad jest prostą aplikacją do tworzenia notatek.</string>
     <string name="created_txt">Utworzona dnia</string>
