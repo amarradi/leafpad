@@ -16,7 +16,7 @@
     <string name="set">Це рецепт</string>
     <string name="toggle">змінити вигляд</string>
     <string name="imported">замітка була відправлена в блокнот</string>
-    <string name="rate_the_app">Як щодо огляду в Google PlayStore? Тоді відкрийте Google Play безпосередньо.</string>
+    <string name="rate_the_app">Залишити відгук про Play Маркет?</string>
     <string name="add_shortcut_short_label">Записати нове</string>
     <string name="action_note_saved">збережено</string>
     <string name="tell_about">Що я хочу розповісти вам про Leafpad</string>
@@ -54,7 +54,7 @@
     <string name="discard">відкинути</string>
     <string name="backupfinish">Резервне копіювання завершено</string>
     <string name="show_note">зробити нотатку видимою</string>
-    <string name="find_code_on_github_summary">Ви можете переглянути та перевірити вихідний код через репозиторій. Ви можете відкрити запит на зміни та повідомлення про помилки.</string>
+    <string name="find_code_on_github_summary">Перегляньте код та повідомте про проблеми в репозиторії.</string>
     <string name="action_share_title">Заголовок</string>
     <string name="invalidFile">Недійсний файл резервної копії. Імпорт скасовано.</string>
     <string name="participate">Взяти участь або зробити свій внесок</string>
@@ -89,7 +89,7 @@
     <string name="restore_notes_title">Відновити</string>
     <string name="close_release_note">Кнопка закриття</string>
     <string name="unsaved_changes_title">Незбережені зміни</string>
-    <string name="translation_help">Допоможіть нам перекласти застосунок вашою мовою на weblate</string>
+    <string name="translation_help">Допоможіть перекласти застосунок на Weblate.</string>
     <string name="rev20_12">І я бачив мертвих, малих і великих, що стояли перед престолом; і книги були розкриті, і інша книга була розкрита, яка є книгою життя; і суджені були мертві за написаним у книгах, згідно з їхніми ділами. Об’явлення 20:12</string>
     <string name="no_search_results">Нічого не знайдено</string>
     <string name="save_notes_title">Резервне копіювання</string>
@@ -160,8 +160,9 @@
     <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
     <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
-    <string name="country_title_gothic">Gothic</string>
-    <string name="country_title_dutch">Dutch</string>
-    <string name="menu_about">About Leafpad</string>
-    <string name="country_title_danish">Danish</string>
+    <string name="country_title_gothic">Готика</string>
+    <string name="country_title_dutch">Нідерландська</string>
+    <string name="menu_about">Про Leafpad</string>
+    <string name="country_title_danish">Данська</string>
+    <string name="country_title_translator_hindi_latin" translatable="false">" "</string>
 </resources>
