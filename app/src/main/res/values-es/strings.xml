@@ -14,7 +14,7 @@
     <string name="imported">La nota fué enviada a Leafpad</string>
     <string name="new_note">Nueva nota</string>
     <string name="satisfied">¿Te gusta Leafpad?</string>
-    <string name="rate_the_app">¿Qué tal una reseña en la PlayStore de Google? Abre Google Play directamente.</string>
+    <string name="rate_the_app">¿Abandono la revisión de Play Store?</string>
     <string name="remove_dialog_title">¿Estás seguro?</string>
     <string name="remove_dialog_abort">Cancelar</string>
     <string name="menu_settings">Ajustes</string>
@@ -34,7 +34,7 @@
     <string name="thanks">Gracias Stefan, Stefan, Manuel, Falk, Stephanie y Emil por sus ideas y probar la aplicación.</string>
     <string name="its_opensource">Leafpad es de código abierto y gratuita</string>
     <string name="find_code_on_github">GitHub</string>
-    <string name="find_code_on_github_summary">Puedes ver y comprobar el código fuente a través del repositorio. Puede abrir una incidencia para solicitar cambios y mensajes de error.</string>
+    <string name="find_code_on_github_summary">Vea el código e informe asunto en el repositorios.</string>
     <string name="title_licence">Licencias</string>
     <string name="licence">Licencias de código abierto</string>
     <string name="share_note">¿Compartir nota?</string>
@@ -47,7 +47,7 @@
     <string name="statement">Anotamos listas de compras, notas para conversaciones, listas de embalaje para vacaciones o cumpleaños de amigos. Todas son cosas buenas para que no las olvidemos. Es muy similar a Dios, escribe nuestras obras buenas y malas y las salva. Dios está por encima de todo y simplemente sabe todo. Dios ama a la gente y quiere tener comunión con ellos. Pero esto sólo es posible si somos vistos por Dios como intachables. A través de la fe en Jesucristo, nuestras malas obras (nuestra culpa) son borradas ante Dios. Jesucristo expió por nuestra culpa en la cruz del Calvario. Cada persona que acepta esto se introduce en el libro de la vida para siempre. ¿Estás registrado en el libro de la vida?</string>
     <string name="app_name">Leafpad</string>
     <string name="created_txt">Creado en</string>
-    <string name="search">Buscar notas</string>
+    <string name="search">notas de búsqueda</string>
     <string name="darkmode_preference" translatable="false">darkmode</string>
     <string name="theme_key" translatable="false">theme</string>
     <string name="lightmode_preference" translatable="false">lightmode</string>
@@ -58,51 +58,51 @@
     <string name="system_preference" translatable="false">system</string>
     <string name="participate">Participar o contribuir</string>
     <string name="translate">Traducir la aplicación en Weblate</string>
-    <string name="translation_help">Ayúdanos a traducir la aplicación a tu idioma en weblate</string>
+    <string name="translation_help">Ayude a traducir la aplicación en Weblate.</string>
     <string name="hide_note">hacer la nota invisible</string>
     <string name="hide_hidden">ocultar notas ocultas</string>
     <string name="show_note">hacer visible la nota</string>
     <string name="show_hidden">mostrar notas ocultas</string>
-    <string name="note_is_recipe">La nota es una receta</string>
-    <string name="note_is_no_recipe">La nota no es una receta</string>
+    <string name="note_is_recipe">nota es receta</string>
+    <string name="note_is_no_recipe">nota no es receta</string>
     <string name="restore">Restaurar todas las notas desde un archivo xml</string>
     <string name="showDeleteConfirmationMessage">Todas las notas serán borradas permanentemente. ¿Continuar?</string>
     <string name="save">Guardar todas las notas como xml</string>
     <string name="showDeleteConfirmation">¿Eliminar notas?</string>
-    <string name="backupIsrunning">La copia de seguridad se está ejecutando</string>
+    <string name="backupIsrunning">La copia de respaldo se está ejecutando</string>
     <string name="no">No</string>
     <string name="importError">Error al importar notas.</string>
     <string name="yes">Sí</string>
     <plurals name="notes_imported">
-        <item quantity="one">Una nota importada</item>
-        <item quantity="many">%1$d Notas importadas</item>
-        <item quantity="other">%1$d Notas importadas</item>
+        <item quantity="one">%1$d nota importada</item>
+        <item quantity="many">%1$d notas importadas</item>
+        <item quantity="other">%1$d notas importadas</item>
     </plurals>
     <string name="fileOpeningError">Error al abrir el archivo.</string>
     <string name="delete">Eliminar</string>
-    <string name="backupfinish">Copia de seguridad finalizada</string>
+    <string name="backupfinish">Copia de respaldo finalizada</string>
     <string name="invalidFile">Archivo de respaldo inválido. La importación fue cancelada.</string>
     <string name="cancel">Cancelar</string>
     <string name="showRestoreConfirmation">¿Restaurar?</string>
     <string name="restore_notes_title">Restauración</string>
     <string name="save_notes_title">Copia de seguridad</string>
-    <string name="showRestoreConfirmationMessage">Todas las notas actuales serán reemplazadas por la copia de seguridad. ¿Continuar?</string>
+    <string name="showRestoreConfirmationMessage">Todas las notas actuales serán reemplazadas por el respaldo. ¿Continuar?</string>
     <string name="toggle">cambiar vista</string>
     <string name="note_shared">Nota compartida</string>
     <string name="save_changes">Guardar cambios</string>
-    <string name="discard">Descartar</string>
+    <string name="discard">descartar</string>
     <string name="notification_of_change_description">Notifica sobre cambios en notas</string>
     <string name="notification_of_change">Notificación de cambios</string>
-    <string name="unsaved_changes_message">Tu nota ha cambiado. Quieres guardar o desechar los cambios?</string>
+    <string name="unsaved_changes_message">Tu nota ha cambiado. Quieres guardar o descartar los cambios?</string>
     <string name="unsaved_changes_title">Cambios sin guardar</string>
-    <string name="item_menu_description">Menú para acciones de objetos</string>
+    <string name="item_menu_description">menú para acciones de elementos</string>
     <string name="search_hint">Que estas buscando?</string>
     <string name="not_initialized">Leafpad no ha sido iniciado todavia!</string>
-    <string name="no_search_results">No se encontró nada</string>
+    <string name="no_search_results">Nada encontrado</string>
     <string name="empty_list">Ninguna nota disponible en la lista</string>
-    <string name="startIconDescription">Un campo de busqueda</string>
-    <string name="set">Eso es una receta</string>
-    <string name="close_release_note">Boton de cerrado</string>
+    <string name="startIconDescription">Un campo de búsqueda</string>
+    <string name="set">Es una receta</string>
+    <string name="close_release_note">Cerrar Botón</string>
     <string name="title_required">Título requerido</string>
     <string name="keep_screen_on_dialog_yes">Sí</string>
     <string name="keep_screen_on_dialog_message">Mantener la pantalla encendida puede aumentar significativamente el consumo de batería. ¿Seguro que quieres activar esta función?</string>

@@ -13,7 +13,7 @@
     <string name="participate">Merrni pjesë, ose Jepni Kontribut</string>
     <string name="leafpad_work">Leafpad-i i ruan lokalisht në telefonin tuaj krejt të dhënat. Shënimet, ose tejtëdhëna të tilla si data dhe koha nuk depozitohen në ndonjë re dhe s’i jepen njeriu. As bëhet ndonjë analizim teksti. Shënimet ju përkasin juve. Ju vendosni ç’të bëhet me to.</string>
     <string name="imported">shënimi u dërgua te leafpad</string>
-    <string name="rate_the_app">Si thoni për një shqyrtim në Google\'s PlayStore? Mandej hapni Google Play drejtpërdrejt.</string>
+    <string name="rate_the_app">Si thoni për një shqyrtim në Play Store?</string>
     <string name="add_shortcut_short_label">Shkruani një të ri</string>
     <string name="tell_about">Ç’dua t’ju them rreth Leafpad-it</string>
     <string name="action_share_body">Shënim</string>
@@ -33,7 +33,7 @@
     <string name="remove_dailog_message">Ky shënim do të fshihet përgjithnjë. Nuk mund të rikthehet më pas.</string>
     <string name="version">version</string>
     <string name="show_note">bëje shënimin të dukshëm</string>
-    <string name="find_code_on_github_summary">Mund të shihni dhe të merrni kodin burim përmes depos. Jeni të mirëpritur të hapni një çështje, për kërkesa për ndryshime dhe mesazhe gabimesh.</string>
+    <string name="find_code_on_github_summary">Shihni kodin dhe njoftoni të meta.</string>
     <string name="action_share_title">Titull</string>
     <string name="title_hint">Titull</string>
     <string name="about">Mbi</string>
@@ -53,7 +53,7 @@
     <string name="thanks">Faleminderit Stefanit, Stefanit, Manuelit, Falkut, Stefanisë dhe Emilit për idetë tuaja dhe për testimin e aplikacionit.</string>
     <string name="statement">Shkruajmë në copa letrash lista për pazare, shënime për biseda, lista me gjëra që duhen paketuar për pushimet apo për ditëlindjen e një shoku. Këto të tëra janë gjëra të dobishme, kështu nuk i harrojmë. Ngjan mjaft me Zotin, ai shkruan punët tona të mira dhe liga dhe i ruan. Zoti është mbi gjithçka dhe thjesht di gjithçka. Zoti i do njerëzit dhe dëshiron të jetë i lidhur me ta. Por kjo është e mundshme vetëm nëse Zotit i dukemi të pafajshëm. Përmes besimit në Jezu Krishtin, punët tona të liga (faji ynë) fshihen para Zotit. Jezu Krishti shleu fajin tonë në kryqin e Kalvarit. Çdo person që pranon këtë hyn në librin e jetës së përjetshme. Ju, jeni në librin e jetës?</string>
     <string name="hide_note">bëje shënimin të padukshëm</string>
-    <string name="translation_help">Ndihmonani të përkthejmë aplikacionin në gjuhën tuaj në weblate</string>
+    <string name="translation_help">Ndihmoni të përkthehet aplikacioni në Weblate.</string>
     <string name="rev20_12">Dhe pashë të vdekurit, të mëdhenj e të vegjël, në këmbë përballë fronit. U hapën libra, u hap dhe një libër tjetër, libri i jetës. Dhe u gjykuan të vdekurit sipas veprave të tyre, që qenë të shkruara në libër. Zbulesa 20:12</string>
     <string name="its_opensource">Leafpad-i është Me Burim të Hapët dhe është i lirë</string>
     <string name="satisfied">Po ju pëlqen leafpad-i?</string>
