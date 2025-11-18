@@ -31,14 +31,14 @@
     <string name="country_title_translator_german" translatable="false">Maximilian Hüttner(@MaxHue)</string>
     <string name="item_menu_description">menu for item actions</string>
     <string name="leafpad_work">Leafpad saves all data locally on your smartphone. The notes or metadata such as date and time are not stored in any cloud and are not shared with anyone. No text analysis is carried out either. The notes belong to you. You decide what you do with them.</string>
-    <string name="new_note">new Note</string>
+    <string name="new_note">Nova beleška</string>
     <string name="save_changes">save changes</string>
     <string name="save">Save all notes as xml</string>
     <string name="showDeleteConfirmation">Delete notes?</string>
     <string name="set">It is a recipe</string>
     <string name="toggle">change View</string>
     <string name="country_title_chinese_simplified_han_script">Chinese (Simplified Han script)</string>
-    <string name="imported">note was send to leafpad</string>
+    <string name="imported">Beleška poslata u Leafpad</string>
     <string name="country_title_french">French</string>
     <string name="rate_the_app">How about a review in Google\'s PlayStore? Then open Google Play directly.</string>
     <string name="add_shortcut_short_label">Zapiši novu</string>
@@ -65,7 +65,7 @@
     <string name="system_preference_key">follow system (standard)</string>
     <string name="importError">Error when importing notes.</string>
     <string name="restore">Restore all notes from an xml file</string>
-    <string name="contentDescription">add new Note</string>
+    <string name="contentDescription">Dodaj belešku</string>
     <string name="please_enter_a_title">Please enter a title for the note to save or discard the note.</string>
     <string name="action_edit_note">Izmeni belešku</string>
     <string name="search_hint">What are you looking for?</string>
@@ -115,9 +115,9 @@
     <string name="country_title_arabic">Arabic</string>
     <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
     <string name="notification_of_change">Notification of changes</string>
-    <string name="edited_text">edited at</string>
+    <string name="edited_text">Izmenjena u</string>
     <string name="not_initialized">Leafpad not initialized yet!</string>
-    <string name="body_hint">Note</string>
+    <string name="body_hint">Beleška</string>
     <string name="lightmode_preference_key">lightmode</string>
     <string name="unsaved_changes_message">Your note has changed. Do you want to save or discard the changes?</string>
     <string name="find_code_on_github">GitHub</string>
