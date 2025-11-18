@@ -91,7 +91,7 @@
     <string name="note_shared">Note partagée</string>
     <string name="save_changes">des changements</string>
     <string name="discard">rejeter</string>
-    <string name="unsaved_changes_message">Votre note a changé. Voulez-vous enregistrer ou supprimer les changements ?</string>
+    <string name="unsaved_changes_message">Votre note a changé. Voulez-vous enregistrer ou supprimer les changements ?</string>
     <string name="item_menu_description">menu pour les actions des éléments</string>
     <string name="search_hint">Tu cherches quoi ?</string>
     <string name="startIconDescription">Un champ de recherche</string>
@@ -105,7 +105,7 @@
     <string name="close_release_note">Fermer Button</string>
     <string name="title_required">Titre requis</string>
     <string name="keep_screen_on_dialog_yes">Oui</string>
-    <string name="keep_screen_on_dialog_message">Le fait de laisser l\'écran allumé peut augmenter considérablement la consommation de la batterie. Êtes-vous sûr de vouloir activer cette fonctionnalité ?</string>
+    <string name="keep_screen_on_dialog_message">Le fait de laisser l\'écran allumé peut augmenter considérablement la consommation de la batterie. Êtes-vous sûr de vouloir activer cette fonctionnalité ?</string>
     <string name="keep_screen_on_dialog_no">Non</string>
     <string name="keep_screen_on_summary">Empêcher l\'écran de s\'éteindre pendant l\'utilisation de Leafpad</string>
     <string name="keep_screen_on_title">Garder écran allumé</string>
