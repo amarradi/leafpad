@@ -110,7 +110,6 @@
     <string name="empty_list">No notes available in the list</string>
     <string name="action_share_note">Share note</string>
     <string name="menu_about">About Leafpad</string>
-
     <string name="country_title_albanian">Albanian</string>
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_arabic">Arabic</string>
@@ -163,4 +162,5 @@
     <string name="country_title_translator_ukrainian" translatable="false">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
     <string name="country_title_uzbek">Uzbek</string>
     <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
+    <string name="search_hint">What are you looking for?</string>
 </resources>
