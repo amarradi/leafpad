@@ -162,4 +162,5 @@
     <string name="country_title_dutch">Holandisht</string>
     <string name="menu_about">Mbi Leafpad-in</string>
     <string name="country_title_danish">Danisht</string>
+    <string name="country_title_translator_hindi_latin" translatable="false"></string>
 </resources>
