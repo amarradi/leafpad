@@ -32,6 +32,8 @@ android {
                 'da',  // Danish
                 'de',  // German
                 'el',  // Greek
+                'en',  // English
+                'en-rGB',
                 'es',  // Spanish
                 'et',  // Estonian
                 'fi',  // Finnish
@@ -47,6 +49,7 @@ android {
                 'pt',  // Portuguese
                 'ru',  // Russian
                 'sq',  // Albanian
+                'sr', // Serbian
                 'sv',  // Swedish
                 'ta',  // Tamil
                 'uk',  // Ukrainian
@@ -55,7 +58,6 @@ android {
                 'zh-rCN',  // Chinese (Simplified)
                 'zh-rTW',  // Chinese (Traditional)
                 'b+hi+Latn',  // BCP-47: Hindi (Latin)
-                'en',  // English
         ]
 
 

@@ -56,6 +56,8 @@ public class TranslationThanksBuilder {
         builder.append(context.getString(R.string.country_title_translator_portuguese)).append("\n");
         appendBoldCountry(builder, context.getString(R.string.country_title_russian));
         builder.append(context.getString(R.string.country_title_translator_russian)).append("\n");
+        appendBoldCountry(builder, context.getString(R.string.country_title_serbian));
+        builder.append(context.getString(R.string.country_title_translator_serbian)).append("\n");
         appendBoldCountry(builder, context.getString(R.string.country_title_spanish));
         builder.append(context.getString(R.string.country_title_translator_spanish)).append("\n");
         appendBoldCountry(builder, context.getString(R.string.country_title_tamil));
@@ -63,7 +65,8 @@ public class TranslationThanksBuilder {
         appendBoldCountry(builder, context.getString(R.string.country_title_ukrainian));
         builder.append(context.getString(R.string.country_title_translator_ukrainian)).append("\n");
         appendBoldCountry(builder, context.getString(R.string.country_title_uzbek));
-        builder.append(context.getString(R.string.country_title_translator_uzbek));
+        builder.append(context.getString(R.string.country_title_translator_uzbek));;
+
 
         return builder;
     }

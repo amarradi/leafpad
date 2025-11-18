@@ -109,57 +109,58 @@
     <string name="keep_screen_on_summary">லீச்பேட்டைப் பயன்படுத்தும் போது திரை அணைக்கப்படுவதைத் தடுக்கவும்</string>
     <string name="keep_screen_on_title">திரையை தொடர்ந்து வைத்திருங்கள்</string>
     <string name="keep_screen_on_dialog_title">மின்கல பயன்பாடு எச்சரிக்கை</string>
-    <string name="country_title_translator_czech" translatable="false">MessingWithComputers(@MessingWithComputers)</string>
-    <string name="country_title_french">பிரஞ்சு</string>
-    <string name="country_title_translator_portuguese" translatable="false">Lucas Alves Rego(@devlulcas), Ettlu selva rula(@Ttormor)</string>
-    <string name="country_title_catalan">கற்றலான்</string>
-    <string name="country_title_spanish">ச்பானிச்</string>
-    <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
-    <string name="country_title_albanian">அல்பேனிய</string>
-    <string name="country_title_indonesian">இந்தோனேசியன்</string>
-    <string name="country_title_russian">ரஷியன்</string>
-    <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
     <string name="please_enter_a_title">குறிப்பை சேமிக்க தலைப்பை உள்ளிடவும்.</string>
-    <string name="country_title_tamil">தமிழ்</string>
-    <string name="country_title_translator_hindi" translatable="false">Harshit Sethi(@hstsethi)</string>
-    <string name="country_title_translator_english" translatable="false">Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l), Santiago Centeno(@Java16)</string>
-    <string name="country_title_polish">போலீச்</string>
-    <string name="country_title_translator_indonesian" translatable="false">Arif Budiman(@arifpedia), toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
-    <string name="country_title_german">ஜெர்மன்</string>
-    <string name="country_title_translator_french" translatable="false">Leonart(@Leonart), Omgeta(@Omgeta), michte(@michte), David D.(@Dadu042)</string>
-    <string name="country_title_translator_arabic" translatable="false">Asaad Zein(@asaadzx)</string>
-    <string name="country_title_ukrainian">உக்ரேனிய</string>
-    <string name="country_title_translator_spanish" translatable="false">Sofia Gutierrez(@SofiaIrina9), Zarahi Ander(@TradZarahi), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Marco(@Megido), Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), Abraham Mendoza(@1Alide1), zergio inzunza(@n1kf4m3l)</string>
-    <string name="country_title_greek">கிரேக்கம்</string>
-    <string name="country_title_translator_polish" translatable="false">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
-    <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero), Davide Secco(@davidesecco)</string>
-    <string name="country_title_arabic">அரபு</string>
-    <string name="country_title_italian">இத்தாலியன்</string>
-    <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
-    <string name="country_title_translator_ukrainian" translatable="false">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
-    <string name="country_title_translator_russian" translatable="false">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), vanapro1(@vanapro1), Sotski Eugene(@jekakmail), MrSliv69(@MrSliv69), Rachel Podya(@homicide@disroot.org), Steven Barash(@stevenbarash), Santiago Centeno(@Java16), SnIPeRSnIPeR(@SnIPeRSnIPeR)</string>
-    <string name="country_title_czech">செக்</string>
-    <string name="country_title_english">ஆங்கிலம்</string>
-    <string name="country_title_portuguese">போர்த்துகீசியம்</string>
-    <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
-    <string name="country_title_translator_german" translatable="false">Blubberland(@Blubberland), Maximilian Hüttner(@MaxHue)</string>
-    <string name="country_title_hindi_latin">ஹிந்தி (லத்தின் எழுத்து)</string>
-    <string name="country_title_hindi">ஹிந்தி</string>
-    <string name="country_title_translator_estonian">Priit Jõerüüt(@jrthwlate)</string>
-    <string name="country_title_estonian">எச்டோனிய</string>
-    <string name="country_title_translator_chinese_traditional_han_script" translatable="false">imcc(@imcc)</string>
-    <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
-    <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
-    <string name="country_title_translator_chinese_simplified_han_script" translatable="false">雲の中を漂う船(@KumoNoFune), imcc(@imcc)</string>
-    <string name="country_title_chinese_simplified_han_script">சீன (எளிமைப்படுத்தப்பட்ட ஆன் ச்கிரிப்ட்)</string>
-    <string name="country_title_chinese_traditional_han_script">சீன (பாரம்பரிய ஆன் ச்கிரிப்ட்)</string>
-    <string name="country_title_hindi_latin_script">இந்தி (லத்தீன் ச்கிரிப்ட்)</string>
-    <string name="country_title_uzbek">உச்பெக்</string>
-    <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
-    <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
-    <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
-    <string name="country_title_gothic">Gothic</string>
-    <string name="country_title_dutch">Dutch</string>
     <string name="menu_about">About Leafpad</string>
+    <string name="country_title_albanian">Albanian</string>
+    <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
+    <string name="country_title_arabic">Arabic</string>
+    <string name="country_title_translator_arabic" translatable="false">Asaad Zein(@asaadzx)</string>
+    <string name="country_title_catalan">Catalan</string>
+    <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
+    <string name="country_title_chinese_simplified_han_script">Chinese (Simplified Han script)</string>
+    <string name="country_title_translator_chinese_simplified_han_script" translatable="false">雲の中を漂う船(@KumoNoFune), imcc(@imcc)</string>
+    <string name="country_title_chinese_traditional_han_script">Chinese (Traditional Han script)</string>
+    <string name="country_title_translator_chinese_traditional_han_script" translatable="false">imcc(@imcc)</string>
+    <string name="country_title_czech">Czech</string>
+    <string name="country_title_translator_czech" translatable="false">MessingWithComputers(@MessingWithComputers)</string>
     <string name="country_title_danish">Danish</string>
+    <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
+    <string name="country_title_dutch">Dutch</string>
+    <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
+    <string name="country_title_english">English</string>
+    <string name="country_title_translator_english" translatable="false">Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l), Santiago Centeno(@Java16)</string>
+    <string name="country_title_estonian">Estonian</string>
+    <string name="country_title_translator_estonian" translatable="false">Priit Jõerüüt(@jrthwlate)</string>
+    <string name="country_title_french">French</string>
+    <string name="country_title_translator_french" translatable="false">Leonart(@Leonart), Omgeta(@Omgeta), michte(@michte), David D.(@Dadu042)</string>
+    <string name="country_title_german">German</string>
+    <string name="country_title_translator_german" translatable="false">Blubberland(@Blubberland), Maximilian Hüttner(@MaxHue)</string>
+    <string name="country_title_gothic">Gothic</string>
+    <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
+    <string name="country_title_greek">Greek</string>
+    <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
+    <string name="country_title_hindi">Hindi</string>
+    <string name="country_title_translator_hindi" translatable="false">Harshit Sethi(@hstsethi)</string>
+    <string name="country_title_hindi_latin_script">Hindi (Latin script)</string>
+    <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
+    <string name="country_title_indonesian">Indonesian</string>
+    <string name="country_title_translator_indonesian" translatable="false">Arif Budiman(@arifpedia), toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
+    <string name="country_title_italian">Italian</string>
+    <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero), Davide Secco(@davidesecco)</string>
+    <string name="country_title_polish">Polish</string>
+    <string name="country_title_translator_polish" translatable="false">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
+    <string name="country_title_portuguese">Portuguese</string>
+    <string name="country_title_translator_portuguese" translatable="false">Lucas Alves Rego(@devlulcas), Ettlu selva rula(@Ttormor)</string>
+    <string name="country_title_russian">Russian</string>
+    <string name="country_title_translator_russian" translatable="false">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), vanapro1(@vanapro1), Sotski Eugene(@jekakmail), MrSliv69(@MrSliv69), Steven Barash(@stevenbarash), Rachel Podya(@homicide@disroot.org), SnIPeRSnIPeR(@SnIPeRSnIPeR), Santiago Centeno(@Java16)</string>
+    <string name="country_title_serbian">Serbian</string>
+    <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
+    <string name="country_title_spanish">Spanish</string>
+    <string name="country_title_translator_spanish" translatable="false">Sofia Gutierrez(@SofiaIrina9), Zarahi Ander(@TradZarahi), Francisco Serrador(@fserrador), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Marco(@Megido), Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), Abraham Mendoza(@1Alide1), zergio inzunza(@n1kf4m3l)</string>
+    <string name="country_title_tamil">Tamil</string>
+    <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
+    <string name="country_title_ukrainian">Ukrainian</string>
+    <string name="country_title_translator_ukrainian" translatable="false">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
+    <string name="country_title_uzbek">Uzbek</string>
+    <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
 </resources>
