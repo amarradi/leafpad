@@ -161,4 +161,5 @@
     <string name="menu_about">About Leafpad</string>
     <string name="country_title_danish">Danish</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
+    <string name="country_title_serbian">Serbian</string>
 </resources>
