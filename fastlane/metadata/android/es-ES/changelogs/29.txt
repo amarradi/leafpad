@@ -1,0 +1,5 @@
+* Guardar botón: solo activado cuando la nota se haya cambiado
+* El modo de lectura ahora se utiliza correctamente
+* Las notas vacías pueden ser descartadas
+* Los traductores ahora tienen una sección más clara de gracias
+* Varios errores han sido fijos

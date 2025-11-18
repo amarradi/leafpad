@@ -1,0 +1,1 @@
+Las entradas vacías se eliminarán ahora si su descarte
