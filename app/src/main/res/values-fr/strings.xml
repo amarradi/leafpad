@@ -39,7 +39,7 @@
     <string name="imported">la note a été transférée à leafpad</string>
     <string name="edited_text">édité le</string>
     <string name="new_note">nouvelle note</string>
-    <string name="satisfied">Appréciez-vous Leafpad ?</string>
+    <string name="satisfied">Appréciez-vous Leafpad ?</string>
     <string name="rate_the_app">Que diriez-vous d\'un avis sur le PlayStore de Google ? Alors ouvrez directement Google Play.</string>
     <string name="system_preference_key">suivre le système (standard)</string>
     <string name="theme_summary">Basculer entre le thème sombre et le thème clair</string>
@@ -52,7 +52,7 @@
     <string name="leafpad_work">Leafpad sauvegarde toutes les données localement sur votre smartphone. Les notes ou métadonnées telles que la date et l\'heure ne sont stockées dans aucun serveurs distants, et ne sont partagées avec personne. Aucune analyse de texte n \'est effectuée non plus. Les notes vous appartiennent. Vous décidez ce que vous faîtes avec elles.</string>
     <string name="rev20_12">Et je vis les morts, les grands et les petits, debout devant le trône ; et des livres furent ouverts ; et un autre livre fut ouvert, qui est le livre de la vie ; et les morts furent jugés des choses qui étaient écrites dans les livres, selon leurs œuvres. Apocalypse 20 :12</string>
     <string name="thanks">Merci Stefan, Stefan, Manuel, Falk, Stephanie et Emil pour vos idées et tester l\'application.</string>
-    <string name="remove_dialog_title">Êtes-vous sure ?</string>
+    <string name="remove_dialog_title">Êtes-vous sure ?</string>
     <string name="search">notes de recherche</string>
     <string name="lightmode_preference_key">thème clair</string>
     <string name="darkmode_preference_key">thème sombre</string>
