@@ -160,6 +160,4 @@
     <string name="country_title_dutch">Dutch</string>
     <string name="menu_about">About Leafpad</string>
     <string name="country_title_danish">Danish</string>
-    <string name="country_title_hindi_latin"></string>
-    <string name="country_title_translator_hindi_latin" translatable="false"></string>
 </resources>

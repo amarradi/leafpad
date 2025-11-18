@@ -155,6 +155,4 @@
     <string name="empty_list">Nema dostupnih beleški u listi</string>
     <string name="action_share_note">Podelite belešku</string>
     <string name="country_title_hindi">Hindi</string>
-    <string name="country_title_translator_hindi_latin" translatable="false"></string>
-    <string name="country_title_hindi_latin"></string>
 </resources>
