@@ -145,7 +145,7 @@
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Blubberland(@Blubberland), Maximilian Hüttner(@MaxHue)</string>
     <string name="country_title_hindi">Hindi</string>
-    <string name="country_title_translator_estonian">Priit Jõerüüt(@jrthwlate)</string>
+    <string name="country_title_translator_estonian" translatable="false">Priit Jõerüüt(@jrthwlate)</string>
     <string name="country_title_estonian">Estonien</string>
     <string name="country_title_translator_chinese_traditional_han_script" translatable="false">imcc(@imcc)</string>
     <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
