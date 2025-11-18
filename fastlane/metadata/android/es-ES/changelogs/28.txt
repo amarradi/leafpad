@@ -1,6 +1,6 @@
-* Das Rasterlayout scrollt jetzt etwas flüssiger (nicht so toll).
-* Ein Anzeigefehler bei langen Notizen wurde behoben.
-* Weitere Textteile wurden übersetzt.
-* Der Bereich „versteckte Notizen” ist leichter zu erkennen.
-* Es gibt einen Lesemodus, in dem die Anzeige permanent eingeschaltet bleibt. Möglicherweise erhöht sich dadurch der Batterieverbrauch.
-* Fehlerbehebungen
+* El desplazamiento de la cuadrícula ahora es un poco más fluido (aunque no perfecto).
+* Se ha corregido un error de visualización con notas largas.
+* Se han traducido más fragmentos de texto.
+* Ahora es más fácil identificar el área de "notas ocultas".
+* Existe un modo de lectura en el que la pantalla permanece siempre encendida. Esto puede aumentar el consumo de batería.
+* Corrección de errores
