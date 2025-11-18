@@ -157,7 +157,6 @@
     <string name="country_title_chinese_traditional_han_script">Китайська (традиційне письмо Хань)</string>
     <string name="country_title_hindi_latin_script">Хінді (латинська абетка)</string>
     <string name="country_title_uzbek">Узбецька</string>
-    <string name="country_title_translator_hindi_latin" translatable="false"></string>
     <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
     <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>

@@ -156,7 +156,6 @@
     <string name="country_title_chinese_traditional_han_script">Chino (Tradicional)</string>
     <string name="country_title_hindi_latin_script">Hindi (alfabeto latino)</string>
     <string name="country_title_uzbek">Uzbeko</string>
-    <string name="country_title_translator_hindi_latin" translatable="false"></string>
     <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
     <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
