@@ -7,19 +7,17 @@ plugins {
 
 
 android {
-    compileSdk 35
+    namespace = 'com.git.amarradi.leafpad'
+    compileSdk = 35
+
     defaultConfig {
-        applicationId "com.git.amarradi.leafpad"
-        minSdkVersion 25
-        targetSdkVersion 35
-        versionCode 30
-        versionName "1.22"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        externalNativeBuild {
-            cmake {
-                cppFlags ''
-            }
-        }
+        applicationId = "com.git.amarradi.leafpad"
+        minSdkVersion = 25
+        targetSdkVersion = 35
+        versionCode = 30
+        versionName = "1.22"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
         resourceConfigurations += [
                 'aeb',  // Tunisian Arabic
                 'ar',  // Arabic
@@ -79,12 +77,6 @@ android {
     buildFeatures {
         viewBinding = true
     }
-//    externalNativeBuild {
-//        cmake {
-//            path file('src/main/cpp/CMakeLists.txt')
-//            version '3.22.1'
-//        }
-//    }
 
     java {
         toolchain {
@@ -110,6 +102,9 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.room:room-common-jvm:2.8.3'
+    implementation 'androidx.room:room-runtime:2.8.3'
+    annotationProcessor 'androidx.room:room-compiler:2.8.3'
     def core = "1.16.0"
     def coordinatorLayout = "1.3.0"
     def appcompat = "1.7.1"
@@ -129,4 +124,5 @@ dependencies {
     implementation "androidx.preference:preference:$preference_version"
     implementation "androidx.activity:activity:$activity_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle"
+
 }
