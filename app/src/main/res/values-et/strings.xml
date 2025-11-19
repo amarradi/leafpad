@@ -16,7 +16,7 @@
     <string name="set">See on retsept</string>
     <string name="toggle">Muuda vaadet</string>
     <string name="imported">märge on saadetud Leafpadi</string>
-    <string name="rate_the_app">Koosta Google PlayStore\'is arvustus? Ava Google Play otse siit.</string>
+    <string name="rate_the_app">Kas koostad Google PlayStore\'is arvustuse?</string>
     <string name="add_shortcut_short_label">Koosta uus</string>
     <string name="action_note_saved">salvestatud</string>
     <string name="tell_about">Kõike seda tahaksin Leafpadi kohta öelda</string>
@@ -55,7 +55,7 @@
     <string name="discard">loobu</string>
     <string name="backupfinish">Varukoopia on valmis</string>
     <string name="show_note">muuda märge nähtavaks</string>
-    <string name="find_code_on_github_summary">Lähtekoodi võid uurida ja kontrollida koodihoidlast. Kui märkad vigu või tahad rakendust täiendada, siis palun koosta vastav veateade.</string>
+    <string name="find_code_on_github_summary">Koodihoidlas saad lähtekoodi uurida ja veateateid koostada.</string>
     <string name="action_share_title">Pealkiri</string>
     <string name="invalidFile">Vigane varukoopia fail. Importimine on kastkestatud.</string>
     <string name="participate">Osale või tee kaastööd</string>
@@ -95,7 +95,7 @@
     <string name="restore_notes_title">Taastamine</string>
     <string name="close_release_note">Sulgemisnupp</string>
     <string name="unsaved_changes_title">Salvestamata muudatused</string>
-    <string name="translation_help">Aita meil rakendust tõlkida sinu keelde Weblate\'i teenuse abil</string>
+    <string name="translation_help">Aita seda rakendust tõlkida Weblate\'i teenuse abil.</string>
     <string name="rev20_12">Ja ma nägin surnuid, suuri ja pisikesi, seisvat trooni ees, ning raamatud avati. Teine raamat avati, see on eluraamat. Ja surnute üle mõisteti kohut sedamööda, kuidas raamatuisse oli kirjutatud, nende tegude järgi. Johannese ilmutus 20:12</string>
     <string name="no_search_results">Ei leidunud mitte midagi</string>
     <string name="save_notes_title">Varundus</string>
@@ -158,10 +158,10 @@
     <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
     <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
-    <string name="country_title_gothic">Gothic</string>
-    <string name="country_title_dutch">Dutch</string>
-    <string name="menu_about">About Leafpad</string>
-    <string name="country_title_danish">Danish</string>
+    <string name="country_title_gothic">gooti keel</string>
+    <string name="country_title_dutch">hollandi keel</string>
+    <string name="menu_about">Rakenduse teave: Leafpad</string>
+    <string name="country_title_danish">taani keel</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
-    <string name="country_title_serbian">Serbian</string>
+    <string name="country_title_serbian">serbia keel</string>
 </resources>
