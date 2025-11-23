@@ -25,7 +25,7 @@
     <string name="statement">Ham shopping lists, baatcheet ke notes, chhuttiyon ya doston ke liye packing lists aadi likhte hain. Ye wo saari acchi cheezein hain jo ham bhoolna nahin chaahte. Eeshwar bhi kuch aise hi hain, wo hamaare saare sakarm aur dushkarm likhkar rakhte hain. Eeshwar sabse oopar hain aur unhein har cheez ka gyaan hai. Eeshwar logon se pyaar karte hain aur unke saathi hona chaahte hain. Magar aisa sirf tabhi mumkin hai jab Eeshwar hamein nirdosh manein. Yeeshu Maseeh par yakeen karke hamaare dushkarm (paap) Eeshwar ke aage dhul jaate hain. Yeeshu Maseeh ne Calvary ke cross par hamaare paapon ka praayshchitt kiya. Ise sweekar karne waala har vyakti jeevan-pustak mein hamesha ke liye sama gaya. Kya aap jeevan-pustak mein registered hain?</string>
     <string name="its_opensource">Leafpad OpenSource aur muft hai</string>
     <string name="find_code_on_github">GitHub</string>
-    <string name="find_code_on_github_summary">Aap repository ke zariye source code dekh aur check kar sakte hain. Badlaavon ki requests aur error messages ke liye issues kholne ke liye aapka swaagat hai.</string>
+    <string name="find_code_on_github_summary">Repository par code dekhe aur koi issues report kare.</string>
     <string name="title_licence">Licenses</string>
     <string name="licence">Open source licenses</string>
     <string name="share_note">Note share karein?</string>
@@ -35,7 +35,7 @@
     <string name="search">notes khojein</string>
     <string name="action_fab_note">note banaayein</string>
     <string name="add_shortcut_short_label">Naya likhein</string>
-    <string name="rate_the_app">Kyun na Google PlayStore par ek review likh dein?</string>
+    <string name="rate_the_app">PlayStore par ek review dena chahenge?</string>
     <string name="system_preference_key">system (standard) ka paalan karein</string>
     <string name="theme_summary">Dark aur light theme ke beech toggle karein</string>
     <string name="about">Baare mein</string>
@@ -58,7 +58,7 @@
     <string name="darkmode_preference_key">darkmode</string>
     <string name="participate">Bhaag lein ya Yogdan karein</string>
     <string name="translate">Weblate par app ko anuvaadit karein</string>
-    <string name="translation_help">Weblate par app ko aapki bhaasha mein anuvaadit karne mein hamaari madad karein</string>
+    <string name="translation_help">Weblate par app ko anuvaadit karne mein madad karein.</string>
     <string name="hide_note">note adrishy banaayein</string>
     <string name="hide_hidden">chhipaaye gaye notes chhipaayein</string>
     <string name="show_note">note drishy banaayein</string>
@@ -100,7 +100,7 @@
     <string name="unsaved_changes_message">Aapka note badla gaya hai. Aap badlaav save ya khaarij karna chaahte hain?</string>
     <string name="unsaved_changes_title">Save na kiye hue badlaav</string>
     <string name="no_search_results">Kuchh bhi nahin mila</string>
-    <string name="set">It is a recipe</string>
+    <string name="set">Yeh ek recipe hai</string>
     <string name="close_release_note">Close Button</string>
     <string name="title_required">Title required</string>
     <string name="keep_screen_on_dialog_yes">Yes</string>

@@ -10,11 +10,11 @@
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="what_is_leafpad">Leafpad je jednoduchá aplikace pro poznámky.</string>
     <string name="title_licence">Licence</string>
-    <string name="find_code_on_github_summary">Můžete zobrazit a zkontrolovat zdrojový kód přes repozitář. Máte možnost otevřít problém/issue pro změny a chybové zprávy.</string>
+    <string name="find_code_on_github_summary">Zobrazit zdrojový kód a nahlásit problémy/issues v repozitáři.</string>
     <string name="leafpad_work">Leafpad ukládá všechna data lokálně na vašem smartphonu. Poznámky nebo metadata, jako je datum a čas nejsou uloženy v zádném cloudu a nejsou sdíleny s někým. Žádné textové analýzy se neprovádí. Poznámky patří k vám. Vy rozhodujete, co s nimi děláte.</string>
     <string name="new_note">Nová poznámka</string>
     <string name="imported">Poznámka byla odeslána na leafpad</string>
-    <string name="rate_the_app">Co třeba recenzi v Google PlayStore? Klepněte pro otevření Google Play přímo.</string>
+    <string name="rate_the_app">Ohodnotit aplikaci recenzí přes Play Store?</string>
     <string name="add_shortcut_short_label">Napsat novou</string>
     <string name="action_note_saved">uložené</string>
     <string name="tell_about">Co chci vám říct o Leafpad</string>
@@ -50,8 +50,8 @@
     <string name="share_note">Sdílet Poznámku?</string>
     <string name="thanks">Děkuji Stefane, Stefane, Manuele, Falku, Stephanie a Emile pro vaše nápady a testování aplikace.</string>
     <string name="statement">Vypíšeme seznamy obchodů, poznámky pro rozhovory, balíčky pro dovolenou nebo narozeniny přátel. To jsou všechny dobré věci, abychom je nezapomněli. Je to velmi podobné s Bohem, píše své dobré a špatné skutky a uloží je. Bůh je nad vším a jednoduše ví všechno. Bůh miluje lidi a chce mít přátelství s nimi. Ale to je možné pouze v případě, že jsme viděli Bohem jako neškodný. Prostřednictvím víry v Ježíši Kristu, naše špatné skutky (naše viny) jsou vymazány před Bohem. Ježíš Kristus odčinil pro naše viny na kříži Kalvárie. Každá osoba, která souhlasí, je v knize života navždy. Jste registrováni v knize života?</string>
-    <string name="hide_note">neviditelná poznámka</string>
-    <string name="translation_help">Pomožte aplikaci přeložit do vašeho jazyka na Weblate</string>
+    <string name="hide_note">skrýt poznámku</string>
+    <string name="translation_help">Pomocte přeložit aplikaci na Weblate.</string>
     <string name="rev20_12">A viděl jsem mrtvé, velcí a malí, stojící před trůnem; a knihy byly otevřeny: a další kniha byla otevřena, která je kniha života: a mrtvý byli posuzováni z věcí, které byly napsány v knihách, podle jejich děl. Zjevení 20:12</string>
     <string name="its_opensource">Leafpad je Open Source a je zdarma</string>
     <string name="satisfied">Líbí se vám leafpad?</string>
@@ -160,10 +160,10 @@
     <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
     <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
-    <string name="country_title_gothic">Gothic</string>
-    <string name="country_title_dutch">Dutch</string>
-    <string name="menu_about">About Leafpad</string>
-    <string name="country_title_danish">Danish</string>
+    <string name="country_title_gothic">Gótština</string>
+    <string name="country_title_dutch">Holandština</string>
+    <string name="menu_about">O Leafpad</string>
+    <string name="country_title_danish">Dánština</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
-    <string name="country_title_serbian">Serbian</string>
+    <string name="country_title_serbian">Srbština</string>
 </resources>
