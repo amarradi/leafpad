@@ -16,7 +16,7 @@
     <string name="set">这是一份食谱</string>
     <string name="toggle">切换视图</string>
     <string name="imported">笔记已导入至 leafpad</string>
-    <string name="rate_the_app">在 Google Play 商店评价一下如何？那么请直接打开 Google Play 吧。</string>
+    <string name="rate_the_app">去 Google Play 商店评价一下？</string>
     <string name="add_shortcut_short_label">写下新内容</string>
     <string name="action_note_saved">已保存</string>
     <string name="tell_about">关于 Leafpad 我想告诉你的事</string>
@@ -54,7 +54,7 @@
     <string name="discard">丢弃</string>
     <string name="backupfinish">备份已完成</string>
     <string name="show_note">使笔记可见</string>
-    <string name="find_code_on_github_summary">您可以通过代码仓库查看和检查源代码。欢迎您为变更请求和错误信息提交问题。</string>
+    <string name="find_code_on_github_summary">在仓库中查看代码并报告问题。</string>
     <string name="action_share_title">标题</string>
     <string name="invalidFile">无效的备份文件，导入取消。</string>
     <string name="participate">参与或贡献</string>
@@ -94,7 +94,7 @@
     <string name="restore_notes_title">恢复</string>
     <string name="close_release_note">关闭</string>
     <string name="unsaved_changes_title">未保存的更改</string>
-    <string name="translation_help">帮助我们在 weblate 上将应用程序翻译成您的语言</string>
+    <string name="translation_help">在 Weblate 上帮助翻译此应用程序。</string>
     <string name="rev20_12">我又看见死去的人，不论尊卑老少，都站在宝座前面。案卷都展开了，另有一卷，就是生命册也打开了。死去的人都要凭案卷中有关他们行为的记录受审判。 启示录 20:12</string>
     <string name="no_search_results">什么都没找到</string>
     <string name="save_notes_title">备份</string>
@@ -109,7 +109,7 @@
     <string name="show_hidden">显示隐藏的笔记</string>
     <string name="empty_list">列表上空空如也</string>
     <string name="action_share_note">分享笔记</string>
-    <string name="menu_about">About Leafpad</string>
+    <string name="menu_about">关于 Leafpad</string>
     <string name="country_title_albanian">Albanian</string>
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_arabic">Arabic</string>
