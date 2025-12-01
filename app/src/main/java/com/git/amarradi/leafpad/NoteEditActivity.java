@@ -405,7 +405,7 @@ public class NoteEditActivity extends AppCompatActivity {
         resultIntent.putExtra("updated_note", current);
         resultIntent.putExtra("is_new_note", noteViewModel.isNewEntry(current));
         setResult(RESULT_OK, resultIntent);
-        finish(); // optional hier direkt beenden, wenn nicht schon an anderer Stelle
+        //finish(); // optional hier direkt beenden, wenn nicht schon an anderer Stelle
 
     }
 

@@ -4,6 +4,7 @@
     <content>
         * Trennung der Einstellungen mit About
         * Fehlerbehebung: leere Notizen werden jetzt wirklich verworfen
+        * Nach dem Speichern der Notiz, bleibt sie offen.
         * Übersetzungen aktualisiert
     </content>
     <date>12.11.2025</date>
