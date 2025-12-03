@@ -4,6 +4,13 @@
     tools:context="com.git.amarradi.MainActivity">
 
     <item
+        android:id="@+id/action_setCategory"
+        android:icon="@drawable/btn_category"
+        android:title="@string/setCategory"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
         android:id="@+id/action_recipe"
         android:icon="@drawable/btn_chefhat"
         android:title="@string/note_is_recipe"
