@@ -12,7 +12,7 @@
     <string name="leafpad_work">Το Leafpad σώζει όλα τα δεδομένα σε τοπικό επίπεδο στο smartphone σας. Οι σημειώσεις ή τα μεταδεδομένα, όπως η ημερομηνία και η ώρα δεν αποθηκεύονται σε κανένα cloud και δεν μοιράζονται με κανέναν. Δεν εκτελείται καμία ανάλυση κειμένου. Οι σημειώσεις ανήκουν σε εσάς. Εσείς αποφασίζετε τι να κάνετε μαζί τους.</string>
     <string name="new_note">νέα Σημείωση</string>
     <string name="imported">σημείωση στάλθηκε στο leafpad</string>
-    <string name="rate_the_app">Να αφήσετε μια κριτική στο Play Store;</string>
+    <string name="rate_the_app">Τι θα λέγατε για μια κριτική στο PlayStore της Google; Τότε ανοίξτε το Google Play κατευθείαν.</string>
     <string name="add_shortcut_short_label">Γράψτε νέα</string>
     <string name="action_note_saved">αποθηκεύτηκε</string>
     <string name="action_share_body">Σημείωση</string>
@@ -32,7 +32,7 @@
     <string name="remove_dailog_message">Αυτή η σημείωση θα διαγραφεί μόνιμα. Μετά δεν θα μπορεί να αποκατασταθεί.</string>
     <string name="version">έκδοση</string>
     <string name="show_note">κάντε τη σημείωση ορατή</string>
-    <string name="find_code_on_github_summary">Δείτε τον κώδικα και αναφέρετε ζητήματα στο αποθετήριο.</string>
+    <string name="find_code_on_github_summary">Μπορείτε να δείτε και να ελέγξετε τον πηγαίο κώδικα μέσω του αποθετηρίου. Είστε ευπρόσδεκτοι να ανοίξετε ένα ζήτημα για τα αιτήματα αλλαγής και τα μηνύματα σφάλματος.</string>
     <string name="action_share_title">Τίτλος</string>
     <string name="participate">Συμμετοχή ή Συνεισφορά</string>
     <string name="title_hint">Τίτλος</string>
@@ -53,7 +53,7 @@
     <string name="thanks">Σας ευχαριστούμε Stefan, Stefan, Manuel, Falk και Stephanie για τις ιδέες σας και τον έλεγχο της εφαρμογής.</string>
     <string name="statement">Γράφουμε λίστες αγορών, σημειώσεις για συζητήσεις, συσκευασίες για διακοπές ή γενέθλια φίλων. Αυτά είναι όλα καλά πράγματα έτσι ώστε να μην τα ξεχνάμε. Είναι πολύ παρόμοιο με τον Θεό, γράφει τις καλές και κακές πράξεις μας και τις σώζει. Ο Θεός είναι πάνω από όλα και απλά γνωρίζει τα πάντα. Ο Θεός αγαπά τους ανθρώπους και θέλει να έχει συναναστροφή μαζί τους. Αλλά αυτό είναι μόνο δυνατό αν βλεπόμαστε από τον Θεό ως αθώοι. Μέσω της πίστης στον Χριστό, οι κακές πράξεις μας (η ενοχή μας) εξαλείφονται ενώπιον του Θεού. Ο Χριστός πυροδότησε για την ενοχή μας στον σταυρό του Γολγοθά. Κάθε άτομο που δέχεται αυτό μπαίνει στο βιβλίο της ζωής για πάντα. Είστε εγγεγραμμένοι στο βιβλίο της ζωής;</string>
     <string name="hide_note">κάντε τη σημείωση αόρατη</string>
-    <string name="translation_help">Βοηθήστε στη μετάφραση της εφαρμογής στο Weblate.</string>
+    <string name="translation_help">Βοηθήστε μας να μεταφράσουμε την εφαρμογή στη γλώσσα σας στο weblate</string>
     <string name="rev20_12">Και είδα τους νεκρούς, μεγάλους και μικρούς, να στέκονται μπροστά στο θρόνο. Ανοίχτηκαν βιβλία, κι ύστερα ανοίχτηκε ένα άλλο βιβλίο, το βιβλίο της ζωής. Και κρίθηκαν οι νεκροί ανάλογα με τα έργα τους, που ήταν γραμμένα στα βιβλία. Αποκάλυψη 20:12</string>
     <string name="its_opensource">Το Leafpad είναι ανοιχτού κώδικα και δωρεάν</string>
     <string name="satisfied">Απολαμβάνετε το leafpad;</string>
@@ -157,10 +157,10 @@
     <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
     <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
-    <string name="country_title_gothic">Γοτθικά</string>
-    <string name="country_title_dutch">Ολλανδικά</string>
-    <string name="menu_about">Σχετικά με το Leafpad</string>
-    <string name="country_title_danish">Δανικά</string>
+    <string name="country_title_gothic">Gothic</string>
+    <string name="country_title_dutch">Dutch</string>
+    <string name="menu_about">About Leafpad</string>
+    <string name="country_title_danish">Danish</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
-    <string name="country_title_serbian">Σερβικά</string>
+    <string name="country_title_serbian">Serbian</string>
 </resources>

@@ -162,4 +162,5 @@
     <string name="country_title_translator_ukrainian" translatable="false">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
     <string name="country_title_uzbek">Uzbek</string>
     <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
+    <string name="item_menu_add_category">create new category</string>
 </resources>
