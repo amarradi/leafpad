@@ -11,13 +11,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApp">
-        <activity
-            android:name=".CategoryActivity"
-            android:theme="@style/Theme.MyApp"
-            android:exported="false"
-            android:label="@string/category"
-            android:parentActivityName=".NoteEditActivity"
-           />
+
         <activity
             android:name=".AboutActivity"
             android:exported="false"
@@ -56,6 +50,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.git.amarradi.leafpad.MainActivity" />
         </activity>
+        <activity
+            android:name=".CategoryActivity"
+            android:theme="@style/Theme.MyApp"
+            android:exported="true"
+            android:label="@string/category"
+            android:parentActivityName=".NoteEditActivity"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".NoteEditActivity"
             android:exported="true"

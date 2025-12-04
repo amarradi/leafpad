@@ -32,15 +32,15 @@ public class CategoryActivity extends AppCompatActivity {
     private void setupToolbar() {
         toolbar = findViewById(R.id.category_toolbar);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(true);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationOnClickListener(v -> checkForUnsavedChanges());
+
+      //  toolbar.setNavigationOnClickListener(v -> checkForUnsavedChanges());
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_category, menu);
-
         return super.onCreateOptionsMenu(menu);
     }
 
