@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -26,6 +27,7 @@ import com.git.amarradi.leafpad.model.Note;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -34,6 +36,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     public static final String GITHUBPATH = "https://github.com/amarradi/leafpad/issues";
 
     public static final String WEBLATEPATH = "https://hosted.weblate.org/projects/leafpad/";
+
+    public static final String GOOGLEPLAYPATH = "https://play.google.com/store/apps/details";
 
     private ActivityResultLauncher<Intent> exportLauncher;
     private ActivityResultLauncher<Intent> importLauncher;
@@ -237,12 +241,14 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     }
 
     public static void launchAppStore(Activity activity, String packageName) {
+       // String installer = activity.getPackageManager().getInstallerPackageName(activity.getCallingPackage()).toLowerCase(Locale.ROOT);
+        //Log.d("installer", "launchAppStore: "+installer);
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + packageName));
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             activity.startActivity(intent);
         } catch (android.content.ActivityNotFoundException e) {
-            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + packageName)));
+            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(GOOGLEPLAYPATH+ "?id=" + packageName)));
         }
     }
 

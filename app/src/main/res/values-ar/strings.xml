@@ -168,4 +168,5 @@
     <string name="country_title_danish">Danish</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
     <string name="country_title_serbian">Serbian</string>
+    <string name="item_menu_add_category">create new category</string>
 </resources>

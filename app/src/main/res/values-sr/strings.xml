@@ -164,4 +164,5 @@
     <string name="country_title_uzbek">Uzbek</string>
     <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
     <string name="menu_about">O Leafpad-u</string>
+    <string name="item_menu_add_category">create new category</string>
 </resources>
