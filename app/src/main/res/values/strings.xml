@@ -159,14 +159,15 @@
     <string name="country_title_uzbek">Uzbek</string>
     <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
 
-  <string name="title_required">Title required</string>
-  <string name="please_enter_a_title">Please enter a title for the note to save or discard the note.</string>
-  <string name="keep_screen_on_title">Keep screen on</string>
-  <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
-  <string name="keep_screen_on_dialog_title">Battery usage warning</string>
-  <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
-  <string name="keep_screen_on_dialog_yes">Yes</string>
-  <string name="keep_screen_on_dialog_no">No</string>
-  <string name="menu_about">About Leafpad</string>
+    <string name="title_required">Title required</string>
+    <string name="please_enter_a_title">Please enter a title for the note to save or discard the note.</string>
+    <string name="keep_screen_on_title">Keep screen on</string>
+    <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
+    <string name="keep_screen_on_dialog_title">Battery usage warning</string>
+    <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
+    <string name="keep_screen_on_dialog_yes">Yes</string>
+    <string name="keep_screen_on_dialog_no">No</string>
+    <string name="menu_about">About Leafpad</string>
     <string name="item_menu_add_category">create new category</string>
+    <string name="category">Category</string>
 </resources>

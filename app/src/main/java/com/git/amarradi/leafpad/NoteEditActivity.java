@@ -308,6 +308,11 @@ public class NoteEditActivity extends AppCompatActivity {
                 saveNote();
                 return true;
             }
+            case R.id.action_setCategory: {
+                Intent intent = new Intent(this, CategoryActivity.class);
+                startActivity(intent);
+                return true;
+            }
             default:
                 return super.onOptionsItemSelected(item);
         }
