@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/action_search"
-        android:title="Suche"
+        android:title="@string/search"
         android:icon="@drawable/btn_search"
         app:showAsAction="ifRoom" />
     <item
