@@ -22,6 +22,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.appbar.AppBarLayout>
+    <!-- Fragment Container ÜBER dem Notiz-Layout -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:visibility="gone"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:elevation="10dp" />
 
     <!-- Hauptinhalt: NestedScrollView direkt unter AppBarLayout -->
     <androidx.core.widget.NestedScrollView
@@ -99,5 +108,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/anchor_height"
         android:layout_gravity="bottom" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

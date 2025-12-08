@@ -17,6 +17,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -103,6 +104,28 @@ public class NoteEditActivity extends AppCompatActivity {
         EditText bodyEdit = findViewById(R.id.body_edit);
 
         EditorMinHeightHelper.adjustMinHeight(rootEdit, toolbar, title, bodyEdit);
+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                {
+
+                    if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+
+                        findViewById(R.id.fragment_container).setVisibility(View.GONE);
+                        findViewById(R.id.body_scroll).setVisibility(View.VISIBLE);
+
+                        invalidateOptionsMenu(); // 🔥 Menü + Toolbar sofort erneuern
+
+
+                    } else {
+                        // Default Verhalten
+                        setEnabled(false);
+                        onBackPressed();
+                    }
+                }
+            }
+        });
     }
 
     @Override
@@ -309,8 +332,19 @@ public class NoteEditActivity extends AppCompatActivity {
                 return true;
             }
             case R.id.action_setCategory: {
-                Intent intent = new Intent(this, CategoryActivity.class);
-                startActivity(intent);
+                findViewById(R.id.body_scroll).setVisibility(View.GONE);
+
+                // Fragment-Container EINBLENDEN
+                findViewById(R.id.fragment_container).setVisibility(View.VISIBLE);
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment_container, new CategoryFragment())
+                            .addToBackStack("category")
+                            .commit();
+
+
+//                Intent intent = new Intent(this, CategoryActivity.class);
+//                startActivity(intent);
                 return true;
             }
             default:
@@ -472,4 +506,18 @@ public class NoteEditActivity extends AppCompatActivity {
             }
         }
     }
+    public void restoreEditorToolbar() {
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
+
+        // Navigation-Pfeil der NoteEditActivity setzen
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+
+        toolbar.setNavigationOnClickListener(v -> {
+            onBackPressed(); // oder deine eigene Methode zum Verlassen
+        });
+
+        // Menü der NOTE-ACTIVITY wieder anzeigen
+        invalidateOptionsMenu();
+    }
+
 }

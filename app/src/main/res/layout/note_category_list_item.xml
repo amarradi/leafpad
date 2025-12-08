@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/category_list_item_layout"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/category_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_margin="0dp"
+    app:cardElevation="1dp"
+    app:cardUseCompatPadding="true"
+    android:padding="0dp">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/category_card_view"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <!-- Das Häkchen -->
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/category_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:clickable="false"
+            app:useMaterialThemeColors="true"/>
+        <!-- Kategorie-Name -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/category_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:padding="4dp" />
 
-    </com.google.android.material.card.MaterialCardView>
-</LinearLayout>
+
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
