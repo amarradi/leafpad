@@ -309,8 +309,14 @@ public class NoteEditActivity extends AppCompatActivity {
                 return true;
             }
             case R.id.action_setCategory: {
-                Intent intent = new Intent(this, CategoryActivity.class);
-                startActivity(intent);
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container, new com.git.amarradi.leafpad.ui.category.CategoryFragment())
+                            .addToBackStack("category")
+                            .commit();
+
+
+//                Intent intent = new Intent(this, CategoryActivity.class);
+//                startActivity(intent);
                 return true;
             }
             default:
