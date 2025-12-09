@@ -108,6 +108,11 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/anchor_height"
         android:layout_gravity="bottom" />
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
