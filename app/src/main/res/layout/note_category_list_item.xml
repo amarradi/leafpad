@@ -5,9 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="0dp"
-    app:cardElevation="1dp"
+    app:cardElevation="0dp"
     app:cardUseCompatPadding="true"
-    android:padding="0dp">
+    android:padding="0dp"
+    android:clickable="false"
+    android:focusable="false"
+    android:focusableInTouchMode="false">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +24,7 @@
             android:layout_height="wrap_content"
             android:focusable="false"
             android:focusableInTouchMode="false"
-            android:clickable="false"
+            android:clickable="true"
             app:useMaterialThemeColors="true"/>
         <!-- Kategorie-Name -->
         <com.google.android.material.textview.MaterialTextView

@@ -37,7 +37,7 @@ public abstract class AppDatabase extends RoomDatabase {
                                     "(name, color_hex, sort_order, is_archived, created_at, updated_at) " +
                                     "VALUES (" +
                                     "'Rezept'," +          // name
-                                    "#000080," +             // color_hex
+                                    "'#000080'," +             // color_hex
                                     "0," +                // sort_order
                                     "0," +                // is_archived (0 = aktiv)
                                     now + "," +           // created_at (ms)
