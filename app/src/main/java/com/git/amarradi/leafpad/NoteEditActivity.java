@@ -116,13 +116,15 @@ public class NoteEditActivity extends AppCompatActivity {
                         findViewById(R.id.body_scroll).setVisibility(View.VISIBLE);
 
                         invalidateOptionsMenu(); // 🔥 Menü + Toolbar sofort erneuern
+                        return;
 
-
-                    } else {
-                        // Default Verhalten
-                        setEnabled(false);
-                        onBackPressed();
                     }
+                    checkForUnsavedChanges();
+//                    else {
+//                        // Default Verhalten
+//                        setEnabled(false);
+//                        onBackPressed();
+//                    }
                 }
             }
         });
