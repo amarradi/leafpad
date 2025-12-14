@@ -152,6 +152,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         fab.setOnClickListener(v -> {
             String newNoteId = Note.makeId();
             Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
+            intent.putExtra(Leafpad.EXTRA_IS_NEW_NOTE, true);
             intent.putExtra(Leafpad.EXTRA_NOTE_ID, newNoteId);
             noteEditLauncher.launch(intent);
         });

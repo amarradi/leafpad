@@ -29,6 +29,8 @@ public class Leafpad extends Application {
     public static final String KEY_RELEASE_NOTE_CLOSED = "release_note_closed";
     public static final String CURRENT_LEAFPAD_VERSION_CODE = "current_leafpad_version_code";
     public static final String PREF_KEEP_SCREEN_ON = "keep_screen_on";
+    public static final String EXTRA_IS_NEW_NOTE = "is_new_note";
+
     private static PowerManager.WakeLock wakeLock;
 
     private static Leafpad instance;

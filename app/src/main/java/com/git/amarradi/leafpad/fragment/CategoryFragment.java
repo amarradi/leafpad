@@ -1,4 +1,4 @@
-package com.git.amarradi.leafpad;
+package com.git.amarradi.leafpad.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.git.amarradi.leafpad.NoteEditActivity;
 import com.git.amarradi.leafpad.R;
 import com.git.amarradi.leafpad.adapter.CategoryAdapter;
 import com.git.amarradi.leafpad.viewmodel.CategoryViewModel;

@@ -1,11 +1,10 @@
-package com.git.amarradi.leafpad;
+package com.git.amarradi.leafpad.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -18,6 +17,8 @@ import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
 
+import com.git.amarradi.leafpad.AboutActivity;
+import com.git.amarradi.leafpad.R;
 import com.git.amarradi.leafpad.helper.DialogHelper;
 import com.git.amarradi.leafpad.helper.NoteBackupHelper;
 import com.git.amarradi.leafpad.helper.NotificationHelper;
@@ -27,7 +28,6 @@ import com.git.amarradi.leafpad.model.Note;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
 

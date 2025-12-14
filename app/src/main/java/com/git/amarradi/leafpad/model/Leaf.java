@@ -89,6 +89,10 @@ public class Leaf {
         //boolean noteHide = sharedPreferences.getBoolean(HIDE + noteId,false); //der alte Schlüssel bis version 1.14
         boolean noteHide = sharedPreferences.getBoolean(HIDE + "_" + noteId, false);
         String noteCategory = sharedPreferences.getString(CATEGORY + noteId,"");
+        if("recipe".equals(noteCategory)) {
+            noteCategory = "recipe";
+        }
+
         Log.d("Leaf.load", "Loading noteId=" + noteId + " title='" + title + "' body='" + body + "'");
         return new Note(title, body, noteDate, noteTime, noteCreateDate, noteHide, noteCategory, noteId);
     }

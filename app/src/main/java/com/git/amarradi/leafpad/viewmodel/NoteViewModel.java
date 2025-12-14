@@ -15,6 +15,8 @@ import com.git.amarradi.leafpad.Leafpad;
 import com.git.amarradi.leafpad.helper.ReleaseNoteHelper;
 import com.git.amarradi.leafpad.model.Leaf;
 import com.git.amarradi.leafpad.model.Note;
+import com.git.amarradi.leafpad.model.NoteEntity;
+import com.git.amarradi.leafpad.model.NoteRepository;
 import com.git.amarradi.leafpad.model.ReleaseNote;
 
 import java.util.ArrayList;
@@ -22,6 +24,9 @@ import java.util.List;
 import java.util.Objects;
 
 public class NoteViewModel extends AndroidViewModel {
+
+    private final NoteRepository noteRepository;
+    private final LiveData<List<NoteEntity>> allNoteEntities;
 
     private final MutableLiveData<List<Note>> notesLiveData = new MutableLiveData<>();
     private static final MutableLiveData<Note> selectedNote = new MutableLiveData<>();
@@ -45,6 +50,18 @@ public class NoteViewModel extends AndroidViewModel {
     private final MediatorLiveData<List<Object>> combinedNotes = new MediatorLiveData<>();
     public LiveData<List<Object>> getCombinedNotes() { return combinedNotes; }
     private final MediatorLiveData<Boolean> isNoteModified = new MediatorLiveData<>(false);
+    public LiveData<Note> getNoteById(String noteId) {
+        MediatorLiveData<Note> result = new MediatorLiveData<>();
+
+        LiveData<NoteEntity> source = noteRepository.getNoteById(noteId);
+
+        result.addSource(source, entity -> {
+            if (entity == null) return;
+            result.setValue(fromEntity(entity));
+        });
+
+        return result;
+    }
 
     private Object releaseNoteHeader;
 
@@ -57,6 +74,32 @@ public class NoteViewModel extends AndroidViewModel {
         return releaseNoteHeader;
     }
 
+    private NoteEntity toEntity(Note n) {
+        return new NoteEntity(
+                n.getId(),
+                n.getTitle(),
+                n.getBody(),
+                n.getDate(),
+                n.getTime(),
+                n.getCreateDate(),
+                n.isHide(),
+                n.getCategory()
+        );
+    }
+
+
+    private Note fromEntity(NoteEntity e) {
+        return new Note(
+                e.title,
+                e.body,
+                e.notedate,
+                e.notetime,
+                e.createDate,
+                e.hide,
+                e.categoryKey,
+                e.id
+        );
+    }
 
 
     public void updateSingleNote(Note updatedNote) {
@@ -164,28 +207,15 @@ public class NoteViewModel extends AndroidViewModel {
         Note n = selectedNote.getValue();
         if (n == null) return;
 
-        String title;
-        if (n.getTitle() == null) {
-            title = "";
-        } else {
-            title = n.getTitle().trim();
-        }
-
-        String body;
-        if (n.getBody() == null) {
-            body = "";
-        } else {
-            body = n.getBody().trim();
-        }
-
         if (isNewEntry(n)) {
-            Leaf.remove(getApplication(), n);
+            noteRepository.deleteById(n.getId());
             selectedNote.setValue(null);
         } else {
-            Leaf.save(getApplication(), n);
+            noteRepository.insert(toEntity(n));
+            markSaved(); // 🔥 extrem wichtig!
         }
-        loadNotes();
     }
+
     public boolean isNewEntry(Note note) {
 
         String title = "";
@@ -280,6 +310,9 @@ public class NoteViewModel extends AndroidViewModel {
     public NoteViewModel(@NonNull Application application) {
         super(application);
 
+        noteRepository = new NoteRepository(application);
+        allNoteEntities = noteRepository.getAllNotes();
+
         isNoteModified.addSource(selectedNote, n -> checkModified());
         isNoteModified.addSource(originalNote, n -> checkModified());
         filteredNotes.addSource(notesLiveData, notes -> applySearchQuery());
@@ -366,11 +399,55 @@ public class NoteViewModel extends AndroidViewModel {
         }
     }
     public void loadNotes() {
+        Boolean tmp = showHiddenLiveData.getValue();
+        final boolean showHiddenFinal = tmp != null && tmp;
         Boolean showHidden = showHiddenLiveData.getValue();
         if (showHidden == null) showHidden = false;
-        List<Note> allNotes = Leaf.loadAll(getApplication(), showHidden);
-        notesLiveData.postValue(allNotes);
+
+        noteRepository.getAllNotes().observeForever(entities -> {
+            List<Note> notes = new ArrayList<>();
+            for (NoteEntity e : entities) {
+                if (!e.hide || showHiddenFinal) {
+                    notes.add(fromEntity(e));
+                }
+            }
+            notesLiveData.postValue(notes);
+            updateCombinedNotes();
+        });
     }
+
+    public void loadNoteById(String id) {
+        noteRepository.getNoteById(id).observeForever(entity -> {
+            if (entity == null) return;
+
+            Note note = fromEntity(entity);
+            originalNote.setValue(new Note(note)); // Deep copy
+            selectedNote.setValue(note);
+        });
+    }
+
+    public LiveData<NoteEntity> getNoteEntityById(String id) {
+        return noteRepository.getNoteById(id);
+    }
+
+    public Note toNote(NoteEntity e) {
+        if (e == null) return null;
+
+        // Passe Feldnamen an dein NoteEntity an!
+        return new Note(
+                e.title,
+                e.body,
+                e.notedate,
+                e.notetime,
+                e.createDate,
+                e.hide,
+                e.categoryKey,
+                e.id
+        );
+    }
+
+
+
     public void selectNote(Note note) {
         selectedNote.setValue(note);
         originalNote.setValue(new Note(
@@ -385,13 +462,14 @@ public class NoteViewModel extends AndroidViewModel {
         ));
     }
     public void saveNote(Context context, Note note) {
-        Leaf.save(getApplication(), note);
-        loadNotes();
+        noteRepository.insert(toEntity(note));
+        markSaved();
     }
+
     public void deleteNote(Context context, Note note) {
-        Leaf.remove(getApplication(), note);
-        loadNotes();
+        noteRepository.deleteById(note.getId());
     }
+
     public void updateNoteRecipe(String category) {
         Note currentNote = selectedNote.getValue();
         if (currentNote != null) {

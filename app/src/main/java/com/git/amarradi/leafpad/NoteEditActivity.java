@@ -24,6 +24,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.git.amarradi.leafpad.fragment.CategoryFragment;
 import com.git.amarradi.leafpad.helper.DialogHelper;
 import com.git.amarradi.leafpad.helper.EditorMinHeightHelper;
 import com.git.amarradi.leafpad.helper.ShareHelper;
@@ -84,17 +85,74 @@ public class NoteEditActivity extends AppCompatActivity {
             }
         });
 
-        String noteId = getIntent().getStringExtra("noteId");
-        if (noteId != null) {
-            List<Note> allNotes = Leaf.loadAll(this, true); // oder false, je nach ShowHidden
-            for (Note n : allNotes) {
-                if (n.getId().equals(noteId)) {
-                    noteViewModel.setNote(n);
-                    break;
-                }
-            }
+        Intent intent = getIntent();
+
+        if (Intent.ACTION_SEND.equals(intent.getAction())
+                && "text/plain".equals(intent.getType())) {
+            handleShareIntent(intent);
+            return;
         }
-        handleIntent(getIntent());
+
+        boolean isNewNoteIntent = intent.getBooleanExtra(Leafpad.EXTRA_IS_NEW_NOTE, false);
+
+        String noteId = getIntent().getStringExtra(Leafpad.EXTRA_NOTE_ID);
+
+        if (isNewNoteIntent) {
+            Note newNote = new Note(
+                    "", "", "", "", "",
+                    false, "", noteId
+            );
+            newNote.setNotedate();
+            newNote.setNotetime();
+            newNote.setCreateDate();
+
+            isNewNote = true;
+            noteViewModel.selectNote(newNote);
+
+        } else if (noteId != null) {
+
+            noteViewModel.getNoteById(noteId).observe(this, note -> {
+                if (note == null) return;
+
+                isNewNote = false;
+                noteViewModel.selectNote(note);
+            });
+
+        }
+
+        handleShareIntent(getIntent());
+//
+//        if (noteId != null) {
+//            noteViewModel.getNoteEntityById(noteId).observe(this, entity -> {
+//
+//                if (entity == null) {
+//                    // Neue Notiz (noch nicht in DB)
+//                    Note newNote = new Note("", "", "", "", "", false, "", noteId);
+//                    newNote.setNotedate();
+//                    newNote.setNotetime();
+//                    newNote.setCreateDate();
+//
+//                    isNewNote = true;
+//                    noteViewModel.selectNote(newNote);
+//                } else {
+//                    // Bestehende Notiz aus DB
+//                    isNewNote = false;
+//                    Note loaded = noteViewModel.toNote(entity);
+//                    noteViewModel.selectNote(loaded);
+//                }
+//            });
+//        } else {
+//            // Fallback: wirklich gar keine ID bekommen
+//            Note newNote = new Note("", "", "", "", "", false, "", Note.makeId());
+//            newNote.setNotedate();
+//            newNote.setNotetime();
+//            newNote.setCreateDate();
+//
+//            isNewNote = true;
+//            noteViewModel.selectNote(newNote);
+//        }
+
+        //handleIntent(getIntent());
         fromSearch = getIntent().getBooleanExtra("fromSearch", false);
         observeNote();
 
@@ -136,10 +194,60 @@ public class NoteEditActivity extends AppCompatActivity {
         return true;
     }
 
-    private void handleIntent(Intent intent) {
+//    private void handleIntent(Intent intent) {
+//        if (Intent.ACTION_SEND.equals(intent.getAction()) && "text/plain".equals(intent.getType())) {
+//            String shareText = intent.getStringExtra(Intent.EXTRA_TEXT);
+//            if (shareText != null && !shareText.isEmpty()) {
+//                Note newNote = new Note("", "", "", "", "", false, "", Note.makeId());
+//                newNote.setTitle(getString(R.string.imported));
+//                newNote.setBody(shareText);
+//                newNote.setNotedate();
+//                newNote.setNotetime();
+//                newNote.setCreateDate();
+//
+//                Leaf.set(this, newNote);
+//                noteViewModel.loadNotes();
+//
+//                setResult(RESULT_OK);
+//                finish();
+//                return;
+//            }
+//        }
+//        String noteId = getIntent().getStringExtra(Leafpad.EXTRA_NOTE_ID);
+//
+//        if (noteId == null) {
+//            Log.e("NoteEditActivity", "handleIntent: Keine noteId vorhanden, neue leere Notiz wird erzeugt");
+//
+//            Note newNote = new Note("", "", "", "", "", false, "", Note.makeId());
+//            newNote.setNotedate();
+//            newNote.setNotetime();
+//            newNote.setCreateDate();
+//
+//            noteViewModel.selectNote(newNote);
+//            isNewNote = true;
+//            return;
+//        }
+//
+//        Note loaded = Leaf.load(this, noteId);
+//        if (loaded == null) {
+//            Log.e("NoteEditActivity", "handleIntent: Note konnte nicht geladen werden für noteId=" + noteId);
+//            return;
+//        }
+//
+//        if (isNewEntry(loaded)) {
+//            isNewNote = true;
+//            loaded.setNotedate();
+//            loaded.setNotetime();
+//        }
+//
+//        noteViewModel.selectNote(loaded);
+//    }
+
+    private void handleShareIntent(Intent intent) {
         if (Intent.ACTION_SEND.equals(intent.getAction()) && "text/plain".equals(intent.getType())) {
             String shareText = intent.getStringExtra(Intent.EXTRA_TEXT);
             if (shareText != null && !shareText.isEmpty()) {
+
                 Note newNote = new Note("", "", "", "", "", false, "", Note.makeId());
                 newNote.setTitle(getString(R.string.imported));
                 newNote.setBody(shareText);
@@ -147,43 +255,15 @@ public class NoteEditActivity extends AppCompatActivity {
                 newNote.setNotetime();
                 newNote.setCreateDate();
 
-                Leaf.set(this, newNote);
-                noteViewModel.loadNotes();
+                // WICHTIG: ab jetzt nur DB speichern (nicht mehr Leaf.set)
+                noteViewModel.saveNote(getApplicationContext(), newNote);
 
                 setResult(RESULT_OK);
                 finish();
-                return;
             }
         }
-        String noteId = getIntent().getStringExtra(Leafpad.EXTRA_NOTE_ID);
-
-        if (noteId == null) {
-            Log.e("NoteEditActivity", "handleIntent: Keine noteId vorhanden, neue leere Notiz wird erzeugt");
-
-            Note newNote = new Note("", "", "", "", "", false, "", Note.makeId());
-            newNote.setNotedate();
-            newNote.setNotetime();
-            newNote.setCreateDate();
-
-            noteViewModel.selectNote(newNote);
-            isNewNote = true;
-            return;
-        }
-
-        Note loaded = Leaf.load(this, noteId);
-        if (loaded == null) {
-            Log.e("NoteEditActivity", "handleIntent: Note konnte nicht geladen werden für noteId=" + noteId);
-            return;
-        }
-
-        if (isNewEntry(loaded)) {
-            isNewNote = true;
-            loaded.setNotedate();
-            loaded.setNotetime();
-        }
-
-        noteViewModel.selectNote(loaded);
     }
+
 
     private void observeNote() {
         noteViewModel.getSelectedNote().observe(this, note -> {
@@ -438,7 +518,7 @@ public class NoteEditActivity extends AppCompatActivity {
         if (NoteViewModel.isEmptyEntry(current)) {
             Leaf.remove(this, current);
         } else {
-            Leaf.set(this, current);
+           // Leaf.set(this, current);
             noteViewModel.saveNote(getApplication(), current);
             noteViewModel.markSaved();
         }

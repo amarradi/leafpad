@@ -22,6 +22,10 @@ public interface NoteDao {
     @Query("SELECT * FROM notes WHERE id = :noteId LIMIT 1")
     NoteEntity getNoteById(String noteId);
 
+    @Query("SELECT * FROM notes WHERE id = :id LIMIT 1")
+    LiveData<NoteEntity> getById(String id);
+
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(NoteEntity note);
 
@@ -30,4 +34,7 @@ public interface NoteDao {
 
     @Delete
     void delete(NoteEntity note);
+
+    @Query("DELETE FROM notes WHERE id = :id")
+    void deleteById(String id);
 }

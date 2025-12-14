@@ -10,6 +10,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.git.amarradi.leafpad.fragment.SettingsFragment;
 import com.google.android.material.appbar.MaterialToolbar;
 
 import java.util.Objects;
