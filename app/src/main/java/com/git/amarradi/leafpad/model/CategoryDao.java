@@ -14,20 +14,23 @@ import java.util.List;
 public interface CategoryDao {
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    long insert(Category category);
+    long insert(CategoryEntity category);
 
     @Update
-    int update(Category category);
+    int update(CategoryEntity category);
 
     @Delete
-    int delete(Category category);
+    int delete(CategoryEntity category);
 
     @Query("SELECT * FROM categories WHERE is_archived = 0 ORDER BY sort_order, name")
-    LiveData<List<Category>> getActiveCategories();
+    LiveData<List<CategoryEntity>> getActiveCategories();
 
     @Query("SELECT * FROM categories ORDER BY sort_order, name")
-    LiveData<List<Category>> getAllCategories();
+    LiveData<List<CategoryEntity>> getAllCategories();
 
     @Query("SELECT * FROM categories WHERE id = :id LIMIT 1")
-    LiveData<Category> getById(long id);
+    LiveData<CategoryEntity> getById(long id);
+
+    @Query("SELECT * FROM categories WHERE name = :name COLLATE NOCASE LIMIT 1")
+    LiveData<CategoryEntity> getByName(String name);
 }

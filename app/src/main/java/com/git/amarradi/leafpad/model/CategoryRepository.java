@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
 public class CategoryRepository {
 
     private final CategoryDao categoryDao;
-    private final LiveData<List<Category>> activeCategories;
+    private final LiveData<List<CategoryEntity>> activeCategories;
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
 
     public CategoryRepository(Application application) {
@@ -20,11 +20,11 @@ public class CategoryRepository {
         activeCategories = categoryDao.getActiveCategories();
     }
 
-    public LiveData<List<Category>> getActiveCategories() {
+    public LiveData<List<CategoryEntity>> getActiveCategories() {
         return activeCategories;
     }
 
-    public void insert(final Category category) {
+    public void insert(final CategoryEntity category) {
         executor.execute(new Runnable() {
             @Override
             public void run() {
@@ -33,7 +33,7 @@ public class CategoryRepository {
         });
     }
 
-    public void update(final Category category) {
+    public void update(final CategoryEntity category) {
         executor.execute(new Runnable() {
             @Override
             public void run() {
@@ -42,7 +42,7 @@ public class CategoryRepository {
         });
     }
 
-    public void delete(final Category category) {
+    public void delete(final CategoryEntity category) {
         executor.execute(new Runnable() {
             @Override
             public void run() {

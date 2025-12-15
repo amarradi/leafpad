@@ -9,16 +9,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.git.amarradi.leafpad.R;
-import com.git.amarradi.leafpad.model.Category;
+import com.git.amarradi.leafpad.model.CategoryEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
 
-    private List<Category> categories = new ArrayList<>();
+    private List<CategoryEntity> categories = new ArrayList<>();
 
-    public void setCategories(List<Category> categories) {
+    public void setCategories(List<CategoryEntity> categories) {
         this.categories = categories;
         notifyDataSetChanged();
     }
@@ -33,7 +33,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
-        Category category = categories.get(position);
+        CategoryEntity category = categories.get(position);
         holder.nameText.setText(category.name);
     }
 

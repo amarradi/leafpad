@@ -15,24 +15,26 @@ import java.util.Set;
 
 @Database(
         entities = {
-                Category.class,
-                NoteEntity.class   // 🔥 Notes jetzt Teil der DB
+                CategoryEntity.class,
+                NoteEntity.class,
+                NoteCategoryJoin.class
         },
-        version = 2,                // 🔥 Version erhöht (Migration aktiv)
+        version = 2,
         exportSchema = false
 )
 public abstract class AppDatabase extends RoomDatabase {
 
     private static volatile AppDatabase INSTANCE;
 
-    // 🔥 Globaler Context für Migrationen
+    /** globaler Context für Migration */
     private static Context appContext;
 
     public abstract CategoryDao categoryDao();
     public abstract NoteDao noteDao();
+    public abstract NoteCategoryDao noteCategoryDao();
 
     // ---------------------------------------------------------------------
-    // PREPOPULATE – Standardkategorie "recipe"
+    // PREPOPULATE – Standardkategorie "Rezept"
     // ---------------------------------------------------------------------
     private static final RoomDatabase.Callback PREPOPULATE_CALLBACK =
             new RoomDatabase.Callback() {
@@ -46,11 +48,11 @@ public abstract class AppDatabase extends RoomDatabase {
                             "INSERT INTO categories " +
                                     "(name, color_hex, sort_order, is_archived, created_at, updated_at) " +
                                     "VALUES (" +
-                                    "'Rezept'," +          // UI-Name (wird später übersetzt angezeigt)
-                                    "'#000080'," +         // Farbe
-                                    "0," +
-                                    "0," +
-                                    now + "," +
+                                    "'Rezept', " +
+                                    "'#000080', " +
+                                    "0, " +
+                                    "0, " +
+                                    now + ", " +
                                     now +
                                     ")"
                     );
@@ -58,13 +60,13 @@ public abstract class AppDatabase extends RoomDatabase {
             };
 
     // ---------------------------------------------------------------------
-    // MIGRATION 1 → 2 (SharedPrefs → Room)
+    // MIGRATION 1 → 2  (SharedPreferences → Room)
     // ---------------------------------------------------------------------
     static final Migration MIGRATION_1_2 = new Migration(1, 2) {
         @Override
         public void migrate(@NonNull SupportSQLiteDatabase db) {
 
-            // 1) Notes-Tabelle anlegen
+            // Notes
             db.execSQL(
                     "CREATE TABLE IF NOT EXISTS notes (" +
                             "id TEXT NOT NULL PRIMARY KEY, " +
@@ -73,24 +75,47 @@ public abstract class AppDatabase extends RoomDatabase {
                             "notedate TEXT, " +
                             "notetime TEXT, " +
                             "create_date TEXT, " +
-                            "hide INTEGER NOT NULL, " +
-                            "category_key TEXT)"
+                            "hide INTEGER NOT NULL" +
+                            ")"
             );
 
-            // 2) Übernehme existierende Notizen
+            // Categories
+            db.execSQL(
+                    "CREATE TABLE IF NOT EXISTS categories (" +
+                            "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+                            "name TEXT NOT NULL, " +
+                            "color_hex TEXT, " +
+                            "sort_order INTEGER NOT NULL DEFAULT 0, " +
+                            "is_archived INTEGER NOT NULL DEFAULT 0, " +
+                            "created_at INTEGER NOT NULL, " +
+                            "updated_at INTEGER NOT NULL" +
+                            ")"
+            );
+
+            // Join table (N:M)
+            db.execSQL(
+                    "CREATE TABLE IF NOT EXISTS note_category_join (" +
+                            "note_id TEXT NOT NULL, " +
+                            "category_id INTEGER NOT NULL, " +
+                            "PRIMARY KEY(note_id, category_id)" +
+                            ")"
+            );
+
             migrateNotesFromSharedPrefs(appContext, db);
         }
     };
 
     // ---------------------------------------------------------------------
-    // HELPER – liest SharedPrefs und schreibt Notes in die Datenbank
+    // SharedPrefs → Notes Migration
     // ---------------------------------------------------------------------
     private static void migrateNotesFromSharedPrefs(Context context, SupportSQLiteDatabase db) {
         if (context == null) return;
 
-        SharedPreferences prefs = context.getSharedPreferences("leafstore", Context.MODE_PRIVATE);
+        SharedPreferences prefs =
+                context.getSharedPreferences("leafstore", Context.MODE_PRIVATE);
 
-        Set<String> ids = prefs.getStringSet("note_id_set", new HashSet<>());
+        Set<String> ids =
+                prefs.getStringSet("note_id_set", new HashSet<>());
 
         for (String id : ids) {
 
@@ -99,20 +124,12 @@ public abstract class AppDatabase extends RoomDatabase {
             String notedate = prefs.getString("note_date_set" + id, "");
             String notetime = prefs.getString("note_time_set" + id, "");
             String createDate = prefs.getString("note_date_" + id, "");
-
             boolean hide = prefs.getBoolean("false_" + id, false);
-
-            String categoryKey = prefs.getString("note_category_" + id, "");
-
-            // Deutsch → interner Key
-            if ("Rezept".equals(categoryKey)) {
-                categoryKey = "recipe";
-            }
 
             db.execSQL(
                     "INSERT OR REPLACE INTO notes " +
-                            "(id, title, body, notedate, notetime, create_date, hide, category_key) " +
-                            "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                            "(id, title, body, notedate, notetime, create_date, hide) " +
+                            "VALUES (?, ?, ?, ?, ?, ?, ?)",
                     new Object[]{
                             id,
                             title,
@@ -120,22 +137,20 @@ public abstract class AppDatabase extends RoomDatabase {
                             notedate,
                             notetime,
                             createDate,
-                            hide ? 1 : 0,
-                            categoryKey
+                            hide ? 1 : 0
                     }
             );
         }
     }
 
     // ---------------------------------------------------------------------
-    // INSTANCE + Kontext setzen
+    // INSTANCE
     // ---------------------------------------------------------------------
     public static AppDatabase getInstance(Context context) {
         if (INSTANCE == null) {
             synchronized (AppDatabase.class) {
                 if (INSTANCE == null) {
 
-                    // 🔥 globaler Context für Migrationen
                     appContext = context.getApplicationContext();
 
                     INSTANCE = Room.databaseBuilder(

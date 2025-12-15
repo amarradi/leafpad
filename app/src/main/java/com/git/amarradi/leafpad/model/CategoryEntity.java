@@ -3,23 +3,15 @@ package com.git.amarradi.leafpad.model;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(
-        tableName = "categories",
-        indices = {
-                @Index(value = {"name"}, unique = true)
-        }
-)
-public class Category {
+@Entity(tableName = "categories")
+public class CategoryEntity {
 
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
     public long id;
 
     @NonNull
-    @ColumnInfo(name = "name")
     public String name;
 
     @ColumnInfo(name = "color_hex")
@@ -32,17 +24,18 @@ public class Category {
     public boolean isArchived;
 
     @ColumnInfo(name = "created_at")
-    public Long createdAt;
+    public long createdAt;
 
     @ColumnInfo(name = "updated_at")
-    public Long updatedAt;
+    public long updatedAt;
 
-    public Category(@NonNull String name) {
+    public CategoryEntity(@NonNull String name) {
         this.name = name;
         this.colorHex = null;
         this.sortOrder = 0;
         this.isArchived = false;
-        this.createdAt = System.currentTimeMillis();
-        this.updatedAt = this.createdAt;
+        long now = System.currentTimeMillis();
+        this.createdAt = now;
+        this.updatedAt = now;
     }
 }

@@ -82,8 +82,7 @@ public class NoteViewModel extends AndroidViewModel {
                 n.getDate(),
                 n.getTime(),
                 n.getCreateDate(),
-                n.isHide(),
-                n.getCategory()
+                n.isHide()
         );
     }
 
@@ -96,7 +95,7 @@ public class NoteViewModel extends AndroidViewModel {
                 e.notetime,
                 e.createDate,
                 e.hide,
-                e.categoryKey,
+                "",
                 e.id
         );
     }
@@ -299,9 +298,9 @@ public class NoteViewModel extends AndroidViewModel {
         if (!currentBody.equals(originalBody)) {
             return true;
         }
-        if (!Objects.equals(current.getCategory(), original.getCategory())) {
-            return true;
-        }
+//        if (!Objects.equals(current.getCategory(), original.getCategory())) {
+//            return true;
+//        }
         if (current.isHide() != original.isHide()) {
             return true;
         }
@@ -356,8 +355,7 @@ public class NoteViewModel extends AndroidViewModel {
 
         for (Note note : allNotes) {
             if ((note.getTitle() != null && note.getTitle().toLowerCase().contains(lowerQuery)) ||
-                    (note.getBody() != null && note.getBody().toLowerCase().contains(lowerQuery)) ||
-                    (note.getCategory() != null && note.getCategory().toLowerCase().contains(lowerQuery))) {
+                    (note.getBody() != null && note.getBody().toLowerCase().contains(lowerQuery))) {
                 filtered.add(note);
             }
         }
@@ -441,7 +439,7 @@ public class NoteViewModel extends AndroidViewModel {
                 e.notetime,
                 e.createDate,
                 e.hide,
-                e.categoryKey,
+               "",
                 e.id
         );
     }
@@ -470,17 +468,17 @@ public class NoteViewModel extends AndroidViewModel {
         noteRepository.deleteById(note.getId());
     }
 
-    public void updateNoteRecipe(String category) {
-        Note currentNote = selectedNote.getValue();
-        if (currentNote != null) {
-            String currentCategory = currentNote.getCategory();
-
-            if (!category.equals(currentCategory)) {
-                currentNote.setCategory(category);
-                selectedNote.setValue(currentNote);
-            }
-        }
-    }
+//    public void updateNoteRecipe(String category) {
+//        Note currentNote = selectedNote.getValue();
+//        if (currentNote != null) {
+//            String currentCategory = currentNote.getCategory();
+//
+//            if (!category.equals(currentCategory)) {
+//                currentNote.setCategory(category);
+//                selectedNote.setValue(currentNote);
+//            }
+//        }
+//    }
     public static boolean isEmptyEntry(Note note) {
         return note.getBody().isEmpty() && note.getTitle().isEmpty();
     }
