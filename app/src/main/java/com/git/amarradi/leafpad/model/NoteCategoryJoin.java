@@ -5,8 +5,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 
 @Entity(
-        tableName = "note_categories",
-        primaryKeys = {"note_id", "category_key"}
+        tableName = "note_category_join",
+        primaryKeys = {"note_id", "category_id"}
 )
 public class NoteCategoryJoin {
 
@@ -14,18 +14,18 @@ public class NoteCategoryJoin {
     @ColumnInfo(name = "note_id")
     public String noteId;
 
-    @NonNull
-    @ColumnInfo(name = "category_key")
-    public String categoryKey;
+    @ColumnInfo(name = "category_id")
+    public long categoryId;
 
     @ColumnInfo(name = "created_at")
     public long createdAt;
 
     public NoteCategoryJoin(@NonNull String noteId,
-                            @NonNull String categoryKey,
-                            long createdAt) {
+                            long categoryId,
+                            long createdAt)
+    {
         this.noteId = noteId;
-        this.categoryKey = categoryKey;
+        this.categoryId = categoryId;
         this.createdAt = createdAt;
     }
 }

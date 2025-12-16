@@ -11,14 +11,32 @@ import java.util.concurrent.Executors;
 public class NoteRepository {
 
     private final NoteDao noteDao;
+
+    private final NoteCategoryDao noteCategoryDao;
     private final LiveData<List<NoteEntity>> allNotes;
     private final ExecutorService dbExecutor = Executors.newSingleThreadExecutor();
 
     public NoteRepository(Application application) {
         AppDatabase db = AppDatabase.getInstance(application);
         noteDao = db.noteDao();
+        noteCategoryDao = db.noteCategoryDao();
         allNotes = noteDao.getAllNotes();
     }
+
+    public void addCategoryToNote(String noteId, long categoryId) {
+        Executors.newSingleThreadExecutor().execute(() -> {
+        noteCategoryDao.insert(
+                new NoteCategoryJoin(noteId, categoryId,System.currentTimeMillis()));
+        });
+
+    }
+
+    public void removeCategoryFromNote(String noteId, long categoryId) {
+        Executors.newSingleThreadExecutor().execute(() ->
+                noteCategoryDao.deleteSingle(noteId, categoryId)
+        );
+    }
+
 
     public LiveData<List<NoteEntity>> getAllNotes() {
         return allNotes;
@@ -40,8 +58,9 @@ public class NoteRepository {
     public void delete(NoteEntity note) {
         dbExecutor.execute(() -> noteDao.delete(note));
     }
-
     public void deleteById(String id) {
         dbExecutor.execute(() -> noteDao.deleteById(id));
     }
+
+
 }

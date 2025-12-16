@@ -10,41 +10,45 @@ import java.util.List;
 @Dao
 public interface NoteCategoryDao {
 
-    // ------------------------------------
-    // Zuweisung
-    // ------------------------------------
+    // -------------------------------------------------
+    // INSERT
+    // -------------------------------------------------
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(NoteCategoryJoin join);
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertAll(List<NoteCategoryJoin> joins);
 
-    // ------------------------------------
-    // Löschen
-    // ------------------------------------
-    @Query("DELETE FROM note_categories WHERE note_id = :noteId")
+    // -------------------------------------------------
+    // DELETE
+    // -------------------------------------------------
+
+    @Query("DELETE FROM note_category_join WHERE note_id = :noteId")
     void deleteAllForNote(String noteId);
 
     @Query("""
-        DELETE FROM note_categories 
-        WHERE note_id = :noteId AND category_key = :categoryKey
+        DELETE FROM note_category_join
+        WHERE note_id = :noteId
+          AND category_id = :categoryId
     """)
-    void deleteSingle(String noteId, String categoryKey);
+    void deleteSingle(String noteId, long categoryId);
 
-    // ------------------------------------
-    // Abfragen
-    // ------------------------------------
+    // -------------------------------------------------
+    // QUERY
+    // -------------------------------------------------
+
     @Query("""
-        SELECT category_key 
-        FROM note_categories 
+        SELECT category_id
+        FROM note_category_join
         WHERE note_id = :noteId
     """)
-    List<String> getCategoryKeysForNote(String noteId);
+    List<Long> getCategoryIdsForNote(String noteId);
 
     @Query("""
-        SELECT note_id 
-        FROM note_categories 
-        WHERE category_key = :categoryKey
+        SELECT note_id
+        FROM note_category_join
+        WHERE category_id = :categoryId
     """)
-    List<String> getNoteIdsForCategory(String categoryKey);
+    List<String> getNoteIdsForCategory(long categoryId);
 }
