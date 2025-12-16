@@ -21,11 +21,18 @@ import com.git.amarradi.leafpad.NoteEditActivity;
 import com.git.amarradi.leafpad.R;
 import com.git.amarradi.leafpad.adapter.CategoryAdapter;
 import com.git.amarradi.leafpad.viewmodel.CategoryViewModel;
+import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
+
+import java.util.List;
+
 public class CategoryFragment extends Fragment {
 
     private CategoryViewModel categoryViewModel;
     private CategoryAdapter adapter;
+
+    private NoteViewModel noteViewModel;
+
 
     @Nullable
     @Override
@@ -34,11 +41,15 @@ public class CategoryFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_category, container, false);
-
+        categoryViewModel = new ViewModelProvider(requireActivity())
+                .get(CategoryViewModel.class);
+        noteViewModel = new ViewModelProvider(requireActivity())
+                .get(NoteViewModel.class);
         setupToolbar();
         setupMenu();
         setupRecyclerView(view);
         setupViewModel();
+
 
         return view;
     }
@@ -68,10 +79,12 @@ public class CategoryFragment extends Fragment {
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
 
         toolbar.setNavigationOnClickListener(v -> {
-                getParentFragmentManager().popBackStack();
-                //requireActivity().getSupportFragmentManager().popBackStack();
-                requireActivity().findViewById(R.id.fragment_container).setVisibility(View.GONE);
-                requireActivity().findViewById(R.id.body_scroll).setVisibility(View.VISIBLE);
+            List<Long> selectedCategoryIds = adapter.getSelectedCategoryIds();
+            noteViewModel.setCategoriesForSelectedNote(selectedCategoryIds);
+            getParentFragmentManager().popBackStack();
+            //requireActivity().getSupportFragmentManager().popBackStack();
+            requireActivity().findViewById(R.id.fragment_container).setVisibility(View.GONE);
+            requireActivity().findViewById(R.id.body_scroll).setVisibility(View.VISIBLE);
             ((NoteEditActivity) requireActivity()).restoreEditorToolbar();
 
            // toolbar.setNavigationIcon(null);

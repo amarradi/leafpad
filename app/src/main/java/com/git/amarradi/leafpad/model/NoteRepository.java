@@ -26,7 +26,10 @@ public class NoteRepository {
     public void addCategoryToNote(String noteId, long categoryId) {
         Executors.newSingleThreadExecutor().execute(() -> {
         noteCategoryDao.insert(
-                new NoteCategoryJoin(noteId, categoryId,System.currentTimeMillis()));
+                new NoteCategoryJoin(
+                        noteId,
+                        categoryId,
+                        System.currentTimeMillis()));
         });
 
     }
@@ -62,5 +65,21 @@ public class NoteRepository {
         dbExecutor.execute(() -> noteDao.deleteById(id));
     }
 
+    public void replaceCategoriesForNote(String noteId, List<Long> categoryIds) {
+        dbExecutor.execute(()->{
+            noteCategoryDao.deleteAllForNote(noteId);
 
+            long now = System.currentTimeMillis();
+            for (long categoryId : categoryIds) {
+                noteCategoryDao.insert(
+                        new NoteCategoryJoin(
+                                noteId,
+                                categoryId,
+                                now
+                        )
+                );
+            }
+
+        });
+    }
 }

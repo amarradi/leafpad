@@ -515,4 +515,10 @@ public class NoteViewModel extends AndroidViewModel {
         isNoteModified.setValue(false);
     }
 
-}
+    public void setCategoriesForSelectedNote(List<Long> categoryKeys) {
+        Note note = selectedNote.getValue();
+        if (note == null) return;
+        String noteId = note.getId();
+        noteRepository.replaceCategoriesForNote(noteId, categoryKeys);
+        }
+    }
