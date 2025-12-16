@@ -521,4 +521,17 @@ public class NoteViewModel extends AndroidViewModel {
         String noteId = note.getId();
         noteRepository.replaceCategoriesForNote(noteId, categoryKeys);
         }
+
+
+    public LiveData<List<Long>> getSelectedCategoryIds() {
+        Note note = selectedNote.getValue();
+        if (note == null) {
+            MutableLiveData<List<Long>> empty = new MutableLiveData<>();
+            empty.setValue(new ArrayList<>());
+            return empty;
+        }
+        return noteRepository.getCategoryIdsForNote(note.getId());
     }
+
+
+}

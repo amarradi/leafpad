@@ -21,12 +21,20 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     private List<CategoryEntity> categories = new ArrayList<>();
 
-    private final Set<Long> selectedCategoryIds = new HashSet<>();
+    private final List<Long> selectedCategoryIds = new ArrayList<>();
 
 
 
     public void setCategories(List<CategoryEntity> categories) {
         this.categories = categories;
+        notifyDataSetChanged();
+    }
+
+    public void setSelectedCategoryIds(List<Long> ids) {
+        selectedCategoryIds.clear();
+        if (ids != null) {
+            selectedCategoryIds.addAll(ids);
+        }
         notifyDataSetChanged();
     }
 
@@ -49,19 +57,20 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         CategoryEntity category = categories.get(position);
         holder.nameText.setText(category.name);
 
+        boolean checked = selectedCategoryIds.contains(category.id);
+        holder.materialCheckBox.setChecked(checked);
 
-
-        holder.materialCheckBox.setOnCheckedChangeListener(null);
-        holder.materialCheckBox.setChecked(selectedCategoryIds.contains(category.id));
-
-        holder.materialCheckBox.setOnCheckedChangeListener((buttonView, isChecked) ->{
+        holder.materialCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
-                selectedCategoryIds.add(category.id);
+                if (!selectedCategoryIds.contains(category.id)) {
+                    selectedCategoryIds.add(category.id);
+                }
             } else {
                 selectedCategoryIds.remove(category.id);
-                }
+            }
         });
     }
+
 
     @Override
     public int getItemCount() {

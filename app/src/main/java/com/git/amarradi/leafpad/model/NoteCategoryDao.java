@@ -1,5 +1,6 @@
 package com.git.amarradi.leafpad.model;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
@@ -43,7 +44,7 @@ public interface NoteCategoryDao {
         FROM note_category_join
         WHERE note_id = :noteId
     """)
-    List<Long> getCategoryIdsForNote(String noteId);
+    LiveData<List<Long>> getCategoryIdsForNote(String noteId);
 
     @Query("""
         SELECT note_id
