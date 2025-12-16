@@ -52,4 +52,14 @@ public interface NoteCategoryDao {
         WHERE category_id = :categoryId
     """)
     List<String> getNoteIdsForCategory(long categoryId);
+
+    @Query(
+            "SELECT c.* " +
+                    "FROM categories c " +
+                    "INNER JOIN note_category_join j ON c.id = j.category_id " +
+                    "WHERE j.note_id = :noteId " +
+                    "ORDER BY c.sort_order, c.name"
+    )
+    LiveData<List<CategoryEntity>> getCategoriesForNote(String noteId);
+
 }

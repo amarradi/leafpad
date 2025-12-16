@@ -49,10 +49,14 @@ public class CategoryFragment extends Fragment {
         setupMenu();
         setupRecyclerView(view);
         setupViewModel();
-        noteViewModel.getSelectedCategoryIds().observe(
-                getViewLifecycleOwner(),
-                ids -> adapter.setSelectedCategoryIds(ids)
-        );
+
+
+        noteViewModel.getSelectedCategoryIds()
+                .observe(getViewLifecycleOwner(), ids -> {
+                    adapter.setSelectedCategoryIds(ids);
+                });
+
+
 
         return view;
     }

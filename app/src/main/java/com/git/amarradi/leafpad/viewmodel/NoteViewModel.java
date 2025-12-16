@@ -13,6 +13,7 @@ import androidx.lifecycle.Transformations;
 
 import com.git.amarradi.leafpad.Leafpad;
 import com.git.amarradi.leafpad.helper.ReleaseNoteHelper;
+import com.git.amarradi.leafpad.model.CategoryEntity;
 import com.git.amarradi.leafpad.model.Leaf;
 import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.model.NoteEntity;
@@ -505,6 +506,15 @@ public class NoteViewModel extends AndroidViewModel {
         return result;
     }
 
+    public LiveData<List<Long>> getSelectedCategoryIds() {
+        Note note = selectedNote.getValue();
+        if (note == null) {
+            return new MutableLiveData<>(new ArrayList<>());
+        }
+        return noteRepository.getCategoryIdsForNote(note.getId());
+    }
+
+
     public void markSaved() {
         Note selected = selectedNote.getValue();
         if (selected != null) {
@@ -523,15 +533,18 @@ public class NoteViewModel extends AndroidViewModel {
         }
 
 
-    public LiveData<List<Long>> getSelectedCategoryIds() {
+    public LiveData<List<CategoryEntity>> getCategoriesForSelectedNote() {
         Note note = selectedNote.getValue();
+
         if (note == null) {
-            MutableLiveData<List<Long>> empty = new MutableLiveData<>();
+            MutableLiveData<List<CategoryEntity>> empty = new MutableLiveData<>();
             empty.setValue(new ArrayList<>());
             return empty;
         }
-        return noteRepository.getCategoryIdsForNote(note.getId());
+
+        return noteRepository.getCategoriesForNote(note.getId());
     }
+
 
 
 }

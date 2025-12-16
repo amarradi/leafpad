@@ -86,4 +86,9 @@ public class NoteRepository {
     public LiveData<List<Long>> getCategoryIdsForNote(String noteId) {
         return noteCategoryDao.getCategoryIdsForNote(noteId);
     }
+
+    public LiveData<List<CategoryEntity>> getCategoriesForNote(String noteId) {
+        return noteCategoryDao.getCategoriesForNote(noteId);
+    }
+
 }

@@ -28,10 +28,13 @@ import com.git.amarradi.leafpad.fragment.CategoryFragment;
 import com.git.amarradi.leafpad.helper.DialogHelper;
 import com.git.amarradi.leafpad.helper.EditorMinHeightHelper;
 import com.git.amarradi.leafpad.helper.ShareHelper;
+import com.git.amarradi.leafpad.model.CategoryEntity;
 import com.git.amarradi.leafpad.model.Leaf;
 import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.List;
@@ -44,6 +47,7 @@ public class NoteEditActivity extends AppCompatActivity {
     private NoteViewModel noteViewModel;
     private MaterialToolbar toolbar;
     private Resources res;
+
     private boolean shouldPersistOnPause = true;
     private boolean isNoteDeleted = false;
     private NestedScrollView bodyScroll;
@@ -65,6 +69,10 @@ public class NoteEditActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_note_edit);
         View root = findViewById(R.id.body_scroll);
+        ChipGroup categoryChipGroup = findViewById(R.id.category_chip_group);
+
+
+
 
         ViewCompat.setOnApplyWindowInsetsListener(root, (view, insets) -> {
             int ime = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
@@ -186,7 +194,64 @@ public class NoteEditActivity extends AppCompatActivity {
                 }
             }
         });
+
+        noteViewModel.getCategoriesForSelectedNote()
+                .observe(this, categories -> {
+
+                    if (categories == null || categories.isEmpty()) {
+                        categoryChipGroup.setVisibility(View.GONE);
+                        return;
+                    }
+
+                    categoryChipGroup.setVisibility(View.VISIBLE);
+                    categoryChipGroup.removeAllViews();
+
+                    for (CategoryEntity c : categories) {
+                      //  Chip chip = new Chip(this);
+                        Chip chip = new Chip(this, null, com.google.android.material.R.attr.chipStyle);
+                        chip.setText(c.name);
+                        chip.setChipDrawable(
+                                com.google.android.material.chip.ChipDrawable.createFromAttributes(
+                                        this,
+                                        null,
+                                        0,
+                                        R.style.Widget_Leafpad_CategoryChip
+                                )
+                        );
+
+                        chip.setText(c.name);
+                        chip.setClickable(false);
+                        chip.setCheckable(false);
+                        chip.setEnsureMinTouchTargetSize(false);
+                        applyCategoryColor(chip, c.colorHex);
+                        categoryChipGroup.addView(chip);
+                    }
+                });
+
     }
+
+    private void applyCategoryColor(Chip chip, String colorHex) {
+        if (colorHex == null || colorHex.isEmpty()) {
+            return;
+        }
+
+        try {
+            int color = android.graphics.Color.parseColor(colorHex);
+
+            // Textfarbe
+            chip.setTextColor(color);
+
+            // Dezenter Hintergrund (Material-konform)
+            int bgColor = androidx.core.graphics.ColorUtils.setAlphaComponent(color, 40);
+            chip.setChipBackgroundColor(
+                    android.content.res.ColorStateList.valueOf(bgColor)
+            );
+
+        } catch (IllegalArgumentException e) {
+            Log.w("CategoryChip", "Ungültige Farbe: " + colorHex);
+        }
+    }
+
 
     @Override
     public boolean onSupportNavigateUp() {
