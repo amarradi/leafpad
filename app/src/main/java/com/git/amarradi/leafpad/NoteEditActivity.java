@@ -3,7 +3,9 @@ package com.git.amarradi.leafpad;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Layout;
@@ -19,6 +21,7 @@ import android.widget.EditText;
 import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.widget.NestedScrollView;
@@ -207,23 +210,34 @@ public class NoteEditActivity extends AppCompatActivity {
                     categoryChipGroup.removeAllViews();
 
                     for (CategoryEntity c : categories) {
-                      //  Chip chip = new Chip(this);
-                        Chip chip = new Chip(this, null, com.google.android.material.R.attr.chipStyle);
+
+                        Chip chip = new Chip(this, null, R.style.Base_Widget_Material3_Chip);
+
                         chip.setText(c.name);
-                        chip.setChipDrawable(
-                                com.google.android.material.chip.ChipDrawable.createFromAttributes(
-                                        this,
-                                        null,
-                                        0,
-                                        R.style.Widget_Leafpad_CategoryChip
+
+
+                        int color = Color.parseColor(c.colorHex);
+
+                        ColorStateList stateColor = new ColorStateList(
+                                new int[][]{ new int[]{android.R.attr.state_enabled}, new int[]{} },
+                                new int[]{ color, color }
+                        );
+
+                        chip.setChipBackgroundColor(
+                                ColorStateList.valueOf(
+                                        ContextCompat.getColor(this, R.color.category_chip_bg)
                                 )
                         );
 
-                        chip.setText(c.name);
+
+                        chip.setTextColor(stateColor);
+                        chip.setChipStrokeWidth(2);
+                        chip.setChipStrokeColor(stateColor);
+
                         chip.setClickable(false);
                         chip.setCheckable(false);
                         chip.setEnsureMinTouchTargetSize(false);
-                        applyCategoryColor(chip, c.colorHex);
+
                         categoryChipGroup.addView(chip);
                     }
                 });

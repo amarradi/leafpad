@@ -1,32 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Widget.Leafpad.CategoryChip" parent="Widget.Material3.Chip.Input">
-
-        <!-- Text wirklich klein -->
-        <item name="android:textSize">10sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:includeFontPadding">false</item>
-        <item name="android:lineHeight">12sp</item>
-
-        <!-- Höhe -->
-        <item name="chipMinHeight">18dp</item>
-
-        <!-- Padding -->
-        <item name="chipStartPadding">6dp</item>
-        <item name="chipEndPadding">6dp</item>
-
-        <item name="textStartPadding">0dp</item>
-        <item name="textEndPadding">0dp</item>
-
-        <!-- Optik -->
-        <item name="chipStrokeWidth">0dp</item>
-
-        <!-- Icons aus -->
-        <item name="chipIconVisible">false</item>
-        <item name="closeIconVisible">false</item>
-
-        <!-- Touch-Ziel NICHT aufblasen -->
-        <item name="ensureMinTouchTargetSize">false</item>
-    </style>
 </resources>

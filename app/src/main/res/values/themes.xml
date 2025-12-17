@@ -47,7 +47,6 @@
 
         <item name="elevationOverlayEnabled">false</item>
         <item name="extendedFloatingActionButtonStyle">@style/Widget.App.ExtendedFloatingActionButton</item>
-
     </style>
 
 </resources>

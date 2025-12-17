@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="CustomToolbarStyle" parent="Widget.Material3.Toolbar">
         <item name="titleTextAppearance">@style/TextAppearance.MyToolbarTitle</item>
@@ -137,35 +137,6 @@
         <item name="android:layout_margin">@dimen/fab_margin</item>
     </style>
 
-    <style name="Widget.Leafpad.CategoryChip"
-        parent="Widget.Material3.Chip.Suggestion">
-
-        <!-- Text wirklich klein -->
-        <item name="android:textSize">25sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:includeFontPadding">false</item>
-        <item name="android:lineHeight">12sp</item>
-
-        <!-- Höhe -->
-        <item name="chipMinHeight">18dp</item>
-
-        <!-- Padding -->
-        <item name="chipStartPadding">2dp</item>
-        <item name="chipEndPadding">2dp</item>
-
-        <item name="textStartPadding">0dp</item>
-        <item name="textEndPadding">0dp</item>
-
-        <!-- Optik -->
-        <item name="chipStrokeWidth">0dp</item>
-
-        <!-- Icons aus -->
-        <item name="chipIconVisible">false</item>
-        <item name="closeIconVisible">false</item>
-
-        <!-- Touch-Ziel NICHT aufblasen -->
-        <item name="ensureMinTouchTargetSize">false</item>
-    </style>
 
 
 </resources>
