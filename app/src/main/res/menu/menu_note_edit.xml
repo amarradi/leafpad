@@ -11,12 +11,6 @@
         />
 
     <item
-        android:id="@+id/action_recipe"
-        android:icon="@drawable/btn_chefhat"
-        android:title="@string/note_is_recipe"
-        app:showAsAction="ifRoom" />
-
-    <item
         android:id="@+id/action_hide"
         android:icon="@drawable/btn_hide"
         android:title="@string/hide_note"

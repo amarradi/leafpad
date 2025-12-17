@@ -435,16 +435,9 @@ public class NoteEditActivity extends AppCompatActivity {
         }
         Note current = noteViewModel.getSelectedNote().getValue();
         if (current != null) {
-            MenuItem recipeItem = menu.findItem(R.id.action_recipe);
-            boolean isRecipe = current.getCategory() != null &&
-                    current.getCategory().equals(res.getStringArray(R.array.category)[0]);
-            recipeItem.setChecked(isRecipe);
-            recipeItem.setIcon(isRecipe ? R.drawable.btn_chefhat_active : R.drawable.btn_chefhat);
-
             MenuItem hideItem = menu.findItem(R.id.action_hide);
             hideItem.setChecked(current.isHide());
             hideItem.setIcon(current.isHide() ? R.drawable.btn_hide : R.drawable.btn_show);
-
         }
         return true;
     }
@@ -454,19 +447,7 @@ public class NoteEditActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
-            case R.id.action_recipe: {
-                Note current = noteViewModel.getSelectedNote().getValue();
-                if (current != null) {
-                    if (item.isChecked()) {
-                        current.setCategory("");
-                    } else {
-                        current.setCategory(res.getStringArray(R.array.category)[0]);
-                    }
-                    noteViewModel.updateModificationState();
-                }
-                invalidateOptionsMenu();
-                return true;
-            }
+
             case R.id.action_hide: {
                 Note current = noteViewModel.getSelectedNote().getValue();
                 if (current != null) {
