@@ -1,6 +1,8 @@
 package com.git.amarradi.leafpad.adapter;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,14 +12,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.git.amarradi.leafpad.MainActivity;
 import com.git.amarradi.leafpad.R;
+import com.git.amarradi.leafpad.model.CategoryEntity;
 import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.model.ReleaseNote;
+import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -42,6 +49,9 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<Object> currentList = new ArrayList<>();
     private final MainActivity.NoteClickListener listener;
     private final OnReleaseNoteCloseListener releaseNoteCloseListener;
+    private final NoteViewModel noteViewModel;
+    private final LifecycleOwner lifecycleOwner;
+
 
     public enum LayoutMode {
         LIST, GRID
@@ -49,12 +59,21 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final static String BIBLEVERSE_URL_REGEX = "(?i)\\b(?:https?://)?(?:www\\.)?(bible\\.(com|org)|bibleserver\\.com)(/\\S*)?";
 
-    public NoteAdapter(Context context, List<Note> noteList, MainActivity.NoteClickListener listener, OnReleaseNoteCloseListener releaseNoteCloseListener) {
+    public NoteAdapter(
+            Context context,
+            List<Note> noteList,
+            MainActivity.NoteClickListener listener,
+            OnReleaseNoteCloseListener releaseNoteCloseListener,
+            NoteViewModel noteViewModel,
+            LifecycleOwner lifecycleOwner
+    ) {
         this.context = context;
         this.noteList = noteList;
         this.fullNoteList = noteList;
         this.listener = listener;
         this.releaseNoteCloseListener = releaseNoteCloseListener;
+        this.noteViewModel = noteViewModel;
+        this.lifecycleOwner = lifecycleOwner;
         setHasStableIds(true);
         applyFilterAndUpdate();
     }
@@ -184,54 +203,117 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+
         Object item = currentList.get(position);
+
+        // ------------------------------------------------------------
+        // ReleaseNotes (unverändert)
+        // ------------------------------------------------------------
         if (getItemViewType(position) == VIEWTYPE_RELEASE_NOTE && item instanceof ReleaseNote) {
-            ((ReleaseNoteViewHolder) holder).bind((ReleaseNote) item, releaseNoteCloseListener);
+            ((ReleaseNoteViewHolder) holder)
+                    .bind((ReleaseNote) item, releaseNoteCloseListener);
             return;
         }
-        if (item instanceof Note) {
-            Note note = (Note) item;
-            NoteViewHolder noteHolder = (NoteViewHolder) holder;
-            noteHolder.titleText.setText(note.getTitle());
 
-            String body = note.getBody() != null ? note.getBody() : "";
-            if (body.length() > 150) {
-                body = body.substring(0, 150) + "...";
-            }
-            noteHolder.bodyPreview.setText(body);
-
-            noteHolder.dateText.setText(note.getDate());
-            noteHolder.timeText.setText(note.getTime());
-
-            MaterialCardView cardView = noteHolder.itemView.findViewById(R.id.note_card_view);
-            if (!TextUtils.isEmpty(note.getCategory())) {
-                noteHolder.categoryText.setVisibility(View.VISIBLE);
-                noteHolder.categoryIcon.setVisibility(View.VISIBLE);
-                noteHolder.categoryText.setText(note.getCategory());
-                cardView.setStrokeColor(context.getResources().getColor(R.color.md_theme_recipe, null));
-            } else {
-                cardView.setStrokeColor(context.getResources().getColor(R.color.md_theme_primaryContainer, null));
-                noteHolder.categoryText.setVisibility(View.GONE);
-                noteHolder.categoryIcon.setVisibility(View.GONE);
-            }
-
-            Pattern biblePattern = Pattern.compile(BIBLEVERSE_URL_REGEX);
-            Matcher matcher = biblePattern.matcher(note.getBody());
-            if (matcher.find()) {
-                noteHolder.bibleIcon.setVisibility(View.VISIBLE);
-            } else {
-                noteHolder.bibleIcon.setVisibility(View.GONE);
-            }
-
-            noteHolder.itemView.setOnClickListener(v -> listener.onNoteClicked(note));
-            noteHolder.actionButton.setOnClickListener(v -> listener.onNoteIconClicked(note, noteHolder.actionButton));
+        // ------------------------------------------------------------
+        // NOTE
+        // ------------------------------------------------------------
+        if (!(item instanceof Note)) {
+            return;
         }
+
+        Note note = (Note) item;
+        NoteViewHolder noteHolder = (NoteViewHolder) holder;
+
+        // ------------------------------------------------------------
+        // Titel
+        // ------------------------------------------------------------
+        noteHolder.titleText.setText(note.getTitle());
+
+        // ------------------------------------------------------------
+        // Body-Vorschau
+        // ------------------------------------------------------------
+        String body = note.getBody() != null ? note.getBody() : "";
+        if (body.length() > 150) {
+            body = body.substring(0, 150) + "...";
+        }
+        noteHolder.bodyPreview.setText(body);
+
+        // ------------------------------------------------------------
+        // Datum / Uhrzeit
+        // ------------------------------------------------------------
+        noteHolder.dateText.setText(note.getDate());
+        noteHolder.timeText.setText(note.getTime());
+
+        // ------------------------------------------------------------
+        // Kategorien (NEU – sauber)
+        // ------------------------------------------------------------
+        ChipGroup chipGroup = noteHolder.categoryChipGroup;
+        chipGroup.removeAllViews();
+        chipGroup.setVisibility(View.GONE);
+
+        noteViewModel.getCategoriesForNote(note.getId())
+                .observe(lifecycleOwner, categories -> {
+
+                    chipGroup.removeAllViews();
+
+                    if (categories == null || categories.isEmpty()) {
+                        chipGroup.setVisibility(View.GONE);
+                        return;
+                    }
+
+                    chipGroup.setVisibility(View.VISIBLE);
+
+                    for (CategoryEntity c : categories) {
+
+                        Chip chip = new Chip(chipGroup.getContext());
+                        chip.setText(c.name);
+
+                        // bewusst minimal
+                        chip.setClickable(false);
+                        chip.setCheckable(false);
+                        chip.setEnsureMinTouchTargetSize(false);
+
+                        // einfache, robuste Farbe
+                        if (c.colorHex != null) {
+                            try {
+                                int color = Color.parseColor(c.colorHex);
+                                chip.setTextColor(color);
+                                chip.setChipStrokeWidth(2);
+                                chip.setChipStrokeColor(ColorStateList.valueOf(color));
+                            } catch (IllegalArgumentException ignored) {}
+                        }
+
+                        chipGroup.addView(chip);
+                    }
+                });
+
+        // ------------------------------------------------------------
+        // Bibel-Link-Erkennung
+        // ------------------------------------------------------------
+        Pattern biblePattern = Pattern.compile(BIBLEVERSE_URL_REGEX);
+        Matcher matcher = biblePattern.matcher(note.getBody());
+        noteHolder.bibleIcon.setVisibility(matcher.find() ? View.VISIBLE : View.GONE);
+
+        // ------------------------------------------------------------
+        // Clicks
+        // ------------------------------------------------------------
+        noteHolder.itemView.setOnClickListener(
+                v -> listener.onNoteClicked(note)
+        );
+
+        noteHolder.actionButton.setOnClickListener(
+                v -> listener.onNoteIconClicked(note, noteHolder.actionButton)
+        );
     }
+
 
     // ViewHolder für ReleaseNote-Header
     public static class ReleaseNoteViewHolder extends RecyclerView.ViewHolder {
         TextView title, content, date, time;
         ImageButton closeButton;
+
+
 
         public ReleaseNoteViewHolder(View itemView) {
             super(itemView);
@@ -262,16 +344,19 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         ImageView bibleIcon, categoryIcon;
         ImageButton actionButton;
 
+        ChipGroup categoryChipGroup;
+
         NoteViewHolder(View itemView) {
             super(itemView);
             titleText = itemView.findViewById(R.id.title_text);
             bodyPreview = itemView.findViewById(R.id.note_preview);
             dateText = itemView.findViewById(R.id.created_at);
             timeText = itemView.findViewById(R.id.time_txt);
-            categoryText = itemView.findViewById(R.id.category_txt);
+            //categoryText = itemView.findViewById(R.id.category_txt);
             bibleIcon = itemView.findViewById(R.id.bible);
-            categoryIcon = itemView.findViewById(R.id.category_icon);
+            //categoryIcon = itemView.findViewById(R.id.category_icon);
             actionButton = itemView.findViewById(R.id.image_button);
+            categoryChipGroup = itemView.findViewById(R.id.category_chip_group);
         }
     }
 

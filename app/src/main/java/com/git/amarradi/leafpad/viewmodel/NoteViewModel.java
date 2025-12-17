@@ -545,6 +545,9 @@ public class NoteViewModel extends AndroidViewModel {
         return noteRepository.getCategoriesForNote(note.getId());
     }
 
+    public LiveData<List<CategoryEntity>> getCategoriesForNote(String noteId) {
+        return noteRepository.getCategoriesForNote(noteId);
+    }
 
 
 }

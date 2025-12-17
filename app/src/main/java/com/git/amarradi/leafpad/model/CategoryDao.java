@@ -33,4 +33,15 @@ public interface CategoryDao {
 
     @Query("SELECT * FROM categories WHERE name = :name COLLATE NOCASE LIMIT 1")
     LiveData<CategoryEntity> getByName(String name);
+
+    @Query("""
+    SELECT c.*
+    FROM categories c
+    INNER JOIN note_category_join nc
+        ON c.id = nc.category_id
+    WHERE nc.note_id = :noteId
+    ORDER BY c.sort_order, c.name
+""")
+    LiveData<List<CategoryEntity>> getCategoriesForNote(String noteId);
+
 }

@@ -131,7 +131,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             public void onNoteIconClicked(Note note, View anchor) {
                 showPopupMenu(note, anchor);
             }
-        },this);
+        },this,
+                noteViewModel,
+                this);
 
 
         recyclerView.setAdapter(noteAdapter);
