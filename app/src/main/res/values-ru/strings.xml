@@ -11,7 +11,7 @@
     <string name="app_name">Leafpad</string>
     <string name="new_note">новая заметка</string>
     <string name="imported">заметка была отправлена в Leafpad</string>
-    <string name="rate_the_app">А может напишите отзыв в Google PlayStore? Тогда открой Google Play напрямую.</string>
+    <string name="rate_the_app">Оставить отзыв в Play Store?</string>
     <string name="add_shortcut_short_label">Записать новую</string>
     <string name="tell_about">Что я хочу рассказать вам о Leafpad</string>
     <string name="created_txt">создано в</string>
@@ -49,7 +49,7 @@
     <string name="title_licence">Лицензии</string>
     <string name="remove_dailog_message">Настоящая заметка будет навсегда удалена. Её нельзя будет восстановить.</string>
     <string name="version">версия</string>
-    <string name="find_code_on_github_summary">Вы можете просматривать и проверять исходный код через хранилище. Вы можете открыть проблему для запросов на изменение и сообщений об ошибках.</string>
+    <string name="find_code_on_github_summary">Посмотреть исходный код и сообщить о проблеме в репозитории.</string>
     <string name="action_share_title">Название</string>
     <string name="title_hint">Название</string>
     <string name="about">О нас</string>
@@ -58,7 +58,7 @@
     <string name="its_opensource">Leafpad - это свободное и бесплатное приложение</string>
     <string name="participate">Участвовать или вносить свой вклад</string>
     <string name="translate">Помогите с переводом на Weblate</string>
-    <string name="translation_help">Помогите нам перевести приложение на ваш язык в Weblate</string>
+    <string name="translation_help">Помочь с переводом приложения на Weblate.</string>
     <string name="hide_note">сделать заметку невидимой</string>
     <string name="hide_hidden">спрятать скрытые заметки</string>
     <string name="show_note">сделать заметку видимой</string>
@@ -160,10 +160,10 @@
     <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
     <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
-    <string name="country_title_gothic">Gothic</string>
-    <string name="country_title_dutch">Dutch</string>
-    <string name="menu_about">About Leafpad</string>
-    <string name="country_title_danish">Danish</string>
+    <string name="country_title_gothic">Готический</string>
+    <string name="country_title_dutch">Голландский</string>
+    <string name="menu_about">О программе Leafpad</string>
+    <string name="country_title_danish">Датский</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
-    <string name="country_title_serbian">Serbian</string>
+    <string name="country_title_serbian">Себрский</string>
 </resources>
