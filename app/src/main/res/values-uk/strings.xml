@@ -25,7 +25,7 @@
     <string name="menu_settings">Налаштування</string>
     <string name="backupIsrunning">Виконується резервне копіювання</string>
     <string name="action_fab_note">Занотувати</string>
-    <string name="title_activity_note_edit">Редагування нотаток</string>
+    <string name="title_activity_note_edit">Редагувати Примітка</string>
     <string name="translate">Перекладіть застосунок на Weblate</string>
     <string name="no">Ні</string>
     <string name="hide_hidden">приховати приховані нотатки</string>
@@ -34,7 +34,7 @@
     <string name="importError">Помилка під час імпорту нотаток.</string>
     <string name="restore">Відновити всі нотатки з XML-файлу</string>
     <string name="contentDescription">Додати нову нотатку</string>
-    <string name="action_edit_note">Редагувати нотатку</string>
+    <string name="action_edit_note">Редагувати Примітка</string>
     <string name="search_hint">Що ви шукаєте?</string>
     <string name="showDeleteConfirmationMessage">Усі нотатки будуть видалені назавжди. Продовжити?</string>
     <string name="yes">Так</string>
