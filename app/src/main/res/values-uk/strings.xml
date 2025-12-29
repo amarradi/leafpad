@@ -24,7 +24,7 @@
     <string name="remove_dialog_abort">Зареєструватися</string>
     <string name="menu_settings">Налаштування</string>
     <string name="backupIsrunning">Виконується резервне копіювання</string>
-    <string name="action_fab_note">Занотувати</string>
+    <string name="action_fab_note">зробити замітку</string>
     <string name="title_activity_note_edit">Редагувати Примітка</string>
     <string name="translate">Перекладіть застосунок на Weblate</string>
     <string name="no">Ні</string>
