@@ -29,6 +29,7 @@ leafpad remove your note completely, when you delete your note
 * leafpad allows you to hide your notes from prying eyes
 * leafpad can switch between list and gridView
 * leafpad provides a search function
+* leafpad has a own category for (baking) recipes 
 * <b>leafpad is now available in many languages, for example English, German, French, Polish. If languages are still missing, you are welcome to participate.</b>
 
 ## Translation
