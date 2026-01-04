@@ -49,6 +49,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     private int lastScrollPosition = 0;
 
+    private boolean firstNotesLoad = true;
+
+
 
     @SuppressLint("RestrictedApi")
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -80,7 +83,12 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         noteViewModel.getNotes().observe(this, notes -> {
             noteAdapter.updateNotes(notes);
             Log.d("MainActivity", "----- Alle geladenen Notizen nach loadNotes(): ------");
-            recyclerView.post(()->recyclerView.scrollToPosition(0));
+
+            if (firstNotesLoad) {
+                recyclerView.post(() -> recyclerView.scrollToPosition(0));
+                firstNotesLoad = false;
+            }
+            //recyclerView.post(()->recyclerView.scrollToPosition(0));
             for (Note n : notes) {
                 Log.d("MainActivity", "Note: " + n.getId() + " | Titel: " + n.getTitle() + " | Versteckt: " + n.isHide());
             }
@@ -267,7 +275,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     protected void onResume() {
         super.onResume();
         Leafpad.getInstance().applyCurrentLayoutMode(recyclerView, noteAdapter);
-        noteViewModel.loadNotes();
+//        noteViewModel.loadNotes();
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")

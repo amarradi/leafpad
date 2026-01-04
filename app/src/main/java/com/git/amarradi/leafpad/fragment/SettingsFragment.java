@@ -101,7 +101,21 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(WEBLATEPATH)));
             return true;
         });
+        setupClickListener("manage_categories", pref -> {
+            openManageCategories();
+            return true;
+        });
     }
+
+    private void openManageCategories() {
+        // Variante A: du hast eine SettingsActivity mit einem Fragment-Container
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.settings_fragment_container, CategoryFragment.newInstance(CategoryFragment.MODE_MANAGE_ONLY))
+                .addToBackStack("manage_categories")
+                .commit();
+    }
+
 
     private void setupClickListener(String key, Preference.OnPreferenceClickListener listener) {
         Preference pref = findPreference(key);

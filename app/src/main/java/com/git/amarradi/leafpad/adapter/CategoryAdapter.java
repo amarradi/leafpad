@@ -3,7 +3,9 @@ package com.git.amarradi.leafpad.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,9 +15,7 @@ import com.git.amarradi.leafpad.model.CategoryEntity;
 import com.google.android.material.checkbox.MaterialCheckBox;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
 
@@ -23,9 +23,25 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     private final List<Long> selectedCategoryIds = new ArrayList<>();
 
+    private boolean selectionEnabled = true;
+
+    public interface Listener {
+        void onEditCategory(CategoryEntity category);
+
+        void onDeleteCategory(CategoryEntity category);
+    }
+
+    private Listener listener;
+
+    public void setListener(Listener listener) {
+        this.listener = listener;
+    }
 
 
-
+    public void setSelectionEnabled(boolean enabled) {
+        selectionEnabled = enabled;
+        notifyDataSetChanged();
+    }
     public void setCategories(List<CategoryEntity> categories) {
         this.categories = categories;
         notifyDataSetChanged();
@@ -55,21 +71,45 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
-        CategoryEntity category = categories.get(position);
+        final CategoryEntity category = categories.get(position);
         holder.nameText.setText(category.name);
 
+        holder.materialCheckBox.setOnCheckedChangeListener(null);
         boolean checked = selectedCategoryIds.contains(category.id);
         holder.materialCheckBox.setChecked(checked);
-
-        holder.materialCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                if (!selectedCategoryIds.contains(category.id)) {
-                    selectedCategoryIds.add(category.id);
+        if (selectionEnabled) {
+            holder.materialCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                if (isChecked) {
+                    if (!selectedCategoryIds.contains(category.id)) {
+                        selectedCategoryIds.add(category.id);
+                    }
+                } else {
+                    selectedCategoryIds.remove(category.id);
                 }
-            } else {
-                selectedCategoryIds.remove(category.id);
+            });
+        } else {
+
+            // Manage-Mode: Checkbox komplett ausblenden
+            holder.materialCheckBox.setVisibility(View.GONE);
+
+            // sicherheitshalber kein Haken "hängen lassen" (recycling)
+            holder.materialCheckBox.setChecked(false);
+            holder.materialCheckBox.setOnCheckedChangeListener(null);
+        }
+
+
+        holder.editButton.setOnClickListener(v -> {
+            Toast.makeText(v.getContext(), "EDIT CLICK", Toast.LENGTH_SHORT).show();
+            if (listener != null) {
+                listener.onEditCategory(category);
             }
         });
+        holder.deleteButton.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onDeleteCategory(category);
+            }
+        });
+
     }
 
 
@@ -82,11 +122,16 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
         TextView nameText;
         MaterialCheckBox materialCheckBox;
+        ImageButton editButton;
+        ImageButton deleteButton;
+
 
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
             nameText = itemView.findViewById(R.id.category_name);
             materialCheckBox = itemView.findViewById(R.id.category_checkbox);
+            editButton = itemView.findViewById(R.id.btnEdit);
+            deleteButton = itemView.findViewById(R.id.btnDelete);
         }
     }
 }

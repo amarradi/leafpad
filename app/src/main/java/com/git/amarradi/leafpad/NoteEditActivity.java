@@ -21,7 +21,6 @@ import android.widget.EditText;
 import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.widget.NestedScrollView;
@@ -39,11 +38,20 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.textfield.TextInputLayout;
+import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
 
-import java.util.List;
 import java.util.Objects;
 
-public class NoteEditActivity extends AppCompatActivity {
+public class NoteEditActivity extends AppCompatActivity implements ColorPickerDialogListener {
+    @Override
+    public void onColorSelected(int dialogId, int color) {
+        DialogHelper.onColorSelectedForCategoryDialog(dialogId, color);
+    }
+
+    @Override
+    public void onDialogDismissed(int dialogId) {
+
+    }
 
     private EditText titleEdit;
     private EditText bodyEdit;
@@ -210,34 +218,19 @@ public class NoteEditActivity extends AppCompatActivity {
                     categoryChipGroup.removeAllViews();
 
                     for (CategoryEntity c : categories) {
-
-                        Chip chip = new Chip(this, null, R.style.Base_Widget_Material3_Chip);
-
+                        Chip chip;
+                        chip = new Chip(this, null, R.attr.chipStyle);
                         chip.setText(c.name);
-
-
                         int color = Color.parseColor(c.colorHex);
-
                         ColorStateList stateColor = new ColorStateList(
                                 new int[][]{ new int[]{android.R.attr.state_enabled}, new int[]{} },
                                 new int[]{ color, color }
                         );
-
-                        chip.setChipBackgroundColor(
-                                ColorStateList.valueOf(
-                                        ContextCompat.getColor(this, R.color.category_chip_bg)
-                                )
-                        );
-
-
                         chip.setTextColor(stateColor);
-                        chip.setChipStrokeWidth(2);
                         chip.setChipStrokeColor(stateColor);
-
                         chip.setClickable(false);
                         chip.setCheckable(false);
                         chip.setEnsureMinTouchTargetSize(false);
-
                         categoryChipGroup.addView(chip);
                     }
                 });
@@ -272,55 +265,6 @@ public class NoteEditActivity extends AppCompatActivity {
         getOnBackPressedDispatcher().onBackPressed();
         return true;
     }
-
-//    private void handleIntent(Intent intent) {
-//        if (Intent.ACTION_SEND.equals(intent.getAction()) && "text/plain".equals(intent.getType())) {
-//            String shareText = intent.getStringExtra(Intent.EXTRA_TEXT);
-//            if (shareText != null && !shareText.isEmpty()) {
-//                Note newNote = new Note("", "", "", "", "", false, "", Note.makeId());
-//                newNote.setTitle(getString(R.string.imported));
-//                newNote.setBody(shareText);
-//                newNote.setNotedate();
-//                newNote.setNotetime();
-//                newNote.setCreateDate();
-//
-//                Leaf.set(this, newNote);
-//                noteViewModel.loadNotes();
-//
-//                setResult(RESULT_OK);
-//                finish();
-//                return;
-//            }
-//        }
-//        String noteId = getIntent().getStringExtra(Leafpad.EXTRA_NOTE_ID);
-//
-//        if (noteId == null) {
-//            Log.e("NoteEditActivity", "handleIntent: Keine noteId vorhanden, neue leere Notiz wird erzeugt");
-//
-//            Note newNote = new Note("", "", "", "", "", false, "", Note.makeId());
-//            newNote.setNotedate();
-//            newNote.setNotetime();
-//            newNote.setCreateDate();
-//
-//            noteViewModel.selectNote(newNote);
-//            isNewNote = true;
-//            return;
-//        }
-//
-//        Note loaded = Leaf.load(this, noteId);
-//        if (loaded == null) {
-//            Log.e("NoteEditActivity", "handleIntent: Note konnte nicht geladen werden für noteId=" + noteId);
-//            return;
-//        }
-//
-//        if (isNewEntry(loaded)) {
-//            isNewNote = true;
-//            loaded.setNotedate();
-//            loaded.setNotetime();
-//        }
-//
-//        noteViewModel.selectNote(loaded);
-//    }
 
     private void handleShareIntent(Intent intent) {
         if (Intent.ACTION_SEND.equals(intent.getAction()) && "text/plain".equals(intent.getType())) {

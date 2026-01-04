@@ -27,6 +27,12 @@
             android:summary="@string/restore"
             android:icon="@drawable/ic_restore_all"
             />
+        <Preference
+            android:key="manage_categories"
+            android:title="@string/manage_categories"
+            android:summary="@string/manage_categories_summary"
+            android:icon="@drawable/btn_category" />
+
         <androidx.preference.SwitchPreferenceCompat
             android:key="change"
             android:title="@string/notification_of_change"

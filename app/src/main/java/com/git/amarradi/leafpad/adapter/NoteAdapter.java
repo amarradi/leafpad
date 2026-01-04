@@ -3,7 +3,6 @@ package com.git.amarradi.leafpad.adapter;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,7 +22,6 @@ import com.git.amarradi.leafpad.model.CategoryEntity;
 import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.model.ReleaseNote;
 import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
-import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 
@@ -265,9 +264,22 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     chipGroup.setVisibility(View.VISIBLE);
 
                     for (CategoryEntity c : categories) {
+                        Context ctx = new ContextThemeWrapper(
+                                chipGroup.getContext(),
+                                R.style.Widget_App_Chip
+                        );
 
-                        Chip chip = new Chip(chipGroup.getContext());
+                        Chip chip;
+
+                        chip = new Chip(ctx);
                         chip.setText(c.name);
+                        int color = Color.parseColor(c.colorHex);
+                        ColorStateList stateColor = new ColorStateList(
+                                new int[][]{new int[]{android.R.attr.state_enabled}, new int[]{}},
+                                new int[]{color, color}
+                        );
+                        chip.setTextColor(stateColor);
+                        chip.setChipStrokeColor(stateColor);
 
                         // bewusst minimal
                         chip.setClickable(false);
@@ -277,10 +289,7 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                         // einfache, robuste Farbe
                         if (c.colorHex != null) {
                             try {
-                                int color = Color.parseColor(c.colorHex);
                                 chip.setTextColor(color);
-                                chip.setChipStrokeWidth(2);
-                                chip.setChipStrokeColor(ColorStateList.valueOf(color));
                             } catch (IllegalArgumentException ignored) {}
                         }
 

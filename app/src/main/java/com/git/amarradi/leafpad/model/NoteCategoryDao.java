@@ -28,6 +28,10 @@ public interface NoteCategoryDao {
     @Query("DELETE FROM note_category_join WHERE note_id = :noteId")
     void deleteAllForNote(String noteId);
 
+    @Query("DELETE FROM note_category_join WHERE category_id = :categoryId")
+    void deleteAllForCategory(long categoryId);
+
+
     @Query("""
         DELETE FROM note_category_join
         WHERE note_id = :noteId

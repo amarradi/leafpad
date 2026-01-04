@@ -14,11 +14,12 @@ import androidx.lifecycle.Transformations;
 import com.git.amarradi.leafpad.Leafpad;
 import com.git.amarradi.leafpad.helper.ReleaseNoteHelper;
 import com.git.amarradi.leafpad.model.CategoryEntity;
-import com.git.amarradi.leafpad.model.Leaf;
 import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.model.NoteEntity;
 import com.git.amarradi.leafpad.model.NoteRepository;
 import com.git.amarradi.leafpad.model.ReleaseNote;
+
+import org.jspecify.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +64,10 @@ public class NoteViewModel extends AndroidViewModel {
 
         return result;
     }
+
+    private final MutableLiveData<List<Long>> originalCategoryIds = new MutableLiveData<>(new ArrayList<>());
+    private final MutableLiveData<List<Long>> currentCategoryIds = new MutableLiveData<>(new ArrayList<>());
+
 
     private Object releaseNoteHeader;
 
@@ -305,6 +310,12 @@ public class NoteViewModel extends AndroidViewModel {
         if (current.isHide() != original.isHide()) {
             return true;
         }
+        List<Long> origCats = originalCategoryIds.getValue();
+        List<Long> currCats = currentCategoryIds.getValue();
+
+        if (!sameIds(origCats, currCats)) {
+            return true;
+        }
         return false;
     }
     public NoteViewModel(@NonNull Application application) {
@@ -318,18 +329,31 @@ public class NoteViewModel extends AndroidViewModel {
         filteredNotes.addSource(notesLiveData, notes -> applySearchQuery());
         filteredNotes.addSource(searchQuery, q -> applySearchQuery());
 
+        isNoteModified.addSource(currentCategoryIds, ids -> checkModified());
+        isNoteModified.addSource(originalCategoryIds, ids -> checkModified());
+
+
         loadReleaseNote(getApplication().getApplicationContext());
     }
 
     private void checkModified() {
         Note current = selectedNote.getValue();
         Note original = originalNote.getValue();
+
         if (original == null || current == null) {
             isNoteModified.setValue(false);
-        } else {
-            isNoteModified.setValue(!current.equalsContent(original));
+            return;
         }
+
+        boolean contentChanged = !current.equalsContent(original);
+
+        List<Long> origCats = originalCategoryIds.getValue();
+        List<Long> currCats = currentCategoryIds.getValue();
+        boolean categoriesChanged = !sameIds(origCats, currCats);
+
+        isNoteModified.setValue(contentChanged || categoriesChanged);
     }
+
     public LiveData<Boolean> getIsNoteModified() {
         return isNoteModified;
     }
@@ -395,6 +419,12 @@ public class NoteViewModel extends AndroidViewModel {
             originalNote.setValue(note);
             // Copy to compare
             selectedNote.setValue(new Note(note));
+            noteRepository.getCategoryIdsForNote(note.getId()).observeForever(ids -> {
+                List<Long> safe = ids != null ? new ArrayList<>(ids) : new ArrayList<>();
+                originalCategoryIds.postValue(safe);
+                currentCategoryIds.postValue(new ArrayList<>(safe));
+            });
+
         }
     }
     public void loadNotes() {
@@ -422,6 +452,12 @@ public class NoteViewModel extends AndroidViewModel {
             Note note = fromEntity(entity);
             originalNote.setValue(new Note(note)); // Deep copy
             selectedNote.setValue(note);
+        });
+
+        noteRepository.getCategoryIdsForNote(id).observeForever(ids -> {
+            List<Long> safe = ids != null ? new ArrayList<>(ids) : new ArrayList<>();
+            originalCategoryIds.postValue(safe);
+            currentCategoryIds.postValue(new ArrayList<>(safe));
         });
     }
 
@@ -523,6 +559,13 @@ public class NoteViewModel extends AndroidViewModel {
             originalNote.setValue(new Note(selected)); // Nutze einen Copy-Konstruktor oder einen eigenen Clone
         }
         isNoteModified.setValue(false);
+        List<Long> currCats = currentCategoryIds.getValue();
+        if (currCats != null) {
+            originalCategoryIds.setValue(new ArrayList<>(currCats));
+        } else {
+            originalCategoryIds.setValue(new ArrayList<>());
+        }
+
     }
 
     public void setCategoriesForSelectedNote(List<Long> categoryKeys) {
@@ -530,7 +573,11 @@ public class NoteViewModel extends AndroidViewModel {
         if (note == null) return;
         String noteId = note.getId();
         noteRepository.replaceCategoriesForNote(noteId, categoryKeys);
-        }
+        List<Long> safe = categoryKeys != null ? new ArrayList<>(categoryKeys) : new ArrayList<>();
+        currentCategoryIds.setValue(safe);
+
+        checkModified();
+    }
 
 
     public LiveData<List<CategoryEntity>> getCategoriesForSelectedNote() {
@@ -548,6 +595,43 @@ public class NoteViewModel extends AndroidViewModel {
     public LiveData<List<CategoryEntity>> getCategoriesForNote(String noteId) {
         return noteRepository.getCategoriesForNote(noteId);
     }
+
+    private boolean sameIds(List<Long> a, List<Long> b) {
+        if (a == null) a = new ArrayList<>();
+        if (b == null) b = new ArrayList<>();
+
+        if (a.size() != b.size()) {
+            return false;
+        }
+
+        // Reihenfolge ist egal → Set-Vergleich
+        return new java.util.HashSet<>(a).equals(new java.util.HashSet<>(b));
+    }
+
+    public void setSelectedNoteCategory(String newCategoryId) {
+        @Nullable Note current = selectedNote.getValue();
+        if (current == null) {
+            return;
+        }
+
+        String oldCategoryId = current.getCategory();
+
+        if (isSameCategory(oldCategoryId, newCategoryId)) {
+            // keine echte Änderung → nichts tun
+            return;
+        }
+
+        current.setCategory(newCategoryId);
+        selectedNote.setValue(current);
+    }
+
+    private boolean isSameCategory(String a, String b) {
+        if (a == b) return true;
+        if (a == null || b == null) return false;
+        return a.equals(b);
+    }
+
+
 
 
 }

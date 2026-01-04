@@ -17,6 +17,7 @@ public class CategoryRepository {
     public CategoryRepository(Application application) {
         AppDatabase db = AppDatabase.getInstance(application);
         categoryDao = db.categoryDao();
+
         activeCategories = categoryDao.getActiveCategories();
     }
 
@@ -50,4 +51,6 @@ public class CategoryRepository {
             }
         });
     }
+
+
 }

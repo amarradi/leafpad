@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="CustomToolbarStyle" parent="Widget.Material3.Toolbar">
         <item name="titleTextAppearance">@style/TextAppearance.MyToolbarTitle</item>
@@ -137,6 +137,27 @@
         <item name="android:layout_margin">@dimen/fab_margin</item>
     </style>
 
+    <style name="Widget.App.Chip" parent="Widget.Material3.Chip.Input">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip</item>
+        <item name="android:textAppearance">@style/TextAppearance.App.BodyMedium</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.App.Corner.Small</item>
+        ...
+    </style>
 
+    <style name="TextAppearance.App.BodyMedium" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">@font/opensans_medium</item>
+        <item name="android:fontFamily">@font/opensans_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">8sp</item>
+    </style>
+
+    <style name="ShapeAppearance.App.Corner.Small" parent="ShapeAppearance.Material3.Corner.Small">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Chip" parent="">
+        <item name="colorOnSurfaceVariant">@color/md_theme_ribbonmarker</item>
+    </style>
 
 </resources>

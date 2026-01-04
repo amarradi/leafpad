@@ -164,4 +164,15 @@
     <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
     <string name="item_menu_add_category">create new category</string>
     <string name="category">Category</string>
+    <string name="category_name">name of the category</string>
+    <string name="select_color">choose category color</string>
+    <string name="edit_category">edit category</string>
+    <string name="add_category">add category</string>
+    <string name="category_color">category color</string>
+    <string name="save_category">save category</string>
+    <string name="delete_category">Delete category</string>
+    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
+    <string name="delete_category_hint">Notes are retained but lose this category.</string>
+    <string name="manage_categories">Manage categories</string>
+    <string name="manage_categories_summary">Create, edit, and delete</string>
 </resources>

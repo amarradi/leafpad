@@ -11,11 +11,13 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.git.amarradi.leafpad.fragment.SettingsFragment;
+import com.git.amarradi.leafpad.helper.DialogHelper;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
 
 import java.util.Objects;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity implements ColorPickerDialogListener {
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -44,4 +46,13 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onColorSelected(int dialogId, int color) {
+        DialogHelper.onColorSelectedForCategoryDialog(dialogId, color);
+    }
+
+    @Override
+    public void onDialogDismissed(int dialogId) {
+
+    }
 }

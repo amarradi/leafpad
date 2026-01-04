@@ -26,11 +26,29 @@ public class CategoryViewModel extends AndroidViewModel {
         return categories;
     }
 
-    public void addCategory(String name) {
-        repository.insert(new CategoryEntity(name));
-    }
-
     public void deleteCategory(CategoryEntity category) {
         repository.delete(category);
     }
+
+    public void createCategory(String name, String colorHex) {
+        if (name == null || name.trim().isEmpty()) return;
+
+        CategoryEntity category = new CategoryEntity(
+                name.trim(),
+                colorHex,
+                0,
+                false
+        );
+
+        repository.insert(category);
+    }
+
+    public void updateCategory(CategoryEntity category) {
+        repository.update(category);
+
+    }
+
+
+
+
 }
