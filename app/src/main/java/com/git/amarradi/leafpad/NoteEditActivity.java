@@ -68,6 +68,15 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
     private MenuItem saveMenuItem;
     private TextWatcher modificationWatcher;
 
+    private void logNav(String msg) {
+        Log.d("NAV_NOTE", msg
+                + " | backStack=" + getSupportFragmentManager().getBackStackEntryCount()
+                + " | fc=" + (findViewById(R.id.fragment_container) != null ? findViewById(R.id.fragment_container).getVisibility() : -1)
+                + " | bs=" + (findViewById(R.id.body_scroll) != null ? findViewById(R.id.body_scroll).getVisibility() : -1)
+        );
+    }
+
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -176,7 +185,9 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
         observeNote();
 
         View rootEdit = findViewById(R.id.all);
+        logNav("toolbar instance=" + toolbar);
         View toolbar = findViewById(R.id.toolbar);
+        Log.d("NAV_NOTE", "setting_toolbar in NoteEditActivity=" + toolbar);
         View title = findViewById(R.id.default_text_input_layout);
         EditText bodyEdit = findViewById(R.id.body_edit);
 
@@ -186,16 +197,31 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
             @Override
             public void handleOnBackPressed() {
                 {
+                    logNav("OnBackPressedCallback fired");
 
                     if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                        logNav("BackStack > 0 -> popBackStackImmediate");
+                        getSupportFragmentManager().popBackStackImmediate();
+                        // erst poppen, dann UI zurück
+                        //  getSupportFragmentManager().popBackStack();
 
-                        findViewById(R.id.fragment_container).setVisibility(View.GONE);
-                        findViewById(R.id.body_scroll).setVisibility(View.VISIBLE);
+                        View fc = findViewById(R.id.fragment_container);
+                        View bs = findViewById(R.id.body_scroll);
+                        if (fc != null) fc.setVisibility(View.GONE);
+                        if (bs != null) bs.setVisibility(View.VISIBLE);
 
-                        invalidateOptionsMenu(); // 🔥 Menü + Toolbar sofort erneuern
+                        restoreEditorToolbar();
+                        logNav("After pop+UI restore");
                         return;
 
+//                        findViewById(R.id.fragment_container).setVisibility(View.GONE);
+//                        findViewById(R.id.body_scroll).setVisibility(View.VISIBLE);
+//
+//                        invalidateOptionsMenu(); // 🔥 Menü + Toolbar sofort erneuern
+//                        return;
+
                     }
+                    logNav("No backstack -> checkForUnsavedChanges()");
                     checkForUnsavedChanges();
 //                    else {
 //                        // Default Verhalten
@@ -390,6 +416,7 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+
         switch (id) {
 
             case R.id.action_hide: {
@@ -428,9 +455,11 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
                             .addToBackStack("category")
                             .commit();
 
-
-//                Intent intent = new Intent(this, CategoryActivity.class);
-//                startActivity(intent);
+                return true;
+            }
+            case R.id.home: {
+                logNav("onOptionsItemSelected: HOME");
+                getOnBackPressedDispatcher().onBackPressed();
                 return true;
             }
             default:
@@ -547,9 +576,21 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
     private void setupToolbar() {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //  logNav("Toolbar NAV click");
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationOnClickListener(v -> checkForUnsavedChanges());
+        toolbar.setNavigationOnClickListener(v -> {
+            logNav("Toolbar NAV click");
+            getOnBackPressedDispatcher().onBackPressed();
+        });
+
+        toolbar.setOnTouchListener((v, event) -> {
+            Log.d("NAV_NOTE", "Toolbar TOUCH event=" + event.getAction());
+            return false;
+        });
+
+        //toolbar.setNavigationOnClickListener(v -> checkForUnsavedChanges());
+
     }
 
     @Override
@@ -594,16 +635,11 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
     }
     public void restoreEditorToolbar() {
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
-
-        // Navigation-Pfeil der NoteEditActivity setzen
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
-
-        toolbar.setNavigationOnClickListener(v -> {
-            onBackPressed(); // oder deine eigene Methode zum Verlassen
-        });
-
-        // Menü der NOTE-ACTIVITY wieder anzeigen
+        //toolbar.setNavigationOnClickListener(v -> checkForUnsavedChanges());
+        toolbar.setNavigationOnClickListener(v -> getOnBackPressedDispatcher().onBackPressed());
         invalidateOptionsMenu();
     }
+
 
 }

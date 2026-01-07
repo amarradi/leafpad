@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -23,6 +24,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DialogHelper {
+
+    public static void showInfoDialog(@NonNull Context context,
+                                      @NonNull String title,
+                                      @NonNull String message) {
+
+        new MaterialAlertDialogBuilder(context)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton(android.R.string.ok, null)
+                .show();
+    }
 
     public interface OnDialogConfirmedListener {
         void onConfirmed();

@@ -1,6 +1,7 @@
 package com.git.amarradi.leafpad.fragment;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -9,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.MenuProvider;
@@ -22,6 +24,7 @@ import com.git.amarradi.leafpad.R;
 import com.git.amarradi.leafpad.adapter.CategoryAdapter;
 import com.git.amarradi.leafpad.helper.DialogHelper;
 import com.git.amarradi.leafpad.model.CategoryEntity;
+import com.git.amarradi.leafpad.model.CategoryRepository;
 import com.git.amarradi.leafpad.viewmodel.CategoryViewModel;
 import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -49,6 +52,45 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
     private int selectedColor = Color.parseColor("#CCCCCC");
     private View colorPreview;
     private List<Long> initialSelectedCategoryIds;
+
+    private OnBackPressedCallback backCallback;
+
+
+    private MaterialToolbar hostToolbar;
+    private Drawable prevNavIcon;
+    private CharSequence prevTitle;
+    private View.OnClickListener prevNavClickListener;
+
+    private void closeSelf() {
+        if (!isAdded()) return;
+
+        // Falls du im NoteEdit-Modus noch was zurückschreiben musst:
+        if (getMode() == MODE_PICK_FOR_NOTE && noteViewModel != null) {
+            List<Long> selectedCategoryIds = adapter.getSelectedCategoryIds();
+            if (!sameIds(initialSelectedCategoryIds, selectedCategoryIds)) {
+                noteViewModel.setCategoriesForSelectedNote(selectedCategoryIds);
+            }
+        }
+
+        // Toolbar/Views nur im NoteEdit-Kontext anfassen (Settings NICHT!)
+        if (getMode() == MODE_PICK_FOR_NOTE && getActivity() != null) {
+            View fc = getActivity().findViewById(R.id.fragment_container);
+            View bs = getActivity().findViewById(R.id.body_scroll);
+
+            if (fc != null) fc.setVisibility(View.GONE);
+            if (bs != null) bs.setVisibility(View.VISIBLE);
+
+            if (getActivity() instanceof NoteEditActivity) {
+                ((NoteEditActivity) getActivity()).restoreEditorToolbar();
+            }
+
+            getActivity().invalidateOptionsMenu();
+        }
+
+        // Das ist der eigentliche "zurück zu Settings" Schritt:
+        getParentFragmentManager().popBackStack();
+    }
+
 
     public static CategoryFragment newInstance(int mode) {
         CategoryFragment f = new CategoryFragment();
@@ -158,51 +200,18 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
     }
 
     private void setupToolbar() {
-        // MaterialToolbar toolbar = requireActivity().findViewById(R.id.toolbar);
-        MaterialToolbar toolbar = requireActivity().findViewById(R.id.toolbar);
-        if (toolbar == null) {
-            toolbar = requireActivity().findViewById(R.id.setting_toolbar);
-        }
-        if (toolbar == null) {
-            // kein Toolbar im Host gefunden → nichts konfigurieren
+        // Im NoteEdit-Modus: Activity ist Owner der Toolbar
+        if (getMode() == MODE_PICK_FOR_NOTE) {
             return;
         }
-       // toolbar.setTitle(R.string.categories);
-        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
 
-        toolbar.setNavigationOnClickListener(v -> {
-            if (getMode() == MODE_PICK_FOR_NOTE) {
-                List<Long> selectedCategoryIds = adapter.getSelectedCategoryIds();
-                if (!sameIds(initialSelectedCategoryIds, selectedCategoryIds)) {
-                    noteViewModel.setCategoriesForSelectedNote(selectedCategoryIds);
-                }
-                //noteViewModel.setCategoriesForSelectedNote(selectedCategoryIds);
-                getParentFragmentManager().popBackStack();
-                View fc = requireActivity().findViewById(R.id.fragment_container);
-                View bs = requireActivity().findViewById(R.id.body_scroll);
-
-                if (fc != null) fc.setVisibility(View.GONE);
-                if (bs != null) bs.setVisibility(View.VISIBLE);
-
-                if (requireActivity() instanceof NoteEditActivity) {
-                    ((NoteEditActivity) requireActivity()).restoreEditorToolbar();
-                }
-
-                requireActivity().invalidateOptionsMenu();
-                return;
-
-//                requireActivity().findViewById(R.id.fragment_container).setVisibility(View.GONE);
-//                requireActivity().findViewById(R.id.body_scroll).setVisibility(View.VISIBLE);
-//                ((NoteEditActivity) requireActivity()).restoreEditorToolbar();
-
-                // toolbar.setNavigationIcon(null);
-                //requireActivity().invalidateOptionsMenu();
-            }
-            getParentFragmentManager().popBackStack();
-            //requireActivity().getSupportFragmentManager().popBackStack();
-        } );
-
+        // Im Settings-Modus: SettingsActivity ist Owner der Toolbar
+        if (getMode() == MODE_MANAGE_ONLY) {
+            return;
+        }
     }
+
+
 
     private boolean sameIds(List<Long> a, List<Long> b) {
         if (a == b) return true;
@@ -243,9 +252,32 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
                 "",
                 "#CCCCCC",
                 COLOR_PICKER_ID,
-                (name, colorHex) -> categoryViewModel.createCategory(name, colorHex)
+                (name, colorHex) -> categoryViewModel
+                        .createCategory(name, colorHex)
+                        .observe(getViewLifecycleOwner(), result -> {
+                            if (result == CategoryRepository.WriteResult.DUPLICATE) {
+                                DialogHelper.showInfoDialog(
+                                        requireContext(),
+                                        getString(R.string.error),
+                                        getString(R.string.category_already_exists)
+                                );
+                            } else if (result == CategoryRepository.WriteResult.EMPTY_NAME) {
+                                DialogHelper.showInfoDialog(
+                                        requireContext(),
+                                        getString(R.string.error),
+                                        getString(R.string.category_name_required)
+                                );
+                            } else if (result == CategoryRepository.WriteResult.DB_ERROR) {
+                                DialogHelper.showInfoDialog(
+                                        requireContext(),
+                                        getString(R.string.error),
+                                        getString(R.string.database_error)
+                                );
+                            }
+                        })
         );
     }
+
 
 
     // 🔥 DAS WAR DER FEHLENDE TEIL
@@ -267,10 +299,29 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        MaterialToolbar toolbar = requireActivity().findViewById(R.id.toolbar);
-        requireActivity().invalidateOptionsMenu();
-        requireActivity().invalidateOptionsMenu();
+        if (getActivity() != null) {
+            getActivity().invalidateOptionsMenu();
+        }
     }
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        backCallback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                closeSelf();
+            }
+        };
+
+        requireActivity().getOnBackPressedDispatcher().addCallback(
+                getViewLifecycleOwner(),
+                backCallback
+        );
+    }
+
 
     private void showEditCategoryDialog(CategoryEntity category) {
         DialogHelper.showCategoryAddOrEditDialog(
@@ -279,20 +330,33 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
                 category.name,
                 category.colorHex,
                 COLOR_PICKER_ID_EDIT,
-                (name, colorHex) -> {
-                    CategoryEntity updated = category.copyForUpdate(name, colorHex);
-                    categoryViewModel.updateCategory(updated);
-
-                    updated.id = category.id;
-                    updated.name = name;
-                    updated.colorHex = colorHex;
-
-                    // falls vorhanden:
-                    updated.sortOrder = category.sortOrder;
-                    updated.isArchived = category.isArchived;
-
-                    //   categoryViewModel.updateCategory(updated);
-                }
+                (name, colorHex) -> categoryViewModel
+                        .updateCategory(category, name, colorHex)
+                        .observe(getViewLifecycleOwner(), result -> {
+                            // Optional: Feedback anzeigen
+                            // (Strings musst du ggf. anlegen/verwenden)
+                            if (result == CategoryRepository.WriteResult.DUPLICATE) {
+                                DialogHelper.showInfoDialog(
+                                        requireContext(),
+                                        getString(R.string.error),
+                                        getString(R.string.category_already_exists)
+                                );
+                            } else if (result == CategoryRepository.WriteResult.EMPTY_NAME) {
+                                DialogHelper.showInfoDialog(
+                                        requireContext(),
+                                        getString(R.string.error),
+                                        getString(R.string.category_name_required)
+                                );
+                            } else if (result == CategoryRepository.WriteResult.DB_ERROR) {
+                                DialogHelper.showInfoDialog(
+                                        requireContext(),
+                                        getString(R.string.error),
+                                        getString(R.string.database_error)
+                                );
+                            }
+                            // OK -> Dialog schließt ohnehin (DialogHelper macht das typischerweise)
+                        })
         );
     }
+
 }

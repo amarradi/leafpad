@@ -30,6 +30,8 @@ public class SettingsActivity extends AppCompatActivity implements ColorPickerDi
         MaterialToolbar toolbar = findViewById(R.id.setting_toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(v -> getOnBackPressedDispatcher().onBackPressed());
+
         EdgeToEdge.enable(this);
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
@@ -44,6 +46,12 @@ public class SettingsActivity extends AppCompatActivity implements ColorPickerDi
             return insets;
         });
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        getOnBackPressedDispatcher().onBackPressed();
+        return true;
     }
 
     @Override

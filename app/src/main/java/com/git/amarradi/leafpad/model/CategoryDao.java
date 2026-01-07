@@ -13,6 +13,13 @@ import java.util.List;
 @Dao
 public interface CategoryDao {
 
+    @Query("SELECT COUNT(*) FROM categories WHERE normalized_name = :normalized LIMIT 1")
+    int countByNormalized(String normalized);
+
+    @Query("SELECT id FROM categories WHERE normalized_name = :normalized LIMIT 1")
+    Long findIdByNormalized(String normalized);
+
+
     @Insert(onConflict = OnConflictStrategy.ABORT)
     long insert(CategoryEntity category);
 
@@ -43,5 +50,8 @@ public interface CategoryDao {
     ORDER BY c.sort_order, c.name
 """)
     LiveData<List<CategoryEntity>> getCategoriesForNote(String noteId);
+
+    @Query("SELECT * FROM categories WHERE normalized_name = :normalized LIMIT 1")
+    LiveData<CategoryEntity> getByNormalized(String normalized);
 
 }

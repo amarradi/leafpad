@@ -112,7 +112,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         requireActivity().getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.settings_fragment_container, CategoryFragment.newInstance(CategoryFragment.MODE_MANAGE_ONLY))
-                .addToBackStack("manage_categories")
+                .addToBackStack("CategoryFragment")
                 .commit();
     }
 

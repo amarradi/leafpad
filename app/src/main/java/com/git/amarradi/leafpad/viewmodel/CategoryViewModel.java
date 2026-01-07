@@ -30,25 +30,20 @@ public class CategoryViewModel extends AndroidViewModel {
         repository.delete(category);
     }
 
-    public void createCategory(String name, String colorHex) {
-        if (name == null || name.trim().isEmpty()) return;
-
-        CategoryEntity category = new CategoryEntity(
-                name.trim(),
-                colorHex,
-                0,
-                false
-        );
-
-        repository.insert(category);
+    /**
+     * UI kann das Result beobachten und z.B. Toast/Snackbar zeigen.
+     */
+    public LiveData<CategoryRepository.WriteResult> createCategory(String name, String colorHex) {
+        return repository.insertSafe(name, colorHex, 0, false);
     }
 
-    public void updateCategory(CategoryEntity category) {
-        repository.update(category);
-
+    /**
+     * Update mit separaten Feldern ist sicherer als "updateCategory(CategoryEntity)".
+     * So erzwingen wir Normalisierung + Dublettencheck zentral.
+     */
+    public LiveData<CategoryRepository.WriteResult> updateCategory(CategoryEntity original,
+                                                                   String newName,
+                                                                   String newColorHex) {
+        return repository.updateSafe(original, newName, newColorHex);
     }
-
-
-
-
 }

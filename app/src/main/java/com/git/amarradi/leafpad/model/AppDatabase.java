@@ -19,7 +19,7 @@ import java.util.Set;
                 NoteEntity.class,
                 NoteCategoryJoin.class
         },
-        version = 2,
+        version = 3,
         exportSchema = false
 )
 public abstract class AppDatabase extends RoomDatabase {
@@ -46,9 +46,10 @@ public abstract class AppDatabase extends RoomDatabase {
 
                     db.execSQL(
                             "INSERT INTO categories " +
-                                    "(name, color_hex, sort_order, is_archived, created_at, updated_at) " +
+                                    "(name,normalized_name, color_hex, sort_order, is_archived, created_at, updated_at) " +
                                     "VALUES (" +
                                     "'Rezept', " +
+                                    "'rezept', " +
                                     "'#000080', " +
                                     "0, " +
                                     "0, " +
@@ -104,6 +105,61 @@ public abstract class AppDatabase extends RoomDatabase {
             migrateNotesFromSharedPrefs(appContext, db);
         }
     };
+    static final Migration MIGRATION_2_3 = new Migration(2, 3) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase db) {
+
+            // 1) neue Tabelle mit NOT NULL normalized_name erstellen
+            db.execSQL(
+                    "CREATE TABLE IF NOT EXISTS categories_new (" +
+                            "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+                            "name TEXT NOT NULL, " +
+                            "normalized_name TEXT NOT NULL, " +
+                            "color_hex TEXT, " +
+                            "sort_order INTEGER NOT NULL DEFAULT 0, " +
+                            "is_archived INTEGER NOT NULL DEFAULT 0, " +
+                            "created_at INTEGER NOT NULL, " +
+                            "updated_at INTEGER NOT NULL" +
+                            ")"
+            );
+
+            // 2) Daten rüberkopieren + normalized_name initial setzen
+            db.execSQL(
+                    "INSERT INTO categories_new " +
+                            "(id, name, normalized_name, color_hex, sort_order, is_archived, created_at, updated_at) " +
+                            "SELECT " +
+                            "id, name, lower(trim(name)), color_hex, sort_order, is_archived, created_at, updated_at " +
+                            "FROM categories"
+            );
+
+            // 3) Dubletten entschärfen (alles außer MIN(id) bekommt Suffix)
+            db.execSQL(
+                    "UPDATE categories_new " +
+                            "SET normalized_name = normalized_name || '__' || id " +
+                            "WHERE id IN (" +
+                            "  SELECT c.id FROM categories_new c " +
+                            "  JOIN (" +
+                            "    SELECT normalized_name, MIN(id) AS keep_id " +
+                            "    FROM categories_new " +
+                            "    GROUP BY normalized_name " +
+                            "    HAVING COUNT(*) > 1" +
+                            "  ) d ON d.normalized_name = c.normalized_name " +
+                            "  WHERE c.id <> d.keep_id" +
+                            ")"
+            );
+
+            // 4) UNIQUE Index erstellen (Name muss zu Room passen)
+            db.execSQL(
+                    "CREATE UNIQUE INDEX IF NOT EXISTS index_categories_normalized_name " +
+                            "ON categories_new(normalized_name)"
+            );
+
+            // 5) alte Tabelle ersetzen
+            db.execSQL("DROP TABLE categories");
+            db.execSQL("ALTER TABLE categories_new RENAME TO categories");
+        }
+    };
+
 
     // ---------------------------------------------------------------------
     // SharedPrefs → Notes Migration
@@ -159,7 +215,7 @@ public abstract class AppDatabase extends RoomDatabase {
                                     "leafpad.db"
                             )
                             .addCallback(PREPOPULATE_CALLBACK)
-                            .addMigrations(MIGRATION_1_2)
+                            .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
                             .fallbackToDestructiveMigrationOnDowngrade()
                             .build();
                 }

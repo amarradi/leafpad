@@ -13,4 +13,7 @@
     <string name="delete_category_hint">Notes are retained but lose this category.</string>
     <string name="manage_categories">Manage categories</string>
     <string name="manage_categories_summary">Create, edit, and delete</string>
+    <string name="error">error</string>
+    <string name="category_already_exists">Category allready exists</string>
+    <string name="database_error">database error</string>
 </resources>
