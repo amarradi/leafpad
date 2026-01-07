@@ -53,7 +53,7 @@
     <string name="thanks">Дзякуй Стефану, Стефану, Мануэлю, Фальку, Стэфані і Эмілю за вашыя ідэі і тэсціраванне праграмы.</string>
     <string name="statement">Мы запісваем спісы пакупак, нататкі для размоў, спісы таго, што узяць на адпачынак, або дні нараджэння сяброў. Усе гэтыя рэчы не вартыя таго, каб пра іх забывалі. Гэта вельмі падобна на Бога, ён запісвае нашыя добрыя і дрэнныя справы і ратуе іх. Бог над усім існым і ведае ўсё. Бог любіць людзей і хоча мець зносіны з імі. Але гэта магчыма толькі ў тым выпадку, калі мы бачымся Богам як невінаватыя. Дзякуючы веры ў Ісуса Хрыста, нашыя дрэнныя дзеі (нашы грахі) знішчаюцца перад Богам. Ісус Хрыстос адкупіў нашу віну на крыжы Калварыі. Кожны чалавек, які прымае гэта, занесены ў кнігу жыцця назаўжды. Вы зарэгістраваны ў кнізе жыцця?</string>
     <string name="hide_note">зрабіць нататку нябачнай</string>
-    <string name="translation_help">Дапамажыце перакласці праграму у Weblate</string>
+    <string name="translation_help">Дапамажыце перакласці праграму у Weblate.</string>
     <string name="rev20_12">І ўбачыў я перад пасадам памерлых, вялікіх і малых, што стаяць перад Богам. І былі адкрыты кнігі. І была адкрыта іншая кніга, кніга жыцця. І быў суд над памерлымі за тое, што напісана было ў кнігах, паводле іх ўчынкаў. Адкрыццё 20:12</string>
     <string name="its_opensource">Leafpad – гэта свабодная і бясплатная праграма</string>
     <string name="satisfied">Задаволеныя leafpad?</string>
@@ -72,10 +72,10 @@
     <string name="importError">Здарылася памылка падчас імпарту нататак.</string>
     <string name="restore">Аднавіць усе нататкі з XML файла</string>
     <plurals name="notes_imported">
-        <item quantity="one">%1$d note imported</item>
-        <item quantity="few">%1$d notes imported</item>
-        <item quantity="many">%1$d notes imported</item>
-        <item quantity="other">%1$d notes imported</item>
+        <item quantity="one">%1$d нататка імпартавана</item>
+        <item quantity="few">%1$d нататкі імпартаваны</item>
+        <item quantity="many">%1$d нататак імпартавана</item>
+        <item quantity="other">%1$d нататак імпартавана</item>
     </plurals>
     <string name="showDeleteConfirmationMessage">Усе нататкі будуць выдалены назаўсёды. Працягнуць?</string>
     <string name="yes">Так</string>
@@ -103,67 +103,67 @@
     <string name="no_search_results">Нічога не знойдзена</string>
     <string name="empty_list">У спісе адсутнічаюць нататкі</string>
     <string name="set">Гэта рэцепт</string>
-    <string name="close_release_note">Close Button</string>
-    <string name="title_required">Title required</string>
-    <string name="keep_screen_on_dialog_yes">Yes</string>
-    <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
-    <string name="keep_screen_on_dialog_no">No</string>
-    <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
-    <string name="keep_screen_on_title">Keep screen on</string>
-    <string name="keep_screen_on_dialog_title">Battery usage warning</string>
+    <string name="close_release_note">Кнопка закрыцця</string>
+    <string name="title_required">Неабходны загаловак</string>
+    <string name="keep_screen_on_dialog_yes">Так</string>
+    <string name="keep_screen_on_dialog_message">Калі экран уключаны, гэта можа значна павялічыць спажыванне энергіі батарэі. Вы ўпэўненыя, што хочаце ўключыць гэту функцыю?</string>
+    <string name="keep_screen_on_dialog_no">Не</string>
+    <string name="keep_screen_on_summary">Забараніць выключэнне экрана падчас выкарыстання Leafpad</string>
+    <string name="keep_screen_on_title">Трымаць экран уключаным</string>
+    <string name="keep_screen_on_dialog_title">Папярэджанне аб выкарыстанні батарэі</string>
     <string name="country_title_translator_czech" translatable="false">MessingWithComputers(@MessingWithComputers)</string>
-    <string name="country_title_french">French</string>
+    <string name="country_title_french">Французская</string>
     <string name="country_title_translator_portuguese" translatable="false">Lucas Alves Rego(@devlulcas), Ettlu selva rula(@Ttormor)</string>
     <string name="country_title_catalan">Каталонская</string>
-    <string name="country_title_spanish">Spanish</string>
+    <string name="country_title_spanish">Іспанская</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
     <string name="country_title_albanian">Албанская</string>
-    <string name="country_title_indonesian">Indonesian</string>
-    <string name="country_title_russian">Russian</string>
+    <string name="country_title_indonesian">Інданезійская</string>
+    <string name="country_title_russian">Руская</string>
     <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
-    <string name="please_enter_a_title">Please enter a title for the note before you can save it.</string>
-    <string name="country_title_tamil">Tamil</string>
+    <string name="please_enter_a_title">Увядзіце загаловак нататкі, каб захаваць. Альбо выдаліце нататку.</string>
+    <string name="country_title_tamil">Тамільская</string>
     <string name="country_title_translator_hindi" translatable="false">Harshit Sethi(@hstsethi)</string>
     <string name="country_title_translator_english" translatable="false">Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l), Santiago Centeno(@Java16)</string>
-    <string name="country_title_polish">Polish</string>
+    <string name="country_title_polish">Польская</string>
     <string name="country_title_translator_indonesian" translatable="false">Arif Budiman(@arifpedia), toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
-    <string name="country_title_german">German</string>
+    <string name="country_title_german">Нямецкая</string>
     <string name="country_title_translator_french" translatable="false">Leonart(@Leonart), Omgeta(@Omgeta), michte(@michte), David D.(@Dadu042)</string>
     <string name="country_title_translator_arabic" translatable="false">Asaad Zein(@asaadzx)</string>
-    <string name="country_title_ukrainian">Ukrainian</string>
+    <string name="country_title_ukrainian">Украінская</string>
     <string name="country_title_translator_spanish" translatable="false">Sofia Gutierrez(@SofiaIrina9), Zarahi Ander(@TradZarahi), Francisco Serrador(@fserrador), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Marco(@Megido), Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), Abraham Mendoza(@1Alide1), zergio inzunza(@n1kf4m3l)</string>
-    <string name="country_title_greek">Greek</string>
+    <string name="country_title_greek">Грэцкая</string>
     <string name="country_title_translator_polish" translatable="false">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
     <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero), Davide Secco(@davidesecco)</string>
     <string name="country_title_arabic">Арабская</string>
-    <string name="country_title_italian">Italian</string>
+    <string name="country_title_italian">Італьянская</string>
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_translator_ukrainian" translatable="false">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
     <string name="country_title_translator_russian" translatable="false">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), vanapro1(@vanapro1), Sotski Eugene(@jekakmail), MrSliv69(@MrSliv69), Steven Barash(@stevenbarash), Rachel Podya(@homicide@disroot.org), SnIPeRSnIPeR(@SnIPeRSnIPeR), Santiago Centeno(@Java16)</string>
-    <string name="country_title_czech">Czech</string>
-    <string name="country_title_english">English</string>
-    <string name="country_title_portuguese">Portuguese</string>
+    <string name="country_title_czech">Чэшская</string>
+    <string name="country_title_english">Англійская</string>
+    <string name="country_title_portuguese">Партугальская</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Blubberland(@Blubberland), Maximilian Hüttner(@MaxHue)</string>
     <string name="country_title_hindi_latin">Hindi (Latin script)</string>
-    <string name="country_title_hindi">Hindi</string>
+    <string name="country_title_hindi">Хіндзі</string>
     <string name="country_title_translator_estonian" translatable="false">Priit Jõerüüt(@jrthwlate)</string>
-    <string name="country_title_estonian">Estonian</string>
+    <string name="country_title_estonian">Эстонская</string>
     <string name="country_title_translator_chinese_traditional_han_script" translatable="false">imcc(@imcc)</string>
     <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
     <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
     <string name="country_title_translator_chinese_simplified_han_script" translatable="false">雲の中を漂う船(@KumoNoFune), imcc(@imcc)</string>
-    <string name="country_title_chinese_simplified_han_script">Кітайская (Спрошчанная пісьменнасць хань)</string>
-    <string name="country_title_chinese_traditional_han_script">Chinese (Traditional Han script)</string>
-    <string name="country_title_hindi_latin_script">Hindi (Latin script)</string>
-    <string name="country_title_uzbek">Uzbek</string>
+    <string name="country_title_chinese_simplified_han_script">Кітайская (Спрошчанная пісьменнасць Хань)</string>
+    <string name="country_title_chinese_traditional_han_script">Кітайская (Традыцыйная пісьменнасць Хань)</string>
+    <string name="country_title_hindi_latin_script">Хіндзі (лацінка)</string>
+    <string name="country_title_uzbek">Узбекская</string>
     <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
     <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
-    <string name="country_title_gothic">Gothic</string>
-    <string name="country_title_dutch">Dutch</string>
-    <string name="menu_about">About Leafpad</string>
-    <string name="country_title_danish">Danish</string>
+    <string name="country_title_gothic">Гоцкая</string>
+    <string name="country_title_dutch">Галандская</string>
+    <string name="menu_about">Пра Leafpad</string>
+    <string name="country_title_danish">Дацкая</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
-    <string name="country_title_serbian">Serbian</string>
+    <string name="country_title_serbian">Сербская</string>
 </resources>
