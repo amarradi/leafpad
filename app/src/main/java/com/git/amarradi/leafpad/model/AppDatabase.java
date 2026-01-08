@@ -19,7 +19,7 @@ import java.util.Set;
                 NoteEntity.class,
                 NoteCategoryJoin.class
         },
-        version = 3,
+        version = 7,
         exportSchema = false
 )
 public abstract class AppDatabase extends RoomDatabase {
@@ -36,11 +36,13 @@ public abstract class AppDatabase extends RoomDatabase {
     // ---------------------------------------------------------------------
     // PREPOPULATE – Standardkategorie "Rezept"
     // ---------------------------------------------------------------------
-    private static final RoomDatabase.Callback PREPOPULATE_CALLBACK =
+    private static final RoomDatabase.Callback DB_CALLBACK =
             new RoomDatabase.Callback() {
                 @Override
                 public void onCreate(@NonNull SupportSQLiteDatabase db) {
                     super.onCreate(db);
+
+                    db.execSQL("PRAGMA foreign_keys=ON");
 
                     long now = System.currentTimeMillis();
 
@@ -57,6 +59,12 @@ public abstract class AppDatabase extends RoomDatabase {
                                     now +
                                     ")"
                     );
+                }
+
+                @Override
+                public void onOpen(@NonNull SupportSQLiteDatabase db) {
+                    super.onOpen(db);
+                    db.execSQL("PRAGMA foreign_keys=ON");
                 }
             };
 
@@ -159,7 +167,101 @@ public abstract class AppDatabase extends RoomDatabase {
             db.execSQL("ALTER TABLE categories_new RENAME TO categories");
         }
     };
+    static final Migration MIGRATION_3_4 = new Migration(3, 4) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase db) {
 
+            db.execSQL("PRAGMA foreign_keys=ON");
+
+            db.execSQL("DELETE FROM note_category_join WHERE note_id NOT IN (SELECT id FROM notes)");
+            db.execSQL("DELETE FROM note_category_join WHERE category_id NOT IN (SELECT id FROM categories)");
+
+            db.execSQL(
+                    "CREATE TABLE IF NOT EXISTS note_category_join_new (" +
+                            "note_id TEXT NOT NULL, " +
+                            "category_id INTEGER NOT NULL, " +
+                            "PRIMARY KEY(note_id, category_id), " +
+                            "FOREIGN KEY(note_id) REFERENCES notes(id) ON DELETE CASCADE, " +
+                            "FOREIGN KEY(category_id) REFERENCES categories(id) ON DELETE CASCADE" +
+                            ")"
+            );
+
+            db.execSQL(
+                    "INSERT OR IGNORE INTO note_category_join_new(note_id, category_id) " +
+                            "SELECT note_id, category_id FROM note_category_join"
+            );
+
+            db.execSQL("DROP TABLE note_category_join");
+            db.execSQL("ALTER TABLE note_category_join_new RENAME TO note_category_join");
+
+            db.execSQL("CREATE INDEX IF NOT EXISTS index_note_category_join_note_id ON note_category_join(note_id)");
+            db.execSQL("CREATE INDEX IF NOT EXISTS index_note_category_join_category_id ON note_category_join(category_id)");
+        }
+    };
+
+    static final Migration MIGRATION_4_5 = new Migration(4, 5) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase db) {
+
+        }
+    };
+    static final Migration MIGRATION_5_6 = new Migration(5, 6) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase db) {
+
+            db.execSQL("PRAGMA foreign_keys=ON");
+
+            db.execSQL(
+                    "CREATE TABLE IF NOT EXISTS note_category_join_new (" +
+                            "note_id TEXT NOT NULL, " +
+                            "category_id INTEGER NOT NULL, " +
+                            "created_at INTEGER NOT NULL DEFAULT 0, " +
+                            "PRIMARY KEY(note_id, category_id), " +
+                            "FOREIGN KEY(note_id) REFERENCES notes(id) ON DELETE CASCADE, " +
+                            "FOREIGN KEY(category_id) REFERENCES categories(id) ON DELETE CASCADE" +
+                            ")"
+            );
+
+            // v5 hat kein created_at -> setze 0
+            db.execSQL(
+                    "INSERT INTO note_category_join_new(note_id, category_id, created_at) " +
+                            "SELECT note_id, category_id, 0 FROM note_category_join"
+            );
+
+            db.execSQL("DROP TABLE note_category_join");
+            db.execSQL("ALTER TABLE note_category_join_new RENAME TO note_category_join");
+
+            db.execSQL("CREATE INDEX IF NOT EXISTS index_note_category_join_note_id ON note_category_join(note_id)");
+            db.execSQL("CREATE INDEX IF NOT EXISTS index_note_category_join_category_id ON note_category_join(category_id)");
+        }
+    };
+    static final Migration MIGRATION_6_7 = new Migration(6, 7) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase db) {
+            db.execSQL("PRAGMA foreign_keys=ON");
+
+            db.execSQL(
+                    "CREATE TABLE IF NOT EXISTS note_category_join_new (" +
+                            "note_id TEXT NOT NULL, " +
+                            "category_id INTEGER NOT NULL, " +
+                            "PRIMARY KEY(note_id, category_id), " +
+                            "FOREIGN KEY(note_id) REFERENCES notes(id) ON DELETE CASCADE, " +
+                            "FOREIGN KEY(category_id) REFERENCES categories(id) ON DELETE CASCADE" +
+                            ")"
+            );
+
+            db.execSQL(
+                    "INSERT OR IGNORE INTO note_category_join_new(note_id, category_id) " +
+                            "SELECT note_id, category_id FROM note_category_join"
+            );
+
+            db.execSQL("DROP TABLE note_category_join");
+            db.execSQL("ALTER TABLE note_category_join_new RENAME TO note_category_join");
+
+            db.execSQL("CREATE INDEX IF NOT EXISTS index_note_category_join_note_id ON note_category_join(note_id)");
+            db.execSQL("CREATE INDEX IF NOT EXISTS index_note_category_join_category_id ON note_category_join(category_id)");
+        }
+    };
 
     // ---------------------------------------------------------------------
     // SharedPrefs → Notes Migration
@@ -214,8 +316,8 @@ public abstract class AppDatabase extends RoomDatabase {
                                     AppDatabase.class,
                                     "leafpad.db"
                             )
-                            .addCallback(PREPOPULATE_CALLBACK)
-                            .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
+                            .addCallback(DB_CALLBACK)
+                            .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5, MIGRATION_5_6, MIGRATION_6_7)
                             .fallbackToDestructiveMigrationOnDowngrade()
                             .build();
                 }

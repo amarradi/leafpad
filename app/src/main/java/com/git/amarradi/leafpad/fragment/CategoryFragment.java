@@ -51,9 +51,10 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
 
     private int selectedColor = Color.parseColor("#CCCCCC");
     private View colorPreview;
-    private List<Long> initialSelectedCategoryIds;
-
     private OnBackPressedCallback backCallback;
+    private List<Long> initialSelectedCategoryIds = null;
+    private boolean initialSnapshotTaken = false;
+
 
 
     private MaterialToolbar hostToolbar;
@@ -64,15 +65,25 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
     private void closeSelf() {
         if (!isAdded()) return;
 
-        // Falls du im NoteEdit-Modus noch was zurückschreiben musst:
+        List<Long> selectedCategoryIds = adapter.getSelectedCategoryIds();
+        if (selectedCategoryIds == null) {
+            selectedCategoryIds = new java.util.ArrayList<>();
+        }
+        if (initialSelectedCategoryIds == null) {
+            initialSelectedCategoryIds = new java.util.ArrayList<>();
+        }
+
+        android.util.Log.d("CAT",
+                "initial=" + initialSelectedCategoryIds + " selected=" + selectedCategoryIds);
+
+        // Nur speichern, wenn sich wirklich etwas geändert hat
         if (getMode() == MODE_PICK_FOR_NOTE && noteViewModel != null) {
-            List<Long> selectedCategoryIds = adapter.getSelectedCategoryIds();
             if (!sameIds(initialSelectedCategoryIds, selectedCategoryIds)) {
                 noteViewModel.setCategoriesForSelectedNote(selectedCategoryIds);
             }
         }
 
-        // Toolbar/Views nur im NoteEdit-Kontext anfassen (Settings NICHT!)
+        // UI zurücksetzen (NoteEdit)
         if (getMode() == MODE_PICK_FOR_NOTE && getActivity() != null) {
             View fc = getActivity().findViewById(R.id.fragment_container);
             View bs = getActivity().findViewById(R.id.body_scroll);
@@ -87,9 +98,9 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
             getActivity().invalidateOptionsMenu();
         }
 
-        // Das ist der eigentliche "zurück zu Settings" Schritt:
         getParentFragmentManager().popBackStack();
     }
+
 
 
     public static CategoryFragment newInstance(int mode) {
@@ -130,22 +141,20 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
         if (getMode() == MODE_PICK_FOR_NOTE) {
             noteViewModel.getSelectedCategoryIds()
                     .observe(getViewLifecycleOwner(), ids -> {
-                        adapter.setSelectedCategoryIds(ids);
 
-                        if (initialSelectedCategoryIds == null) {
-                            // Snapshot nur einmal setzen
-                            initialSelectedCategoryIds = (ids == null) ? null : new java.util.ArrayList<>(ids);
+                        List<Long> safeIds = (ids == null)
+                                ? new java.util.ArrayList<>()
+                                : new java.util.ArrayList<>(ids);
+
+                        adapter.setSelectedCategoryIds(safeIds);
+
+                        // Snapshot genau EINMAL setzen
+                        if (!initialSnapshotTaken) {
+                            initialSelectedCategoryIds = new java.util.ArrayList<>(safeIds);
+                            initialSnapshotTaken = true;
                         }
                     });
         }
-
-//        noteViewModel.getSelectedCategoryIds()
-//                .observe(getViewLifecycleOwner(), ids -> {
-//                    adapter.setSelectedCategoryIds(ids);
-//                });
-
-
-
         return view;
     }
 

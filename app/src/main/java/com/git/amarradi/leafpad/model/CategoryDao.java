@@ -54,4 +54,5 @@ public interface CategoryDao {
     @Query("SELECT * FROM categories WHERE normalized_name = :normalized LIMIT 1")
     LiveData<CategoryEntity> getByNormalized(String normalized);
 
+
 }

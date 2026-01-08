@@ -29,6 +29,7 @@ public class NoteViewModel extends AndroidViewModel {
 
     private final NoteRepository noteRepository;
     private final LiveData<List<NoteEntity>> allNoteEntities;
+    private LiveData<List<CategoryEntity>> categoriesForSelectedNote;
 
     private final MutableLiveData<List<Note>> notesLiveData = new MutableLiveData<>();
     private static final MutableLiveData<Note> selectedNote = new MutableLiveData<>();
@@ -68,6 +69,9 @@ public class NoteViewModel extends AndroidViewModel {
     private final MutableLiveData<List<Long>> originalCategoryIds = new MutableLiveData<>(new ArrayList<>());
     private final MutableLiveData<List<Long>> currentCategoryIds = new MutableLiveData<>(new ArrayList<>());
 
+    public LiveData<List<CategoryEntity>> getCategoriesForSelectedNote() {
+        return categoriesForSelectedNote;
+    }
 
     private Object releaseNoteHeader;
 
@@ -217,8 +221,18 @@ public class NoteViewModel extends AndroidViewModel {
             selectedNote.setValue(null);
         } else {
             noteRepository.insert(toEntity(n));
-            markSaved(); // 🔥 extrem wichtig!
+            persistCategoriesForSelectedNote();
+            markNoteSavedOnly();
+            //markSaved();
         }
+    }
+
+    private void markNoteSavedOnly() {
+        Note selected = selectedNote.getValue();
+        if (selected != null) {
+            originalNote.setValue(new Note(selected));
+        }
+        isNoteModified.setValue(false);
     }
 
     public boolean isNewEntry(Note note) {
@@ -322,6 +336,18 @@ public class NoteViewModel extends AndroidViewModel {
         super(application);
 
         noteRepository = new NoteRepository(application);
+        categoriesForSelectedNote =
+                Transformations.switchMap(currentCategoryIds, ids -> {
+                    MutableLiveData<List<CategoryEntity>> empty = new MutableLiveData<>();
+
+                    if (ids == null || ids.isEmpty()) {
+                        empty.setValue(new ArrayList<>());
+                        return empty;
+                    }
+
+                    return noteRepository.getCategoriesByIds(ids);
+                });
+
         allNoteEntities = noteRepository.getAllNotes();
 
         isNoteModified.addSource(selectedNote, n -> checkModified());
@@ -484,20 +510,12 @@ public class NoteViewModel extends AndroidViewModel {
 
 
     public void selectNote(Note note) {
-        selectedNote.setValue(note);
-        originalNote.setValue(new Note(
-                note.getTitle(),
-                note.getBody(),
-                note.getDate(),
-                note.getTime(),
-                note.getCreateDate(),
-                note.isHide(),
-                note.getCategory(),
-                note.getId()
-        ));
+        setNote(note);
     }
+
     public void saveNote(Context context, Note note) {
         noteRepository.insert(toEntity(note));
+        persistCategoriesForSelectedNote();
         markSaved();
     }
 
@@ -572,7 +590,7 @@ public class NoteViewModel extends AndroidViewModel {
         Note note = selectedNote.getValue();
         if (note == null) return;
         String noteId = note.getId();
-        noteRepository.replaceCategoriesForNote(noteId, categoryKeys);
+        //noteRepository.replaceCategoriesForNote(noteId, categoryKeys);
         List<Long> safe = categoryKeys != null ? new ArrayList<>(categoryKeys) : new ArrayList<>();
         currentCategoryIds.setValue(safe);
 
@@ -580,17 +598,17 @@ public class NoteViewModel extends AndroidViewModel {
     }
 
 
-    public LiveData<List<CategoryEntity>> getCategoriesForSelectedNote() {
-        Note note = selectedNote.getValue();
-
-        if (note == null) {
-            MutableLiveData<List<CategoryEntity>> empty = new MutableLiveData<>();
-            empty.setValue(new ArrayList<>());
-            return empty;
-        }
-
-        return noteRepository.getCategoriesForNote(note.getId());
-    }
+//    public LiveData<List<CategoryEntity>> getCategoriesForSelectedNote() {
+//        Note note = selectedNote.getValue();
+//
+//        if (note == null) {
+//            MutableLiveData<List<CategoryEntity>> empty = new MutableLiveData<>();
+//            empty.setValue(new ArrayList<>());
+//            return empty;
+//        }
+//
+//        return noteRepository.getCategoriesForNote(note.getId());
+//    }
 
     public LiveData<List<CategoryEntity>> getCategoriesForNote(String noteId) {
         return noteRepository.getCategoriesForNote(noteId);
@@ -632,6 +650,25 @@ public class NoteViewModel extends AndroidViewModel {
     }
 
 
+    private void persistCategoriesForSelectedNote() {
+        Note note = selectedNote.getValue();
+        if (note == null) return;
+
+        String noteId = note.getId();
+        if (noteId == null || noteId.trim().isEmpty()) {
+            Log.w("NoteViewModel", "persistCategoriesForSelectedNote: noteId is null/empty");
+            return;
+        }
+
+        List<Long> cats = currentCategoryIds.getValue();
+        if (cats == null) cats = new ArrayList<>();
+
+        noteRepository.replaceCategoriesForNote(noteId, cats);
+    }
+
+    public LiveData<List<CategoryEntity>> getCategoriesForNoteId(String noteId) {
+        return noteRepository.getCategoriesForNoteId(noteId);
+    }
 
 
 }

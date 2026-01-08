@@ -28,8 +28,7 @@ public class NoteRepository {
         noteCategoryDao.insert(
                 new NoteCategoryJoin(
                         noteId,
-                        categoryId,
-                        System.currentTimeMillis()));
+                        categoryId));
         });
 
     }
@@ -65,23 +64,31 @@ public class NoteRepository {
         dbExecutor.execute(() -> noteDao.deleteById(id));
     }
 
-    public void replaceCategoriesForNote(String noteId, List<Long> categoryIds) {
-        dbExecutor.execute(()->{
-            noteCategoryDao.deleteAllForNote(noteId);
+//    public void replaceCategoriesForNote(String noteId, List<Long> categoryIds) {
+//        dbExecutor.execute(()->{
+//            noteCategoryDao.deleteAllForNote(noteId);
+//
+//            long now = System.currentTimeMillis();
+//            for (long categoryId : categoryIds) {
+//                noteCategoryDao.insert(
+//                        new NoteCategoryJoin(
+//                                noteId,
+//                                categoryId
+//                        )
+//                );
+//            }
+//
+//        });
+//    }
 
-            long now = System.currentTimeMillis();
-            for (long categoryId : categoryIds) {
-                noteCategoryDao.insert(
-                        new NoteCategoryJoin(
-                                noteId,
-                                categoryId,
-                                now
-                        )
-                );
-            }
-
-        });
+    public LiveData<List<CategoryEntity>> getCategoriesForNoteId(String noteId) {
+        return noteCategoryDao.getCategoriesForNote(noteId);
     }
+
+    public void replaceCategoriesForNote(String noteId, List<Long> categoryIds) {
+        dbExecutor.execute(() -> noteCategoryDao.replaceForNote(noteId, categoryIds));
+    }
+
 
     public LiveData<List<Long>> getCategoryIdsForNote(String noteId) {
         return noteCategoryDao.getCategoryIdsForNote(noteId);
@@ -91,6 +98,9 @@ public class NoteRepository {
         return noteCategoryDao.getCategoriesForNote(noteId);
     }
 
-    
+
+    public LiveData<List<CategoryEntity>> getCategoriesByIds(List<Long> ids) {
+        return noteCategoryDao.getCategoriesByIds(ids);
+    }
 
 }

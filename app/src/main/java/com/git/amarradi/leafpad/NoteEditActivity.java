@@ -135,7 +135,7 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
             newNote.setCreateDate();
 
             isNewNote = true;
-            noteViewModel.selectNote(newNote);
+            noteViewModel.setNote(newNote);
 
         } else if (noteId != null) {
 
@@ -143,7 +143,7 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
                 if (note == null) return;
 
                 isNewNote = false;
-                noteViewModel.selectNote(note);
+                noteViewModel.setNote(note);
             });
 
         }
@@ -237,6 +237,7 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
 
                     if (categories == null || categories.isEmpty()) {
                         categoryChipGroup.setVisibility(View.GONE);
+                        categoryChipGroup.removeAllViews();
                         return;
                     }
 
@@ -244,22 +245,25 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
                     categoryChipGroup.removeAllViews();
 
                     for (CategoryEntity c : categories) {
-                        Chip chip;
-                        chip = new Chip(this, null, R.attr.chipStyle);
+                        Chip chip = new Chip(this, null, R.attr.chipStyle);
                         chip.setText(c.name);
+
                         int color = Color.parseColor(c.colorHex);
                         ColorStateList stateColor = new ColorStateList(
                                 new int[][]{ new int[]{android.R.attr.state_enabled}, new int[]{} },
                                 new int[]{ color, color }
                         );
+
                         chip.setTextColor(stateColor);
                         chip.setChipStrokeColor(stateColor);
                         chip.setClickable(false);
                         chip.setCheckable(false);
                         chip.setEnsureMinTouchTargetSize(false);
+
                         categoryChipGroup.addView(chip);
                     }
                 });
+
 
     }
 

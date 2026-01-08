@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Transaction;
 
 import java.util.List;
 
@@ -66,4 +67,20 @@ public interface NoteCategoryDao {
     )
     LiveData<List<CategoryEntity>> getCategoriesForNote(String noteId);
 
+    @Transaction
+    default void replaceForNote(String noteId, List<Long> categoryIds) {
+        deleteAllForNote(noteId);
+        int count = (categoryIds == null) ? 0 : categoryIds.size();
+        android.util.Log.d("JOIN", "replaceForNote noteId=" + noteId + " count=" + count);
+        if (categoryIds == null) return;
+
+        for (Long cid : categoryIds) {
+            if (cid == null) continue;
+            insert(new NoteCategoryJoin(noteId, cid));
+        }
+    }
+
+
+    @Query("SELECT * FROM categories WHERE id IN (:ids) AND is_archived = 0 ORDER BY sort_order, name")
+    LiveData<List<CategoryEntity>> getCategoriesByIds(List<Long> ids);
 }
