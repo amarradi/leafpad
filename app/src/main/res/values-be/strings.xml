@@ -9,9 +9,9 @@
     <string name="theme_preference">Theme</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="tell_about">Што я хачу расказаць пра Leafpad</string>
-    <string name="action_note_saved">saved</string>
-    <string name="translate">Translate the app on Weblate</string>
-    <string name="hide_hidden">hide hidden notes</string>
+    <string name="action_note_saved">захавана</string>
+    <string name="translate">Перакласці праграму ў Weblate</string>
+    <string name="hide_hidden">схаваць схаваныя нататкі</string>
     <string name="leafpad_work">Leafpad захоўвае ўсе дадзеныя лакальна на вашым смартфоне. Нататкі ці метададзеныя, такія як дата і час, не захоўваюцца ў якім-небудзь воблаке і не абагульваеюцца з кім-небудзь. Аналізу тэкстаў таксама няма. Нататкі належаць вам. Вы вырашаеце, што з імі рабіць.</string>
     <string name="new_note">новая Нататка</string>
     <string name="imported">нататку даслалі ў leafpad</string>
@@ -26,144 +26,144 @@
     <string name="system_preference_key">як у сістэме (стандартная)</string>
     <string name="contentDescription">дадаць новую нататку</string>
     <string name="action_edit_note">Рэдагаваць нататку</string>
-    <string name="note_will_be_saved_first">Note will be saved first</string>
+    <string name="note_will_be_saved_first">Спачатку нататка будзе захавана</string>
     <string name="general_preference">Асноўныя налады</string>
-    <string name="title_licence">Licences</string>
+    <string name="title_licence">Ліцэнзіі</string>
     <string name="remove_dailog_message">Гэта нататка будзе выдалена назаўсёды. Яе будзе немагчыма вярнуць.</string>
     <string name="version">версія</string>
-    <string name="show_note">make the note visible</string>
-    <string name="find_code_on_github_summary">You can view and check the source code via the repository. You are welcome to open an issue for change requests and error messages.</string>
+    <string name="show_note">зрабіць нататку бачнай</string>
+    <string name="find_code_on_github_summary">Паглядзець зыходны код і падзяліцца заўвагамі ў рэпазіторыі.</string>
     <string name="action_share_title">Загаловак</string>
-    <string name="participate">Participate</string>
+    <string name="participate">Удзельнічаць і зрабіць свой унёсак</string>
     <string name="title_hint">Загаловак</string>
     <string name="about">Пра нас</string>
     <string name="theme_summary">Пераключэнне паміж цёмнай і светлай тэмай</string>
     <string name="what_is_leafpad">Leafpad — гэта прастая праграма для стварэння нататак.</string>
     <string name="created_txt">створана ў</string>
     <string name="action_remove">Выдаліць нататку</string>
-    <string name="licence">Open source licenses</string>
+    <string name="licence">Ліцэнзія адкрытага зыходнага кода</string>
     <string name="edited_text">рэдагавалі на</string>
     <string name="body_hint">Нататка</string>
     <string name="lightmode_preference_key">светлая тэма</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="darkmode_preference_key">цёмная тэма</string>
-    <string name="search">search</string>
-    <string name="action_save">save note</string>
-    <string name="share_note">Share Note?</string>
-    <string name="thanks">Thank you Stefan, Stefan, Manuel, Falk and Stephanie for your ideas and testing the app.</string>
-    <string name="statement">We write down shopping lists, notes for conversations, packing lists for vacations or friends\' birthdays. These are all good things so that we don\'t forget them. It\'s very similar with God, he writes down our good and bad deeds and saves them. God is above everything and simply knows everything. God loves people and wants to have fellowship with them. But this is only possible if we are seen by God as blameless. Through faith in Jesus Christ, our bad deeds (our guilt) are wiped out before God. Jesus Christ atoned for our guilt on the cross of Calvary. Every person who accepts this is entered in the book of life forever. Are you registered in the book of life?</string>
-    <string name="hide_note">make the note invisible</string>
-    <string name="translation_help">Help us translate the app into your language on weblate</string>
-    <string name="rev20_12">And I saw the dead, the great and the small, standing before the throne; and books were opened: and another book was opened, which is the book of life: and the dead were judged out of the things which were written in the books, according to their works. Revelation 20:12</string>
-    <string name="its_opensource">Leafpad is OpenSource and its free</string>
+    <string name="search">пошук нататак</string>
+    <string name="action_save">захаваць нататку</string>
+    <string name="share_note">Абагуліць нататку?</string>
+    <string name="thanks">Дзякуй Стефану, Стефану, Мануэлю, Фальку, Стэфані і Эмілю за вашыя ідэі і тэсціраванне праграмы.</string>
+    <string name="statement">Мы запісваем спісы пакупак, нататкі для размоў, спісы таго, што узяць на адпачынак, або дні нараджэння сяброў. Усе гэтыя рэчы не вартыя таго, каб пра іх забывалі. Гэта вельмі падобна на Бога, ён запісвае нашыя добрыя і дрэнныя справы і ратуе іх. Бог над усім існым і ведае ўсё. Бог любіць людзей і хоча мець зносіны з імі. Але гэта магчыма толькі ў тым выпадку, калі мы бачымся Богам як невінаватыя. Дзякуючы веры ў Ісуса Хрыста, нашыя дрэнныя дзеі (нашы грахі) знішчаюцца перад Богам. Ісус Хрыстос адкупіў нашу віну на крыжы Калварыі. Кожны чалавек, які прымае гэта, занесены ў кнігу жыцця назаўжды. Вы зарэгістраваны ў кнізе жыцця?</string>
+    <string name="hide_note">зрабіць нататку нябачнай</string>
+    <string name="translation_help">Дапамажыце перакласці праграму у Weblate.</string>
+    <string name="rev20_12">І ўбачыў я перад пасадам памерлых, вялікіх і малых, што стаяць перад Богам. І былі адкрыты кнігі. І была адкрыта іншая кніга, кніга жыцця. І быў суд над памерлымі за тое, што напісана было ў кнігах, паводле іх ўчынкаў. Адкрыццё 20:12</string>
+    <string name="its_opensource">Leafpad – гэта свабодная і бясплатная праграма</string>
     <string name="satisfied">Задаволеныя leafpad?</string>
     <string name="app_name">Leafpad</string>
     <string name="about_the_app">Пра праграму</string>
     <string name="remove_dialog_title">Упэўнены?</string>
     <string name="action_add_note">Дадаць нататку</string>
-    <string name="show_hidden">show hidden notes</string>
+    <string name="show_hidden">паказаць схаваныя нататкі</string>
     <string name="action_share_note">Абагуліць нататку</string>
-    <string name="note_is_recipe">note is a recipe</string>
-    <string name="note_is_no_recipe">note is no recipe</string>
-    <string name="save">Save all notes as xml</string>
-    <string name="showDeleteConfirmation">Delete notes?</string>
-    <string name="backupIsrunning">Backup is running</string>
-    <string name="no">No</string>
-    <string name="importError">Error when importing notes.</string>
-    <string name="restore">Restore all notes as xml</string>
+    <string name="note_is_recipe">нататка – гэта рэцепт</string>
+    <string name="note_is_no_recipe">гэтая нататка – не рэцепт</string>
+    <string name="save">Захаваць усе нататкі ў XML</string>
+    <string name="showDeleteConfirmation">Выдаліць нататкі?</string>
+    <string name="backupIsrunning">Рэзервовае капіяванне запушчана</string>
+    <string name="no">Не</string>
+    <string name="importError">Здарылася памылка падчас імпарту нататак.</string>
+    <string name="restore">Аднавіць усе нататкі з XML файла</string>
     <plurals name="notes_imported">
-        <item quantity="one">%1$d note imported</item>
-        <item quantity="few">%1$d notes imported</item>
-        <item quantity="many">%1$d notes imported</item>
-        <item quantity="other">%1$d notes imported</item>
+        <item quantity="one">%1$d нататка імпартавана</item>
+        <item quantity="few">%1$d нататкі імпартаваны</item>
+        <item quantity="many">%1$d нататак імпартавана</item>
+        <item quantity="other">%1$d нататак імпартавана</item>
     </plurals>
-    <string name="showDeleteConfirmationMessage">All notes will be permanently deleted. Continue?</string>
-    <string name="yes">Yes</string>
-    <string name="fileOpeningError">Error when opening the file.</string>
-    <string name="delete">Delete</string>
-    <string name="backupfinish">Backup finishes</string>
-    <string name="invalidFile">Invalid backup file. The import was cancelled.</string>
-    <string name="cancel">Cancel</string>
-    <string name="showRestoreConfirmation">Restore?</string>
-    <string name="restore_notes_title">Restore</string>
-    <string name="save_notes_title">Backup</string>
-    <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
-    <string name="toggle">change View</string>
+    <string name="showDeleteConfirmationMessage">Усе нататкі будуць выдалены назаўсёды. Працягнуць?</string>
+    <string name="yes">Так</string>
+    <string name="fileOpeningError">Здарылася памылка падчас адкрыцця файла.</string>
+    <string name="delete">Выдаліць</string>
+    <string name="backupfinish">Рэзервовае капіяванне скончана</string>
+    <string name="invalidFile">Некарэктны файл рэзервовай копіі. Імпарт быў скасаваны.</string>
+    <string name="cancel">Скасаваць</string>
+    <string name="showRestoreConfirmation">Аднавіць?</string>
+    <string name="restore_notes_title">Аднавіць</string>
+    <string name="save_notes_title">Рэзервовая копія</string>
+    <string name="showRestoreConfirmationMessage">Усе бягучыя нататкі будуць замененыя з рэзервовай копіі. Працягнуць?</string>
+    <string name="toggle">змяніць выгляд</string>
     <string name="note_shared">Нататка абагулена</string>
-    <string name="item_menu_description">menu for item actions</string>
+    <string name="item_menu_description">меню ўзаемадзеяння з элементамі</string>
     <string name="save_changes">захаваць змены</string>
-    <string name="search_hint">What are you looking for?</string>
+    <string name="search_hint">Што вы шукаеце?</string>
     <string name="discard">скасаваць</string>
-    <string name="startIconDescription">A search field</string>
+    <string name="startIconDescription">Поле пошуку</string>
     <string name="notification_of_change_description">Апавяшчаць пра змены ў нататцы</string>
     <string name="notification_of_change">Апавяшчэнні пра змены</string>
-    <string name="not_initialized">Leafpad not initialized yet!</string>
+    <string name="not_initialized">Leafpad яшчэ не ініцыялізаваны!</string>
     <string name="unsaved_changes_message">Ваша нататка змянілася. Вы хочаце захаваць ці скасаваць змены?</string>
     <string name="unsaved_changes_title">Незахаваныя змены</string>
-    <string name="no_search_results">Nothing found</string>
-    <string name="empty_list">No notes available in the list</string>
-    <string name="set">It is a recipe</string>
-    <string name="close_release_note">Close Button</string>
-    <string name="title_required">Title required</string>
-    <string name="keep_screen_on_dialog_yes">Yes</string>
-    <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
-    <string name="keep_screen_on_dialog_no">No</string>
-    <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
-    <string name="keep_screen_on_title">Keep screen on</string>
-    <string name="keep_screen_on_dialog_title">Battery usage warning</string>
+    <string name="no_search_results">Нічога не знойдзена</string>
+    <string name="empty_list">У спісе адсутнічаюць нататкі</string>
+    <string name="set">Гэта рэцепт</string>
+    <string name="close_release_note">Кнопка закрыцця</string>
+    <string name="title_required">Неабходны загаловак</string>
+    <string name="keep_screen_on_dialog_yes">Так</string>
+    <string name="keep_screen_on_dialog_message">Калі экран уключаны, гэта можа значна павялічыць спажыванне энергіі батарэі. Вы ўпэўненыя, што хочаце ўключыць гэту функцыю?</string>
+    <string name="keep_screen_on_dialog_no">Не</string>
+    <string name="keep_screen_on_summary">Забараніць выключэнне экрана падчас выкарыстання Leafpad</string>
+    <string name="keep_screen_on_title">Трымаць экран уключаным</string>
+    <string name="keep_screen_on_dialog_title">Папярэджанне аб выкарыстанні батарэі</string>
     <string name="country_title_translator_czech" translatable="false">MessingWithComputers(@MessingWithComputers)</string>
-    <string name="country_title_french">French</string>
+    <string name="country_title_french">Французская</string>
     <string name="country_title_translator_portuguese" translatable="false">Lucas Alves Rego(@devlulcas), Ettlu selva rula(@Ttormor)</string>
-    <string name="country_title_catalan">Catalan</string>
-    <string name="country_title_spanish">Spanish</string>
+    <string name="country_title_catalan">Каталонская</string>
+    <string name="country_title_spanish">Іспанская</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
-    <string name="country_title_albanian">Albanian</string>
-    <string name="country_title_indonesian">Indonesian</string>
-    <string name="country_title_russian">Russian</string>
+    <string name="country_title_albanian">Албанская</string>
+    <string name="country_title_indonesian">Інданезійская</string>
+    <string name="country_title_russian">Руская</string>
     <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
-    <string name="please_enter_a_title">Please enter a title for the note before you can save it.</string>
-    <string name="country_title_tamil">Tamil</string>
+    <string name="please_enter_a_title">Увядзіце загаловак нататкі, каб захаваць. Альбо выдаліце нататку.</string>
+    <string name="country_title_tamil">Тамільская</string>
     <string name="country_title_translator_hindi" translatable="false">Harshit Sethi(@hstsethi)</string>
     <string name="country_title_translator_english" translatable="false">Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l), Santiago Centeno(@Java16)</string>
-    <string name="country_title_polish">Polish</string>
+    <string name="country_title_polish">Польская</string>
     <string name="country_title_translator_indonesian" translatable="false">Arif Budiman(@arifpedia), toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
-    <string name="country_title_german">German</string>
+    <string name="country_title_german">Нямецкая</string>
     <string name="country_title_translator_french" translatable="false">Leonart(@Leonart), Omgeta(@Omgeta), michte(@michte), David D.(@Dadu042)</string>
     <string name="country_title_translator_arabic" translatable="false">Asaad Zein(@asaadzx)</string>
-    <string name="country_title_ukrainian">Ukrainian</string>
+    <string name="country_title_ukrainian">Украінская</string>
     <string name="country_title_translator_spanish" translatable="false">Sofia Gutierrez(@SofiaIrina9), Zarahi Ander(@TradZarahi), Francisco Serrador(@fserrador), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Marco(@Megido), Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), Abraham Mendoza(@1Alide1), zergio inzunza(@n1kf4m3l)</string>
-    <string name="country_title_greek">Greek</string>
+    <string name="country_title_greek">Грэцкая</string>
     <string name="country_title_translator_polish" translatable="false">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
     <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero), Davide Secco(@davidesecco)</string>
-    <string name="country_title_arabic">Arabic</string>
-    <string name="country_title_italian">Italian</string>
+    <string name="country_title_arabic">Арабская</string>
+    <string name="country_title_italian">Італьянская</string>
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_translator_ukrainian" translatable="false">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
     <string name="country_title_translator_russian" translatable="false">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), vanapro1(@vanapro1), Sotski Eugene(@jekakmail), MrSliv69(@MrSliv69), Steven Barash(@stevenbarash), Rachel Podya(@homicide@disroot.org), SnIPeRSnIPeR(@SnIPeRSnIPeR), Santiago Centeno(@Java16)</string>
-    <string name="country_title_czech">Czech</string>
-    <string name="country_title_english">English</string>
-    <string name="country_title_portuguese">Portuguese</string>
+    <string name="country_title_czech">Чэшская</string>
+    <string name="country_title_english">Англійская</string>
+    <string name="country_title_portuguese">Партугальская</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Blubberland(@Blubberland), Maximilian Hüttner(@MaxHue)</string>
     <string name="country_title_hindi_latin">Hindi (Latin script)</string>
-    <string name="country_title_hindi">Hindi</string>
+    <string name="country_title_hindi">Хіндзі</string>
     <string name="country_title_translator_estonian" translatable="false">Priit Jõerüüt(@jrthwlate)</string>
-    <string name="country_title_estonian">Estonian</string>
+    <string name="country_title_estonian">Эстонская</string>
     <string name="country_title_translator_chinese_traditional_han_script" translatable="false">imcc(@imcc)</string>
     <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
     <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
     <string name="country_title_translator_chinese_simplified_han_script" translatable="false">雲の中を漂う船(@KumoNoFune), imcc(@imcc)</string>
-    <string name="country_title_chinese_simplified_han_script">Chinese (Simplified Han script)</string>
-    <string name="country_title_chinese_traditional_han_script">Chinese (Traditional Han script)</string>
-    <string name="country_title_hindi_latin_script">Hindi (Latin script)</string>
-    <string name="country_title_uzbek">Uzbek</string>
+    <string name="country_title_chinese_simplified_han_script">Кітайская (Спрошчанная пісьменнасць Хань)</string>
+    <string name="country_title_chinese_traditional_han_script">Кітайская (Традыцыйная пісьменнасць Хань)</string>
+    <string name="country_title_hindi_latin_script">Хіндзі (лацінка)</string>
+    <string name="country_title_uzbek">Узбекская</string>
     <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
     <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
-    <string name="country_title_gothic">Gothic</string>
-    <string name="country_title_dutch">Dutch</string>
-    <string name="menu_about">About Leafpad</string>
-    <string name="country_title_danish">Danish</string>
+    <string name="country_title_gothic">Гоцкая</string>
+    <string name="country_title_dutch">Галандская</string>
+    <string name="menu_about">Пра Leafpad</string>
+    <string name="country_title_danish">Дацкая</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
-    <string name="country_title_serbian">Serbian</string>
+    <string name="country_title_serbian">Сербская</string>
 </resources>
