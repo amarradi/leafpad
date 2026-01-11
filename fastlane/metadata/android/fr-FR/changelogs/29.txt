@@ -1,0 +1,5 @@
+* Bouton d'enregistrement : activé uniquement quand la note a été modifiée
+* Le mode lecture est maintenant correctement utilisé
+* Les notes vides peuvent maintenant être supprimées
+* Les traducteurs ont maintenant une section de remerciements plus claire
+* Plusieurs bugs ont été résolus
