@@ -30,7 +30,6 @@ public class NoteViewModel extends AndroidViewModel {
     private final NoteRepository noteRepository;
     private final LiveData<List<NoteEntity>> allNoteEntities;
     private LiveData<List<CategoryEntity>> categoriesForSelectedNote;
-
     private final MutableLiveData<List<Note>> notesLiveData = new MutableLiveData<>();
     private static final MutableLiveData<Note> selectedNote = new MutableLiveData<>();
     private final MutableLiveData<Note> originalNote = new MutableLiveData<>();
@@ -68,10 +67,16 @@ public class NoteViewModel extends AndroidViewModel {
 
     private final MutableLiveData<List<Long>> originalCategoryIds = new MutableLiveData<>(new ArrayList<>());
     private final MutableLiveData<List<Long>> currentCategoryIds = new MutableLiveData<>(new ArrayList<>());
-
     public LiveData<List<CategoryEntity>> getCategoriesForSelectedNote() {
         return categoriesForSelectedNote;
     }
+
+    private final LiveData<java.util.Map<String, List<CategoryEntity>>> categoriesByNoteId;
+
+    public LiveData<java.util.Map<String, List<CategoryEntity>>> getCategoriesByNoteId() {
+        return categoriesByNoteId;
+    }
+
 
     private Object releaseNoteHeader;
 
@@ -336,6 +341,36 @@ public class NoteViewModel extends AndroidViewModel {
         super(application);
 
         noteRepository = new NoteRepository(application);
+        categoriesByNoteId = Transformations.map(
+                noteRepository.getAllActiveNoteCategoryRows(),
+                rows -> {
+                    java.util.Map<String, List<CategoryEntity>> map = new java.util.HashMap<>();
+                    if (rows == null) return map;
+
+                    for (com.git.amarradi.leafpad.model.NoteCategoryRow r : rows) {
+                        if (r.noteId == null) continue;
+
+                        List<CategoryEntity> list = map.get(r.noteId);
+                        if (list == null) {
+                            list = new ArrayList<>();
+                            map.put(r.noteId, list);
+                        }
+
+                        // CategoryEntity befüllen
+                        CategoryEntity c = new CategoryEntity(
+                                r.name,
+                                r.normalizedName,
+                                r.colorHex,
+                                r.sortOrder,
+                                r.isArchived
+                        );
+                        c.id = r.categoryId;
+                        list.add(c);
+                    }
+                    return map;
+                }
+        );
+
         categoriesForSelectedNote =
                 Transformations.switchMap(currentCategoryIds, ids -> {
                     MutableLiveData<List<CategoryEntity>> empty = new MutableLiveData<>();

@@ -54,5 +54,23 @@ public interface CategoryDao {
     @Query("SELECT * FROM categories WHERE normalized_name = :normalized LIMIT 1")
     LiveData<CategoryEntity> getByNormalized(String normalized);
 
+    @Query("""
+                SELECT DISTINCT
+                    nc.note_id AS noteId,
+                    c.id AS categoryId,
+                    c.name AS name,
+                    c.normalized_name AS normalizedName,
+                    c.color_hex AS colorHex,
+                    c.sort_order AS sortOrder,
+                    c.is_archived AS isArchived
+                FROM note_category_join nc
+                INNER JOIN categories c ON c.id = nc.category_id
+                WHERE c.is_archived = 0
+                ORDER BY nc.note_id, c.sort_order, c.name
+            """)
+    LiveData<List<NoteCategoryRow>> getAllActiveNoteCategoryRows();
+
+
+
 
 }

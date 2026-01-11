@@ -1,18 +1,22 @@
 package com.git.amarradi.leafpad.adapter;
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.git.amarradi.leafpad.R;
+import com.git.amarradi.leafpad.helper.ColorUtilsHelper;
 import com.git.amarradi.leafpad.model.CategoryEntity;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.checkbox.MaterialCheckBox;
+import com.google.android.material.textview.MaterialTextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +28,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     private final List<Long> selectedCategoryIds = new ArrayList<>();
 
     private boolean selectionEnabled = true;
+
+    private MaterialCardView card;
+
 
     public interface Listener {
         void onEditCategory(CategoryEntity category);
@@ -73,7 +80,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
         final CategoryEntity category = categories.get(position);
         holder.nameText.setText(category.name);
-
+        applyCategoryColors(
+                holder.card,
+                holder.nameText,
+                holder.materialCheckBox,
+                holder.editButton,
+                holder.deleteButton,
+                category
+        );
         holder.materialCheckBox.setOnCheckedChangeListener(null);
         boolean checked = selectedCategoryIds.contains(category.id);
         holder.materialCheckBox.setChecked(checked);
@@ -112,6 +126,47 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     }
 
+    private void applyCategoryColors(
+            MaterialCardView card,
+            MaterialTextView nameText,
+            MaterialCheckBox checkBox,
+            ImageButton btnEdit,
+            ImageButton btnDelete,
+            CategoryEntity category
+    ) {
+        if (category == null) return;
+
+        int baseColor;
+        try {
+            baseColor = Color.parseColor(category.colorHex);
+        } catch (Exception e) {
+            baseColor = Color.parseColor("#CCCCCC");
+        }
+
+        int bgColor = ColorUtilsHelper.lightenColor(baseColor, 0.35f);
+
+        // Card: Umrandung + Hintergrund
+        card.setStrokeWidth(
+                ColorUtilsHelper.dpToPx(card.getContext(), 2)
+        );
+        card.setStrokeColor(baseColor);
+        card.setCardBackgroundColor(bgColor);
+
+        // Kontrastfarbe berechnen
+        boolean darkBg =
+                androidx.core.graphics.ColorUtils.calculateLuminance(bgColor) < 0.5;
+        int textColor = darkBg ? Color.WHITE : Color.BLACK;
+
+        // Text & Icons
+        nameText.setTextColor(textColor);
+        btnEdit.setColorFilter(textColor);
+        btnDelete.setColorFilter(textColor);
+
+        // Checkbox (optional, aber sauber)
+        checkBox.setButtonTintList(ColorStateList.valueOf(textColor));
+    }
+
+
 
     @Override
     public int getItemCount() {
@@ -120,10 +175,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     static class CategoryViewHolder extends RecyclerView.ViewHolder {
 
-        TextView nameText;
+        MaterialTextView nameText;
         MaterialCheckBox materialCheckBox;
         ImageButton editButton;
         ImageButton deleteButton;
+        MaterialCardView card;
+
 
 
         public CategoryViewHolder(@NonNull View itemView) {
@@ -132,6 +189,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             materialCheckBox = itemView.findViewById(R.id.category_checkbox);
             editButton = itemView.findViewById(R.id.btnEdit);
             deleteButton = itemView.findViewById(R.id.btnDelete);
+            card = itemView.findViewById(R.id.category_card);
+
         }
     }
 }

@@ -50,6 +50,7 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final OnReleaseNoteCloseListener releaseNoteCloseListener;
     private final NoteViewModel noteViewModel;
     private final LifecycleOwner lifecycleOwner;
+    private java.util.Map<String, List<CategoryEntity>> categoriesByNoteId = new java.util.HashMap<>();
 
 
     public enum LayoutMode {
@@ -249,53 +250,58 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         // ------------------------------------------------------------
         ChipGroup chipGroup = noteHolder.categoryChipGroup;
         chipGroup.removeAllViews();
-        chipGroup.setVisibility(View.GONE);
 
-        noteViewModel.getCategoriesForNote(note.getId())
-                .observe(lifecycleOwner, categories -> {
+        List<CategoryEntity> categories = categoriesByNoteId.get(note.getId());
+        bindChips(chipGroup, categories);
 
-                    chipGroup.removeAllViews();
+        //  chipGroup.setVisibility(View.GONE);
 
-                    if (categories == null || categories.isEmpty()) {
-                        chipGroup.setVisibility(View.GONE);
-                        return;
-                    }
+//        noteViewModel.getCategoriesForNote(note.getId())
+//                .observe(lifecycleOwner, categories -> {
+//
+//                    chipGroup.removeAllViews();
+//
+//                    if (categories == null || categories.isEmpty()) {
+//                        chipGroup.setVisibility(View.GONE);
+//                        return;
+//                    }
+//
+//                    chipGroup.setVisibility(View.VISIBLE);
+//
+//                    for (CategoryEntity c : categories) {
+//                        Context ctx = new ContextThemeWrapper(
+//                                chipGroup.getContext(),
+//                                R.style.Widget_App_Chip
+//                        );
+//
+//                        Chip chip;
+//
+//                        chip = new Chip(ctx);
+//                        chip.setText(c.name);
+//                        int color = Color.parseColor(c.colorHex);
+//                        ColorStateList stateColor = new ColorStateList(
+//                                new int[][]{new int[]{android.R.attr.state_enabled}, new int[]{}},
+//                                new int[]{color, color}
+//                        );
+//                        chip.setTextColor(stateColor);
+//                        chip.setChipStrokeColor(stateColor);
+//
+//                        // bewusst minimal
+//                        chip.setClickable(false);
+//                        chip.setCheckable(false);
+//                        chip.setEnsureMinTouchTargetSize(false);
+//
+//                        // einfache, robuste Farbe
+//                        if (c.colorHex != null) {
+//                            try {
+//                                chip.setTextColor(color);
+//                            } catch (IllegalArgumentException ignored) {}
+//                        }
+//
+//                        chipGroup.addView(chip);
+//                    }
+//                });
 
-                    chipGroup.setVisibility(View.VISIBLE);
-
-                    for (CategoryEntity c : categories) {
-                        Context ctx = new ContextThemeWrapper(
-                                chipGroup.getContext(),
-                                R.style.Widget_App_Chip
-                        );
-
-                        Chip chip;
-
-                        chip = new Chip(ctx);
-                        chip.setText(c.name);
-                        int color = Color.parseColor(c.colorHex);
-                        ColorStateList stateColor = new ColorStateList(
-                                new int[][]{new int[]{android.R.attr.state_enabled}, new int[]{}},
-                                new int[]{color, color}
-                        );
-                        chip.setTextColor(stateColor);
-                        chip.setChipStrokeColor(stateColor);
-
-                        // bewusst minimal
-                        chip.setClickable(false);
-                        chip.setCheckable(false);
-                        chip.setEnsureMinTouchTargetSize(false);
-
-                        // einfache, robuste Farbe
-                        if (c.colorHex != null) {
-                            try {
-                                chip.setTextColor(color);
-                            } catch (IllegalArgumentException ignored) {}
-                        }
-
-                        chipGroup.addView(chip);
-                    }
-                });
 
         // ------------------------------------------------------------
         // Bibel-Link-Erkennung
@@ -315,6 +321,47 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 v -> listener.onNoteIconClicked(note, noteHolder.actionButton)
         );
     }
+
+    private void bindChips(ChipGroup chipGroup, List<CategoryEntity> categories) {
+        chipGroup.removeAllViews();
+
+        if (categories == null || categories.isEmpty()) {
+            chipGroup.setVisibility(View.GONE);
+            return;
+        }
+
+        chipGroup.setVisibility(View.VISIBLE);
+
+        for (CategoryEntity c : categories) {
+            Context ctx = new ContextThemeWrapper(chipGroup.getContext(), R.style.Widget_App_Chip);
+            Chip chip = new Chip(ctx);
+            chip.setText(c.name);
+
+            int baseColor;
+            try {
+                baseColor = Color.parseColor(c.colorHex);
+            } catch (Exception e) {
+                baseColor = Color.GRAY;
+            }
+
+            int bgColor = com.git.amarradi.leafpad.helper.ColorUtilsHelper.lightenColor(baseColor, 0.35f);
+
+            chip.setChipStrokeWidth(com.git.amarradi.leafpad.helper.ColorUtilsHelper.dpToPx(chip.getContext(), 2));
+            chip.setChipStrokeColor(ColorStateList.valueOf(baseColor));
+            chip.setChipBackgroundColor(ColorStateList.valueOf(bgColor));
+
+            boolean darkBg = androidx.core.graphics.ColorUtils.calculateLuminance(bgColor) < 0.5;
+            int textColor = darkBg ? Color.WHITE : Color.BLACK;
+            chip.setTextColor(textColor);
+
+            chip.setClickable(false);
+            chip.setCheckable(false);
+            chip.setEnsureMinTouchTargetSize(false);
+
+            chipGroup.addView(chip);
+        }
+    }
+
 
 
     // ViewHolder für ReleaseNote-Header
@@ -436,4 +483,10 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.noteList = filtered;
         buildCombinedListAndNotify();
     }
+
+    public void setCategoriesByNoteId(java.util.Map<String, List<CategoryEntity>> map) {
+        categoriesByNoteId = (map != null) ? map : new java.util.HashMap<>();
+        notifyDataSetChanged();
+    }
+
 }

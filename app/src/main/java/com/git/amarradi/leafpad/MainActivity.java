@@ -145,6 +145,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
 
         recyclerView.setAdapter(noteAdapter);
+        noteViewModel.getCategoriesByNoteId().observe(this, map -> {
+            noteAdapter.setCategoriesByNoteId(map);
+        });
 
         Leafpad.getInstance().applyCurrentLayoutMode(recyclerView, noteAdapter);
 

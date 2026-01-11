@@ -11,6 +11,7 @@ import java.util.concurrent.Executors;
 public class NoteRepository {
 
     private final NoteDao noteDao;
+    private final CategoryDao categoryDao;
 
     private final NoteCategoryDao noteCategoryDao;
     private final LiveData<List<NoteEntity>> allNotes;
@@ -19,6 +20,7 @@ public class NoteRepository {
     public NoteRepository(Application application) {
         AppDatabase db = AppDatabase.getInstance(application);
         noteDao = db.noteDao();
+        categoryDao = db.categoryDao();
         noteCategoryDao = db.noteCategoryDao();
         allNotes = noteDao.getAllNotes();
     }
@@ -101,6 +103,10 @@ public class NoteRepository {
 
     public LiveData<List<CategoryEntity>> getCategoriesByIds(List<Long> ids) {
         return noteCategoryDao.getCategoriesByIds(ids);
+    }
+
+    public LiveData<List<NoteCategoryRow>> getAllActiveNoteCategoryRows() {
+        return categoryDao.getAllActiveNoteCategoryRows();
     }
 
 }
