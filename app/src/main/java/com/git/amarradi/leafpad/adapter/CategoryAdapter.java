@@ -1,7 +1,5 @@
 package com.git.amarradi.leafpad.adapter;
 
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +14,7 @@ import com.git.amarradi.leafpad.helper.ColorUtilsHelper;
 import com.git.amarradi.leafpad.model.CategoryEntity;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.checkbox.MaterialCheckBox;
+import com.google.android.material.color.MaterialColors;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.util.ArrayList;
@@ -83,7 +82,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         applyCategoryColors(
                 holder.card,
                 holder.nameText,
-                holder.materialCheckBox,
                 holder.editButton,
                 holder.deleteButton,
                 category
@@ -129,43 +127,29 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     private void applyCategoryColors(
             MaterialCardView card,
             MaterialTextView nameText,
-            MaterialCheckBox checkBox,
             ImageButton btnEdit,
             ImageButton btnDelete,
             CategoryEntity category
     ) {
         if (category == null) return;
 
-        int baseColor;
-        try {
-            baseColor = Color.parseColor(category.colorHex);
-        } catch (Exception e) {
-            baseColor = Color.parseColor("#CCCCCC");
-        }
+        int baseColor = ColorUtilsHelper.parseCategoryColor(category.colorHex);
 
-        int bgColor = ColorUtilsHelper.lightenColor(baseColor, 0.35f);
+        int bgColor = ColorUtilsHelper.getCategoryBackgroundColor(baseColor);
 
-        // Card: Umrandung + Hintergrund
-        card.setStrokeWidth(
-                ColorUtilsHelper.dpToPx(card.getContext(), 2)
-        );
+        card.setStrokeWidth(ColorUtilsHelper.dpToPx(card.getContext(), 2));
         card.setStrokeColor(baseColor);
         card.setCardBackgroundColor(bgColor);
 
-        // Kontrastfarbe berechnen
-        boolean darkBg =
-                androidx.core.graphics.ColorUtils.calculateLuminance(bgColor) < 0.5;
-        int textColor = darkBg ? Color.WHITE : Color.BLACK;
+        int primaryColor = MaterialColors.getColor(
+                card,
+                com.google.android.material.R.attr.colorPrimary
+        );
 
-        // Text & Icons
-        nameText.setTextColor(textColor);
-        btnEdit.setColorFilter(textColor);
-        btnDelete.setColorFilter(textColor);
-
-        // Checkbox (optional, aber sauber)
-        checkBox.setButtonTintList(ColorStateList.valueOf(textColor));
+        nameText.setTextColor(primaryColor);
+        btnEdit.setColorFilter(primaryColor);
+        btnDelete.setColorFilter(primaryColor);
     }
-
 
 
     @Override
