@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.git.amarradi.leafpad.adapter.NoteAdapter;
 import com.git.amarradi.leafpad.helper.LayoutModeHelper;
+import com.git.amarradi.leafpad.helper.LeafstoreImporter;
 
 import java.io.IOException;
 
@@ -39,6 +40,9 @@ public class Leafpad extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
+
+        LeafstoreImporter.importIfNeeded(this);
+
         migrateOldDesignMode();
         applyTheme();
         saveShowHidden(false);
