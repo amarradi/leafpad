@@ -12,11 +12,19 @@ import java.util.List;
 
 @Dao
 public interface NoteDao {
-
-    @Query("SELECT * FROM notes ORDER BY notedate DESC, notetime DESC")
+    @Query("SELECT * FROM notes " +
+            "ORDER BY " +
+            "substr(notedate, 7, 4) || substr(notedate, 4, 2) || substr(notedate, 1, 2) DESC, " +
+            "notetime DESC")
+        // @Query("SELECT * FROM notes ORDER BY notedate DESC, notetime DESC")
     LiveData<List<NoteEntity>> getAllNotes();
 
-    @Query("SELECT * FROM notes WHERE hide = 0 ORDER BY notedate DESC, notetime DESC")
+    @Query("SELECT * FROM notes " +
+            "WHERE hide = 0 " +
+            "ORDER BY " +
+            "substr(notedate, 7, 4) || substr(notedate, 4, 2) || substr(notedate, 1, 2) DESC, " +
+            "notetime DESC")
+        // @Query("SELECT * FROM notes WHERE hide = 0 ORDER BY notedate DESC, notetime DESC")
     LiveData<List<NoteEntity>> getVisibleNotes();
 
     @Query("SELECT * FROM notes WHERE id = :noteId LIMIT 1")
