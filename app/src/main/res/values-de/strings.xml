@@ -8,14 +8,14 @@
     <string name="action_share_title">Titel</string>
     <string name="action_share_body">Notiz</string>
     <string name="action_remove">Notiz löschen</string>
-    <string name="action_fab_note">notieren</string>
-    <string name="add_shortcut_short_label">neues notieren</string>
+    <string name="action_fab_note">Notieren</string>
+    <string name="add_shortcut_short_label">Neues notieren</string>
     <string name="title_hint">Titel</string>
     <string name="body_hint">Notiz</string>
-    <string name="contentDescription">fügt eine neue Notiz hinzu</string>
+    <string name="contentDescription">Fügt eine neue Notiz hinzu</string>
     <string name="imported">Notiz wurde an leafpad geschickt</string>
     <string name="edited_text">Bearbeitet am</string>
-    <string name="new_note">neue Notiz</string>
+    <string name="new_note">Neue Notiz</string>
     <string name="satisfied">Gefällt Ihnen leafpad?</string>
     <string name="rate_the_app">Wie wäre es mit einer Bewertung im PlayStore von Google? Dann öffne direkt Google Play.</string>
     <string name="created_txt">Notiz erstellt am</string>
@@ -27,7 +27,7 @@
     <string name="theme_preference">Erscheinungsbild</string>
     <string name="lightmode_preference_key">Hell</string>
     <string name="darkmode_preference_key">Dunkel</string>
-    <string name="system_preference_key">Systemstandard (standard)</string>
+    <string name="system_preference_key">Systemstandard (Standard)</string>
     <string name="theme_summary">Umschalten zwischen dunkel und hell</string>
     <string name="about">Über</string>
     <string name="about_the_app">Über die App</string>
@@ -53,7 +53,7 @@
     <string name="note_will_be_saved_first">Notiz wird erst gespeichert</string>
     <string name="thanks">Danke Stefan, Stefan, Manuel, Falk, Stephanie und Emil für eure Ideen und das Testen der App.</string>
     <string name="action_save">Notiz speichern</string>
-    <string name="action_note_saved">gespeichert</string>
+    <string name="action_note_saved">Notiz gespeichert</string>
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="lightmode_preference" translatable="false">lightmode</string>
@@ -66,8 +66,8 @@
     <string name="translation_help">Hilf uns bei der Übersetzung der App in deine Sprache auf weblate</string>
     <string name="hide_note">Die Notiz unsichtbar machen</string>
     <string name="show_note">Die Notiz sichtbar machen</string>
-    <string name="show_hidden">zeige versteckte Notizen</string>
-    <string name="hide_hidden">verberge versteckte Notizen</string>
+    <string name="show_hidden">Zeige versteckte Notizen</string>
+    <string name="hide_hidden">Verberge versteckte Notizen</string>
     <string name="note_is_recipe">Die Notiz ist ein Rezept</string>
     <string name="note_is_no_recipe">Die Notiz ist kein Rezept</string>
     <string name="importError">Fehler beim Importieren der Notizen.</string>
@@ -102,7 +102,7 @@
     <string name="no_search_results">Nichts gefunden</string>
     <string name="startIconDescription">Ein Suchfeld</string>
     <string name="note_shared">Geteilte Notiz</string>
-    <string name="item_menu_description">menu for item actions</string>
+    <string name="item_menu_description">Menü für Aktionen</string>
     <string name="set">Es ist ein Rezept</string>
     <string name="close_release_note">Button zum Schließen</string>
     <string name="title_required">Titel erforderlich</string>
