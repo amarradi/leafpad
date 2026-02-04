@@ -227,7 +227,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             menuItem.setTitle(getString(R.string.show_note));
             menuItem.setIcon(getDrawable(R.drawable.btn_show));
         } else {
-            menuItem.setTitle(getString(R.string.hide_hidden));
+            menuItem.setTitle(getString(R.string.hide_note));
             menuItem.setIcon(getDrawable(R.drawable.btn_hide));
         }
         LayoutModeHelper.forcePopupMenuIcons(popup);
