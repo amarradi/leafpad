@@ -1,0 +1,5 @@
+* Botó de Guardar: només s'activa quan la nota ha sigut modificada
+* El mode lectura ara funciona correctament
+* Ara pots descartar les notes buides
+* Els traductors ara tenen una secció d'agraïment més clara
+* S'han solucionat diversos errors
