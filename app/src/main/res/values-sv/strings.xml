@@ -26,7 +26,7 @@
     <string name="contentDescription">lägg till ny Note</string>
     <string name="action_edit_note">Edit Note</string>
     <string name="note_will_be_saved_first">Note kommer att sparas först</string>
-    <string name="general_preference">General general</string>
+    <string name="general_preference">Allmänna inställningar</string>
     <string name="title_licence">Licenser</string>
     <string name="remove_dailog_message">Denna anmärkning kommer att raderas permanent. Därefter kan den inte återställas.</string>
     <string name="version">version</string>
@@ -82,13 +82,13 @@
     <string name="backupfinish">Backup finishes</string>
     <string name="invalidFile">Invalid backup file. The import was cancelled.</string>
     <string name="cancel">Cancel</string>
-    <string name="showRestoreConfirmation">Restore?</string>
+    <string name="showRestoreConfirmation">Återställ?</string>
     <string name="restore_notes_title">Återställ</string>
     <string name="save_notes_title">Säkerhetskopia</string>
-    <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
+    <string name="showRestoreConfirmationMessage">Alla aktuella anteckningar kommer att ersättas av backupen. Fortsätt?</string>
     <string name="toggle">change View</string>
     <string name="note_shared">Anteckning delad</string>
-    <string name="discard">discard</string>
+    <string name="discard">förkasta</string>
     <string name="item_menu_description">menu for item actions</string>
     <string name="save_changes">spara ändringar</string>
     <string name="search_hint">What are you looking for?</string>
@@ -96,7 +96,7 @@
     <string name="notification_of_change_description">Meddela om ändringar i anteckningar</string>
     <string name="notification_of_change">Meddelande om ändringar</string>
     <string name="not_initialized">Leafpad not initialized yet!</string>
-    <string name="unsaved_changes_message">Your note has changed. Do you want to save or discard the changes?</string>
+    <string name="unsaved_changes_message">Din anteckning har förändrats. Vill du spara eller kassera ändringarna?</string>
     <string name="unsaved_changes_title">Osparade förändringar</string>
     <string name="no_search_results">Nothing found</string>
     <string name="empty_list">No notes available in the list</string>
