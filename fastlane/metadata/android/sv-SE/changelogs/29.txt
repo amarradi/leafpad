@@ -1,0 +1,5 @@
+* Sparaknapp: Aktiveras bara när anteckningen faktiskt har ändringar
+* Läsläge används nu korrekt
+* Tomma anteckningar kan nu kastas
+* Översättare har nu en tydligare tacksektion
+* Flertalet buggar har fixats
