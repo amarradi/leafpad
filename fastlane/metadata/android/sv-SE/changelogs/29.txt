@@ -1,5 +1,5 @@
-* Sparaknapp: Aktiveras bara när anteckningen faktiskt har ändringar
+**************************************************************************************************************************************************************************************************************************************************************** Spara knapp: aktiveras endast när noten faktiskt har ändrats
 * Läsläge används nu korrekt
-* Tomma anteckningar kan nu kastas
-* Översättare har nu en tydligare tacksektion
-* Flertalet buggar har fixats
+Tomma anteckningar kan nu kasseras
+Översättare har nu en tydligare tacksektion
+* Flera buggar har fixats
