@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
@@ -28,6 +29,13 @@ public class Leaf {
     private final static String BODY_PREFIX = "note_body_";
     private final static boolean HIDE = false;
     private final static String CATEGORY ="note_category_";
+
+
+    public static List<Note> loadAllForBackup(Context context) {
+        List<Note> notes = Leaf.loadAllForBackup(context);
+
+        return notes;
+    }
 
     public static ArrayList<Note> loadAll(Context context, boolean includeHidden) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(STORE_PREF, Context.MODE_PRIVATE);

@@ -78,6 +78,7 @@
     <plurals name="notes_imported">
         <item quantity="other">%1$d catatan diimpor</item>
     </plurals>
+    <plurals name="notes_exported">Notes Backuped</plurals>
     <string name="fileOpeningError">Kesalahan saat membuka berkas.</string>
     <string name="delete">Hapus</string>
     <string name="backupfinish">Cadangan selesai</string>
@@ -114,6 +115,7 @@
     <string name="country_title_catalan">Katalan</string>
     <string name="country_title_spanish">Spanyol</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
+    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">Albania</string>
     <string name="country_title_indonesian">Indonesia</string>
     <string name="country_title_russian">Rusia</string>

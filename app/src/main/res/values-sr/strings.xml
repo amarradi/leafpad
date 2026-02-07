@@ -46,6 +46,7 @@
         <item quantity="few">%1$d beleške uvezeno</item>
         <item quantity="other">%1$d beleški uvezeno</item>
     </plurals>
+    <plurals name="notes_exported">Notes Backuped</plurals>
     <string name="fileOpeningError">Greška pri otvaranju fajla.</string>
     <string name="note_will_be_saved_first">Beleška će prvo biti sačuvana</string>
     <string name="delete">Izbriši</string>
@@ -111,6 +112,7 @@
     <string name="show_hidden">prikaži skrivene beleške</string>
     <string name="empty_list">Nema beleški u listi</string>
     <string name="action_share_note">Podeli belešku</string>
+    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">Albanian</string>
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_arabic">Arabic</string>

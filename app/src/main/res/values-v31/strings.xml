@@ -16,4 +16,5 @@
     <string name="error">error</string>
     <string name="category_already_exists">Category allready exists</string>
     <string name="database_error">database error</string>
+    <plurals name="notes_exported">Notes Backuped</plurals>
 </resources>

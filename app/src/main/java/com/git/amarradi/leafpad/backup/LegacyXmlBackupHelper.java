@@ -1,4 +1,4 @@
-package com.git.amarradi.leafpad.helper;
+package com.git.amarradi.leafpad.backup;
 
 import android.content.Context;
 
@@ -15,7 +15,7 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NoteBackupHelper {
+public class LegacyXmlBackupHelper {
 
 
     public static final String BASE_NAME = "leafpad_";

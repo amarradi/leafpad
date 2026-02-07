@@ -77,6 +77,7 @@
         <item quantity="one">En note er importeret</item>
         <item quantity="other">%1$d noter er importeret</item>
     </plurals>
+    <plurals name="notes_exported">Notes Backuped</plurals>
     <string name="fileOpeningError">Fejl ved åbning af filen.</string>
     <string name="delete">Slet</string>
     <string name="backupfinish">Sikkerhedskopiering er færdig</string>
@@ -115,6 +116,7 @@
     <string name="country_title_catalan">Catalansk</string>
     <string name="country_title_spanish">Spansk</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
+    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">Albansk</string>
     <string name="country_title_indonesian">Indonesisk</string>
     <string name="country_title_russian">Russisk</string>

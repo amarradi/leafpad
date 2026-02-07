@@ -78,6 +78,7 @@
         <item quantity="many">%1$d notas importadas</item>
         <item quantity="other">%1$d notas importadas</item>
     </plurals>
+    <plurals name="notes_exported">Notes Backuped</plurals>
     <string name="fileOpeningError">Error al abrir el archivo.</string>
     <string name="delete">Eliminar</string>
     <string name="backupfinish">Copia de respaldo finalizada</string>
@@ -116,6 +117,7 @@
     <string name="country_title_catalan">Catalan</string>
     <string name="country_title_spanish">Español</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
+    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">Albania</string>
     <string name="country_title_indonesian">Indonesia</string>
     <string name="country_title_russian">Ruso</string>
@@ -163,7 +165,6 @@
     <string name="country_title_dutch">Holandés</string>
     <string name="menu_about">Acerca de Leafpad</string>
     <string name="country_title_danish">Danés</string>
-    <string name="country_title_translator_hindi_latin" translatable="false">" "</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
     <string name="country_title_serbian">Serbian</string>
     <string name="item_menu_add_category">create new category</string>

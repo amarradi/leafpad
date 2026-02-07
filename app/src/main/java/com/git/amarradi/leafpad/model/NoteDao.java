@@ -46,5 +46,27 @@ public interface NoteDao {
     @Query("DELETE FROM notes WHERE id = :id")
     void deleteById(String id);
 
+    @Query("SELECT COUNT(*) FROM notes")
+    int countAll();
+
+    @Query("SELECT COUNT(*) FROM notes WHERE hide = 0")
+    int countVisible();
+
+    @Query("SELECT COUNT(*) FROM notes WHERE hide = 1")
+    int countHidden();
+
+    @Query("SELECT * FROM notes")
+    List<NoteEntity> getAllNotesForBackup();
+
+    @Query("DELETE FROM notes")
+    void deleteAll();
+
+
+    @Query("DELETE FROM notes")
+    void deleteAllNotes();
+
+    @Query("SELECT COUNT(*) FROM notes")
+    int countAllNotes();
+
 
 }

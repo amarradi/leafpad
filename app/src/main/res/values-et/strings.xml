@@ -45,6 +45,7 @@
         <item quantity="one">%1$d märge on imporditud</item>
         <item quantity="other">%1$d märget on imporditud</item>
     </plurals>
+    <plurals name="notes_exported">Notes Backuped</plurals>
     <string name="fileOpeningError">Viga faili avamisel.</string>
     <string name="note_will_be_saved_first">Esmalt salvestame märke</string>
     <string name="delete">Kustuta</string>
@@ -116,6 +117,7 @@
     <string name="country_title_catalan">katalaani keel</string>
     <string name="country_title_spanish">hispaania keel</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
+    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">albaania keel</string>
     <string name="country_title_indonesian">indoneesia keel</string>
     <string name="country_title_russian">vene keel</string>

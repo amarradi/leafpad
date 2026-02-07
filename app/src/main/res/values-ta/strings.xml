@@ -75,6 +75,7 @@
         <item quantity="one">%1$d குறிப்பு இறக்குமதி செய்யப்பட்டது</item>
         <item quantity="other">%1$d குறிப்புகள் இறக்குமதி செய்யபட்டன</item>
     </plurals>
+    <plurals name="notes_exported">Notes Backuped</plurals>
     <string name="showDeleteConfirmationMessage">அனைத்து குறிப்புகளும் நிரந்திரமாக நீக்கப்படும். தொடர்க?</string>
     <string name="fileOpeningError">கோப்பை திறப்பதில் பிழை.</string>
     <string name="yes">ஆம்</string>
@@ -115,6 +116,7 @@
     <string name="country_title_catalan">கற்றலான்</string>
     <string name="country_title_spanish">ச்பானிச்</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
+    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">அல்பேனிய</string>
     <string name="country_title_indonesian">இந்தோனேசியன்</string>
     <string name="country_title_russian">ரஷியன்</string>

@@ -79,6 +79,7 @@
         <item quantity="many">Zaimportowano %1$d notatek</item>
         <item quantity="other">Zaimportowano %1$d notatek</item>
     </plurals>
+    <plurals name="notes_exported">Notes Backuped</plurals>
     <string name="fileOpeningError">Wystąpił błąd podczas otwierania pliku.</string>
     <string name="delete">Usuń</string>
     <string name="backupfinish">Tworzenie kopii zapasowej zostało zakończone</string>
@@ -117,6 +118,7 @@
     <string name="country_title_catalan">Kataloński</string>
     <string name="country_title_spanish">Hiszpański</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
+    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">Albański</string>
     <string name="country_title_indonesian">Indonezyjski</string>
     <string name="country_title_russian">Rosyjski</string>
@@ -164,7 +166,6 @@
     <string name="country_title_dutch">Holenderski</string>
     <string name="menu_about">O Leafpadzie</string>
     <string name="country_title_danish">Duński</string>
-    <string name="country_title_translator_hindi_latin" translatable="false">­</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
     <string name="country_title_serbian">Serbski</string>
     <string name="item_menu_add_category">create new category</string>

@@ -44,6 +44,7 @@
         <item quantity="many">Імпортовано %1$d нотатки</item>
         <item quantity="other">Імпортовано %1$d нотатки</item>
     </plurals>
+    <plurals name="notes_exported">Notes Backuped</plurals>
     <string name="fileOpeningError">Помилка під час відкриття файлу.</string>
     <string name="note_will_be_saved_first">Нотатку буде збережено першою</string>
     <string name="delete">Видалити</string>
@@ -117,6 +118,7 @@
     <string name="country_title_catalan">Каталонська</string>
     <string name="country_title_spanish">Іспанська</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
+    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">Албанська</string>
     <string name="country_title_indonesian">Індонезійська</string>
     <string name="country_title_russian">Російська</string>

@@ -79,6 +79,7 @@
         <item quantity="one">One note imported</item>
         <item quantity="other">%1$d notes imported</item>
     </plurals>
+    <plurals name="notes_exported">Notes Backuped</plurals>
     <string name="fileOpeningError">Error when opening the file.</string>
     <string name="delete">Delete</string>
     <string name="backupfinish">Backup finishes</string>
@@ -116,6 +117,7 @@
     <string name="country_title_catalan">Catalan</string>
     <string name="country_title_spanish">Spanish</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
+    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">Albanian</string>
     <string name="country_title_indonesian">Indonesian</string>
     <string name="country_title_russian">Russian</string>

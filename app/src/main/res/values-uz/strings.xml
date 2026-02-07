@@ -45,6 +45,7 @@
         <item quantity="one">%1$d ta eslatma tiklandi</item>
         <item quantity="other">%1$d ta eslatma tiklandi</item>
     </plurals>
+    <plurals name="notes_exported">Notes Backuped</plurals>
     <string name="fileOpeningError">Zaxir faylini ochishda xatolik kuzatildi.</string>
     <string name="note_will_be_saved_first">Birinchi galda eslatma saqlab olinadi</string>
     <string name="delete">O\'chirish</string>
@@ -111,6 +112,7 @@
     <string name="empty_list">Hech qanday eslatma yo\'q</string>
     <string name="action_share_note">Eslatmani ulashish</string>
     <string name="menu_about">About Leafpad</string>
+    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">Albanian</string>
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_arabic">Arabic</string>

@@ -79,6 +79,7 @@
         <item quantity="many">%1$d заметок импортировано</item>
         <item quantity="other">%1$d заметок импортировано</item>
     </plurals>
+    <plurals name="notes_exported">Notes Backuped</plurals>
     <string name="fileOpeningError">При открытии файла произошла ошибка.</string>
     <string name="delete">Удалить</string>
     <string name="backupfinish">Резервное копирование завершено</string>
@@ -117,6 +118,7 @@
     <string name="country_title_catalan">Каталонский</string>
     <string name="country_title_spanish">Испанский</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
+    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">Albanian</string>
     <string name="country_title_indonesian">Индонезийский</string>
     <string name="country_title_russian">Русский</string>

@@ -77,6 +77,7 @@
         <item quantity="one">%1$d σημείωση εισήχθη</item>
         <item quantity="other">%1$d σημειώσεις εισήχθησαν</item>
     </plurals>
+    <plurals name="notes_exported">Notes Backuped</plurals>
     <string name="fileOpeningError">Σφάλμα κατά το άνοιγμα του αρχείου.</string>
     <string name="invalidFile">Μη έγκυρο αρχείο αντιγράφου ασφαλείας. Η εισαγωγή ακυρώθηκε.</string>
     <string name="delete">Διαγραφή</string>
@@ -116,6 +117,7 @@
     <string name="country_title_catalan">Καταλανικά</string>
     <string name="country_title_spanish">Ισπανικά</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
+    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">Αλβανικά</string>
     <string name="country_title_indonesian">Ινδονησιακά</string>
     <string name="country_title_russian">Ρώσικα</string>

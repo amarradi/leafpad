@@ -77,6 +77,7 @@
         <item quantity="one">U importua %1$d shënim</item>
         <item quantity="other">U importuan %1$d shënime</item>
     </plurals>
+    <plurals name="notes_exported">Notes Backuped</plurals>
     <string name="fileOpeningError">Gabim kur hapet kartela.</string>
     <string name="delete">Fshije</string>
     <string name="backupfinish">Kopjeruajtja përfundoi</string>
@@ -115,6 +116,7 @@
     <string name="country_title_catalan">Katalane</string>
     <string name="country_title_spanish">Spanjisht</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
+    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">Shqip</string>
     <string name="country_title_indonesian">Indonezisht</string>
     <string name="country_title_russian">Rusisht</string>

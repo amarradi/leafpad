@@ -480,13 +480,13 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
     }
 
     private void exitNoteEdit() {
-        setResult(RESULT_OK);
+        setResultWithCurrentNote(isNewNote);
         if (fromSearch) {
             Intent intent = new Intent(this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
         } else {
-            NoteEditActivity.this.finish();
+            finish();
         }
     }
 
@@ -517,8 +517,9 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
                         () -> {
                             shouldPersistOnPause = true;
                             noteViewModel.persist();
-                            setResult(RESULT_OK);
-                            exitNoteEdit();
+                            returnResultAndFinish();
+//                            setResult(RESULT_OK);
+//                            exitNoteEdit();
                         },
                         () -> {
                             shouldPersistOnPause = false;
@@ -526,7 +527,9 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
                         }
                 );
             } else {
-                exitNoteEdit();
+                noteViewModel.persist();
+                returnResultAndFinish();
+//                exitNoteEdit();
             }
         } else {
             exitNoteEdit();
@@ -597,6 +600,20 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
 
     }
 
+    private void returnResultAndFinish() {
+        Note current = noteViewModel.getSelectedNote().getValue();
+        if (current != null) {
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("updated_note", current);
+            resultIntent.putExtra("is_new_note", isNewNote);
+            setResult(RESULT_OK, resultIntent);
+        } else {
+            setResult(RESULT_OK);
+        }
+        finish();
+    }
+
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -614,6 +631,20 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
 //        }
     }
 
+    private void setResultWithCurrentNote(boolean isNew) {
+        Note current = noteViewModel.getSelectedNote().getValue();
+        if (current == null) {
+            setResult(RESULT_CANCELED);
+            return;
+        }
+
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("updated_note", current);
+        resultIntent.putExtra("is_new_note", isNew);
+        setResult(RESULT_OK, resultIntent);
+    }
+
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -628,14 +659,34 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
            return;
        }
 
-        if (!isNoteDeleted && current != null && !NoteViewModel.isEmptyEntry(current)) {
-            updateNoteFromUI();
-            if (shouldPersistOnPause && noteViewModel.hasUnsavedChanges()) {
+        // UI -> Note übernehmen
+        updateNoteFromUI();
+
+        // Wenn gelöscht wurde: nichts mehr persistieren
+        if (isNoteDeleted) {
+            return;
+        }
+        // Leere Notiz (nach deiner Logik) nicht speichern
+        if (NoteViewModel.isEmptyEntry(current)) {
+            return;
+        }
+
+        if (shouldPersistOnPause) {
+            if (noteViewModel.hasUnsavedChanges()) {
                 noteViewModel.persist();
                 noteViewModel.markSaved();
-                setResult(RESULT_OK);
+                setResultWithCurrentNote(isNewNote);
             }
         }
+
+//        if (!isNoteDeleted && current != null && !NoteViewModel.isEmptyEntry(current)) {
+//            updateNoteFromUI();
+//            if (shouldPersistOnPause && noteViewModel.hasUnsavedChanges()) {
+//                noteViewModel.persist();
+//                noteViewModel.markSaved();
+//                setResult(RESULT_OK);
+//            }
+//        }
     }
     public void restoreEditorToolbar() {
         MaterialToolbar toolbar = findViewById(R.id.toolbar);

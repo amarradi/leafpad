@@ -75,9 +75,9 @@
         <item>recipe</item>
     </string-array>
     <string name="save_notes_title">Backup</string>
-    <string name="save">Save all notes as xml</string>
+    <string name="save">Save all notes as zipb container with json</string>
     <string name="restore_notes_title">Restore</string>
-    <string name="restore">Restore all notes from an xml file</string>
+    <string name="restore">Restore all notes from an zip file</string>
     <string name="showRestoreConfirmation">Restore?</string>
     <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
     <string name="yes">Yes</string>
@@ -94,6 +94,10 @@
     <plurals name="notes_imported">
         <item quantity="one">%1$d note imported</item>
         <item quantity="other">%1$d notes imported</item>
+    </plurals>
+    <plurals name="notes_exported">
+        <item quantity="one">%d note exported</item>
+        <item quantity="other">%d notes exported</item>
     </plurals>
     <string name="toggle">change View</string>
     <string name="item_menu_description">menu for item actions</string>

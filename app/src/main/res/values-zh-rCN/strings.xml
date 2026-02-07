@@ -44,6 +44,7 @@
     <plurals name="notes_imported">
         <item quantity="other">%1$d 笔记已导入</item>
     </plurals>
+    <plurals name="notes_exported">Notes Backuped</plurals>
     <string name="fileOpeningError">打开文件时发生错误。</string>
     <string name="note_will_be_saved_first">笔记会先被保存</string>
     <string name="delete">删除</string>
@@ -110,6 +111,7 @@
     <string name="empty_list">列表上空空如也</string>
     <string name="action_share_note">分享笔记</string>
     <string name="menu_about">关于 Leafpad</string>
+    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">Albanian</string>
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_arabic">Arabic</string>

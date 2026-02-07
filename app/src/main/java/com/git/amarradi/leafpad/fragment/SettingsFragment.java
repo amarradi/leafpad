@@ -19,17 +19,11 @@ import androidx.preference.SwitchPreferenceCompat;
 
 import com.git.amarradi.leafpad.AboutActivity;
 import com.git.amarradi.leafpad.R;
+import com.git.amarradi.leafpad.backup.LeafpadBackupManager;
 import com.git.amarradi.leafpad.helper.DialogHelper;
-import com.git.amarradi.leafpad.helper.NoteBackupHelper;
 import com.git.amarradi.leafpad.helper.NotificationHelper;
-import com.git.amarradi.leafpad.model.Leaf;
-import com.git.amarradi.leafpad.model.Note;
 
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class SettingsFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -41,6 +35,9 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
     private ActivityResultLauncher<Intent> exportLauncher;
     private ActivityResultLauncher<Intent> importLauncher;
+
+    private final LeafpadBackupManager backupManager = new LeafpadBackupManager();
+
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -149,72 +146,70 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     }
 
     private void startExportIntent() {
-        String fileName = NoteBackupHelper.BASE_NAME +" "+ NoteBackupHelper.generateTimestamp() + ".xml";
+        String fileName = LeafpadBackupManager.BASE_NAME + "_" + LeafpadBackupManager.generateTimestamp() + ".zip";
+        // String fileName = LegacyXmlBackupHelper.BASE_NAME +" "+ LegacyXmlBackupHelper.generateTimestamp() + ".xml";
         Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("text/xml");
+        intent.setType("application/zip");
         intent.putExtra(Intent.EXTRA_TITLE, fileName);
         exportLauncher.launch(intent);
+//        intent.putExtra(Intent.EXTRA_TITLE, fileName);
+//        exportLauncher.launch(intent);
     }
 
     private void startImportIntent() {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("text/xml");
+        //intent.setType("text/xml");
+        intent.setType("*/*");
+        intent.putExtra(Intent.EXTRA_MIME_TYPES, new String[]{
+                "application/zip",
+                "application/x-zip-compressed",
+                "application/octet-stream",   // manche Dateimanager liefern das für ZIP
+                "text/xml"
+        });
         importLauncher.launch(intent);
     }
 
     private void backupToUri(Uri uri) {
-        new Thread(() -> {
-            requireActivity().runOnUiThread(() -> NotificationHelper.showSnackbar(requireView(),getString(R.string.backupIsrunning)));
-            try (OutputStream outputStream = requireContext().getContentResolver().openOutputStream(uri)) {
-                if (outputStream != null) {
-                    NoteBackupHelper.backupNotesToStream(requireContext(), outputStream);
-                    requireActivity().runOnUiThread(() -> NotificationHelper.showSnackbar(requireView(),getString(R.string.backupfinish)));
-                }
-            } catch (Exception e) {
-                NotificationHelper.showSnackbar(requireView(),e.getLocalizedMessage());
+        NotificationHelper.showSnackbar(requireView(), getString(R.string.backupIsrunning));
+
+        backupManager.exportBackup(requireContext(), uri, new LeafpadBackupManager.Callback() {
+            @Override
+            public void onSuccess(int noteCount) {
+                String message = getResources().getQuantityString(
+                        R.plurals.notes_exported, noteCount, noteCount
+                );
+                NotificationHelper.showSnackbar(requireView(), message);
+                NotificationHelper.showSnackbar(requireView(), getString(R.string.backupfinish));
             }
-        }).start();
+
+            @Override
+            public void onError(String message) {
+                NotificationHelper.showSnackbar(requireView(), message);
+            }
+        });
     }
+
     private void restoreFromUri(Uri uri) {
+        DialogHelper.showRestoreConfirmation(requireContext(), () -> {
+            backupManager.restoreBackup(requireContext(), uri, new LeafpadBackupManager.Callback() {
+                @Override
+                public void onSuccess(int noteCount) {
+                    String message = getResources().getQuantityString(
+                            R.plurals.notes_imported, noteCount, noteCount
+                    );
+                    NotificationHelper.showSnackbar(requireView(), message);
+                }
 
-        try {
-            AtomicReference<InputStream> inputStream = new AtomicReference<>(requireContext().getContentResolver().openInputStream(uri));
-            if (inputStream.get() == null) {
-                NotificationHelper.showSnackbar(requireView(), getString(R.string.fileOpeningError));
-                return;
-            }
-
-            boolean isValid = NoteBackupHelper.isValidLeafpadBackup(inputStream.get());
-            inputStream.get().close();
-
-            if (!isValid) {
-                NotificationHelper.showSnackbar(requireView(), getString(R.string.invalidFile));
-                return;
-            }
-
-            DialogHelper.showRestoreConfirmation(requireContext(), () -> {
-                try {
-                    inputStream.set(requireContext().getContentResolver().openInputStream(uri));
-                    if (inputStream.get() == null) {
-                        NotificationHelper.showSnackbar(requireView(), getString(R.string.fileOpeningError));
-                        return;
-                    }
-                    Leaf.deleteAll(requireContext());
-                    List<Note> restored = NoteBackupHelper.restoreNotesFromStream(requireContext(), inputStream.get());
-                    int count = restored.size();
-                    String message = getResources().getQuantityString(R.plurals.notes_imported, count, count);
-                    NotificationHelper.showSnackbar(requireView(),message);
-                    inputStream.get().close();
-                } catch (Exception e) {
-                    NotificationHelper.showSnackbar(requireView(),getString(R.string.importError)+" "+e.getLocalizedMessage());
+                @Override
+                public void onError(String message) {
+                    NotificationHelper.showSnackbar(requireView(), message);
                 }
             });
-        } catch (Exception e) {
-            NotificationHelper.showSnackbar(requireView(), getString(R.string.importError)+" "+e.getLocalizedMessage());
-        }
+        });
     }
+
 
 
     private void setPreferenceSummary(Preference preference, String value) {

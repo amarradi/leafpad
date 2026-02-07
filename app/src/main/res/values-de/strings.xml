@@ -79,6 +79,7 @@
         <item quantity="one">%1$d Notiz importiert</item>
         <item quantity="other">%1$d Notizen importiert</item>
     </plurals>
+    <plurals name="notes_exported">Notes Backuped</plurals>
     <string-array name="category">
         <item>Rezept</item>
     </string-array>
@@ -118,6 +119,7 @@
     <string name="country_title_catalan">Katalanisch</string>
     <string name="country_title_spanish">Spanisch</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
+    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">Albanisch</string>
     <string name="country_title_indonesian">Indonesisch</string>
     <string name="country_title_russian">Russisch</string>

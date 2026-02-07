@@ -79,6 +79,7 @@
         <item quantity="many">%1$d poznámek importováno</item>
         <item quantity="other">%1$d poznámek importováno</item>
     </plurals>
+    <plurals name="notes_exported">Notes Backuped</plurals>
     <string name="fileOpeningError">Chyba při otevření souboru.</string>
     <string name="delete">Odstranit</string>
     <string name="backupfinish">Záloha dokončena</string>
@@ -117,6 +118,7 @@
     <string name="country_title_catalan">Katalánština</string>
     <string name="country_title_spanish">Španělština</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
+    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">Albánština</string>
     <string name="country_title_indonesian">Indonéština</string>
     <string name="country_title_russian">Ruština</string>
