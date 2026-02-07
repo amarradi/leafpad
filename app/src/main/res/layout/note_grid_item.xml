@@ -78,13 +78,6 @@
                     android:layout_gravity="center"
                     android:textAppearance="@style/TextAppearance.MyCategoryText"
                     android:visibility="gone" />
-
-                <ImageView
-                    android:id="@+id/bible"
-                    android:layout_width="@dimen/image_listView_layout_width"
-                    android:layout_height="@dimen/image_listView_layout_height"
-                    android:src="@drawable/ic_bible"
-                    android:visibility="gone" />
             </LinearLayout>
             <!-- Zeit-/Datum-/Kategorie-Zeile -->
             <LinearLayout
