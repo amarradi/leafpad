@@ -70,7 +70,7 @@
     <string name="backupIsrunning">Резервное копирование запущено</string>
     <string name="no">Нет</string>
     <string name="importError">При импорте заметок произошла ошибка.</string>
-    <string name="restore">Восстановить все заметки из XML файла</string>
+    <string name="restore">Восстановить все заметки из XML-файла</string>
     <string name="showDeleteConfirmationMessage">Все заметки будут удалены навсегда. Продолжить?</string>
     <string name="yes">Да</string>
     <plurals name="notes_imported">
@@ -165,5 +165,5 @@
     <string name="menu_about">О программе Leafpad</string>
     <string name="country_title_danish">Датский</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
-    <string name="country_title_serbian">Себрский</string>
+    <string name="country_title_serbian">Сербский</string>
 </resources>
