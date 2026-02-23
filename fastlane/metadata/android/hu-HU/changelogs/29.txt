@@ -1,0 +1,5 @@
+* Mentés gomb: csak akkor aktiválódik, ha a jegyzetet ténylegesen módosították.
+* Az olvasási mód most már helyesen működik.
+* Az üres jegyzetek most már törölhetők.
+* A fordítóknak most már világosabb köszönő részük van.
+* Számos hiba javításra került
