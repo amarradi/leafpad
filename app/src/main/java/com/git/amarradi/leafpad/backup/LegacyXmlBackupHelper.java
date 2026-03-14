@@ -163,4 +163,74 @@ public class LegacyXmlBackupHelper {
         }
         return notes;
     }
+
+    public static List<Note> parseNotesFromStream(InputStream inputStream) throws Exception {
+        List<Note> notes = new ArrayList<>();
+        XmlPullParser parser = XmlPullParserFactory.newInstance().newPullParser();
+        parser.setInput(inputStream, "UTF-8");
+
+        int eventType = parser.getEventType();
+        Note note = null;
+        String text = "";
+
+        while (eventType != XmlPullParser.END_DOCUMENT) {
+            String tagName = parser.getName();
+
+            switch (eventType) {
+                case XmlPullParser.START_TAG:
+                    if ("note".equals(tagName)) {
+                        note = new Note("", "", "", "", "", false, "", "");
+                    }
+                    break;
+
+                case XmlPullParser.TEXT:
+                    text = parser.getText();
+                    break;
+
+                case XmlPullParser.END_TAG:
+                    if (note != null) {
+                        switch (tagName) {
+                            case "id":
+                                note.setId(text);
+                                break;
+                            case "title":
+                                note.setTitle(text);
+                                break;
+                            case "body":
+                                note.setBody(text);
+                                break;
+                            case "date":
+                                note.setNotedate(text);
+                                break;
+                            case "time":
+                                note.setNotetime(text);
+                                break;
+                            case "created":
+                                // EXAKT übernehmen (dafür brauchst du Note.setCreateDate(String))
+                                note.setCreateDate(text);
+                                break;
+                            case "hide":
+                                note.setHide(Boolean.parseBoolean(text));
+                                break;
+                            case "category":
+                                note.setCategory(
+                                        text != null && !text.equalsIgnoreCase("true") && !text.equalsIgnoreCase("false")
+                                                ? text
+                                                : ""
+                                );
+                                break;
+                            case "note":
+                                notes.add(note);
+                                note = null;
+                                break;
+                        }
+                    }
+                    break;
+            }
+
+            eventType = parser.next();
+        }
+
+        return notes;
+    }
 }

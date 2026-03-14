@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="country_title_hindi_latin">Indian (Latin scripture)</string>
     <string name="app_name">Leafpad</string>
     <string name="darkmode_preference" translatable="false">darkmode</string>
     <string name="system_preference" translatable="false">system</string>

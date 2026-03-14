@@ -158,7 +158,7 @@
     <string name="country_title_chinese_traditional_han_script">Chiński (tradycyjny alfabet Han)</string>
     <string name="country_title_hindi_latin_script">Hindi (alfabet łaciński)</string>
     <string name="country_title_uzbek">Uzbecki</string>
-    <string name="country_title_hindi_latin">­</string>
+    <string name="country_title_hindi_latin">Indian (Latin scripture)</string>
     <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
     <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>

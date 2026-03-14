@@ -6,6 +6,10 @@ import android.os.Handler;
 import android.os.Looper;
 
 import com.git.amarradi.leafpad.model.AppDatabase;
+import com.git.amarradi.leafpad.model.CategoryDao;
+import com.git.amarradi.leafpad.model.Note;
+import com.git.amarradi.leafpad.model.NoteCategoryDao;
+import com.git.amarradi.leafpad.model.NoteCategoryJoin;
 import com.git.amarradi.leafpad.model.NoteDao;
 import com.git.amarradi.leafpad.model.NoteEntity;
 
@@ -137,11 +141,71 @@ public class LeafpadBackupManager {
                     return;
                 }
 
-                // TODO: LegacyXmlBackupHelper muss auf Room schreiben!
-                postError(callback, "Legacy-XML Restore ist noch nicht auf Room umgestellt.");
+                List<Note> legacyNotes = LegacyXmlBackupHelper.parseNotesFromStream(inXml);
+
+                AppDatabase db = AppDatabase.getInstance(context);
+                NoteDao noteDao = db.noteDao();
+                CategoryDao categoryDao = db.categoryDao();
+                NoteCategoryDao noteCategoryDao = db.noteCategoryDao();
+
+                // Rezept-Kategorie-ID holen (sollte existieren)
+                Long rezeptIdObj = categoryDao.findIdByNormalized("rezept");
+                final long rezeptCategoryId = (rezeptIdObj != null) ? rezeptIdObj : -1L;
+
+                db.runInTransaction(() -> {
+                    // Notes löschen -> Join wird per FK-CASCADE mit gelöscht (trotzdem ok)
+                    noteDao.deleteAllNotes();
+
+                    for (Note n : legacyNotes) {
+                        String noteId = n.getId();
+                        if (noteId == null || noteId.trim().isEmpty()) {
+                            noteId = Note.makeId();
+                        }
+
+                        NoteEntity e = new NoteEntity(
+                                noteId,
+                                n.getTitle(),
+                                n.getBody(),
+                                n.getDate(),
+                                n.getTime(),
+                                n.getCreateDate(),
+                                n.isHide()
+                        );
+                        noteDao.insert(e);
+
+                        // Wenn Kategorie "Rezept" in XML steht -> Join setzen
+                        if (rezeptCategoryId > 0) {
+                            String cat = n.getCategory();
+                            if (cat != null && cat.trim().equalsIgnoreCase("Rezept")) {
+                                noteCategoryDao.insert(new NoteCategoryJoin(noteId, rezeptCategoryId));
+                            }
+                        }
+                    }
+                });
+
+                if (rezeptCategoryId <= 0) {
+                    postError(callback, "Restore ok, aber Standardkategorie 'Rezept' wurde in der DB nicht gefunden.");
+                    return;
+                }
+
+                postSuccess(callback, legacyNotes.size());
+                return;
+
             } catch (Exception xmlError) {
                 postError(callback, "Restore fehlgeschlagen: " + safeMsg(xmlError));
             }
+//            // 2) Fallback: Legacy XML
+//            try (InputStream inXml = context.getContentResolver().openInputStream(sourceUri)) {
+//                if (inXml == null) {
+//                    postError(callback, "Datei konnte nicht geöffnet werden.");
+//                    return;
+//                }
+//
+//                // TODO: LegacyXmlBackupHelper muss auf Room schreiben!
+//                postError(callback, "Legacy-XML Restore ist noch nicht auf Room umgestellt.");
+//            } catch (Exception xmlError) {
+//                postError(callback, "Restore fehlgeschlagen: " + safeMsg(xmlError));
+//            }
 
         }).start();
     }

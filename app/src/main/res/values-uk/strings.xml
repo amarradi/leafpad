@@ -166,7 +166,7 @@
     <string name="country_title_dutch">Нідерландська</string>
     <string name="menu_about">Про Leafpad</string>
     <string name="country_title_danish">Данська</string>
-    <string name="country_title_translator_hindi_latin" translatable="false">" "</string>
+
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
     <string name="country_title_serbian">Сербська</string>
     <string name="item_menu_add_category">create new category</string>

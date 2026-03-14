@@ -140,6 +140,7 @@
     <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
     <string name="country_title_hindi">Hindi</string>
     <string name="country_title_translator_hindi" translatable="false">Harshit Sethi(@hstsethi)</string>
+    <string name="country_title_hindi_latin">Indian (Latin scripture)</string>
     <string name="country_title_hindi_latin_script">Hindi (Latin script)</string>
     <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
     <string name="country_title_indonesian">Indonesian</string>
