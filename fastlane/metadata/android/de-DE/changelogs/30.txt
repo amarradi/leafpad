@@ -1,1 +1,8 @@
 Leere Einträge werden nun bei Verwurf gelöscht
+Trennung der Einstellungen mit About
+Fehlerbehebung: leere Notizen werden jetzt wirklich verworfen
+Übersetzungen aktualisiert
+Kategorien eingefügt, Namen und Farben sind frei wählbar
+beliebig viele Kategorien sind pro Notiz möglich
+Umstellung der Speicherung der Notizen in einer Datenbank
+Anpassung der backup/restore-Funktion, jetzt wird ein

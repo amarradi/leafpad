@@ -30,7 +30,7 @@
             android:key="manage_categories"
             android:title="@string/manage_categories"
             android:summary="@string/manage_categories_summary"
-            android:icon="@drawable/btn_category" />
+            android:icon="@drawable/ic_category" />
 
         <androidx.preference.SwitchPreferenceCompat
             android:key="change"
