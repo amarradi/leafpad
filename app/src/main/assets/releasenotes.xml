@@ -8,8 +8,8 @@
         * Kategorien eingefügt, Namen und Farben sind frei wählbar
         * beliebig viele Kategorien sind pro Notiz möglich
         * Umstellung der Speicherung der Notizen in einer Datenbank
-        * Anpassung der backup/restore-Funktion, jetzt wird ein
+        * vorübergehende Anpassung der backup/restore-Funktion
     </content>
-    <date>07.02.2026</date>
+    <date>25.03.2026</date>
     <time>07:07</time>
 </releasenote>
