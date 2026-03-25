@@ -47,13 +47,15 @@ public class CategoryActivity extends AppCompatActivity {
         Resources res = getResources();
         setupToolbar();
     }
+
     private void setupToolbar() {
         MaterialToolbar toolbar = findViewById(R.id.category_toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(true);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.category);
 
-      //  toolbar.setNavigationOnClickListener(v -> checkForUnsavedChanges());
+        //  toolbar.setNavigationOnClickListener(v -> checkForUnsavedChanges());
     }
 
     @Override

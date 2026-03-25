@@ -75,7 +75,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             return true;
         });
 
-        setupClickListener("change", v-> {
+        setupClickListener("change", v -> {
             return true;
         });
 
@@ -111,6 +111,16 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
                 .replace(R.id.settings_fragment_container, CategoryFragment.newInstance(CategoryFragment.MODE_MANAGE_ONLY))
                 .addToBackStack("CategoryFragment")
                 .commit();
+
+
+        if (requireActivity() instanceof androidx.appcompat.app.AppCompatActivity) {
+            androidx.appcompat.app.AppCompatActivity activity =
+                    (androidx.appcompat.app.AppCompatActivity) requireActivity();
+
+            if (activity.getSupportActionBar() != null) {
+                activity.getSupportActionBar().setTitle(R.string.category);
+            }
+        }
     }
 
 
@@ -211,7 +221,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     }
 
 
-
     private void setPreferenceSummary(Preference preference, String value) {
         if (preference instanceof ListPreference listPref) {
             int index = listPref.findIndexOfValue(value);
@@ -250,14 +259,14 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     }
 
     public static void launchAppStore(Activity activity, String packageName) {
-       // String installer = activity.getPackageManager().getInstallerPackageName(activity.getCallingPackage()).toLowerCase(Locale.ROOT);
+        // String installer = activity.getPackageManager().getInstallerPackageName(activity.getCallingPackage()).toLowerCase(Locale.ROOT);
         //Log.d("installer", "launchAppStore: "+installer);
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + packageName));
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             activity.startActivity(intent);
         } catch (android.content.ActivityNotFoundException e) {
-            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(GOOGLEPLAYPATH+ "?id=" + packageName)));
+            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(GOOGLEPLAYPATH + "?id=" + packageName)));
         }
     }
 
@@ -266,7 +275,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         if (keepScreenOnSwitch != null) {
             keepScreenOnSwitch.setOnPreferenceChangeListener((preference, newValue) -> {
                 if ((Boolean) newValue) {
-                    DialogHelper.showKeepScreenOnWarningDialog(requireContext(), ()->{
+                    DialogHelper.showKeepScreenOnWarningDialog(requireContext(), () -> {
                         keepScreenOnSwitch.setChecked(true);
                     });
                     return false;

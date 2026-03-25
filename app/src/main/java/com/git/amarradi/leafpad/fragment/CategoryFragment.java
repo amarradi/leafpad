@@ -56,7 +56,6 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
     private boolean initialSnapshotTaken = false;
 
 
-
     private MaterialToolbar hostToolbar;
     private Drawable prevNavIcon;
     private CharSequence prevTitle;
@@ -100,7 +99,6 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
 
         getParentFragmentManager().popBackStack();
     }
-
 
 
     public static CategoryFragment newInstance(int mode) {
@@ -221,7 +219,6 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
     }
 
 
-
     private boolean sameIds(List<Long> a, List<Long> b) {
         if (a == b) return true;
         if (a == null || b == null) return false;
@@ -288,7 +285,6 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
     }
 
 
-
     // 🔥 DAS WAR DER FEHLENDE TEIL
     @Override
     public void onColorSelected(int dialogId, int color) {
@@ -308,6 +304,19 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        if (getActivity() != null) {
+            getActivity().invalidateOptionsMenu();
+        }
+
+        if (getMode() == MODE_MANAGE_ONLY && getActivity() instanceof androidx.appcompat.app.AppCompatActivity) {
+            androidx.appcompat.app.AppCompatActivity activity =
+                    (androidx.appcompat.app.AppCompatActivity) getActivity();
+
+            if (activity.getSupportActionBar() != null) {
+                activity.getSupportActionBar().setTitle(R.string.menu_settings);
+            }
+        }
+
         if (getActivity() != null) {
             getActivity().invalidateOptionsMenu();
         }
@@ -366,6 +375,20 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
                             // OK -> Dialog schließt ohnehin (DialogHelper macht das typischerweise)
                         })
         );
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if (getMode() == MODE_MANAGE_ONLY && requireActivity() instanceof androidx.appcompat.app.AppCompatActivity) {
+            androidx.appcompat.app.AppCompatActivity activity =
+                    (androidx.appcompat.app.AppCompatActivity) requireActivity();
+
+            if (activity.getSupportActionBar() != null) {
+                activity.getSupportActionBar().setTitle(R.string.manage_categories);
+            }
+        }
     }
 
 }
