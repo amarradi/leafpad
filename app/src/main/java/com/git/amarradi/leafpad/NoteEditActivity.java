@@ -232,39 +232,90 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
             }
         });
 
+//        noteViewModel.getCategoriesForSelectedNote()
+//                .observe(this, categories -> {
+//
+//                    if (categories == null || categories.isEmpty()) {
+//                        categoryChipGroup.setVisibility(View.GONE);
+//                        categoryChipGroup.removeAllViews();
+//                        return;
+//                    }
+//
+//                    categoryChipGroup.setVisibility(View.VISIBLE);
+//                    categoryChipGroup.removeAllViews();
+//
+//                    for (CategoryEntity c : categories) {
+//                        Chip chip = new Chip(this, null, R.attr.chipStyle);
+//                        chip.setText(c.name);
+//
+//                        int color = Color.parseColor(c.colorHex);
+//                        ColorStateList stateColor = new ColorStateList(
+//                                new int[][]{new int[]{android.R.attr.state_enabled}, new int[]{}},
+//                                new int[]{color, color}
+//                        );
+//
+//                        chip.setTextColor(stateColor);
+//                        chip.setChipStrokeColor(stateColor);
+//                        chip.setClickable(false);
+//                        chip.setCheckable(false);
+//                        chip.setEnsureMinTouchTargetSize(false);
+//
+//                        categoryChipGroup.addView(chip);
+//                    }
+//                });
         noteViewModel.getCategoriesForSelectedNote()
                 .observe(this, categories -> {
 
+                    categoryChipGroup.removeAllViews();
+
                     if (categories == null || categories.isEmpty()) {
                         categoryChipGroup.setVisibility(View.GONE);
-                        categoryChipGroup.removeAllViews();
                         return;
                     }
 
                     categoryChipGroup.setVisibility(View.VISIBLE);
-                    categoryChipGroup.removeAllViews();
 
                     for (CategoryEntity c : categories) {
-                        Chip chip = new Chip(this, null, R.attr.chipStyle);
-                        chip.setText(c.name);
-
-                        int color = Color.parseColor(c.colorHex);
-                        ColorStateList stateColor = new ColorStateList(
-                                new int[][]{ new int[]{android.R.attr.state_enabled}, new int[]{} },
-                                new int[]{ color, color }
+                        Chip chip = (Chip) getLayoutInflater().inflate(
+                                R.layout.item_category_chip,
+                                categoryChipGroup,
+                                false
                         );
 
-                        chip.setTextColor(stateColor);
-                        chip.setChipStrokeColor(stateColor);
+                        chip.setText(c.name);
+                        applyCategoryChipStyle(chip, c.colorHex);
+
                         chip.setClickable(false);
                         chip.setCheckable(false);
+                        chip.setCloseIconVisible(false);
                         chip.setEnsureMinTouchTargetSize(false);
 
                         categoryChipGroup.addView(chip);
                     }
                 });
 
+    }
 
+    private void applyCategoryChipStyle(Chip chip, String colorHex) {
+        int baseColor;
+
+        try {
+            baseColor = Color.parseColor(colorHex);
+        } catch (Exception e) {
+            baseColor = Color.GRAY;
+        }
+
+        int bgColor = com.git.amarradi.leafpad.helper.ColorUtilsHelper.lightenColor(baseColor, 0.35f);
+
+        chip.setChipStrokeWidth(
+                com.git.amarradi.leafpad.helper.ColorUtilsHelper.dpToPx(chip.getContext(), 1)
+        );
+        chip.setChipStrokeColor(ColorStateList.valueOf(baseColor));
+        chip.setChipBackgroundColor(ColorStateList.valueOf(bgColor));
+
+        boolean darkBg = androidx.core.graphics.ColorUtils.calculateLuminance(bgColor) < 0.5;
+        int textColor = darkBg ? Color.WHITE : Color.BLACK;
+        chip.setTextColor(textColor);
     }
 
     private void applyCategoryColor(Chip chip, String colorHex) {
