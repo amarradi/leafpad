@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
@@ -331,10 +330,15 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
 
         chipGroup.setVisibility(View.VISIBLE);
+        LayoutInflater inflater = LayoutInflater.from(chipGroup.getContext());
 
         for (CategoryEntity c : categories) {
-            Context ctx = new ContextThemeWrapper(chipGroup.getContext(), R.style.Widget_App_Chip);
-            Chip chip = new Chip(ctx);
+            Chip chip = (Chip) inflater.inflate(
+                    R.layout.item_category_chip,
+                    chipGroup,
+                    false
+            );
+
             chip.setText(c.name);
 
             int baseColor;
@@ -346,7 +350,9 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
             int bgColor = com.git.amarradi.leafpad.helper.ColorUtilsHelper.lightenColor(baseColor, 0.35f);
 
-            chip.setChipStrokeWidth(com.git.amarradi.leafpad.helper.ColorUtilsHelper.dpToPx(chip.getContext(), 2));
+            chip.setChipStrokeWidth(
+                    com.git.amarradi.leafpad.helper.ColorUtilsHelper.dpToPx(chip.getContext(), 1)
+            );
             chip.setChipStrokeColor(ColorStateList.valueOf(baseColor));
             chip.setChipBackgroundColor(ColorStateList.valueOf(bgColor));
 
@@ -356,10 +362,39 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
             chip.setClickable(false);
             chip.setCheckable(false);
+            chip.setCloseIconVisible(false);
             chip.setEnsureMinTouchTargetSize(false);
 
             chipGroup.addView(chip);
         }
+//        for (CategoryEntity c : categories) {
+//            Context ctx = new ContextThemeWrapper(chipGroup.getContext(), R.style.Widget_App_Chip);
+//            Chip chip = new Chip(ctx);
+//            chip.setText(c.name);
+//
+//            int baseColor;
+//            try {
+//                baseColor = Color.parseColor(c.colorHex);
+//            } catch (Exception e) {
+//                baseColor = Color.GRAY;
+//            }
+//
+//            int bgColor = com.git.amarradi.leafpad.helper.ColorUtilsHelper.lightenColor(baseColor, 0.35f);
+//
+//            chip.setChipStrokeWidth(com.git.amarradi.leafpad.helper.ColorUtilsHelper.dpToPx(chip.getContext(), 2));
+//            chip.setChipStrokeColor(ColorStateList.valueOf(baseColor));
+//            chip.setChipBackgroundColor(ColorStateList.valueOf(bgColor));
+//
+//            boolean darkBg = androidx.core.graphics.ColorUtils.calculateLuminance(bgColor) < 0.5;
+//            int textColor = darkBg ? Color.WHITE : Color.BLACK;
+//            chip.setTextColor(textColor);
+//
+//            chip.setClickable(false);
+//            chip.setCheckable(false);
+//            chip.setEnsureMinTouchTargetSize(false);
+//
+//            chipGroup.addView(chip);
+//        }
     }
 
 

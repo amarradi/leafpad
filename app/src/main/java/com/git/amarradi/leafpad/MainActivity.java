@@ -61,47 +61,75 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        NoteViewModel viewModel= new ViewModelProvider(this).get(NoteViewModel.class);
-        viewModel.checkAndLoadReleaseNote(this);
-        viewModel.getReleaseNote().observe(this, releaseNote -> {
-            if (!Leafpad.isReleaseNoteClosed(this) ||
-                    Leafpad.getCurrentVersionCode(this)>Leafpad.getCurrentLeafpadVersionCode(this)) {
-                noteAdapter.setReleaseNoteHeader(releaseNote);
-                Leafpad.resetReleaseNoteClosed(this);
-                updateEmptyState();
-            }
-        });
+//        NoteViewModel viewModel= new ViewModelProvider(this).get(NoteViewModel.class);
+//        viewModel.checkAndLoadReleaseNote(this);
+//        viewModel.getReleaseNote().observe(this, releaseNote -> {
+//            if (!Leafpad.isReleaseNoteClosed(this) ||
+//                    Leafpad.getCurrentVersionCode(this)>Leafpad.getCurrentLeafpadVersionCode(this)) {
+//                noteAdapter.setReleaseNoteHeader(releaseNote);
+//                Leafpad.resetReleaseNoteClosed(this);
+//                updateEmptyState();
+//            }
+//        });
 
         noteViewModel = new ViewModelProvider(
                 this,
                 new ViewModelProvider.AndroidViewModelFactory(getApplication())
         ).get(NoteViewModel.class);
+
+        noteViewModel.checkAndLoadReleaseNote(this);
+        noteViewModel.getReleaseNote().observe(this, releaseNote -> {
+            if (!Leafpad.isReleaseNoteClosed(this) ||
+                    Leafpad.getCurrentVersionCode(this) > Leafpad.getCurrentLeafpadVersionCode(this)) {
+                noteViewModel.setReleaseNoteHeader(releaseNote);
+                Leafpad.resetReleaseNoteClosed(this);
+                updateEmptyState();
+            } else {
+                noteViewModel.setReleaseNoteHeader(null);
+            }
+        });
+
+//        noteViewModel = new ViewModelProvider(
+//                this,
+//                new ViewModelProvider.AndroidViewModelFactory(getApplication())
+//        ).get(NoteViewModel.class);
         boolean savedShowHidden = Leafpad.getInstance().getSavedShowHidden();
         noteViewModel.setShowHidden(savedShowHidden);
 
-        noteViewModel.loadNotes();
-        noteViewModel.getNotes().observe(this, notes -> {
-            noteAdapter.updateNotes(notes);
-            Log.d("MainActivity", "----- Alle geladenen Notizen nach loadNotes(): ------");
-
-            if (firstNotesLoad) {
-                recyclerView.post(() -> recyclerView.scrollToPosition(0));
-                firstNotesLoad = false;
-            }
-            //recyclerView.post(()->recyclerView.scrollToPosition(0));
-            for (Note n : notes) {
-                Log.d("MainActivity", "Note: " + n.getId() + " | Titel: " + n.getTitle() + " | Versteckt: " + n.isHide());
-            }
-            updateEmptyState();
-        });
+//        noteViewModel.loadNotes();
+//        noteViewModel.getNotes().observe(this, notes -> {
+//            noteAdapter.updateNotes(notes);
+//            Log.d("MainActivity", "----- Alle geladenen Notizen nach loadNotes(): ------");
+//
+//            if (firstNotesLoad) {
+//                recyclerView.post(() -> recyclerView.scrollToPosition(0));
+//                firstNotesLoad = false;
+//            }
+//            //recyclerView.post(()->recyclerView.scrollToPosition(0));
+//            for (Note n : notes) {
+//                Log.d("MainActivity", "Note: " + n.getId() + " | Titel: " + n.getTitle() + " | Versteckt: " + n.isHide());
+//            }
+//            updateEmptyState();
+//        });
 
         noteViewModel.getShowHidden().observe(this, showHidden -> {
             noteAdapter.setShowOnlyHidden(showHidden);
             updateEmptyState();
         });
 
-        viewModel.getCombinedNotes().observe(this, combinedList -> {
+//        viewModel.getCombinedNotes().observe(this, combinedList -> {
+//            noteAdapter.setCombinedList(combinedList);
+//            updateEmptyState();
+//        });
+
+        noteViewModel.getCombinedNotes().observe(this, combinedList -> {
             noteAdapter.setCombinedList(combinedList);
+
+            if (firstNotesLoad) {
+                recyclerView.post(() -> recyclerView.scrollToPosition(0));
+                firstNotesLoad = false;
+            }
+
             updateEmptyState();
         });
 
@@ -200,11 +228,20 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     });
 
 
+//    @Override
+//    public void onReleaseNoteClosed() {
+//        Leafpad.setReleaseNoteClosed(this);
+//        Leafpad.setCurrentLeafpadVersionCode(this);
+//        noteAdapter.setReleaseNoteHeader(null);
+//        noteViewModel.loadNotes();
+//        recyclerView.post(this::updateEmptyState);
+//    }
+
     @Override
     public void onReleaseNoteClosed() {
         Leafpad.setReleaseNoteClosed(this);
         Leafpad.setCurrentLeafpadVersionCode(this);
-        noteAdapter.setReleaseNoteHeader(null);
+        noteViewModel.setReleaseNoteHeader(null);
         noteViewModel.loadNotes();
         recyclerView.post(this::updateEmptyState);
     }
@@ -274,11 +311,19 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
     }
 
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        Leafpad.getInstance().applyCurrentLayoutMode(recyclerView, noteAdapter);
+
+    ////        noteViewModel.loadNotes();
+//    }
+
     @Override
     protected void onResume() {
         super.onResume();
         Leafpad.getInstance().applyCurrentLayoutMode(recyclerView, noteAdapter);
-//        noteViewModel.loadNotes();
+        noteViewModel.loadNotes();
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")

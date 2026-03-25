@@ -83,7 +83,7 @@
                 android:padding="2dp"
                 app:singleLine="true"
                 android:visibility="gone"
-                app:chipSpacingHorizontal="0dp"
+                app:chipSpacingHorizontal="4dp"
                 app:chipSpacingVertical="2dp" />
             <!-- Body-Editor -->
             <com.google.android.material.textfield.TextInputLayout

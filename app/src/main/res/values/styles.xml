@@ -137,12 +137,24 @@
         <item name="android:layout_margin">@dimen/fab_margin</item>
     </style>
 
-    <style name="Widget.App.Chip" parent="Widget.Material3.Chip.Input">
+    <style name="Widget.App.Chip" parent="Widget.Material3.Chip.Assist">
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip</item>
         <item name="android:textAppearance">@style/TextAppearance.App.BodyMedium</item>
         <item name="shapeAppearance">@style/ShapeAppearance.App.Corner.Small</item>
-        ...
+
+        <item name="chipMinHeight">22dp</item>
+        <item name="android:minHeight">22dp</item>
+
+        <item name="chipStartPadding">4dp</item>
+        <item name="chipEndPadding">4dp</item>
+
+        <item name="textStartPadding">2dp</item>
+        <item name="textEndPadding">2dp</item>
+
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="ensureMinTouchTargetSize">false</item>
     </style>
+
 
     <style name="TextAppearance.App.BodyMedium" parent="TextAppearance.Material3.BodySmall">
         <item name="fontFamily">@font/opensans_medium</item>
@@ -153,7 +165,7 @@
 
     <style name="ShapeAppearance.App.Corner.Small" parent="ShapeAppearance.Material3.Corner.Small">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">4dp</item>
+        <item name="cornerSize">8dp</item>
     </style>
 
     <style name="ThemeOverlay.App.Chip" parent="">

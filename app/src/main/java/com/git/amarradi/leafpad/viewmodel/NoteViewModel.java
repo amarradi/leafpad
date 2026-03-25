@@ -30,7 +30,8 @@ public class NoteViewModel extends AndroidViewModel {
     private final NoteRepository noteRepository;
     private final LiveData<List<NoteEntity>> allNoteEntities;
     private LiveData<List<CategoryEntity>> categoriesForSelectedNote;
-    private final MutableLiveData<List<Note>> notesLiveData = new MutableLiveData<>();
+    //private final MutableLiveData<List<Note>> notesLiveData = new MutableLiveData<>();
+    private final MediatorLiveData<List<Note>> notesLiveData = new MediatorLiveData<>();
     private static final MutableLiveData<Note> selectedNote = new MutableLiveData<>();
     private final MutableLiveData<Note> originalNote = new MutableLiveData<>();
     private final MutableLiveData<Boolean> showHiddenLiveData = new MutableLiveData<>(false);
@@ -383,7 +384,31 @@ public class NoteViewModel extends AndroidViewModel {
                     return noteRepository.getCategoriesByIds(ids);
                 });
 
+//        allNoteEntities = noteRepository.getAllNotes();
+//
+//        isNoteModified.addSource(selectedNote, n -> checkModified());
+//        isNoteModified.addSource(originalNote, n -> checkModified());
+//        filteredNotes.addSource(notesLiveData, notes -> applySearchQuery());
+//        filteredNotes.addSource(searchQuery, q -> applySearchQuery());
+//
+//        isNoteModified.addSource(currentCategoryIds, ids -> checkModified());
+//        isNoteModified.addSource(originalCategoryIds, ids -> checkModified());
+//
+//
+//        loadReleaseNote(getApplication().getApplicationContext());
+
         allNoteEntities = noteRepository.getAllNotes();
+
+        notesLiveData.addSource(allNoteEntities, entities -> {
+            rebuildNotesList(entities, showHiddenLiveData.getValue());
+        });
+
+        notesLiveData.addSource(showHiddenLiveData, showHidden -> {
+            rebuildNotesList(allNoteEntities.getValue(), showHidden);
+        });
+
+        combinedNotes.addSource(notesLiveData, notes -> updateCombinedNotes());
+        combinedNotes.addSource(releaseNoteLiveData, release -> updateCombinedNotes());
 
         isNoteModified.addSource(selectedNote, n -> checkModified());
         isNoteModified.addSource(originalNote, n -> checkModified());
@@ -393,8 +418,23 @@ public class NoteViewModel extends AndroidViewModel {
         isNoteModified.addSource(currentCategoryIds, ids -> checkModified());
         isNoteModified.addSource(originalCategoryIds, ids -> checkModified());
 
-
         loadReleaseNote(getApplication().getApplicationContext());
+    }
+
+    private void rebuildNotesList(List<NoteEntity> entities, Boolean showHidden) {
+        List<Note> notes = new ArrayList<>();
+
+        boolean showHiddenFinal = showHidden != null && showHidden;
+
+        if (entities != null) {
+            for (NoteEntity e : entities) {
+                if (!e.hide || showHiddenFinal) {
+                    notes.add(fromEntity(e));
+                }
+            }
+        }
+
+        notesLiveData.setValue(notes);
     }
 
     private void checkModified() {
@@ -488,22 +528,26 @@ public class NoteViewModel extends AndroidViewModel {
 
         }
     }
-    public void loadNotes() {
-        Boolean tmp = showHiddenLiveData.getValue();
-        final boolean showHiddenFinal = tmp != null && tmp;
-        Boolean showHidden = showHiddenLiveData.getValue();
-        if (showHidden == null) showHidden = false;
+//    public void loadNotes() {
+//        Boolean tmp = showHiddenLiveData.getValue();
+//        final boolean showHiddenFinal = tmp != null && tmp;
+//        Boolean showHidden = showHiddenLiveData.getValue();
+//        if (showHidden == null) showHidden = false;
+//
+//        noteRepository.getAllNotes().observeForever(entities -> {
+//            List<Note> notes = new ArrayList<>();
+//            for (NoteEntity e : entities) {
+//                if (!e.hide || showHiddenFinal) {
+//                    notes.add(fromEntity(e));
+//                }
+//            }
+//            notesLiveData.postValue(notes);
+//            updateCombinedNotes();
+//        });
+//    }
 
-        noteRepository.getAllNotes().observeForever(entities -> {
-            List<Note> notes = new ArrayList<>();
-            for (NoteEntity e : entities) {
-                if (!e.hide || showHiddenFinal) {
-                    notes.add(fromEntity(e));
-                }
-            }
-            notesLiveData.postValue(notes);
-            updateCombinedNotes();
-        });
+    public void loadNotes() {
+        rebuildNotesList(allNoteEntities.getValue(), showHiddenLiveData.getValue());
     }
 
     public void loadNoteById(String id) {
