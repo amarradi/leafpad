@@ -169,20 +169,20 @@
     <string name="country_title_danish">Danish</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
     <string name="country_title_serbian">Serbian</string>
-    <string name="item_menu_add_category">create new category</string>
-    <string name="category">Category</string>
-    <string name="category_name">name of the category</string>
-    <string name="select_color">choose category color</string>
-    <string name="edit_category">edit category</string>
-    <string name="add_category">add category</string>
-    <string name="category_color">category color</string>
-    <string name="save_category">save category</string>
-    <string name="delete_category">Delete category</string>
-    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
-    <string name="delete_category_hint">Notes are retained but lose this category.</string>
-    <string name="manage_categories">Manage categories</string>
-    <string name="manage_categories_summary">Create, edit, and delete</string>
-    <string name="error">error</string>
-    <string name="category_already_exists">Category allready exists</string>
-    <string name="database_error">database error</string>
+    <string name="item_menu_add_category">Eine Kategorie hinzufügen</string>
+    <string name="category">Kategorie</string>
+    <string name="category_name">Name der Kategorie</string>
+    <string name="select_color">Kategoriefarbe wählen</string>
+    <string name="edit_category">Kategorie bearbeiten</string>
+    <string name="add_category">Kategorie anlegen</string>
+    <string name="category_color">Kategoriefarbe</string>
+    <string name="save_category">Kategorie speichern</string>
+    <string name="delete_category">Kategorien löschen</string>
+    <string name="delete_category_confirm">Sind Sie sicher, dass Sie die Kategorie “%1$s” löschen möchten</string>
+    <string name="delete_category_hint">Nur die Kategorien werden gelöscht, Notizen bleiben erhalten</string>
+    <string name="manage_categories">Verwalten von Kategorien</string>
+    <string name="manage_categories_summary">Erstellen, Bearbeiten und Löschen von Kategorien</string>
+    <string name="error">Fehler</string>
+    <string name="category_already_exists">Kathegorie existiert bereits</string>
+    <string name="database_error">Datenbankfehler</string>
 </resources>
