@@ -160,7 +160,7 @@
         <item name="fontFamily">@font/opensans_medium</item>
         <item name="android:fontFamily">@font/opensans_medium</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">10sp</item>
+        <item name="android:textSize">11.5sp</item>
     </style>
 
     <style name="ShapeAppearance.App.Corner.Small" parent="ShapeAppearance.Material3.Corner.Small">
