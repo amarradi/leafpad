@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -189,7 +190,7 @@ public class DialogHelper {
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_category_edit, null);
 
         TextInputEditText nameInput = view.findViewById(R.id.category_name_edit);
-        View colorPreview = view.findViewById(R.id.colorPickerView);
+        View colorPreview = view.findViewById(R.id.colorPreview);
 
         // Initialwerte
         String startName = initialName != null ? initialName : "";
@@ -211,7 +212,9 @@ public class DialogHelper {
         CATEGORY_DIALOG_STATES.put(colorPickerDialogId, state);
 
         // Preview setzen
-        colorPreview.setBackgroundColor(startColor);
+
+//        colorPreview.setBackgroundColor(startColor);
+        setPreviewColor(colorPreview, startColor);
 
         // Picker öffnen
         colorPreview.setOnClickListener(v -> {
@@ -272,7 +275,8 @@ public class DialogHelper {
 
         View preview = state.colorPreviewRef != null ? state.colorPreviewRef.get() : null;
         if (preview != null) {
-            preview.setBackgroundColor(color);
+//            preview.setBackgroundColor(color);
+            setPreviewColor(preview, color);
         }
     }
 
@@ -295,6 +299,17 @@ public class DialogHelper {
                 })
                 .setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss())
                 .show();
+    }
+
+    private static void setPreviewColor(View preview, int color) {
+        if (preview == null) {
+            return;
+        }
+
+        if (preview.getBackground() instanceof GradientDrawable) {
+            GradientDrawable drawable = (GradientDrawable) preview.getBackground().mutate();
+            drawable.setColor(color);
+        }
     }
 
 }

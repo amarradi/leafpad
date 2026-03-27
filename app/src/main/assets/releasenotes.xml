@@ -7,8 +7,8 @@
         * Übersetzungen aktualisiert
         * Kategorien eingefügt, Namen und Farben sind frei wählbar
         * beliebig viele Kategorien sind pro Notiz möglich
-        * Umstellung der Speicherung der Notizen in einer Datenbank
-        * vorübergehende Anpassung der backup/restore-Funktion
+        * Umstellung der Speicherung der Notizen in einer internen Datenbank
+        * vorübergehende Abschaltung der backup/restore-Funktion
     </content>
     <date>25.03.2026</date>
     <time>07:07</time>

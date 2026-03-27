@@ -5,9 +5,18 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <com.google.android.material.textfield.TextInputLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:gravity="center_vertical">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+        android:layout_height="wrap_content"
+            android:layout_weight="1"
         android:hint="@string/category_name">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -16,11 +25,12 @@
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <View
-        android:id="@+id/colorPickerView"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:background="#CCCCCC" />
+        <View
+            android:id="@+id/colorPreview"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/bg_color_preview" />
+    </LinearLayout>
 
 </LinearLayout>
