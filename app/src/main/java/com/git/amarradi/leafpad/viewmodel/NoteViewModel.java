@@ -421,15 +421,37 @@ public class NoteViewModel extends AndroidViewModel {
         loadReleaseNote(getApplication().getApplicationContext());
     }
 
+//    private void rebuildNotesList(List<NoteEntity> entities, Boolean showHidden) {
+//        List<Note> notes = new ArrayList<>();
+//
+//        boolean showHiddenFinal = showHidden != null && showHidden;
+//
+//        if (entities != null) {
+//            for (NoteEntity e : entities) {
+//                if (!e.hide || showHiddenFinal) {
+//                    notes.add(fromEntity(e));
+//                }
+//            }
+//        }
+//
+//        notesLiveData.setValue(notes);
+//    }
+
     private void rebuildNotesList(List<NoteEntity> entities, Boolean showHidden) {
         List<Note> notes = new ArrayList<>();
 
-        boolean showHiddenFinal = showHidden != null && showHidden;
+        boolean showOnlyHidden = showHidden != null && showHidden;
 
         if (entities != null) {
             for (NoteEntity e : entities) {
-                if (!e.hide || showHiddenFinal) {
-                    notes.add(fromEntity(e));
+                if (showOnlyHidden) {
+                    if (e.hide) {
+                        notes.add(fromEntity(e));
+                    }
+                } else {
+                    if (!e.hide) {
+                        notes.add(fromEntity(e));
+                    }
                 }
             }
         }

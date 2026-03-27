@@ -112,8 +112,12 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 //            updateEmptyState();
 //        });
 
+//        noteViewModel.getShowHidden().observe(this, showHidden -> {
+//            noteAdapter.setShowOnlyHidden(showHidden);
+//            updateEmptyState();
+//        });
+
         noteViewModel.getShowHidden().observe(this, showHidden -> {
-            noteAdapter.setShowOnlyHidden(showHidden);
             updateEmptyState();
         });
 
@@ -248,7 +252,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private void updateEmptyState() {
         int count = noteAdapter.getItemCount();
         Log.d("MainActivity", "updateEmptyState - itemCount: " + count);
-        boolean showOnlyHidden = noteAdapter.isShowOnlyHidden();
+//        boolean showOnlyHidden = noteAdapter.isShowOnlyHidden();
+        Boolean showOnlyHiddenValue = noteViewModel.getShowHidden().getValue();
+        boolean showOnlyHidden = showOnlyHiddenValue != null && showOnlyHiddenValue;
         ImageView emptyElement = findViewById(R.id.emptyElement);
         if (count == 0) {
             emptyElement.setVisibility(View.VISIBLE);
