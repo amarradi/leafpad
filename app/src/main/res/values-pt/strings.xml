@@ -96,10 +96,10 @@
     <string name="discard">Descartar</string>
     <string name="search_hint">What are you looking for?</string>
     <string name="startIconDescription">A search field</string>
-    <string name="notification_of_change_description">Notify about changes in notes</string>
-    <string name="notification_of_change">Notification of changes</string>
+    <string name="notification_of_change_description">Notifique sobre alterações nas notas</string>
+    <string name="notification_of_change">Notificação de alterações</string>
     <string name="unsaved_changes_message">Sua anotação foi alterada. Deseja salvar ou descartar as alterações?</string>
-    <string name="unsaved_changes_title">Unsaved changes</string>
+    <string name="unsaved_changes_title">Alterações não salvas</string>
     <string name="no_search_results">Nothing found</string>
     <string name="set">It is a recipe</string>
     <string name="close_release_note">Close Button</string>
