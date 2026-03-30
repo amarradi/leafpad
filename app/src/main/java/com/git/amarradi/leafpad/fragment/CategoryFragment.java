@@ -380,14 +380,28 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
     @Override
     public void onResume() {
         super.onResume();
+        updateHostTitle();
+//        if (getMode() == MODE_MANAGE_ONLY && requireActivity() instanceof androidx.appcompat.app.AppCompatActivity) {
+//            androidx.appcompat.app.AppCompatActivity activity =
+//                    (androidx.appcompat.app.AppCompatActivity) requireActivity();
+//
+//            if (activity.getSupportActionBar() != null) {
+//                activity.getSupportActionBar().setTitle(R.string.manage_categories);
+//            }
+//        }
+    }
 
-        if (getMode() == MODE_MANAGE_ONLY && requireActivity() instanceof androidx.appcompat.app.AppCompatActivity) {
-            androidx.appcompat.app.AppCompatActivity activity =
-                    (androidx.appcompat.app.AppCompatActivity) requireActivity();
+    private void updateHostTitle() {
+        if (!(requireActivity() instanceof androidx.appcompat.app.AppCompatActivity)) {
+            return;
+        }
 
-            if (activity.getSupportActionBar() != null) {
-                activity.getSupportActionBar().setTitle(R.string.manage_categories);
-            }
+        androidx.appcompat.app.AppCompatActivity activity =
+                (androidx.appcompat.app.AppCompatActivity) requireActivity();
+
+        if (activity.getSupportActionBar() != null) {
+            activity.getSupportActionBar().setDisplayShowTitleEnabled(true);
+            activity.getSupportActionBar().setTitle(R.string.manage_categories);
         }
     }
 

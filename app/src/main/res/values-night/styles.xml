@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="CustomToolbarStyle" parent="Widget.Material3.Toolbar">
-        <item name="titleTextAppearance">@style/TextAppearance.MyToolbarTitle</item>
+        <!--  <item name="titleTextAppearance">@style/TextAppearance.MyToolbarTitle</item> -->
+        <item name="titleTextAppearance">@style/TextAppearance.MyToolbarTitleCategory</item>
         <item name="subtitleTextAppearance">@style/TextAppearance.MyToolbarSubtitle</item>
         <item name="android:elevation">0dp</item>
     </style>
 
     <style name="CustomToolbarStyleEdit" parent="Widget.Material3.Toolbar">
-        <item name="titleTextAppearance">@style/TextAppearance.MyToolbarTitleEdit</item>
+        <!--   <item name="titleTextAppearance">@style/TextAppearance.MyToolbarTitleEdit</item>-->
+        <item name="titleTextAppearance">@style/TextAppearance.MyToolbarTitleCategory</item>
         <item name="subtitleTextAppearance">@style/TextAppearance.MyToolbarSubtitleEdit</item>
         <item name="android:elevation">0dp</item>
+    </style>
+
+    <style name="TextAppearance.MyToolbarTitleCategory" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:fontFamily">@font/opensans_medium</item>
+        <item name="android:textSize">@dimen/text_size_my_toolbar_title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/md_theme_primary</item>
     </style>
 
     <style name="TextAppearance.MyToolbarTitleEdit" parent="TextAppearance.MaterialComponents.Headline6">

@@ -501,14 +501,24 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
             }
             case R.id.action_setCategory: {
                 findViewById(R.id.body_scroll).setVisibility(View.GONE);
-
-                // Fragment-Container EINBLENDEN
                 findViewById(R.id.fragment_container).setVisibility(View.VISIBLE);
+                if (getSupportActionBar() != null) {
+                    getSupportActionBar().setDisplayShowTitleEnabled(true);
+                    getSupportActionBar().setTitle(R.string.manage_categories);
+                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+                }
+                // Fragment-Container EINBLENDEN
+
                     getSupportFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.fragment_container, new CategoryFragment())
+                            .replace(
+                                    R.id.fragment_container,
+                                    CategoryFragment.newInstance(CategoryFragment.MODE_PICK_FOR_NOTE)
+                            )
                             .addToBackStack("category")
                             .commit();
+
 
                 return true;
             }
@@ -631,6 +641,7 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
         finish();
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void setupToolbar() {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -739,10 +750,24 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
 //            }
 //        }
     }
+//    public void restoreEditorToolbar() {
+//        MaterialToolbar toolbar = findViewById(R.id.toolbar);
+//        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+//        //toolbar.setNavigationOnClickListener(v -> checkForUnsavedChanges());
+//        toolbar.setNavigationOnClickListener(v -> getOnBackPressedDispatcher().onBackPressed());
+//        invalidateOptionsMenu();
+//    }
+
     public void restoreEditorToolbar() {
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
-        //toolbar.setNavigationOnClickListener(v -> checkForUnsavedChanges());
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("");
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
         toolbar.setNavigationOnClickListener(v -> getOnBackPressedDispatcher().onBackPressed());
         invalidateOptionsMenu();
     }
