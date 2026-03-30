@@ -1,0 +1,36 @@
+This app uses the following open source libraries:
+
+---
+
+AndroidX Libraries (Google)
+https://developer.android.com/jetpack/androidx
+
+Includes:
+- Core
+- AppCompat
+- Activity
+- Fragment / Navigation
+- Preference
+- Lifecycle
+- Room
+- ConstraintLayout
+- CoordinatorLayout
+
+Material Components for Android
+https://github.com/material-components/material-components-android
+
+Licensed under the Apache License, Version 2.0:
+http://www.apache.org/licenses/LICENSE-2.0
+
+---
+
+Android Color Picker
+Copyright (c) Jared Rummler
+https://github.com/jaredrummler/ColorPicker
+
+Licensed under the Apache License, Version 2.0:
+http://www.apache.org/licenses/LICENSE-2.0
+
+---
+
+All libraries are distributed under the Apache License, Version 2.0.

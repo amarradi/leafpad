@@ -226,6 +226,7 @@
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/thank_you_for_weblate"
+                            android:text="@string/thanks_to_all_contributors"
 
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

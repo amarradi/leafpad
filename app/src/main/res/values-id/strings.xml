@@ -181,4 +181,8 @@
     <string name="error">error</string>
     <string name="category_already_exists">Category allready exists</string>
     <string name="database_error">database error</string>
+    <string name="open_source_licenses">Open source licenses</string>
+    <string name="error_loading_licenses">Error loading licenses</string>
+    <string name="open_source_licenses_summary">View used libraries and licenses</string>
+    <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
 </resources>

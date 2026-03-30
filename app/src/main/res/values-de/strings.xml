@@ -185,4 +185,8 @@
     <string name="error">Fehler</string>
     <string name="category_already_exists">Kathegorie existiert bereits</string>
     <string name="database_error">Datenbankfehler</string>
+    <string name="open_source_licenses">Open source licenses</string>
+    <string name="error_loading_licenses">Error loading licenses</string>
+    <string name="open_source_licenses_summary">View used libraries and licenses</string>
+    <string name="thanks_to_all_contributors">Vielen Dank an alle Mitwirkenden und Freunde, die bei der Übersetzung dieses Projekts über Weblate helfen – wir wissen eure Zeit und Mühe sehr zu schätzen. Die vollständige und stets aktuelle Liste der Mitwirkenden findet ihr in unserem GitHub-Repository.</string>
 </resources>

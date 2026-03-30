@@ -103,6 +103,8 @@ android {
 
 dependencies {
 
+    implementation 'androidx.navigation:navigation-fragment:2.6.0'
+    implementation 'androidx.navigation:navigation-ui:2.6.0'
     def core = "1.16.0"
     def coordinatorLayout = "1.3.0"
     def appcompat = "1.7.1"

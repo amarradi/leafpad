@@ -18,6 +18,7 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.git.amarradi.leafpad.AboutActivity;
+import com.git.amarradi.leafpad.LicenseActivity;
 import com.git.amarradi.leafpad.R;
 import com.git.amarradi.leafpad.backup.LeafpadBackupManager;
 import com.git.amarradi.leafpad.helper.DialogHelper;
@@ -100,6 +101,10 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         });
         setupClickListener("manage_categories", pref -> {
             openManageCategories();
+            return true;
+        });
+        setupClickListener("licenses", v -> {
+            startActivity(new Intent(requireActivity(), LicenseActivity.class));
             return true;
         });
     }

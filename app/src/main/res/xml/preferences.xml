@@ -67,5 +67,11 @@
             android:icon="@drawable/ic_translation"
             android:title="@string/translate"
             android:summary="@string/translation_help"/>
+
+        <Preference
+            android:key="licenses"
+            android:icon="@drawable/ic_license"
+            android:title="@string/open_source_licenses"
+            android:summary="@string/open_source_licenses_summary" />
     </PreferenceCategory>
 </PreferenceScreen>
