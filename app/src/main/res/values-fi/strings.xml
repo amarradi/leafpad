@@ -6,189 +6,162 @@
     <string name="lightmode_preference" translatable="false">lightmode</string>
     <string name="system_preference_option_value" translatable="false">system</string>
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
-    <string name="theme_preference">Theme</string>
+    <string name="theme_preference">Teema</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
-    <string name="new_note">uusi huomautus</string>
-    <string name="remove_dialog_abort">Peruutukset</string>
-    <string name="rev20_12">Ja minä näin kuolleet, suuret ja pienet, jotka seisoivat valtaistuimen edessä; ja kirjat avautuivat; ja toinen kirja avattiin, mikä on elämän kirja; ja kuolleet tuomittiin niistä asioista, jotka oli kirjoitettu kirjoihin. 20:12</string>
-    <string name="leafpad_work">Leafpad tallentaa kaikki tiedot paikallisesti älypuhelimellasi. Muistiinpanoja tai metatietoja, kuten päivämäärä ja aika, ei tallenneta mihinkään pilveen eikä niitä jaeta kenenkään kanssa. Myöskään tekstianalyysiä ei ole tehty. Huomautukset kuuluvat sinulle. Sinä päätät, mitä teet heidän kanssaan.</string>
-    <string name="imported">huomautus: leafpad</string>
-    <string name="rate_the_app">Entä Googlen PlayStore-versio?</string>
-    <string name="add_shortcut_short_label">Kirjoita alas uusi</string>
-    <string name="action_note_saved">säästäminen</string>
+    <string name="new_note">uusi muistiinpano</string>
+    <string name="remove_dialog_abort">Peruuta</string>
+    <string name="rev20_12">Näin myös kuolleet, suuret ja pienet, seisomassa valtaistuimen edessä. Kirjat avattiin, avattiin myös elämän kirja, ja kuolleet tuomittiin sen perusteella, mitä kirjoihin oli merkitty, kukin tekojensa mukaan. Ilmestyskirja 20:12</string>
+    <string name="leafpad_work">Leafpad tallentaa kaikki tiedot paikallisesti älypuhelimeesi. Muistiinpanoja tai metatietoja, kuten päivämäärää ja aikaa, ei tallenneta mihinkään pilveen eikä niitä jaeta kenenkään kanssa. Myöskään tekstianalyysiä ei tehdä. Muistiinpanot kuuluvat sinulle. Sinä päätät, mitä teet niillä.</string>
+    <string name="imported">muistiinpano lähetetty Leafpadiin</string>
+    <string name="rate_the_app">Jätä arvio Play Storeen?</string>
+    <string name="add_shortcut_short_label">Kirjoita uusi</string>
+    <string name="action_note_saved">tallennettu</string>
     <string name="tell_about">Mitä haluan kertoa Leafpadista</string>
-    <string name="action_share_body">Huomautus</string>
+    <string name="action_share_body">Muistiinpano</string>
     <string name="menu_settings">Asetukset</string>
     <string name="action_fab_note">tee muistiinpano</string>
-    <string name="title_activity_note_edit">Edit Huomautus</string>
-    <string name="translate">Käännä sovellus verkkosivulla</string>
+    <string name="title_activity_note_edit">Muokkaa muistiinpanoa</string>
+    <string name="translate">Käännä sovellus Weblate-sivulla</string>
     <string name="change">versio</string>
-    <string name="system_preference_key">järjestelmä (standardi)</string>
-    <string name="action_edit_note">Edit Huomautus</string>
-    <string name="contentDescription">lisää uusi muistiinpano</string>
-    <string name="note_will_be_saved_first">Huomautus tallennetaan ensin</string>
-    <string name="general_preference">Yleinen</string>
+    <string name="system_preference_key">seuraa järjestelmän asetuksia (standardi)</string>
+    <string name="action_edit_note">Muokkaa muistiinpanoa</string>
+    <string name="contentDescription">luo uusi muistiinpano</string>
+    <string name="note_will_be_saved_first">Muistiinpano tallennetaan ensin</string>
+    <string name="general_preference">Yleiset asetukset</string>
     <string name="title_licence">Lisenssit</string>
     <string name="remove_dailog_message">Tämä huomautus poistetaan pysyvästi. Sen jälkeen sitä ei voi palauttaa.</string>
     <string name="version">versio</string>
-    <string name="find_code_on_github_summary">Voit tarkastella ja tarkistaa lähdekoodin arkiston kautta. Olet tervetullut avaamaan ongelman muutospyyntöihin ja virheilmoituksiin.</string>
-    <string name="action_share_title">Title</string>
-    <string name="participate">Osallistuminen</string>
+    <string name="find_code_on_github_summary">Tarkastele ja ilmoita virheistä lähdekoodin ohjelmavarastossa.</string>
+    <string name="action_share_title">Otsikko</string>
+    <string name="participate">Osallistu</string>
     <string name="title_hint">Otsikko</string>
-    <string name="about">About about</string>
-    <string name="theme_summary">Pimeän ja valon teeman välissä</string>
+    <string name="about">Tietoja</string>
+    <string name="theme_summary">Vaihda pimeään tai vaaleaan tilaan</string>
     <string name="what_is_leafpad">Leafpad on yksinkertainen sovellus muistiinpanojen tekemiseen.</string>
     <string name="created_txt">luotu</string>
-    <string name="action_remove">Poista muistiinpanot</string>
+    <string name="action_remove">Poista muistiinpano</string>
     <string name="licence">Avoimen lähdekoodin lisenssit</string>
-    <string name="edited_text">editoituna</string>
-    <string name="body_hint">Huomautus</string>
-    <string name="lightmode_preference_key">lightmode</string>
+    <string name="edited_text">muokattuna kohteessa</string>
+    <string name="body_hint">Muistiinpano</string>
+    <string name="lightmode_preference_key">Vaalea tila</string>
     <string name="find_code_on_github">GitHub</string>
-    <string name="darkmode_preference_key">pimeä</string>
-    <string name="search">etsi etsintä</string>
-    <string name="action_save">säästä muistiinpanoja</string>
-    <string name="share_note">Jaa muistiinpanoja?</string>
+    <string name="darkmode_preference_key">Tumma tila</string>
+    <string name="search">etsi muistiinpanoista</string>
+    <string name="action_save">tallenna muistiinpano</string>
+    <string name="share_note">Jaa muistiinpano?</string>
     <string name="thanks">Kiitos Stefan, Stefan, Manuel, Falk ja Stephanie ideoistasi ja sovelluksen testaamisesta.</string>
     <string name="statement">Kirjoitamme ostoslistoja, keskustelujen muistiinpanoja, loma- tai ystävien syntymäpäivien pakkauslistoja. Nämä ovat hyviä asioita, jotta emme unohda niitä. Se on hyvin samanlainen kuin Jumala, hän kirjoittaa meidän hyvät ja pahat tekomme ja pelastaa ne. Jumala on kaiken yläpuolella ja tietää kaiken. Jumala rakastaa ihmisiä ja haluaa olla heidän kanssaan. Tämä on mahdollista vain, jos Jumala näkee meidät syyttöminä. Uskon kautta Jeesukseen Kristukseen meidän pahat tekomme (syyllisyytemme) hävitetään Jumalan edessä. Jeesus Kristus sovitti syyllisyytemme Golgatan ristillä. Jokainen, joka hyväksyy tämän, on ikuisesti mukana elämän kirjassa. Oletko rekisteröitynyt elämän kirjaan?</string>
-    <string name="hide_note">piilotettu muistiinpano</string>
+    <string name="hide_note">tee muistiinpanosta piilotettu</string>
     <string name="translation_help">Auta meitä kääntämään sovellus kielellesi Weblatessa.</string>
-    <string name="its_opensource">Leafpad on OpenSource ja sen ilmainen</string>
-    <string name="satisfied">Nauti leafpadista?</string>
+    <string name="its_opensource">Leafpad on ilmainen avoimen lähdekoodin sovellus</string>
+    <string name="satisfied">Nautitko Leafpadista?</string>
     <string name="app_name">Leafpad</string>
-    <string name="about_the_app">App</string>
+    <string name="about_the_app">Tietoja sovelluksesta</string>
     <string name="remove_dialog_title">Oletko varma?</string>
-    <string name="action_add_note">Lisähuomautus</string>
-    <string name="action_share_note">Jaa muistiinpanoja</string>
-    <string name="hide_hidden">piilotettuja muistiinpanoja</string>
+    <string name="action_add_note">Luo muistiinpano</string>
+    <string name="action_share_note">Jaa muistiinpano</string>
+    <string name="hide_hidden">piilota piilotetut muistiinpanot</string>
     <string name="show_note">tee muistiinpano näkyväksi</string>
     <string name="show_hidden">näytä piilotetut muistiinpanot</string>
-    <string name="note_is_recipe">note is a recipe</string>
-    <string name="note_is_no_recipe">note is no recipe</string>
-    <string name="restore">Restore all notes as xml</string>
-    <string name="save">Save all notes as xml</string>
-    <string name="showDeleteConfirmation">Delete notes?</string>
-    <string name="backupIsrunning">Backup is running</string>
+    <string name="note_is_recipe">muistiinpano on resepti</string>
+    <string name="note_is_no_recipe">muistiinpano ei ole resepti</string>
+    <string name="restore">Palauta kaikki muistiinpanot xml-tiedostosta</string>
+    <string name="save">Tallenna kaikki muistiinpanot xml-muodossa</string>
+    <string name="showDeleteConfirmation">Poistetaanko muistiinpanot?</string>
+    <string name="backupIsrunning">Varmuuskopiointi on käynnissä</string>
     <string name="no">Ei</string>
-    <string name="importError">Error when importing notes.</string>
-    <string name="showDeleteConfirmationMessage">All notes will be permanently deleted. Continue?</string>
+    <string name="importError">Virhe muistiinpanojen tuomisessa.</string>
+    <string name="showDeleteConfirmationMessage">Kaikki muistiinpanot poistetaan pysyvästi. Jatketaanko?</string>
     <string name="yes">Kyllä</string>
     <plurals name="notes_imported">
-        <item quantity="one">One note imported</item>
-        <item quantity="other">%1$d notes imported</item>
+        <item quantity="one">Yksi muistiinpano tuotu</item>
+        <item quantity="other">%1$d muistiinpanoa tuotu</item>
     </plurals>
-    <plurals name="notes_exported">
-        <item quantity="one">%1$d note backed up</item>
-        <item quantity="other">%1$d notes backed up</item>
-    </plurals>
-    <string name="fileOpeningError">Error when opening the file.</string>
-    <string name="delete">Delete</string>
-    <string name="backupfinish">Backup finishes</string>
-    <string name="invalidFile">Invalid backup file. The import was cancelled.</string>
-    <string name="cancel">Cancel</string>
+    <string name="fileOpeningError">Virhe avattaessa tiedostoa.</string>
+    <string name="delete">Poista</string>
+    <string name="backupfinish">Varmuuskopiointi on suoritettu</string>
+    <string name="invalidFile">Virheellinen varmuuskopiotiedosto. Tuonti on keskeytetty.</string>
+    <string name="cancel">Peruuta</string>
     <string name="showRestoreConfirmation">Palauta?</string>
     <string name="restore_notes_title">Palauta</string>
-    <string name="save_notes_title">Backup</string>
-    <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
-    <string name="toggle">change View</string>
-    <string name="note_shared">Note shared</string>
-    <string name="discard">discard</string>
-    <string name="no_search_results">Nothing found</string>
-    <string name="item_menu_description">menu for item actions</string>
+    <string name="save_notes_title">Varmuuskopio</string>
+    <string name="showRestoreConfirmationMessage">Kaikki nykyiset muistiinpanot korvataan varmuuskopiolla. Jatketaanko?</string>
+    <string name="toggle">vaihda näkymää</string>
+    <string name="note_shared">Muistiinpano jaettu</string>
+    <string name="discard">hylkää</string>
+    <string name="no_search_results">Mitään ei löytynyt</string>
+    <string name="item_menu_description">valikko toiminnoille</string>
     <string name="save_changes">tallenna muutokset</string>
-    <string name="search_hint">What are you looking for?</string>
-    <string name="startIconDescription">A search field</string>
-    <string name="notification_of_change_description">Notify about changes in notes</string>
-    <string name="notification_of_change">Notification of changes</string>
-    <string name="unsaved_changes_message">Your note has changed. Do you want to save or discard the changes?</string>
-    <string name="not_initialized">Leafpad not initialized yet!</string>
-    <string name="unsaved_changes_title">Tallentamattomia muutoksia</string>
-    <string name="empty_list">No notes available in the list</string>
-    <string name="set">It is a recipe</string>
-    <string name="close_release_note">Close Button</string>
-    <string name="title_required">Title required</string>
-    <string name="keep_screen_on_dialog_yes">Yes</string>
-    <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
-    <string name="keep_screen_on_dialog_no">No</string>
-    <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
-    <string name="keep_screen_on_title">Keep screen on</string>
-    <string name="keep_screen_on_dialog_title">Battery usage warning</string>
+    <string name="search_hint">Mitä etsit?</string>
+    <string name="startIconDescription">Hakukenttä</string>
+    <string name="notification_of_change_description">Ilmoita muutoksista muistiinpanoissa</string>
+    <string name="notification_of_change">Muutosilmoitukset</string>
+    <string name="unsaved_changes_message">Muistiinpano on muuttunut. Haluatko poistaa vai hylätä muutokset?</string>
+    <string name="not_initialized">Leafpad ei voi vielä käynnistynyt!</string>
+    <string name="unsaved_changes_title">Tallentamattomat muutokset</string>
+    <string name="empty_list">Yhtään muistiinpanoa ei ole saatavilla listassa</string>
+    <string name="set">Se on resepti</string>
+    <string name="close_release_note">Sulje-painike</string>
+    <string name="title_required">Otsikko vaaditaan</string>
+    <string name="keep_screen_on_dialog_yes">Kyllä</string>
+    <string name="keep_screen_on_dialog_message">Näytön pitäminen päällä voi merkittävästi lisätä virran kulutusta. Oletko varma, että haluat ottaa toiminnon käyttöön?</string>
+    <string name="keep_screen_on_dialog_no">Ei</string>
+    <string name="keep_screen_on_summary">Estä näyttöä sammumasta käytettäessä Leafpadia</string>
+    <string name="keep_screen_on_title">Pidä näyttö päällä</string>
+    <string name="keep_screen_on_dialog_title">Varoitus virran käytöstä</string>
     <string name="country_title_translator_czech" translatable="false">MessingWithComputers(@MessingWithComputers)</string>
-    <string name="country_title_french">French</string>
+    <string name="country_title_french">Ranska</string>
     <string name="country_title_translator_portuguese" translatable="false">Lucas Alves Rego(@devlulcas), Ettlu selva rula(@Ttormor)</string>
-    <string name="country_title_catalan">Catalan</string>
-    <string name="country_title_spanish">Spanish</string>
+    <string name="country_title_catalan">Katalaani</string>
+    <string name="country_title_spanish">Espanja</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
-    <string name="setCategory">Set Category</string>
-    <string name="country_title_albanian">Albanian</string>
-    <string name="country_title_indonesian">Indonesian</string>
-    <string name="country_title_russian">Russian</string>
+    <string name="country_title_albanian">Albania</string>
+    <string name="country_title_indonesian">Indonesia</string>
+    <string name="country_title_russian">Venäjä</string>
     <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
-    <string name="please_enter_a_title">Please enter a title for the note before you can save it.</string>
-    <string name="country_title_tamil">Tamil</string>
+    <string name="please_enter_a_title">Syötä otsikko muistiinpanolle tallentaaksesi tai hylätäksesi muistiinpanon.</string>
+    <string name="country_title_tamil">Tamili</string>
     <string name="country_title_translator_hindi" translatable="false">Harshit Sethi(@hstsethi)</string>
     <string name="country_title_translator_english" translatable="false">Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l), Santiago Centeno(@Java16)</string>
-    <string name="country_title_polish">Polish</string>
+    <string name="country_title_polish">Puola</string>
     <string name="country_title_translator_indonesian" translatable="false">Arif Budiman(@arifpedia), toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
-    <string name="country_title_german">German</string>
+    <string name="country_title_german">Saksa</string>
     <string name="country_title_translator_french" translatable="false">Leonart(@Leonart), Omgeta(@Omgeta), michte(@michte), David D.(@Dadu042)</string>
     <string name="country_title_translator_arabic" translatable="false">Asaad Zein(@asaadzx)</string>
-    <string name="country_title_ukrainian">Ukrainian</string>
+    <string name="country_title_ukrainian">Ukraina</string>
     <string name="country_title_translator_spanish" translatable="false">Sofia Gutierrez(@SofiaIrina9), Zarahi Ander(@TradZarahi), Francisco Serrador(@fserrador), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Marco(@Megido), Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), Abraham Mendoza(@1Alide1), zergio inzunza(@n1kf4m3l)</string>
-    <string name="country_title_greek">Greek</string>
+    <string name="country_title_greek">Kreikka</string>
     <string name="country_title_translator_polish" translatable="false">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
     <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero), Davide Secco(@davidesecco)</string>
-    <string name="country_title_arabic">Arabic</string>
-    <string name="country_title_italian">Italian</string>
+    <string name="country_title_arabic">Arabia</string>
+    <string name="country_title_italian">Italia</string>
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_translator_ukrainian" translatable="false">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
     <string name="country_title_translator_russian" translatable="false">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), vanapro1(@vanapro1), Sotski Eugene(@jekakmail), MrSliv69(@MrSliv69), Steven Barash(@stevenbarash), Rachel Podya(@homicide@disroot.org), SnIPeRSnIPeR(@SnIPeRSnIPeR), Santiago Centeno(@Java16)</string>
-    <string name="country_title_czech">Czech</string>
-    <string name="country_title_english">English</string>
-    <string name="country_title_portuguese">Portuguese</string>
+    <string name="country_title_czech">Tsekki</string>
+    <string name="country_title_english">Englanti</string>
+    <string name="country_title_portuguese">Portugali</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Blubberland(@Blubberland), Maximilian Hüttner(@MaxHue)</string>
     <string name="country_title_hindi_latin">Hindi (Latin script)</string>
     <string name="country_title_hindi">Hindi</string>
     <string name="country_title_translator_estonian" translatable="false">Priit Jõerüüt(@jrthwlate)</string>
-    <string name="country_title_estonian">Estonian</string>
+    <string name="country_title_estonian">Viro</string>
     <string name="country_title_translator_chinese_traditional_han_script" translatable="false">imcc(@imcc)</string>
     <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
     <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
     <string name="country_title_translator_chinese_simplified_han_script" translatable="false">雲の中を漂う船(@KumoNoFune), imcc(@imcc)</string>
-    <string name="country_title_chinese_simplified_han_script">Chinese (Simplified Han script)</string>
-    <string name="country_title_chinese_traditional_han_script">Chinese (Traditional Han script)</string>
-    <string name="country_title_hindi_latin_script">Hindi (Latin script)</string>
-    <string name="country_title_uzbek">Uzbek</string>
+    <string name="country_title_chinese_simplified_han_script">Kiina (Yksinkertainen Han kirjoitus)</string>
+    <string name="country_title_chinese_traditional_han_script">Kiina (Perinteinen Han kirjoitus)</string>
+    <string name="country_title_hindi_latin_script">Hindi (Latinalainen kirjoitus)</string>
+    <string name="country_title_uzbek">Uzbekki</string>
     <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
     <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
-    <string name="country_title_gothic">Gothic</string>
-    <string name="country_title_dutch">Dutch</string>
-    <string name="menu_about">About Leafpad</string>
-    <string name="country_title_danish">Danish</string>
+    <string name="country_title_gothic">Gootti</string>
+    <string name="country_title_dutch">Hollanti</string>
+    <string name="menu_about">Tietoja Leafpadista</string>
+    <string name="country_title_danish">Tanska</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
-    <string name="country_title_serbian">Serbian</string>
-    <string name="item_menu_add_category">create new category</string>
-    <string name="category">Category</string>
-    <string name="category_name">name of the category</string>
-    <string name="select_color">choose category color</string>
-    <string name="edit_category">edit category</string>
-    <string name="add_category">add category</string>
-    <string name="category_color">category color</string>
-    <string name="save_category">save category</string>
-    <string name="delete_category">Delete category</string>
-    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
-    <string name="delete_category_hint">Notes are retained but lose this category.</string>
-    <string name="manage_categories">Manage categories</string>
-    <string name="manage_categories_summary">Create, edit, and delete</string>
-    <string name="error">error</string>
-    <string name="category_already_exists">Category allready exists</string>
-    <string name="database_error">database error</string>
-    <string name="open_source_licenses">Open source licenses</string>
-    <string name="error_loading_licenses">Error loading licenses</string>
-    <string name="open_source_licenses_summary">View used libraries and licenses</string>
-    <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
-    <string name="database_error_log">Database Error</string>
-    <string name="category_name_required">Empty category is not allowed</string>
+    <string name="country_title_serbian">Serbia</string>
 </resources>

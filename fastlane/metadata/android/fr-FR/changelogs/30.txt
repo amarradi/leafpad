@@ -1,0 +1,1 @@
+Les entrées vides seront maintenant supprimées si elles sont rejetées

@@ -17,7 +17,7 @@
     <string name="edited_text">Bearbeitet am</string>
     <string name="new_note">neue Notiz</string>
     <string name="satisfied">Gefällt Ihnen leafpad?</string>
-    <string name="rate_the_app">Wie wäre es mit einer Bewertung im PlayStore von Google? Dann öffne direkt Google Play.</string>
+    <string name="rate_the_app">Eine Play Store Bewertung abgeben?</string>
     <string name="created_txt">Notiz erstellt am</string>
     <string name="remove_dialog_title">Sind Sie sicher?</string>
     <string name="remove_dailog_message">Diese Notiz wird endgültig gelöscht. Danach kann sie nicht wiederhergestellt werden.</string>
@@ -40,7 +40,7 @@
     <string name="statement">Wir notieren uns Einkaufslisten, Gesprächsnotizen, Packlisten für Urlaube oder Geburtstage von Freunden. Das sind alles gute Dinge, damit wir sie nicht vergessen. Bei Gott ist das ganz ähnlich, er schreibt sich unsere guten und schlechten Taten auf und speichert sie. Gott steht über allem und weiß einfach alles. Gott liebt die Menschen und möchte mit ihnen Gemeinschaft haben. Das geht aber nur, wenn wir von Gott als schuldlos angesehen werden. Durch den Glauben an Jesus Christus werden unsere schlechten Taten (unsere Schuld) vor Gott ausgelöscht. Jesus Christus hat unsere Schuld am Kreuz auf Golgatha gesühnt. Jeder Mensch, der das annimmt ist für immer im Buch des Lebens eintragen. Sind Sie im Buch des Lebens eingetragen?</string>
     <string name="its_opensource">Leafpad ist OpenSource und es ist frei</string>
     <string name="find_code_on_github">GitHub</string>
-    <string name="find_code_on_github_summary">Sie können den Quellcode von Leafpad über das Repository einsehen und überprüfen. Für Änderungswünsche und Fehlermeldungen können Sie gerne ein sogenanntes Issue öffnen.</string>
+    <string name="find_code_on_github_summary">Den Code anzeigen und Probleme im Repository melden.</string>
     <string name="title_licence">Lizenzen</string>
     <string name="licence">Open source Lizenzen</string>
     <string name="notification_of_change">Benachrichtigung bei Änderungen</string>
@@ -63,7 +63,7 @@
     <string name="system_preference_option_value" translatable="false">system</string>
     <string name="participate">Mitmachen oder Beitragen</string>
     <string name="translate">Übersetzen Sie die App auf Weblate</string>
-    <string name="translation_help">Hilf uns bei der Übersetzung der App in deine Sprache auf weblate</string>
+    <string name="translation_help">Hilf bei der Übersetzung der App auf Weblate.</string>
     <string name="hide_note">Die Notiz unsichtbar machen</string>
     <string name="show_note">Die Notiz sichtbar machen</string>
     <string name="show_hidden">zeige versteckte Notizen</string>
@@ -78,10 +78,6 @@
     <plurals name="notes_imported">
         <item quantity="one">%1$d Notiz importiert</item>
         <item quantity="other">%1$d Notizen importiert</item>
-    </plurals>
-    <plurals name="notes_exported">
-        <item quantity="one">%1$d Notiz gesichert</item>
-        <item quantity="other">%1$d Notizen gesichert</item>
     </plurals>
     <string-array name="category">
         <item>Rezept</item>
@@ -122,7 +118,6 @@
     <string name="country_title_catalan">Katalanisch</string>
     <string name="country_title_spanish">Spanisch</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
-    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">Albanisch</string>
     <string name="country_title_indonesian">Indonesisch</string>
     <string name="country_title_russian">Russisch</string>
@@ -166,32 +161,10 @@
     <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
     <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
-    <string name="country_title_gothic">Gothic</string>
-    <string name="country_title_dutch">Dutch</string>
-    <string name="menu_about">About Leafpad</string>
-    <string name="country_title_danish">Danish</string>
+    <string name="country_title_gothic">Gotisch</string>
+    <string name="country_title_dutch">Niederländisch</string>
+    <string name="menu_about">Über Leafpad</string>
+    <string name="country_title_danish">Dänisch</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
-    <string name="country_title_serbian">Serbian</string>
-    <string name="item_menu_add_category">Eine Kategorie hinzufügen</string>
-    <string name="category">Kategorie</string>
-    <string name="category_name">Name der Kategorie</string>
-    <string name="select_color">Kategoriefarbe wählen</string>
-    <string name="edit_category">Kategorie bearbeiten</string>
-    <string name="add_category">Kategorie anlegen</string>
-    <string name="category_color">Kategoriefarbe</string>
-    <string name="save_category">Kategorie speichern</string>
-    <string name="delete_category">Kategorien löschen</string>
-    <string name="delete_category_confirm">Sind Sie sicher, dass Sie die Kategorie “%1$s” löschen möchten</string>
-    <string name="delete_category_hint">Nur die Kategorien werden gelöscht, Notizen bleiben erhalten</string>
-    <string name="manage_categories">Verwalten von Kategorien</string>
-    <string name="manage_categories_summary">Erstellen, Bearbeiten und Löschen von Kategorien</string>
-    <string name="error">Fehler</string>
-    <string name="category_already_exists">Kathegorie existiert bereits</string>
-    <string name="database_error">Datenbankfehler</string>
-    <string name="open_source_licenses">Open source licenses</string>
-    <string name="error_loading_licenses">Error loading licenses</string>
-    <string name="open_source_licenses_summary">View used libraries and licenses</string>
-    <string name="thanks_to_all_contributors">Vielen Dank an alle Mitwirkenden und Freunde, die bei der Übersetzung dieses Projekts über Weblate helfen – wir wissen eure Zeit und Mühe sehr zu schätzen. Die vollständige und stets aktuelle Liste der Mitwirkenden findet ihr in unserem GitHub-Repository.</string>
-    <string name="database_error_log">Database Error</string>
-    <string name="category_name_required">Empty category is not allowed</string>
+    <string name="country_title_serbian">Serbisch</string>
 </resources>

@@ -12,7 +12,7 @@
     <string name="leafpad_work">உங்கள் ச்மார்ட்போனில் உள்ளூரில் உள்ள அனைத்து தரவையும் லீச்பேட் சேமிக்கிறது. தேதி மற்றும் நேரம் போன்ற குறிப்புகள் அல்லது மேனிலை தரவு எந்த மேகத்திலும் சேமிக்கப்படவில்லை, அவை யாருடனும் பகிரப்படவில்லை. உரை பகுப்பாய்வு எதுவும் மேற்கொள்ளப்படவில்லை. குறிப்புகள் உங்களுக்கு சொந்தமானவை. நீங்கள் அவர்களுடன் என்ன செய்கிறீர்கள் என்பதை நீங்கள் தீர்மானிக்கிறீர்கள்.</string>
     <string name="action_note_saved">சேமிக்கப்பட்டது</string>
     <string name="imported">குறிப்பு leafpadக்கு அனுப்பப்பட்டது</string>
-    <string name="rate_the_app">கூகிளின் பிளேச்டோரில் ஒரு மதிப்பாய்வு எப்படி? பின்னர் கூகிள் பிளேயை நேரடியாகத் திறக்கவும்.</string>
+    <string name="rate_the_app">இயக்கு கடையில் மதிப்பாய்வை விட்டுவிடவா?</string>
     <string name="add_shortcut_short_label">புதிதாக எழுது</string>
     <string name="tell_about">Leafpadஐ பற்றி நான் உங்களுக்கு கூற விரும்புவது</string>
     <string name="action_share_body">குறிப்பு</string>
@@ -32,7 +32,7 @@
     <string name="remove_dailog_message">இந்த குறிப்பு நிரந்திரமாக அழிக்கப்படும் . பிறகு மீட்க இயலாது.</string>
     <string name="version">பதிப்பு</string>
     <string name="show_note">குறிப்பைக் காணச் செய்யுங்கள்</string>
-    <string name="find_code_on_github_summary">களஞ்சியத்தின் வழியாக மூலக் குறியீட்டைக் காணலாம் மற்றும் சரிபார்க்கலாம். மாற்ற கோரிக்கைகள் மற்றும் பிழை செய்திகளுக்கு ஒரு சிக்கலைத் திறக்க உங்களை வரவேற்கிறோம்.</string>
+    <string name="find_code_on_github_summary">குறியீட்டைப் பார்த்து, களஞ்சியத்தில் உள்ள சிக்கல்களைப் புகாரளி.</string>
     <string name="action_share_title">தலைப்பு</string>
     <string name="participate">பங்கேற்க அல்லது பங்கெடுக்க</string>
     <string name="title_hint">தலைப்பு</string>
@@ -53,7 +53,7 @@
     <string name="thanks">உங்கள் சிந்தனைகள் மற்றும் பயன்பாட்டை சோதித்ததற்கு ச்டீபன், ச்டீபன், மானுவல், பால்க், ச்டீபனி மற்றும் எமில் ஆகியோருக்கு நன்றி.</string>
     <string name="statement">நாங்கள் சாப்பிங் பட்டியல்கள், உரையாடல்களுக்கான குறிப்புகள், விடுமுறைக்கான பொதி பட்டியல்கள் அல்லது நண்பர்களின் பிறந்த நாள் எழுதுகிறோம். இவை அனைத்தும் நல்ல விசயங்கள், எனவே அவற்றை நாம் மறக்க வேண்டாம். இது கடவுளுடன் மிகவும் ஒத்திருக்கிறது, அவர் நம்முடைய நல்ல மற்றும் கெட்ட செயல்களை எழுதி அவற்றைக் காப்பாற்றுகிறார். கடவுள் எல்லாவற்றிற்கும் மேலாக இருக்கிறார், எல்லாவற்றையும் அறிந்திருக்கிறார். கடவுள் மக்களை நேசிக்கிறார், அவர்களுடன் கூட்டுறவு கொள்ள விரும்புகிறார். ஆனால் கடவுளால் குற்றமற்றவர் என்று நாம் பார்த்தால் மட்டுமே இது சாத்தியமாகும். இயேசு கிறிச்துவின் மீதான விசுவாசத்தின் மூலம், நம்முடைய கெட்ட செயல்கள் (நம்முடைய குற்ற உணர்வு) கடவுளுக்கு முன்பாக அழிக்கப்படுகின்றன. கல்வரியின் சிலுவையில் நம்முடைய குற்றத்திற்காக இயேசு கிறிச்து பரிகாரம் செய்தார். இதை ஏற்றுக்கொள்ளும் ஒவ்வொரு நபரும் வாழ்க்கை புத்தகத்தில் என்றென்றும் நுழைந்தனர். நீங்கள் வாழ்க்கை புத்தகத்தில் பதிவு செய்யப்பட்டுள்ளீர்களா?</string>
     <string name="hide_note">குறிப்பை கண்ணுக்கு தெரியாததாக ஆக்குங்கள்</string>
-    <string name="translation_help">weblateஇல் செயலியை உங்கள் மொழிக்கு மொழிபெயர்க்க உதவுங்கள்</string>
+    <string name="translation_help">வலைபெயர்பில் பயன்பாட்டை மொழிபெயர்க்க உதவவும்.</string>
     <string name="rev20_12">நான் இறந்தவர்களையும், பெரியவனையும், சிறியவனையும் பார்த்தேன்; புத்தகங்கள் திறக்கப்பட்டன: மற்றொரு நூல் திறக்கப்பட்டது, இது வாழ்க்கை புத்தகம்: மற்றும் இறந்தவர்கள் புத்தகங்களில் எழுதப்பட்ட விசயங்களிலிருந்து தீர்மானிக்கப்பட்டனர், அவற்றின் படைப்புகளின்படி. வெளிப்படுத்துதல் 20:12</string>
     <string name="its_opensource">Leafpad இலவசமானது மற்றும் திறந்த மூலக்கோடு உடையது</string>
     <string name="satisfied">leafpadஐ விரும்பிகீர்களா ?</string>
@@ -74,10 +74,6 @@
     <plurals name="notes_imported">
         <item quantity="one">%1$d குறிப்பு இறக்குமதி செய்யப்பட்டது</item>
         <item quantity="other">%1$d குறிப்புகள் இறக்குமதி செய்யபட்டன</item>
-    </plurals>
-    <plurals name="notes_exported">
-        <item quantity="one">%1$d note backed up</item>
-        <item quantity="other">%1$d notes backed up</item>
     </plurals>
     <string name="showDeleteConfirmationMessage">அனைத்து குறிப்புகளும் நிரந்திரமாக நீக்கப்படும். தொடர்க?</string>
     <string name="fileOpeningError">கோப்பை திறப்பதில் பிழை.</string>
@@ -119,7 +115,6 @@
     <string name="country_title_catalan">கற்றலான்</string>
     <string name="country_title_spanish">ச்பானிச்</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
-    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">அல்பேனிய</string>
     <string name="country_title_indonesian">இந்தோனேசியன்</string>
     <string name="country_title_russian">ரஷியன்</string>
@@ -163,32 +158,10 @@
     <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
     <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
-    <string name="country_title_gothic">Gothic</string>
-    <string name="country_title_dutch">Dutch</string>
-    <string name="menu_about">About Leafpad</string>
-    <string name="country_title_danish">Danish</string>
+    <string name="country_title_gothic">கோதிக்</string>
+    <string name="country_title_dutch">டச்சு</string>
+    <string name="menu_about">இலைஅட்டை பற்றி</string>
+    <string name="country_title_danish">டேனிசு</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
-    <string name="country_title_serbian">Serbian</string>
-    <string name="item_menu_add_category">create new category</string>
-    <string name="category">Category</string>
-    <string name="category_name">name of the category</string>
-    <string name="select_color">choose category color</string>
-    <string name="edit_category">edit category</string>
-    <string name="add_category">add category</string>
-    <string name="category_color">category color</string>
-    <string name="save_category">save category</string>
-    <string name="delete_category">Delete category</string>
-    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
-    <string name="delete_category_hint">Notes are retained but lose this category.</string>
-    <string name="manage_categories">Manage categories</string>
-    <string name="manage_categories_summary">Create, edit, and delete</string>
-    <string name="error">error</string>
-    <string name="category_already_exists">Category allready exists</string>
-    <string name="database_error">database error</string>
-    <string name="open_source_licenses">Open source licenses</string>
-    <string name="error_loading_licenses">Error loading licenses</string>
-    <string name="open_source_licenses_summary">View used libraries and licenses</string>
-    <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
-    <string name="database_error_log">Database Error</string>
-    <string name="category_name_required">Empty category is not allowed</string>
+    <string name="country_title_serbian">செர்பியன்</string>
 </resources>

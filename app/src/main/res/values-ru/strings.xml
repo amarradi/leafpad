@@ -11,7 +11,7 @@
     <string name="app_name">Leafpad</string>
     <string name="new_note">новая заметка</string>
     <string name="imported">заметка была отправлена в Leafpad</string>
-    <string name="rate_the_app">А может напишите отзыв в Google PlayStore? Тогда открой Google Play напрямую.</string>
+    <string name="rate_the_app">Оставить отзыв в Play Store?</string>
     <string name="add_shortcut_short_label">Записать новую</string>
     <string name="tell_about">Что я хочу рассказать вам о Leafpad</string>
     <string name="created_txt">создано в</string>
@@ -49,7 +49,7 @@
     <string name="title_licence">Лицензии</string>
     <string name="remove_dailog_message">Настоящая заметка будет навсегда удалена. Её нельзя будет восстановить.</string>
     <string name="version">версия</string>
-    <string name="find_code_on_github_summary">Вы можете просматривать и проверять исходный код через хранилище. Вы можете открыть проблему для запросов на изменение и сообщений об ошибках.</string>
+    <string name="find_code_on_github_summary">Посмотреть исходный код и сообщить о проблеме в репозитории.</string>
     <string name="action_share_title">Название</string>
     <string name="title_hint">Название</string>
     <string name="about">О нас</string>
@@ -58,7 +58,7 @@
     <string name="its_opensource">Leafpad - это свободное и бесплатное приложение</string>
     <string name="participate">Участвовать или вносить свой вклад</string>
     <string name="translate">Помогите с переводом на Weblate</string>
-    <string name="translation_help">Помогите нам перевести приложение на ваш язык в Weblate</string>
+    <string name="translation_help">Помочь с переводом приложения на Weblate.</string>
     <string name="hide_note">сделать заметку невидимой</string>
     <string name="hide_hidden">спрятать скрытые заметки</string>
     <string name="show_note">сделать заметку видимой</string>
@@ -70,7 +70,7 @@
     <string name="backupIsrunning">Резервное копирование запущено</string>
     <string name="no">Нет</string>
     <string name="importError">При импорте заметок произошла ошибка.</string>
-    <string name="restore">Восстановить все заметки из XML файла</string>
+    <string name="restore">Восстановить все заметки из XML-файла</string>
     <string name="showDeleteConfirmationMessage">Все заметки будут удалены навсегда. Продолжить?</string>
     <string name="yes">Да</string>
     <plurals name="notes_imported">
@@ -78,12 +78,6 @@
         <item quantity="few">%1$d заметки импортировано</item>
         <item quantity="many">%1$d заметок импортировано</item>
         <item quantity="other">%1$d заметок импортировано</item>
-    </plurals>
-    <plurals name="notes_exported">
-        <item quantity="one">%1$d note backed up</item>
-        <item quantity="few">%1$d notes backed up</item>
-        <item quantity="many">%1$d notes backed up</item>
-        <item quantity="other">%1$d notes backed up</item>
     </plurals>
     <string name="fileOpeningError">При открытии файла произошла ошибка.</string>
     <string name="delete">Удалить</string>
@@ -123,7 +117,6 @@
     <string name="country_title_catalan">Каталонский</string>
     <string name="country_title_spanish">Испанский</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
-    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">Albanian</string>
     <string name="country_title_indonesian">Индонезийский</string>
     <string name="country_title_russian">Русский</string>
@@ -167,32 +160,10 @@
     <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
     <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
-    <string name="country_title_gothic">Gothic</string>
-    <string name="country_title_dutch">Dutch</string>
-    <string name="menu_about">About Leafpad</string>
-    <string name="country_title_danish">Danish</string>
+    <string name="country_title_gothic">Готический</string>
+    <string name="country_title_dutch">Голландский</string>
+    <string name="menu_about">О программе Leafpad</string>
+    <string name="country_title_danish">Датский</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
-    <string name="country_title_serbian">Serbian</string>
-    <string name="item_menu_add_category">create new category</string>
-    <string name="category">Category</string>
-    <string name="category_name">name of the category</string>
-    <string name="select_color">choose category color</string>
-    <string name="edit_category">edit category</string>
-    <string name="add_category">add category</string>
-    <string name="category_color">category color</string>
-    <string name="save_category">save category</string>
-    <string name="delete_category">Delete category</string>
-    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
-    <string name="delete_category_hint">Notes are retained but lose this category.</string>
-    <string name="manage_categories">Manage categories</string>
-    <string name="manage_categories_summary">Create, edit, and delete</string>
-    <string name="error">error</string>
-    <string name="category_already_exists">Category allready exists</string>
-    <string name="database_error">database error</string>
-    <string name="open_source_licenses">Open source licenses</string>
-    <string name="error_loading_licenses">Error loading licenses</string>
-    <string name="open_source_licenses_summary">View used libraries and licenses</string>
-    <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
-    <string name="database_error_log">Database Error</string>
-    <string name="category_name_required">Empty category is not allowed</string>
+    <string name="country_title_serbian">Сербский</string>
 </resources>

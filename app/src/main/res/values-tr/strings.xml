@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="country_title_translator_czech" translatable="false">MessingWithComputers(@MessingWithComputers)</string>
+    <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
+    <string name="darkmode_preference" translatable="false">darkmode</string>
+    <string name="country_title_translator_portuguese" translatable="false">Lucas Alves Rego(@devlulcas), Ettlu selva rula(@Ttormor)</string>
+    <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
+    <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
+    <string name="country_title_translator_chinese_traditional_han_script" translatable="false">imcc(@imcc)</string>
+    <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
+    <string name="system_preference" translatable="false">system</string>
+    <string name="country_title_translator_hindi" translatable="false">Harshit Sethi(@hstsethi)</string>
+    <string name="country_title_translator_english" translatable="false">Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l), Santiago Centeno(@Java16)</string>
+    <string name="theme_key" translatable="false">theme</string>
+    <string name="country_title_translator_indonesian" translatable="false">Arif Budiman(@arifpedia), toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
+    <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
+    <string name="country_title_translator_french" translatable="false">Leonart(@Leonart), Omgeta(@Omgeta), michte(@michte), David D.(@Dadu042)</string>
+    <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
+    <string name="lightmode_preference" translatable="false">lightmode</string>
+    <string name="country_title_translator_arabic" translatable="false">Asaad Zein(@asaadzx)</string>
+    <string name="country_title_translator_estonian" translatable="false">Priit Jõerüüt(@jrthwlate)</string>
+    <string name="system_preference_option_value" translatable="false">system</string>
+    <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
+    <string name="country_title_translator_spanish" translatable="false">Sofia Gutierrez(@SofiaIrina9), Zarahi Ander(@TradZarahi), Francisco Serrador(@fserrador), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Marco(@Megido), Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), Abraham Mendoza(@1Alide1), zergio inzunza(@n1kf4m3l)</string>
+    <string name="country_title_translator_polish" translatable="false">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
+    <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero), Davide Secco(@davidesecco)</string>
+    <string name="country_title_translator_chinese_simplified_han_script" translatable="false">雲の中を漂う船(@KumoNoFune), imcc(@imcc)</string>
+    <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
+    <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
+    <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
+    <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
+    <string name="country_title_translator_ukrainian" translatable="false">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
+    <string name="country_title_translator_russian" translatable="false">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), vanapro1(@vanapro1), Sotski Eugene(@jekakmail), MrSliv69(@MrSliv69), Steven Barash(@stevenbarash), Rachel Podya(@homicide@disroot.org), SnIPeRSnIPeR(@SnIPeRSnIPeR), Santiago Centeno(@Java16)</string>
+    <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
+    <string name="country_title_translator_german" translatable="false">Blubberland(@Blubberland), Maximilian Hüttner(@MaxHue)</string>
+    <string name="item_menu_description">menu for item actions</string>
+    <string name="leafpad_work">Leafpad tüm verileri akıllı telefonunuzda yerel olarak kaydeder. Notlar veya tarih ve saat gibi meta veriler hiçbir bulutta depolanmaz ve kimseyle paylaşılmaz. Metin analizi de yapılmaz. Notlar size aittir. Onlarla ne yapacağınıza siz karar verirsiniz.</string>
+    <string name="new_note">Yeni not</string>
+    <string name="save_changes">Değişiklikleri kaydet</string>
+    <string name="save">Tüm notları xml olarak kaydet</string>
+    <string name="showDeleteConfirmation">Delete notes?</string>
+    <string name="set">It is a recipe</string>
+    <string name="toggle">change View</string>
+    <string name="country_title_chinese_simplified_han_script">Chinese (Simplified Han script)</string>
+    <string name="imported">Bu not leafped\'e gönderildi.</string>
+    <string name="country_title_french">French</string>
+    <string name="rate_the_app">Play Store\'da değerlendirme bırakmak ister misin?</string>
+    <string name="add_shortcut_short_label">Yeni olanı yazın</string>
+    <string name="action_note_saved">kaydedildi</string>
+    <string name="tell_about">Leafpad hakkında size anlatmak istediğim şey</string>
+    <string name="action_share_body">Not</string>
+    <string name="remove_dialog_abort">İptal et</string>
+    <string name="menu_settings">Ayarlar</string>
+    <string name="backupIsrunning">Backup is running</string>
+    <string name="keep_screen_on_dialog_yes">Yes</string>
+    <string name="country_title_catalan">Catalan</string>
+    <string name="country_title_spanish">Spanish</string>
+    <string name="action_fab_note">not al</string>
+    <string name="title_activity_note_edit">Notu Düzenle</string>
+    <string name="country_title_gothic">Gothic</string>
+    <string name="translate">Uygulamayı Weblate\'te çevirin</string>
+    <string name="no">No</string>
+    <string name="country_title_dutch">Dutch</string>
+    <string name="hide_hidden">görünmez notları gizle</string>
+    <string name="change">Sürüm</string>
+    <string name="country_title_albanian">Albanian</string>
+    <string name="country_title_chinese_traditional_han_script">Chinese (Traditional Han script)</string>
+    <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
+    <string name="country_title_indonesian">Indonesian</string>
+    <string name="country_title_russian">Russian</string>
+    <string name="system_preference_key">sistemi takip et (standart)</string>
+    <string name="importError">Error when importing notes.</string>
+    <string name="restore">Tüm notları xml dosyası üzerinden geri yükle</string>
+    <string name="contentDescription">Yeni bir not ekle.</string>
+    <string name="please_enter_a_title">Please enter a title for the note to save or discard the note.</string>
+    <string name="action_edit_note">Notu Düzenle</string>
+    <string name="search_hint">What are you looking for?</string>
+    <string name="country_title_tamil">Tamil</string>
+    <string name="showDeleteConfirmationMessage">All notes will be permanently deleted. Continue?</string>
+    <string name="yes">Yes</string>
+    <plurals name="notes_imported">
+        <item quantity="one">%1$d note imported</item>
+        <item quantity="other">%1$d notes imported</item>
+    </plurals>
+    <string name="fileOpeningError">Error when opening the file.</string>
+    <string name="note_will_be_saved_first">Not önce kaydedilecektir</string>
+    <string name="delete">Delete</string>
+    <string name="country_title_polish">Polish</string>
+    <string name="general_preference">Genel ayarlar</string>
+    <string name="title_licence">Lisanslar</string>
+    <string name="remove_dailog_message">Bu not kalıcı olarak silinecektir. Silindikten sonra geri yüklenemez.</string>
+    <string name="version">Sürüm</string>
+    <string name="country_title_german">German</string>
+    <string name="menu_about">About Leafpad</string>
+    <string name="discard">atmak</string>
+    <string name="backupfinish">Backup finished</string>
+    <string name="show_note">bu notu görünür yap</string>
+    <string name="country_title_ukrainian">Ukrainian</string>
+    <string name="find_code_on_github_summary">Kodu görüntüleyin ve sorunları depoda bildirin.</string>
+    <string name="country_title_danish">Danish</string>
+    <string name="action_share_title">Başlık</string>
+    <string name="country_title_serbian">Serbian</string>
+    <string name="invalidFile">Invalid backup file. The import was cancelled.</string>
+    <string name="participate">Katılın veya Katkıda Bulunun</string>
+    <string name="country_title_estonian">Estonian</string>
+    <string name="title_hint">Başlık</string>
+    <string name="about">Hakkında</string>
+    <string name="startIconDescription">A search field</string>
+    <string name="keep_screen_on_dialog_no">No</string>
+    <string name="theme_summary">Koyu ve açık tema arasında geçiş yapın</string>
+    <string name="country_title_greek">Greek</string>
+    <string name="country_title_hindi_latin_script">Hindi (Latin script)</string>
+    <string name="what_is_leafpad">Leafpad, not almak için kullanılan basit bir uygulamadır.</string>
+    <string name="note_shared">Not paylaşıldı</string>
+    <string name="theme_preference">Tema</string>
+    <string name="created_txt">oluşturuldu</string>
+    <string name="notification_of_change_description">Notlardaki değişiklikleri bildir</string>
+    <string name="country_title_uzbek">Uzbek</string>
+    <string name="cancel">Cancel</string>
+    <string name="action_remove">Notu sil.</string>
+    <string name="licence">Açık kaynak lisansları</string>
+    <string name="title_required">Title required</string>
+    <string name="country_title_arabic">Arabic</string>
+    <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
+    <string name="notification_of_change">Değişikliklerin bildirilmesi</string>
+    <string name="edited_text">düzenlendi</string>
+    <string name="not_initialized">Leafpad not initialized yet!</string>
+    <string name="body_hint">Not</string>
+    <string name="lightmode_preference_key">beyazmod</string>
+    <string name="unsaved_changes_message">Notunuz değişti. Değişiklikleri kaydetmek mi yoksa silmek mi istiyorsunuz?</string>
+    <string name="find_code_on_github">GitHub</string>
+    <string name="darkmode_preference_key">karanlıkmod</string>
+    <string name="note_is_recipe">note is a recipe</string>
+    <string name="search">search notes</string>
+    <string name="showRestoreConfirmation">Geri Yükle?</string>
+    <string name="keep_screen_on_title">Keep screen on</string>
+    <string name="action_save">notu kaydet</string>
+    <string name="share_note">Notu Paylaş?</string>
+    <string name="thanks">Stefan, Stefan, Manuel, Falk, Stephanie ve Emil\'e fikirleri ve uygulamayı test ettikleri için teşekkürler.</string>
+    <string name="note_is_no_recipe">note is no recipe</string>
+    <string name="country_title_italian">Italian</string>
+    <string name="statement">We write down shopping lists, notes for conversations, packing lists for vacations or friends\' birthdays. These are all good things so that we don\'t forget them. It\'s very similar with God, he writes down our good and bad deeds and saves them. God is above everything and simply knows everything. God loves people and wants to have fellowship with them. But this is only possible if we are seen by God as blameless. Through faith in Jesus Christ, our bad deeds (our guilt) are wiped out before God. Jesus Christ atoned for our guilt on the cross of Calvary. Every person who accepts this is entered in the book of life forever. Are you registered in the book of life?</string>
+    <string name="hide_note">bu notu görünmez yap</string>
+    <string name="restore_notes_title">Geri Yükle</string>
+    <string name="close_release_note">Close Button</string>
+    <string name="unsaved_changes_title">Kaydedilmemiş değişiklikler</string>
+    <string name="translation_help">Weblate\'te uygulamanın çevirisine yardımcı olun.</string>
+    <string name="rev20_12">Ve ölüleri, büyükleri ve küçükleri, tahtın önünde dururken gördüm; kitaplar açıldı; bir de hayat kitabı açıldı; ölüler, kitaplarda yazılı olanlara göre, yaptıkları işlere göre yargılandılar. Revelation 20:12</string>
+    <string name="no_search_results">Nothing found</string>
+    <string name="country_title_czech">Czech</string>
+    <string name="save_notes_title">Yedekleme</string>
+    <string name="country_title_english">English</string>
+    <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
+    <string name="country_title_portuguese">Portuguese</string>
+    <string name="its_opensource">Leafpad açık kaynak ve ücretsizdir</string>
+    <string name="satisfied">Leafped\'den keyif alıyor musun?</string>
+    <string name="app_name">Leafpad</string>
+    <string name="keep_screen_on_dialog_title">Battery usage warning</string>
+    <string name="about_the_app">Uygulama hakkında</string>
+    <string name="remove_dialog_title">Emin misin?</string>
+    <string name="action_add_note">Not Ekle</string>
+    <string name="show_hidden">görünmez notları göster</string>
+    <string name="empty_list">No notes available in the list</string>
+    <string name="action_share_note">Notu paylaş</string>
+    <string name="country_title_hindi">Hindi</string>
+</resources>

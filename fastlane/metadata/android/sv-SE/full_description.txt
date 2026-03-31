@@ -1,3 +1,3 @@
-Ein einfaches Notizbuch zum Schreiben von Text ohne Cloud-Verbindung und ohne Datenbank, keine Berechtigungen erforderlich.
+En enkel anteckningsbok för att skriva text utan molnanslutningar utan en databas, inga behörigheter behövs.
 
-Es ist Open Source. Sie können Notizen schreiben, bearbeiten und vor neugierigen Blicken verbergen.
+Det är öppen källkod. Du kan skriva, redigera dina anteckningar, och du kan dölja dina anteckningar från nyfikna ögon.
