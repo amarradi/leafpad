@@ -39,7 +39,7 @@
     </style>
 
     <style name="TextAppearance.MyToolbarTitle" parent="TextAppearance.MaterialComponents.Headline6">
-        <item name="android:fontFamily">@font/notosans_medium</item>
+        <item name="android:fontFamily">@font/opensans_medium</item>
         <item name="android:textSize">@dimen/text_size_my_toolbar_title</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/md_theme_primary</item>
