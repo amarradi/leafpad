@@ -89,7 +89,10 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_note_edit);
         View root = findViewById(R.id.body_scroll);
+//        ChipGroup categoryChipGroup = findViewById(R.id.category_chip_group);
+
         ChipGroup categoryChipGroup = findViewById(R.id.category_chip_group);
+        View categoryChipScroll = findViewById(R.id.category_chip_scroll);
 
 
 
@@ -272,6 +275,8 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
                         categoryChipGroup.setVisibility(View.GONE);
                         return;
                     }
+
+                    categoryChipScroll.setVisibility(View.VISIBLE);
 
                     categoryChipGroup.setVisibility(View.VISIBLE);
 

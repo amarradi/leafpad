@@ -75,16 +75,27 @@
                     android:textAppearance="@style/TextAppearance.MyNoteTitle" />
             </com.google.android.material.textfield.TextInputLayout>
             <!-- Kategorien (nur sichtbar wenn vorhanden) -->
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/category_chip_group"
-                android:layout_width="wrap_content"
+            <HorizontalScrollView
+                android:id="@+id/category_chip_scroll"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="0dp"
-                android:padding="2dp"
-                app:singleLine="true"
-                android:visibility="gone"
-                app:chipSpacingHorizontal="4dp"
-                app:chipSpacingVertical="2dp" />
+                android:layout_marginStart="@dimen/switch_layout_margin_start"
+                android:layout_marginEnd="@dimen/switch_layout_margin_end"
+                android:fillViewport="false"
+                android:scrollbars="none"
+                android:overScrollMode="never"
+                android:visibility="gone">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/category_chip_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    app:singleLine="true"
+                    app:chipSpacingHorizontal="6dp" />
+            </HorizontalScrollView>
             <!-- Body-Editor -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/body_text_input_layout"
