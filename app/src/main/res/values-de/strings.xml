@@ -79,7 +79,10 @@
         <item quantity="one">%1$d Notiz importiert</item>
         <item quantity="other">%1$d Notizen importiert</item>
     </plurals>
-    <plurals name="notes_exported">Notes Backuped</plurals>
+    <plurals name="notes_exported">
+        <item quantity="one">%1$d Notiz gesichert</item>
+        <item quantity="other">%1$d Notizen gesichert</item>
+    </plurals>
     <string-array name="category">
         <item>Rezept</item>
     </string-array>
@@ -189,4 +192,6 @@
     <string name="error_loading_licenses">Error loading licenses</string>
     <string name="open_source_licenses_summary">View used libraries and licenses</string>
     <string name="thanks_to_all_contributors">Vielen Dank an alle Mitwirkenden und Freunde, die bei der Übersetzung dieses Projekts über Weblate helfen – wir wissen eure Zeit und Mühe sehr zu schätzen. Die vollständige und stets aktuelle Liste der Mitwirkenden findet ihr in unserem GitHub-Repository.</string>
+    <string name="database_error_log">Database Error</string>
+    <string name="category_name_required">Empty category is not allowed</string>
 </resources>

@@ -277,7 +277,7 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
                                 DialogHelper.showInfoDialog(
                                         requireContext(),
                                         getString(R.string.error),
-                                        getString(R.string.database_error)
+                                        getString(R.string.database_error_log)
                                 );
                             }
                         })
@@ -367,7 +367,7 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
                                 DialogHelper.showInfoDialog(
                                         requireContext(),
                                         getString(R.string.error),
-                                        getString(R.string.database_error)
+                                        getString(R.string.database_error_log)
                                 );
                             }
                             // OK -> Dialog schließt ohnehin (DialogHelper macht das typischerweise)

@@ -75,7 +75,10 @@
         <item quantity="one">%1$d குறிப்பு இறக்குமதி செய்யப்பட்டது</item>
         <item quantity="other">%1$d குறிப்புகள் இறக்குமதி செய்யபட்டன</item>
     </plurals>
-    <plurals name="notes_exported">Notes Backuped</plurals>
+    <plurals name="notes_exported">
+        <item quantity="one">%1$d note backed up</item>
+        <item quantity="other">%1$d notes backed up</item>
+    </plurals>
     <string name="showDeleteConfirmationMessage">அனைத்து குறிப்புகளும் நிரந்திரமாக நீக்கப்படும். தொடர்க?</string>
     <string name="fileOpeningError">கோப்பை திறப்பதில் பிழை.</string>
     <string name="yes">ஆம்</string>
@@ -186,4 +189,6 @@
     <string name="error_loading_licenses">Error loading licenses</string>
     <string name="open_source_licenses_summary">View used libraries and licenses</string>
     <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
+    <string name="database_error_log">Database Error</string>
+    <string name="category_name_required">Empty category is not allowed</string>
 </resources>
