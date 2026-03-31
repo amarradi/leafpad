@@ -113,7 +113,7 @@ public class Leafpad extends Application {
         return "list".equals(layout);
     }
 
-    // Speichert den gewünschten Layout-Modus
+
     public void saveLayoutMode(boolean isList) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();

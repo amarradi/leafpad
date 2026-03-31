@@ -110,7 +110,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
 
         holder.editButton.setOnClickListener(v -> {
-            // Toast.makeText(v.getContext(), "EDIT CLICK", Toast.LENGTH_SHORT).show();
             if (listener != null) {
                 listener.onEditCategory(category);
             }

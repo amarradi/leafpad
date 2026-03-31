@@ -2,7 +2,6 @@ package com.git.amarradi.leafpad.viewmodel;
 
 import android.app.Application;
 import android.content.Context;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -30,7 +29,6 @@ public class NoteViewModel extends AndroidViewModel {
     private final NoteRepository noteRepository;
     private final LiveData<List<NoteEntity>> allNoteEntities;
     private LiveData<List<CategoryEntity>> categoriesForSelectedNote;
-    //private final MutableLiveData<List<Note>> notesLiveData = new MutableLiveData<>();
     private final MediatorLiveData<List<Note>> notesLiveData = new MediatorLiveData<>();
     private static final MutableLiveData<Note> selectedNote = new MutableLiveData<>();
     private final MutableLiveData<Note> originalNote = new MutableLiveData<>();
@@ -157,22 +155,17 @@ public class NoteViewModel extends AndroidViewModel {
         combinedNotes.setValue(combined);
     }
 
-
-
     public void checkAndLoadReleaseNote(Context context) {
         int savedVersion = Leafpad.getCurrentLeafpadVersionCode(context); // default = 0
         int currentVersion = Leafpad.getCurrentVersionCode(context);
 
         if (savedVersion <= currentVersion) {
-            Log.d("checkAndLoadReleaseNote","saved: "+savedVersion+" current:"+currentVersion);
                 ReleaseNote note = ReleaseNoteHelper.loadReleaseNote(context);
                 releaseNoteLiveData.setValue(note);
         } else {
             releaseNoteLiveData.setValue(null);
         }
     }
-
-
 
     public void setNoteHide() {
         // 1. Hole die aktuell ausgewählte Notiz.
@@ -229,7 +222,6 @@ public class NoteViewModel extends AndroidViewModel {
             noteRepository.insert(toEntity(n));
             persistCategoriesForSelectedNote();
             markNoteSavedOnly();
-            //markSaved();
         }
     }
 
@@ -324,9 +316,7 @@ public class NoteViewModel extends AndroidViewModel {
         if (!currentBody.equals(originalBody)) {
             return true;
         }
-//        if (!Objects.equals(current.getCategory(), original.getCategory())) {
-//            return true;
-//        }
+
         if (current.isHide() != original.isHide()) {
             return true;
         }
@@ -384,19 +374,6 @@ public class NoteViewModel extends AndroidViewModel {
                     return noteRepository.getCategoriesByIds(ids);
                 });
 
-//        allNoteEntities = noteRepository.getAllNotes();
-//
-//        isNoteModified.addSource(selectedNote, n -> checkModified());
-//        isNoteModified.addSource(originalNote, n -> checkModified());
-//        filteredNotes.addSource(notesLiveData, notes -> applySearchQuery());
-//        filteredNotes.addSource(searchQuery, q -> applySearchQuery());
-//
-//        isNoteModified.addSource(currentCategoryIds, ids -> checkModified());
-//        isNoteModified.addSource(originalCategoryIds, ids -> checkModified());
-//
-//
-//        loadReleaseNote(getApplication().getApplicationContext());
-
         allNoteEntities = noteRepository.getAllNotes();
 
         notesLiveData.addSource(allNoteEntities, entities -> {
@@ -420,22 +397,6 @@ public class NoteViewModel extends AndroidViewModel {
 
         loadReleaseNote(getApplication().getApplicationContext());
     }
-
-//    private void rebuildNotesList(List<NoteEntity> entities, Boolean showHidden) {
-//        List<Note> notes = new ArrayList<>();
-//
-//        boolean showHiddenFinal = showHidden != null && showHidden;
-//
-//        if (entities != null) {
-//            for (NoteEntity e : entities) {
-//                if (!e.hide || showHiddenFinal) {
-//                    notes.add(fromEntity(e));
-//                }
-//            }
-//        }
-//
-//        notesLiveData.setValue(notes);
-//    }
 
     private void rebuildNotesList(List<NoteEntity> entities, Boolean showHidden) {
         List<Note> notes = new ArrayList<>();
@@ -550,23 +511,6 @@ public class NoteViewModel extends AndroidViewModel {
 
         }
     }
-//    public void loadNotes() {
-//        Boolean tmp = showHiddenLiveData.getValue();
-//        final boolean showHiddenFinal = tmp != null && tmp;
-//        Boolean showHidden = showHiddenLiveData.getValue();
-//        if (showHidden == null) showHidden = false;
-//
-//        noteRepository.getAllNotes().observeForever(entities -> {
-//            List<Note> notes = new ArrayList<>();
-//            for (NoteEntity e : entities) {
-//                if (!e.hide || showHiddenFinal) {
-//                    notes.add(fromEntity(e));
-//                }
-//            }
-//            notesLiveData.postValue(notes);
-//            updateCombinedNotes();
-//        });
-//    }
 
     public void loadNotes() {
         rebuildNotesList(allNoteEntities.getValue(), showHiddenLiveData.getValue());
@@ -624,17 +568,6 @@ public class NoteViewModel extends AndroidViewModel {
         noteRepository.deleteById(note.getId());
     }
 
-//    public void updateNoteRecipe(String category) {
-//        Note currentNote = selectedNote.getValue();
-//        if (currentNote != null) {
-//            String currentCategory = currentNote.getCategory();
-//
-//            if (!category.equals(currentCategory)) {
-//                currentNote.setCategory(category);
-//                selectedNote.setValue(currentNote);
-//            }
-//        }
-//    }
     public static boolean isEmptyEntry(Note note) {
         return note.getBody().isEmpty() && note.getTitle().isEmpty();
     }
@@ -698,19 +631,6 @@ public class NoteViewModel extends AndroidViewModel {
         checkModified();
     }
 
-
-//    public LiveData<List<CategoryEntity>> getCategoriesForSelectedNote() {
-//        Note note = selectedNote.getValue();
-//
-//        if (note == null) {
-//            MutableLiveData<List<CategoryEntity>> empty = new MutableLiveData<>();
-//            empty.setValue(new ArrayList<>());
-//            return empty;
-//        }
-//
-//        return noteRepository.getCategoriesForNote(note.getId());
-//    }
-
     public LiveData<List<CategoryEntity>> getCategoriesForNote(String noteId) {
         return noteRepository.getCategoriesForNote(noteId);
     }
@@ -757,7 +677,6 @@ public class NoteViewModel extends AndroidViewModel {
 
         String noteId = note.getId();
         if (noteId == null || noteId.trim().isEmpty()) {
-            Log.w("NoteViewModel", "persistCategoriesForSelectedNote: noteId is null/empty");
             return;
         }
 

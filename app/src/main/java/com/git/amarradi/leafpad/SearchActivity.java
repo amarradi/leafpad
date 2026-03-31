@@ -53,7 +53,6 @@ public class SearchActivity extends AppCompatActivity {
 			Intent intent = new Intent(SearchActivity.this, NoteEditActivity.class);
 			intent.putExtra("fromSearch", true); // Herkunft mitgeben
 			intent.putExtra(Leafpad.EXTRA_NOTE_ID, note.getId());
-			//intent.putExtra("noteId", note.getId());
 			startActivity(intent);
 		});
 		recyclerView.setAdapter(searchAdapter);
@@ -94,6 +93,4 @@ public class SearchActivity extends AppCompatActivity {
 		});
 
 	}
-
-
 }

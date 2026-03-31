@@ -89,14 +89,8 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_note_edit);
         View root = findViewById(R.id.body_scroll);
-//        ChipGroup categoryChipGroup = findViewById(R.id.category_chip_group);
-
         ChipGroup categoryChipGroup = findViewById(R.id.category_chip_group);
         View categoryChipScroll = findViewById(R.id.category_chip_scroll);
-
-
-
-
         ViewCompat.setOnApplyWindowInsetsListener(root, (view, insets) -> {
             int ime = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
             int nav = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
@@ -152,38 +146,6 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
         }
 
         handleShareIntent(getIntent());
-//
-//        if (noteId != null) {
-//            noteViewModel.getNoteEntityById(noteId).observe(this, entity -> {
-//
-//                if (entity == null) {
-//                    // Neue Notiz (noch nicht in DB)
-//                    Note newNote = new Note("", "", "", "", "", false, "", noteId);
-//                    newNote.setNotedate();
-//                    newNote.setNotetime();
-//                    newNote.setCreateDate();
-//
-//                    isNewNote = true;
-//                    noteViewModel.selectNote(newNote);
-//                } else {
-//                    // Bestehende Notiz aus DB
-//                    isNewNote = false;
-//                    Note loaded = noteViewModel.toNote(entity);
-//                    noteViewModel.selectNote(loaded);
-//                }
-//            });
-//        } else {
-//            // Fallback: wirklich gar keine ID bekommen
-//            Note newNote = new Note("", "", "", "", "", false, "", Note.makeId());
-//            newNote.setNotedate();
-//            newNote.setNotetime();
-//            newNote.setCreateDate();
-//
-//            isNewNote = true;
-//            noteViewModel.selectNote(newNote);
-//        }
-
-        //handleIntent(getIntent());
         fromSearch = getIntent().getBooleanExtra("fromSearch", false);
         observeNote();
 
@@ -216,56 +178,12 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
                         restoreEditorToolbar();
                         logNav("After pop+UI restore");
                         return;
-
-//                        findViewById(R.id.fragment_container).setVisibility(View.GONE);
-//                        findViewById(R.id.body_scroll).setVisibility(View.VISIBLE);
-//
-//                        invalidateOptionsMenu(); // 🔥 Menü + Toolbar sofort erneuern
-//                        return;
-
                     }
                     logNav("No backstack -> checkForUnsavedChanges()");
                     checkForUnsavedChanges();
-//                    else {
-//                        // Default Verhalten
-//                        setEnabled(false);
-//                        onBackPressed();
-//                    }
                 }
             }
         });
-
-//        noteViewModel.getCategoriesForSelectedNote()
-//                .observe(this, categories -> {
-//
-//                    if (categories == null || categories.isEmpty()) {
-//                        categoryChipGroup.setVisibility(View.GONE);
-//                        categoryChipGroup.removeAllViews();
-//                        return;
-//                    }
-//
-//                    categoryChipGroup.setVisibility(View.VISIBLE);
-//                    categoryChipGroup.removeAllViews();
-//
-//                    for (CategoryEntity c : categories) {
-//                        Chip chip = new Chip(this, null, R.attr.chipStyle);
-//                        chip.setText(c.name);
-//
-//                        int color = Color.parseColor(c.colorHex);
-//                        ColorStateList stateColor = new ColorStateList(
-//                                new int[][]{new int[]{android.R.attr.state_enabled}, new int[]{}},
-//                                new int[]{color, color}
-//                        );
-//
-//                        chip.setTextColor(stateColor);
-//                        chip.setChipStrokeColor(stateColor);
-//                        chip.setClickable(false);
-//                        chip.setCheckable(false);
-//                        chip.setEnsureMinTouchTargetSize(false);
-//
-//                        categoryChipGroup.addView(chip);
-//                    }
-//                });
         noteViewModel.getCategoriesForSelectedNote()
                 .observe(this, categories -> {
 
@@ -341,7 +259,7 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
             );
 
         } catch (IllegalArgumentException e) {
-            Log.w("CategoryChip", "Ungültige Farbe: " + colorHex);
+
         }
     }
 
@@ -584,8 +502,6 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
                             shouldPersistOnPause = true;
                             noteViewModel.persist();
                             returnResultAndFinish();
-//                            setResult(RESULT_OK);
-//                            exitNoteEdit();
                         },
                         () -> {
                             shouldPersistOnPause = false;
@@ -595,7 +511,6 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
             } else {
                 noteViewModel.persist();
                 returnResultAndFinish();
-//                exitNoteEdit();
             }
         } else {
             exitNoteEdit();
@@ -632,7 +547,7 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
         resultIntent.putExtra("updated_note", current);
         resultIntent.putExtra("is_new_note", noteViewModel.isNewEntry(current));
         setResult(RESULT_OK, resultIntent);
-        finish(); // optional hier direkt beenden, wenn nicht schon an anderer Stelle
+        finish();
 
     }
 
@@ -654,17 +569,12 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(v -> {
-            logNav("Toolbar NAV click");
             getOnBackPressedDispatcher().onBackPressed();
         });
 
         toolbar.setOnTouchListener((v, event) -> {
-            Log.d("NAV_NOTE", "Toolbar TOUCH event=" + event.getAction());
             return false;
         });
-
-        //toolbar.setNavigationOnClickListener(v -> checkForUnsavedChanges());
-
     }
 
     private void returnResultAndFinish() {
@@ -685,17 +595,12 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
     protected void onResume() {
         super.onResume();
         Leafpad.applyKeepScreenOnFlag(this);
-        int flags = getWindow().getAttributes().flags;
-        boolean isFlagSet = (flags & android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON) != 0;
-        Log.d("NoteEditActivity", "KEEP_SCREEN_ON flag is " + (isFlagSet ? "SET" : "NOT SET"));
+//        int flags = getWindow().getAttributes().flags;
+//        boolean isFlagSet = (flags & android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON) != 0;
+//        Log.d("NoteEditActivity", "KEEP_SCREEN_ON flag is " + (isFlagSet ? "SET" : "NOT SET"));
         if (Leafpad.isKeepScreenOnEnabled(this)) {
             Leafpad.enableWakeLock(this);
         }
-//        if (Leafpad.isKeepScreenOnEnabled(this)) {
-//            getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-//        } else {
-//            getWindow().clearFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-//        }
     }
 
     private void setResultWithCurrentNote(boolean isNew) {
@@ -745,23 +650,7 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
                 setResultWithCurrentNote(isNewNote);
             }
         }
-
-//        if (!isNoteDeleted && current != null && !NoteViewModel.isEmptyEntry(current)) {
-//            updateNoteFromUI();
-//            if (shouldPersistOnPause && noteViewModel.hasUnsavedChanges()) {
-//                noteViewModel.persist();
-//                noteViewModel.markSaved();
-//                setResult(RESULT_OK);
-//            }
-//        }
     }
-//    public void restoreEditorToolbar() {
-//        MaterialToolbar toolbar = findViewById(R.id.toolbar);
-//        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
-//        //toolbar.setNavigationOnClickListener(v -> checkForUnsavedChanges());
-//        toolbar.setNavigationOnClickListener(v -> getOnBackPressedDispatcher().onBackPressed());
-//        invalidateOptionsMenu();
-//    }
 
     public void restoreEditorToolbar() {
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
@@ -776,6 +665,4 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
         toolbar.setNavigationOnClickListener(v -> getOnBackPressedDispatcher().onBackPressed());
         invalidateOptionsMenu();
     }
-
-
 }

@@ -54,8 +54,6 @@ public class CategoryActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(true);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.category);
-
-        //  toolbar.setNavigationOnClickListener(v -> checkForUnsavedChanges());
     }
 
     @Override

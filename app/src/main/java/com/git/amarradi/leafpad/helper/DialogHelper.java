@@ -164,11 +164,6 @@ public class DialogHelper {
         return String.format("#%06X", (0xFFFFFF & color));
     }
 
-
-//    public interface OnCategorySavedListener {
-//        void onSaved(String name, String colorHex);
-//    }
-
     // interner Dialog-State pro dialogId
     private static final Map<Integer, CategoryDialogState> CATEGORY_DIALOG_STATES = new HashMap<>();
 
@@ -210,10 +205,6 @@ public class DialogHelper {
         state.selectedColor = startColor;
         state.colorPreviewRef = new WeakReference<>(colorPreview);
         CATEGORY_DIALOG_STATES.put(colorPickerDialogId, state);
-
-        // Preview setzen
-
-//        colorPreview.setBackgroundColor(startColor);
         setPreviewColor(colorPreview, startColor);
 
         // Picker öffnen

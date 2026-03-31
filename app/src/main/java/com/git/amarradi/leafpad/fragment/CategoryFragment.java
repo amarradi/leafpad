@@ -284,8 +284,6 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
         );
     }
 
-
-    // 🔥 DAS WAR DER FEHLENDE TEIL
     @Override
     public void onColorSelected(int dialogId, int color) {
         if (dialogId == COLOR_PICKER_ID) {
@@ -381,14 +379,6 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
     public void onResume() {
         super.onResume();
         updateHostTitle();
-//        if (getMode() == MODE_MANAGE_ONLY && requireActivity() instanceof androidx.appcompat.app.AppCompatActivity) {
-//            androidx.appcompat.app.AppCompatActivity activity =
-//                    (androidx.appcompat.app.AppCompatActivity) requireActivity();
-//
-//            if (activity.getSupportActionBar() != null) {
-//                activity.getSupportActionBar().setTitle(R.string.manage_categories);
-//            }
-//        }
     }
 
     private void updateHostTitle() {

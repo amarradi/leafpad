@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,18 +59,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-
-//        NoteViewModel viewModel= new ViewModelProvider(this).get(NoteViewModel.class);
-//        viewModel.checkAndLoadReleaseNote(this);
-//        viewModel.getReleaseNote().observe(this, releaseNote -> {
-//            if (!Leafpad.isReleaseNoteClosed(this) ||
-//                    Leafpad.getCurrentVersionCode(this)>Leafpad.getCurrentLeafpadVersionCode(this)) {
-//                noteAdapter.setReleaseNoteHeader(releaseNote);
-//                Leafpad.resetReleaseNoteClosed(this);
-//                updateEmptyState();
-//            }
-//        });
-
         noteViewModel = new ViewModelProvider(
                 this,
                 new ViewModelProvider.AndroidViewModelFactory(getApplication())
@@ -88,43 +75,12 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 noteViewModel.setReleaseNoteHeader(null);
             }
         });
-
-//        noteViewModel = new ViewModelProvider(
-//                this,
-//                new ViewModelProvider.AndroidViewModelFactory(getApplication())
-//        ).get(NoteViewModel.class);
         boolean savedShowHidden = Leafpad.getInstance().getSavedShowHidden();
         noteViewModel.setShowHidden(savedShowHidden);
-
-//        noteViewModel.loadNotes();
-//        noteViewModel.getNotes().observe(this, notes -> {
-//            noteAdapter.updateNotes(notes);
-//            Log.d("MainActivity", "----- Alle geladenen Notizen nach loadNotes(): ------");
-//
-//            if (firstNotesLoad) {
-//                recyclerView.post(() -> recyclerView.scrollToPosition(0));
-//                firstNotesLoad = false;
-//            }
-//            //recyclerView.post(()->recyclerView.scrollToPosition(0));
-//            for (Note n : notes) {
-//                Log.d("MainActivity", "Note: " + n.getId() + " | Titel: " + n.getTitle() + " | Versteckt: " + n.isHide());
-//            }
-//            updateEmptyState();
-//        });
-
-//        noteViewModel.getShowHidden().observe(this, showHidden -> {
-//            noteAdapter.setShowOnlyHidden(showHidden);
-//            updateEmptyState();
-//        });
 
         noteViewModel.getShowHidden().observe(this, showHidden -> {
             updateEmptyState();
         });
-
-//        viewModel.getCombinedNotes().observe(this, combinedList -> {
-//            noteAdapter.setCombinedList(combinedList);
-//            updateEmptyState();
-//        });
 
         noteViewModel.getCombinedNotes().observe(this, combinedList -> {
             noteAdapter.setCombinedList(combinedList);
@@ -231,16 +187,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                         }
                     });
 
-
-//    @Override
-//    public void onReleaseNoteClosed() {
-//        Leafpad.setReleaseNoteClosed(this);
-//        Leafpad.setCurrentLeafpadVersionCode(this);
-//        noteAdapter.setReleaseNoteHeader(null);
-//        noteViewModel.loadNotes();
-//        recyclerView.post(this::updateEmptyState);
-//    }
-
     @Override
     public void onReleaseNoteClosed() {
         Leafpad.setReleaseNoteClosed(this);
@@ -251,8 +197,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
     private void updateEmptyState() {
         int count = noteAdapter.getItemCount();
-        Log.d("MainActivity", "updateEmptyState - itemCount: " + count);
-//        boolean showOnlyHidden = noteAdapter.isShowOnlyHidden();
         Boolean showOnlyHiddenValue = noteViewModel.getShowHidden().getValue();
         boolean showOnlyHidden = showOnlyHiddenValue != null && showOnlyHiddenValue;
         ImageView emptyElement = findViewById(R.id.emptyElement);
@@ -316,15 +260,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             Leafpad.getInstance().saveTheme(newValue);
         }
     }
-
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        Leafpad.getInstance().applyCurrentLayoutMode(recyclerView, noteAdapter);
-
-    ////        noteViewModel.loadNotes();
-//    }
-
     @Override
     protected void onResume() {
         super.onResume();

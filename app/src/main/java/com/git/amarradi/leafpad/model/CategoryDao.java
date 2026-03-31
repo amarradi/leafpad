@@ -69,8 +69,4 @@ public interface CategoryDao {
                 ORDER BY nc.note_id, c.sort_order, c.name
             """)
     LiveData<List<NoteCategoryRow>> getAllActiveNoteCategoryRows();
-
-
-
-
 }

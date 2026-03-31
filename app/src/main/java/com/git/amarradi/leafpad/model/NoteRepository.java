@@ -66,23 +66,6 @@ public class NoteRepository {
         dbExecutor.execute(() -> noteDao.deleteById(id));
     }
 
-//    public void replaceCategoriesForNote(String noteId, List<Long> categoryIds) {
-//        dbExecutor.execute(()->{
-//            noteCategoryDao.deleteAllForNote(noteId);
-//
-//            long now = System.currentTimeMillis();
-//            for (long categoryId : categoryIds) {
-//                noteCategoryDao.insert(
-//                        new NoteCategoryJoin(
-//                                noteId,
-//                                categoryId
-//                        )
-//                );
-//            }
-//
-//        });
-//    }
-
     public LiveData<List<CategoryEntity>> getCategoriesForNoteId(String noteId) {
         return noteCategoryDao.getCategoriesForNote(noteId);
     }

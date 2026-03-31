@@ -29,8 +29,6 @@ public class AboutActivity extends AppCompatActivity {
         MaterialTextView materialTextViewStatement = findViewById(R.id.textView_statement);
         materialTextViewAppNameVersion.setText(getApplicationName(getBaseContext()) + " " + getApplicationNumber());
         materialTextViewStatement.setText(R.string.statement);
-        // MaterialTextView weblateView = findViewById(R.id.thank_you_for_weblate);
-        // weblateView.setText(TranslationThanksBuilder.build(this));
     }
 
     public String getApplicationNumber() {

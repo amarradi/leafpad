@@ -67,7 +67,6 @@ public class LeafpadBackupManager {
                     dto.time = e.notetime;
                     dto.created = e.createDate;
                     dto.hide = e.hide;
-
                     // Solange wir Kategorien nicht mit sichern, leer lassen:
                     dto.category = "";
 

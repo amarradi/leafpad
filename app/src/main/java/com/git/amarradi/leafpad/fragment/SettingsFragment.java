@@ -168,8 +168,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         intent.setType("application/zip");
         intent.putExtra(Intent.EXTRA_TITLE, fileName);
         exportLauncher.launch(intent);
-//        intent.putExtra(Intent.EXTRA_TITLE, fileName);
-//        exportLauncher.launch(intent);
     }
 
     private void startImportIntent() {
@@ -264,8 +262,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     }
 
     public static void launchAppStore(Activity activity, String packageName) {
-        // String installer = activity.getPackageManager().getInstallerPackageName(activity.getCallingPackage()).toLowerCase(Locale.ROOT);
-        //Log.d("installer", "launchAppStore: "+installer);
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + packageName));
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
