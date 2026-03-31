@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="category_name">name of the category</string>
+    <string name="category_name">Category Name</string>
     <string name="select_color">choose category color</string>
     <string name="edit_category">edit category</string>
     <string name="add_category">add category</string>
