@@ -189,4 +189,5 @@
     <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
     <string name="database_error_log">Database Error</string>
     <string name="category_name_required">Empty category is not allowed</string>
+    <string name="country_title_hindi_latin">Indian (Latin scripture)</string>
 </resources>
