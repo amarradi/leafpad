@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="country_title_hindi_latin">Indian (Latin scripture)</string>
     <string name="darkmode_preference" translatable="false">darkmode</string>
     <string name="theme_key" translatable="false">theme</string>
     <string name="system_preference_option_value" translatable="false">system</string>
@@ -8,7 +9,7 @@
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
     <string name="theme_preference">Tema</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
-    <string name="find_code_on_github_summary">Lihat kode dan laporkan masalah di repositori.</string>
+    <string name="find_code_on_github_summary">Anda dapat melihat dan memeriksa kode sumber melalui repositori. Anda dipersilakan untuk membuka masalah untuk mengubah permintaan dan pesan kesalahan.</string>
     <string name="action_share_title">Judul</string>
     <string name="title_hint">Judul</string>
     <string name="about">Sitemap</string>
@@ -58,7 +59,7 @@
     <string name="version">sitemap</string>
     <string name="participate">Berpartisipasi atau Berkontribusi</string>
     <string name="translate">Terjemahkan aplikasi di Weblate</string>
-    <string name="translation_help">Bantu terjemahkan aplikasi di Weblate.</string>
+    <string name="translation_help">Bantu kami menerjemahkan aplikasi ke dalam bahasa Anda di weblate</string>
     <string name="hide_note">membuat catatan tidak terlihat</string>
     <string name="hide_hidden">menyembunyikan catatan tersembunyi</string>
     <string name="show_note">membuat catatan terlihat</string>
@@ -77,6 +78,10 @@
     <string name="showDeleteConfirmationMessage">Semua catatan akan dihapus secara permanen. Lanjutkan?</string>
     <plurals name="notes_imported">
         <item quantity="other">%1$d catatan diimpor</item>
+    </plurals>
+    <plurals name="notes_exported">
+        <item quantity="one">%1$d note backed up</item>
+        <item quantity="other">%1$d notes backed up</item>
     </plurals>
     <string name="fileOpeningError">Kesalahan saat membuka berkas.</string>
     <string name="delete">Hapus</string>
@@ -114,6 +119,7 @@
     <string name="country_title_catalan">Katalan</string>
     <string name="country_title_spanish">Spanyol</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
+    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">Albania</string>
     <string name="country_title_indonesian">Indonesia</string>
     <string name="country_title_russian">Rusia</string>
@@ -149,17 +155,39 @@
     <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
     <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
     <string name="country_title_translator_chinese_simplified_han_script" translatable="false">雲の中を漂う船(@KumoNoFune), imcc(@imcc)</string>
-    <string name="country_title_chinese_simplified_han_script">Tionghoa (Sederhana, aksara Han)</string>
-    <string name="country_title_chinese_traditional_han_script">Tionghoa (Tradisional, aksara Han)</string>
+    <string name="country_title_chinese_simplified_han_script">Mandarin (Han sederhana)</string>
+    <string name="country_title_chinese_traditional_han_script">Mandarin (Han tradisional)</string>
     <string name="country_title_hindi_latin_script">Hindi (aksara Latin)</string>
     <string name="country_title_uzbek">Uzbek</string>
     <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
     <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
-    <string name="country_title_gothic">Gotik</string>
-    <string name="country_title_dutch">Belanda</string>
-    <string name="menu_about">Tentang Leafpad</string>
-    <string name="country_title_danish">Denmark</string>
+    <string name="country_title_gothic">Gothic</string>
+    <string name="country_title_dutch">Dutch</string>
+    <string name="menu_about">About Leafpad</string>
+    <string name="country_title_danish">Danish</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
-    <string name="country_title_serbian">Serbia</string>
+    <string name="country_title_serbian">Serbian</string>
+    <string name="item_menu_add_category">create new category</string>
+    <string name="category">Category</string>
+    <string name="category_name">name of the category</string>
+    <string name="select_color">choose category color</string>
+    <string name="edit_category">edit category</string>
+    <string name="add_category">add category</string>
+    <string name="category_color">category color</string>
+    <string name="save_category">save category</string>
+    <string name="delete_category">Delete category</string>
+    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
+    <string name="delete_category_hint">Notes are retained but lose this category.</string>
+    <string name="manage_categories">Manage categories</string>
+    <string name="manage_categories_summary">Create, edit, and delete</string>
+    <string name="error">error</string>
+    <string name="category_already_exists">Category allready exists</string>
+    <string name="database_error">database error</string>
+    <string name="open_source_licenses">Open source licenses</string>
+    <string name="error_loading_licenses">Error loading licenses</string>
+    <string name="open_source_licenses_summary">View used libraries and licenses</string>
+    <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
+    <string name="database_error_log">Database Error</string>
+    <string name="category_name_required">Empty category is not allowed</string>
 </resources>

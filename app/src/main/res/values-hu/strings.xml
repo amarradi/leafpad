@@ -23,28 +23,28 @@
     <string name="satisfied">Élvezze a leafpadot?</string>
     <string name="remove_dialog_abort">Törlés</string>
     <string name="menu_settings">Beállítások</string>
-    <string name="general_preference">Általános beállítások</string>
+    <string name="general_preference">Általános</string>
     <string name="system_preference_key">kövesse a rendszert (standard)</string>
     <string name="lightmode_preference_key">lightmode</string>
     <string name="darkmode_preference_key">darkmode</string>
     <string name="about_the_app">Az alkalmazásról</string>
     <string name="leafpad_work">A Leafpad minden adatot megment az okostelefonján. A jegyzetek vagy metaadatok, mint a dátum és az idő nem tárolódnak semmilyen felhőben, és senkivel sem osztoznak. Semmilyen szövegelemzés sem történik. A jegyzetek hozzád tartoznak. Elhatározod, mit csinálsz velük.</string>
-    <string name="thanks">Köszönöm Stefan, Stefan, Manuel, Falk, Stephanie és Emil-nek az ötleteit és az alkalmazás tesztelését.</string>
+    <string name="thanks">Köszönöm Stefan D, Stefan R, Manuel, Falk és Stephanie ötleteit és teszteli az alkalmazást.</string>
     <string name="rev20_12">És láttam a halottakat, a nagyot és a kicsit, a trón előtt állva, és könyveket nyitottak meg: és egy másik könyvet nyitottak meg, ami az élet könyve: és a halottakat a könyvekben írt dolgokról ítélték meg, a műveik szerint. Kinyilatkoztatás 20:12</string>
     <string name="title_licence">Engedélyek</string>
     <string name="licence">Nyílt forrású licencek</string>
     <string name="note_will_be_saved_first">Megjegyzés lesz menteni először</string>
     <string name="action_save">mentés jegyzet</string>
-    <string name="search">jegyzet keresése</string>
+    <string name="search">keresés</string>
     <string name="statement">Bevásárló listákat írunk, jegyzeteket a beszélgetésekre, csomagolási listákat a vakációkra vagy a barátok születésnapjára. Ezek mind jó dolgok, hogy ne felejtsük el őket. Ez nagyon hasonlít Istenhez, leírja a jó és rossz cselekedeteinket, és megmenti őket. Isten minden fölött van, és egyszerűen mindent tud. Isten szereti az embereket, és velük akar társulni. De ez csak akkor lehetséges, ha Isten hibátlannak látjuk. A Jézus Krisztusba vetett hit által a rossz cselekedeteink (a bűntudatunk) eltörölnek Isten előtt. Jézus Krisztus megtámadta bűnösünket a Kálvária keresztjén. Mindenki, aki ezt elfogadja, örökre belép az élet könyvébe. Az élet könyvében regisztráltál?</string>
-    <string name="rate_the_app">Hagyj véleményt a Play Store-ban?</string>
+    <string name="rate_the_app">Mi a helyzet a Google PlayStore-ban?</string>
     <string name="action_note_saved">megtakarított</string>
     <string name="tell_about">Mit akarok mondani a Leafpadról</string>
     <string name="action_fab_note">jegyzet készítése</string>
     <string name="change">verzió</string>
     <string name="remove_dailog_message">Ez a megjegyzés állandóan törlésre kerül. Ezután nem lehet visszaállítani.</string>
     <string name="version">verzió</string>
-    <string name="find_code_on_github_summary">Megtekintheti és ellenőrizheti a forráskódot a tárolóban.</string>
+    <string name="find_code_on_github_summary">Megtekintheti és ellenőrizheti a forráskódot a repository segítségével. Üdvözöljük, hogy nyisson ki egy problémát a változási kérelmek és hibaüzenetek számára.</string>
     <string name="action_share_title">Cím</string>
     <string name="about">Rólunk</string>
     <string name="theme_summary">Toggle a sötét és fény téma között</string>
@@ -56,112 +56,139 @@
     <string name="share_note">Share Note?</string>
     <string name="its_opensource">Leafpad az OpenSource és az ingyenes</string>
     <string name="remove_dialog_title">Biztos vagy?</string>
-    <string name="participate">Részvevők és hozzájárulok</string>
+    <string name="participate">Részvétel</string>
     <string name="translate">Fordítsa le az alkalmazást a Weblate-en</string>
-    <string name="translation_help">Segítsen lefordítani az alkalmazást a weblate-n</string>
+    <string name="translation_help">Segítsen nekünk lefordítani az alkalmazást a nyelvén a weblate</string>
     <string name="hide_note">a megjegyzés láthatatlan</string>
     <string name="hide_hidden">rejtett jegyzetek rejtett</string>
     <string name="show_note">a megjegyzés látható</string>
     <string name="show_hidden">rejtett jegyzetek bemutatása</string>
-    <string name="note_is_recipe">a jegyzet egy recept</string>
-    <string name="note_is_no_recipe">a jegyzet nem egy recept</string>
-    <string name="showDeleteConfirmation">Jegyzetek törlése?</string>
-    <string name="importError">Hiba jegyzetek importálása közben.</string>
-    <string name="delete">Törlés</string>
-    <string name="save">Minden jegyzet mentése XML-ként</string>
-    <string name="backupIsrunning">Biztonsági mentés folyik</string>
-    <string name="no">Nem</string>
-    <string name="restore">Minden jegyzet xml-bőli visszaállítása</string>
-    <string name="showDeleteConfirmationMessage">Minden jegyzet tartósan törlődik. Folytatás?</string>
-    <string name="yes">Igen</string>
+    <string name="note_is_recipe">note is a recipe</string>
+    <string name="note_is_no_recipe">note is no recipe</string>
+    <string name="showDeleteConfirmation">Delete notes?</string>
+    <string name="importError">Error when importing notes.</string>
+    <string name="delete">Delete</string>
+    <string name="save">Save all notes as xml</string>
+    <string name="backupIsrunning">Backup is running</string>
+    <string name="no">No</string>
+    <string name="restore">Restore all notes as xml</string>
+    <string name="showDeleteConfirmationMessage">All notes will be permanently deleted. Continue?</string>
+    <string name="yes">Yes</string>
     <plurals name="notes_imported">
-        <item quantity="one">%1$d jegyzet importálva</item>
-        <item quantity="other">%1$d jegyzetek importálva</item>
+        <item quantity="one">One note imported</item>
+        <item quantity="other">%1$d notes imported</item>
     </plurals>
-    <string name="fileOpeningError">Hiba fájl megnyitása közben.</string>
-    <string name="backupfinish">Biztonsági mentés kész</string>
-    <string name="invalidFile">Érvénytelen biztonsági mentés. Importálás megszakítva.</string>
-    <string name="cancel">Mégse</string>
-    <string name="showRestoreConfirmation">Visszaállítás?</string>
-    <string name="restore_notes_title">Visszaállítás</string>
-    <string name="save_notes_title">Biztonsági mentés</string>
-    <string name="showRestoreConfirmationMessage">Az összes jelenlegi jegyzet felül irodik a biztonsági mentéssel. Folytatás?</string>
-    <string name="toggle">Nézet megváltoztatása</string>
-    <string name="note_shared">Megosztott jegyzet</string>
-    <string name="discard">elvett</string>
-    <string name="item_menu_description">menü az elem műveleteihez</string>
-    <string name="save_changes">módosítások mentése</string>
-    <string name="search_hint">Mit tetszik keresni?</string>
-    <string name="startIconDescription">Keresési mező</string>
-    <string name="notification_of_change_description">Értesítés a jegyzetekben történt változásokról</string>
-    <string name="notification_of_change">Értesítés változásokról</string>
-    <string name="not_initialized">Leafpad nincs inicializálva még!</string>
-    <string name="no_search_results">Nem talált semmit</string>
-    <string name="empty_list">Nincs jegyzet a listában</string>
-    <string name="unsaved_changes_message">A jegyzet megváltozott. El akarja menteni vagy el veti a módosításokat?</string>
-    <string name="unsaved_changes_title">Mentettlen változások</string>
-    <string name="set">Ez egy recept</string>
+    <plurals name="notes_exported">
+        <item quantity="one">%1$d note backed up</item>
+        <item quantity="other">%1$d notes backed up</item>
+    </plurals>
+    <string name="fileOpeningError">Error when opening the file.</string>
+    <string name="backupfinish">Backup finishes</string>
+    <string name="invalidFile">Invalid backup file. The import was cancelled.</string>
+    <string name="cancel">Cancel</string>
+    <string name="showRestoreConfirmation">Restore?</string>
+    <string name="restore_notes_title">Restore</string>
+    <string name="save_notes_title">Backup</string>
+    <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
+    <string name="toggle">change View</string>
+    <string name="note_shared">Note shared</string>
+    <string name="discard">discard</string>
+    <string name="item_menu_description">menu for item actions</string>
+    <string name="save_changes">save changes</string>
+    <string name="search_hint">What are you looking for?</string>
+    <string name="startIconDescription">A search field</string>
+    <string name="notification_of_change_description">Notify about changes in notes</string>
+    <string name="notification_of_change">Notification of changes</string>
+    <string name="not_initialized">Leafpad not initialized yet!</string>
+    <string name="no_search_results">Nothing found</string>
+    <string name="empty_list">No notes available in the list</string>
+    <string name="unsaved_changes_message">Your note has changed. Do you want to save or discard the changes?</string>
+    <string name="unsaved_changes_title">Unsaved changes</string>
+    <string name="set">It is a recipe</string>
     <string name="close_release_note">Close Button</string>
-    <string name="title_required">Cím szükséges</string>
-    <string name="keep_screen_on_dialog_yes">Igen</string>
-    <string name="keep_screen_on_dialog_message">A képernyő bekapcsolva tartása jelentősen növelheti az akkumulátor fogyasztását. Biztosan engedélyezni szeretné ezt a funkciót?</string>
-    <string name="keep_screen_on_dialog_no">Nem</string>
-    <string name="keep_screen_on_summary">Megakadályozza a képernyő kikapcsolódását míg Leafpad-et használja</string>
-    <string name="keep_screen_on_title">Képernyő bekapcsolva tartása</string>
-    <string name="keep_screen_on_dialog_title">Figyelmeztetés akkumulátor használtkor</string>
+    <string name="title_required">Title required</string>
+    <string name="keep_screen_on_dialog_yes">Yes</string>
+    <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
+    <string name="keep_screen_on_dialog_no">No</string>
+    <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
+    <string name="keep_screen_on_title">Keep screen on</string>
+    <string name="keep_screen_on_dialog_title">Battery usage warning</string>
     <string name="country_title_translator_czech" translatable="false">MessingWithComputers(@MessingWithComputers)</string>
-    <string name="country_title_french">Francia</string>
+    <string name="country_title_french">French</string>
     <string name="country_title_translator_portuguese" translatable="false">Lucas Alves Rego(@devlulcas), Ettlu selva rula(@Ttormor)</string>
-    <string name="country_title_catalan">Katalán</string>
-    <string name="country_title_spanish">Spanyol</string>
+    <string name="country_title_catalan">Catalan</string>
+    <string name="country_title_spanish">Spanish</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
-    <string name="country_title_albanian">Albán</string>
-    <string name="country_title_indonesian">Indonéz</string>
-    <string name="country_title_russian">Orosz</string>
+    <string name="setCategory">Set Category</string>
+    <string name="country_title_albanian">Albanian</string>
+    <string name="country_title_indonesian">Indonesian</string>
+    <string name="country_title_russian">Russian</string>
     <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
-    <string name="please_enter_a_title">Kérem adjon egy címet a jegyzet mentéséhez vagy vesse el.</string>
+    <string name="please_enter_a_title">Please enter a title for the note before you can save it.</string>
     <string name="country_title_tamil">Tamil</string>
     <string name="country_title_translator_hindi" translatable="false">Harshit Sethi(@hstsethi)</string>
     <string name="country_title_translator_english" translatable="false">Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l), Santiago Centeno(@Java16)</string>
-    <string name="country_title_polish">Lengyel</string>
+    <string name="country_title_polish">Polish</string>
     <string name="country_title_translator_indonesian" translatable="false">Arif Budiman(@arifpedia), toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
-    <string name="country_title_german">Német</string>
+    <string name="country_title_german">German</string>
     <string name="country_title_translator_french" translatable="false">Leonart(@Leonart), Omgeta(@Omgeta), michte(@michte), David D.(@Dadu042)</string>
     <string name="country_title_translator_arabic" translatable="false">Asaad Zein(@asaadzx)</string>
-    <string name="country_title_ukrainian">Ukrán</string>
+    <string name="country_title_ukrainian">Ukrainian</string>
     <string name="country_title_translator_spanish" translatable="false">Sofia Gutierrez(@SofiaIrina9), Zarahi Ander(@TradZarahi), Francisco Serrador(@fserrador), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Marco(@Megido), Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), Abraham Mendoza(@1Alide1), zergio inzunza(@n1kf4m3l)</string>
-    <string name="country_title_greek">Görög</string>
+    <string name="country_title_greek">Greek</string>
     <string name="country_title_translator_polish" translatable="false">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
     <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero), Davide Secco(@davidesecco)</string>
-    <string name="country_title_arabic">Arab</string>
-    <string name="country_title_italian">Olasz</string>
+    <string name="country_title_arabic">Arabic</string>
+    <string name="country_title_italian">Italian</string>
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_translator_ukrainian" translatable="false">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
     <string name="country_title_translator_russian" translatable="false">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), vanapro1(@vanapro1), Sotski Eugene(@jekakmail), MrSliv69(@MrSliv69), Steven Barash(@stevenbarash), Rachel Podya(@homicide@disroot.org), SnIPeRSnIPeR(@SnIPeRSnIPeR), Santiago Centeno(@Java16)</string>
-    <string name="country_title_czech">Cseh</string>
-    <string name="country_title_english">Angol</string>
-    <string name="country_title_portuguese">Portugál</string>
+    <string name="country_title_czech">Czech</string>
+    <string name="country_title_english">English</string>
+    <string name="country_title_portuguese">Portuguese</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Blubberland(@Blubberland), Maximilian Hüttner(@MaxHue)</string>
     <string name="country_title_hindi_latin">Hindi (Latin script)</string>
-    <string name="country_title_hindi">Hind</string>
+    <string name="country_title_hindi">Hindi</string>
     <string name="country_title_translator_estonian" translatable="false">Priit Jõerüüt(@jrthwlate)</string>
-    <string name="country_title_estonian">Észt</string>
+    <string name="country_title_estonian">Estonian</string>
     <string name="country_title_translator_chinese_traditional_han_script" translatable="false">imcc(@imcc)</string>
     <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
     <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
     <string name="country_title_translator_chinese_simplified_han_script" translatable="false">雲の中を漂う船(@KumoNoFune), imcc(@imcc)</string>
-    <string name="country_title_chinese_simplified_han_script">Kínai (egyszerűsített han írás)</string>
-    <string name="country_title_chinese_traditional_han_script">Kínai (hagyományos han írás)</string>
-    <string name="country_title_hindi_latin_script">Hind (latin írás)</string>
-    <string name="country_title_uzbek">Üzbék</string>
+    <string name="country_title_chinese_simplified_han_script">Chinese (Simplified Han script)</string>
+    <string name="country_title_chinese_traditional_han_script">Chinese (Traditional Han script)</string>
+    <string name="country_title_hindi_latin_script">Hindi (Latin script)</string>
+    <string name="country_title_uzbek">Uzbek</string>
     <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
     <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
-    <string name="country_title_gothic">Gót</string>
-    <string name="country_title_dutch">Holland</string>
-    <string name="menu_about">Leafpad-ről</string>
-    <string name="country_title_danish">Dán</string>
+    <string name="country_title_gothic">Gothic</string>
+    <string name="country_title_dutch">Dutch</string>
+    <string name="menu_about">About Leafpad</string>
+    <string name="country_title_danish">Danish</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
-    <string name="country_title_serbian">Szerb</string>
+    <string name="country_title_serbian">Serbian</string>
+    <string name="item_menu_add_category">create new category</string>
+    <string name="category">Category</string>
+    <string name="category_name">name of the category</string>
+    <string name="select_color">choose category color</string>
+    <string name="edit_category">edit category</string>
+    <string name="add_category">add category</string>
+    <string name="category_color">category color</string>
+    <string name="save_category">save category</string>
+    <string name="delete_category">Delete category</string>
+    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
+    <string name="delete_category_hint">Notes are retained but lose this category.</string>
+    <string name="manage_categories">Manage categories</string>
+    <string name="manage_categories_summary">Create, edit, and delete</string>
+    <string name="error">error</string>
+    <string name="category_already_exists">Category allready exists</string>
+    <string name="database_error">database error</string>
+    <string name="open_source_licenses">Open source licenses</string>
+    <string name="error_loading_licenses">Error loading licenses</string>
+    <string name="open_source_licenses_summary">View used libraries and licenses</string>
+    <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
+    <string name="database_error_log">Database Error</string>
+    <string name="category_name_required">Empty category is not allowed</string>
 </resources>

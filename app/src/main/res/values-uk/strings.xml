@@ -20,12 +20,12 @@
     <string name="add_shortcut_short_label">Записати нове</string>
     <string name="action_note_saved">збережено</string>
     <string name="tell_about">Що я хочу розповісти вам про Leafpad</string>
-    <string name="action_share_body">Замітка</string>
+    <string name="action_share_body">Нотатка</string>
     <string name="remove_dialog_abort">Зареєструватися</string>
     <string name="menu_settings">Налаштування</string>
     <string name="backupIsrunning">Виконується резервне копіювання</string>
     <string name="action_fab_note">Занотувати</string>
-    <string name="title_activity_note_edit">Редагувати замітку</string>
+    <string name="title_activity_note_edit">Редагування нотаток</string>
     <string name="translate">Перекладіть застосунок на Weblate</string>
     <string name="no">Ні</string>
     <string name="hide_hidden">приховати приховані нотатки</string>
@@ -34,7 +34,7 @@
     <string name="importError">Помилка під час імпорту нотаток.</string>
     <string name="restore">Відновити всі нотатки з XML-файлу</string>
     <string name="contentDescription">Додати нову нотатку</string>
-    <string name="action_edit_note">Редагувати замітку</string>
+    <string name="action_edit_note">Редагувати нотатку</string>
     <string name="search_hint">Що ви шукаєте?</string>
     <string name="showDeleteConfirmationMessage">Усі нотатки будуть видалені назавжди. Продовжити?</string>
     <string name="yes">Так</string>
@@ -69,7 +69,7 @@
     <string name="startIconDescription">Поле пошуку</string>
     <string name="theme_summary">Перемикання між темною та світлою темою</string>
     <string name="what_is_leafpad">Leafpad — це простий додаток для створення нотаток.</string>
-    <string name="note_shared">Поширена замітка</string>
+    <string name="note_shared">Поширена нотатка</string>
     <string name="theme_preference">Тема</string>
     <string name="created_txt">створення</string>
     <string name="notification_of_change_description">Повідомляти про зміни в нотатках</string>
@@ -105,10 +105,10 @@
     <string name="app_name">Leafpad</string>
     <string name="about_the_app">Про додаток</string>
     <string name="remove_dialog_title">Ви впевнені?</string>
-    <string name="action_add_note">Додати замітку</string>
+    <string name="action_add_note">Додати нотатку</string>
     <string name="show_hidden">показати приховані нотатки</string>
     <string name="empty_list">У списку немає нотаток</string>
-    <string name="action_share_note">Поділитись заміткою</string>
+    <string name="action_share_note">Поділитись нотаткою</string>
     <string name="please_enter_a_title">Будь ласка, введіть назву нотатки, щоб зберегти або видалити її.</string>
     <string name="title_required">Потрібна посада</string>
     <string name="keep_screen_on_dialog_yes">Так</string>
@@ -141,7 +141,7 @@
     <string name="country_title_greek">Грецька</string>
     <string name="country_title_translator_polish" translatable="false">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
     <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero), Davide Secco(@davidesecco)</string>
-    <string name="action_remove">Вилучити замітку</string>
+    <string name="action_remove">Вилучити нотатку</string>
     <string name="country_title_arabic">Арабська</string>
     <string name="country_title_italian">Італійська</string>
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
