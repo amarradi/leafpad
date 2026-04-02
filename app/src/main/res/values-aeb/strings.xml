@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="darkmode_preference" translatable="false">darkmode</string>
     <string name="system_preference" translatable="false">system</string>
     <string name="theme_key" translatable="false">theme</string>
