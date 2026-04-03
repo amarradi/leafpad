@@ -21,10 +21,10 @@
     <string name="lightmode_preference_key">Tryb jasny</string>
     <string name="darkmode_preference_key">Tryb ciemny</string>
     <string name="about">O nas</string>
-    <string name="tell_about">Co chcę Ci powiedzieć o Leafpadzie</string>
+    <string name="tell_about">Co chcę Ci powiedzieć o Leafpadzie</string>
     <string name="change">Wersja</string>
     <string name="thanks">Dziękujemy Stefanowi, Stefanowi, Manuelowi, Falkowi, Stephanie i Emilowi za pomysły i testowanie aplikacji.</string>
-    <string name="its_opensource">Leafpad to otwarta i wolna aplikacja</string>
+    <string name="its_opensource">Leafpad to otwarta i wolna aplikacja</string>
     <string name="title_licence">Licencje</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="action_note_saved">Zapisano</string>
@@ -32,7 +32,7 @@
     <string name="licence">Licencje typu open source</string>
     <string name="search">Szukaj notatek</string>
     <string name="statement">Zapisujemy listy zakupów, notatki do rozmów, listy rzeczy do spakowania na wakacje lub urodziny przyjaciół. To wszystko są dobre rzeczy, abyśmy o nich nie zapomnieli. Podobnie jest z Bogiem, który zapisuje nasze dobre i złe uczynki. Bóg jest ponad wszystkim i po prostu wszystko wie. Bóg kocha ludzi i chce mieć z nimi społeczność. Ale jest to możliwe tylko wtedy, gdy jesteśmy postrzegani przez Boga jako nienaganni. Przez wiarę w Jezusa Chrystusa nasze złe uczynki (nasze winy) zostają wymazane przed Bogiem. Jezus Chrystus odkupił nasze winy na krzyżu na Golgocie. Każda osoba, która to przyjmuje, zostaje wpisana do księgi życia na zawsze. Czy jesteś w księdze życia?</string>
-    <string name="leafpad_work">Leafpad zapisuje wszystkie dane lokalnie na Twoim smartfonie. Notatki lub metadane, takie jak data i godzina, nie są przechowywane w żadnej chmurze i nie są nikomu udostępniane. Nie jest również przeprowadzana żadna analiza tekstu. Notatki należą do Ciebie. Ty decydujesz, co z nimi zrobisz.</string>
+    <string name="leafpad_work">Leafpad zapisuje wszystkie dane lokalnie na Twoim smartfonie. Notatki lub metadane, takie jak data i godzina, nie są przechowywane w żadnej chmurze i nie są nikomu udostępniane. Nie jest również przeprowadzana żadna analiza tekstu. Notatki należą do Ciebie. Ty decydujesz, co z nimi zrobisz.</string>
     <string name="new_note">Nowa notatka</string>
     <string name="imported">Notatka została wysłana do Leafpada</string>
     <string name="rate_the_app">Napiszesz recenzję w Google Play?</string>
@@ -43,7 +43,7 @@
     <string name="remove_dailog_message">Ta notatka zostanie bezpowrotnie usunięta. Potem nie da się jej przywrócić.</string>
     <string name="version">Wersja</string>
     <string name="find_code_on_github_summary">Przeglądaj kod i zgłaszaj problemy w repozytorium.</string>
-    <string name="theme_summary">Przełącz między trybem ciemnym a jasnym</string>
+    <string name="theme_summary">Przełącz między trybem ciemnym a jasnym</string>
     <string name="what_is_leafpad">Leafpad jest prostą aplikacją do tworzenia notatek.</string>
     <string name="created_txt">Utworzona dnia</string>
     <string name="action_remove">Usuń notatkę</string>
@@ -57,7 +57,7 @@
     <string name="action_add_note">Dodaj notatkę</string>
     <string name="action_share_note">Udostępnij notatkę</string>
     <string name="participate">Weź udział lub wnieś wkład</string>
-    <string name="translate">Pomóż w tłumaczeniu aplikacji przez Weblate</string>
+    <string name="translate">Przetłumacz aplikację w serwisie Weblate</string>
     <string name="translation_help">Pomóż w tłumaczeniu aplikacji w serwisie Weblate.</string>
     <string name="hide_note">Uczyń notatkę niewidoczną</string>
     <string name="hide_hidden">Ukryj ukryte notatki</string>
@@ -66,11 +66,11 @@
     <string name="note_is_recipe">Notatka jest przepisem</string>
     <string name="note_is_no_recipe">Notatka nie jest przepisem</string>
     <string name="showDeleteConfirmation">Usunąć notatki?</string>
-    <string name="save">Zapisz wszystkie notatki jako plik XML</string>
+    <string name="save">Zapisz wszystkie notatki jako kontener ZIPB z JSON</string>
     <string name="backupIsrunning">Tworzenie kopii zapasowej jest uruchomione</string>
     <string name="no">Nie</string>
     <string name="importError">Błąd podczas importowania notatek.</string>
-    <string name="restore">Przywróć wszystkie notatki z pliku XML</string>
+    <string name="restore">Przywróć wszystkie notatki z pliku ZIP</string>
     <string name="showDeleteConfirmationMessage">Wszystkie notatki zostaną trwale usunięte. Kontynuować?</string>
     <string name="yes">Tak</string>
     <plurals name="notes_imported">
@@ -80,10 +80,10 @@
         <item quantity="other">Zaimportowano %1$d notatek</item>
     </plurals>
     <plurals name="notes_exported">
-        <item quantity="one">%1$d note backed up</item>
-        <item quantity="few">%1$d notes backed up</item>
-        <item quantity="many">%1$d notes backed up</item>
-        <item quantity="other">%1$d notes backed up</item>
+        <item quantity="one">Wyeksportowano %d notatkę</item>
+        <item quantity="few">Wyeksportowano %d notatki</item>
+        <item quantity="many">Wyeksportowano %d notatek</item>
+        <item quantity="other">Wyeksportowano %d notatek</item>
     </plurals>
     <string name="fileOpeningError">Wystąpił błąd podczas otwierania pliku.</string>
     <string name="delete">Usuń</string>
@@ -101,8 +101,8 @@
     <string name="search_hint">Czego szukasz?</string>
     <string name="discard">Porzuć</string>
     <string name="startIconDescription">Pole wyszukiwania</string>
-    <string name="notification_of_change_description">Powiadom o zmianach w notatkach</string>
-    <string name="notification_of_change">Powiadomienie o zmianach</string>
+    <string name="notification_of_change_description">Powiadom o zmianach w notatkach</string>
+    <string name="notification_of_change">Powiadomienie o zmianach</string>
     <string name="not_initialized">Leafpad nie został jeszcze zainicjowany!</string>
     <string name="unsaved_changes_message">Twoja notatka została zmieniona. Zapisać czy porzucić zmiany?</string>
     <string name="unsaved_changes_title">Niezapisane zmiany</string>
@@ -114,7 +114,7 @@
     <string name="keep_screen_on_dialog_yes">Tak</string>
     <string name="keep_screen_on_dialog_message">Pozostawienie włączonego ekranu może znacznie zwiększyć zużycie baterii. Czy na pewno chcesz włączyć tę funkcję?</string>
     <string name="keep_screen_on_dialog_no">Nie</string>
-    <string name="keep_screen_on_summary">Zapobiegaj wyłączaniu się ekranu podczas korzystania z Leafpada</string>
+    <string name="keep_screen_on_summary">Zapobiegaj wyłączaniu się ekranu podczas korzystania z Leafpada</string>
     <string name="keep_screen_on_title">Utrzymuj ekran włączony</string>
     <string name="keep_screen_on_dialog_title">Ostrzeżenie dotyczące zużycia baterii</string>
     <string name="country_title_translator_czech" translatable="false">MessingWithComputers(@MessingWithComputers)</string>
@@ -123,7 +123,7 @@
     <string name="country_title_catalan">Kataloński</string>
     <string name="country_title_spanish">Hiszpański</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
-    <string name="setCategory">Set Category</string>
+    <string name="setCategory">Ustaw kategorię</string>
     <string name="country_title_albanian">Albański</string>
     <string name="country_title_indonesian">Indonezyjski</string>
     <string name="country_title_russian">Rosyjski</string>
@@ -163,7 +163,7 @@
     <string name="country_title_chinese_traditional_han_script">Chiński (tradycyjny alfabet Han)</string>
     <string name="country_title_hindi_latin_script">Hindi (alfabet łaciński)</string>
     <string name="country_title_uzbek">Uzbecki</string>
-    <string name="country_title_hindi_latin">Indian (Latin scripture)</string>
+    <string name="country_title_hindi_latin">Indyjski (pismo łacińskie)</string>
     <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
     <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
@@ -173,26 +173,26 @@
     <string name="country_title_danish">Duński</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
     <string name="country_title_serbian">Serbski</string>
-    <string name="item_menu_add_category">create new category</string>
+    <string name="item_menu_add_category">Utwórz nową kategorię</string>
     <string name="category">Category</string>
     <string name="category_name">name of the category</string>
-    <string name="select_color">choose category color</string>
-    <string name="edit_category">edit category</string>
-    <string name="add_category">add category</string>
-    <string name="category_color">category color</string>
-    <string name="save_category">save category</string>
-    <string name="delete_category">Delete category</string>
-    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
-    <string name="delete_category_hint">Notes are retained but lose this category.</string>
-    <string name="manage_categories">Manage categories</string>
-    <string name="manage_categories_summary">Create, edit, and delete</string>
-    <string name="error">error</string>
-    <string name="category_already_exists">Category allready exists</string>
-    <string name="database_error">database error</string>
-    <string name="open_source_licenses">Open source licenses</string>
-    <string name="error_loading_licenses">Error loading licenses</string>
-    <string name="open_source_licenses_summary">View used libraries and licenses</string>
-    <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
-    <string name="database_error_log">Database Error</string>
-    <string name="category_name_required">Empty category is not allowed</string>
+    <string name="select_color">Wybierz kolor</string>
+    <string name="edit_category">Edytuj kategorię</string>
+    <string name="add_category">Dodaj kategorię</string>
+    <string name="category_color">Kolor kategorii</string>
+    <string name="save_category">Zapisz kategorię</string>
+    <string name="delete_category">Usuń kategorię</string>
+    <string name="delete_category_confirm">Czy na pewno chcesz usunąć kategorię „%1$s”?</string>
+    <string name="delete_category_hint">Notatki zostają zachowane, ale tracą tę kategorię.</string>
+    <string name="manage_categories">Zarządzaj kategoriami</string>
+    <string name="manage_categories_summary">Twórz, edytuj i usuwaj</string>
+    <string name="error">Błąd</string>
+    <string name="category_already_exists">Kategoria już istnieje</string>
+    <string name="database_error">Błąd bazy danych</string>
+    <string name="open_source_licenses">Licencje typu open source</string>
+    <string name="error_loading_licenses">Błąd ładowania licencji</string>
+    <string name="open_source_licenses_summary">Wyświetl używane biblioteki i licencje</string>
+    <string name="thanks_to_all_contributors">Dziękujemy wszystkim współautorom i przyjaciołom, którzy pomagają w tłumaczeniu tego projektu za pośrednictwem serwisu Weblate. Wasz czas i  wysiłek są naprawdę doceniane. Pełną i zawsze aktualną listę współpracowników można znaleźć w naszym repozytorium GitHub.</string>
+    <string name="database_error_log">Błąd bazy danych</string>
+    <string name="category_name_required">Pusta kategoria nie jest dozwolona</string>
 </resources>
