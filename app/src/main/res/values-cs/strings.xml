@@ -21,7 +21,7 @@
     <string name="action_share_body">Poznámka</string>
     <string name="remove_dialog_abort">Zrušit</string>
     <string name="menu_settings">Nastavení</string>
-    <string name="action_fab_note">vytvořit poznámku</string>
+    <string name="action_fab_note">Vytvořit poznámku</string>
     <string name="title_activity_note_edit">Upravit poznámku</string>
     <string name="translate">Přeložit aplikaci na Weblate</string>
     <string name="change">verze</string>
@@ -175,8 +175,8 @@
     <string name="country_title_serbian">Serbian</string>
     <string name="item_menu_add_category">create new category</string>
     <string name="category">Category</string>
-    <string name="category_name">name of the category</string>
-    <string name="select_color">choose category color</string>
+    <string name="category_name">Jméno kategorie</string>
+    <string name="select_color">Vyberte barvu</string>
     <string name="edit_category">edit category</string>
     <string name="add_category">add category</string>
     <string name="category_color">category color</string>
