@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="country_title_hindi_latin">Indian (Latin scripture)</string>
+    <string name="country_title_hindi_latin">India (aksara Latin)</string>
     <string name="darkmode_preference" translatable="false">darkmode</string>
     <string name="theme_key" translatable="false">theme</string>
     <string name="system_preference_option_value" translatable="false">system</string>
@@ -18,7 +18,7 @@
     <string name="created_txt">sitemap</string>
     <string name="action_remove">Hapus catatan</string>
     <string name="licence">Lisensi sumber terbuka</string>
-    <string name="edited_text">diedit</string>
+    <string name="edited_text">Diedit pada</string>
     <string name="body_hint">Catatan</string>
     <string name="lightmode_preference_key">mode terang</string>
     <string name="find_code_on_github">Login</string>
@@ -44,33 +44,33 @@
     <string name="tell_about">Apa yang ingin saya ceritakan tentang Leafpad</string>
     <string name="system_preference_key">sistem ikuti (standar)</string>
     <string name="leafpad_work">Leafpad menyimpan semua data secara lokal di ponsel cerdas Anda. Catatan atau metadata seperti tanggal dan waktu tidak disimpan di cloud apa pun dan tidak dibagikan dengan siapa pun. Tidak ada analisis teks dilakukan. Catatan milik Anda. Anda memutuskan apa yang Anda lakukan dengan mereka. Meme it.</string>
-    <string name="imported">catatan dikirim ke leafpad</string>
-    <string name="rate_the_app">Bagaimana dengan ulasan di Google Play Store? Kemudian buka Google Play langsung.</string>
+    <string name="imported">Catatan telah dikirim ke leafpad</string>
+    <string name="rate_the_app">Tinggalkan ulasan Play Store?</string>
     <string name="action_note_saved">login</string>
     <string name="remove_dialog_abort">Login</string>
     <string name="menu_settings">Login</string>
-    <string name="change">sitemap</string>
-    <string name="contentDescription">tambahkan Catatan baru</string>
+    <string name="change">Versi</string>
+    <string name="contentDescription">Tambah Catatan Baru</string>
     <string name="action_edit_note">Ubah Catatan</string>
     <string name="note_will_be_saved_first">Catatan akan disimpan terlebih dahulu</string>
     <string name="general_preference">Pengaturan umum</string>
     <string name="title_licence">Login</string>
     <string name="remove_dailog_message">Catatan ini akan dihapus secara permanen. Setelah itu tidak bisa dipulihkan.</string>
-    <string name="version">sitemap</string>
+    <string name="version">Versi</string>
     <string name="participate">Berpartisipasi atau Berkontribusi</string>
     <string name="translate">Terjemahkan aplikasi di Weblate</string>
     <string name="translation_help">Bantu kami menerjemahkan aplikasi ke dalam bahasa Anda di weblate</string>
-    <string name="hide_note">membuat catatan tidak terlihat</string>
-    <string name="hide_hidden">menyembunyikan catatan tersembunyi</string>
-    <string name="show_note">membuat catatan terlihat</string>
-    <string name="show_hidden">menunjukkan catatan tersembunyi</string>
-    <string name="note_is_recipe">catatan ini adalah resep</string>
-    <string name="note_is_no_recipe">catatan ini bukan resep</string>
-    <string name="restore">Pulihkan semua catatan dari berkas xml</string>
+    <string name="hide_note">Sembunyikan catatan</string>
+    <string name="hide_hidden">Sembunyikan catatan tersembunyi</string>
+    <string name="show_note">Tampilkan catatan</string>
+    <string name="show_hidden">Tampilkan catatan tersembunyi</string>
+    <string name="note_is_recipe">Catatan adalah resep</string>
+    <string name="note_is_no_recipe">Catatan bukan resep</string>
+    <string name="restore">Pulihkan semua catatan dari file zip</string>
     <string name="yes">Ya</string>
     <string name="showRestoreConfirmation">Pulihkan?</string>
     <string name="restore_notes_title">Pulihkan</string>
-    <string name="save">Simpan semua catatan sebagai xml</string>
+    <string name="save">Simpan semua catatan sebagai kontainer zipb dengan json</string>
     <string name="showDeleteConfirmation">Hapus catatan?</string>
     <string name="backupIsrunning">Proses cadangan sedang berjalan</string>
     <string name="no">Tidak</string>
@@ -80,8 +80,7 @@
         <item quantity="other">%1$d catatan diimpor</item>
     </plurals>
     <plurals name="notes_exported">
-        <item quantity="one">%1$d note backed up</item>
-        <item quantity="other">%1$d notes backed up</item>
+        <item quantity="other">%d catatan diekspor</item>
     </plurals>
     <string name="fileOpeningError">Kesalahan saat membuka berkas.</string>
     <string name="delete">Hapus</string>
@@ -92,9 +91,9 @@
     <string name="showRestoreConfirmationMessage">Semua catatan saat ini akan diganti dengan cadangan. Lanjutkan?</string>
     <string name="toggle">ubah Tampilan</string>
     <string name="note_shared">Catatan dibagikan</string>
-    <string name="save_changes">simpan perubahan</string>
-    <string name="discard">buang</string>
-    <string name="item_menu_description">menu untuk tindakan item</string>
+    <string name="save_changes">Simpan Perubahan</string>
+    <string name="discard">Buang</string>
+    <string name="item_menu_description">Menu untuk tindakan item</string>
     <string name="search_hint">Apa yang Anda cari?</string>
     <string name="not_initialized">Leafpad belum diinisialisasi!</string>
     <string name="startIconDescription">Kolom pencarian</string>
@@ -119,7 +118,7 @@
     <string name="country_title_catalan">Katalan</string>
     <string name="country_title_spanish">Spanyol</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
-    <string name="setCategory">Set Category</string>
+    <string name="setCategory">Atur Kategori</string>
     <string name="country_title_albanian">Albania</string>
     <string name="country_title_indonesian">Indonesia</string>
     <string name="country_title_russian">Rusia</string>
@@ -168,26 +167,26 @@
     <string name="country_title_danish">Danish</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
     <string name="country_title_serbian">Serbian</string>
-    <string name="item_menu_add_category">create new category</string>
-    <string name="category">Category</string>
-    <string name="category_name">name of the category</string>
-    <string name="select_color">choose category color</string>
-    <string name="edit_category">edit category</string>
-    <string name="add_category">add category</string>
-    <string name="category_color">category color</string>
-    <string name="save_category">save category</string>
-    <string name="delete_category">Delete category</string>
-    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
-    <string name="delete_category_hint">Notes are retained but lose this category.</string>
-    <string name="manage_categories">Manage categories</string>
-    <string name="manage_categories_summary">Create, edit, and delete</string>
-    <string name="error">error</string>
-    <string name="category_already_exists">Category allready exists</string>
-    <string name="database_error">database error</string>
-    <string name="open_source_licenses">Open source licenses</string>
-    <string name="error_loading_licenses">Error loading licenses</string>
-    <string name="open_source_licenses_summary">View used libraries and licenses</string>
-    <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
-    <string name="database_error_log">Database Error</string>
-    <string name="category_name_required">Empty category is not allowed</string>
+    <string name="item_menu_add_category">Buat Kategori Baru</string>
+    <string name="category">Kategori</string>
+    <string name="category_name">Nama kategori</string>
+    <string name="select_color">Pilih warna</string>
+    <string name="edit_category">Edit Kategori</string>
+    <string name="add_category">Tambah Kategori</string>
+    <string name="category_color">warna kategori</string>
+    <string name="save_category">Simpan Kategori</string>
+    <string name="delete_category">Hapus Kategori</string>
+    <string name="delete_category_confirm">Apakah Anda yakin ingin menghapus kategori \"%1$s\"?</string>
+    <string name="delete_category_hint">Catatan tetap ada tetapi kehilangan kategori ini.</string>
+    <string name="manage_categories">Kelola kategori</string>
+    <string name="manage_categories_summary">Buat, Edit, dan Hapus</string>
+    <string name="error">Kesalahan</string>
+    <string name="category_already_exists">Kategori sudah ada</string>
+    <string name="database_error">Kesalahan Database</string>
+    <string name="open_source_licenses">Lisensi sumber terbuka</string>
+    <string name="error_loading_licenses">Gagal memuat lisensi</string>
+    <string name="open_source_licenses_summary">Lihat pustaka dan lisensi yang digunakan</string>
+    <string name="thanks_to_all_contributors">Terima kasih kepada semua kontributor dan teman yang membantu menerjemahkan proyek ini melalui Weblate—waktu dan upaya Anda sangat dihargai. Untuk daftar kontributor yang lengkap dan selalu terbaru, silakan kunjungi repositori GitHub kami.</string>
+    <string name="database_error_log">Kesalahan Database</string>
+    <string name="category_name_required">Kategori kosong tidak diperbolehkan</string>
 </resources>
