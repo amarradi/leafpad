@@ -4,7 +4,7 @@ Updated translations
 Added categories; names and colors can be freely chosen
 Any number of categories can be added per note
 Switch to storing notes in a database
-Adjustment of the backup/restore function; now a
+Adjustment of the backup/restore function
 New icons added
 New colors added
 Licenses added
