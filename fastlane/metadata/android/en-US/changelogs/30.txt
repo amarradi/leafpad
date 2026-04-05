@@ -1,2 +1,11 @@
-The empty entries will now deleted if its discard
-Language updates
+Bug fix: Empty entries are now deleted when discarded
+Separated settings from the “About” menu
+Updated translations
+Added categories; names and colors can be freely chosen
+Any number of categories can be added per note
+Switch to storing notes in a database
+Adjustment of the backup/restore function; now a
+New icons added
+New colors added
+Licenses added
+Unnecessary fonts removed
