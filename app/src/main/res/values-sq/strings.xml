@@ -8,24 +8,24 @@
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
     <string name="theme_preference">Theme</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
-    <string name="new_note">Shënim i ri</string>
+    <string name="new_note">Shënim i Ri</string>
     <string name="action_note_saved">u ruajt</string>
     <string name="participate">Merrni pjesë, ose Jepni Kontribut</string>
     <string name="leafpad_work">Leafpad-i i ruan lokalisht në telefonin tuaj krejt të dhënat. Shënimet, ose tejtëdhëna të tilla si data dhe koha nuk depozitohen në ndonjë re dhe s’i jepen njeriu. As bëhet ndonjë analizim teksti. Shënimet ju përkasin juve. Ju vendosni ç’të bëhet me to.</string>
     <string name="imported">Shënimi u dërgua te leafpad</string>
     <string name="rate_the_app">Si thoni për një shqyrtim në Play Store?</string>
-    <string name="add_shortcut_short_label">Shkruani një të ri</string>
+    <string name="add_shortcut_short_label">Shkruani Një të Ri</string>
     <string name="tell_about">Ç’dua t’ju them rreth Leafpad-it</string>
     <string name="action_share_body">Shënim</string>
     <string name="remove_dialog_abort">Anuloje</string>
     <string name="menu_settings">Rregullime</string>
-    <string name="action_fab_note">Bëni një shënim</string>
+    <string name="action_fab_note">Bëni një Shënim</string>
     <string name="title_activity_note_edit">Përpunoni Shënim</string>
     <string name="translate">Përkthejeni aplikacionin në Weblate</string>
     <string name="hide_hidden">Fshihi shënimet e fshehura</string>
     <string name="change">Version</string>
     <string name="system_preference_key">ndiq sistemin (standard)</string>
-    <string name="contentDescription">Shtoni Shënim të ri</string>
+    <string name="contentDescription">Shtoni Shënim të Ri</string>
     <string name="action_edit_note">Përpunoni Shënim</string>
     <string name="note_will_be_saved_first">Shënimi së pari do të ruhet</string>
     <string name="general_preference">Rregullime të përgjithshme</string>
@@ -33,14 +33,14 @@
     <string name="remove_dailog_message">Ky shënim do të fshihet përgjithnjë. Nuk mund të rikthehet më pas.</string>
     <string name="version">Version</string>
     <string name="show_note">Bëje shënimin të dukshëm</string>
-    <string name="find_code_on_github_summary">Shihni kodin dhe njoftoni të meta.</string>
+    <string name="find_code_on_github_summary">Mund të shihni dhe shqyrtoni kodin burim të leafpad-it përmes depos. Nëse keni kërkesa për veçori të reja, ose doni të njoftoni një të metë, ju lutemi, mos ngurroni të hapni një çështje.</string>
     <string name="action_share_title">Titull</string>
     <string name="title_hint">Titull</string>
     <string name="about">Mbi</string>
     <string name="theme_summary">Kaloni nga tema e errët në të çelët, ose anasjelltas</string>
-    <string name="what_is_leafpad">Leafpad-i është një aplikacion i thjeshtë për mbajtje shënimesh.</string>
+    <string name="what_is_leafpad">Leafpad-i është një aplikacion i thjeshtë për mbajtje shënimesh. Me këtë aplikacion mund të krijoni, dërgoni ose fshini shënime në telefonin tuaj.</string>
     <string name="created_txt">krijuar më</string>
-    <string name="action_remove">Hiqe shënimin</string>
+    <string name="action_remove">Hiqe Shënimin</string>
     <string name="licence">Licenca burimi të hapët</string>
     <string name="edited_text">Përpunuar më</string>
     <string name="body_hint">Shënim</string>
@@ -48,7 +48,7 @@
     <string name="find_code_on_github">GitHub</string>
     <string name="darkmode_preference_key">mënyra e errët</string>
     <string name="search">kërko për shënime</string>
-    <string name="action_save">ruaje shënimin</string>
+    <string name="action_save">Ruaje Shënimin</string>
     <string name="share_note">Të Ndahet Shënimi Me të Tjerë?</string>
     <string name="thanks">Faleminderit Stefanit, Stefanit, Manuelit, Falkut, Stefanisë dhe Emilit për idetë tuaja dhe për testimin e aplikacionit.</string>
     <string name="statement">Shkruajmë në copa letrash lista për pazare, shënime për biseda, lista me gjëra që duhen paketuar për pushimet apo për ditëlindjen e një shoku. Këto të tëra janë gjëra të dobishme, kështu nuk i harrojmë. Ngjan mjaft me Zotin, ai shkruan punët tona të mira dhe liga dhe i ruan. Zoti është mbi gjithçka dhe thjesht di gjithçka. Zoti i do njerëzit dhe dëshiron të jetë i lidhur me ta. Por kjo është e mundshme vetëm nëse Zotit i dukemi të pafajshëm. Përmes besimit në Jezu Krishtin, punët tona të liga (faji ynë) fshihen para Zotit. Jezu Krishti shleu fajin tonë në kryqin e Kalvarit. Çdo person që pranon këtë hyn në librin e jetës së përjetshme. Ju, jeni në librin e jetës?</string>
@@ -62,7 +62,7 @@
     <string name="remove_dialog_title">Jeni i sigurt?</string>
     <string name="action_add_note">Shtoni Shënim</string>
     <string name="show_hidden">Shfaq shënime të fshehura</string>
-    <string name="action_share_note">Ndajeni shënimin me të tjerë</string>
+    <string name="action_share_note">Ndajeni Shënimin Me të Tjerë</string>
     <string name="note_is_recipe">Shënimi është një recetë</string>
     <string name="note_is_no_recipe">Shënimi s’është recetë</string>
     <string name="save">Ruaji krejt shënimet si kontejner zipb me json</string>
@@ -78,8 +78,8 @@
         <item quantity="other">U importuan %1$d shënime</item>
     </plurals>
     <plurals name="notes_exported">
-        <item quantity="one">U eksportua %1$d shënim</item>
-        <item quantity="other">U eksportuan %1$d shënime</item>
+        <item quantity="one">U eksportua %d shënim</item>
+        <item quantity="other">U eksportuan %d shënime</item>
     </plurals>
     <string name="fileOpeningError">Gabim kur hapet kartela.</string>
     <string name="delete">Fshije</string>
@@ -91,7 +91,7 @@
     <string name="save_notes_title">Kopjeruajtje</string>
     <string name="showRestoreConfirmationMessage">Krejt shënimet e tanishme do të zëvendësohen nga kopjeruajtja. Të vazhdohet?</string>
     <string name="toggle">ndryshoni Pamje</string>
-    <string name="note_shared">Shënimi u nda me të tjerë</string>
+    <string name="note_shared">Shënimi u Nda Me të Tjerë</string>
     <string name="item_menu_description">Menu për veprime mbi objekte</string>
     <string name="save_changes">Ruaji ndryshimet</string>
     <string name="search_hint">Për ç’po shihni?</string>

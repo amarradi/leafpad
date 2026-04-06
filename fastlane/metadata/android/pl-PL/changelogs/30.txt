@@ -1,2 +1,11 @@
-* Puste wpisy będą teraz usuwane po ich odrzuceniu
-* Aktualizacje językowe
+* Naprawiono błąd: puste wpisy są teraz usuwane po usunięciu
+* Ustawienia oddzielone od menu „Informacje”
+* Zaktualizowano tłumaczenia
+* Dodano kategorie; nazwy i kolory można dowolnie wybierać
+* Można dodać dowolną liczbę kategorii do każdej notatki
+* Przejście na zapisywanie notatek w bazie danych
+* Dostosowanie funkcji tworzenia kopii zapasowej/przywracania
+* Dodano nowe ikony
+* Dodano nowe kolory
+* Dodano licencje
+* Usunięto niepotrzebne czcionki

@@ -10,8 +10,8 @@
     <string name="item_menu_description">项目操作菜单</string>
     <string name="leafpad_work">Leafpad 将所有数据存储在手机本地。笔记及日期时间等元数据不会保留在云端或分享给任何人。也不会有任何文本收集分析。你拥有笔记的一切所有权，可以自行决定想做什么。</string>
     <string name="new_note">新笔记</string>
-    <string name="save_changes">保留更改</string>
-    <string name="save">以 XML 格式保存所有笔记</string>
+    <string name="save_changes">保存更改</string>
+    <string name="save">将所有笔记以 JSON 保存为 zip 压缩文件</string>
     <string name="showDeleteConfirmation">删除笔记？</string>
     <string name="set">这是一份食谱</string>
     <string name="toggle">切换视图</string>
@@ -34,7 +34,7 @@
     <string name="keep_screen_on_dialog_message">保持屏幕开启可能会显著增加电池消耗。您确定要启用此功能吗？</string>
     <string name="system_preference_key">跟随系统（标准）</string>
     <string name="importError">导入笔记时发生错误。</string>
-    <string name="restore">从 XML 文件中恢复所有笔记</string>
+    <string name="restore">从 zip 压缩文件中恢复所有笔记</string>
     <string name="contentDescription">添加新笔记</string>
     <string name="please_enter_a_title">请为笔记输入标题或丢弃该笔记。</string>
     <string name="action_edit_note">编辑笔记</string>
@@ -45,8 +45,7 @@
         <item quantity="other">%1$d 笔记已导入</item>
     </plurals>
     <plurals name="notes_exported">
-        <item quantity="one">%1$d note backed up</item>
-        <item quantity="other">%1$d notes backed up</item>
+        <item quantity="other">已导出 %d 个笔记</item>
     </plurals>
     <string name="fileOpeningError">打开文件时发生错误。</string>
     <string name="note_will_be_saved_first">笔记会先被保存</string>
@@ -58,7 +57,7 @@
     <string name="discard">丢弃</string>
     <string name="backupfinish">备份已完成</string>
     <string name="show_note">使笔记可见</string>
-    <string name="find_code_on_github_summary">在仓库中查看代码并报告问题。</string>
+    <string name="find_code_on_github_summary">您可以通过代码仓库中查看和审阅 Leafpad 的源代码。如果您有任何功能请求或想要报告错误，请随时递交issue。</string>
     <string name="action_share_title">标题</string>
     <string name="invalidFile">无效的备份文件，导入取消。</string>
     <string name="participate">参与或贡献</string>
@@ -67,7 +66,7 @@
     <string name="startIconDescription">搜索栏</string>
     <string name="keep_screen_on_dialog_no">否</string>
     <string name="theme_summary">切换深/浅色主题</string>
-    <string name="what_is_leafpad">Leafpad 是一个开箱即用的笔记APP。</string>
+    <string name="what_is_leafpad">Leafpad 是一个开箱即用的笔记APP。通过此应用，你可以在手机上创建、编辑、导入或删除笔记。</string>
     <string name="note_shared">笔记已分享</string>
     <string name="theme_preference">主题</string>
     <string name="created_txt">创建于</string>
@@ -114,7 +113,7 @@
     <string name="empty_list">列表上空空如也</string>
     <string name="action_share_note">分享笔记</string>
     <string name="menu_about">关于 Leafpad</string>
-    <string name="setCategory">Set Category</string>
+    <string name="setCategory">设置分类</string>
     <string name="country_title_albanian">Albanian</string>
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_arabic">Arabic</string>
@@ -167,27 +166,27 @@
     <string name="country_title_translator_ukrainian" translatable="false">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
     <string name="country_title_uzbek">Uzbek</string>
     <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
-    <string name="item_menu_add_category">create new category</string>
-    <string name="category">Category</string>
-    <string name="category_name">name of the category</string>
-    <string name="select_color">choose category color</string>
-    <string name="edit_category">edit category</string>
-    <string name="add_category">add category</string>
-    <string name="category_color">category color</string>
-    <string name="save_category">save category</string>
-    <string name="delete_category">Delete category</string>
-    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
-    <string name="delete_category_hint">Notes are retained but lose this category.</string>
-    <string name="manage_categories">Manage categories</string>
-    <string name="manage_categories_summary">Create, edit, and delete</string>
-    <string name="error">error</string>
-    <string name="category_already_exists">Category allready exists</string>
-    <string name="database_error">database error</string>
-    <string name="open_source_licenses">Open source licenses</string>
-    <string name="error_loading_licenses">Error loading licenses</string>
-    <string name="open_source_licenses_summary">View used libraries and licenses</string>
-    <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
-    <string name="database_error_log">Database Error</string>
-    <string name="category_name_required">Empty category is not allowed</string>
+    <string name="item_menu_add_category">创建新的分类</string>
+    <string name="category">分类</string>
+    <string name="category_name">分类名称</string>
+    <string name="select_color">选择颜色</string>
+    <string name="edit_category">编辑分类</string>
+    <string name="add_category">添加分类</string>
+    <string name="category_color">分类颜色</string>
+    <string name="save_category">保存分类</string>
+    <string name="delete_category">删除分类</string>
+    <string name="delete_category_confirm">您确定要删除类别 “%1$s” 吗?</string>
+    <string name="delete_category_hint">笔记会被保留，但不再属于此分类。</string>
+    <string name="manage_categories">管理分类</string>
+    <string name="manage_categories_summary">创建，编辑和删除</string>
+    <string name="error">错误</string>
+    <string name="category_already_exists">分类已存在</string>
+    <string name="database_error">数据库错误</string>
+    <string name="open_source_licenses">开放源代码许可</string>
+    <string name="error_loading_licenses">加载许可证时出错</string>
+    <string name="open_source_licenses_summary">查看使用的库和许可</string>
+    <string name="thanks_to_all_contributors">感谢所有通过 Weblate 平台协助翻译本项目的贡献者和朋友们——我们衷心感谢你们付出的时间与精力。如需查看完整且实时更新的贡献者列表，请访问我们的 Github 项目仓库。</string>
+    <string name="database_error_log">数据库错误</string>
+    <string name="category_name_required">分类名称不允许为空</string>
     <string name="country_title_hindi_latin">Indian (Latin scripture)</string>
 </resources>

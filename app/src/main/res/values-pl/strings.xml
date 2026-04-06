@@ -42,9 +42,9 @@
     <string name="contentDescription">Dodaj nową notatkę</string>
     <string name="remove_dailog_message">Ta notatka zostanie bezpowrotnie usunięta. Potem nie da się jej przywrócić.</string>
     <string name="version">Wersja</string>
-    <string name="find_code_on_github_summary">Przeglądaj kod i zgłaszaj problemy w repozytorium.</string>
+    <string name="find_code_on_github_summary">Możesz przeglądać i recenzować kod źródłowy Leafpad za pośrednictwem repozytorium. Jeśli masz jakieś sugestie dotyczące funkcji lub chcesz zgłosić błąd, możesz utworzyć zagadnienie.</string>
     <string name="theme_summary">Przełącz między trybem ciemnym a jasnym</string>
-    <string name="what_is_leafpad">Leafpad jest prostą aplikacją do tworzenia notatek.</string>
+    <string name="what_is_leafpad">Leafpad jest prostą aplikacją do tworzenia notatek. Dzięki tej aplikacji możesz tworzyć, edytować, wysyłać i usuwać notatki na swoim telefonie.</string>
     <string name="created_txt">Utworzona dnia</string>
     <string name="action_remove">Usuń notatkę</string>
     <string name="edited_text">Edytowano dnia</string>
