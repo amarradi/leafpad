@@ -1,0 +1,6 @@
+* L'affichage en grille défile maintenant de façon plus fluide (pas si incroyable)
+* Une erreur d'affichage avec les notes longues a été résolue
+* Plus de zones de texte ont été traduites
+* La zone "notes cachées" est plus facile à reconnaître
+* Il y a un mode lecture dans lequel l'écran reste constamment allumé. Cela peut augmenter la consommation de batterie 
+* Correction de bugs

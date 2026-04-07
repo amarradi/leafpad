@@ -1,9 +1,6 @@
 package com.git.amarradi.leafpad.model;
 
-import android.os.Parcel;
 import android.os.Parcelable;
-
-import androidx.annotation.NonNull;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -87,6 +84,10 @@ public class Note implements Parcelable {
         SimpleDateFormat df;
         df = new SimpleDateFormat("HH:mm",LOCALE);
         this.notetime = df.format(new Date());
+    }
+
+    public void setCreateDate(String createDate) {
+        this.create_date = createDate;
     }
 
     public void setNotedate(String notedate) {

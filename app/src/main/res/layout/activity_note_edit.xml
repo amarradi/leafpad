@@ -22,6 +22,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.appbar.AppBarLayout>
+    <!-- Fragment Container ÜBER dem Notiz-Layout -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorSurface"
+        android:visibility="gone"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:elevation="10dp" />
 
     <!-- Hauptinhalt: NestedScrollView direkt unter AppBarLayout -->
     <androidx.core.widget.NestedScrollView
@@ -65,7 +74,28 @@
                     android:scrollHorizontally="true"
                     android:textAppearance="@style/TextAppearance.MyNoteTitle" />
             </com.google.android.material.textfield.TextInputLayout>
+            <!-- Kategorien (nur sichtbar wenn vorhanden) -->
+            <HorizontalScrollView
+                android:id="@+id/category_chip_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/switch_layout_margin_start"
+                android:layout_marginEnd="@dimen/switch_layout_margin_end"
+                android:fillViewport="false"
+                android:scrollbars="none"
+                android:overScrollMode="never"
+                android:visibility="gone">
 
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/category_chip_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    app:singleLine="true"
+                    app:chipSpacingHorizontal="6dp" />
+            </HorizontalScrollView>
             <!-- Body-Editor -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/body_text_input_layout"
@@ -99,5 +129,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/anchor_height"
         android:layout_gravity="bottom" />
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

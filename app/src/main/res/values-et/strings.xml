@@ -7,16 +7,16 @@
     <string name="system_preference_option_value" translatable="false">system</string>
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
-    <string name="item_menu_description">menüü toimingute jaoks</string>
+    <string name="item_menu_description">Menüü toimingute jaoks</string>
     <string name="leafpad_work">Leafpad salvestab andmed vaid sinu nutiseadmes. Ka märkmete metateave nagu näiteks koostamise ja muutmise ajatempel pole salvestatud pilves ega jagatud teiste osapooltega. Pole ka kasutusel ühtegi sisestatud teksti analüüsimise meetodit. Sinu märkmed on sinu omad. Sina otsustad, mida tahad nendega teha.</string>
-    <string name="new_note">uus märge</string>
-    <string name="save_changes">salvesta muudatused</string>
-    <string name="save">Salvesta kõik märked xml-failina</string>
+    <string name="new_note">Uus märge</string>
+    <string name="save_changes">Salvesta muudatused</string>
+    <string name="save">Salvesta kõik märked zipb-konteinerina json-iga</string>
     <string name="showDeleteConfirmation">Kas kustutame kõik märked?</string>
     <string name="set">See on retsept</string>
     <string name="toggle">Muuda vaadet</string>
-    <string name="imported">märge on saadetud Leafpadi</string>
-    <string name="rate_the_app">Koosta Google PlayStore\'is arvustus? Ava Google Play otse siit.</string>
+    <string name="imported">Märge on saadetud Leafpadi</string>
+    <string name="rate_the_app">Kas koostad Google PlayStore\'is arvustuse?</string>
     <string name="add_shortcut_short_label">Koosta uus</string>
     <string name="action_note_saved">salvestatud</string>
     <string name="tell_about">Kõike seda tahaksin Leafpadi kohta öelda</string>
@@ -25,17 +25,17 @@
     <string name="menu_settings">Seadistused</string>
     <string name="backupIsrunning">Varukoopia on loomisel</string>
     <string name="keep_screen_on_dialog_yes">Jah</string>
-    <string name="action_fab_note">koosta märge</string>
+    <string name="action_fab_note">Koosta märge</string>
     <string name="title_activity_note_edit">Märkme muutmine</string>
     <string name="translate">Tõlgi rakendust Weblate\'is</string>
     <string name="no">Ei</string>
-    <string name="hide_hidden">peida peidetud märkeid</string>
-    <string name="change">versioon</string>
+    <string name="hide_hidden">Peida peidetud märkeid</string>
+    <string name="change">Versioon</string>
     <string name="keep_screen_on_dialog_message">Ekraani sisselülitatuna hoidmine võib märgatavalt suurendada akukasutust. Kas oled kindel, et soovid selle võimaluse sisse lülitada?</string>
     <string name="system_preference_key">süsteemi kujundus (standard)</string>
     <string name="importError">Viga märgete importimisel.</string>
-    <string name="restore">Taasta kõik märked xml-failist</string>
-    <string name="contentDescription">lisa uus märge</string>
+    <string name="restore">Taasta kõik märked zip-failist</string>
+    <string name="contentDescription">Lisa uus märge</string>
     <string name="please_enter_a_title">Enne salvestamist palun lisa märkele pealkiri või loobu salvestamisest.</string>
     <string name="action_edit_note">Muuda märget</string>
     <string name="search_hint">Mida sa otsid?</string>
@@ -45,17 +45,21 @@
         <item quantity="one">%1$d märge on imporditud</item>
         <item quantity="other">%1$d märget on imporditud</item>
     </plurals>
+    <plurals name="notes_exported">
+        <item quantity="one">%d märge on eksporditud</item>
+        <item quantity="other">%d märget on eksporditud</item>
+    </plurals>
     <string name="fileOpeningError">Viga faili avamisel.</string>
     <string name="note_will_be_saved_first">Esmalt salvestame märke</string>
     <string name="delete">Kustuta</string>
     <string name="general_preference">Üldseadistused</string>
     <string name="title_licence">Litsentsid</string>
     <string name="remove_dailog_message">See märge kustutatakse jäädavalt. Hilisem taastamine pole võimalik.</string>
-    <string name="version">versioon</string>
-    <string name="discard">loobu</string>
+    <string name="version">Versioon</string>
+    <string name="discard">Loobu</string>
     <string name="backupfinish">Varukoopia on valmis</string>
-    <string name="show_note">muuda märge nähtavaks</string>
-    <string name="find_code_on_github_summary">Lähtekoodi võid uurida ja kontrollida koodihoidlast. Kui märkad vigu või tahad rakendust täiendada, siis palun koosta vastav veateade.</string>
+    <string name="show_note">Muuda märge nähtavaks</string>
+    <string name="find_code_on_github_summary">Lähtekoodi võid uurida ja kontrollida koodihoidlast. Kui märkad vigu või tahad rakendust täiendada, siis palun koosta vastav teade meie veahalduse liideses.</string>
     <string name="action_share_title">Pealkiri</string>
     <string name="invalidFile">Vigane varukoopia fail. Importimine on kastkestatud.</string>
     <string name="participate">Osale või tee kaastööd</string>
@@ -64,7 +68,7 @@
     <string name="startIconDescription">Otsinguväli</string>
     <string name="keep_screen_on_dialog_no">Ei</string>
     <string name="theme_summary">Vaheta heledat ja tumedat kujundust</string>
-    <string name="what_is_leafpad">Leafpad on lihtne rakendus märkmete ülestähendamiseks.</string>
+    <string name="what_is_leafpad">Leafpad on lihtne rakendus märkmete ülestähendamiseks. See võimaldab sul luua, muuta, saata ja kustutada oma telefonis märkmeid.</string>
     <string name="note_shared">Märge on jagatud</string>
     <string name="theme_preference">Kujundus</string>
     <string name="created_txt">loodud</string>
@@ -75,27 +79,27 @@
     <string name="title_required">Pealkiri on nõutav</string>
     <string name="keep_screen_on_summary">Takista Leafpadi kasutamise ajal ekraani väljalülitamist</string>
     <string name="notification_of_change">Teavitus muudatustest</string>
-    <string name="edited_text">muudetud</string>
+    <string name="edited_text">Muudetud</string>
     <string name="not_initialized">Leafpad on veel valmendamata!</string>
     <string name="body_hint">Märge</string>
     <string name="lightmode_preference_key">hele kujundus</string>
     <string name="unsaved_changes_message">Sinu märge on muutunud. Kas tahad muudatustest loobuda või nad salvestada?</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="darkmode_preference_key">tume kujundus</string>
-    <string name="note_is_recipe">märge on retsept</string>
+    <string name="note_is_recipe">Märge on retsept</string>
     <string name="search">otsi märkmeid</string>
     <string name="showRestoreConfirmation">Kas taastame?</string>
     <string name="keep_screen_on_title">Hoia ekraan sisselülitatuna</string>
-    <string name="action_save">salvesta märge</string>
+    <string name="action_save">Salvesta märge</string>
     <string name="share_note">Kas tahad märget jagada?</string>
     <string name="thanks">Suur tänu teile: Stefan, Stefan, Manuel, Falk, Stephanie ja Emil. Aitasite arendust nii ideede kui testimisega.</string>
-    <string name="note_is_no_recipe">märge ei ole retsept</string>
+    <string name="note_is_no_recipe">Märge ei ole retsept</string>
     <string name="statement">Me koostame ostunimekirju, vestluste märkmeid, pakkimisloendeid puhkuse jaoks või tegevusplaane sõprade sünnipäevaks. Kõik need on hirmus vahvad asjad ja nii me ei unusta midagi. See on väga sarnane Jumala tegevusega, kes märgib üles meie head ja vead. Jumal on kõigest kõrgemal ja teab lihtsalt kõike. Jumal armastab inimesi ja tahab nendega osadust. Kuid see on võimalik ainult siis, kui Jumal näeb meid süüdimatutena. Usu kaudu Jeesusesse Kristusesse on meie halvad teod (meie süü) Jumala ees kustutatud. Jeesus Kristus lepitas meie süü Kolgata mäe ristil. Iga inimene, kes selle vastu võtab, kantakse igavesti eluraamatusse. Kas sina oled kantud eluraamatusse?</string>
-    <string name="hide_note">muuda märge nähtamatuks</string>
+    <string name="hide_note">Muuda märge nähtamatuks</string>
     <string name="restore_notes_title">Taastamine</string>
     <string name="close_release_note">Sulgemisnupp</string>
     <string name="unsaved_changes_title">Salvestamata muudatused</string>
-    <string name="translation_help">Aita meil rakendust tõlkida sinu keelde Weblate\'i teenuse abil</string>
+    <string name="translation_help">Aita meil rakendust tõlkida sinu keelde Weblate\'i teenuse abil.</string>
     <string name="rev20_12">Ja ma nägin surnuid, suuri ja pisikesi, seisvat trooni ees, ning raamatud avati. Teine raamat avati, see on eluraamat. Ja surnute üle mõisteti kohut sedamööda, kuidas raamatuisse oli kirjutatud, nende tegude järgi. Johannese ilmutus 20:12</string>
     <string name="no_search_results">Ei leidunud mitte midagi</string>
     <string name="save_notes_title">Varundus</string>
@@ -107,7 +111,7 @@
     <string name="about_the_app">Selle rakenduse teave</string>
     <string name="remove_dialog_title">Kas oled kindel?</string>
     <string name="action_add_note">Lisa märge</string>
-    <string name="show_hidden">näita peidetud märkeid</string>
+    <string name="show_hidden">Näita peidetud märkeid</string>
     <string name="empty_list">Loendis pole märkmeid</string>
     <string name="action_share_note">Jaga märget</string>
     <string name="country_title_translator_czech" translatable="false">MessingWithComputers(@MessingWithComputers)</string>
@@ -115,37 +119,76 @@
     <string name="country_title_translator_portuguese" translatable="false">Lucas Alves Rego(@devlulcas), Ettlu selva rula(@Ttormor)</string>
     <string name="country_title_catalan">katalaani keel</string>
     <string name="country_title_spanish">hispaania keel</string>
-    <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram)</string>
+    <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
+    <string name="setCategory">Määra kategooria</string>
     <string name="country_title_albanian">albaania keel</string>
     <string name="country_title_indonesian">indoneesia keel</string>
     <string name="country_title_russian">vene keel</string>
     <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
     <string name="country_title_tamil">tamili keel</string>
-    <string name="country_title_translator_hindi_latin" translatable="false">Saurmanđal(@Saurmandal)</string>
     <string name="country_title_translator_hindi" translatable="false">Harshit Sethi(@hstsethi)</string>
-    <string name="country_title_translator_english">Santiago Centeno (@Java16), Yurt Page (@yurtpage), zergio inzunza (@n1kf4m3l)</string>
+    <string name="country_title_translator_english" translatable="false">Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l), Santiago Centeno(@Java16)</string>
     <string name="country_title_polish">poola keel</string>
-    <string name="country_title_translator_indonesian" translatable="false">toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
+    <string name="country_title_translator_indonesian" translatable="false">Arif Budiman(@arifpedia), toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
     <string name="country_title_german">saksa keel</string>
-    <string name="country_title_translator_french" translatable="false">Leonart(@Leonart), michte(@michte)</string>
+    <string name="country_title_translator_french" translatable="false">Leonart(@Leonart), Omgeta(@Omgeta), michte(@michte), David D.(@Dadu042)</string>
     <string name="country_title_translator_arabic" translatable="false">Asaad Zein(@asaadzx)</string>
     <string name="country_title_ukrainian">ukraina keel</string>
-    <string name="country_title_translator_spanish" translatable="false">Zarahi Ander(@TradZarahi), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), Abraham Mendoza(@1Alide1), zergio inzunza(@n1kf4m3l)</string>
+    <string name="country_title_translator_spanish" translatable="false">Sofia Gutierrez(@SofiaIrina9), Zarahi Ander(@TradZarahi), Francisco Serrador(@fserrador), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Marco(@Megido), Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), Abraham Mendoza(@1Alide1), zergio inzunza(@n1kf4m3l)</string>
     <string name="country_title_greek">kreeka keel</string>
     <string name="country_title_translator_polish" translatable="false">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
-    <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero)</string>
+    <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero), Davide Secco(@davidesecco)</string>
     <string name="country_title_arabic">araabia keel</string>
     <string name="country_title_italian">itaalia keel</string>
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_translator_ukrainian" translatable="false">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
-    <string name="country_title_translator_russian" translatable="false">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), Maksim_220 Кабанов(@law820314), Sotski Eugene(@jekakmail), Rachel Podya(@homicide@disroot.org), Santiago Centeno(@Java16)</string>
+    <string name="country_title_translator_russian" translatable="false">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), vanapro1(@vanapro1), Sotski Eugene(@jekakmail), MrSliv69(@MrSliv69), Steven Barash(@stevenbarash), Rachel Podya(@homicide@disroot.org), SnIPeRSnIPeR(@SnIPeRSnIPeR), Santiago Centeno(@Java16)</string>
     <string name="country_title_czech">tšehhi keel</string>
     <string name="country_title_english">inglise keel</string>
     <string name="country_title_portuguese">portugali keel</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
-    <string name="country_title_translator_german" translatable="false">Maximilian Hüttner(@MaxHue)</string>
+    <string name="country_title_translator_german" translatable="false">Blubberland(@Blubberland), Maximilian Hüttner(@MaxHue)</string>
     <string name="country_title_hindi_latin">hindi keel (ladina tähestikus)</string>
     <string name="country_title_hindi">hindi keel</string>
-    <string name="country_title_translator_estonian">Priit Jõerüüt(@jrthwlate)</string>
+    <string name="country_title_translator_estonian" translatable="false">Priit Jõerüüt(@jrthwlate)</string>
     <string name="country_title_estonian">eesti keel</string>
+    <string name="country_title_translator_chinese_traditional_han_script" translatable="false">imcc(@imcc)</string>
+    <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
+    <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
+    <string name="country_title_translator_chinese_simplified_han_script" translatable="false">雲の中を漂う船(@KumoNoFune), imcc(@imcc)</string>
+    <string name="country_title_chinese_simplified_han_script">hiina keel (lihtsustatud)</string>
+    <string name="country_title_chinese_traditional_han_script">hiina keel (traditsiooniline)</string>
+    <string name="country_title_hindi_latin_script">hindi keel (ladina transliteratsioonis)</string>
+    <string name="country_title_uzbek">usbeki keel</string>
+    <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
+    <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
+    <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
+    <string name="country_title_gothic">Gothic</string>
+    <string name="country_title_dutch">Dutch</string>
+    <string name="menu_about">Rakenduse teave: Leafpad</string>
+    <string name="country_title_danish">Danish</string>
+    <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
+    <string name="country_title_serbian">Serbian</string>
+    <string name="item_menu_add_category">Lisa uus kategooria</string>
+    <string name="category">Kategooria</string>
+    <string name="category_name">Kategooria nimi</string>
+    <string name="select_color">Vali kategooria värv</string>
+    <string name="edit_category">Muuda kategooriat</string>
+    <string name="add_category">Lisa kategooria</string>
+    <string name="category_color">Kategooria värv</string>
+    <string name="save_category">Salvesta kategooria</string>
+    <string name="delete_category">Kustuta kategooria</string>
+    <string name="delete_category_confirm">Kas sa oled kindel, et soovid kustutada „%1$s“ kategooria?</string>
+    <string name="delete_category_hint">Märked jäävad alles, aga ilma selle kategooriata.</string>
+    <string name="manage_categories">Halda kategooriaid</string>
+    <string name="manage_categories_summary">Loo, muuda ja kustuta</string>
+    <string name="error">Viga</string>
+    <string name="category_already_exists">Selline kategooria on juba olemas</string>
+    <string name="database_error">Andmebaasi viga</string>
+    <string name="open_source_licenses">Avatud lähtekoodiga tarkvara litsentsid</string>
+    <string name="error_loading_licenses">Viga litsentside laadimisel</string>
+    <string name="open_source_licenses_summary">Vaata kasutatud teeke ja litsentse</string>
+    <string name="thanks_to_all_contributors">Suur tänu kõigile kaastöötajatele ja sõpradele, kes aitavad seda projekti Weblate\'i teenuse abil tõlkida – hindame väga teie aega ja vaeva. Täieliku ja alati ajakohase kaastöötajate loendi leiad meie lähtekoodi hoidlast GitHubis.</string>
+    <string name="database_error_log">Andmebaasi viga</string>
+    <string name="category_name_required">Tühi kategooria pole lubatud</string>
 </resources>

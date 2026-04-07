@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/action_search"
-        android:title="Suche"
+        android:title="@string/search"
         android:icon="@drawable/btn_search"
         app:showAsAction="ifRoom" />
     <item
@@ -24,4 +24,10 @@
         android:icon="@drawable/ic_settings"
         android:title="@string/menu_settings"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/item_about"
+        android:icon="@drawable/ic_about_the_app"
+        android:title="@string/menu_about"
+        app:showAsAction="ifRoom"
+        />
 </menu>

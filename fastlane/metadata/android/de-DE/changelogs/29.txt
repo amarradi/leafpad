@@ -1,0 +1,5 @@
+* Speicherschaltfläche: nur aktiviert, wenn die Notiz tatsächlich geändert wurde
+* Lesemodus wird jetzt korrekt verwendet
+* Leere Notizen können jetzt verworfen werden
+* Übersetzer haben jetzt einen eigenen Dankesbereich
+* Mehrere Fehler wurden behoben

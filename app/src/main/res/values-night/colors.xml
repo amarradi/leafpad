@@ -59,4 +59,7 @@
         <color name="md_theme_eye_invisible">#AB47BC</color>
 
         <color name="md_theme_bibleverse">#FFA726</color>
+
+    <color name="category_chip_bg">#333333</color>
+
 </resources>

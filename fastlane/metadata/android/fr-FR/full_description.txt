@@ -1,0 +1,3 @@
+Un carnet de note simple pour écrire du texte sans connexion avec le cloud et sans base de donnée, pas de permission nécessaire
+
+Ce projet est open source. Vous pouvez écrire, modifier vos notes et les cacher des regards indiscrets.

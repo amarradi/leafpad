@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <style name="Theme.MyApp" parent="Theme.Material3.Light.NoActionBar">
         <!-- Farben für Material3 -->
 
@@ -47,7 +47,12 @@
 
         <item name="elevationOverlayEnabled">false</item>
         <item name="extendedFloatingActionButtonStyle">@style/Widget.App.ExtendedFloatingActionButton</item>
-
+        <item name="chipStyle">@style/Widget.App.Chip</item>
+    </style>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MyApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
 </resources>

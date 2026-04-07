@@ -1,0 +1,6 @@
+* Das Rasterlayout scrollt jetzt etwas flüssiger (nicht so toll).
+* Ein Anzeigefehler bei langen Notizen wurde behoben.
+* Weitere Textteile wurden übersetzt.
+* Der Bereich „versteckte Notizen” ist leichter zu erkennen.
+* Es gibt einen Lesemodus, in dem die Anzeige permanent eingeschaltet bleibt. Möglicherweise erhöht sich dadurch der Batterieverbrauch.
+* Fehlerbehebungen

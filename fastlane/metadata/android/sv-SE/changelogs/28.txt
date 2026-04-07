@@ -1,0 +1,6 @@
+* Nätlayouten rullar nu lite mer smidigt (inte så bra)
+* Ett skärmfel med långa anteckningar har fastställts
+* Fler textdelar har översatts
+* Det "dolda anteckningar" området är lättare att känna igen
+* Det finns ett läsläge där displayen förblir permanent på. Möjligen ökad batteriförbrukning
+* Fixade buggar

@@ -3,7 +3,9 @@ package com.git.amarradi.leafpad;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Layout;
@@ -17,31 +19,46 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.git.amarradi.leafpad.fragment.CategoryFragment;
 import com.git.amarradi.leafpad.helper.DialogHelper;
 import com.git.amarradi.leafpad.helper.EditorMinHeightHelper;
 import com.git.amarradi.leafpad.helper.ShareHelper;
+import com.git.amarradi.leafpad.model.CategoryEntity;
 import com.git.amarradi.leafpad.model.Leaf;
 import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.textfield.TextInputLayout;
+import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
 
-import java.util.List;
 import java.util.Objects;
 
-public class NoteEditActivity extends AppCompatActivity {
+public class NoteEditActivity extends AppCompatActivity implements ColorPickerDialogListener {
+    @Override
+    public void onColorSelected(int dialogId, int color) {
+        DialogHelper.onColorSelectedForCategoryDialog(dialogId, color);
+    }
+
+    @Override
+    public void onDialogDismissed(int dialogId) {
+
+    }
 
     private EditText titleEdit;
     private EditText bodyEdit;
     private NoteViewModel noteViewModel;
     private MaterialToolbar toolbar;
     private Resources res;
+
     private boolean shouldPersistOnPause = true;
     private boolean isNoteDeleted = false;
     private NestedScrollView bodyScroll;
@@ -50,6 +67,15 @@ public class NoteEditActivity extends AppCompatActivity {
     private boolean isUIConfigured = false;
     private MenuItem saveMenuItem;
     private TextWatcher modificationWatcher;
+
+    private void logNav(String msg) {
+        Log.d("NAV_NOTE", msg
+                + " | backStack=" + getSupportFragmentManager().getBackStackEntryCount()
+                + " | fc=" + (findViewById(R.id.fragment_container) != null ? findViewById(R.id.fragment_container).getVisibility() : -1)
+                + " | bs=" + (findViewById(R.id.body_scroll) != null ? findViewById(R.id.body_scroll).getVisibility() : -1)
+        );
+    }
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -63,7 +89,8 @@ public class NoteEditActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_note_edit);
         View root = findViewById(R.id.body_scroll);
-
+        ChipGroup categoryChipGroup = findViewById(R.id.category_chip_group);
+        View categoryChipScroll = findViewById(R.id.category_chip_scroll);
         ViewCompat.setOnApplyWindowInsetsListener(root, (view, insets) -> {
             int ime = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
             int nav = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
@@ -83,27 +110,159 @@ public class NoteEditActivity extends AppCompatActivity {
             }
         });
 
-        String noteId = getIntent().getStringExtra("noteId");
-        if (noteId != null) {
-            List<Note> allNotes = Leaf.loadAll(this, true); // oder false, je nach ShowHidden
-            for (Note n : allNotes) {
-                if (n.getId().equals(noteId)) {
-                    noteViewModel.setNote(n);
-                    break;
-                }
-            }
+        Intent intent = getIntent();
+
+        if (Intent.ACTION_SEND.equals(intent.getAction())
+                && "text/plain".equals(intent.getType())) {
+            handleShareIntent(intent);
+            return;
         }
-        handleIntent(getIntent());
+
+        boolean isNewNoteIntent = intent.getBooleanExtra(Leafpad.EXTRA_IS_NEW_NOTE, false);
+
+        String noteId = getIntent().getStringExtra(Leafpad.EXTRA_NOTE_ID);
+
+        if (isNewNoteIntent) {
+            Note newNote = new Note(
+                    "", "", "", "", "",
+                    false, "", noteId
+            );
+            newNote.setNotedate();
+            newNote.setNotetime();
+            newNote.setCreateDate();
+
+            isNewNote = true;
+            noteViewModel.setNote(newNote);
+
+        } else if (noteId != null) {
+
+            noteViewModel.getNoteById(noteId).observe(this, note -> {
+                if (note == null) return;
+
+                isNewNote = false;
+                noteViewModel.setNote(note);
+            });
+
+        }
+
+        handleShareIntent(getIntent());
         fromSearch = getIntent().getBooleanExtra("fromSearch", false);
         observeNote();
 
         View rootEdit = findViewById(R.id.all);
+        logNav("toolbar instance=" + toolbar);
         View toolbar = findViewById(R.id.toolbar);
+        Log.d("NAV_NOTE", "setting_toolbar in NoteEditActivity=" + toolbar);
         View title = findViewById(R.id.default_text_input_layout);
         EditText bodyEdit = findViewById(R.id.body_edit);
 
         EditorMinHeightHelper.adjustMinHeight(rootEdit, toolbar, title, bodyEdit);
+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                {
+                    logNav("OnBackPressedCallback fired");
+
+                    if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                        logNav("BackStack > 0 -> popBackStackImmediate");
+                        getSupportFragmentManager().popBackStackImmediate();
+                        // erst poppen, dann UI zurück
+                        //  getSupportFragmentManager().popBackStack();
+
+                        View fc = findViewById(R.id.fragment_container);
+                        View bs = findViewById(R.id.body_scroll);
+                        if (fc != null) fc.setVisibility(View.GONE);
+                        if (bs != null) bs.setVisibility(View.VISIBLE);
+
+                        restoreEditorToolbar();
+                        logNav("After pop+UI restore");
+                        return;
+                    }
+                    logNav("No backstack -> checkForUnsavedChanges()");
+                    checkForUnsavedChanges();
+                }
+            }
+        });
+        noteViewModel.getCategoriesForSelectedNote()
+                .observe(this, categories -> {
+
+                    categoryChipGroup.removeAllViews();
+
+                    if (categories == null || categories.isEmpty()) {
+                        categoryChipGroup.setVisibility(View.GONE);
+                        return;
+                    }
+
+                    categoryChipScroll.setVisibility(View.VISIBLE);
+
+                    categoryChipGroup.setVisibility(View.VISIBLE);
+
+                    for (CategoryEntity c : categories) {
+                        Chip chip = (Chip) getLayoutInflater().inflate(
+                                R.layout.item_category_chip,
+                                categoryChipGroup,
+                                false
+                        );
+
+                        chip.setText(c.name);
+                        applyCategoryChipStyle(chip, c.colorHex);
+
+                        chip.setClickable(false);
+                        chip.setCheckable(false);
+                        chip.setCloseIconVisible(false);
+                        chip.setEnsureMinTouchTargetSize(false);
+
+                        categoryChipGroup.addView(chip);
+                    }
+                });
+
     }
+
+    private void applyCategoryChipStyle(Chip chip, String colorHex) {
+        int baseColor;
+
+        try {
+            baseColor = Color.parseColor(colorHex);
+        } catch (Exception e) {
+            baseColor = Color.GRAY;
+        }
+
+        int bgColor = com.git.amarradi.leafpad.helper.ColorUtilsHelper.lightenColor(baseColor, 0.35f);
+
+        chip.setChipStrokeWidth(
+                com.git.amarradi.leafpad.helper.ColorUtilsHelper.dpToPx(chip.getContext(), 1)
+        );
+        chip.setChipStrokeColor(ColorStateList.valueOf(baseColor));
+        chip.setChipBackgroundColor(ColorStateList.valueOf(bgColor));
+
+        boolean darkBg = androidx.core.graphics.ColorUtils.calculateLuminance(bgColor) < 0.5;
+        int textColor = darkBg ? Color.WHITE : Color.BLACK;
+        chip.setTextColor(textColor);
+    }
+
+    private void applyCategoryColor(Chip chip, String colorHex) {
+        if (colorHex == null || colorHex.isEmpty()) {
+            return;
+        }
+
+        try {
+            int color = android.graphics.Color.parseColor(colorHex);
+
+            // Textfarbe
+            chip.setTextColor(color);
+
+            // Dezenter Hintergrund (Material-konform)
+            int bgColor = androidx.core.graphics.ColorUtils.setAlphaComponent(color, 40);
+            chip.setChipBackgroundColor(
+                    android.content.res.ColorStateList.valueOf(bgColor)
+            );
+
+        } catch (IllegalArgumentException e) {
+
+        }
+    }
+
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -111,10 +270,11 @@ public class NoteEditActivity extends AppCompatActivity {
         return true;
     }
 
-    private void handleIntent(Intent intent) {
+    private void handleShareIntent(Intent intent) {
         if (Intent.ACTION_SEND.equals(intent.getAction()) && "text/plain".equals(intent.getType())) {
             String shareText = intent.getStringExtra(Intent.EXTRA_TEXT);
             if (shareText != null && !shareText.isEmpty()) {
+
                 Note newNote = new Note("", "", "", "", "", false, "", Note.makeId());
                 newNote.setTitle(getString(R.string.imported));
                 newNote.setBody(shareText);
@@ -122,43 +282,15 @@ public class NoteEditActivity extends AppCompatActivity {
                 newNote.setNotetime();
                 newNote.setCreateDate();
 
-                Leaf.set(this, newNote);
-                noteViewModel.loadNotes();
+                // WICHTIG: ab jetzt nur DB speichern (nicht mehr Leaf.set)
+                noteViewModel.saveNote(getApplicationContext(), newNote);
 
                 setResult(RESULT_OK);
                 finish();
-                return;
             }
         }
-        String noteId = getIntent().getStringExtra(Leafpad.EXTRA_NOTE_ID);
-
-        if (noteId == null) {
-            Log.e("NoteEditActivity", "handleIntent: Keine noteId vorhanden, neue leere Notiz wird erzeugt");
-
-            Note newNote = new Note("", "", "", "", "", false, "", Note.makeId());
-            newNote.setNotedate();
-            newNote.setNotetime();
-            newNote.setCreateDate();
-
-            noteViewModel.selectNote(newNote);
-            isNewNote = true;
-            return;
-        }
-
-        Note loaded = Leaf.load(this, noteId);
-        if (loaded == null) {
-            Log.e("NoteEditActivity", "handleIntent: Note konnte nicht geladen werden für noteId=" + noteId);
-            return;
-        }
-
-        if (isNewEntry(loaded)) {
-            isNewNote = true;
-            loaded.setNotedate();
-            loaded.setNotetime();
-        }
-
-        noteViewModel.selectNote(loaded);
     }
+
 
     private void observeNote() {
         noteViewModel.getSelectedNote().observe(this, note -> {
@@ -251,16 +383,9 @@ public class NoteEditActivity extends AppCompatActivity {
         }
         Note current = noteViewModel.getSelectedNote().getValue();
         if (current != null) {
-            MenuItem recipeItem = menu.findItem(R.id.action_recipe);
-            boolean isRecipe = current.getCategory() != null &&
-                    current.getCategory().equals(res.getStringArray(R.array.category)[0]);
-            recipeItem.setChecked(isRecipe);
-            recipeItem.setIcon(isRecipe ? R.drawable.btn_chefhat_active : R.drawable.btn_chefhat);
-
             MenuItem hideItem = menu.findItem(R.id.action_hide);
             hideItem.setChecked(current.isHide());
             hideItem.setIcon(current.isHide() ? R.drawable.btn_hide : R.drawable.btn_show);
-
         }
         return true;
     }
@@ -269,20 +394,9 @@ public class NoteEditActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+
         switch (id) {
-            case R.id.action_recipe: {
-                Note current = noteViewModel.getSelectedNote().getValue();
-                if (current != null) {
-                    if (item.isChecked()) {
-                        current.setCategory("");
-                    } else {
-                        current.setCategory(res.getStringArray(R.array.category)[0]);
-                    }
-                    noteViewModel.updateModificationState();
-                }
-                invalidateOptionsMenu();
-                return true;
-            }
+
             case R.id.action_hide: {
                 Note current = noteViewModel.getSelectedNote().getValue();
                 if (current != null) {
@@ -308,6 +422,34 @@ public class NoteEditActivity extends AppCompatActivity {
                 saveNote();
                 return true;
             }
+            case R.id.action_setCategory: {
+                findViewById(R.id.body_scroll).setVisibility(View.GONE);
+                findViewById(R.id.fragment_container).setVisibility(View.VISIBLE);
+                if (getSupportActionBar() != null) {
+                    getSupportActionBar().setDisplayShowTitleEnabled(true);
+                    getSupportActionBar().setTitle(R.string.manage_categories);
+                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+                }
+                // Fragment-Container EINBLENDEN
+
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(
+                                    R.id.fragment_container,
+                                    CategoryFragment.newInstance(CategoryFragment.MODE_PICK_FOR_NOTE)
+                            )
+                            .addToBackStack("category")
+                            .commit();
+
+
+                return true;
+            }
+            case R.id.home: {
+                logNav("onOptionsItemSelected: HOME");
+                getOnBackPressedDispatcher().onBackPressed();
+                return true;
+            }
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -322,13 +464,13 @@ public class NoteEditActivity extends AppCompatActivity {
     }
 
     private void exitNoteEdit() {
-        setResult(RESULT_OK);
+        setResultWithCurrentNote(isNewNote);
         if (fromSearch) {
             Intent intent = new Intent(this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
         } else {
-            NoteEditActivity.this.finish();
+            finish();
         }
     }
 
@@ -359,8 +501,7 @@ public class NoteEditActivity extends AppCompatActivity {
                         () -> {
                             shouldPersistOnPause = true;
                             noteViewModel.persist();
-                            setResult(RESULT_OK);
-                            exitNoteEdit();
+                            returnResultAndFinish();
                         },
                         () -> {
                             shouldPersistOnPause = false;
@@ -368,7 +509,8 @@ public class NoteEditActivity extends AppCompatActivity {
                         }
                 );
             } else {
-                exitNoteEdit();
+                noteViewModel.persist();
+                returnResultAndFinish();
             }
         } else {
             exitNoteEdit();
@@ -397,7 +539,7 @@ public class NoteEditActivity extends AppCompatActivity {
         if (NoteViewModel.isEmptyEntry(current)) {
             Leaf.remove(this, current);
         } else {
-            Leaf.set(this, current);
+           // Leaf.set(this, current);
             noteViewModel.saveNote(getApplication(), current);
             noteViewModel.markSaved();
         }
@@ -405,7 +547,7 @@ public class NoteEditActivity extends AppCompatActivity {
         resultIntent.putExtra("updated_note", current);
         resultIntent.putExtra("is_new_note", noteViewModel.isNewEntry(current));
         setResult(RESULT_OK, resultIntent);
-        finish(); // optional hier direkt beenden, wenn nicht schon an anderer Stelle
+        finish();
 
     }
 
@@ -419,30 +561,61 @@ public class NoteEditActivity extends AppCompatActivity {
         finish();
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void setupToolbar() {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //  logNav("Toolbar NAV click");
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationOnClickListener(v -> checkForUnsavedChanges());
+        toolbar.setNavigationOnClickListener(v -> {
+            getOnBackPressedDispatcher().onBackPressed();
+        });
+
+        toolbar.setOnTouchListener((v, event) -> {
+            return false;
+        });
     }
+
+    private void returnResultAndFinish() {
+        Note current = noteViewModel.getSelectedNote().getValue();
+        if (current != null) {
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("updated_note", current);
+            resultIntent.putExtra("is_new_note", isNewNote);
+            setResult(RESULT_OK, resultIntent);
+        } else {
+            setResult(RESULT_OK);
+        }
+        finish();
+    }
+
 
     @Override
     protected void onResume() {
         super.onResume();
         Leafpad.applyKeepScreenOnFlag(this);
-        int flags = getWindow().getAttributes().flags;
-        boolean isFlagSet = (flags & android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON) != 0;
-        Log.d("NoteEditActivity", "KEEP_SCREEN_ON flag is " + (isFlagSet ? "SET" : "NOT SET"));
+//        int flags = getWindow().getAttributes().flags;
+//        boolean isFlagSet = (flags & android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON) != 0;
+//        Log.d("NoteEditActivity", "KEEP_SCREEN_ON flag is " + (isFlagSet ? "SET" : "NOT SET"));
         if (Leafpad.isKeepScreenOnEnabled(this)) {
             Leafpad.enableWakeLock(this);
         }
-//        if (Leafpad.isKeepScreenOnEnabled(this)) {
-//            getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-//        } else {
-//            getWindow().clearFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-//        }
     }
+
+    private void setResultWithCurrentNote(boolean isNew) {
+        Note current = noteViewModel.getSelectedNote().getValue();
+        if (current == null) {
+            setResult(RESULT_CANCELED);
+            return;
+        }
+
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("updated_note", current);
+        resultIntent.putExtra("is_new_note", isNew);
+        setResult(RESULT_OK, resultIntent);
+    }
+
 
     @Override
     protected void onPause() {
@@ -451,13 +624,45 @@ public class NoteEditActivity extends AppCompatActivity {
         Leafpad.disableWakeLock();
        // getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         Note current = noteViewModel.getSelectedNote().getValue();
-        if (!isNoteDeleted && current != null && !NoteViewModel.isEmptyEntry(current)) {
-            updateNoteFromUI();
-            if (shouldPersistOnPause && noteViewModel.hasUnsavedChanges()) {
+
+       // ❗ Abbrechen, wenn Titel leer ist (egal ob Body gefüllt oder nicht)
+       assert current != null;
+       if (current.getTitle() == null || current.getTitle().trim().isEmpty()) {
+           return;
+       }
+
+        // UI -> Note übernehmen
+        updateNoteFromUI();
+
+        // Wenn gelöscht wurde: nichts mehr persistieren
+        if (isNoteDeleted) {
+            return;
+        }
+        // Leere Notiz (nach deiner Logik) nicht speichern
+        if (NoteViewModel.isEmptyEntry(current)) {
+            return;
+        }
+
+        if (shouldPersistOnPause) {
+            if (noteViewModel.hasUnsavedChanges()) {
                 noteViewModel.persist();
                 noteViewModel.markSaved();
-                setResult(RESULT_OK);
+                setResultWithCurrentNote(isNewNote);
             }
         }
+    }
+
+    public void restoreEditorToolbar() {
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("");
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+        toolbar.setNavigationOnClickListener(v -> getOnBackPressedDispatcher().onBackPressed());
+        invalidateOptionsMenu();
     }
 }

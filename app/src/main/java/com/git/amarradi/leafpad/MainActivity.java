@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +48,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     private int lastScrollPosition = 0;
 
+    private boolean firstNotesLoad = true;
+
+
 
     @SuppressLint("RestrictedApi")
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -57,43 +59,37 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-
-        NoteViewModel viewModel= new ViewModelProvider(this).get(NoteViewModel.class);
-        viewModel.checkAndLoadReleaseNote(this);
-        viewModel.getReleaseNote().observe(this, releaseNote -> {
-            if (!Leafpad.isReleaseNoteClosed(this) ||
-                    Leafpad.getCurrentVersionCode(this)>Leafpad.getCurrentLeafpadVersionCode(this)) {
-                noteAdapter.setReleaseNoteHeader(releaseNote);
-                Leafpad.resetReleaseNoteClosed(this);
-                updateEmptyState();
-            }
-        });
-
         noteViewModel = new ViewModelProvider(
                 this,
                 new ViewModelProvider.AndroidViewModelFactory(getApplication())
         ).get(NoteViewModel.class);
+
+        noteViewModel.checkAndLoadReleaseNote(this);
+        noteViewModel.getReleaseNote().observe(this, releaseNote -> {
+            if (!Leafpad.isReleaseNoteClosed(this) ||
+                    Leafpad.getCurrentVersionCode(this) > Leafpad.getCurrentLeafpadVersionCode(this)) {
+                noteViewModel.setReleaseNoteHeader(releaseNote);
+                Leafpad.resetReleaseNoteClosed(this);
+                updateEmptyState();
+            } else {
+                noteViewModel.setReleaseNoteHeader(null);
+            }
+        });
         boolean savedShowHidden = Leafpad.getInstance().getSavedShowHidden();
         noteViewModel.setShowHidden(savedShowHidden);
 
-        noteViewModel.loadNotes();
-        noteViewModel.getNotes().observe(this, notes -> {
-            noteAdapter.updateNotes(notes);
-            Log.d("MainActivity", "----- Alle geladenen Notizen nach loadNotes(): ------");
-            recyclerView.post(()->recyclerView.scrollToPosition(0));
-            for (Note n : notes) {
-                Log.d("MainActivity", "Note: " + n.getId() + " | Titel: " + n.getTitle() + " | Versteckt: " + n.isHide());
-            }
-            updateEmptyState();
-        });
-
         noteViewModel.getShowHidden().observe(this, showHidden -> {
-            noteAdapter.setShowOnlyHidden(showHidden);
             updateEmptyState();
         });
 
-        viewModel.getCombinedNotes().observe(this, combinedList -> {
+        noteViewModel.getCombinedNotes().observe(this, combinedList -> {
             noteAdapter.setCombinedList(combinedList);
+
+            if (firstNotesLoad) {
+                recyclerView.post(() -> recyclerView.scrollToPosition(0));
+                firstNotesLoad = false;
+            }
+
             updateEmptyState();
         });
 
@@ -131,10 +127,15 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             public void onNoteIconClicked(Note note, View anchor) {
                 showPopupMenu(note, anchor);
             }
-        },this);
+        },this,
+                noteViewModel,
+                this);
 
 
         recyclerView.setAdapter(noteAdapter);
+        noteViewModel.getCategoriesByNoteId().observe(this, map -> {
+            noteAdapter.setCategoriesByNoteId(map);
+        });
 
         Leafpad.getInstance().applyCurrentLayoutMode(recyclerView, noteAdapter);
 
@@ -152,6 +153,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         fab.setOnClickListener(v -> {
             String newNoteId = Note.makeId();
             Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
+            intent.putExtra(Leafpad.EXTRA_IS_NEW_NOTE, true);
             intent.putExtra(Leafpad.EXTRA_NOTE_ID, newNoteId);
             noteEditLauncher.launch(intent);
         });
@@ -185,19 +187,18 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                         }
                     });
 
-
     @Override
     public void onReleaseNoteClosed() {
         Leafpad.setReleaseNoteClosed(this);
         Leafpad.setCurrentLeafpadVersionCode(this);
-        noteAdapter.setReleaseNoteHeader(null);
+        noteViewModel.setReleaseNoteHeader(null);
         noteViewModel.loadNotes();
         recyclerView.post(this::updateEmptyState);
     }
     private void updateEmptyState() {
         int count = noteAdapter.getItemCount();
-        Log.d("MainActivity", "updateEmptyState - itemCount: " + count);
-        boolean showOnlyHidden = noteAdapter.isShowOnlyHidden();
+        Boolean showOnlyHiddenValue = noteViewModel.getShowHidden().getValue();
+        boolean showOnlyHidden = showOnlyHiddenValue != null && showOnlyHiddenValue;
         ImageView emptyElement = findViewById(R.id.emptyElement);
         if (count == 0) {
             emptyElement.setVisibility(View.VISIBLE);
@@ -259,7 +260,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             Leafpad.getInstance().saveTheme(newValue);
         }
     }
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -312,6 +312,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             case R.id.action_search:
                 Intent searchIntent = new Intent(this, SearchActivity.class);
                 startActivity(searchIntent);
+                return true;
+            case R.id.item_about:
+                Intent aboutIntent = new Intent(this, AboutActivity.class);
+                startActivity(aboutIntent);
                 return true;
         }
         return super.onOptionsItemSelected(item);

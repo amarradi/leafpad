@@ -58,4 +58,7 @@
         <color name="md_theme_eye_invisible">#C2185B</color>
 
         <color name="md_theme_bibleverse">#D95204</color>
+
+    <color name="category_chip_bg">#EEEEEE</color>
+
 </resources>

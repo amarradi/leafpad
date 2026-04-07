@@ -1,0 +1,11 @@
+Corrección de errores: Las entradas vacías ahora se eliminan al descartarlas.
+Configuración separada del menú «Acerca de».
+Traducciones actualizadas.
+Categorías añadidas; se pueden elegir libremente los nombres y colores.
+Se pueden añadir tantas categorías como se desee por nota.
+Almacenamiento de notas en una base de datos.
+Ajuste de la función de copia de seguridad/restauración.
+Nuevos iconos.
+Nuevos colores.
+Licencias añadidas.
+Fuentes innecesarias eliminadas.

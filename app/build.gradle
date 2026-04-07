@@ -7,20 +7,56 @@ plugins {
 
 
 android {
-    compileSdk 35
+    namespace = 'com.git.amarradi.leafpad'
+    compileSdk = 35
+
     defaultConfig {
-        applicationId "com.git.amarradi.leafpad"
-        minSdkVersion 25
-        targetSdkVersion 35
-        versionCode 29
-        versionName "1.21"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        externalNativeBuild {
-            cmake {
-                cppFlags ''
-            }
-        }
-        resourceConfigurations += ['aeb', 'ar', 'be', 'bg', 'br', 'ca', 'ce', 'cs', 'da', 'de', 'el', 'es', 'fi', 'fr', 'hi', 'hu', 'id', 'it', 'nb', 'nl', 'pl', 'pt', 'ru', 'sq', 'sv', 'ta', 'ur']
+        applicationId = "com.git.amarradi.leafpad"
+        minSdkVersion = 25
+        targetSdkVersion = 35
+        versionCode = 30
+        versionName = "1.22"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        resourceConfigurations += [
+                'aeb',  // Tunisian Arabic
+                'ar',  // Arabic
+                'be',  // Belarusian
+                'bg',  // Bulgarian
+                'br',  // Breton
+                'ca',  // Catalan
+                'ce',  // Chechen
+                'cs',  // Czech
+                'da',  // Danish
+                'de',  // German
+                'el',  // Greek
+                'en',  // English
+                'en-rGB',
+                'es',  // Spanish
+                'et',  // Estonian
+                'fi',  // Finnish
+                'fr',  // French
+                'got',  // Gothic (ISO 639-3)
+                'hi',  // Hindi (Devanagari)
+                'hu',  // Hungarian
+                'id',  // Indonesian
+                'it',  // Italian
+                'nb',  // Norwegian Bokmål
+                'nl',  // Dutch
+                'pl',  // Polish
+                'pt',  // Portuguese
+                'ru',  // Russian
+                'sq',  // Albanian
+                'sr', // Serbian
+                'sv',  // Swedish
+                'ta',  // Tamil
+                'uk',  // Ukrainian
+                'ur',  // Urdu
+                'uz',  // Uzbek
+                'zh-rCN',  // Chinese (Simplified)
+                'zh-rTW',  // Chinese (Traditional)
+                'b+hi+Latn',  // BCP-47: Hindi (Latin)
+        ]
 
 
         //version types: alpha, beta, r
@@ -41,12 +77,6 @@ android {
     buildFeatures {
         viewBinding = true
     }
-//    externalNativeBuild {
-//        cmake {
-//            path file('src/main/cpp/CMakeLists.txt')
-//            version '3.22.1'
-//        }
-//    }
 
     java {
         toolchain {
@@ -72,6 +102,9 @@ android {
 }
 
 dependencies {
+
+    implementation 'androidx.navigation:navigation-fragment:2.6.0'
+    implementation 'androidx.navigation:navigation-ui:2.6.0'
     def core = "1.16.0"
     def coordinatorLayout = "1.3.0"
     def appcompat = "1.7.1"
@@ -81,6 +114,13 @@ dependencies {
     def preference_version = "1.2.1"
     def activity_version = '1.10.1'
     def lifecycle = '2.9.0'
+    def roomcommonjvm = '2.8.3'
+    def roomruntime1 = '2.8.3'
+    def roomruntime2 = '2.8.4'
+    def roomcompiler1 = '2.8.3'
+    def roomcompiler2 = '2.8.4'
+    def colorpicker = '1.1.0'
+
 
     implementation "androidx.core:core:$core"
     implementation "androidx.coordinatorlayout:coordinatorlayout:$coordinatorLayout"
@@ -91,4 +131,11 @@ dependencies {
     implementation "androidx.preference:preference:$preference_version"
     implementation "androidx.activity:activity:$activity_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle"
+    implementation "androidx.room:room-common-jvm:$roomcommonjvm"
+    implementation "androidx.room:room-runtime:$roomruntime1"
+    implementation "androidx.room:room-runtime:$roomruntime2"
+    annotationProcessor "androidx.room:room-compiler:$roomcompiler1"
+    annotationProcessor "androidx.room:room-compiler:$roomcompiler2"
+    implementation "com.jaredrummler:colorpicker:$colorpicker"
+
 }

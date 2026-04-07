@@ -21,7 +21,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <!-- Container für das Settings-Fragment -->
-    <androidx.fragment.app.FragmentContainerView
+    <FrameLayout
         android:id="@+id/settings_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

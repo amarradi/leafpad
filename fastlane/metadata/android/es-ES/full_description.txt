@@ -1,0 +1,3 @@
+Un cuaderno sencillo para escribir texto sin conexión a la nube, sin base de datos y sin necesidad de permisos.
+
+Es de código abierto. Puedes escribir, editar tus notas y ocultarlas para que nadie más las vea.

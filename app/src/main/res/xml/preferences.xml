@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <PreferenceCategory
-        android:title="@string/about" >
-        <Preference
-            android:title="@string/about_the_app"
-            android:key="about"
-            android:summary="@string/tell_about"
-            android:icon="@drawable/ic_about_the_app"/>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/general_preference">
         <Preference
@@ -20,21 +11,27 @@
             android:entries="@array/design_mode_preference_key"
             android:defaultValue="@string/system_preference_option_value"
             android:entryValues="@array/design_mode_preference_value" />
-        <Preference
-            app:selectable="true"
-            android:key="save"
-            android:title="@string/save_notes_title"
-            android:summary="@string/save"
-            android:icon="@drawable/ic_save_all_data"
-            />
+        <!--        <Preference-->
+        <!--            app:selectable="true"-->
+        <!--            android:key="save"-->
+        <!--            android:title="@string/save_notes_title"-->
+        <!--            android:summary="@string/save"-->
+        <!--            android:icon="@drawable/ic_save_all_data"-->
+        <!--            />-->
 
+        <!--        <Preference-->
+        <!--            app:selectable="true"-->
+        <!--            android:key="restore"-->
+        <!--            android:title="@string/restore_notes_title"-->
+        <!--            android:summary="@string/restore"-->
+        <!--            android:icon="@drawable/ic_restore_all"-->
+        <!--            />-->
         <Preference
-            app:selectable="true"
-            android:key="restore"
-            android:title="@string/restore_notes_title"
-            android:summary="@string/restore"
-            android:icon="@drawable/ic_restore_all"
-            />
+            android:key="manage_categories"
+            android:title="@string/manage_categories"
+            android:summary="@string/manage_categories_summary"
+            android:icon="@drawable/ic_category" />
+
         <androidx.preference.SwitchPreferenceCompat
             android:key="change"
             android:title="@string/notification_of_change"
@@ -70,5 +67,11 @@
             android:icon="@drawable/ic_translation"
             android:title="@string/translate"
             android:summary="@string/translation_help"/>
+
+        <Preference
+            android:key="licenses"
+            android:icon="@drawable/ic_license"
+            android:title="@string/open_source_licenses"
+            android:summary="@string/open_source_licenses_summary" />
     </PreferenceCategory>
 </PreferenceScreen>

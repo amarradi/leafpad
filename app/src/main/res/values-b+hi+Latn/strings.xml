@@ -25,7 +25,7 @@
     <string name="statement">Ham shopping lists, baatcheet ke notes, chhuttiyon ya doston ke liye packing lists aadi likhte hain. Ye wo saari acchi cheezein hain jo ham bhoolna nahin chaahte. Eeshwar bhi kuch aise hi hain, wo hamaare saare sakarm aur dushkarm likhkar rakhte hain. Eeshwar sabse oopar hain aur unhein har cheez ka gyaan hai. Eeshwar logon se pyaar karte hain aur unke saathi hona chaahte hain. Magar aisa sirf tabhi mumkin hai jab Eeshwar hamein nirdosh manein. Yeeshu Maseeh par yakeen karke hamaare dushkarm (paap) Eeshwar ke aage dhul jaate hain. Yeeshu Maseeh ne Calvary ke cross par hamaare paapon ka praayshchitt kiya. Ise sweekar karne waala har vyakti jeevan-pustak mein hamesha ke liye sama gaya. Kya aap jeevan-pustak mein registered hain?</string>
     <string name="its_opensource">Leafpad OpenSource aur muft hai</string>
     <string name="find_code_on_github">GitHub</string>
-    <string name="find_code_on_github_summary">Aap repository ke zariye source code dekh aur check kar sakte hain. Badlaavon ki requests aur error messages ke liye issues kholne ke liye aapka swaagat hai.</string>
+    <string name="find_code_on_github_summary">Repository par code dekhe aur koi issues report kare.</string>
     <string name="title_licence">Licenses</string>
     <string name="licence">Open source licenses</string>
     <string name="share_note">Note share karein?</string>
@@ -35,7 +35,7 @@
     <string name="search">notes khojein</string>
     <string name="action_fab_note">note banaayein</string>
     <string name="add_shortcut_short_label">Naya likhein</string>
-    <string name="rate_the_app">Kyun na Google PlayStore par ek review likh dein?</string>
+    <string name="rate_the_app">PlayStore par ek review dena chahenge?</string>
     <string name="system_preference_key">system (standard) ka paalan karein</string>
     <string name="theme_summary">Dark aur light theme ke beech toggle karein</string>
     <string name="about">Baare mein</string>
@@ -58,7 +58,7 @@
     <string name="darkmode_preference_key">darkmode</string>
     <string name="participate">Bhaag lein ya Yogdan karein</string>
     <string name="translate">Weblate par app ko anuvaadit karein</string>
-    <string name="translation_help">Weblate par app ko aapki bhaasha mein anuvaadit karne mein hamaari madad karein</string>
+    <string name="translation_help">Weblate par app ko anuvaadit karne mein madad karein.</string>
     <string name="hide_note">note adrishy banaayein</string>
     <string name="hide_hidden">chhipaaye gaye notes chhipaayein</string>
     <string name="show_note">note drishy banaayein</string>
@@ -76,6 +76,10 @@
     <plurals name="notes_imported">
         <item quantity="one">%1$d note import kiya gaya</item>
         <item quantity="other">%1$d notes import kiye gaye</item>
+    </plurals>
+    <plurals name="notes_exported">
+        <item quantity="one">%1$d note backed up</item>
+        <item quantity="other">%1$d notes backed up</item>
     </plurals>
     <string name="fileOpeningError">File kholte samay error.</string>
     <string name="delete">Mitaayein</string>
@@ -100,7 +104,7 @@
     <string name="unsaved_changes_message">Aapka note badla gaya hai. Aap badlaav save ya khaarij karna chaahte hain?</string>
     <string name="unsaved_changes_title">Save na kiye hue badlaav</string>
     <string name="no_search_results">Kuchh bhi nahin mila</string>
-    <string name="set">It is a recipe</string>
+    <string name="set">Yeh ek recipe hai</string>
     <string name="close_release_note">Close Button</string>
     <string name="title_required">Title required</string>
     <string name="keep_screen_on_dialog_yes">Yes</string>
@@ -114,38 +118,77 @@
     <string name="country_title_translator_portuguese" translatable="false">Lucas Alves Rego(@devlulcas), Ettlu selva rula(@Ttormor)</string>
     <string name="country_title_catalan">Catalan</string>
     <string name="country_title_spanish">Spanish</string>
-    <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram)</string>
+    <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
+    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">Albanian</string>
     <string name="country_title_indonesian">Indonesian</string>
     <string name="country_title_russian">Russian</string>
     <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
     <string name="please_enter_a_title">Please enter a title for the note before you can save it.</string>
     <string name="country_title_tamil">Tamil</string>
-    <string name="country_title_translator_hindi_latin" translatable="false">Saurmanđal(@Saurmandal)</string>
     <string name="country_title_translator_hindi" translatable="false">Harshit Sethi(@hstsethi)</string>
-    <string name="country_title_translator_english">Santiago Centeno (@Java16), Yurt Page (@yurtpage), zergio inzunza (@n1kf4m3l)</string>
+    <string name="country_title_translator_english" translatable="false">Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l), Santiago Centeno(@Java16)</string>
     <string name="country_title_polish">Polish</string>
-    <string name="country_title_translator_indonesian" translatable="false">toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
+    <string name="country_title_translator_indonesian" translatable="false">Arif Budiman(@arifpedia), toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
     <string name="country_title_german">German</string>
-    <string name="country_title_translator_french" translatable="false">Leonart(@Leonart), michte(@michte)</string>
+    <string name="country_title_translator_french" translatable="false">Leonart(@Leonart), Omgeta(@Omgeta), michte(@michte), David D.(@Dadu042)</string>
     <string name="country_title_translator_arabic" translatable="false">Asaad Zein(@asaadzx)</string>
     <string name="country_title_ukrainian">Ukrainian</string>
-    <string name="country_title_translator_spanish" translatable="false">Zarahi Ander(@TradZarahi), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), Abraham Mendoza(@1Alide1), zergio inzunza(@n1kf4m3l)</string>
+    <string name="country_title_translator_spanish" translatable="false">Sofia Gutierrez(@SofiaIrina9), Zarahi Ander(@TradZarahi), Francisco Serrador(@fserrador), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Marco(@Megido), Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), Abraham Mendoza(@1Alide1), zergio inzunza(@n1kf4m3l)</string>
     <string name="country_title_greek">Greek</string>
     <string name="country_title_translator_polish" translatable="false">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
-    <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero)</string>
+    <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero), Davide Secco(@davidesecco)</string>
     <string name="country_title_arabic">Arabic</string>
     <string name="country_title_italian">Italian</string>
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_translator_ukrainian" translatable="false">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
-    <string name="country_title_translator_russian" translatable="false">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), Maksim_220 Кабанов(@law820314), Sotski Eugene(@jekakmail), Rachel Podya(@homicide@disroot.org), Santiago Centeno(@Java16)</string>
+    <string name="country_title_translator_russian" translatable="false">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), vanapro1(@vanapro1), Sotski Eugene(@jekakmail), MrSliv69(@MrSliv69), Steven Barash(@stevenbarash), Rachel Podya(@homicide@disroot.org), SnIPeRSnIPeR(@SnIPeRSnIPeR), Santiago Centeno(@Java16)</string>
     <string name="country_title_czech">Czech</string>
     <string name="country_title_english">English</string>
     <string name="country_title_portuguese">Portuguese</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
-    <string name="country_title_translator_german" translatable="false">Maximilian Hüttner(@MaxHue)</string>
+    <string name="country_title_translator_german" translatable="false">Blubberland(@Blubberland), Maximilian Hüttner(@MaxHue)</string>
     <string name="country_title_hindi_latin">Hindi (Latin script)</string>
     <string name="country_title_hindi">Hindi</string>
-    <string name="country_title_translator_estonian">Priit Jõerüüt(@jrthwlate)</string>
+    <string name="country_title_translator_estonian" translatable="false">Priit Jõerüüt(@jrthwlate)</string>
     <string name="country_title_estonian">Estonian</string>
+    <string name="country_title_translator_chinese_traditional_han_script" translatable="false">imcc(@imcc)</string>
+    <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
+    <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
+    <string name="country_title_translator_chinese_simplified_han_script" translatable="false">雲の中を漂う船(@KumoNoFune), imcc(@imcc)</string>
+    <string name="country_title_chinese_simplified_han_script">Chinese (Simplified Han script)</string>
+    <string name="country_title_chinese_traditional_han_script">Chinese (Traditional Han script)</string>
+    <string name="country_title_hindi_latin_script">Hindi (Latin script)</string>
+    <string name="country_title_uzbek">Uzbek</string>
+    <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
+    <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
+    <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
+    <string name="country_title_gothic">Gothic</string>
+    <string name="country_title_dutch">Dutch</string>
+    <string name="menu_about">About Leafpad</string>
+    <string name="country_title_danish">Danish</string>
+    <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
+    <string name="country_title_serbian">Serbian</string>
+    <string name="item_menu_add_category">create new category</string>
+    <string name="category">Category</string>
+    <string name="category_name">name of the category</string>
+    <string name="select_color">choose category color</string>
+    <string name="edit_category">edit category</string>
+    <string name="add_category">add category</string>
+    <string name="category_color">category color</string>
+    <string name="save_category">save category</string>
+    <string name="delete_category">Delete category</string>
+    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
+    <string name="delete_category_hint">Notes are retained but lose this category.</string>
+    <string name="manage_categories">Manage categories</string>
+    <string name="manage_categories_summary">Create, edit, and delete</string>
+    <string name="error">error</string>
+    <string name="category_already_exists">Category allready exists</string>
+    <string name="database_error">database error</string>
+    <string name="open_source_licenses">Open source licenses</string>
+    <string name="error_loading_licenses">Error loading licenses</string>
+    <string name="open_source_licenses_summary">View used libraries and licenses</string>
+    <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
+    <string name="database_error_log">Database Error</string>
+    <string name="category_name_required">Empty category is not allowed</string>
 </resources>

@@ -1,0 +1,11 @@
+Ndreqje të mete: Tanimë zërat e zbrazët fshihen, kur hidhen tej
+U veçuan rregullime nga menuja “Mbi”
+U përditësuan përkthime
+U shtuan kategori; emra dhe ngjyra mund të zgjidhen lirisht
+Mund të përditësohet për secilin shënim çfarëdo numri kategorish
+U kalua te ruajtje shënimesh në një bazë të dhënash
+Përimtim i funksionit kopjeruajtje/rikthim
+U shtuan ikona të reja
+U shtuan ngjyra të reja
+U shtuan licenca
+U hoqën shkronja të panevojshme

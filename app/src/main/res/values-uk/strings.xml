@@ -16,7 +16,7 @@
     <string name="set">Це рецепт</string>
     <string name="toggle">змінити вигляд</string>
     <string name="imported">замітка була відправлена в блокнот</string>
-    <string name="rate_the_app">Як щодо огляду в Google PlayStore? Тоді відкрийте Google Play безпосередньо.</string>
+    <string name="rate_the_app">Залишити відгук про Play Маркет?</string>
     <string name="add_shortcut_short_label">Записати нове</string>
     <string name="action_note_saved">збережено</string>
     <string name="tell_about">Що я хочу розповісти вам про Leafpad</string>
@@ -44,6 +44,12 @@
         <item quantity="many">Імпортовано %1$d нотатки</item>
         <item quantity="other">Імпортовано %1$d нотатки</item>
     </plurals>
+    <plurals name="notes_exported">
+        <item quantity="one">%1$d note backed up</item>
+        <item quantity="other">%1$d notes backed up</item>
+        <item quantity="few">%1$d notes backed up</item>
+        <item quantity="many">%1$d notes backed up</item>
+    </plurals>
     <string name="fileOpeningError">Помилка під час відкриття файлу.</string>
     <string name="note_will_be_saved_first">Нотатку буде збережено першою</string>
     <string name="delete">Видалити</string>
@@ -54,7 +60,7 @@
     <string name="discard">відкинути</string>
     <string name="backupfinish">Резервне копіювання завершено</string>
     <string name="show_note">зробити нотатку видимою</string>
-    <string name="find_code_on_github_summary">Ви можете переглянути та перевірити вихідний код через репозиторій. Ви можете відкрити запит на зміни та повідомлення про помилки.</string>
+    <string name="find_code_on_github_summary">Перегляньте код та повідомте про проблеми в репозиторії.</string>
     <string name="action_share_title">Заголовок</string>
     <string name="invalidFile">Недійсний файл резервної копії. Імпорт скасовано.</string>
     <string name="participate">Взяти участь або зробити свій внесок</string>
@@ -89,7 +95,7 @@
     <string name="restore_notes_title">Відновити</string>
     <string name="close_release_note">Кнопка закриття</string>
     <string name="unsaved_changes_title">Незбережені зміни</string>
-    <string name="translation_help">Допоможіть нам перекласти застосунок вашою мовою на weblate</string>
+    <string name="translation_help">Допоможіть перекласти застосунок на Weblate.</string>
     <string name="rev20_12">І я бачив мертвих, малих і великих, що стояли перед престолом; і книги були розкриті, і інша книга була розкрита, яка є книгою життя; і суджені були мертві за написаним у книгах, згідно з їхніми ділами. Об’явлення 20:12</string>
     <string name="no_search_results">Нічого не знайдено</string>
     <string name="save_notes_title">Резервне копіювання</string>
@@ -116,38 +122,77 @@
     <string name="country_title_translator_portuguese" translatable="false">Lucas Alves Rego(@devlulcas), Ettlu selva rula(@Ttormor)</string>
     <string name="country_title_catalan">Каталонська</string>
     <string name="country_title_spanish">Іспанська</string>
-    <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram)</string>
+    <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
+    <string name="setCategory">Set Category</string>
     <string name="country_title_albanian">Албанська</string>
     <string name="country_title_indonesian">Індонезійська</string>
     <string name="country_title_russian">Російська</string>
     <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
     <string name="country_title_tamil">Тамільська</string>
-    <string name="country_title_translator_hindi_latin" translatable="false">Saurmanđal(@Saurmandal)</string>
     <string name="country_title_translator_hindi" translatable="false">Harshit Sethi(@hstsethi)</string>
-    <string name="country_title_translator_english">Сантьяго Сентено(@Java16), Юрт Пейдж(@yurtpage), zergio inzunza(@n1kf4m3l)</string>
+    <string name="country_title_translator_english" translatable="false">Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l), Santiago Centeno(@Java16)</string>
     <string name="country_title_polish">Польська</string>
-    <string name="country_title_translator_indonesian" translatable="false">toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
+    <string name="country_title_translator_indonesian" translatable="false">Arif Budiman(@arifpedia), toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
     <string name="country_title_german">Німецька</string>
-    <string name="country_title_translator_french" translatable="false">Leonart(@Leonart), michte(@michte)</string>
+    <string name="country_title_translator_french" translatable="false">Leonart(@Leonart), Omgeta(@Omgeta), michte(@michte), David D.(@Dadu042)</string>
     <string name="country_title_translator_arabic" translatable="false">Asaad Zein(@asaadzx)</string>
     <string name="country_title_ukrainian">Українська</string>
-    <string name="country_title_translator_spanish" translatable="false">Zarahi Ander(@TradZarahi), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), Abraham Mendoza(@1Alide1), zergio inzunza(@n1kf4m3l)</string>
+    <string name="country_title_translator_spanish" translatable="false">Sofia Gutierrez(@SofiaIrina9), Zarahi Ander(@TradZarahi), Francisco Serrador(@fserrador), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Marco(@Megido), Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), Abraham Mendoza(@1Alide1), zergio inzunza(@n1kf4m3l)</string>
     <string name="country_title_greek">Грецька</string>
     <string name="country_title_translator_polish" translatable="false">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
-    <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero)</string>
+    <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero), Davide Secco(@davidesecco)</string>
     <string name="action_remove">Вилучити нотатку</string>
     <string name="country_title_arabic">Арабська</string>
     <string name="country_title_italian">Італійська</string>
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_translator_ukrainian" translatable="false">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
-    <string name="country_title_translator_russian" translatable="false">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), Maksim_220 Кабанов(@law820314), Sotski Eugene(@jekakmail), Rachel Podya(@homicide@disroot.org), Santiago Centeno(@Java16)</string>
+    <string name="country_title_translator_russian" translatable="false">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), vanapro1(@vanapro1), Sotski Eugene(@jekakmail), MrSliv69(@MrSliv69), Steven Barash(@stevenbarash), Rachel Podya(@homicide@disroot.org), SnIPeRSnIPeR(@SnIPeRSnIPeR), Santiago Centeno(@Java16)</string>
     <string name="country_title_czech">Чеська</string>
     <string name="country_title_english">Англійська</string>
     <string name="country_title_portuguese">Португальська</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
-    <string name="country_title_translator_german" translatable="false">Maximilian Hüttner(@MaxHue)</string>
-    <string name="country_title_hindi_latin">Хінді (латинська абетка)</string>
+    <string name="country_title_translator_german" translatable="false">Blubberland(@Blubberland), Maximilian Hüttner(@MaxHue)</string>
+    <string name="country_title_hindi_latin">\'</string>
     <string name="country_title_hindi">Хінді</string>
     <string name="country_title_translator_estonian" translatable="false">Priit Jõerüüt(@jrthwlate)</string>
     <string name="country_title_estonian">Естонська</string>
+    <string name="country_title_translator_chinese_traditional_han_script" translatable="false">imcc(@imcc)</string>
+    <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
+    <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
+    <string name="country_title_translator_chinese_simplified_han_script" translatable="false">雲の中を漂う船(@KumoNoFune), imcc(@imcc)</string>
+    <string name="country_title_chinese_simplified_han_script">Китайська (спрощена писемність хань)</string>
+    <string name="country_title_chinese_traditional_han_script">Китайська (традиційне письмо Хань)</string>
+    <string name="country_title_hindi_latin_script">Хінді (латинська абетка)</string>
+    <string name="country_title_uzbek">Узбецька</string>
+    <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
+    <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
+    <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
+    <string name="country_title_gothic">Готика</string>
+    <string name="country_title_dutch">Нідерландська</string>
+    <string name="menu_about">Про Leafpad</string>
+    <string name="country_title_danish">Данська</string>
+    <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
+    <string name="country_title_serbian">Сербська</string>
+    <string name="item_menu_add_category">create new category</string>
+    <string name="category">Category</string>
+    <string name="category_name">name of the category</string>
+    <string name="select_color">choose category color</string>
+    <string name="edit_category">edit category</string>
+    <string name="add_category">add category</string>
+    <string name="category_color">category color</string>
+    <string name="save_category">save category</string>
+    <string name="delete_category">Delete category</string>
+    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
+    <string name="delete_category_hint">Notes are retained but lose this category.</string>
+    <string name="manage_categories">Manage categories</string>
+    <string name="manage_categories_summary">Create, edit, and delete</string>
+    <string name="error">error</string>
+    <string name="category_already_exists">Category allready exists</string>
+    <string name="database_error">database error</string>
+    <string name="open_source_licenses">Open source licenses</string>
+    <string name="error_loading_licenses">Error loading licenses</string>
+    <string name="open_source_licenses_summary">View used libraries and licenses</string>
+    <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
+    <string name="database_error_log">Database Error</string>
+    <string name="category_name_required">Empty category is not allowed</string>
 </resources>

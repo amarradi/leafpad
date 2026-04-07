@@ -3,18 +3,49 @@ package com.git.amarradi.leafpad.helper;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
+import android.view.LayoutInflater;
+import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.preference.PreferenceManager;
 
 import com.git.amarradi.leafpad.Leafpad;
 import com.git.amarradi.leafpad.R;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textfield.TextInputEditText;
+import com.jaredrummler.android.colorpicker.ColorPickerDialog;
+
+import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DialogHelper {
+
+    public static void showInfoDialog(@NonNull Context context,
+                                      @NonNull String title,
+                                      @NonNull String message) {
+
+        new MaterialAlertDialogBuilder(context)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton(android.R.string.ok, null)
+                .show();
+    }
 
     public interface OnDialogConfirmedListener {
         void onConfirmed();
     }
+
+    public interface OnCategorySavedListener {
+        void onSaved(String name, String colorHex);
+    }
+
+
 
     public static void showConfirmDialog(Context context, String title, String message,
             String positiveText, String negativeText,
@@ -114,6 +145,162 @@ public class DialogHelper {
                 })
                 .setNegativeButton(R.string.keep_screen_on_dialog_no, null)
                 .show();
+    }
+
+    public static void showColorPicker(
+            FragmentActivity activity,
+            int initialColor,
+            int dialogId
+    ) {
+        ColorPickerDialog.newBuilder()
+                .setColor(initialColor)
+                .setDialogId(dialogId)
+                .setShowAlphaSlider(false)
+                .show(activity);
+    }
+
+
+    private static String colorToHex(int color) {
+        return String.format("#%06X", (0xFFFFFF & color));
+    }
+
+    // interner Dialog-State pro dialogId
+    private static final Map<Integer, CategoryDialogState> CATEGORY_DIALOG_STATES = new HashMap<>();
+
+    private static class CategoryDialogState {
+        WeakReference<View> colorPreviewRef;
+        int selectedColor;
+    }
+
+    public static void showCategoryAddOrEditDialog(
+            Fragment fragment,
+            String title,
+            @Nullable String initialName,
+            @Nullable String initialColorHex,
+            int colorPickerDialogId,
+            OnCategorySavedListener onSaved
+    ) {
+        Context context = fragment.requireContext();
+
+        View view = LayoutInflater.from(context).inflate(R.layout.dialog_category_edit, null);
+
+        TextInputEditText nameInput = view.findViewById(R.id.category_name_edit);
+        View colorPreview = view.findViewById(R.id.colorPreview);
+
+        // Initialwerte
+        String startName = initialName != null ? initialName : "";
+        nameInput.setText(startName);
+
+        int tmpColor = Color.parseColor("#CCCCCC");
+        if (initialColorHex != null) {
+            try {
+                tmpColor = Color.parseColor(initialColorHex);
+            } catch (IllegalArgumentException ignored) {
+            }
+        }
+        final int startColor = tmpColor;
+
+        // State erstellen/merken
+        CategoryDialogState state = new CategoryDialogState();
+        state.selectedColor = startColor;
+        state.colorPreviewRef = new WeakReference<>(colorPreview);
+        CATEGORY_DIALOG_STATES.put(colorPickerDialogId, state);
+        setPreviewColor(colorPreview, startColor);
+
+        // Picker öffnen
+        colorPreview.setOnClickListener(v -> {
+            ColorPickerDialog.newBuilder()
+                    .setDialogId(colorPickerDialogId)
+                    .setColor(state.selectedColor)
+                    .setShowAlphaSlider(false)
+                    .show(fragment.requireActivity());
+        });
+
+        new MaterialAlertDialogBuilder(context)
+                .setTitle(title)
+                .setView(view)
+                .setPositiveButton(R.string.save_category, (d, w) -> {
+
+                    String name = "";
+                    if (nameInput.getText() != null) {
+                        name = nameInput.getText().toString().trim();
+                    }
+
+                    if (name.isEmpty()) {
+                        return;
+                    }
+
+                    CategoryDialogState current = CATEGORY_DIALOG_STATES.get(colorPickerDialogId);
+                    int picked = startColor;
+                    if (current != null) {
+                        picked = current.selectedColor;
+                    }
+
+                    String hex = colorToHex(picked);
+
+                    if (onSaved != null) {
+                        onSaved.onSaved(name, hex);
+                    }
+
+                    // Cleanup nur bei Save
+                    CATEGORY_DIALOG_STATES.remove(colorPickerDialogId);
+                })
+                .setNegativeButton(R.string.cancel, (d, w) -> {
+                    // Cancel = keine Änderung
+                    CATEGORY_DIALOG_STATES.remove(colorPickerDialogId);
+                })
+                .show();
+    }
+
+
+    /**
+     * Muss aus Fragment/Activity onColorSelected(...) aufgerufen werden.
+     */
+    public static void onColorSelectedForCategoryDialog(int dialogId, int color) {
+        CategoryDialogState state = CATEGORY_DIALOG_STATES.get(dialogId);
+        if (state == null) {
+            return;
+        }
+
+        state.selectedColor = color;
+
+        View preview = state.colorPreviewRef != null ? state.colorPreviewRef.get() : null;
+        if (preview != null) {
+//            preview.setBackgroundColor(color);
+            setPreviewColor(preview, color);
+        }
+    }
+
+    public static void showDeleteCategoryDialog(
+            Context context,
+            String categoryName,
+            OnDialogConfirmedListener listener
+    ) {
+        new MaterialAlertDialogBuilder(context)
+                .setIcon(R.drawable.ic_delete)
+                .setTitle(R.string.delete_category)
+                .setMessage(context.getString(R.string.delete_category_confirm, categoryName)
+                        + "\n\n" + context.getString(R.string.delete_category_hint))
+
+                .setPositiveButton(R.string.delete, (dialog, which) -> {
+                    if (listener != null) {
+                        listener.onConfirmed();
+                    }
+                    dialog.dismiss();
+                })
+                .setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss())
+                .show();
+    }
+
+    private static void setPreviewColor(View preview, int color) {
+        if (preview == null) {
+            return;
+        }
+
+        if (preview.getBackground() instanceof GradientDrawable) {
+            GradientDrawable drawable = (GradientDrawable) preview.getBackground().mutate();
+            drawable.setColor(color);
+        }
     }
 
 }

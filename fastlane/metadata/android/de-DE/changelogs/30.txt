@@ -1,0 +1,11 @@
+Fehlerbehebung: Leere Einträge werden nun bei Verwurf gelöscht
+Trennung der Einstellungen mit About
+Übersetzungen aktualisiert
+Kategorien eingefügt, Namen und Farben sind frei wählbar
+beliebig viele Kategorien sind pro Notiz möglich
+Umstellung der Speicherung der Notizen in einer Datenbank
+Anpassung der backup/restore-Funktion
+Neue Icons eingefügt 
+Neue Farben eingefügt
+Lizenzen hinzugefügt 
+überflüssig Schriftarten entfernt
