@@ -9,7 +9,7 @@
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="item_menu_description">Menüü toimingute jaoks</string>
     <string name="leafpad_work">Leafpad salvestab andmed vaid sinu nutiseadmes. Ka märkmete metateave nagu näiteks koostamise ja muutmise ajatempel pole salvestatud pilves ega jagatud teiste osapooltega. Pole ka kasutusel ühtegi sisestatud teksti analüüsimise meetodit. Sinu märkmed on sinu omad. Sina otsustad, mida tahad nendega teha.</string>
-    <string name="new_note">uus märge</string>
+    <string name="new_note">Uus märge</string>
     <string name="save_changes">Salvesta muudatused</string>
     <string name="save">Salvesta kõik märked zipb-konteinerina json-iga</string>
     <string name="showDeleteConfirmation">Kas kustutame kõik märked?</string>
@@ -59,7 +59,7 @@
     <string name="discard">Loobu</string>
     <string name="backupfinish">Varukoopia on valmis</string>
     <string name="show_note">Muuda märge nähtavaks</string>
-    <string name="find_code_on_github_summary">Lähtekoodi võid uurida ja kontrollida koodihoidlast. Kui märkad vigu või tahad rakendust täiendada, siis palun koosta vastav veateade.</string>
+    <string name="find_code_on_github_summary">Lähtekoodi võid uurida ja kontrollida koodihoidlast. Kui märkad vigu või tahad rakendust täiendada, siis palun koosta vastav teade meie veahalduse liideses.</string>
     <string name="action_share_title">Pealkiri</string>
     <string name="invalidFile">Vigane varukoopia fail. Importimine on kastkestatud.</string>
     <string name="participate">Osale või tee kaastööd</string>
@@ -68,7 +68,7 @@
     <string name="startIconDescription">Otsinguväli</string>
     <string name="keep_screen_on_dialog_no">Ei</string>
     <string name="theme_summary">Vaheta heledat ja tumedat kujundust</string>
-    <string name="what_is_leafpad">Leafpad on lihtne rakendus märkmete ülestähendamiseks.</string>
+    <string name="what_is_leafpad">Leafpad on lihtne rakendus märkmete ülestähendamiseks. See võimaldab sul luua, muuta, saata ja kustutada oma telefonis märkmeid.</string>
     <string name="note_shared">Märge on jagatud</string>
     <string name="theme_preference">Kujundus</string>
     <string name="created_txt">loodud</string>
@@ -90,7 +90,7 @@
     <string name="search">otsi märkmeid</string>
     <string name="showRestoreConfirmation">Kas taastame?</string>
     <string name="keep_screen_on_title">Hoia ekraan sisselülitatuna</string>
-    <string name="action_save">salvesta märge</string>
+    <string name="action_save">Salvesta märge</string>
     <string name="share_note">Kas tahad märget jagada?</string>
     <string name="thanks">Suur tänu teile: Stefan, Stefan, Manuel, Falk, Stephanie ja Emil. Aitasite arendust nii ideede kui testimisega.</string>
     <string name="note_is_no_recipe">Märge ei ole retsept</string>
