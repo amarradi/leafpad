@@ -12,7 +12,7 @@
     <string name="body_hint">Nota</string>
     <string name="contentDescription">Añadir nueva nota</string>
     <string name="imported">La nota fué enviada a Leafpad</string>
-    <string name="new_note">Nueva nota</string>
+    <string name="new_note">Nota nueva</string>
     <string name="satisfied">¿Te gusta Leafpad?</string>
     <string name="rate_the_app">¿Abandono la revisión de Play Store?</string>
     <string name="remove_dialog_title">¿Estás seguro?</string>
@@ -26,23 +26,23 @@
     <string name="about">Acerca de</string>
     <string name="about_the_app">Acerca de la aplicación</string>
     <string name="tell_about">Lo que quiero decirte sobre Leafpad</string>
-    <string name="version">versión</string>
-    <string name="change">versión</string>
-    <string name="what_is_leafpad">Leafpad es una sencilla aplicación para tomar notas.</string>
+    <string name="version">Versión</string>
+    <string name="change">Versión</string>
+    <string name="what_is_leafpad">Leafpad es una sencilla aplicación para tomar notas. Con esta aplicación podrá editar, enviar, or borrar notas en su teléfono.</string>
     <string name="leafpad_work">Leafpad guarda todos los datos localmente en tu smartphone. Las notas o metadatos como la fecha y la hora no se almacenan en ninguna nube ni se comparten con nadie. Tampoco se realiza ningún análisis de texto. Las notas te pertenecen. Tú decides lo que haces con ellas.</string>
     <string name="rev20_12">Y vi a los muertos, grandes y pequeños, de pie ante el trono; y se abrieron libros; y se abrió otro libro, que es el libro de la vida; y fueron juzgados los muertos por las cosas que estaban escritas en los libros, según sus obras. Apocalipsis 20:12</string>
     <string name="thanks">Gracias Stefan, Stefan, Manuel, Falk, Stephanie y Emil por sus ideas y probar la aplicación.</string>
     <string name="its_opensource">Leafpad es de código abierto y gratuita</string>
     <string name="find_code_on_github">GitHub</string>
-    <string name="find_code_on_github_summary">Vea el código e informe asunto en el repositorios.</string>
+    <string name="find_code_on_github_summary">Puede ver y revisar el código fuente a través del repositorio. Y si tiene alguna sugerencia para mejorar, o quiere informe sobre alguna errata, no duda en abrir una propuesta (issue).</string>
     <string name="title_licence">Licencias</string>
     <string name="licence">Licencias de código abierto</string>
     <string name="share_note">¿Compartir nota?</string>
     <string name="note_will_be_saved_first">La nota se guardará primero</string>
-    <string name="action_save">guardar nota</string>
+    <string name="action_save">Guardar nota</string>
     <string name="action_note_saved">guardada</string>
     <string name="action_share_title">Título</string>
-    <string name="edited_text">editada en</string>
+    <string name="edited_text">Editada en</string>
     <string name="remove_dailog_message">Esta nota se borrará permanentemente. Después no se podrá restaurar.</string>
     <string name="statement">Anotamos listas de compras, notas para conversaciones, listas de embalaje para vacaciones o cumpleaños de amigos. Todas son cosas buenas para que no las olvidemos. Es muy similar a Dios, escribe nuestras obras buenas y malas y las salva. Dios está por encima de todo y simplemente sabe todo. Dios ama a la gente y quiere tener comunión con ellos. Pero esto sólo es posible si somos vistos por Dios como intachables. A través de la fe en Jesucristo, nuestras malas obras (nuestra culpa) son borradas ante Dios. Jesucristo expió por nuestra culpa en la cruz del Calvario. Cada persona que acepta esto se introduce en el libro de la vida para siempre. ¿Estás registrado en el libro de la vida?</string>
     <string name="app_name">Leafpad</string>
@@ -59,15 +59,15 @@
     <string name="participate">Participar o contribuir</string>
     <string name="translate">Traducir la aplicación en Weblate</string>
     <string name="translation_help">Ayude a traducir la aplicación en Weblate.</string>
-    <string name="hide_note">hacer la nota invisible</string>
-    <string name="hide_hidden">ocultar notas ocultas</string>
-    <string name="show_note">hacer visible la nota</string>
-    <string name="show_hidden">mostrar notas ocultas</string>
-    <string name="note_is_recipe">nota es receta</string>
-    <string name="note_is_no_recipe">nota no es receta</string>
-    <string name="restore">Restaurar todas las notas desde un archivo xml</string>
+    <string name="hide_note">Hacer que la nota sea invisible</string>
+    <string name="hide_hidden">Ocultar notas ocultas</string>
+    <string name="show_note">Hacer la nota visible</string>
+    <string name="show_hidden">Mostrar notas ocultas</string>
+    <string name="note_is_recipe">La nota es una receta</string>
+    <string name="note_is_no_recipe">La nota no es una receta</string>
+    <string name="restore">Restaurar todas las notas desde un zip</string>
     <string name="showDeleteConfirmationMessage">Todas las notas serán borradas permanentemente. ¿Continuar?</string>
-    <string name="save">Guardar todas las notas como xml</string>
+    <string name="save">Guardar todas las notas como un contenedor zipb con json</string>
     <string name="showDeleteConfirmation">¿Eliminar notas?</string>
     <string name="backupIsrunning">La copia de respaldo se está ejecutando</string>
     <string name="no">No</string>
@@ -79,8 +79,9 @@
         <item quantity="other">%1$d notas importadas</item>
     </plurals>
     <plurals name="notes_exported">
-        <item quantity="one">%1$d note backed up</item>
-        <item quantity="other">%1$d notes backed up</item>
+        <item quantity="one">%d nota exportada</item>
+        <item quantity="many">%d notas exportadas</item>
+        <item quantity="other">%d notas salvoguardadas</item>
     </plurals>
     <string name="fileOpeningError">Error al abrir el archivo.</string>
     <string name="delete">Eliminar</string>
@@ -94,12 +95,12 @@
     <string name="toggle">cambiar vista</string>
     <string name="note_shared">Nota compartida</string>
     <string name="save_changes">Guardar cambios</string>
-    <string name="discard">descartar</string>
+    <string name="discard">Descartar</string>
     <string name="notification_of_change_description">Notifica sobre cambios en notas</string>
     <string name="notification_of_change">Notificación de cambios</string>
     <string name="unsaved_changes_message">Tu nota ha cambiado. Quieres guardar o descartar los cambios?</string>
     <string name="unsaved_changes_title">Cambios sin guardar</string>
-    <string name="item_menu_description">menú para acciones de elementos</string>
+    <string name="item_menu_description">Menú para acciones de elementos</string>
     <string name="search_hint">Que estas buscando?</string>
     <string name="not_initialized">Leafpad no ha sido iniciado todavia!</string>
     <string name="no_search_results">Nada encontrado</string>
@@ -120,7 +121,7 @@
     <string name="country_title_catalan">Catalan</string>
     <string name="country_title_spanish">Español</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
-    <string name="setCategory">Set Category</string>
+    <string name="setCategory">Fijar categoría</string>
     <string name="country_title_albanian">Albania</string>
     <string name="country_title_indonesian">Indonesia</string>
     <string name="country_title_russian">Ruso</string>
@@ -149,7 +150,7 @@
     <string name="country_title_portuguese">Portugués</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Blubberland(@Blubberland), Maximilian Hüttner(@MaxHue)</string>
-    <string name="country_title_hindi_latin">Hindi (alfabeto latino)</string>
+    <string name="country_title_hindi_latin">Hindi (Alfabeto latino)</string>
     <string name="country_title_hindi">Hindi</string>
     <string name="country_title_translator_estonian" translatable="false">Priit Jõerüüt(@jrthwlate)</string>
     <string name="country_title_estonian">Estonia</string>
@@ -170,26 +171,26 @@
     <string name="country_title_danish">Danés</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
     <string name="country_title_serbian">Serbian</string>
-    <string name="item_menu_add_category">create new category</string>
-    <string name="category">Category</string>
-    <string name="category_name">name of the category</string>
-    <string name="select_color">choose category color</string>
-    <string name="edit_category">edit category</string>
-    <string name="add_category">add category</string>
-    <string name="category_color">category color</string>
-    <string name="save_category">save category</string>
-    <string name="delete_category">Delete category</string>
-    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
-    <string name="delete_category_hint">Notes are retained but lose this category.</string>
-    <string name="manage_categories">Manage categories</string>
-    <string name="manage_categories_summary">Create, edit, and delete</string>
-    <string name="error">error</string>
-    <string name="category_already_exists">Category allready exists</string>
-    <string name="database_error">database error</string>
-    <string name="open_source_licenses">Open source licenses</string>
-    <string name="error_loading_licenses">Error loading licenses</string>
-    <string name="open_source_licenses_summary">View used libraries and licenses</string>
-    <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
-    <string name="database_error_log">Database Error</string>
-    <string name="category_name_required">Empty category is not allowed</string>
+    <string name="item_menu_add_category">Crear categoría nueva</string>
+    <string name="category">Categoría</string>
+    <string name="category_name">Nombre de la categoría</string>
+    <string name="select_color">Seleccionar color</string>
+    <string name="edit_category">Edit categoría</string>
+    <string name="add_category">Añadir categoría</string>
+    <string name="category_color">Color de la categoría</string>
+    <string name="save_category">Guardar categoría</string>
+    <string name="delete_category">Borrar categoría</string>
+    <string name="delete_category_confirm">¿Está seguro de querer borrar la categoría \"%1$s\"?</string>
+    <string name="delete_category_hint">Las notas permanecen, pero pierden esta categoría.</string>
+    <string name="manage_categories">Gestionar categorías</string>
+    <string name="manage_categories_summary">Crear, editar y borrar</string>
+    <string name="error">Error</string>
+    <string name="category_already_exists">La categoría ya existe</string>
+    <string name="database_error">Error en la base de datos</string>
+    <string name="open_source_licenses">Licencias de código abierto</string>
+    <string name="error_loading_licenses">Ha ocurrido un error al cargar las licencias</string>
+    <string name="open_source_licenses_summary">Ver bibliotecas y licencias utilizadas</string>
+    <string name="thanks_to_all_contributors">Gracias a todos los colaboradores y amigos que ayudan a traducir este proyecto a través de Weblate; su tiempo y esfuerzo son muy apreciados. Para consultar la lista completa y siempre actualizada de colaboradores, visite nuestro repositorio de GitHub.</string>
+    <string name="database_error_log">Error en la base de datos</string>
+    <string name="category_name_required">No se permite una categoría vacía</string>
 </resources>
