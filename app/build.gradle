@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = 'com.git.amarradi.leafpad'
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.git.amarradi.leafpad"
-        minSdkVersion = 25
-        targetSdkVersion = 35
+        minSdkVersion 25
+        targetSdkVersion 36
         versionCode = 30
         versionName = "1.22"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -64,7 +64,7 @@ android {
     buildTypes {
         release {
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
@@ -103,22 +103,23 @@ android {
 
 dependencies {
 
-    implementation 'androidx.navigation:navigation-fragment:2.6.0'
-    implementation 'androidx.navigation:navigation-ui:2.6.0'
-    def core = "1.16.0"
+//    implementation 'androidx.navigation:navigation-fragment:2.9.7'
+//    implementation 'androidx.navigation:navigation-ui:2.9.7'
+
+    def core = "1.18.0"
     def coordinatorLayout = "1.3.0"
     def appcompat = "1.7.1"
-    def material= "1.12.0"
-    def splashscreen = "1.2.0-rc01"
+    def material = "1.13.0"
+    def splashscreen = "1.2.0"
     def constraintlayout = "2.2.1"
     def preference_version = "1.2.1"
-    def activity_version = '1.10.1'
+    def activity_version = '1.13.0'
     def lifecycle = '2.9.0'
-    def roomcommonjvm = '2.8.3'
-    def roomruntime1 = '2.8.3'
-    def roomruntime2 = '2.8.4'
-    def roomcompiler1 = '2.8.3'
-    def roomcompiler2 = '2.8.4'
+//    def roomcommonjvm = '2.8.3'
+//    def roomruntime1 = '2.8.3'
+    def room = '2.8.4'
+//    def roomcompiler1 = '2.8.3'
+//    def roomcompiler2 = '2.8.4'
     def colorpicker = '1.1.0'
 
 
@@ -131,11 +132,11 @@ dependencies {
     implementation "androidx.preference:preference:$preference_version"
     implementation "androidx.activity:activity:$activity_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle"
-    implementation "androidx.room:room-common-jvm:$roomcommonjvm"
-    implementation "androidx.room:room-runtime:$roomruntime1"
-    implementation "androidx.room:room-runtime:$roomruntime2"
-    annotationProcessor "androidx.room:room-compiler:$roomcompiler1"
-    annotationProcessor "androidx.room:room-compiler:$roomcompiler2"
+//    implementation "androidx.room:room-common-jvm:$roomcommonjvm"
+//    implementation "androidx.room:room-runtime:$roomruntime1"
+    implementation "androidx.room:room-runtime:$room"
+    annotationProcessor "androidx.room:room-compiler:$room"
+//    annotationProcessor "androidx.room:room-compiler:$roomcompiler2"
     implementation "com.jaredrummler:colorpicker:$colorpicker"
 
 }
