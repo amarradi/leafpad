@@ -1,1 +1,11 @@
-Prázdné poznámky budou odstraněny jestli jsou zahozeny
+Oprava chyb: Prázdné poznámky budou odstraněny jestli jsou zahozeny.
+Nastavení odděleny od sekci "O aplikaci"
+Aktualizované překlady
+Kategorie byly přidané a jména a barvy těchto kategorií lze volně vybrat
+Lze volně přidat kategorie pro každou poznámku
+Poznámky jsou teď uloženy v databázi
+Úprava funkcí zálohovat a obnovit
+Přidány nové ikony
+Přidány nové barvy
+Přidány licence
+Zbytečné fonty odebrány
