@@ -8,9 +8,9 @@
     <string name="lightmode_preference" translatable="false">lightmode</string>
     <string name="system_preference_option_value" translatable="false">system</string>
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
-    <string name="theme_preference">Theme</string>
+    <string name="theme_preference">Thème</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
-    <string name="created_txt">crée le</string>
+    <string name="created_txt">créée le</string>
     <string name="remove_dailog_message">Cette note sera définitivement supprimée, et ne pourra plus être réstaurée.</string>
     <string name="remove_dialog_abort">Annuler</string>
     <string name="menu_settings">Réglages</string>
@@ -49,7 +49,7 @@
     <string name="tell_about">Ce que je veux dire à propos de Leafpad</string>
     <string name="version">version</string>
     <string name="change">version</string>
-    <string name="what_is_leafpad">Leafpad est une application simple pour prendre des notes.</string>
+    <string name="what_is_leafpad">Leafpad est une application simple pour prendre des notes. Avec cette application, vous pouvez créer, modifier, partager ou supprimer des notes sur votre téléphone.</string>
     <string name="leafpad_work">Leafpad sauvegarde toutes les données localement sur votre smartphone. Les notes ou métadonnées telles que la date et l\'heure ne sont stockées dans aucun serveurs distants, et ne sont partagées avec personne. Aucune analyse de texte n \'est effectuée non plus. Les notes vous appartiennent. Vous décidez ce que vous faîtes avec elles.</string>
     <string name="rev20_12">Et je vis les morts, les grands et les petits, debout devant le trône ; et des livres furent ouverts ; et un autre livre fut ouvert, qui est le livre de la vie ; et les morts furent jugés des choses qui étaient écrites dans les livres, selon leurs œuvres. Apocalypse 20 :12</string>
     <string name="thanks">Merci Stefan, Stefan, Manuel, Falk, Stephanie et Emil pour vos idées et tester l\'application.</string>
@@ -170,7 +170,7 @@
     <string name="country_title_danish">Danish</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
     <string name="country_title_serbian">Serbian</string>
-    <string name="item_menu_add_category">create new category</string>
+    <string name="item_menu_add_category">Créer une nouvelle catégorie</string>
     <string name="category">Category</string>
     <string name="category_name">name of the category</string>
     <string name="select_color">choose category color</string>
@@ -181,8 +181,8 @@
     <string name="delete_category">Delete category</string>
     <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
     <string name="delete_category_hint">Notes are retained but lose this category.</string>
-    <string name="manage_categories">Manage categories</string>
-    <string name="manage_categories_summary">Create, edit, and delete</string>
+    <string name="manage_categories">Gestion des catégories</string>
+    <string name="manage_categories_summary">Créer, modifier ou supprimer</string>
     <string name="error">error</string>
     <string name="category_already_exists">Category allready exists</string>
     <string name="database_error">database error</string>
