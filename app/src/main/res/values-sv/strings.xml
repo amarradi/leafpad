@@ -21,7 +21,7 @@
     <string name="action_fab_note">Gör en anteckning</string>
     <string name="title_activity_note_edit">Edit Note</string>
     <string name="translate">Översätt appen på Weblate</string>
-    <string name="change">version</string>
+    <string name="change">Version</string>
     <string name="system_preference_key">följ system (standard)</string>
     <string name="contentDescription">Lägg till ny anteckning</string>
     <string name="action_edit_note">Edit Note</string>
@@ -29,18 +29,18 @@
     <string name="general_preference">General general</string>
     <string name="title_licence">Licenser</string>
     <string name="remove_dailog_message">Denna anmärkning kommer att raderas permanent. Därefter kan den inte återställas.</string>
-    <string name="version">version</string>
+    <string name="version">Version</string>
     <string name="find_code_on_github_summary">Du kan se och granska leafpads källkod via förvaret. Om du har några funktionsförfrågningar eller vill rapportera ett fel är du välkommen att öppna ett problem.</string>
     <string name="action_share_title">Titel</string>
     <string name="participate">Delta</string>
     <string name="title_hint">Titel</string>
     <string name="about">Om</string>
     <string name="theme_summary">Växla mellan mörkt och ljust tema</string>
-    <string name="what_is_leafpad">Leafpad är en enkel app för att ta noter.</string>
+    <string name="what_is_leafpad">Leafpad är en enkel app för att ta noter. Med den här appen kan du skapa, redigera, skicka eller ta bort anteckningar på din telefon.</string>
     <string name="created_txt">skapad på</string>
     <string name="action_remove">Ta bort anteckning</string>
     <string name="licence">Open source licenser</string>
-    <string name="edited_text">redigerad på</string>
+    <string name="edited_text">Redigerad på</string>
     <string name="body_hint">Note</string>
     <string name="lightmode_preference_key">lightmode</string>
     <string name="find_code_on_github">GitHub</string>
@@ -50,7 +50,7 @@
     <string name="share_note">Dela notera?</string>
     <string name="thanks">Tack Stefan, Stefan, Manuel, Falk och Stephanie för dina idéer och testa appen.</string>
     <string name="statement">Vi skriver ner shoppinglistor, anteckningar för samtal, packningslistor för semester eller vänners födelsedagar. Det här är alla bra saker så att vi inte glömmer dem. Det är mycket likt Gud, han skriver ner våra goda och dåliga gärningar och räddar dem. Gud är över allt och vet allt. Gud älskar människor och vill ha gemenskap med dem. Men det är bara möjligt om vi ses av Gud som oskyldiga. Genom tron på Jesus Kristus utplånas våra dåliga gärningar (vår skuld) inför Gud. Jesus Kristus försonade för vår skuld på korset av Golgata. Varje person som accepterar detta kommer in i livets bok för alltid. Är du registrerad i livets bok?</string>
-    <string name="hide_note">hide note</string>
+    <string name="hide_note">Gör anteckningen osynlig</string>
     <string name="translation_help">Hjälp till att översätta appen på Weblate.</string>
     <string name="rev20_12">Och jag såg de döda, de stora och de små, som stod inför tronen, och böcker öppnades: och en annan bok öppnades, som är livets bok: och de döda dömdes ut ur de ting som skrevs i böckerna, enligt deras verk. Uppenbarelse 20:12</string>
     <string name="its_opensource">Leafpad är OpenSource och dess fria</string>
@@ -60,9 +60,9 @@
     <string name="remove_dialog_title">Är du säker?</string>
     <string name="action_add_note">Lägg till Note</string>
     <string name="action_share_note">Dela anteckning</string>
-    <string name="hide_hidden">gömda dolda anteckningar</string>
-    <string name="show_note">gör anteckningen synlig</string>
-    <string name="show_hidden">visa dolda anteckningar</string>
+    <string name="hide_hidden">Dölj dolda anteckningar</string>
+    <string name="show_note">Gör anteckningen synlig</string>
+    <string name="show_hidden">Visa dolda anteckningar</string>
     <string name="note_is_recipe">note is a recipe</string>
     <string name="note_is_no_recipe">note is no recipe</string>
     <string name="save">Save all notes as xml</string>
@@ -108,11 +108,11 @@
     <string name="close_release_note">Stäng knapp</string>
     <string name="title_required">Titel krävs</string>
     <string name="keep_screen_on_dialog_yes">Ja</string>
-    <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
+    <string name="keep_screen_on_dialog_message">Att hålla skärmen på kan avsevärt öka batteriförbrukningen. Är du säker på att du vill aktivera den här funktionen?</string>
     <string name="keep_screen_on_dialog_no">No</string>
-    <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
+    <string name="keep_screen_on_summary">Förhindra skärmen från att stänga av medan du använder Leafpad</string>
     <string name="keep_screen_on_title">Behåll skärmen på</string>
-    <string name="keep_screen_on_dialog_title">Battery usage warning</string>
+    <string name="keep_screen_on_dialog_title">Batteri användning varning</string>
     <string name="country_title_translator_czech" translatable="false">MessingWithComputers(@MessingWithComputers)</string>
     <string name="country_title_french">French</string>
     <string name="country_title_translator_portuguese" translatable="false">Lucas Alves Rego(@devlulcas), Ettlu selva rula(@Ttormor)</string>
@@ -148,7 +148,7 @@
     <string name="country_title_portuguese">Portuguese</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Blubberland(@Blubberland), Maximilian Hüttner(@MaxHue)</string>
-    <string name="country_title_hindi_latin">Hindi (Latin script)</string>
+    <string name="country_title_hindi_latin">Indiska (latinska skriften)</string>
     <string name="country_title_hindi">Hindi</string>
     <string name="country_title_translator_estonian" translatable="false">Priit Jõerüüt(@jrthwlate)</string>
     <string name="country_title_estonian">Estonian</string>
@@ -169,26 +169,26 @@
     <string name="country_title_danish">Danish</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
     <string name="country_title_serbian">Serbian</string>
-    <string name="item_menu_add_category">create new category</string>
-    <string name="category">Category</string>
-    <string name="category_name">name of the category</string>
-    <string name="select_color">choose category color</string>
-    <string name="edit_category">edit category</string>
-    <string name="add_category">add category</string>
-    <string name="category_color">category color</string>
-    <string name="save_category">save category</string>
-    <string name="delete_category">Delete category</string>
-    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
-    <string name="delete_category_hint">Notes are retained but lose this category.</string>
-    <string name="manage_categories">Manage categories</string>
-    <string name="manage_categories_summary">Create, edit, and delete</string>
-    <string name="error">error</string>
+    <string name="item_menu_add_category">Skapa ny kategori</string>
+    <string name="category">Kategori</string>
+    <string name="category_name">Namn på kategorin</string>
+    <string name="select_color">Välj färg</string>
+    <string name="edit_category">Redigera kategori</string>
+    <string name="add_category">Lägg till kategori</string>
+    <string name="category_color">kategori färg</string>
+    <string name="save_category">Spara kategori</string>
+    <string name="delete_category">Ta bort kategori</string>
+    <string name="delete_category_confirm">Är du säker på att du vill ta bort kategorin \"%1$s\"?</string>
+    <string name="delete_category_hint">Anteckningar behålls men förlorar denna kategori.</string>
+    <string name="manage_categories">Hantera kategorier</string>
+    <string name="manage_categories_summary">Skapa, redigera och ta bort</string>
+    <string name="error">Fel</string>
     <string name="category_already_exists">Kategori existerar redan</string>
-    <string name="database_error">database error</string>
+    <string name="database_error">Databasfel</string>
     <string name="open_source_licenses">Öppen källkodslicenser</string>
     <string name="error_loading_licenses">Fel vid inläsning av licenser</string>
     <string name="open_source_licenses_summary">Visa använda bibliotek och licenser</string>
     <string name="thanks_to_all_contributors">Tack till alla bidragsgivare och vänner som hjälper till att översätta detta projekt via Weblate – er tid och ansträngning uppskattas verkligen. För en fullständig och alltid uppdaterad lista över bidragsgivare, besök vårt GitHub-arkiv.</string>
-    <string name="database_error_log">Database Error</string>
-    <string name="category_name_required">Empty category is not allowed</string>
+    <string name="database_error_log">Databasfel</string>
+    <string name="category_name_required">Tomma kategorier är inte tillåtet</string>
 </resources>
