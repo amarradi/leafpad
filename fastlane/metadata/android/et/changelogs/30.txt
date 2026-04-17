@@ -1,1 +1,11 @@
-Nüüdsest tühjad kirjed kustutatakse salvestamisest loobumisel
+Veaparandus: tühjad kirjed kustutatakse nüüd salvestamise katkestamisel
+Seadistused on eraldatud menüüst „Rakenduse teave”
+Tõlked on uuendatud
+Lisatud on kategooriad; nende nimesid ja värve saab vabalt valida
+Iga märkme kohta saab lisada piiramatu arvu kategooriaid
+Nüüd kasutame märkmete salvestamiseks andmebaasi
+Varundus- ja taastamisfunktsiooni täiustamine
+Lisandusid uued ikoonid
+Lisandusid uued värvid
+Lisandusid litsentsid
+Eemaldasime mittevajalikud kirjatüübid

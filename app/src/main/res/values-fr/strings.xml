@@ -8,9 +8,9 @@
     <string name="lightmode_preference" translatable="false">lightmode</string>
     <string name="system_preference_option_value" translatable="false">system</string>
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
-    <string name="theme_preference">Theme</string>
+    <string name="theme_preference">Thème</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
-    <string name="created_txt">crée le</string>
+    <string name="created_txt">créée le</string>
     <string name="remove_dailog_message">Cette note sera définitivement supprimée, et ne pourra plus être réstaurée.</string>
     <string name="remove_dialog_abort">Annuler</string>
     <string name="menu_settings">Réglages</string>
@@ -23,7 +23,7 @@
     <string name="licence">Licences Open Source</string>
     <string name="share_note">Note de partage ?</string>
     <string name="note_will_be_saved_first">La note sera sauvegardée</string>
-    <string name="action_save">Enregistrer la note</string>
+    <string name="action_save">Sauvegarder la note</string>
     <string name="action_note_saved">sauvés</string>
     <string name="title_activity_note_edit">Modifier la note</string>
     <string name="action_add_note">Ajouter la note</string>
@@ -32,14 +32,14 @@
     <string name="action_share_title">Titre</string>
     <string name="action_share_body">Note</string>
     <string name="action_remove">Supprimer la note</string>
-    <string name="action_fab_note">créer une note</string>
+    <string name="action_fab_note">Créer une note</string>
     <string name="add_shortcut_short_label">Écrivez un nouveau</string>
     <string name="title_hint">Titre</string>
     <string name="body_hint">Note</string>
-    <string name="contentDescription">ajouter une nouvelle note</string>
-    <string name="imported">la note a été transférée à leafpad</string>
-    <string name="edited_text">édité le</string>
-    <string name="new_note">nouvelle note</string>
+    <string name="contentDescription">Ajouter une nouvelle note</string>
+    <string name="imported">La note a été transférée à leafpad</string>
+    <string name="edited_text">Édité le</string>
+    <string name="new_note">Nouvelle note</string>
     <string name="satisfied">Appréciez-vous Leafpad ?</string>
     <string name="rate_the_app">Que diriez-vous d\'un avis sur le PlayStore de Google ? Alors ouvrez directement Google Play.</string>
     <string name="system_preference_key">suivre le système (standard)</string>
@@ -47,9 +47,9 @@
     <string name="about">À propos</string>
     <string name="about_the_app">À propos de l\'application</string>
     <string name="tell_about">Ce que je veux dire à propos de Leafpad</string>
-    <string name="version">version</string>
-    <string name="change">version</string>
-    <string name="what_is_leafpad">Leafpad est une application simple pour prendre des notes.</string>
+    <string name="version">Version</string>
+    <string name="change">Version</string>
+    <string name="what_is_leafpad">Leafpad est une application simple pour prendre des notes. Avec cette application, vous pouvez créer, modifier, partager ou supprimer des notes sur votre téléphone.</string>
     <string name="leafpad_work">Leafpad sauvegarde toutes les données localement sur votre smartphone. Les notes ou métadonnées telles que la date et l\'heure ne sont stockées dans aucun serveurs distants, et ne sont partagées avec personne. Aucune analyse de texte n \'est effectuée non plus. Les notes vous appartiennent. Vous décidez ce que vous faîtes avec elles.</string>
     <string name="rev20_12">Et je vis les morts, les grands et les petits, debout devant le trône ; et des livres furent ouverts ; et un autre livre fut ouvert, qui est le livre de la vie ; et les morts furent jugés des choses qui étaient écrites dans les livres, selon leurs œuvres. Apocalypse 20 :12</string>
     <string name="thanks">Merci Stefan, Stefan, Manuel, Falk, Stephanie et Emil pour vos idées et tester l\'application.</string>
@@ -60,11 +60,11 @@
     <string name="participate">Participer ou contribuer</string>
     <string name="translate">Traduire l\'application sur Weblate</string>
     <string name="translation_help">Aidez-nous à traduire l\'application dans votre langue sur weblate</string>
-    <string name="hide_note">rendre la note invisible</string>
+    <string name="hide_note">Rendre la note invisible</string>
     <string name="hide_hidden">cachés</string>
-    <string name="show_note">rendre la note visible</string>
+    <string name="show_note">Rendre la note visible</string>
     <string name="show_hidden">montres cachées</string>
-    <string name="note_is_recipe">note est une recette</string>
+    <string name="note_is_recipe">La note est une recette</string>
     <string name="note_is_no_recipe">note n\'est pas une recette</string>
     <string name="no">Non</string>
     <string name="save">Enregistrer toutes les notes comme xml</string>
@@ -95,7 +95,7 @@
     <string name="toggle">change</string>
     <string name="note_shared">Note partagée</string>
     <string name="save_changes">des changements</string>
-    <string name="discard">rejeter</string>
+    <string name="discard">Rejeter</string>
     <string name="unsaved_changes_message">Votre note a changé. Voulez-vous enregistrer ou supprimer les changements ?</string>
     <string name="item_menu_description">menu pour les actions des éléments</string>
     <string name="search_hint">Tu cherches quoi ?</string>
@@ -170,7 +170,7 @@
     <string name="country_title_danish">Danish</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
     <string name="country_title_serbian">Serbian</string>
-    <string name="item_menu_add_category">create new category</string>
+    <string name="item_menu_add_category">Créer une nouvelle catégorie</string>
     <string name="category">Category</string>
     <string name="category_name">name of the category</string>
     <string name="select_color">choose category color</string>
@@ -181,14 +181,14 @@
     <string name="delete_category">Delete category</string>
     <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
     <string name="delete_category_hint">Notes are retained but lose this category.</string>
-    <string name="manage_categories">Manage categories</string>
-    <string name="manage_categories_summary">Create, edit, and delete</string>
+    <string name="manage_categories">Gestion des catégories</string>
+    <string name="manage_categories_summary">Créer, modifier ou supprimer</string>
     <string name="error">error</string>
     <string name="category_already_exists">Category allready exists</string>
     <string name="database_error">database error</string>
     <string name="open_source_licenses">Open source licenses</string>
     <string name="error_loading_licenses">Error loading licenses</string>
-    <string name="open_source_licenses_summary">View used libraries and licenses</string>
+    <string name="open_source_licenses_summary">Voir les bibliothèques utilisées et les licences</string>
     <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
     <string name="database_error_log">Database Error</string>
     <string name="category_name_required">Empty category is not allowed</string>
