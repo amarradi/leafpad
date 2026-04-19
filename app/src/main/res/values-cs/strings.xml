@@ -14,7 +14,7 @@
     <string name="leafpad_work">Leafpad ukládá všechna data lokálně na vašem chytrém telefonu. Poznámky nebo metadata, jako je datum a čas nejsou uloženy v žádném cloudu a nejsou sdíleny s někým. Žádné textové analýzy se neprovádí. Poznámky patří k vám. Vy rozhodujete, co s nimi děláte.</string>
     <string name="new_note">Nová Poznámka</string>
     <string name="imported">Poznámka byla odeslána na leafpad</string>
-    <string name="rate_the_app">Co třeba recenzi v Google PlayStore? Klepněte pro otevření Google Play přímo.</string>
+    <string name="rate_the_app">Ohodnotit aplikaci přes Play Store?</string>
     <string name="add_shortcut_short_label">Napsat Novou</string>
     <string name="action_note_saved">uložené</string>
     <string name="tell_about">Co chci vám říct o Leafpad</string>
@@ -46,20 +46,20 @@
     <string name="find_code_on_github">GitHub</string>
     <string name="darkmode_preference_key">tmavý režim</string>
     <string name="search">hledat poznámky</string>
-    <string name="action_save">Uložit Poznámku</string>
+    <string name="action_save">Uložit poznámku</string>
     <string name="share_note">Sdílet Poznámku?</string>
     <string name="thanks">Děkuji Stefane, Stefane, Manuele, Falku, Stephanie a Emile pro vaše nápady a testování aplikace.</string>
     <string name="statement">Vypíšeme seznamy obchodů, poznámky pro rozhovory, balíčky pro dovolenou nebo narozeniny přátel. To jsou všechny dobré věci, abychom je nezapomněli. Je to velmi podobné s Bohem, píše své dobré a špatné skutky a uloží je. Bůh je nad vším a jednoduše ví všechno. Bůh miluje lidi a chce mít přátelství s nimi. Ale to je možné pouze v případě, že jsme viděli Bohem jako neškodný. Prostřednictvím víry v Ježíši Kristu, naše špatné skutky (naše viny) jsou vymazány před Bohem. Ježíš Kristus odčinil pro naše viny na kříži Kalvárie. Každá osoba, která souhlasí, je v knize života navždy. Jste registrováni v knize života?</string>
     <string name="hide_note">Neviditelná poznámka</string>
     <string name="translation_help">Pomožte aplikaci přeložit do vašeho jazyka na Weblate.</string>
     <string name="rev20_12">A viděl jsem mrtvé, velcí a malí, stojící před trůnem; a knihy byly otevřeny: a další kniha byla otevřena, která je kniha života: a mrtvý byli posuzováni z věcí, které byly napsány v knihách, podle jejich děl. Zjevení 20:12</string>
-    <string name="its_opensource">Leafpad je Open Source a je zdarma</string>
+    <string name="its_opensource">Leafpad je Open Source a je svobodný</string>
     <string name="satisfied">Líbí se vám leafpad?</string>
     <string name="app_name">Leafpad</string>
     <string name="about_the_app">O této aplikaci</string>
     <string name="remove_dialog_title">Jste si jist?</string>
     <string name="action_add_note">Přidat poznámku</string>
-    <string name="action_share_note">Sdílet poznámku</string>
+    <string name="action_share_note">Sdílet Poznámku</string>
     <string name="hide_hidden">Skrýt skryté poznámky</string>
     <string name="show_note">Viditelná poznámka</string>
     <string name="show_hidden">Zobrazit skryté poznámky</string>
@@ -96,7 +96,7 @@
     <string name="showRestoreConfirmationMessage">Všechny aktuální poznámky budou nahrazeny zálohou. Pokračovat?</string>
     <string name="toggle">Změna zobrazení</string>
     <string name="note_shared">Poznámka Sdělena</string>
-    <string name="save_changes">Uložit Změny</string>
+    <string name="save_changes">Uložit změny</string>
     <string name="notification_of_change_description">Oznámit o změnách ve poznámkách</string>
     <string name="discard">Zahodit</string>
     <string name="item_menu_description">Menu pro akce položky</string>
@@ -123,7 +123,7 @@
     <string name="country_title_catalan">Katalánština</string>
     <string name="country_title_spanish">Španělština</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
-    <string name="setCategory">Nastavit Kategorii</string>
+    <string name="setCategory">Nastavit kategorii</string>
     <string name="country_title_albanian">Albánština</string>
     <string name="country_title_indonesian">Indonéština</string>
     <string name="country_title_russian">Ruština</string>
@@ -152,7 +152,7 @@
     <string name="country_title_portuguese">Portugalština</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Blubberland(@Blubberland), Maximilian Hüttner(@MaxHue)</string>
-    <string name="country_title_hindi_latin">Hindština (Latinské písmo)</string>
+    <string name="country_title_hindi_latin">Indický (Latinské písmo)</string>
     <string name="country_title_hindi">Hindština</string>
     <string name="country_title_translator_estonian" translatable="false">Priit Jõerüüt(@jrthwlate)</string>
     <string name="country_title_estonian">Estonština</string>
@@ -172,7 +172,7 @@
     <string name="menu_about">O Leafpad</string>
     <string name="country_title_danish">Danish</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
-    <string name="country_title_serbian">Serbian</string>
+    <string name="country_title_serbian">Srbština</string>
     <string name="item_menu_add_category">Vytvořit novou kategorii</string>
     <string name="category">Kategorie</string>
     <string name="category_name">Jméno kategorie</string>
@@ -182,17 +182,17 @@
     <string name="category_color">barva kategorie</string>
     <string name="save_category">Uložit kategorii</string>
     <string name="delete_category">Smazat kategorii</string>
-    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
-    <string name="delete_category_hint">Notes are retained but lose this category.</string>
-    <string name="manage_categories">Manage categories</string>
-    <string name="manage_categories_summary">Create, edit, and delete</string>
-    <string name="error">error</string>
-    <string name="category_already_exists">Category allready exists</string>
-    <string name="database_error">database error</string>
-    <string name="open_source_licenses">Open source licenses</string>
-    <string name="error_loading_licenses">Error loading licenses</string>
-    <string name="open_source_licenses_summary">View used libraries and licenses</string>
-    <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
-    <string name="database_error_log">Database Error</string>
-    <string name="category_name_required">Empty category is not allowed</string>
+    <string name="delete_category_confirm">Určitě chcete smazat kategorii “%1$s”?</string>
+    <string name="delete_category_hint">Poznámky jsou zanechány, ale ztrácí tuto kategorii.</string>
+    <string name="manage_categories">Spravovat kategorie</string>
+    <string name="manage_categories_summary">Vytváření, upravování a odstraňování</string>
+    <string name="error">Chyba</string>
+    <string name="category_already_exists">Kategorie už existuje</string>
+    <string name="database_error">Chyba Databáze</string>
+    <string name="open_source_licenses">Licence open source</string>
+    <string name="error_loading_licenses">Chyba načtení licencí</string>
+    <string name="open_source_licenses_summary">Zobrazit použité knihovny a licence</string>
+    <string name="thanks_to_all_contributors">Díky všem přispěvatelů a kamarádů, kteří pomáhají překládat tento projekt přes Weblate — vaše snaha a věnování jsou doopravdy oceněny. Pro celý a vždy aktualizován seznam přispěvatelů, prosím naštivte náš GitHub repozitář.</string>
+    <string name="database_error_log">Chyba Databáze</string>
+    <string name="category_name_required">Prázdná kategorie není platná</string>
 </resources>
