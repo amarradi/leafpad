@@ -186,11 +186,11 @@
     <string name="manage_categories_summary">Créer, Éditer et Supprimer</string>
     <string name="error">Erreur</string>
     <string name="category_already_exists">La catégorie existe déjà</string>
-    <string name="database_error">database error</string>
-    <string name="open_source_licenses">Open source licenses</string>
-    <string name="error_loading_licenses">Error loading licenses</string>
+    <string name="database_error">Erreur de Base de données</string>
+    <string name="open_source_licenses">Licences open source</string>
+    <string name="error_loading_licenses">Erreur de chargement de licences</string>
     <string name="open_source_licenses_summary">Voir les bibliothèques utilisées et les licences</string>
-    <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
-    <string name="database_error_log">Database Error</string>
-    <string name="category_name_required">Empty category is not allowed</string>
+    <string name="thanks_to_all_contributors">Merci à tous les contributeurs et amis qui participent à la traduction de ce projet via Weblate : nous apprécions sincèrement le temps et les efforts que vous y consacrez. Pour consulter la liste complète et toujours à jour des contributeurs, rendez-vous sur notre dépôt GitHub.</string>
+    <string name="database_error_log">Erreur de Base de données</string>
+    <string name="category_name_required">Une catégorie vide est interdite</string>
 </resources>
