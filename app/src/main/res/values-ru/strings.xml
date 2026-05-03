@@ -9,7 +9,7 @@
     <string name="theme_preference">Theme</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="app_name">Leafpad</string>
-    <string name="new_note">новая заметка</string>
+    <string name="new_note">Новая заметка</string>
     <string name="imported">заметка была отправлена в Leafpad</string>
     <string name="rate_the_app">А может напишите отзыв в Google PlayStore? Тогда открой Google Play напрямую.</string>
     <string name="add_shortcut_short_label">Записать новую</string>
