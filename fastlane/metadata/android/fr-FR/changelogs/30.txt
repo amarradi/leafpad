@@ -1,11 +1,11 @@
 Correction d'un bug : les entrées vides sont désormais supprimées lorsqu'elles sont rejetées
 Séparation des paramètres du menu « À propos »
-Mise à jour des traductions
+Traductions mises à jour
 Ajout de catégories ; les noms et les couleurs peuvent être choisis librement
 Possibilité d'ajouter un nombre illimité de catégories par note
 Passage au stockage des notes dans une base de données
 Ajustement de la fonction de sauvegarde/restauration
-Ajout de nouvelles icônes
-Ajout de nouvelles couleurs
+Ajout d'icônes
+Ajout de couleurs
 Ajout de licences
 Suppression des polices inutiles
