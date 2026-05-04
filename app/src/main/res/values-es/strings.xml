@@ -3,7 +3,7 @@
     <string name="title_activity_note_edit">Editar nota</string>
     <string name="action_add_note">Añadir nota</string>
     <string name="action_edit_note">Editar nota</string>
-    <string name="action_share_note">Compartir nota</string>
+    <string name="action_share_note">Nota de participación</string>
     <string name="action_share_body">Nota</string>
     <string name="action_remove">Borrar nota</string>
     <string name="action_fab_note">Crear una nota</string>
