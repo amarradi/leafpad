@@ -9,19 +9,19 @@
     <string name="theme_preference">கருப்பொருள்</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="new_note">புதிய குறிப்பு</string>
-    <string name="leafpad_work">உங்கள் ச்மார்ட்போனில் உள்ளூரில் உள்ள அனைத்து தரவையும் லீச்பேட் சேமிக்கிறது. தேதி மற்றும் நேரம் போன்ற குறிப்புகள் அல்லது மேனிலை தரவு எந்த மேகத்திலும் சேமிக்கப்படவில்லை, அவை யாருடனும் பகிரப்படவில்லை. உரை பகுப்பாய்வு எதுவும் மேற்கொள்ளப்படவில்லை. குறிப்புகள் உங்களுக்கு சொந்தமானவை. நீங்கள் அவர்களுடன் என்ன செய்கிறீர்கள் என்பதை நீங்கள் தீர்மானிக்கிறீர்கள்.</string>
+    <string name="leafpad_work">உங்கள் திறன்பேசியில் உள்ளூரில் உள்ள அனைத்து தரவையும் இலைஅட்டை சேமிக்கிறது. தேதி மற்றும் நேரம் போன்ற குறிப்புகள் அல்லது மேனிலை தரவு எந்த மேகத்திலும் சேமிக்கப்படவில்லை, அவை யாருடனும் பகிரப்படவில்லை. உரை பகுப்பாய்வு எதுவும் மேற்கொள்ளப்படவில்லை. குறிப்புகள் உங்களுக்குச் சொந்தமானவை. நீங்கள் அவர்களுடன் என்ன செய்கிறீர்கள் என்பதை நீங்கள் தீர்மானிக்கிறீர்கள்.</string>
     <string name="action_note_saved">சேமிக்கப்பட்டது</string>
-    <string name="imported">குறிப்பு leafpadக்கு அனுப்பப்பட்டது</string>
-    <string name="rate_the_app">கூகிளின் பிளேச்டோரில் ஒரு மதிப்பாய்வு எப்படி? பின்னர் கூகிள் பிளேயை நேரடியாகத் திறக்கவும்.</string>
+    <string name="imported">குறிப்பு இலைஅட்டைக்கு அனுப்பப்பட்டது</string>
+    <string name="rate_the_app">இயக்கக்கடையில் ஒரு மதிப்பாய்வு இடு?</string>
     <string name="add_shortcut_short_label">புதிதாக எழுது</string>
-    <string name="tell_about">Leafpadஐ பற்றி நான் உங்களுக்கு கூற விரும்புவது</string>
+    <string name="tell_about">இலைஅட்டையை பற்றி நான் உங்களுக்குக் கூற விரும்புவது</string>
     <string name="action_share_body">குறிப்பு</string>
     <string name="remove_dialog_abort">ரத்து செய்</string>
     <string name="menu_settings">அமைப்புகள்</string>
-    <string name="action_fab_note">குறிப்பை உருவாக்கு</string>
+    <string name="action_fab_note">ஒரு குறிப்பை உருவாக்கு</string>
     <string name="title_activity_note_edit">குறிப்பை மாற்று</string>
     <string name="translate">Weblateஇல் செயலியை மொழிபெயர்க்க</string>
-    <string name="hide_hidden">மறைக்கப்பட்ட குறிப்புகளை மறைக்கவும்</string>
+    <string name="hide_hidden">மறைக்கப்பட்ட குறிப்புகளை மறை</string>
     <string name="change">பதிப்பு</string>
     <string name="system_preference_key">அமைப்பைப் பின்தொடரவும் (தரநிலை)</string>
     <string name="contentDescription">புதிய குறிப்பு சேர்</string>
@@ -31,53 +31,53 @@
     <string name="title_licence">உரிமங்கள்</string>
     <string name="remove_dailog_message">இந்த குறிப்பு நிரந்திரமாக அழிக்கப்படும் . பிறகு மீட்க இயலாது.</string>
     <string name="version">பதிப்பு</string>
-    <string name="show_note">குறிப்பைக் காணச் செய்யுங்கள்</string>
-    <string name="find_code_on_github_summary">களஞ்சியத்தின் வழியாக மூலக் குறியீட்டைக் காணலாம் மற்றும் சரிபார்க்கலாம். மாற்ற கோரிக்கைகள் மற்றும் பிழை செய்திகளுக்கு ஒரு சிக்கலைத் திறக்க உங்களை வரவேற்கிறோம்.</string>
+    <string name="show_note">குறிப்பைக் காட்டு</string>
+    <string name="find_code_on_github_summary">நீங்கள் இலைஅட்டையின் மூலக் குறியீட்டைக் களஞ்சியத்தின் மூலம் பார்க்கலாம் மற்றும் மதிப்பாய்வு செய்யலாம். உங்களிடம் ஏதேனும் பண்புக் கோரிக்கைகள் இருந்தால் அல்லது பிழையைப் புகாரளிக்க விரும்பினால், தயவுசெய்து சிக்கலைத் திறக்கவும்.</string>
     <string name="action_share_title">தலைப்பு</string>
     <string name="participate">பங்கேற்க அல்லது பங்கெடுக்க</string>
     <string name="title_hint">தலைப்பு</string>
     <string name="about">பற்றி</string>
     <string name="theme_summary">இருண்ட மற்றும் ஒளி கருப்பொருளுக்கு இடையில் மாற்றவும்</string>
-    <string name="what_is_leafpad">Leafpad குறிப்புகள் எடுக்க பயன்படும் ஒரு எளிய செயலி.</string>
+    <string name="what_is_leafpad">இலைஅட்டை குறிப்புகள் எடுக்கப் பயன்படும் ஒரு எளிய செயலி. இந்தப் பயன்பாட்டின் மூலம், உங்கள் மொபைலில் குறிப்புகளை உருவாக்கலாம், திருத்தலாம், அனுப்பலாம் அல்லது நீக்கலாம்.</string>
     <string name="created_txt">உருவாக்கபட்ட நேரம்</string>
     <string name="action_remove">குறிப்பை நீக்கு</string>
     <string name="licence">திறந்த மூல உரிமங்கள்</string>
-    <string name="edited_text">திருத்தப்பட்டது</string>
+    <string name="edited_text">அன்று திருத்தப்பட்டது</string>
     <string name="body_hint">குறிப்பு</string>
     <string name="lightmode_preference_key">லைட்மோட்</string>
     <string name="find_code_on_github">கிரப்</string>
     <string name="darkmode_preference_key">இருண்ட முறை</string>
     <string name="search">குறிப்புகளில் தேடு</string>
-    <string name="action_save">குறிப்பை செமி</string>
+    <string name="action_save">குறிப்பைச் சேமி</string>
     <string name="share_note">குறிப்பை பகிர?</string>
     <string name="thanks">உங்கள் சிந்தனைகள் மற்றும் பயன்பாட்டை சோதித்ததற்கு ச்டீபன், ச்டீபன், மானுவல், பால்க், ச்டீபனி மற்றும் எமில் ஆகியோருக்கு நன்றி.</string>
     <string name="statement">நாங்கள் சாப்பிங் பட்டியல்கள், உரையாடல்களுக்கான குறிப்புகள், விடுமுறைக்கான பொதி பட்டியல்கள் அல்லது நண்பர்களின் பிறந்த நாள் எழுதுகிறோம். இவை அனைத்தும் நல்ல விசயங்கள், எனவே அவற்றை நாம் மறக்க வேண்டாம். இது கடவுளுடன் மிகவும் ஒத்திருக்கிறது, அவர் நம்முடைய நல்ல மற்றும் கெட்ட செயல்களை எழுதி அவற்றைக் காப்பாற்றுகிறார். கடவுள் எல்லாவற்றிற்கும் மேலாக இருக்கிறார், எல்லாவற்றையும் அறிந்திருக்கிறார். கடவுள் மக்களை நேசிக்கிறார், அவர்களுடன் கூட்டுறவு கொள்ள விரும்புகிறார். ஆனால் கடவுளால் குற்றமற்றவர் என்று நாம் பார்த்தால் மட்டுமே இது சாத்தியமாகும். இயேசு கிறிச்துவின் மீதான விசுவாசத்தின் மூலம், நம்முடைய கெட்ட செயல்கள் (நம்முடைய குற்ற உணர்வு) கடவுளுக்கு முன்பாக அழிக்கப்படுகின்றன. கல்வரியின் சிலுவையில் நம்முடைய குற்றத்திற்காக இயேசு கிறிச்து பரிகாரம் செய்தார். இதை ஏற்றுக்கொள்ளும் ஒவ்வொரு நபரும் வாழ்க்கை புத்தகத்தில் என்றென்றும் நுழைந்தனர். நீங்கள் வாழ்க்கை புத்தகத்தில் பதிவு செய்யப்பட்டுள்ளீர்களா?</string>
-    <string name="hide_note">குறிப்பை கண்ணுக்கு தெரியாததாக ஆக்குங்கள்</string>
-    <string name="translation_help">weblateஇல் செயலியை உங்கள் மொழிக்கு மொழிபெயர்க்க உதவுங்கள்</string>
+    <string name="hide_note">குறிப்பை மறை</string>
+    <string name="translation_help">வலைபெயர்ப்பில் செயலியை உங்கள் மொழிக்கு மொழிபெயர்க்க உதவு.</string>
     <string name="rev20_12">நான் இறந்தவர்களையும், பெரியவனையும், சிறியவனையும் பார்த்தேன்; புத்தகங்கள் திறக்கப்பட்டன: மற்றொரு நூல் திறக்கப்பட்டது, இது வாழ்க்கை புத்தகம்: மற்றும் இறந்தவர்கள் புத்தகங்களில் எழுதப்பட்ட விசயங்களிலிருந்து தீர்மானிக்கப்பட்டனர், அவற்றின் படைப்புகளின்படி. வெளிப்படுத்துதல் 20:12</string>
-    <string name="its_opensource">Leafpad இலவசமானது மற்றும் திறந்த மூலக்கோடு உடையது</string>
-    <string name="satisfied">leafpadஐ விரும்பிகீர்களா ?</string>
-    <string name="app_name">லீச்பேட்</string>
+    <string name="its_opensource">இலைஅட்டை இலவசமானது மற்றும் திறந்த மூலக்கோடு உடையது</string>
+    <string name="satisfied">இலைஅட்டையை விரும்பிகீர்களா ?</string>
+    <string name="app_name">இலைஅட்டை</string>
     <string name="about_the_app">செயலியை பற்றி</string>
     <string name="remove_dialog_title">நீங்கள் உறுதியாக உள்ளீர்களா?</string>
     <string name="action_add_note">குறிப்பை சேர்</string>
     <string name="show_hidden">மறைக்கப்பட்ட குறிப்புகளைக் காட்டு</string>
-    <string name="action_share_note">குறிப்பை பகிர்</string>
+    <string name="action_share_note">குறிப்பைப் பகிர்</string>
     <string name="note_is_recipe">குறிப்பு ஒரு சமையல் குறிப்பு</string>
     <string name="note_is_no_recipe">குறிப்பு சமையல் குறிப்பல்ல</string>
-    <string name="save">அனைத்து குறிப்புகளையும் xmlஆக சேமி</string>
+    <string name="save">அனைத்து குறிப்புகளையும் json உடன் zipb கொள்கலனாகச் சேமி</string>
     <string name="showDeleteConfirmation">குறிப்புகளை நீக்க?</string>
     <string name="backupIsrunning">பிரதிகாப்பு உருவாக்கப்படுகிறது</string>
     <string name="no">இல்லை</string>
     <string name="importError">குறிப்புகளை இறக்குமதி செய்வதில் பிழை.</string>
-    <string name="restore">xml கோப்பிள் இருந்து அனைத்து குறிப்புகளையும் மீட்டெடு</string>
+    <string name="restore">zip கோப்பிள் இருந்து அனைத்து குறிப்புகளையும் மீட்டெடு</string>
     <plurals name="notes_imported">
         <item quantity="one">%1$d குறிப்பு இறக்குமதி செய்யப்பட்டது</item>
         <item quantity="other">%1$d குறிப்புகள் இறக்குமதி செய்யபட்டன</item>
     </plurals>
     <plurals name="notes_exported">
-        <item quantity="one">%1$d note backed up</item>
-        <item quantity="other">%1$d notes backed up</item>
+        <item quantity="one">%d குறிப்பு காப்புப் பிரதி எடுக்கப்பட்டது</item>
+        <item quantity="other">%d குறிப்புகள் காப்புப் பிரதி எடுக்கப்பட்டன</item>
     </plurals>
     <string name="showDeleteConfirmationMessage">அனைத்து குறிப்புகளும் நிரந்திரமாக நீக்கப்படும். தொடர்க?</string>
     <string name="fileOpeningError">கோப்பை திறப்பதில் பிழை.</string>
@@ -94,9 +94,9 @@
     <string name="note_shared">குறிப்பு பகிரப்பட்டது</string>
     <string name="discard">நிராகரி</string>
     <string name="item_menu_description">உருப்படி செயல்களுக்கான பட்டியல்</string>
-    <string name="not_initialized">லீச்பேட் இன்னும் துவக்கப்படவில்லை!</string>
+    <string name="not_initialized">இலைஅட்டை இன்னும் துவக்கப்படவில்லை!</string>
     <string name="empty_list">பட்டியலில் குறிப்புகள் இல்லை</string>
-    <string name="save_changes">மாற்றங்களை சேமி</string>
+    <string name="save_changes">மாற்றங்களைச் சேமி</string>
     <string name="search_hint">நீங்கள் எதை தேடுகிறீர்கள்?</string>
     <string name="startIconDescription">ஒரு தேடல் புலம்</string>
     <string name="notification_of_change_description">குறிப்புகளில் ஏற்படும் மாற்றங்கள் குறித்து அறிவிக்கவும்</string>
@@ -110,7 +110,7 @@
     <string name="keep_screen_on_dialog_yes">ஆம்</string>
     <string name="keep_screen_on_dialog_message">திரையை வைத்திருப்பது பேட்டரி நுகர்வு கணிசமாக அதிகரிக்கும். இந்த அம்சத்தை இயக்க விரும்புகிறீர்களா?</string>
     <string name="keep_screen_on_dialog_no">இல்லை</string>
-    <string name="keep_screen_on_summary">லீச்பேட்டைப் பயன்படுத்தும் போது திரை அணைக்கப்படுவதைத் தடுக்கவும்</string>
+    <string name="keep_screen_on_summary">இலைஅட்டையைப் பயன்படுத்தும்போது திரை அணைக்கப்படுவதைத் தடு</string>
     <string name="keep_screen_on_title">திரையை தொடர்ந்து வைத்திருங்கள்</string>
     <string name="keep_screen_on_dialog_title">மின்கல பயன்பாடு எச்சரிக்கை</string>
     <string name="country_title_translator_czech" translatable="false">MessingWithComputers(@MessingWithComputers)</string>
@@ -119,7 +119,7 @@
     <string name="country_title_catalan">கற்றலான்</string>
     <string name="country_title_spanish">ச்பானிச்</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
-    <string name="setCategory">Set Category</string>
+    <string name="setCategory">வகையை அமை</string>
     <string name="country_title_albanian">அல்பேனிய</string>
     <string name="country_title_indonesian">இந்தோனேசியன்</string>
     <string name="country_title_russian">ரஷியன்</string>
@@ -148,7 +148,7 @@
     <string name="country_title_portuguese">போர்த்துகீசியம்</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Blubberland(@Blubberland), Maximilian Hüttner(@MaxHue)</string>
-    <string name="country_title_hindi_latin">ஹிந்தி (லத்தின் எழுத்து)</string>
+    <string name="country_title_hindi_latin">இந்தியன் (லத்தின் எழுத்து)</string>
     <string name="country_title_hindi">ஹிந்தி</string>
     <string name="country_title_translator_estonian" translatable="false">Priit Jõerüüt(@jrthwlate)</string>
     <string name="country_title_estonian">எச்டோனிய</string>
@@ -165,30 +165,30 @@
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
     <string name="country_title_gothic">Gothic</string>
     <string name="country_title_dutch">Dutch</string>
-    <string name="menu_about">About Leafpad</string>
+    <string name="menu_about">இலைஅட்டைப் பற்றி</string>
     <string name="country_title_danish">Danish</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
     <string name="country_title_serbian">Serbian</string>
-    <string name="item_menu_add_category">create new category</string>
-    <string name="category">Category</string>
-    <string name="category_name">name of the category</string>
-    <string name="select_color">choose category color</string>
-    <string name="edit_category">edit category</string>
-    <string name="add_category">add category</string>
-    <string name="category_color">category color</string>
-    <string name="save_category">save category</string>
-    <string name="delete_category">Delete category</string>
-    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
-    <string name="delete_category_hint">Notes are retained but lose this category.</string>
-    <string name="manage_categories">Manage categories</string>
-    <string name="manage_categories_summary">Create, edit, and delete</string>
-    <string name="error">error</string>
-    <string name="category_already_exists">Category allready exists</string>
-    <string name="database_error">database error</string>
-    <string name="open_source_licenses">Open source licenses</string>
-    <string name="error_loading_licenses">Error loading licenses</string>
-    <string name="open_source_licenses_summary">View used libraries and licenses</string>
-    <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
-    <string name="database_error_log">Database Error</string>
-    <string name="category_name_required">Empty category is not allowed</string>
+    <string name="item_menu_add_category">புதிய வகையை உருவாக்கு</string>
+    <string name="category">வகை</string>
+    <string name="category_name">வகையின் பெயர்</string>
+    <string name="select_color">வகை நிறத்தைத் தேர்வு செய்</string>
+    <string name="edit_category">திருத்த வகை</string>
+    <string name="add_category">வகையைச் சேர்</string>
+    <string name="category_color">வகை நிறம்</string>
+    <string name="save_category">வகையைச் சேமி</string>
+    <string name="delete_category">வகையை நீக்கு</string>
+    <string name="delete_category_confirm">“%1$s” வகையை நிச்சயமாக நீக்க விரும்புகிறீர்களா?</string>
+    <string name="delete_category_hint">குறிப்புகள் தக்கவைக்கப்படுகின்றன ஆனால் இந்த வகையை இழக்கின்றன.</string>
+    <string name="manage_categories">வகைகளை நிர்வகி</string>
+    <string name="manage_categories_summary">உருவாக்கு, திருத்து மற்றும் நீக்கு</string>
+    <string name="error">பிழை</string>
+    <string name="category_already_exists">வகை ஏற்கனவே உள்ளது</string>
+    <string name="database_error">தரவுத்தள பிழை</string>
+    <string name="open_source_licenses">திறந்த மூல உரிமங்கள்</string>
+    <string name="error_loading_licenses">உரிமங்களை ஏற்றுவதில் பிழை</string>
+    <string name="open_source_licenses_summary">பயன்படுத்திய நூலகங்கள் மற்றும் உரிமங்களைப் பார்க்கவும்</string>
+    <string name="thanks_to_all_contributors">இந்தத் திட்டத்தை வலைபெயர்ப்பு மூலம் மொழிபெயர்க்க உதவிய அனைத்து பங்களிப்பாளர்கள் மற்றும் நண்பர்களுக்கு நன்றி—உங்கள் நேரமும் முயற்சியும் உண்மையிலேயே பாராட்டப்படுகிறது. பங்களிப்பாளர்களின் முழுமையான மற்றும் எப்போதும் புதுப்பித்த பட்டியலுக்கு, எங்கள் அறிவிலிமைய களஞ்சியத்தைப் பார்வையிடவும்.</string>
+    <string name="database_error_log">தரவுத்தள பிழை</string>
+    <string name="category_name_required">வெற்று வகை அனுமதிக்கப்படவில்லை</string>
 </resources>
