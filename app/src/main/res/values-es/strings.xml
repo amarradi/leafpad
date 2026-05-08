@@ -3,15 +3,15 @@
     <string name="title_activity_note_edit">Editar nota</string>
     <string name="action_add_note">Añadir nota</string>
     <string name="action_edit_note">Editar nota</string>
-    <string name="action_share_note">Compartir nota</string>
+    <string name="action_share_note">Nota de participación</string>
     <string name="action_share_body">Nota</string>
-    <string name="action_remove">Borrar nota</string>
+    <string name="action_remove">Eliminar nota</string>
     <string name="action_fab_note">Crear una nota</string>
     <string name="add_shortcut_short_label">Escribir algo nuevo</string>
     <string name="title_hint">Título</string>
     <string name="body_hint">Nota</string>
     <string name="contentDescription">Añadir nueva nota</string>
-    <string name="imported">La nota fué enviada a Leafpad</string>
+    <string name="imported">La nota fue enviada a Leafpad</string>
     <string name="new_note">Nota nueva</string>
     <string name="satisfied">¿Te gusta Leafpad?</string>
     <string name="rate_the_app">¿Abandono la revisión de Play Store?</string>
@@ -28,7 +28,7 @@
     <string name="tell_about">Lo que quiero decirte sobre Leafpad</string>
     <string name="version">Versión</string>
     <string name="change">Versión</string>
-    <string name="what_is_leafpad">Leafpad es una sencilla aplicación para tomar notas. Con esta aplicación podrá editar, enviar, or borrar notas en su teléfono.</string>
+    <string name="what_is_leafpad">Leafpad es una aplicación sencilla para tomar notas. Con esta aplicación podrá editar, enviar, or borrar notas en su teléfono.</string>
     <string name="leafpad_work">Leafpad guarda todos los datos localmente en tu smartphone. Las notas o metadatos como la fecha y la hora no se almacenan en ninguna nube ni se comparten con nadie. Tampoco se realiza ningún análisis de texto. Las notas te pertenecen. Tú decides lo que haces con ellas.</string>
     <string name="rev20_12">Y vi a los muertos, grandes y pequeños, de pie ante el trono; y se abrieron libros; y se abrió otro libro, que es el libro de la vida; y fueron juzgados los muertos por las cosas que estaban escritas en los libros, según sus obras. Apocalipsis 20:12</string>
     <string name="thanks">Gracias Stefan, Stefan, Manuel, Falk, Stephanie y Emil por sus ideas y probar la aplicación.</string>
@@ -59,13 +59,13 @@
     <string name="participate">Participar o contribuir</string>
     <string name="translate">Traducir la aplicación en Weblate</string>
     <string name="translation_help">Ayude a traducir la aplicación en Weblate.</string>
-    <string name="hide_note">Hacer que la nota sea invisible</string>
+    <string name="hide_note">Hace la nota invisible</string>
     <string name="hide_hidden">Ocultar notas ocultas</string>
-    <string name="show_note">Hacer la nota visible</string>
+    <string name="show_note">Hace la nota visible</string>
     <string name="show_hidden">Mostrar notas ocultas</string>
     <string name="note_is_recipe">La nota es una receta</string>
     <string name="note_is_no_recipe">La nota no es una receta</string>
-    <string name="restore">Restaurar todas las notas desde un zip</string>
+    <string name="restore">Restaurar todas las notas desde un archivador zip</string>
     <string name="showDeleteConfirmationMessage">Todas las notas serán borradas permanentemente. ¿Continuar?</string>
     <string name="save">Guardar todas las notas como un contenedor zipb con json</string>
     <string name="showDeleteConfirmation">¿Eliminar notas?</string>
@@ -81,7 +81,7 @@
     <plurals name="notes_exported">
         <item quantity="one">%d nota exportada</item>
         <item quantity="many">%d notas exportadas</item>
-        <item quantity="other">%d notas salvoguardadas</item>
+        <item quantity="other">%d notas exportadas</item>
     </plurals>
     <string name="fileOpeningError">Error al abrir el archivo.</string>
     <string name="delete">Eliminar</string>
@@ -121,7 +121,7 @@
     <string name="country_title_catalan">Catalan</string>
     <string name="country_title_spanish">Español</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
-    <string name="setCategory">Fijar categoría</string>
+    <string name="setCategory">Establecer categoría</string>
     <string name="country_title_albanian">Albania</string>
     <string name="country_title_indonesian">Indonesia</string>
     <string name="country_title_russian">Ruso</string>
@@ -176,21 +176,21 @@
     <string name="category_name">Nombre de la categoría</string>
     <string name="select_color">Seleccionar color</string>
     <string name="edit_category">Edit categoría</string>
-    <string name="add_category">Añadir categoría</string>
-    <string name="category_color">Color de la categoría</string>
+    <string name="add_category">Agregar categoría</string>
+    <string name="category_color">color de categoría</string>
     <string name="save_category">Guardar categoría</string>
-    <string name="delete_category">Borrar categoría</string>
-    <string name="delete_category_confirm">¿Está seguro de querer borrar la categoría \"%1$s\"?</string>
-    <string name="delete_category_hint">Las notas permanecen, pero pierden esta categoría.</string>
-    <string name="manage_categories">Gestionar categorías</string>
-    <string name="manage_categories_summary">Crear, editar y borrar</string>
+    <string name="delete_category">Suprimir categoría</string>
+    <string name="delete_category_confirm">¿Está seguro querer eliminar la categoría «%1$s»?</string>
+    <string name="delete_category_hint">Se mantienen las notas, pero pierden esta categoría.</string>
+    <string name="manage_categories">Categorías de gestión</string>
+    <string name="manage_categories_summary">Crear, editar y eliminar</string>
     <string name="error">Error</string>
-    <string name="category_already_exists">La categoría ya existe</string>
-    <string name="database_error">Error en la base de datos</string>
+    <string name="category_already_exists">Categoría ya existente</string>
+    <string name="database_error">Error de base de datos</string>
     <string name="open_source_licenses">Licencias de código abierto</string>
-    <string name="error_loading_licenses">Ha ocurrido un error al cargar las licencias</string>
+    <string name="error_loading_licenses">Error al cargar las licencias</string>
     <string name="open_source_licenses_summary">Ver bibliotecas y licencias utilizadas</string>
-    <string name="thanks_to_all_contributors">Gracias a todos los colaboradores y amigos que ayudan a traducir este proyecto a través de Weblate; su tiempo y esfuerzo son muy apreciados. Para consultar la lista completa y siempre actualizada de colaboradores, visite nuestro repositorio de GitHub.</string>
-    <string name="database_error_log">Error en la base de datos</string>
+    <string name="thanks_to_all_contributors">Gracias a todos los colaboradores y amigos que ayudan a traducir este proyecto a través de Weblate: su tiempo y esfuerzo son realmente apreciados. Para la lista completa y siempre actualizada de los colaboradores, visite nuestro repositorio GitHub.</string>
+    <string name="database_error_log">Error de base de datos</string>
     <string name="category_name_required">No se permite una categoría vacía</string>
 </resources>
