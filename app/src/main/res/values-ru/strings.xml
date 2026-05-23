@@ -15,7 +15,7 @@
     <string name="add_shortcut_short_label">Записать новую</string>
     <string name="tell_about">Что я хочу рассказать вам о Leafpad</string>
     <string name="created_txt">создано в</string>
-    <string name="action_remove">Удалить заметку</string>
+    <string name="action_remove">Убрать заметку</string>
     <string name="edited_text">Отредактировано</string>
     <string name="body_hint">Заметка</string>
     <string name="lightmode_preference_key">lightmode</string>
