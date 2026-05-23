@@ -58,7 +58,7 @@
     <string name="its_opensource">Leafpad - это свободное и бесплатное приложение</string>
     <string name="participate">Участвовать или вносить свой вклад</string>
     <string name="translate">Помогите с переводом на Weblate</string>
-    <string name="translation_help">Помогите нам перевести приложение на ваш язык в Weblate</string>
+    <string name="translation_help">Помогите перевести приложение в Weblate.</string>
     <string name="hide_note">Сделать заметку невидимой</string>
     <string name="hide_hidden">Скрыть скрытые заметки</string>
     <string name="show_note">Сделать заметку видимой</string>
@@ -169,7 +169,7 @@
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
     <string name="country_title_gothic">Gothic</string>
     <string name="country_title_dutch">Dutch</string>
-    <string name="menu_about">About Leafpad</string>
+    <string name="menu_about">О Leafpad</string>
     <string name="country_title_danish">Danish</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
     <string name="country_title_serbian">Serbian</string>
