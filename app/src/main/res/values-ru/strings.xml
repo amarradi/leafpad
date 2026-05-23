@@ -38,7 +38,7 @@
     <string name="action_share_body">Заметка</string>
     <string name="remove_dialog_abort">Отмена</string>
     <string name="menu_settings">Настройки</string>
-    <string name="action_fab_note">Сделать заметку</string>
+    <string name="action_fab_note">Создать заметку</string>
     <string name="title_activity_note_edit">Править заметку</string>
     <string name="change">Версия</string>
     <string name="system_preference_key">как в системе (стандартно)</string>
