@@ -11,12 +11,12 @@
     <string name="app_name">Leafpad</string>
     <string name="new_note">Новая заметка</string>
     <string name="imported">Заметка была отправлена в Leafpad</string>
-    <string name="rate_the_app">А может напишите отзыв в Google PlayStore? Тогда открой Google Play напрямую.</string>
+    <string name="rate_the_app">Оставить отзыв в Play Маркете?</string>
     <string name="add_shortcut_short_label">Записать новую</string>
     <string name="tell_about">Что я хочу рассказать вам о Leafpad</string>
     <string name="created_txt">создано в</string>
     <string name="action_remove">Убрать заметку</string>
-    <string name="edited_text">Отредактировано</string>
+    <string name="edited_text">Изменено</string>
     <string name="body_hint">Заметка</string>
     <string name="lightmode_preference_key">lightmode</string>
     <string name="darkmode_preference_key">darkmode</string>
@@ -182,10 +182,10 @@
     <string name="category_color">цвет категории</string>
     <string name="save_category">Сохранить категорию</string>
     <string name="delete_category">Удалить категорию</string>
-    <string name="delete_category_confirm">Вы уверены, что хотите удалить категорию «%1$s»?</string>
+    <string name="delete_category_confirm">Уверены, что хотите удалить категорию «%1$s»?</string>
     <string name="delete_category_hint">Заметки сохраняются, но теряют эту категорию.</string>
     <string name="manage_categories">Управление категориями</string>
-    <string name="manage_categories_summary">Создание, редактирование и удаление</string>
+    <string name="manage_categories_summary">Создание, изменение и удаление</string>
     <string name="error">Ошибка</string>
     <string name="category_already_exists">Категория уже существует</string>
     <string name="database_error">Ошибка базы данных</string>
