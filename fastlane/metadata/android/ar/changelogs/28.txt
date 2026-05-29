@@ -1,6 +1,6 @@
-* Das Rasterlayout scrollt jetzt etwas flüssiger (nicht so toll).
-* Ein Anzeigefehler bei langen Notizen wurde behoben.
-* Weitere Textteile wurden übersetzt.
-* Der Bereich „versteckte Notizen” ist leichter zu erkennen.
-* Es gibt einen Lesemodus, in dem die Anzeige permanent eingeschaltet bleibt. Möglicherweise erhöht sich dadurch der Batterieverbrauch.
-* Fehlerbehebungen
+* أصبح تصفح تخطيط الشبكة أكثر سلاسةً بعض الشيء (ليس مثاليًا)
+* تم إصلاح خطأ في عرض الملاحظات الطويلة
+* تمت ترجمة المزيد من أجزاء النص
+* أصبح من الأسهل تمييز قسم "الملاحظات المخفية"
+* يتوفر وضع قراءة تبقى فيه الشاشة مضاءة باستمرار. قد يؤدي ذلك إلى زيادة استهلاك البطارية
+* إصلاحات للأخطاء البرمجية
