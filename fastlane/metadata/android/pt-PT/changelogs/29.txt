@@ -1,0 +1,5 @@
+* Botão de guardar: apenas ativado quando foram efetuadas alterações na nota
+* Modo de leitura agora é usado corretamente
+* Notas vazias agora podem ser descartadas
+* Tradutores agora têm uma secção de agradecimentos mais clara
+* Vários bugs foram corrigidos
