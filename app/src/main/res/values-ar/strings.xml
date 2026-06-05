@@ -17,186 +17,186 @@
     <string name="menu_settings">الإعدادات</string>
     <string name="general_preference">الإعدادات العامة</string>
     <string name="change">الإصدار</string>
-    <string name="action_note_saved">saved</string>
-    <string name="participate">Participate</string>
+    <string name="action_note_saved">تم الحفظ</string>
+    <string name="participate">شارك أو ساهم</string>
     <string name="leafpad_work">يحفظ تطبيق Leafpad جميع البيانات محليًا على هاتفك الذكي. لا تُخزَّن الملاحظات أو البيانات الوصفية، كالتاريخ والوقت، في أي خدمة سحابية، ولا تُشارك مع أي شخص. كما لا يتم إجراء أي تحليل للنصوص. الملاحظات ملكك، وأنت من يقرر ما تفعله بها.</string>
     <string name="rate_the_app">هل يمكنك تترك مراجعة في متجر Play؟</string>
     <string name="add_shortcut_short_label">اكتب جديد</string>
     <string name="tell_about">ما أريد إخباركم به عن Leafpad</string>
     <string name="action_fab_note">دون ملاحظة</string>
     <string name="title_activity_note_edit">تعديل الملاحظة</string>
-    <string name="translate">Translate the app on Weblate</string>
-    <string name="hide_hidden">hide hidden notes</string>
+    <string name="translate">ترجم التطبيق على Weblate</string>
+    <string name="hide_hidden">أخفِ الملاحظات المخفية</string>
     <string name="system_preference_key">اتبع النظام (المعياري)</string>
     <string name="action_edit_note">تعديل الملاحظة</string>
-    <string name="note_will_be_saved_first">Note will be saved first</string>
-    <string name="title_licence">Licences</string>
+    <string name="note_will_be_saved_first">الملاحظة سوف تُحفظ أولًا</string>
+    <string name="title_licence">الرخص</string>
     <string name="remove_dailog_message">سيتم حذف هذه الملاحظة نهائياً. ولن يكون من الممكن استعادتها بعد ذلك.</string>
     <string name="version">الإصدار</string>
-    <string name="show_note">make the note visible</string>
-    <string name="find_code_on_github_summary">You can view and check the source code via the repository. You are welcome to open an issue for change requests and error messages.</string>
+    <string name="show_note">اجعل الملاحظة مرئية</string>
+    <string name="find_code_on_github_summary">يمكنك مشاهدة و مراجعة كود Leafpad المصدري من خلال صفحته على github . إذا كانت لديك أي اقتراحات مستقبلية أو رغبة في الإبلاغ عن عطل ، يمكنك فعل ذلك.</string>
     <string name="action_share_title">العنوان</string>
     <string name="about">عن</string>
     <string name="theme_summary">التبديل بين الوضع الداكن والوضع الفاتح</string>
     <string name="what_is_leafpad">Leafpad هو تطبيق بسيط لتدوين الملاحظات. باستخدام هذا التطبيق، يمكنك إنشاء الملاحظات أو تعديلها أو إرسالها أو حذفها على هاتفك.</string>
     <string name="created_txt">تم إنشاؤه في</string>
     <string name="action_remove">إزالة الملاحظة</string>
-    <string name="licence">Open source licenses</string>
+    <string name="licence">رخص فتح المصدر</string>
     <string name="edited_text">تم التعديل في</string>
     <string name="body_hint">ملاحظة</string>
     <string name="lightmode_preference_key">الوضع الفاتح</string>
-    <string name="find_code_on_github">GitHub</string>
+    <string name="find_code_on_github">جيت هاب (GitHub)</string>
     <string name="darkmode_preference_key">الوضع الداكن</string>
-    <string name="search">search</string>
-    <string name="action_save">save note</string>
-    <string name="share_note">Share Note?</string>
+    <string name="search">بحث</string>
+    <string name="action_save">حفظ الملاحظة</string>
+    <string name="share_note">مشاركة الملاحظة؟</string>
     <string name="thanks">شكراً جزيلاً ستيفان، ستيفان، مانويل، فالك وستيفاني على أفكاركم واختبار التطبيق.</string>
-    <string name="statement">We write down shopping lists, notes for conversations, packing lists for vacations or friends\' birthdays. These are all good things so that we don\'t forget them. It\'s very similar with God, he writes down our good and bad deeds and saves them. God is above everything and simply knows everything. God loves people and wants to have fellowship with them. But this is only possible if we are seen by God as blameless. Through faith in Jesus Christ, our bad deeds (our guilt) are wiped out before God. Jesus Christ atoned for our guilt on the cross of Calvary. Every person who accepts this is entered in the book of life forever. Are you registered in the book of life?</string>
-    <string name="hide_note">make the note invisible</string>
-    <string name="translation_help">Help us translate the app into your language on weblate</string>
-    <string name="rev20_12">ورأيت الأموات، كبارهم وصغارهم، واقفين أمام العرش، وفُتحت الكتب، وفُتح كتاب آخر هو كتاب الحياة، ودين الأموات بحسب ما هو مكتوب في الكتب، كلٌّ حسب أعماله. (رؤيا ٢٠: ١٢)</string>
-    <string name="its_opensource">Leafpad is OpenSource and its free</string>
+    <string name="statement">نحن نكتب قوائم التسوق، وملاحظات المحادثات ، وقوائم الأمتعة للأجازات، أو أعياد ميلاد الأصدقاء؛ وكلها أمور جيدة حتى لا ننسى. ولله -عز و جل- المثل الأعلى ، فهو -سبحانه- يحصي ويحفظ علينا حركاتنا وسكناتنا، خيرها وشرها. الله فوق كل شيء، يعلم السر وأخفى، وهو سبحانه يحب عباده ويريد لهم الهداية والفلاح، ولا يرضى لعباده الكفر. ولكن الفوز برضا الله وجنته لا يكون إلا بنقاء السريرة والقدوم عليه بقلب سليم. ومن رحمته ولطفه بنا، لم يجعل ذنوبنا نهاية المطاف، بل جعل التوبة الصادقة والاستغفار والأعمال الصالحة ماحية للخطايا والذنوب؛ فالتائب من الذنب كمن لا ذنب له. فكل من آمن بالله ووحده، واتبع صراطه المستقيم، يُكتب كتاب أعماله في \'عليين\' مع الأبرار والصالحين. فهل تسعى اليوم ليكون كتابك في عليين؟</string>
+    <string name="hide_note">اجعل الملاحظة مخفية</string>
+    <string name="translation_help">ساعد في ترجمة التطبيق على Weblate.</string>
+    <string name="rev20_12">«وَوُضِعَ الْكِتَابُ فَتَرَى الْمُجْرِمِينَ مُشْفِقِينَ مِمَّا فِيهِ وَيَقُولُونَ يَا وَيْلَتَنَا مَالِ هَٰذَا الْكِتَابِ لَا يُغَادِرُ صَغِيرَةً وَلَا كَبِيرَةً إِلَّا أَحْصَاهَا وَوَجَدُوا مَا عَمِلُوا حَاضِرًا وَلَا يَظْلِمُ رَبُّكَ أَحَدًا» (الكهف: 49)</string>
+    <string name="its_opensource">Leafpad مفتوح المصدر و مجاني</string>
     <string name="satisfied">هل تستمتع بـ Leafpad؟</string>
     <string name="app_name">Leafpad</string>
     <string name="about_the_app">عن التطبيق</string>
     <string name="remove_dialog_title">هل أنت متأكد؟</string>
     <string name="action_add_note">إضافة ملاحظة</string>
-    <string name="show_hidden">show hidden notes</string>
+    <string name="show_hidden">أظهر الملاحظات المخفية</string>
     <string name="action_share_note">مشاركة الملاحظة</string>
-    <string name="note_is_recipe">note is a recipe</string>
-    <string name="note_is_no_recipe">note is no recipe</string>
-    <string name="save">Save all notes as xml</string>
-    <string name="showDeleteConfirmation">Delete notes?</string>
-    <string name="backupIsrunning">Backup is running</string>
-    <string name="no">No</string>
-    <string name="importError">Error when importing notes.</string>
-    <string name="restore">Restore all notes as xml</string>
-    <string name="showDeleteConfirmationMessage">All notes will be permanently deleted. Continue?</string>
-    <string name="yes">Yes</string>
+    <string name="note_is_recipe">الملاحظة هي وصفة</string>
+    <string name="note_is_no_recipe">الملاحظة ليست وصفة</string>
+    <string name="save">احفظ كل الملاحظات كـ json</string>
+    <string name="showDeleteConfirmation">حذف الملاحظات؟</string>
+    <string name="backupIsrunning">النسخ الاحتياطي جارٍ</string>
+    <string name="no">لا</string>
+    <string name="importError">خطأ عند استيراد الملاحظات.</string>
+    <string name="restore">استرجع كل الملاحظات من ملف مضغوط [zip]</string>
+    <string name="showDeleteConfirmationMessage">كل الملاحظات ستحذف نهائيًا ، استمرار ؟</string>
+    <string name="yes">نعم</string>
     <plurals name="notes_imported">
-        <item quantity="zero">One note imported</item>
-        <item quantity="one">%1$d notes imported</item>
-        <item quantity="two">%1$d notes imported</item>
-        <item quantity="few">%1$d notes imported</item>
-        <item quantity="many">%1$d notes imported</item>
-        <item quantity="other">%1$d notes imported</item>
+        <item quantity="zero">تم الاستيراد</item>
+        <item quantity="one">%1$d تم استيراد الملاحظة</item>
+        <item quantity="two">%1$dتم استيراد الملاحظتين</item>
+        <item quantity="few">%1$d تم استيراد ملاحظات</item>
+        <item quantity="many">%1$d تم استيراد ملاحظة</item>
+        <item quantity="other">%1$d تم استيراد ملاحظة</item>
     </plurals>
     <plurals name="notes_exported">
-        <item quantity="zero">One notes backed up</item>
-        <item quantity="one">%1$d note backed up</item>
-        <item quantity="two">%1$d notes backed up</item>
-        <item quantity="few">%1$d notes backed up</item>
-        <item quantity="many">%1$d notes backed up</item>
-        <item quantity="other">%1$d notes backed up</item>
+        <item quantity="zero">ملاحظة واحدة تم نسخها احتياطيًا</item>
+        <item quantity="one">%d ملاحظة تم نسخها احتياطيًا</item>
+        <item quantity="two">%d ملاحظتان تم نسخها احتياطيًا</item>
+        <item quantity="few">%d ملاحظات تم نسخها احتياطيًا</item>
+        <item quantity="many">%d ملاحظة تم نسخها احتياطيًا</item>
+        <item quantity="other">%d ملاحظة تم نسخها احتياطيًا</item>
     </plurals>
-    <string name="fileOpeningError">Error when opening the file.</string>
-    <string name="delete">Delete</string>
-    <string name="backupfinish">Backup finishes</string>
-    <string name="invalidFile">Invalid backup file. The import was cancelled.</string>
-    <string name="cancel">Cancel</string>
-    <string name="showRestoreConfirmation">Restore?</string>
-    <string name="restore_notes_title">Restore</string>
-    <string name="save_notes_title">Backup</string>
-    <string name="showRestoreConfirmationMessage">All current notes will be replaced by the backup. Continue?</string>
-    <string name="toggle">change View</string>
+    <string name="fileOpeningError">خطأ عند فتح الملف.</string>
+    <string name="delete">حذف</string>
+    <string name="backupfinish">النسخ الاحتياطي انتهى</string>
+    <string name="invalidFile">ملف نسخ احتياطي غير صالح . الاستيراد تم إلغاؤه.</string>
+    <string name="cancel">إلغاء</string>
+    <string name="showRestoreConfirmation">استرجاع؟</string>
+    <string name="restore_notes_title">الاستعادة</string>
+    <string name="save_notes_title">النسخ الاحتياطي</string>
+    <string name="showRestoreConfirmationMessage">كل الملاحظات الحالية سوف تُستبدل بالنسخ الاحتياطية ، استمر ؟</string>
+    <string name="toggle">تغيير المظهر</string>
     <string name="note_shared">ملاحظة مشتركة</string>
     <string name="save_changes">حفظ التغييرات</string>
     <string name="discard">تجاهل</string>
-    <string name="item_menu_description">menu for item actions</string>
-    <string name="search_hint">What are you looking for?</string>
-    <string name="startIconDescription">A search field</string>
+    <string name="item_menu_description">قائمة لتنفيذ العناصر</string>
+    <string name="search_hint">ما الذي تبحث عنه ؟</string>
+    <string name="startIconDescription">حقل بحث</string>
     <string name="notification_of_change_description">أبلغ عن التغييرات في الملاحظات</string>
     <string name="notification_of_change">إشعار بالتغييرات</string>
-    <string name="not_initialized">Leafpad not initialized yet!</string>
+    <string name="not_initialized">لم تتم تهيئة Leafpad بعد !</string>
     <string name="unsaved_changes_message">لقد تم تغيير ملاحظتك. هل تريد حفظ التغييرات أم تجاهلها؟</string>
     <string name="unsaved_changes_title">التغييرات غير المحفوظة</string>
-    <string name="no_search_results">Nothing found</string>
-    <string name="empty_list">No notes available in the list</string>
-    <string name="set">It is a recipe</string>
-    <string name="close_release_note">Close Button</string>
-    <string name="title_required">Title required</string>
-    <string name="keep_screen_on_dialog_yes">Yes</string>
-    <string name="keep_screen_on_dialog_message">Keeping the screen on may significantly increase battery consumption. Are you sure you want to enable this feature?</string>
-    <string name="keep_screen_on_dialog_no">No</string>
-    <string name="keep_screen_on_summary">Prevent the screen from turning off while using Leafpad</string>
-    <string name="keep_screen_on_title">Keep screen on</string>
-    <string name="keep_screen_on_dialog_title">Battery usage warning</string>
+    <string name="no_search_results">لم يتم العثور على شئ</string>
+    <string name="empty_list">لا توجد ملاحظة متاحة في القائمة</string>
+    <string name="set">إنها وصفة</string>
+    <string name="close_release_note">زر الإغلاق</string>
+    <string name="title_required">العنوان مطلوب</string>
+    <string name="keep_screen_on_dialog_yes">نعم</string>
+    <string name="keep_screen_on_dialog_message">إبقاء الشاشة مفتوحة قد يزيد بشكل ملحوظ استهلاك البطارية . هل أنت متأكد من تفعيل هذه الميزة ؟</string>
+    <string name="keep_screen_on_dialog_no">لا</string>
+    <string name="keep_screen_on_summary">امنع الشاشة من الانطفاء أثناء استخدام Leafpad</string>
+    <string name="keep_screen_on_title">أبقِ الشاشة مفتوحة</string>
+    <string name="keep_screen_on_dialog_title">تحذير استخدام البطارية</string>
     <string name="country_title_translator_czech" translatable="false">MessingWithComputers(@MessingWithComputers)</string>
-    <string name="country_title_french">French</string>
+    <string name="country_title_french">الفرنسية</string>
     <string name="country_title_translator_portuguese" translatable="false">Lucas Alves Rego(@devlulcas), Ettlu selva rula(@Ttormor)</string>
-    <string name="country_title_catalan">Catalan</string>
-    <string name="country_title_spanish">Spanish</string>
+    <string name="country_title_catalan">الكاتالانية</string>
+    <string name="country_title_spanish">الإسبانية</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
-    <string name="setCategory">Set Category</string>
-    <string name="country_title_albanian">Albanian</string>
-    <string name="country_title_indonesian">Indonesian</string>
-    <string name="country_title_russian">Russian</string>
+    <string name="setCategory">حدد التصنيف</string>
+    <string name="country_title_albanian">الألبانية</string>
+    <string name="country_title_indonesian">الإندونيسية</string>
+    <string name="country_title_russian">الروسية</string>
     <string name="country_title_translator_greek" translatable="false">Jim Kats(@jimkats1)</string>
-    <string name="please_enter_a_title">Please enter a title for the note before you can save it.</string>
-    <string name="country_title_tamil">Tamil</string>
+    <string name="please_enter_a_title">رجاءً ، أدخل عنوانًا للملاحظة ليتم حفظها أو سيتم تجاهل الملاحظة.</string>
+    <string name="country_title_tamil">التاميلية</string>
     <string name="country_title_translator_hindi" translatable="false">Harshit Sethi(@hstsethi)</string>
     <string name="country_title_translator_english" translatable="false">Yurt Page(@yurtpage), zergio inzunza(@n1kf4m3l), Santiago Centeno(@Java16)</string>
-    <string name="country_title_polish">Polish</string>
+    <string name="country_title_polish">البولندية</string>
     <string name="country_title_translator_indonesian" translatable="false">Arif Budiman(@arifpedia), toposets(@toposets), Reza Almanda(@rezaalmanda), Antx(@antx)</string>
-    <string name="country_title_german">German</string>
+    <string name="country_title_german">الألمانية</string>
     <string name="country_title_translator_french" translatable="false">Leonart(@Leonart), Omgeta(@Omgeta), michte(@michte), David D.(@Dadu042)</string>
     <string name="country_title_translator_arabic" translatable="false">Asaad Zein(@asaadzx)</string>
-    <string name="country_title_ukrainian">Ukrainian</string>
+    <string name="country_title_ukrainian">الأوكرانية</string>
     <string name="country_title_translator_spanish" translatable="false">Sofia Gutierrez(@SofiaIrina9), Zarahi Ander(@TradZarahi), Francisco Serrador(@fserrador), Santiago Centeno(@Java16), LittleWorm(@LittlerWorm), Marco(@Megido), Jose David M(@jposada202020@gmail.com), Francisco Gabriel Chardin(@FranChardin), Leopoldo Antonio Motto Murua(@leomotto), Abraham Mendoza(@1Alide1), zergio inzunza(@n1kf4m3l)</string>
-    <string name="country_title_greek">Greek</string>
+    <string name="country_title_greek">اليونانية</string>
     <string name="country_title_translator_polish" translatable="false">Matthaiks(@Kityn), Krzysztof Kolumb(@Kolumb76), Eryk Michalak(@gnu-ewm), OskarO 140(@oskarek.o140)</string>
     <string name="country_title_translator_italian" translatable="false">pastic cerre(@pasti), Akiakizero(@Akiakizero), Davide Secco(@davidesecco)</string>
-    <string name="country_title_arabic">Arabic</string>
-    <string name="country_title_italian">Italian</string>
+    <string name="country_title_arabic">العربية</string>
+    <string name="country_title_italian">الإيطالية</string>
     <string name="country_title_translator_albanian" translatable="false">Besnik Bleta(@Besnik_b)</string>
     <string name="country_title_translator_ukrainian" translatable="false">Максим Горпиніч(@Maksim2005UKR), Stepan Andriiovych(@Stepan)</string>
     <string name="country_title_translator_russian" translatable="false">Kirill Isakov(@crowbar), Yurt Page(@yurtpage), vanapro1(@vanapro1), Sotski Eugene(@jekakmail), MrSliv69(@MrSliv69), Steven Barash(@stevenbarash), Rachel Podya(@homicide@disroot.org), SnIPeRSnIPeR(@SnIPeRSnIPeR), Santiago Centeno(@Java16)</string>
-    <string name="country_title_czech">Czech</string>
-    <string name="country_title_english">English</string>
-    <string name="country_title_portuguese">Portuguese</string>
+    <string name="country_title_czech">التشيكية</string>
+    <string name="country_title_english">الإنجليزية</string>
+    <string name="country_title_portuguese">البرتغالية</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Blubberland(@Blubberland), Maximilian Hüttner(@MaxHue)</string>
-    <string name="country_title_hindi_latin">Hindi (Latin script)</string>
-    <string name="country_title_hindi">Hindi</string>
+    <string name="country_title_hindi_latin">الهندية (القالب اللاتيني)</string>
+    <string name="country_title_hindi">الهندية</string>
     <string name="country_title_translator_estonian" translatable="false">Priit Jõerüüt(@jrthwlate)</string>
-    <string name="country_title_estonian">Estonian</string>
+    <string name="country_title_estonian">الإستونية</string>
     <string name="country_title_translator_chinese_traditional_han_script" translatable="false">imcc(@imcc)</string>
     <string name="country_title_translator_uzbek" translatable="false">VoxB4(@voxb4)</string>
     <string name="country_title_translator_hindi_latin_script" translatable="false">Saurmanđal(@Saurmandal)</string>
     <string name="country_title_translator_chinese_simplified_han_script" translatable="false">雲の中を漂う船(@KumoNoFune), imcc(@imcc)</string>
-    <string name="country_title_chinese_simplified_han_script">Chinese (Simplified Han script)</string>
-    <string name="country_title_chinese_traditional_han_script">Chinese (Traditional Han script)</string>
-    <string name="country_title_hindi_latin_script">Hindi (Latin script)</string>
-    <string name="country_title_uzbek">Uzbek</string>
+    <string name="country_title_chinese_simplified_han_script">الصينية (خط هان المبسط)</string>
+    <string name="country_title_chinese_traditional_han_script">الصينية (خط هان التقليدي)</string>
+    <string name="country_title_hindi_latin_script">الهندية (الكتابة اللاتينية)</string>
+    <string name="country_title_uzbek">الأوزبيكية</string>
     <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
     <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
-    <string name="country_title_gothic">Gothic</string>
-    <string name="country_title_dutch">Dutch</string>
-    <string name="menu_about">About Leafpad</string>
-    <string name="country_title_danish">Danish</string>
+    <string name="country_title_gothic">القوطية</string>
+    <string name="country_title_dutch">الهولندية</string>
+    <string name="menu_about">عن Leafpad</string>
+    <string name="country_title_danish">الدنماركية</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
-    <string name="country_title_serbian">Serbian</string>
-    <string name="item_menu_add_category">create new category</string>
-    <string name="category">Category</string>
-    <string name="category_name">name of the category</string>
-    <string name="select_color">choose category color</string>
-    <string name="edit_category">edit category</string>
-    <string name="add_category">add category</string>
-    <string name="category_color">category color</string>
-    <string name="save_category">save category</string>
-    <string name="delete_category">Delete category</string>
-    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
-    <string name="delete_category_hint">Notes are retained but lose this category.</string>
-    <string name="manage_categories">Manage categories</string>
-    <string name="manage_categories_summary">Create, edit, and delete</string>
-    <string name="error">error</string>
-    <string name="category_already_exists">Category allready exists</string>
-    <string name="database_error">database error</string>
-    <string name="open_source_licenses">Open source licenses</string>
-    <string name="error_loading_licenses">Error loading licenses</string>
-    <string name="open_source_licenses_summary">View used libraries and licenses</string>
-    <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
-    <string name="database_error_log">Database Error</string>
-    <string name="category_name_required">Empty category is not allowed</string>
+    <string name="country_title_serbian">الصربية</string>
+    <string name="item_menu_add_category">إنشاء تصنيف جديد</string>
+    <string name="category">تصنيف</string>
+    <string name="category_name">اسم التصنيف</string>
+    <string name="select_color">اختر لون التصنيف</string>
+    <string name="edit_category">تعديل التصنيف</string>
+    <string name="add_category">إضافة التصنيف</string>
+    <string name="category_color">لون التصنيف</string>
+    <string name="save_category">حفظ التصنيف</string>
+    <string name="delete_category">حذف التصنيف</string>
+    <string name="delete_category_confirm">هل أنت متأكد من حذف التصنيف “%1$s” ؟</string>
+    <string name="delete_category_hint">يتم الاحتفاظ بالملاحظات ولكنها تفقد هذه الفئة.</string>
+    <string name="manage_categories">إدارة التصنيفات</string>
+    <string name="manage_categories_summary">إنشاء ، تعديل ، و حذف</string>
+    <string name="error">خطأ</string>
+    <string name="category_already_exists">التصنيف موجود بالفعل</string>
+    <string name="database_error">خطأ في قاعدة البيانات</string>
+    <string name="open_source_licenses">رخص فتح المصدر</string>
+    <string name="error_loading_licenses">خطأ في تحميل الرخص</string>
+    <string name="open_source_licenses_summary">عرض الرخص و المكتبات المستخدمة</string>
+    <string name="thanks_to_all_contributors">نتقدم بالشكر الجزيل لجميع المساهمين والأصدقاء الذين ساعدوا في ترجمة هذا المشروع عبر Weblate، ونقدر وقتكم وجهودكم تقديرًا كبيرًا. للاطلاع على القائمة الكاملة والمحدثة للمساهمين، يرجى زيارة مستودعنا على GitHub.</string>
+    <string name="database_error_log">خطأ في قاعدة البيانات</string>
+    <string name="category_name_required">التصنيف الفارغ غير مسموح</string>
 </resources>
