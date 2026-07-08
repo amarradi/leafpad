@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <releasenote>
-    <title>Leafpad 1.22 - Was hat sich verändert</title>
+    <title>Leafpad 1.23 - Was hat sich verändert</title>
     <content>
-        * Trennung der Einstellungen mit About
-        * Fehlerbehebung: leere Notizen werden jetzt wirklich verworfen
-        * Übersetzungen aktualisiert
-        * Kategorien eingefügt, Namen und Farben sind frei wählbar
-        * beliebig viele Kategorien sind pro Notiz möglich
-        * Umstellung der Speicherung der Notizen in einer internen Datenbank
-        * vorübergehende Abschaltung der backup/restore-Funktion
-        * Lizenzen hinzugefügt
-        * Neue Icons hinzugefügt
-        * Neue Farben hinzugefügt
-        * Schriftarten entfernt
+        * verstecken der Notizen geht wieder
+        * andere Schriftarten - Robo-Sans entfernt
     </content>
-    <date>25.03.2026</date>
+    <date>08.07.2026</date>
     <time>07:07</time>
 </releasenote>
