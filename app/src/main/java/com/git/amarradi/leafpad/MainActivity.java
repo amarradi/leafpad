@@ -228,16 +228,19 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             menuItem.setTitle(getString(R.string.show_note));
             menuItem.setIcon(getDrawable(R.drawable.btn_show));
         } else {
-            menuItem.setTitle(getString(R.string.hide_hidden));
+            menuItem.setTitle(getString(R.string.hide_note));
             menuItem.setIcon(getDrawable(R.drawable.btn_hide));
         }
         LayoutModeHelper.forcePopupMenuIcons(popup);
         popup.setOnMenuItemClickListener(item -> {
             int id = item.getItemId();
             if(id == R.id.action_hide_note) {
-                noteViewModel.selectNote(note);    // <--- Das hat gefehlt!
+                noteViewModel.selectNote(note);
                 noteViewModel.setNoteHide();
-                noteViewModel.saveNote(this, note);
+                Note updatedNote = noteViewModel.getSelectedNote().getValue();
+                if (updatedNote != null) {
+                    noteViewModel.saveNote(this, updatedNote);
+                }
                 return true;
             }
             if (id == R.id.action_share_note) {
