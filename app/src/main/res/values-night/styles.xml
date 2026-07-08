@@ -1,51 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="CustomToolbarStyle" parent="Widget.Material3.Toolbar">
-        <!--  <item name="titleTextAppearance">@style/TextAppearance.MyToolbarTitle</item> -->
-        <item name="titleTextAppearance">@style/TextAppearance.MyToolbarTitleCategory</item>
+        <item name="titleTextAppearance">@style/ToolbarTitle.App</item>
         <item name="subtitleTextAppearance">@style/TextAppearance.MyToolbarSubtitle</item>
         <item name="android:elevation">0dp</item>
     </style>
 
+    <style name="ToolbarTitle.App" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">@color/md_theme_primary</item>
+    </style>
+
     <style name="CustomToolbarStyleEdit" parent="Widget.Material3.Toolbar">
-        <!--   <item name="titleTextAppearance">@style/TextAppearance.MyToolbarTitleEdit</item>-->
         <item name="titleTextAppearance">@style/TextAppearance.MyToolbarTitleCategory</item>
         <item name="subtitleTextAppearance">@style/TextAppearance.MyToolbarSubtitleEdit</item>
         <item name="android:elevation">0dp</item>
     </style>
 
     <style name="TextAppearance.MyToolbarTitleCategory" parent="TextAppearance.MaterialComponents.Headline6">
-        <item name="android:fontFamily">@font/opensans_medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">@dimen/text_size_my_toolbar_title</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/md_theme_primary</item>
     </style>
 
     <style name="TextAppearance.MyToolbarTitleEdit" parent="TextAppearance.MaterialComponents.Headline6">
-        <item name="android:fontFamily">@font/opensans_medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">@dimen/text_size_my_toolbar_title_edit</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/md_theme_primary</item>
     </style>
 
     <style name="TextAppearance.MyToolbarSubtitleEdit" parent="TextAppearance.MaterialComponents.Body1">
-        <item name="android:fontFamily">@font/opensans_medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">@dimen/text_size_my_toolbar_subtitle_edit</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/md_theme_emeraldTint</item>
     </style>
 
-
-
     <style name="TextAppearance.MyToolbarTitle" parent="TextAppearance.MaterialComponents.Headline6">
-        <item name="android:fontFamily">@font/opensans_medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">@dimen/text_size_my_toolbar_title</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/md_theme_primary</item>
     </style>
 
     <style name="TextAppearance.MyToolbarSubtitle" parent="TextAppearance.MaterialComponents.Body1">
-        <item name="android:fontFamily">@font/opensans_medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">@dimen/text_size_my_toolbar_subtitle</item>
         <item name="android:textColor">@color/md_theme_emeraldTint</item>
     </style>
@@ -54,33 +57,33 @@
         <item name="android:textSize">@dimen/text_size_my_note_item</item>
         <item name="android:textColor">@color/md_theme_primary</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">@font/opensans_medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
     <style name="TextAppearance.MyNotePreview" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textSize">@dimen/text_size_my_note_preview</item>
         <item name="android:textColor">@color/previewTextColor</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:fontFamily">@font/opensans_medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
     <style name="TextAppearance.MyDateTime" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textSize">@dimen/text_size_my_date_time</item>
         <item name="android:textColor">@color/md_theme_primary</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:fontFamily">@font/opensans_medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
     </style>
+
     <style name="TextAppearance.MyCategoryText" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textSize">@dimen/text_size_my_category</item>
         <item name="android:textColor">@color/md_theme_recipe</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily" >@font/opensans_medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
     <!-- Custom style für MaterialCardView -->
     <style name="CustomCardViewStyle" parent="Widget.Material3.CardView.Elevated">
         <item name="strokeColor">@color/md_theme_primaryContainer</item>
-
         <item name="cardCornerRadius">@dimen/corner_radius_alert_dialog</item>
         <item name="cardElevation">@dimen/card_elevation</item>
         <item name="strokeWidth">@dimen/stroke_width</item>
@@ -92,27 +95,28 @@
         <item name="colorSurface">@color/md_theme_surface</item>
         <item name="colorSecondary">@color/md_theme_onSurface</item>
     </style>
+
     <style name="TextAppearance.MyAboutPage" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textSize">13sp</item>
         <item name="android:textColor">@color/md_theme_primary</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:fontFamily" >@font/opensans_medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
     <style name="TextAppearance.MyAboutPageBibleVerse" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textSize">13sp</item>
         <item name="android:textColor">@color/md_theme_bibleverse</item>
         <item name="android:textStyle">italic|bold</item>
-        <item name="android:fontFamily" >@font/opensans_medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
     </style>
-
 
     <style name="TextAppearance.MyAboutPageTitle" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/md_theme_primary</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily" >@font/opensans_medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
     </style>
+
     <style name="ThemeOverlay.App.Preference" parent="PreferenceThemeOverlay">
         <item name="switchPreferenceCompatStyle">@style/PreferenceMaterialSwitch</item>
     </style>
@@ -124,9 +128,9 @@
     <style name="TextAppearance.MyNoteTitle" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textSize">@dimen/text_size_title</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">@font/opensans_medium</item>
-        <!-- Oder spezifische Farbe -->
+        <item name="android:fontFamily">sans-serif-medium</item>
     </style>
+
     <style name="CategoryLabel" parent="">
         <item name="android:background">@drawable/bg_circle</item>
         <item name="android:padding">2pt</item>
@@ -159,10 +163,9 @@
         <item name="ensureMinTouchTargetSize">false</item>
     </style>
 
-
     <style name="TextAppearance.App.BodyMedium" parent="TextAppearance.Material3.BodySmall">
-        <item name="fontFamily">@font/opensans_medium</item>
-        <item name="android:fontFamily">@font/opensans_medium</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">11.5sp</item>
     </style>
@@ -171,6 +174,5 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">8dp</item>
     </style>
-
 
 </resources>
