@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     private boolean firstNotesLoad = true;
 
-
+    private ImageView toolbarTitleIcon;
 
     @SuppressLint("RestrictedApi")
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         noteViewModel.getShowHidden().observe(this, showHidden -> {
             updateEmptyState();
+            updateToolbarForHiddenState(showHidden);
         });
 
         noteViewModel.getCombinedNotes().observe(this, combinedList -> {
@@ -99,6 +100,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDefaultDisplayHomeAsUpEnabled(true);
 
+        View customTitleView = getLayoutInflater().inflate(R.layout.toolbar_title_with_icon, toolbar, false);
+
+        toolbarTitleIcon = customTitleView.findViewById(R.id.toolbar_title_icon);
+        toolbar.addView(customTitleView);
         recyclerView = findViewById(R.id.note_list_view);
 
         noteAdapter = new NoteAdapter(this, new ArrayList<>(), new NoteClickListener() {
@@ -187,6 +192,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                         }
                     });
 
+    private void updateToolbarForHiddenState(boolean showHidden) {
+        if (showHidden) {
+            toolbarTitleIcon.setImageResource(R.drawable.btn_hide);
+            toolbarTitleIcon.setVisibility(View.VISIBLE);
+        } else {
+            toolbarTitleIcon.setVisibility(View.GONE);
+        }
+    }
     @Override
     public void onReleaseNoteClosed() {
         Leafpad.setReleaseNoteClosed(this);
