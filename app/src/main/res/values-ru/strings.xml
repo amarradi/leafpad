@@ -195,4 +195,5 @@
     <string name="thanks_to_all_contributors">Спасибо всем участникам и друзьям, которые помогают переводить этот проект через Weblate — ваше время и усилия действительно ценятся. Полный и всегда актуальный список участников смотрите в нашем репозитории GitHub.</string>
     <string name="database_error_log">Ошибка базы данных</string>
     <string name="category_name_required">Пустая категория не допускается</string>
+    <string name="expand_preview_description">Expand/Collapse Preview</string>
 </resources>

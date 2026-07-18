@@ -191,4 +191,5 @@
     <string name="thanks_to_all_contributors">இந்தத் திட்டத்தை வலைபெயர்ப்பு மூலம் மொழிபெயர்க்க உதவிய அனைத்து பங்களிப்பாளர்கள் மற்றும் நண்பர்களுக்கு நன்றி—உங்கள் நேரமும் முயற்சியும் உண்மையிலேயே பாராட்டப்படுகிறது. பங்களிப்பாளர்களின் முழுமையான மற்றும் எப்போதும் புதுப்பித்த பட்டியலுக்கு, எங்கள் அறிவிலிமைய களஞ்சியத்தைப் பார்வையிடவும்.</string>
     <string name="database_error_log">தரவுத்தள பிழை</string>
     <string name="category_name_required">வெற்று வகை அனுமதிக்கப்படவில்லை</string>
+    <string name="expand_preview_description">Expand/Collapse Preview</string>
 </resources>

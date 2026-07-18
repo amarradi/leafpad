@@ -193,4 +193,5 @@
     <string name="thanks_to_all_contributors">Merci à tous les contributeurs et amis qui participent à la traduction de ce projet via Weblate : nous apprécions sincèrement le temps et les efforts que vous y consacrez. Pour consulter la liste complète et toujours à jour des contributeurs, rendez-vous sur notre dépôt GitHub.</string>
     <string name="database_error_log">Erreur de Base de données</string>
     <string name="category_name_required">Une catégorie vide est interdite</string>
+    <string name="expand_preview_description">Expand/Collapse Preview</string>
 </resources>

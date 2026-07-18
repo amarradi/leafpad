@@ -189,4 +189,5 @@
     <string name="thanks_to_all_contributors">Terima kasih kepada semua kontributor dan teman yang membantu menerjemahkan proyek ini melalui Weblate—waktu dan upaya Anda sangat dihargai. Untuk daftar kontributor yang lengkap dan selalu terbaru, silakan kunjungi repositori GitHub kami.</string>
     <string name="database_error_log">Kesalahan Database</string>
     <string name="category_name_required">Kategori kosong tidak diperbolehkan</string>
+    <string name="expand_preview_description">Expand/Collapse Preview</string>
 </resources>

@@ -565,7 +565,9 @@ public class NoteViewModel extends AndroidViewModel {
     }
 
     public void deleteNote(Context context, Note note) {
+
         noteRepository.deleteById(note.getId());
+        Leafpad.getInstance().setCollapsedNotes(note.getId(), false); // Prefs-Eintrag entfernen
     }
 
     public static boolean isEmptyEntry(Note note) {

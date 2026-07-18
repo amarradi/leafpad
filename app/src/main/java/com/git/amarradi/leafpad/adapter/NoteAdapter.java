@@ -15,6 +15,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.git.amarradi.leafpad.Leafpad;
 import com.git.amarradi.leafpad.MainActivity;
 import com.git.amarradi.leafpad.R;
 import com.git.amarradi.leafpad.model.CategoryEntity;
@@ -50,6 +51,8 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final NoteViewModel noteViewModel;
     private final LifecycleOwner lifecycleOwner;
     private java.util.Map<String, List<CategoryEntity>> categoriesByNoteId = new java.util.HashMap<>();
+    private final java.util.Set<String> expandedNoteIds = new java.util.HashSet<>();
+
 
 
     public enum LayoutMode {
@@ -205,6 +208,7 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         Object item = currentList.get(position);
 
+
         // ------------------------------------------------------------
         // ReleaseNotes (unverändert)
         // ------------------------------------------------------------
@@ -267,9 +271,29 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 v -> listener.onNoteClicked(note)
         );
 
-        noteHolder.actionButton.setOnClickListener(
-                v -> listener.onNoteIconClicked(note, noteHolder.actionButton)
-        );
+        noteHolder.itemView.setOnLongClickListener(v -> {
+            listener.onNoteIconClicked(note, noteHolder.itemView);
+            return true; // Event konsumiert, kein zusätzlicher Klick-Effekt (z. B. Ripple-Konflikt)
+        });
+
+        // Auf-/Zuklappen der Vorschau
+        if (noteHolder.expandableContent != null) {
+        }
+        boolean isExpanded = expandedNoteIds.contains(note.getId());
+        Leafpad leafpad = Leafpad.getInstance();
+        boolean isCollapsed = leafpad.getCollapsedNotes().contains(note.getId());
+        noteHolder.expandableContent.setVisibility(isCollapsed ? View.VISIBLE : View.GONE);
+        noteHolder.expandArrow.setRotation(isExpanded ? 180f : 0f);
+
+        noteHolder.expandArrow.setOnClickListener(v -> {
+            boolean nowExpanded = !leafpad.getCollapsedNotes().contains(note.getId());
+            leafpad.setCollapsedNotes(note.getId(), nowExpanded);
+            noteHolder.expandableContent.setVisibility(nowExpanded ? View.VISIBLE : View.GONE);
+            noteHolder.expandArrow.animate()
+                    .rotation(nowExpanded ? 180f : 0f)
+                    .setDuration(200)
+                    .start();
+        });
     }
 
     private void bindChips(ChipGroup chipGroup, List<CategoryEntity> categories) {
@@ -326,6 +350,7 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static class ReleaseNoteViewHolder extends RecyclerView.ViewHolder {
         TextView title, content, date, time;
         ImageButton closeButton;
+        View expandableContent;
 
 
 
@@ -354,8 +379,9 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static class NoteViewHolder extends RecyclerView.ViewHolder {
         TextView titleText, bodyPreview, dateText, timeText, categoryText;
         ImageView bibleIcon, categoryIcon;
-        ImageButton actionButton;
+        ImageButton expandArrow;
 
+        View expandableContent;       // neu
         ChipGroup categoryChipGroup;
 
         NoteViewHolder(View itemView) {
@@ -367,7 +393,8 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             //categoryText = itemView.findViewById(R.id.category_txt);
             bibleIcon = itemView.findViewById(R.id.bible);
             //categoryIcon = itemView.findViewById(R.id.category_icon);
-            actionButton = itemView.findViewById(R.id.image_button);
+            expandArrow = itemView.findViewById(R.id.expand_arrow);
+            expandableContent = itemView.findViewById(R.id.expandable_content);
             categoryChipGroup = itemView.findViewById(R.id.category_chip_group);
         }
     }

@@ -191,4 +191,5 @@
     <string name="thanks_to_all_contributors">Tack till alla bidragsgivare och vänner som hjälper till att översätta detta projekt via Weblate – er tid och ansträngning uppskattas verkligen. För en fullständig och alltid uppdaterad lista över bidragsgivare, besök vårt GitHub-arkiv.</string>
     <string name="database_error_log">Databasfel</string>
     <string name="category_name_required">Tomma kategorier är inte tillåtet</string>
+    <string name="expand_preview_description">Expand/Collapse Preview</string>
 </resources>

@@ -31,6 +31,7 @@ public class Leafpad extends Application {
     public static final String CURRENT_LEAFPAD_VERSION_CODE = "current_leafpad_version_code";
     public static final String PREF_KEEP_SCREEN_ON = "keep_screen_on";
     public static final String EXTRA_IS_NEW_NOTE = "is_new_note";
+    public static final String PREF_COLLAPSED_NOTES = "collapsed_notes";
 
     private static PowerManager.WakeLock wakeLock;
 
@@ -241,5 +242,22 @@ public class Leafpad extends Application {
 
     public static void clearKeepScreenOnFlag(Activity activity) {
         activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    }
+
+    public java.util.Set<String> getCollapsedNotes() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        return new java.util.HashSet<>(prefs.getStringSet(PREF_COLLAPSED_NOTES, new java.util.HashSet<>()));
+    }
+
+    public void setCollapsedNotes(String noteId, boolean collapsed) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        java.util.Set<String> collapsId = getCollapsedNotes();
+        if (collapsed) {
+            collapsId.add(noteId);
+        } else {
+            collapsId.remove(noteId);
+        }
+        prefs.edit().putStringSet(PREF_COLLAPSED_NOTES, collapsId).apply();
+
     }
 }

@@ -191,4 +191,5 @@
     <string name="thanks_to_all_contributors">Ευχαριστούμε όλους τους συνεισφέροντες και φίλους που βοηθούν στη μετάφραση αυτού του εγχειρήματος μέσω του Weblate—ο χρόνος και η προσπάθεια σας εκτιμώνται πραγματικά. Για την πλήρη και πάντα ενήμερη λίστα των συνεισφερόντων, παρακαλούμε επισκεφθείτε το αποθετήριο μας στο GitHub.</string>
     <string name="database_error_log">Σφάλμα βάσης δεδομένων</string>
     <string name="category_name_required">Δεν επιτρέπεται άδεια κατηγορία</string>
+    <string name="expand_preview_description">Expand/Collapse Preview</string>
 </resources>
