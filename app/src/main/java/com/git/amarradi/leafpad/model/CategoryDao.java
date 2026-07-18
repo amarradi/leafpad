@@ -69,4 +69,10 @@ public interface CategoryDao {
                 ORDER BY nc.note_id, c.sort_order, c.name
             """)
     LiveData<List<NoteCategoryRow>> getAllActiveNoteCategoryRows();
+
+    @Query("SELECT * FROM categories")
+    List<CategoryEntity> getAllCategoriesForBackup();
+
+    @Query("DELETE FROM categories")
+    void deleteAllCategories();
 }

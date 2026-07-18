@@ -75,7 +75,7 @@
         <item>recipe</item>
     </string-array>
     <string name="save_notes_title">Backup</string>
-    <string name="save">Save all notes as zipb container with json</string>
+    <string name="save">Save all notes as zip container with json</string>
     <string name="restore_notes_title">Restore</string>
     <string name="restore">Restore all notes from an zip file</string>
     <string name="showRestoreConfirmation">Restore?</string>
