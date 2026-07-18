@@ -5,11 +5,14 @@
         * Fehler behoben: verstecken der Notizen geht wieder
         * Fehler behoben: Notizen mit dem shortcut anlegen geht wieder. (lange aufs App-Icon
         klicken)
-        * optische Unterscheidung der versteckten/nicht versteckten Notizen
+        * optische Unterscheidung der versteckten/nicht versteckten Notizen (Logo neben dem
+        App-Namen)
         * andere Schriftarten - Robo-Sans entfernt
         * Notizen sind jetzt eingeklappt und können manuell ausgeklpasst werden
         * zum Vertecken, Teilen und Löschen muss man jetzt lange auf die Notiz drücken
+        * Sicherung und Wiederherstellen von Notizen ist wieder aktiv, es wird jetzt eine zip-Datei
+        mit .
     </content>
-    <date>08.07.2026</date>
+    <date>25.07.2026</date>
     <time>07:07</time>
 </releasenote>
