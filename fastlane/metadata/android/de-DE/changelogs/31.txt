@@ -5,3 +5,4 @@ andere Schriftarten - Robo-Sans entfernt
 Notizen sind jetzt eingeklappt und können manuell ausgeklpasst werden
 zum Vertecken, Teilen und Löschen muss man jetzt lange auf die Notiz drücken
 Sicherung und Wiederherstellen von Notizen ist wieder aktiv, es wird jetzt eine zip-Datei mit abgelegt.
+Lesbarkeit der Notizliste erhöht, anlegen Button wird beim scrollen verkleinert

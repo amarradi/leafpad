@@ -38,7 +38,6 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import java.util.ArrayList;
 import java.util.Objects;
 
-
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, OnReleaseNoteCloseListener {
 
     public RecyclerView recyclerView;
@@ -161,6 +160,53 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             intent.putExtra(Leafpad.EXTRA_NOTE_ID, newNoteId);
             noteEditLauncher.launch(intent);
         });
+        if (BuildConfig.DEBUG) {
+            fab.setOnLongClickListener(v -> {
+                seedTestNotes(25);
+                return true;
+            });
+        }
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView rv, int dx, int dy) {
+                super.onScrolled(rv, dx, dy);
+                if (dy > 0 && fab.isExtended()) {
+                    fab.shrink();
+                } else if (dy < 0 && !fab.isExtended()) {
+                    fab.extend();
+                }
+            }
+        });
+    }
+
+    private void seedTestNotes(int count) {
+        new Thread(() -> {
+            String[] sampleCategories = {"Rezept", "Test"};
+            java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("dd.MM.yyyy", java.util.Locale.getDefault());
+            java.text.SimpleDateFormat timeFormat = new java.text.SimpleDateFormat("HH:mm", java.util.Locale.getDefault());
+            String today = dateFormat.format(new java.util.Date());
+            String now = timeFormat.format(new java.util.Date());
+
+            com.git.amarradi.leafpad.model.AppDatabase db =
+                    com.git.amarradi.leafpad.model.AppDatabase.getInstance(getApplicationContext());
+
+            for (int i = 1; i <= count; i++) {
+                String id = com.git.amarradi.leafpad.model.Note.makeId();
+
+                com.git.amarradi.leafpad.model.NoteEntity entity = new com.git.amarradi.leafpad.model.NoteEntity(
+                        id,
+                        "Testnotiz " + i,
+                        "Das ist der Inhalt von Testnotiz Nummer " + i + ". Lorem ipsum dolor sit amet.",
+                        today,
+                        now,
+                        today,
+                        false
+                );
+                db.noteDao().insert(entity);
+            }
+
+            runOnUiThread(() -> noteViewModel.loadNotes());
+        }).start();
     }
     private final ActivityResultLauncher<Intent> noteEditLauncher =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),

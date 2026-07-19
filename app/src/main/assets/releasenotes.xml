@@ -12,6 +12,7 @@
         * zum Vertecken, Teilen und Löschen muss man jetzt lange auf die Notiz drücken
         * Sicherung und Wiederherstellen von Notizen ist wieder aktiv, es wird jetzt eine zip-Datei
         abgelegt.
+        * Lesbarkeit der Notizliste erhöht, anlegen Button wird beim scrollen verkleinert
     </content>
     <date>25.07.2026</date>
     <time>07:07</time>
