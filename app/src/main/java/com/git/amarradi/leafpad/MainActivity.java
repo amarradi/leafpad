@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
@@ -28,8 +27,8 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.git.amarradi.leafpad.adapter.NoteAdapter;
 import com.git.amarradi.leafpad.adapter.OnReleaseNoteCloseListener;
+import com.git.amarradi.leafpad.fragment.NoteActionsBottomSheet;
 import com.git.amarradi.leafpad.helper.DialogHelper;
-import com.git.amarradi.leafpad.helper.LayoutModeHelper;
 import com.git.amarradi.leafpad.helper.ShareHelper;
 import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
@@ -130,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
             @Override
             public void onNoteIconClicked(Note note, View anchor) {
-                showPopupMenu(note, anchor);
+                showNoteActionsBottomSheet(note);
             }
         },this,
                 noteViewModel,
@@ -232,41 +231,29 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
-    private void showPopupMenu(Note note, View anchor) {
-        PopupMenu popup = new PopupMenu(this, anchor);
-        popup.getMenuInflater().inflate(R.menu.menu_popup, popup.getMenu());
-        MenuItem menuItem = popup.getMenu().findItem(R.id.action_hide_note);
-        if (note.isHide()) {
-            menuItem.setTitle(getString(R.string.show_note));
-            menuItem.setIcon(getDrawable(R.drawable.btn_show));
-        } else {
-            menuItem.setTitle(getString(R.string.hide_note));
-            menuItem.setIcon(getDrawable(R.drawable.btn_hide));
-        }
-        LayoutModeHelper.forcePopupMenuIcons(popup);
-        popup.setOnMenuItemClickListener(item -> {
-            int id = item.getItemId();
-            if(id == R.id.action_hide_note) {
+    private void showNoteActionsBottomSheet(Note note) {
+        NoteActionsBottomSheet sheet = NoteActionsBottomSheet.newInstance(note, new NoteActionsBottomSheet.OnNoteActionListener() {
+            @Override
+            public void onHideToggle(Note note) {
                 noteViewModel.selectNote(note);
                 noteViewModel.setNoteHide();
                 Note updatedNote = noteViewModel.getSelectedNote().getValue();
                 if (updatedNote != null) {
-                    noteViewModel.saveNote(this, updatedNote);
+                    noteViewModel.saveNote(MainActivity.this, updatedNote);
                 }
-                return true;
             }
-            if (id == R.id.action_share_note) {
-                ShareHelper.shareNote(this,note);
-                return true;
-            } else if (id == R.id.action_remove) {
-                DialogHelper.showDeleteSingleNoteDialog(this, () -> noteViewModel.deleteNote(this,note));
-                return true;
-            }
-            return false;
-        });
 
-        popup.show();
+            @Override
+            public void onShare(Note note) {
+                ShareHelper.shareNote(MainActivity.this, note);
+            }
+
+            @Override
+            public void onRemove(Note note) {
+                DialogHelper.showDeleteSingleNoteDialog(MainActivity.this, () -> noteViewModel.deleteNote(MainActivity.this, note));
+            }
+        });
+        sheet.show(getSupportFragmentManager(), "note_actions");
     }
 
     @Override
