@@ -121,7 +121,11 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
         boolean isNewNoteIntent = intent.getBooleanExtra(Leafpad.EXTRA_IS_NEW_NOTE, false);
 
         String noteId = getIntent().getStringExtra(Leafpad.EXTRA_NOTE_ID);
-
+        // Fallback: z.B. App-Shortcut liefert weder EXTRA_IS_NEW_NOTE noch EXTRA_NOTE_ID
+        if (!isNewNoteIntent && noteId == null && !Intent.ACTION_SEND.equals(intent.getAction())) {
+            isNewNoteIntent = true;
+            noteId = Note.makeId();
+        }
         if (isNewNoteIntent) {
             Note newNote = new Note(
                     "", "", "", "", "",

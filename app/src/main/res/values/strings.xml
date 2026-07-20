@@ -75,7 +75,7 @@
         <item>recipe</item>
     </string-array>
     <string name="save_notes_title">Backup</string>
-    <string name="save">Save all notes as zipb container with json</string>
+    <string name="save">Save all notes as zip container with json</string>
     <string name="restore_notes_title">Restore</string>
     <string name="restore">Restore all notes from an zip file</string>
     <string name="showRestoreConfirmation">Restore?</string>
@@ -194,4 +194,5 @@
     <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
     <string name="database_error_log">Database Error</string>
     <string name="category_name_required">Empty category is not allowed</string>
+    <string name="expand_preview_description">Expand/Collapse Preview</string>
 </resources>

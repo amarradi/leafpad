@@ -1,0 +1,8 @@
+Fixed: Hiding notes works again.
+Fixed: Creating notes via the app shortcut works again (long-press the app icon).
+Added a visual distinction between hidden and visible notes (icon next to the app name).
+Updated fonts – removed Robo Sans.
+Notes are now collapsed by default and can be expanded manually.
+To hide, share, or delete a note, long-press it.
+Backup and restore are available again. Notes are now saved in a ZIP file.
+Improved readability of the notes list; the “Create” button is scaled down when scrolling

@@ -1,0 +1,11 @@
+Correção de bug: Entradas vazias agora são eliminadas quando são descartadas
+Definições separadas do menu “Sobre”
+Traduções atualizadas
+Categorias adicionadas; nomes e cores podem ser escolhidos livremente
+Qualquer número de categorias podem ser adicionadas, por nota
+Mudança de guardar notas para uma base de dados
+Ajuste da função de cópia de segurança/restauro
+Novos ícones adicionados
+Novas cores adicionadas
+Licenças adicionadas
+Fontes desnecessárias removidas

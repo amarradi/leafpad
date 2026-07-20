@@ -83,4 +83,7 @@ public interface NoteCategoryDao {
 
     @Query("SELECT * FROM categories WHERE id IN (:ids) AND is_archived = 0 ORDER BY sort_order, name")
     LiveData<List<CategoryEntity>> getCategoriesByIds(List<Long> ids);
+
+    @Query("SELECT * FROM note_category_join")
+    List<NoteCategoryJoin> getAllJoinsForBackup();
 }

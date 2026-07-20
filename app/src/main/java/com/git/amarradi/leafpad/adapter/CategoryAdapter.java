@@ -141,7 +141,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
         int primaryColor = MaterialColors.getColor(
                 card,
-                com.google.android.material.R.attr.colorPrimary
+                androidx.appcompat.R.attr.colorPrimary
         );
 
         nameText.setTextColor(primaryColor);

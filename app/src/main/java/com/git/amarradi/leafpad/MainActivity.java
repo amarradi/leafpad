@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
@@ -28,8 +27,8 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.git.amarradi.leafpad.adapter.NoteAdapter;
 import com.git.amarradi.leafpad.adapter.OnReleaseNoteCloseListener;
+import com.git.amarradi.leafpad.fragment.NoteActionsBottomSheet;
 import com.git.amarradi.leafpad.helper.DialogHelper;
-import com.git.amarradi.leafpad.helper.LayoutModeHelper;
 import com.git.amarradi.leafpad.helper.ShareHelper;
 import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
@@ -38,7 +37,6 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 
 import java.util.ArrayList;
 import java.util.Objects;
-
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, OnReleaseNoteCloseListener {
 
@@ -50,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     private boolean firstNotesLoad = true;
 
-
+    private ImageView toolbarTitleIcon;
 
     @SuppressLint("RestrictedApi")
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -80,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         noteViewModel.getShowHidden().observe(this, showHidden -> {
             updateEmptyState();
+            updateToolbarForHiddenState(showHidden);
         });
 
         noteViewModel.getCombinedNotes().observe(this, combinedList -> {
@@ -99,6 +98,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDefaultDisplayHomeAsUpEnabled(true);
 
+        View customTitleView = getLayoutInflater().inflate(R.layout.toolbar_title_with_icon, toolbar, false);
+
+        toolbarTitleIcon = customTitleView.findViewById(R.id.toolbar_title_icon);
+        toolbar.addView(customTitleView);
         recyclerView = findViewById(R.id.note_list_view);
 
         noteAdapter = new NoteAdapter(this, new ArrayList<>(), new NoteClickListener() {
@@ -125,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
             @Override
             public void onNoteIconClicked(Note note, View anchor) {
-                showPopupMenu(note, anchor);
+                showNoteActionsBottomSheet(note);
             }
         },this,
                 noteViewModel,
@@ -157,6 +160,53 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             intent.putExtra(Leafpad.EXTRA_NOTE_ID, newNoteId);
             noteEditLauncher.launch(intent);
         });
+        if (BuildConfig.DEBUG) {
+            fab.setOnLongClickListener(v -> {
+                seedTestNotes(25);
+                return true;
+            });
+        }
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView rv, int dx, int dy) {
+                super.onScrolled(rv, dx, dy);
+                if (dy > 0 && fab.isExtended()) {
+                    fab.shrink();
+                } else if (dy < 0 && !fab.isExtended()) {
+                    fab.extend();
+                }
+            }
+        });
+    }
+
+    private void seedTestNotes(int count) {
+        new Thread(() -> {
+            String[] sampleCategories = {"Rezept", "Test"};
+            java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("dd.MM.yyyy", java.util.Locale.getDefault());
+            java.text.SimpleDateFormat timeFormat = new java.text.SimpleDateFormat("HH:mm", java.util.Locale.getDefault());
+            String today = dateFormat.format(new java.util.Date());
+            String now = timeFormat.format(new java.util.Date());
+
+            com.git.amarradi.leafpad.model.AppDatabase db =
+                    com.git.amarradi.leafpad.model.AppDatabase.getInstance(getApplicationContext());
+
+            for (int i = 1; i <= count; i++) {
+                String id = com.git.amarradi.leafpad.model.Note.makeId();
+
+                com.git.amarradi.leafpad.model.NoteEntity entity = new com.git.amarradi.leafpad.model.NoteEntity(
+                        id,
+                        "Testnotiz " + i,
+                        "Das ist der Inhalt von Testnotiz Nummer " + i + ". Lorem ipsum dolor sit amet.",
+                        today,
+                        now,
+                        today,
+                        false
+                );
+                db.noteDao().insert(entity);
+            }
+
+            runOnUiThread(() -> noteViewModel.loadNotes());
+        }).start();
     }
     private final ActivityResultLauncher<Intent> noteEditLauncher =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
@@ -187,6 +237,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                         }
                     });
 
+    private void updateToolbarForHiddenState(boolean showHidden) {
+        if (showHidden) {
+            toolbarTitleIcon.setImageResource(R.drawable.btn_hide);
+            toolbarTitleIcon.setVisibility(View.VISIBLE);
+        } else {
+            toolbarTitleIcon.setVisibility(View.GONE);
+        }
+    }
     @Override
     public void onReleaseNoteClosed() {
         Leafpad.setReleaseNoteClosed(this);
@@ -219,38 +277,29 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
-    private void showPopupMenu(Note note, View anchor) {
-        PopupMenu popup = new PopupMenu(this, anchor);
-        popup.getMenuInflater().inflate(R.menu.menu_popup, popup.getMenu());
-        MenuItem menuItem = popup.getMenu().findItem(R.id.action_hide_note);
-        if (note.isHide()) {
-            menuItem.setTitle(getString(R.string.show_note));
-            menuItem.setIcon(getDrawable(R.drawable.btn_show));
-        } else {
-            menuItem.setTitle(getString(R.string.hide_hidden));
-            menuItem.setIcon(getDrawable(R.drawable.btn_hide));
-        }
-        LayoutModeHelper.forcePopupMenuIcons(popup);
-        popup.setOnMenuItemClickListener(item -> {
-            int id = item.getItemId();
-            if(id == R.id.action_hide_note) {
-                noteViewModel.selectNote(note);    // <--- Das hat gefehlt!
+    private void showNoteActionsBottomSheet(Note note) {
+        NoteActionsBottomSheet sheet = NoteActionsBottomSheet.newInstance(note, new NoteActionsBottomSheet.OnNoteActionListener() {
+            @Override
+            public void onHideToggle(Note note) {
+                noteViewModel.selectNote(note);
                 noteViewModel.setNoteHide();
-                noteViewModel.saveNote(this, note);
-                return true;
+                Note updatedNote = noteViewModel.getSelectedNote().getValue();
+                if (updatedNote != null) {
+                    noteViewModel.saveNote(MainActivity.this, updatedNote);
+                }
             }
-            if (id == R.id.action_share_note) {
-                ShareHelper.shareNote(this,note);
-                return true;
-            } else if (id == R.id.action_remove) {
-                DialogHelper.showDeleteSingleNoteDialog(this, () -> noteViewModel.deleteNote(this,note));
-                return true;
-            }
-            return false;
-        });
 
-        popup.show();
+            @Override
+            public void onShare(Note note) {
+                ShareHelper.shareNote(MainActivity.this, note);
+            }
+
+            @Override
+            public void onRemove(Note note) {
+                DialogHelper.showDeleteSingleNoteDialog(MainActivity.this, () -> noteViewModel.deleteNote(MainActivity.this, note));
+            }
+        });
+        sheet.show(getSupportFragmentManager(), "note_actions");
     }
 
     @Override

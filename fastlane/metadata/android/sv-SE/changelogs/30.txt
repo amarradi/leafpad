@@ -1,1 +1,11 @@
-De tomma posterna raderas nu om dessa kasseras
+Buggfix: Tomma poster raderas nu när de kasseras
+Separerade inställningar från"Om" menyn
+ Uppdaterade översättningar
+Kategorier har lagts till; namn och färger kan väljas fritt
+Valfritt antal kategorier kan läggas till per anteckning
+Växla till att lagra anteckningar i en databas
+Justering av säkerhetskopierings-/återställningsfunktionen
+Nya ikoner har lagts till
+Nya färger har lagts till
+Licenser har lagts till
+Onödiga teckensnitt har tagits bort

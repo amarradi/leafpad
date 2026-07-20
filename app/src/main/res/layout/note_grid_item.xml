@@ -23,112 +23,121 @@
             android:paddingTop="@dimen/padding_top_list_item"
             android:paddingBottom="@dimen/padding_bottom_list_item">
 
-        <!-- Inhalt links -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <!-- Titel -->
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/title_text"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+            <!-- Inhalt links -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ellipsize="end"
-                android:maxWidth="0dp"
-                android:singleLine="false"
-                android:text=""
-                android:textAppearance="@style/TextAppearance.MyNoteItem" />
+                android:orientation="vertical">
 
-            <!-- Vorschautext -->
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/note_preview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="3"
-                android:text=""
-                android:textAppearance="@style/TextAppearance.MyNotePreview" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_listItem_distance_top"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/bible"
-                    android:layout_width="@dimen/image_listView_layout_width"
-                    android:layout_height="@dimen/image_listView_layout_height"
-                    android:src="@drawable/ic_bible"
-                    android:visibility="gone" />
-            </LinearLayout>
-            <!-- Zeit-/Datum-/Kategorie-Zeile -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_listItem_distance_top"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/date_icon"
-                    android:layout_width="@dimen/image_listView_layout_width"
-                    android:layout_height="@dimen/image_listView_layout_height"
-                    android:src="@drawable/ic_calendar" />
-
+                <!-- Titel -->
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/created_at"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/title_text"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingStart="@dimen/icon_text_distance_start"
-                    android:paddingEnd="@dimen/icon_text_distance_end"
+                    android:ellipsize="end"
+                    android:singleLine="false"
                     android:text=""
-                    android:layout_gravity="center"
-                    android:textAppearance="@style/TextAppearance.MyDateTime" />
+                    android:textAppearance="@style/TextAppearance.MyNoteItem" />
 
-                <ImageView
-                    android:id="@+id/time_icon"
-                    android:layout_width="@dimen/image_listView_layout_width"
-                    android:layout_height="@dimen/image_listView_layout_height"
-                    android:layout_marginStart="@dimen/margin_listItem_distance_top"
-                    android:src="@drawable/ic_clock" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/time_txt"
-                    android:layout_width="wrap_content"
+                <!-- Ausklappbarer Bereich: Vorschau, Bibel-Icon, Datum/Zeit, Kategorien -->
+                <LinearLayout
+                    android:id="@+id/expandable_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingStart="@dimen/icon_text_distance_start"
-                    android:paddingEnd="@dimen/icon_text_distance_end"
-                    android:text=""
-                    android:layout_gravity="center"
-                    android:textAppearance="@style/TextAppearance.MyDateTime" />
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <!-- Vorschautext -->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/note_preview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="3"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.MyNotePreview" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_listItem_distance_top"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/bible"
+                            android:layout_width="@dimen/image_listView_layout_width"
+                            android:layout_height="@dimen/image_listView_layout_height"
+                            android:src="@drawable/ic_bible"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                    <!-- Zeit-/Datum-/Kategorie-Zeile -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_listItem_distance_top"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/date_icon"
+                            android:layout_width="@dimen/image_listView_layout_width"
+                            android:layout_height="@dimen/image_listView_layout_height"
+                            android:src="@drawable/ic_calendar" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/created_at"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/icon_text_distance_start"
+                            android:paddingEnd="@dimen/icon_text_distance_end"
+                            android:text=""
+                            android:layout_gravity="center"
+                            android:textAppearance="@style/TextAppearance.MyDateTime" />
+
+                        <ImageView
+                            android:id="@+id/time_icon"
+                            android:layout_width="@dimen/image_listView_layout_width"
+                            android:layout_height="@dimen/image_listView_layout_height"
+                            android:layout_marginStart="@dimen/margin_listItem_distance_top"
+                            android:src="@drawable/ic_clock" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/time_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/icon_text_distance_start"
+                            android:paddingEnd="@dimen/icon_text_distance_end"
+                            android:text=""
+                            android:layout_gravity="center"
+                            android:textAppearance="@style/TextAppearance.MyDateTime" />
+
+                    </LinearLayout>
+                    <!-- Kategorien -->
+                    <com.google.android.material.chip.ChipGroup
+                        style="@style/Widget.App.Chip"
+                        android:id="@+id/category_chip_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:visibility="gone"
+                        app:singleLine="false"
+                        app:chipSpacingHorizontal="4dp"
+                        app:chipSpacingVertical="2dp" />
+
+                </LinearLayout>
 
             </LinearLayout>
-            <!-- Kategorien -->
-            <com.google.android.material.chip.ChipGroup
-                style="@style/Widget.App.Chip"
-                android:id="@+id/category_chip_group"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:visibility="gone"
-                app:singleLine="false"
-                app:chipSpacingHorizontal="4dp"
-                app:chipSpacingVertical="2dp" />
-        </LinearLayout>
-            <!-- Menübutton rechts -->
+            <!-- Auf-/Zuklapp-Pfeil, an der Stelle des früheren Menübuttons -->
             <ImageButton
-                android:id="@+id/image_button"
+                android:id="@+id/expand_arrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/item_menu_description"
-
-                android:scaleType="centerCrop"
-                android:src="@drawable/btn_item_menu" />
+                android:scaleType="centerInside"
+                android:src="@drawable/btn_collapse"
+                app:tint="@color/md_theme_primary"
+                android:contentDescription="@string/expand_preview_description" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

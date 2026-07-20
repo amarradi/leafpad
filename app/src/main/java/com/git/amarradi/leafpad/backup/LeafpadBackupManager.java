@@ -7,17 +7,19 @@ import android.os.Looper;
 
 import com.git.amarradi.leafpad.model.AppDatabase;
 import com.git.amarradi.leafpad.model.CategoryDao;
+import com.git.amarradi.leafpad.model.CategoryEntity;
 import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.model.NoteCategoryDao;
 import com.git.amarradi.leafpad.model.NoteCategoryJoin;
 import com.git.amarradi.leafpad.model.NoteDao;
 import com.git.amarradi.leafpad.model.NoteEntity;
 
-import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class LeafpadBackupManager {
 
@@ -38,11 +40,9 @@ public class LeafpadBackupManager {
     }
 
     public static String generateTimestamp() {
-
         java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("ddMMyyyy_HHmm", java.util.Locale.getDefault());
         return formatter.format(new java.util.Date());
     }
-
 
     public void exportBackup(Context context, Uri targetUri, Callback callback) {
         new Thread(() -> {
@@ -54,10 +54,14 @@ public class LeafpadBackupManager {
 
                 AppDatabase db = AppDatabase.getInstance(context);
                 NoteDao noteDao = db.noteDao();
+                CategoryDao categoryDao = db.categoryDao();
 
+                // ------------------------------------------------------------
+                // Notizen
+                // ------------------------------------------------------------
                 List<NoteEntity> entities = noteDao.getAllNotesForBackup();
 
-                List<NoteBackupDto> dtos = new ArrayList<>();
+                List<NoteBackupDto> noteDtos = new ArrayList<>();
                 for (NoteEntity e : entities) {
                     NoteBackupDto dto = new NoteBackupDto();
                     dto.id = e.id;
@@ -67,18 +71,57 @@ public class LeafpadBackupManager {
                     dto.time = e.notetime;
                     dto.created = e.createDate;
                     dto.hide = e.hide;
-                    // Solange wir Kategorien nicht mit sichern, leer lassen:
-                    dto.category = "";
-
-                    dtos.add(dto);
+                    dto.category = ""; // Legacy-Feld, Kategorien laufen jetzt separat
+                    noteDtos.add(dto);
                 }
 
+                // ------------------------------------------------------------
+                // Kategorien (alle, inkl. archivierte, damit nichts verloren geht)
+                // ------------------------------------------------------------
+                List<CategoryEntity> allCategories = categoryDao.getAllCategoriesForBackup();
+
+                List<CategoryBackupDto> categoryDtos = new ArrayList<>();
+                for (CategoryEntity c : allCategories) {
+                    CategoryBackupDto dto = new CategoryBackupDto();
+                    dto.name = c.name;
+                    dto.normalizedName = c.normalizedName;
+                    dto.colorHex = c.colorHex;
+                    dto.sortOrder = c.sortOrder;
+                    dto.isArchived = c.isArchived;
+                    categoryDtos.add(dto);
+                }
+
+                // ------------------------------------------------------------
+                // Notiz-Kategorie-Verknüpfungen
+                // ------------------------------------------------------------
+                Map<Long, String> categoryIdToNormalized = new HashMap<>();
+                for (CategoryEntity c : allCategories) {
+                    categoryIdToNormalized.put(c.id, c.normalizedName);
+                }
+
+                List<com.git.amarradi.leafpad.model.NoteCategoryJoin> allJoins =
+                        db.noteCategoryDao().getAllJoinsForBackup();
+
+                List<NoteCategoryBackupDto> noteCategoryDtos = new ArrayList<>();
+                for (com.git.amarradi.leafpad.model.NoteCategoryJoin join : allJoins) {
+                    String normalized = categoryIdToNormalized.get(join.categoryId);
+                    if (normalized == null) continue; // verwaiste Referenz überspringen
+
+                    NoteCategoryBackupDto dto = new NoteCategoryBackupDto();
+                    dto.noteId = join.noteId;
+                    dto.categoryNormalizedName = normalized;
+                    noteCategoryDtos.add(dto);
+                }
+
+                // ------------------------------------------------------------
+                // Schreiben
+                // ------------------------------------------------------------
                 BackupMetadata meta = new BackupMetadata();
                 meta.backupSchemaVersion = BackupCodec.SCHEMA_VERSION;
                 meta.createdAtEpochMillis = System.currentTimeMillis();
-                meta.noteCount = dtos.size();
+                meta.noteCount = noteDtos.size();
 
-                codec.writeBackup(out, meta, dtos);
+                codec.writeBackup(out, meta, noteDtos, categoryDtos, noteCategoryDtos);
 
                 postSuccess(callback, meta.noteCount);
 
@@ -87,7 +130,6 @@ public class LeafpadBackupManager {
             }
         }).start();
     }
-
 
     public void restoreBackup(Context context, Uri sourceUri, Callback callback) {
         new Thread(() -> {
@@ -103,10 +145,16 @@ public class LeafpadBackupManager {
 
                     AppDatabase db = AppDatabase.getInstance(context);
                     NoteDao noteDao = db.noteDao();
+                    CategoryDao categoryDao = db.categoryDao();
+                    NoteCategoryDao noteCategoryDao = db.noteCategoryDao();
 
                     db.runInTransaction(() -> {
+                        // Alles Alte weg (Join fliegt per FK-CASCADE mit)
                         noteDao.deleteAllNotes();
+                        // Bei Kategorien nicht CASCADE, also separat leeren:
+                        categoryDao.deleteAllCategories();
 
+                        // ---- Notizen wiederherstellen ----
                         for (NoteBackupDto dto : result.notes) {
                             if (dto.id == null || dto.id.trim().isEmpty()) {
                                 continue;
@@ -123,6 +171,32 @@ public class LeafpadBackupManager {
                             );
                             noteDao.insert(e);
                         }
+
+                        // ---- Kategorien wiederherstellen ----
+                        Map<String, Long> normalizedToNewId = new HashMap<>();
+                        for (CategoryBackupDto catDto : result.categories) {
+                            if (catDto.normalizedName == null || catDto.normalizedName.trim().isEmpty()) {
+                                continue;
+                            }
+
+                            CategoryEntity entity = new CategoryEntity(
+                                    catDto.name,
+                                    catDto.normalizedName,
+                                    catDto.colorHex,
+                                    catDto.sortOrder,
+                                    catDto.isArchived
+                            );
+                            long newId = categoryDao.insert(entity);
+                            normalizedToNewId.put(catDto.normalizedName, newId);
+                        }
+
+                        // ---- Verknüpfungen wiederherstellen ----
+                        for (NoteCategoryBackupDto ncDto : result.noteCategories) {
+                            Long categoryId = normalizedToNewId.get(ncDto.categoryNormalizedName);
+                            if (categoryId == null) continue; // Kategorie fehlt im Backup
+
+                            noteCategoryDao.insert(new NoteCategoryJoin(ncDto.noteId, categoryId));
+                        }
                     });
 
                     postSuccess(callback, result.notes.size());
@@ -133,7 +207,7 @@ public class LeafpadBackupManager {
                 // ZIP war es nicht oder Backup ungültig → fallback
             }
 
-            // 2) Fallback: Legacy XML
+            // 2) Fallback: Legacy XML (unverändert, ohne Kategorien-Support)
             try (InputStream inXml = context.getContentResolver().openInputStream(sourceUri)) {
                 if (inXml == null) {
                     postError(callback, "Datei konnte nicht geöffnet werden.");
@@ -147,12 +221,10 @@ public class LeafpadBackupManager {
                 CategoryDao categoryDao = db.categoryDao();
                 NoteCategoryDao noteCategoryDao = db.noteCategoryDao();
 
-                // Rezept-Kategorie-ID holen (sollte existieren)
                 Long rezeptIdObj = categoryDao.findIdByNormalized("rezept");
                 final long rezeptCategoryId = (rezeptIdObj != null) ? rezeptIdObj : -1L;
 
                 db.runInTransaction(() -> {
-                    // Notes löschen -> Join wird per FK-CASCADE mit gelöscht (trotzdem ok)
                     noteDao.deleteAllNotes();
 
                     for (Note n : legacyNotes) {
@@ -172,7 +244,6 @@ public class LeafpadBackupManager {
                         );
                         noteDao.insert(e);
 
-                        // Wenn Kategorie "Rezept" in XML steht -> Join setzen
                         if (rezeptCategoryId > 0) {
                             String cat = n.getCategory();
                             if (cat != null && cat.trim().equalsIgnoreCase("Rezept")) {
@@ -188,40 +259,11 @@ public class LeafpadBackupManager {
                 }
 
                 postSuccess(callback, legacyNotes.size());
-                return;
 
             } catch (Exception xmlError) {
                 postError(callback, "Restore fehlgeschlagen: " + safeMsg(xmlError));
             }
-//            // 2) Fallback: Legacy XML
-//            try (InputStream inXml = context.getContentResolver().openInputStream(sourceUri)) {
-//                if (inXml == null) {
-//                    postError(callback, "Datei konnte nicht geöffnet werden.");
-//                    return;
-//                }
-//
-//                // TODO: LegacyXmlBackupHelper muss auf Room schreiben!
-//                postError(callback, "Legacy-XML Restore ist noch nicht auf Room umgestellt.");
-//            } catch (Exception xmlError) {
-//                postError(callback, "Restore fehlgeschlagen: " + safeMsg(xmlError));
-//            }
-
         }).start();
-    }
-
-
-    private boolean looksLikeZip(BufferedInputStream in) throws Exception {
-        in.mark(4);
-        int b0 = in.read();
-        int b1 = in.read();
-        int b2 = in.read();
-        int b3 = in.read();
-        in.reset();
-        if (b0 == -1 || b1 == -1 || b2 == -1 || b3 == -1) {
-            return false;
-        }
-        // ZIP magic: 0x50 0x4B 0x03 0x04  (PK..)
-        return b0 == 0x50 && b1 == 0x4B && b2 == 0x03 && b3 == 0x04;
     }
 
     private void postSuccess(Callback callback, int count) {

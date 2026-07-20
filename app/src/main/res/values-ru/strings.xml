@@ -9,14 +9,14 @@
     <string name="theme_preference">Theme</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="app_name">Leafpad</string>
-    <string name="new_note">новая заметка</string>
-    <string name="imported">заметка была отправлена в Leafpad</string>
-    <string name="rate_the_app">А может напишите отзыв в Google PlayStore? Тогда открой Google Play напрямую.</string>
+    <string name="new_note">Новая заметка</string>
+    <string name="imported">Заметка была отправлена в Leafpad</string>
+    <string name="rate_the_app">Оставить отзыв в Play Маркете?</string>
     <string name="add_shortcut_short_label">Записать новую</string>
     <string name="tell_about">Что я хочу рассказать вам о Leafpad</string>
     <string name="created_txt">создано в</string>
-    <string name="action_remove">Удалить заметку</string>
-    <string name="edited_text">отредактировано на</string>
+    <string name="action_remove">Убрать заметку</string>
+    <string name="edited_text">Изменено</string>
     <string name="body_hint">Заметка</string>
     <string name="lightmode_preference_key">lightmode</string>
     <string name="darkmode_preference_key">darkmode</string>
@@ -29,7 +29,7 @@
     <string name="licence">Лицензии с открытым исходным кодом</string>
     <string name="find_code_on_github">GitHub</string>
     <string name="search">заметки для поиска</string>
-    <string name="action_save">сохранить заметку</string>
+    <string name="action_save">Сохранить заметку</string>
     <string name="share_note">Поделиться Заметкой?</string>
     <string name="thanks">Спасибо Стефану Д, Стефану Р, Мануэлю, Фальку, Стефани и Эмилю за ваши идеи и тестирование приложения.</string>
     <string name="statement">Мы записываем списки покупок, заметки для разговоров, списки упаковки для отпуска или дни рождения друзей. Это все хорошие вещи, чтобы мы их не забыли. Это очень похоже на Бога, он записывает наши добрые и плохие дела и спасает их. Бог над всем сущим и знает всё. Бог любит людей и хочет общаться с ними. Но это возможно только в том случае, если мы видимся Богом как неповинные. Благодаря вере в Иисуса Христа, наши плохие деяния (наши грехи) уничтожаются пред Богом. Иисус Христос искупил нашу вину на кресте Калварии. Каждый человек, который принимает это, занесен в книгу жизни навсегда. Вы зарегистрированы в книге жизни?</string>
@@ -38,34 +38,34 @@
     <string name="action_share_body">Заметка</string>
     <string name="remove_dialog_abort">Отмена</string>
     <string name="menu_settings">Настройки</string>
-    <string name="action_fab_note">сделать заметку</string>
+    <string name="action_fab_note">Создать заметку</string>
     <string name="title_activity_note_edit">Править заметку</string>
-    <string name="change">версия</string>
+    <string name="change">Версия</string>
     <string name="system_preference_key">как в системе (стандартно)</string>
-    <string name="contentDescription">добавить новую заметку</string>
+    <string name="contentDescription">Добавить новую заметку</string>
     <string name="action_edit_note">Править заметку</string>
     <string name="note_will_be_saved_first">Сначала заметка будет сохранена</string>
     <string name="general_preference">Общие настройки</string>
     <string name="title_licence">Лицензии</string>
     <string name="remove_dailog_message">Настоящая заметка будет навсегда удалена. Её нельзя будет восстановить.</string>
-    <string name="version">версия</string>
-    <string name="find_code_on_github_summary">Вы можете просматривать и проверять исходный код через хранилище. Вы можете открыть проблему для запросов на изменение и сообщений об ошибках.</string>
+    <string name="version">Версия</string>
+    <string name="find_code_on_github_summary">Вы можете просматривать и изучать исходный код Leafpad через репозиторий. Если у вас есть предложения по новым функциям или вы хотите сообщить об ошибке, пожалуйста, создавайте вопрос (issue).</string>
     <string name="action_share_title">Название</string>
     <string name="title_hint">Название</string>
     <string name="about">О нас</string>
     <string name="theme_summary">Переключение между тёмной и светлой темой</string>
-    <string name="what_is_leafpad">Leafpad - это простое приложение для заметок.</string>
+    <string name="what_is_leafpad">Leafpad — это простое приложение для заметок. С помощью этого приложения вы можете создавать, редактировать, отправлять или удалять заметки на своём телефоне.</string>
     <string name="its_opensource">Leafpad - это свободное и бесплатное приложение</string>
     <string name="participate">Участвовать или вносить свой вклад</string>
     <string name="translate">Помогите с переводом на Weblate</string>
-    <string name="translation_help">Помогите нам перевести приложение на ваш язык в Weblate</string>
-    <string name="hide_note">сделать заметку невидимой</string>
-    <string name="hide_hidden">спрятать скрытые заметки</string>
-    <string name="show_note">сделать заметку видимой</string>
-    <string name="show_hidden">показать скрытые заметки</string>
-    <string name="note_is_recipe">заметка— это рецепт</string>
-    <string name="note_is_no_recipe">эта заметка — не рецепт</string>
-    <string name="save">Сохранить все заметки как XML</string>
+    <string name="translation_help">Помогите перевести приложение в Weblate.</string>
+    <string name="hide_note">Сделать заметку невидимой</string>
+    <string name="hide_hidden">Скрыть скрытые заметки</string>
+    <string name="show_note">Сделать заметку видимой</string>
+    <string name="show_hidden">Показать скрытые заметки</string>
+    <string name="note_is_recipe">Заметка — это рецепт</string>
+    <string name="note_is_no_recipe">Заметка — не рецепт</string>
+    <string name="save">Сохранить все заметки как ZIP-контейнер с JSON</string>
     <string name="showDeleteConfirmation">Удалить заметки?</string>
     <string name="backupIsrunning">Резервное копирование запущено</string>
     <string name="no">Нет</string>
@@ -80,10 +80,10 @@
         <item quantity="other">%1$d заметок импортировано</item>
     </plurals>
     <plurals name="notes_exported">
-        <item quantity="one">%1$d note backed up</item>
-        <item quantity="few">%1$d notes backed up</item>
-        <item quantity="many">%1$d notes backed up</item>
-        <item quantity="other">%1$d notes backed up</item>
+        <item quantity="one">%d заметка экспортирована</item>
+        <item quantity="few">%d заметки экспортировано</item>
+        <item quantity="many">%d заметок экспортировано</item>
+        <item quantity="other">%d заметок экспортировано</item>
     </plurals>
     <string name="fileOpeningError">При открытии файла произошла ошибка.</string>
     <string name="delete">Удалить</string>
@@ -96,10 +96,10 @@
     <string name="showRestoreConfirmationMessage">Все текущие заметки будут заменены резервной копией. Продолжить?</string>
     <string name="toggle">изменить вид</string>
     <string name="note_shared">Заметка отправлена</string>
-    <string name="item_menu_description">меню для действий с элементами</string>
-    <string name="save_changes">сохранить изменения</string>
+    <string name="item_menu_description">Меню для действий с элементами</string>
+    <string name="save_changes">Сохранить изменения</string>
     <string name="search_hint">Что вы ищете?</string>
-    <string name="discard">отклонить</string>
+    <string name="discard">Отклонить</string>
     <string name="startIconDescription">Поле поиска</string>
     <string name="notification_of_change_description">Уведомление об изменениях в заметках</string>
     <string name="notification_of_change">Уведомление об изменениях</string>
@@ -123,7 +123,7 @@
     <string name="country_title_catalan">Каталонский</string>
     <string name="country_title_spanish">Испанский</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
-    <string name="setCategory">Set Category</string>
+    <string name="setCategory">Установить категорию</string>
     <string name="country_title_albanian">Albanian</string>
     <string name="country_title_indonesian">Индонезийский</string>
     <string name="country_title_russian">Русский</string>
@@ -152,7 +152,7 @@
     <string name="country_title_portuguese">Португальский</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Blubberland(@Blubberland), Maximilian Hüttner(@MaxHue)</string>
-    <string name="country_title_hindi_latin">Хинди (латинский сценарий)</string>
+    <string name="country_title_hindi_latin">Индийский (латиница)</string>
     <string name="country_title_hindi">Хинди</string>
     <string name="country_title_translator_estonian" translatable="false">Priit Jõerüüt(@jrthwlate)</string>
     <string name="country_title_estonian">Эстонский</string>
@@ -169,30 +169,31 @@
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
     <string name="country_title_gothic">Gothic</string>
     <string name="country_title_dutch">Dutch</string>
-    <string name="menu_about">About Leafpad</string>
+    <string name="menu_about">О Leafpad</string>
     <string name="country_title_danish">Danish</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
     <string name="country_title_serbian">Serbian</string>
-    <string name="item_menu_add_category">create new category</string>
-    <string name="category">Category</string>
-    <string name="category_name">name of the category</string>
-    <string name="select_color">choose category color</string>
-    <string name="edit_category">edit category</string>
-    <string name="add_category">add category</string>
-    <string name="category_color">category color</string>
-    <string name="save_category">save category</string>
-    <string name="delete_category">Delete category</string>
-    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
-    <string name="delete_category_hint">Notes are retained but lose this category.</string>
-    <string name="manage_categories">Manage categories</string>
-    <string name="manage_categories_summary">Create, edit, and delete</string>
-    <string name="error">error</string>
-    <string name="category_already_exists">Category allready exists</string>
-    <string name="database_error">database error</string>
-    <string name="open_source_licenses">Open source licenses</string>
-    <string name="error_loading_licenses">Error loading licenses</string>
-    <string name="open_source_licenses_summary">View used libraries and licenses</string>
-    <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
-    <string name="database_error_log">Database Error</string>
-    <string name="category_name_required">Empty category is not allowed</string>
+    <string name="item_menu_add_category">Создать новую категорию</string>
+    <string name="category">Категория</string>
+    <string name="category_name">Название категории</string>
+    <string name="select_color">Выберите цвет</string>
+    <string name="edit_category">Изменить категорию</string>
+    <string name="add_category">Добавить категорию</string>
+    <string name="category_color">цвет категории</string>
+    <string name="save_category">Сохранить категорию</string>
+    <string name="delete_category">Удалить категорию</string>
+    <string name="delete_category_confirm">Уверены, что хотите удалить категорию «%1$s»?</string>
+    <string name="delete_category_hint">Заметки сохраняются, но теряют эту категорию.</string>
+    <string name="manage_categories">Управление категориями</string>
+    <string name="manage_categories_summary">Создание, изменение и удаление</string>
+    <string name="error">Ошибка</string>
+    <string name="category_already_exists">Категория уже существует</string>
+    <string name="database_error">Ошибка базы данных</string>
+    <string name="open_source_licenses">Лицензии с открытым исходным кодом</string>
+    <string name="error_loading_licenses">Ошибка загрузки лицензий</string>
+    <string name="open_source_licenses_summary">Просмотр использованных библиотек и лицензий</string>
+    <string name="thanks_to_all_contributors">Спасибо всем участникам и друзьям, которые помогают переводить этот проект через Weblate — ваше время и усилия действительно ценятся. Полный и всегда актуальный список участников смотрите в нашем репозитории GitHub.</string>
+    <string name="database_error_log">Ошибка базы данных</string>
+    <string name="category_name_required">Пустая категория не допускается</string>
+    <string name="expand_preview_description">Expand/Collapse Preview</string>
 </resources>

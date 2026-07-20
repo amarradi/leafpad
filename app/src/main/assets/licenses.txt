@@ -33,4 +33,4 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ---
 
-All libraries are distributed under the Apache License, Version 2.0.
+This app uses open source libraries licensed under their respective licenses, including the Apache License 2.0.

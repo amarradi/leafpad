@@ -1,0 +1,18 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical">
+
+    <ImageView
+        android:orientation="horizontal"
+        android:baselineAligned="true"
+        android:id="@+id/toolbar_title_icon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:contentDescription="@string/show_hidden" />
+
+</LinearLayout>

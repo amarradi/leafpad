@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <releasenote>
-    <title>Leafpad 1.22 - Was hat sich verändert</title>
+    <title>Leafpad 1.23 - Was hat sich verändert</title>
     <content>
-        * Trennung der Einstellungen mit About
-        * Fehlerbehebung: leere Notizen werden jetzt wirklich verworfen
-        * Übersetzungen aktualisiert
-        * Kategorien eingefügt, Namen und Farben sind frei wählbar
-        * beliebig viele Kategorien sind pro Notiz möglich
-        * Umstellung der Speicherung der Notizen in einer internen Datenbank
-        * vorübergehende Abschaltung der backup/restore-Funktion
-        * Lizenzen hinzugefügt
-        * Neue Icons hinzugefügt
-        * Neue Farben hinzugefügt
-        * Schriftarten entfernt
+        * Fehler behoben: verstecken der Notizen geht wieder
+        * Fehler behoben: Notizen mit dem shortcut anlegen geht wieder. (lange aufs App-Icon
+        klicken)
+        * optische Unterscheidung der versteckten/nicht versteckten Notizen (Logo neben dem
+        App-Namen)
+        * andere Schriftarten - Robo-Sans entfernt
+        * Notizen sind jetzt eingeklappt und können manuell ausgeklpasst werden
+        * zum Vertecken, Teilen und Löschen muss man jetzt lange auf die Notiz drücken
+        * Sicherung und Wiederherstellen von Notizen ist wieder aktiv, es wird jetzt eine zip-Datei
+        abgelegt.
+        * Lesbarkeit der Notizliste erhöht, anlegen Button wird beim scrollen verkleinert
     </content>
-    <date>25.03.2026</date>
+    <date>25.07.2026</date>
     <time>07:07</time>
 </releasenote>

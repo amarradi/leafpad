@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="country_title_hindi_latin">Indian (Latin scripture)</string>
+    <string name="country_title_hindi_latin">Ινδικά (Λατινική γραφή)</string>
     <string name="darkmode_preference" translatable="false">darkmode</string>
     <string name="system_preference" translatable="false">system</string>
     <string name="theme_key" translatable="false">theme</string>
@@ -13,7 +13,7 @@
     <string name="leafpad_work">Το Leafpad σώζει όλα τα δεδομένα σε τοπικό επίπεδο στο smartphone σας. Οι σημειώσεις ή τα μεταδεδομένα, όπως η ημερομηνία και η ώρα δεν αποθηκεύονται σε κανένα cloud και δεν μοιράζονται με κανέναν. Δεν εκτελείται καμία ανάλυση κειμένου. Οι σημειώσεις ανήκουν σε εσάς. Εσείς αποφασίζετε τι να κάνετε μαζί τους.</string>
     <string name="new_note">Νέα σημείωση</string>
     <string name="imported">Η σημείωση στάλθηκε στο leafpad</string>
-    <string name="rate_the_app">Τι θα λέγατε για μια κριτική στο PlayStore της Google; Τότε ανοίξτε το Google Play κατευθείαν.</string>
+    <string name="rate_the_app">Αφήστε μια κριτική στο Play Store;</string>
     <string name="add_shortcut_short_label">Γράψτε νέα</string>
     <string name="action_note_saved">αποθηκεύτηκε</string>
     <string name="action_share_body">Σημείωση</string>
@@ -54,7 +54,7 @@
     <string name="thanks">Σας ευχαριστούμε Stefan, Stefan, Manuel, Falk και Stephanie για τις ιδέες σας και τον έλεγχο της εφαρμογής.</string>
     <string name="statement">Γράφουμε λίστες αγορών, σημειώσεις για συζητήσεις, συσκευασίες για διακοπές ή γενέθλια φίλων. Αυτά είναι όλα καλά πράγματα έτσι ώστε να μην τα ξεχνάμε. Είναι πολύ παρόμοιο με τον Θεό, γράφει τις καλές και κακές πράξεις μας και τις σώζει. Ο Θεός είναι πάνω από όλα και απλά γνωρίζει τα πάντα. Ο Θεός αγαπά τους ανθρώπους και θέλει να έχει συναναστροφή μαζί τους. Αλλά αυτό είναι μόνο δυνατό αν βλεπόμαστε από τον Θεό ως αθώοι. Μέσω της πίστης στον Χριστό, οι κακές πράξεις μας (η ενοχή μας) εξαλείφονται ενώπιον του Θεού. Ο Χριστός πυροδότησε για την ενοχή μας στον σταυρό του Γολγοθά. Κάθε άτομο που δέχεται αυτό μπαίνει στο βιβλίο της ζωής για πάντα. Είστε εγγεγραμμένοι στο βιβλίο της ζωής;</string>
     <string name="hide_note">Κάντε τη σημείωση αόρατη</string>
-    <string name="translation_help">Βοηθήστε μας να μεταφράσουμε την εφαρμογή στη γλώσσα σας στο weblate</string>
+    <string name="translation_help">Βοηθήστε στη μετάφραση της εφαρμογής στο Weblate.</string>
     <string name="rev20_12">Και είδα τους νεκρούς, μεγάλους και μικρούς, να στέκονται μπροστά στο θρόνο. Ανοίχτηκαν βιβλία, κι ύστερα ανοίχτηκε ένα άλλο βιβλίο, το βιβλίο της ζωής. Και κρίθηκαν οι νεκροί ανάλογα με τα έργα τους, που ήταν γραμμένα στα βιβλία. Αποκάλυψη 20:12</string>
     <string name="its_opensource">Το Leafpad είναι ανοιχτού κώδικα και δωρεάν</string>
     <string name="satisfied">Απολαμβάνετε το leafpad;</string>
@@ -67,11 +67,11 @@
     <string name="note_is_recipe">Η σημείωση είναι συνταγή</string>
     <string name="note_is_no_recipe">Η σημείωση δεν είναι συνταγή</string>
     <string name="showDeleteConfirmation">Διαγραφή σημειώσεων;</string>
-    <string name="save">Αποθήκευση όλων των σημειώσεων ως xml</string>
+    <string name="save">Αποθήκευση όλων των σημειώσεων ως περιέκτης zipb με json</string>
     <string name="backupIsrunning">Το αντίγραφο ασφαλείας εκτελείται</string>
     <string name="no">Όχι</string>
     <string name="importError">Σφάλμα κατά την εισαγωγή σημειώσεων.</string>
-    <string name="restore">Επαναφορά όλων των σημειώσεων από ένα αρχείο xml</string>
+    <string name="restore">Επαναφορά όλων των σημειώσεων από ένα αρχείο zip</string>
     <string name="showDeleteConfirmationMessage">Όλες οι σημειώσεις θα διαγραφούν μόνιμα. Συνέχεια;</string>
     <string name="yes">Ναι</string>
     <plurals name="notes_imported">
@@ -79,8 +79,8 @@
         <item quantity="other">%1$d σημειώσεις εισήχθησαν</item>
     </plurals>
     <plurals name="notes_exported">
-        <item quantity="one">%1$d note backed up</item>
-        <item quantity="other">%1$d notes backed up</item>
+        <item quantity="one">%d σημείωση εξήχθη</item>
+        <item quantity="other">%d σημειώσεις εξήχθησαν</item>
     </plurals>
     <string name="fileOpeningError">Σφάλμα κατά το άνοιγμα του αρχείου.</string>
     <string name="invalidFile">Μη έγκυρο αρχείο αντιγράφου ασφαλείας. Η εισαγωγή ακυρώθηκε.</string>
@@ -96,7 +96,7 @@
     <string name="save_changes">Αποθήκευση αλλαγών</string>
     <string name="discard">Απόρριψη</string>
     <string name="startIconDescription">Ένα πεδίο αναζήτησης</string>
-    <string name="item_menu_description">μενού για ενέργειες αντικειμένου</string>
+    <string name="item_menu_description">Μενού για ενέργειες αντικειμένου</string>
     <string name="search_hint">Τι ψάχνετε;</string>
     <string name="notification_of_change_description">Ειδοποιεί για αλλαγές στις σημειώσεις</string>
     <string name="notification_of_change">Ειδοποίηση για αλλαγές</string>
@@ -121,7 +121,7 @@
     <string name="country_title_catalan">Καταλανικά</string>
     <string name="country_title_spanish">Ισπανικά</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
-    <string name="setCategory">Set Category</string>
+    <string name="setCategory">Ορισμός Κατηγορίας</string>
     <string name="country_title_albanian">Αλβανικά</string>
     <string name="country_title_indonesian">Ινδονησιακά</string>
     <string name="country_title_russian">Ρώσικα</string>
@@ -163,32 +163,33 @@
     <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
     <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
-    <string name="country_title_gothic">Gothic</string>
-    <string name="country_title_dutch">Dutch</string>
-    <string name="menu_about">About Leafpad</string>
-    <string name="country_title_danish">Danish</string>
+    <string name="country_title_gothic">Γοτθικά</string>
+    <string name="country_title_dutch">Ολλανδικά</string>
+    <string name="menu_about">Σχετικά με το Leafpad</string>
+    <string name="country_title_danish">Δανικά</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
-    <string name="country_title_serbian">Serbian</string>
-    <string name="item_menu_add_category">create new category</string>
-    <string name="category">Category</string>
-    <string name="category_name">name of the category</string>
-    <string name="select_color">choose category color</string>
-    <string name="edit_category">edit category</string>
-    <string name="add_category">add category</string>
-    <string name="category_color">category color</string>
-    <string name="save_category">save category</string>
-    <string name="delete_category">Delete category</string>
-    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
-    <string name="delete_category_hint">Notes are retained but lose this category.</string>
-    <string name="manage_categories">Manage categories</string>
-    <string name="manage_categories_summary">Create, edit, and delete</string>
-    <string name="error">error</string>
-    <string name="category_already_exists">Category allready exists</string>
-    <string name="database_error">database error</string>
-    <string name="open_source_licenses">Open source licenses</string>
-    <string name="error_loading_licenses">Error loading licenses</string>
-    <string name="open_source_licenses_summary">View used libraries and licenses</string>
-    <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
-    <string name="database_error_log">Database Error</string>
-    <string name="category_name_required">Empty category is not allowed</string>
+    <string name="country_title_serbian">Σέρβικα</string>
+    <string name="item_menu_add_category">Δημιουργία νέας κατηγορίας</string>
+    <string name="category">Κατηγορία</string>
+    <string name="category_name">Όνομα της κατηγορίας</string>
+    <string name="select_color">Επιλογή χρώματος</string>
+    <string name="edit_category">Επεξεργασία κατηγορίας</string>
+    <string name="add_category">Προσθήκη κατηγορίας</string>
+    <string name="category_color">χρώμα κατηγορίας</string>
+    <string name="save_category">Αποθήκευση κατηγορίας</string>
+    <string name="delete_category">Διαγραφή κατηγορίας</string>
+    <string name="delete_category_confirm">Σίγουρα θέλετε να διαγράψετε την κατηγορία “%1$s”;</string>
+    <string name="delete_category_hint">Οι σημειώσεις θα διατηρηθούν, αλλά θα χάσετε την κατηγορία.</string>
+    <string name="manage_categories">Διαχείριση κατηγοριών</string>
+    <string name="manage_categories_summary">Δημιουργία, Επεξεργασία και Διαγραφή</string>
+    <string name="error">Σφάλμα</string>
+    <string name="category_already_exists">Η κατηγορία υπάρχει ήδη</string>
+    <string name="database_error">Σφάλμα βάσης δεδομένων</string>
+    <string name="open_source_licenses">Άδειες ανοιχτού κώδικα</string>
+    <string name="error_loading_licenses">Σφάλμα φόρτωσης των αδειών</string>
+    <string name="open_source_licenses_summary">Προβολή χρησιμοποιημένων βιβλιοθηκών και αδειών</string>
+    <string name="thanks_to_all_contributors">Ευχαριστούμε όλους τους συνεισφέροντες και φίλους που βοηθούν στη μετάφραση αυτού του εγχειρήματος μέσω του Weblate—ο χρόνος και η προσπάθεια σας εκτιμώνται πραγματικά. Για την πλήρη και πάντα ενήμερη λίστα των συνεισφερόντων, παρακαλούμε επισκεφθείτε το αποθετήριο μας στο GitHub.</string>
+    <string name="database_error_log">Σφάλμα βάσης δεδομένων</string>
+    <string name="category_name_required">Δεν επιτρέπεται άδεια κατηγορία</string>
+    <string name="expand_preview_description">Expand/Collapse Preview</string>
 </resources>

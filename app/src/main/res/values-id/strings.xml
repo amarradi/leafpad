@@ -9,14 +9,14 @@
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
     <string name="theme_preference">Tema</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
-    <string name="find_code_on_github_summary">Anda dapat melihat dan memeriksa kode sumber melalui repositori. Anda dipersilakan untuk membuka masalah untuk mengubah permintaan dan pesan kesalahan.</string>
+    <string name="find_code_on_github_summary">Anda dapat melihat dan meninjau kode sumber Leafpad melalui repositori. Jika Anda memiliki permintaan fitur atau ingin melaporkan bug, jangan ragu untuk membuka isu.</string>
     <string name="action_share_title">Judul</string>
     <string name="title_hint">Judul</string>
     <string name="about">Sitemap</string>
     <string name="theme_summary">Beralih antara tema gelap dan ringan</string>
-    <string name="what_is_leafpad">Leafpad adalah aplikasi sederhana untuk mengambil catatan.</string>
+    <string name="what_is_leafpad">Leafpad adalah aplikasi sederhana untuk membuat catatan. Dengan aplikasi ini, Anda dapat membuat, mengedit, mengirim, atau menghapus catatan di ponsel Anda.</string>
     <string name="created_txt">sitemap</string>
-    <string name="action_remove">Hapus catatan</string>
+    <string name="action_remove">Hapus Catatan</string>
     <string name="licence">Lisensi sumber terbuka</string>
     <string name="edited_text">Diedit pada</string>
     <string name="body_hint">Catatan</string>
@@ -24,7 +24,7 @@
     <string name="find_code_on_github">Login</string>
     <string name="darkmode_preference_key">mode gelap</string>
     <string name="search">cari catatan</string>
-    <string name="action_save">login</string>
+    <string name="action_save">Simpan Catatan</string>
     <string name="share_note">Catatan Saham?</string>
     <string name="thanks">Terima kasih Stefan, Stefan, Manuel, Falk, Stephanie dan Emil untuk ide kalian dan pengujian aplikasi.</string>
     <string name="statement">Kami menulis daftar belanja, catatan untuk percakapan, daftar kemasan untuk liburan atau ulang tahun teman. Ini adalah semua hal yang baik sehingga kita tidak melupakannya. Meme it Ini sangat mirip dengan Allah, ia menulis ke bawah perbuatan baik dan buruk kita dan menyelamatkan mereka. Allah di atas segala sesuatu dan hanya tahu segala sesuatu. Allah mencintai orang-orang dan ingin memiliki perseroan dengan mereka. Tapi ini hanya mungkin jika kita melihat oleh Allah sebagai tidak bersalah. Melalui iman dalam Yesus Kristus, perbuatan-perbuatan yang buruk (kesalahan kita) dihapus sebelum Allah. Yesus Kristus bertabur untuk bersalah kita atas salib Calvary. Setiap orang yang menerima ini dimasukkan dalam buku kehidupan selamanya. Apakah Anda terdaftar dalam buku kehidupan?</string>
@@ -35,12 +35,12 @@
     <string name="about_the_app">Tentang Aplikasi</string>
     <string name="remove_dialog_title">Apakah Anda yakin?</string>
     <string name="action_add_note">Tambahkan Catatan</string>
-    <string name="action_share_note">Bagikan catatan</string>
-    <string name="add_shortcut_short_label">Tulis baru</string>
+    <string name="action_share_note">Bagikan Catatan</string>
+    <string name="add_shortcut_short_label">Tulis yang Baru</string>
     <string name="action_share_body">Catatan</string>
-    <string name="action_fab_note">buat catatan</string>
+    <string name="action_fab_note">Buat Catatan</string>
     <string name="title_activity_note_edit">Ubah Catatan</string>
-    <string name="new_note">catatan baru</string>
+    <string name="new_note">Catatan Baru</string>
     <string name="tell_about">Apa yang ingin saya ceritakan tentang Leafpad</string>
     <string name="system_preference_key">sistem ikuti (standar)</string>
     <string name="leafpad_work">Leafpad menyimpan semua data secara lokal di ponsel cerdas Anda. Catatan atau metadata seperti tanggal dan waktu tidak disimpan di cloud apa pun dan tidak dibagikan dengan siapa pun. Tidak ada analisis teks dilakukan. Catatan milik Anda. Anda memutuskan apa yang Anda lakukan dengan mereka. Meme it.</string>
@@ -90,7 +90,7 @@
     <string name="save_notes_title">Cadangan</string>
     <string name="showRestoreConfirmationMessage">Semua catatan saat ini akan diganti dengan cadangan. Lanjutkan?</string>
     <string name="toggle">ubah Tampilan</string>
-    <string name="note_shared">Catatan dibagikan</string>
+    <string name="note_shared">Catatan Dibagikan</string>
     <string name="save_changes">Simpan Perubahan</string>
     <string name="discard">Buang</string>
     <string name="item_menu_description">Menu untuk tindakan item</string>
@@ -189,4 +189,5 @@
     <string name="thanks_to_all_contributors">Terima kasih kepada semua kontributor dan teman yang membantu menerjemahkan proyek ini melalui Weblate—waktu dan upaya Anda sangat dihargai. Untuk daftar kontributor yang lengkap dan selalu terbaru, silakan kunjungi repositori GitHub kami.</string>
     <string name="database_error_log">Kesalahan Database</string>
     <string name="category_name_required">Kategori kosong tidak diperbolehkan</string>
+    <string name="expand_preview_description">Expand/Collapse Preview</string>
 </resources>
