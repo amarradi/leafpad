@@ -67,7 +67,7 @@
     <string name="note_is_no_recipe">La nota no es una receta</string>
     <string name="restore">Restaurar todas las notas desde un archivador zip</string>
     <string name="showDeleteConfirmationMessage">Todas las notas serán borradas permanentemente. ¿Continuar?</string>
-    <string name="save">Guardar todas las notas como un contenedor zipb con json</string>
+    <string name="save">Guardar todas las notas como un contenedor zip con json</string>
     <string name="showDeleteConfirmation">¿Eliminar notas?</string>
     <string name="backupIsrunning">La copia de respaldo se está ejecutando</string>
     <string name="no">No</string>
@@ -193,5 +193,5 @@
     <string name="thanks_to_all_contributors">Gracias a todos los colaboradores y amigos que ayudan a traducir este proyecto a través de Weblate: su tiempo y esfuerzo son realmente apreciados. Para la lista completa y siempre actualizada de los colaboradores, visite nuestro repositorio GitHub.</string>
     <string name="database_error_log">Error de base de datos</string>
     <string name="category_name_required">No se permite una categoría vacía</string>
-    <string name="expand_preview_description">Expand/Collapse Preview</string>
+    <string name="expand_preview_description">Ampliar/colapsar vista previa</string>
 </resources>
