@@ -87,9 +87,9 @@
         <item>Rezept</item>
     </string-array>
     <string name="no">Nein</string>
-    <string name="save">Alle Notizen als xml-Datei speichern</string>
+    <string name="save">Alle Notizen als zip-Datei mit json-Dateien speichern</string>
     <string name="showDeleteConfirmation">Notizen löschen?</string>
-    <string name="restore">Alle Notizen aus einer xml-Datei wiederherstellen</string>
+    <string name="restore">Alle Notizen aus einer zip-Datei wiederherstellen</string>
     <string name="showDeleteConfirmationMessage">Alle Notizen werden endgültig gelöscht. Weiter?</string>
     <string name="yes">Ja</string>
     <string name="delete">Löschen</string>
