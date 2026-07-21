@@ -87,7 +87,7 @@
         <item>Rezept</item>
     </string-array>
     <string name="no">Nein</string>
-    <string name="save">Alle Notizen als zip-Datei mit json-Dateien speichern</string>
+    <string name="save">Speichern Sie alle Notizen als Zip-Container mit Json</string>
     <string name="showDeleteConfirmation">Notizen löschen?</string>
     <string name="restore">Alle Notizen aus einer zip-Datei wiederherstellen</string>
     <string name="showDeleteConfirmationMessage">Alle Notizen werden endgültig gelöscht. Weiter?</string>
