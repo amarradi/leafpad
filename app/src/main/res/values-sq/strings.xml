@@ -65,7 +65,7 @@
     <string name="action_share_note">Ndajeni Shënimin Me të Tjerë</string>
     <string name="note_is_recipe">Shënimi është një recetë</string>
     <string name="note_is_no_recipe">Shënimi s’është recetë</string>
-    <string name="save">Ruaji krejt shënimet si kontejner zipb me json</string>
+    <string name="save">Ruaji krejt shënimet si kontejner zip me json</string>
     <string name="no">Jo</string>
     <string name="showDeleteConfirmation">Të fshihen shënimet?</string>
     <string name="backupIsrunning">Kopjeruajtja po bëhet</string>
@@ -191,5 +191,5 @@
     <string name="thanks_to_all_contributors">Faleminderit krejt kontribuesve dhe miqve që ndihmojnë të përkthehet ky projekt në Weblate—koha dhe përpjekjet tuaja vlerësohen vërtet. Për listën e plotë dhe përherë të përditësuar të kontribuesve, ju lutemi, vizitoni depon në GitHub.</string>
     <string name="database_error_log">Gabim Baze të Dhënash</string>
     <string name="category_name_required">S’lejohet kategori e zbrazët</string>
-    <string name="expand_preview_description">Expand/Collapse Preview</string>
+    <string name="expand_preview_description">Zgjero/Tkurr Paraparjen</string>
 </resources>
