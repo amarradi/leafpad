@@ -10,7 +10,7 @@
 
     <style name="ToolbarTitle.App" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:fontFamily">sans-serif-thin</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">@dimen/text_size_my_toolbar_title</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:textColor">@color/md_theme_primary</item>
     </style>
