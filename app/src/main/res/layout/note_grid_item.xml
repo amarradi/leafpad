@@ -130,11 +130,12 @@
             <!-- Auf-/Zuklapp-Pfeil, an der Stelle des früheren Menübuttons -->
             <ImageButton
                 android:id="@+id/expand_arrow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="28dp"
+                android:layout_height="20dp"
                 android:layout_gravity="top"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:scaleType="centerInside"
+                android:background="@drawable/bg_expand_arrow_button"
+                android:padding="2dp"
+                android:scaleType="center"
                 android:src="@drawable/btn_collapse"
                 app:tint="@color/md_theme_primary"
                 android:contentDescription="@string/expand_preview_description" />
