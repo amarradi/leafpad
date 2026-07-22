@@ -194,5 +194,5 @@
     <string name="thanks_to_all_contributors">Vielen Dank an alle Mitwirkenden und Freunde, die bei der Übersetzung dieses Projekts über Weblate helfen – wir wissen eure Zeit und Mühe sehr zu schätzen. Die vollständige und stets aktuelle Liste der Mitwirkenden findet ihr in unserem GitHub-Repository.</string>
     <string name="database_error_log">Datenbankfehler</string>
     <string name="category_name_required">Leere Kategorie ist nicht erlaubt</string>
-    <string name="expand_preview_description">Expand/Collapse Preview</string>
+    <string name="expand_preview_description">Vorschau anzeigen</string>
 </resources>
