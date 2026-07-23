@@ -11,7 +11,7 @@
     <string name="leafpad_work">Leafpad salvestab andmed vaid sinu nutiseadmes. Ka märkmete metateave nagu näiteks koostamise ja muutmise ajatempel pole salvestatud pilves ega jagatud teiste osapooltega. Pole ka kasutusel ühtegi sisestatud teksti analüüsimise meetodit. Sinu märkmed on sinu omad. Sina otsustad, mida tahad nendega teha.</string>
     <string name="new_note">Uus märge</string>
     <string name="save_changes">Salvesta muudatused</string>
-    <string name="save">Salvesta kõik märked zipb-konteinerina json-iga</string>
+    <string name="save">Salvesta kõik märked zip-konteinerina json-is</string>
     <string name="showDeleteConfirmation">Kas kustutame kõik märked?</string>
     <string name="set">See on retsept</string>
     <string name="toggle">Muuda vaadet</string>
@@ -29,7 +29,7 @@
     <string name="title_activity_note_edit">Märkme muutmine</string>
     <string name="translate">Tõlgi rakendust Weblate\'is</string>
     <string name="no">Ei</string>
-    <string name="hide_hidden">Peida peidetud märkeid</string>
+    <string name="hide_hidden">Peida peidetud märkmed</string>
     <string name="change">Versioon</string>
     <string name="keep_screen_on_dialog_message">Ekraani sisselülitatuna hoidmine võib märgatavalt suurendada akukasutust. Kas oled kindel, et soovid selle võimaluse sisse lülitada?</string>
     <string name="system_preference_key">süsteemi kujundus (standard)</string>
@@ -111,7 +111,7 @@
     <string name="about_the_app">Selle rakenduse teave</string>
     <string name="remove_dialog_title">Kas oled kindel?</string>
     <string name="action_add_note">Lisa märge</string>
-    <string name="show_hidden">Näita peidetud märkeid</string>
+    <string name="show_hidden">Näita peidetud märkmeid</string>
     <string name="empty_list">Loendis pole märkmeid</string>
     <string name="action_share_note">Jaga märget</string>
     <string name="country_title_translator_czech" translatable="false">MessingWithComputers(@MessingWithComputers)</string>
@@ -191,5 +191,5 @@
     <string name="thanks_to_all_contributors">Suur tänu kõigile kaastöötajatele ja sõpradele, kes aitavad seda projekti Weblate\'i teenuse abil tõlkida – hindame väga teie aega ja vaeva. Täieliku ja alati ajakohase kaastöötajate loendi leiad meie lähtekoodi hoidlast GitHubis.</string>
     <string name="database_error_log">Andmebaasi viga</string>
     <string name="category_name_required">Tühi kategooria pole lubatud</string>
-    <string name="expand_preview_description">Expand/Collapse Preview</string>
+    <string name="expand_preview_description">Laienda/ahenda eelvaade</string>
 </resources>
