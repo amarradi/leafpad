@@ -73,7 +73,5 @@ _Many thanks to Dominik Schmidt for providing the initial source code in 2017._
 [![GitHub release](https://img.shields.io/github/v/release/amarradi/leafpad)](https://github.com/amarradi/leafpad/releases/latest)
 [![License](https://img.shields.io/github/license/amarradi/leafpad)](https://github.com/amarradi/leafpad/blob/main/LICENSE)
 [![Top language](https://img.shields.io/github/languages/top/amarradi/leafpad)](https://github.com/amarradi/leafpad)
-![Downloads last month](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fkitswas%2Ffdroid-metrics-dashboard%2Fraw%2Frefs%2Fheads%2Fmain%2Fprocessed%2Fmonthly%2Fio.github.kitswas.virtualgamepadmobile.json&query=%24.total_downloads&logo=fdroid&label=Downloads%20last%20month)
-![Searches last month](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fkitswas%2Ffdroid-metrics-dashboard%2Fraw%2Frefs%2Fheads%2Fmain%2Fprocessed%2Fmonthly%2Fio.github.kitswas.virtualgamepadmobile.json&query=%24.search_count&logo=fdroid&label=Searches%20last%20month)
 
 
