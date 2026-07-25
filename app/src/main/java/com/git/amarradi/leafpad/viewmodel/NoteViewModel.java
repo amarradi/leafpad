@@ -27,6 +27,8 @@ import java.util.Objects;
 
 public class NoteViewModel extends AndroidViewModel {
 
+    private final MutableLiveData<String> sortModeLiveData;
+
     private final NoteRepository noteRepository;
     private final LiveData<List<NoteEntity>> allNoteEntities;
     private final LiveData<List<CategoryEntity>> categoriesForSelectedNote;
@@ -79,6 +81,8 @@ public class NoteViewModel extends AndroidViewModel {
     }
 
     private java.util.Map<String, List<CategoryEntity>> latestCategoriesByNoteId = new java.util.HashMap<>();
+
+
     private Object releaseNoteHeader;
 
     public void setReleaseNoteHeader(Object releaseNoteHeader) {
@@ -410,7 +414,9 @@ public class NoteViewModel extends AndroidViewModel {
                     return noteRepository.getCategoriesByIds(ids);
                 });
 
-        allNoteEntities = noteRepository.getAllNotes();
+        //allNoteEntities = noteRepository.getAllNotes();
+        sortModeLiveData = new MutableLiveData<>(Leafpad.getInstance().getSortMode());
+        allNoteEntities = Transformations.switchMap(sortModeLiveData, mode -> noteRepository.getAllNotesSorted(mode));
 
         notesLiveData.addSource(allNoteEntities, entities -> {
             rebuildNotesList(entities, showHiddenLiveData.getValue());
@@ -549,6 +555,15 @@ public class NoteViewModel extends AndroidViewModel {
     public void setShowHidden(boolean showHidden) {
         showHiddenLiveData.setValue(showHidden);
         loadNotes();
+    }
+
+    public void setSortMode(String sortMode) {
+        Leafpad.getInstance().saveSortMode(sortMode);
+        sortModeLiveData.setValue(sortMode);
+    }
+
+    public LiveData<String> getSortMode() {
+        return sortModeLiveData;
     }
 
     public void setNote(Note note) {

@@ -92,4 +92,18 @@ public class NoteRepository {
         return categoryDao.getAllActiveNoteCategoryRows();
     }
 
+    public LiveData<List<NoteEntity>> getAllNotesSorted(String sortMode) {
+        switch (sortMode) {
+            case "date_asc":
+                return noteDao.getAllNotesDateAsc();
+            case "title_asc":
+                return noteDao.getAllNotesTitleAsc();
+            case "title_desc":
+                return noteDao.getAllNotesTitleDesc();
+            case "date_desc":
+            default:
+                return noteDao.getAllNotes();
+        }
+    }
+
 }

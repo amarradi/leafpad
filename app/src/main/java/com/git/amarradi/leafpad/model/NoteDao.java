@@ -20,6 +20,18 @@ public interface NoteDao {
     LiveData<List<NoteEntity>> getAllNotes();
 
     @Query("SELECT * FROM notes " +
+            "ORDER BY " +
+            "substr(notedate, 7, 4) || substr(notedate, 4, 2) || substr(notedate, 1, 2) ASC, " +
+            "notetime ASC")
+    LiveData<List<NoteEntity>> getAllNotesDateAsc();
+
+    @Query("SELECT * FROM notes ORDER BY title COLLATE NOCASE ASC")
+    LiveData<List<NoteEntity>> getAllNotesTitleAsc();
+
+    @Query("SELECT * FROM notes ORDER BY title COLLATE NOCASE DESC")
+    LiveData<List<NoteEntity>> getAllNotesTitleDesc();
+
+    @Query("SELECT * FROM notes " +
             "WHERE hide = 0 " +
             "ORDER BY " +
             "substr(notedate, 7, 4) || substr(notedate, 4, 2) || substr(notedate, 1, 2) DESC, " +

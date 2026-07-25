@@ -5,6 +5,7 @@
         * Fehler behoben: zu kleiner Button zum Ein-ausklappen der Notizen vergrößert
         * Fehler behoben: Suchergebnisse wurde als geändert erkannt.
         * Schritgrößen angepasst
+        * Leerzeichen am Ende der Notizen (Titel und Notiz) werden gelöscht
         * Neue Icons hinzugefügt
         * Übersetzungen aktualisiert
     </content>
