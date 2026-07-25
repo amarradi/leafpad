@@ -93,8 +93,8 @@ public class NoteViewModel extends AndroidViewModel {
     private NoteEntity toEntity(Note n) {
         return new NoteEntity(
                 n.getId(),
-                n.getTitle(),
-                n.getBody(),
+                n.getTitle() != null ? n.getTitle().trim() : "",
+                n.getBody() != null ? n.getBody().trim() : "",
                 n.getDate(),
                 n.getTime(),
                 n.getCreateDate(),
