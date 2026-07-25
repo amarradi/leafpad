@@ -3,6 +3,7 @@
     <title>Leafpad 1.24 - Was hat sich verändert</title>
     <content>
         * Fehler behoben: zu kleiner Button zum Ein-ausklappen der Notizen vergrößert
+        * Fehler behoben: Suchergebnisse wurde als geändert erkannt.
         * Schritgrößen angepasst
         * Neue Icons hinzugefügt
         * Übersetzungen aktualisiert

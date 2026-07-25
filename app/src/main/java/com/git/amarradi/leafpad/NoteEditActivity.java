@@ -64,7 +64,8 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
     private NestedScrollView bodyScroll;
     private boolean isNewNote = false;
     private boolean fromSearch = false;
-    private boolean isUIConfigured = false;
+    //private boolean isUIConfigured = false;
+    private String configuredNoteId = null;
     private MenuItem saveMenuItem;
     private TextWatcher modificationWatcher;
 
@@ -299,9 +300,9 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
     private void observeNote() {
         noteViewModel.getSelectedNote().observe(this, note -> {
             if (note != null) {
-                if (!isUIConfigured) {
+                if (!note.getId().equals(configuredNoteId)) {
                     configureUIFromNote(note);
-                    isUIConfigured = true;
+                    configuredNoteId = note.getId();
                 }
             }
             // Menü immer updaten!
