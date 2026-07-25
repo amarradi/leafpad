@@ -1,0 +1,8 @@
+Märkmete peitmine on korras.
+Märkmete lisamise rakenduse ikoonist toimib jälle (hoia rakenduse ikooni pikalt all).
+Peidetud ja nähtavad märkmed on nüüd eristatavad (ikoon rakenduse nime kõrval).
+Fondid on uuendatud.
+Märkmed on nüüd vaikimisi kokku lapatud ja neid saab käsitsi lahti lapata.
+Märkme peitmiseks, jagamiseks või kustutamiseks vajuta sellel pikalt.
+Varundamine+taastamine toimib jälle (varukoopia on nüüd ZIP-failina).
+Märkmete loendi loetavus on parem; kerimisel väheneb Loo-nupu suurus

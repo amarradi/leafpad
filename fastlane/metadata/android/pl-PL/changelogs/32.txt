@@ -1,0 +1,4 @@
+Naprawiono błąd: przycisk rozwijania i zwijania notatek był zbyt mały i został powiększony.
+Dostosowano rozmiary czcionek.
+Dodano nowe ikony.
+Zaktualizowano tłumaczenia.
