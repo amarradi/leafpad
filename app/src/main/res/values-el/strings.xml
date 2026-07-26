@@ -192,9 +192,9 @@
     <string name="database_error_log">Σφάλμα βάσης δεδομένων</string>
     <string name="category_name_required">Δεν επιτρέπεται άδεια κατηγορία</string>
     <string name="expand_preview_description">Επέκταση/Σύμπτυξη προεπισκόπησης</string>
-    <string name="menu_sort">sort</string>
-    <string name="sort_date_desc">newest first</string>
-    <string name="sort_title_asc">title a-z</string>
-    <string name="sort_title_desc">title z-a</string>
-    <string name="sort_date_asc">oldest first</string>
+    <string name="menu_sort">ταξινόμηση</string>
+    <string name="sort_date_desc">νεότερη πρώτα</string>
+    <string name="sort_title_asc">τίτλος α-ω</string>
+    <string name="sort_title_desc">τίτλος ω-α</string>
+    <string name="sort_date_asc">παλαιότερη πρώτα</string>
 </resources>
