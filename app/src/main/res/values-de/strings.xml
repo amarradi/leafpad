@@ -198,6 +198,6 @@
     <string name="menu_sort">Sortierung</string>
     <string name="sort_date_desc">Neuste zuerst</string>
     <string name="sort_title_asc">Titel A-Z</string>
-    <string name="sort_title_desc">Titel A-Z</string>
+    <string name="sort_title_desc">Titel Z-A</string>
     <string name="sort_date_asc">ältester zuerst</string>
 </resources>
