@@ -195,9 +195,9 @@
     <string name="database_error_log">Datenbankfehler</string>
     <string name="category_name_required">Leere Kategorie ist nicht erlaubt</string>
     <string name="expand_preview_description">Vorschau anzeigen</string>
-    <string name="menu_sort">sort</string>
-    <string name="sort_date_desc">newest first</string>
-    <string name="sort_title_asc">title a-z</string>
-    <string name="sort_title_desc">title z-a</string>
-    <string name="sort_date_asc">oldest first</string>
+    <string name="menu_sort">Sortierung</string>
+    <string name="sort_date_desc">Neuste zuerst</string>
+    <string name="sort_title_asc">Titel A-Z</string>
+    <string name="sort_title_desc">Titel Z-A</string>
+    <string name="sort_date_asc">ältester zuerst</string>
 </resources>
