@@ -198,4 +198,5 @@
     <string name="sort_date_desc">newest first</string>
     <string name="sort_title_asc">title a-z</string>
     <string name="sort_title_desc">title z-a</string>
+    <string name="sort_date_asc">oldest first</string>
 </resources>
