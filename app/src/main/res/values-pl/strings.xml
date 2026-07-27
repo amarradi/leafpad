@@ -198,7 +198,7 @@
     <string name="expand_preview_description">Rozwiń/Zwiń podgląd</string>
     <string name="menu_sort">sortowanie</string>
     <string name="sort_date_desc">najpierw najnowsze</string>
-    <string name="sort_title_asc">tytuł a-z</string>
-    <string name="sort_title_desc">tytuł z-a</string>
+    <string name="sort_title_asc">Tytuł A-Z</string>
+    <string name="sort_title_desc">Tytuł Z-A</string>
     <string name="sort_date_asc">najpierw najstarsze</string>
 </resources>
