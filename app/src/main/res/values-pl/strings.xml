@@ -196,7 +196,7 @@
     <string name="database_error_log">Błąd bazy danych</string>
     <string name="category_name_required">Pusta kategoria nie jest dozwolona</string>
     <string name="expand_preview_description">Rozwiń/Zwiń podgląd</string>
-    <string name="menu_sort">sortuj</string>
+    <string name="menu_sort">sortowanie</string>
     <string name="sort_date_desc">najpierw najnowsze</string>
     <string name="sort_title_asc">tytuł a-z</string>
     <string name="sort_title_desc">tytuł z-a</string>
