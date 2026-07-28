@@ -16,7 +16,7 @@
     <string name="imported">Poznámka byla odeslána na leafpad</string>
     <string name="rate_the_app">Ohodnotit aplikaci přes Play Store?</string>
     <string name="add_shortcut_short_label">Napsat Novou</string>
-    <string name="action_note_saved">uložené</string>
+    <string name="action_note_saved">Uloženo</string>
     <string name="tell_about">Co chci vám říct o Leafpad</string>
     <string name="action_share_body">Poznámka</string>
     <string name="remove_dialog_abort">Zrušit</string>
@@ -25,7 +25,7 @@
     <string name="title_activity_note_edit">Upravit poznámku</string>
     <string name="translate">Přeložit aplikaci na Weblate</string>
     <string name="change">Verze</string>
-    <string name="system_preference_key">podle systému (výchozí)</string>
+    <string name="system_preference_key">Podle systému (výchozí)</string>
     <string name="contentDescription">Přidat Novou Poznámku</string>
     <string name="action_edit_note">Upravit poznámku</string>
     <string name="note_will_be_saved_first">Poznámka bude uložena první</string>
@@ -37,15 +37,15 @@
     <string name="title_hint">Název</string>
     <string name="about">O aplikaci</string>
     <string name="theme_summary">Přepnout mezi tmavým a světlým tématem</string>
-    <string name="created_txt">vytvořeno na</string>
+    <string name="created_txt">Vytvořeno na</string>
     <string name="action_remove">Odebrat Poznámku</string>
     <string name="licence">Open source licence</string>
     <string name="edited_text">Upraveno na</string>
     <string name="body_hint">Poznámka</string>
-    <string name="lightmode_preference_key">světlý režim</string>
+    <string name="lightmode_preference_key">Světlý režim</string>
     <string name="find_code_on_github">GitHub</string>
-    <string name="darkmode_preference_key">tmavý režim</string>
-    <string name="search">hledat poznámky</string>
+    <string name="darkmode_preference_key">Tmavý režim</string>
+    <string name="search">Hledat poznámky</string>
     <string name="action_save">Uložit poznámku</string>
     <string name="share_note">Sdílet Poznámku?</string>
     <string name="thanks">Děkuji Stefane, Stefane, Manuele, Falku, Stephanie a Emile pro vaše nápady a testování aplikace.</string>
@@ -65,7 +65,7 @@
     <string name="show_hidden">Zobrazit skryté poznámky</string>
     <string name="note_is_recipe">Poznámka je recept</string>
     <string name="note_is_no_recipe">Poznámka není recept</string>
-    <string name="save">Uložit všechny poznámky jako zipb archiv s json</string>
+    <string name="save">Uložit všechny poznámky jako zip archiv s json</string>
     <string name="showDeleteConfirmation">Odstranit poznámky?</string>
     <string name="restore">Obnovit všechny poznámky od zip souboru</string>
     <string name="backupIsrunning">Zálohování běží</string>
@@ -179,7 +179,7 @@
     <string name="select_color">Vyberte barvu</string>
     <string name="edit_category">Upravit kategorii</string>
     <string name="add_category">Přidat kategorii</string>
-    <string name="category_color">barva kategorie</string>
+    <string name="category_color">Barva kategorie</string>
     <string name="save_category">Uložit kategorii</string>
     <string name="delete_category">Smazat kategorii</string>
     <string name="delete_category_confirm">Určitě chcete smazat kategorii “%1$s”?</string>
@@ -195,10 +195,10 @@
     <string name="thanks_to_all_contributors">Díky všem přispěvatelů a kamarádů, kteří pomáhají překládat tento projekt přes Weblate — vaše snaha a věnování jsou doopravdy oceněny. Pro celý a vždy aktualizován seznam přispěvatelů, prosím naštivte náš GitHub repozitář.</string>
     <string name="database_error_log">Chyba Databáze</string>
     <string name="category_name_required">Prázdná kategorie není platná</string>
-    <string name="expand_preview_description">Expand/Collapse Preview</string>
-    <string name="menu_sort">sort</string>
-    <string name="sort_date_desc">newest first</string>
-    <string name="sort_title_asc">title a-z</string>
-    <string name="sort_title_desc">title z-a</string>
-    <string name="sort_date_asc">oldest first</string>
+    <string name="expand_preview_description">Rozbalit/Sbalit náhled</string>
+    <string name="menu_sort">Seřazení</string>
+    <string name="sort_date_desc">Nejnovější první</string>
+    <string name="sort_title_asc">Návev A-Z</string>
+    <string name="sort_title_desc">Název Z-A</string>
+    <string name="sort_date_asc">Nejstarší první</string>
 </resources>
