@@ -48,7 +48,12 @@ If you have found a bug or are missing a function, you can simply open a new iss
 If you want to contribute leafpad you can read <a href='https://github.com/amarradi/leafpad/blob/development/CONTRIBUTING.md'>Contribute</a> and start.
 
 ## Support for leafpad
-If you would like to support the work on leafpad, you are welcome to do so 
+If you would like to support the work on leafpad, you are welcome to do so
+
+via Paypal
+
+<a href="https://www.paypal.com/pool/9rhXDhrRIV?sr=wccr">paypal.me/MarcusRadisch</a>
+
 via Buy me a Coffee
 
 [![BuyMeACoffee](https://raw.githubusercontent.com/pachadotdev/buymeacoffee-badges/main/bmc-donate-yellow.svg)](https://www.buymeacoffee.com/leafpad)
