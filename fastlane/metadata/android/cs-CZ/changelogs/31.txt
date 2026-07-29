@@ -1,0 +1,8 @@
+Opraveno: Skrývání poznámek znova funguje.
+Opraveno: Vytváření poznámek přes ikonu aplikace znova funguje (udělejte dlouhé klepnutí na ikonu aplikace).
+Přidané vizuální rozlišení mezi skrytých a viditelných poznámek.
+Fonty aktualizovány - odstraněn Robo Sans.
+Poznámky jsou teď výchoze sbaleny a mohou být rozbaleny.
+Pro skrytí, sdílení nebo odstranění poznámky udělejte dlouhé klepnutí.
+Možnosti zálohování a obnovení jsou zpátky. Poznámky jsou teď uloženy v ZIP souboru.
+Zlepšená čitelnost seznamu poznámek - tlačítko pro vytvoření je zmenšeno při rolování

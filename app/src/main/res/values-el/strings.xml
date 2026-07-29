@@ -194,7 +194,7 @@
     <string name="expand_preview_description">Επέκταση/Σύμπτυξη προεπισκόπησης</string>
     <string name="menu_sort">ταξινόμηση</string>
     <string name="sort_date_desc">νεότερη πρώτα</string>
-    <string name="sort_title_asc">τίτλος α-ω</string>
-    <string name="sort_title_desc">τίτλος ω-α</string>
+    <string name="sort_title_asc">Τίτλος Α-Ω</string>
+    <string name="sort_title_desc">Τίτλος Ω-Α</string>
     <string name="sort_date_asc">παλαιότερη πρώτα</string>
 </resources>
