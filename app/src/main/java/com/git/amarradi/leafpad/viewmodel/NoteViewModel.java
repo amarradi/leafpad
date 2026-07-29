@@ -74,15 +74,11 @@ public class NoteViewModel extends AndroidViewModel {
     }
 
     private final LiveData<java.util.Map<String, List<CategoryEntity>>> categoriesByNoteId;
-
-
     public LiveData<java.util.Map<String, List<CategoryEntity>>> getCategoriesByNoteId() {
         return categoriesByNoteId;
     }
 
     private java.util.Map<String, List<CategoryEntity>> latestCategoriesByNoteId = new java.util.HashMap<>();
-
-
     private Object releaseNoteHeader;
 
     public void setReleaseNoteHeader(Object releaseNoteHeader) {
@@ -105,7 +101,6 @@ public class NoteViewModel extends AndroidViewModel {
                 n.isHide()
         );
     }
-
 
     private Note fromEntity(NoteEntity e) {
         return new Note(
@@ -332,7 +327,6 @@ public class NoteViewModel extends AndroidViewModel {
                             list = new ArrayList<>();
                             map.put(r.noteId, list);
                         }
-
                         // CategoryEntity befüllen
                         CategoryEntity c = new CategoryEntity(
                                 r.name,
@@ -360,7 +354,6 @@ public class NoteViewModel extends AndroidViewModel {
                     return noteRepository.getCategoriesByIds(ids);
                 });
 
-        //allNoteEntities = noteRepository.getAllNotes();
         sortModeLiveData = new MutableLiveData<>(Leafpad.getInstance().getSortMode());
         allNoteEntities = Transformations.switchMap(sortModeLiveData, mode -> noteRepository.getAllNotesSorted(mode));
 
@@ -470,11 +463,6 @@ public class NoteViewModel extends AndroidViewModel {
             if (matchTitle || matchBody || matchCategory) {
                 filtered.add(note);
             }
-//            filteredNotes.setValue(filtered);
-//            if ((note.getTitle() != null && note.getTitle().toLowerCase().contains(lowerQuery)) ||
-//                    (note.getBody() != null && note.getBody().toLowerCase().contains(lowerQuery))) {
-//                filtered.add(note);
-//            }
         }
         filteredNotes.setValue(filtered);
     }
@@ -643,7 +631,6 @@ public class NoteViewModel extends AndroidViewModel {
         Note note = selectedNote.getValue();
         if (note == null) return;
         String noteId = note.getId();
-        //noteRepository.replaceCategoriesForNote(noteId, categoryKeys);
         List<Long> safe = categoryKeys != null ? new ArrayList<>(categoryKeys) : new ArrayList<>();
         currentCategoryIds.setValue(safe);
 
@@ -708,6 +695,4 @@ public class NoteViewModel extends AndroidViewModel {
     public LiveData<List<CategoryEntity>> getCategoriesForNoteId(String noteId) {
         return noteRepository.getCategoriesForNoteId(noteId);
     }
-
-
 }

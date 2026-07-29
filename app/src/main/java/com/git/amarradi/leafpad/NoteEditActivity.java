@@ -57,7 +57,7 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
     private EditText bodyEdit;
     private NoteViewModel noteViewModel;
     private MaterialToolbar toolbar;
-    private Resources res;
+    public Resources res;
 
     private boolean shouldPersistOnPause = true;
     private boolean isNoteDeleted = false;
@@ -70,6 +70,7 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
     private TextWatcher modificationWatcher;
 
     private void logNav(String msg) {
+        if (!BuildConfig.DEBUG) return;
         Log.d("NAV_NOTE", msg
                 + " | backStack=" + getSupportFragmentManager().getBackStackEntryCount()
                 + " | fc=" + (findViewById(R.id.fragment_container) != null ? findViewById(R.id.fragment_container).getVisibility() : -1)
@@ -83,9 +84,13 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (Leafpad.isKeepScreenOnEnabled(this)) {
-            Log.d("KeepScreenOn", "Preference says: " + Leafpad.isKeepScreenOnEnabled(this));
+            if (BuildConfig.DEBUG) {
+                Log.d("KeepScreenOn", "Preference says: " + Leafpad.isKeepScreenOnEnabled(this));
+            }
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-            Log.d("KeepScreenOn", "FLAG_KEEP_SCREEN_ON gesetzt");
+            if (BuildConfig.DEBUG) {
+                Log.d("KeepScreenOn", "FLAG_KEEP_SCREEN_ON gesetzt");
+            }
         }
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_note_edit);
@@ -122,7 +127,6 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
         boolean isNewNoteIntent = intent.getBooleanExtra(Leafpad.EXTRA_IS_NEW_NOTE, false);
 
         String noteId = getIntent().getStringExtra(Leafpad.EXTRA_NOTE_ID);
-        // Fallback: z.B. App-Shortcut liefert weder EXTRA_IS_NEW_NOTE noch EXTRA_NOTE_ID
         if (!isNewNoteIntent && noteId == null && !Intent.ACTION_SEND.equals(intent.getAction())) {
             isNewNoteIntent = true;
             noteId = Note.makeId();
@@ -150,14 +154,16 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
 
         }
 
-        handleShareIntent(getIntent());
         fromSearch = getIntent().getBooleanExtra("fromSearch", false);
         observeNote();
 
         View rootEdit = findViewById(R.id.all);
         logNav("toolbar instance=" + toolbar);
         View toolbar = findViewById(R.id.toolbar);
-        Log.d("NAV_NOTE", "setting_toolbar in NoteEditActivity=" + toolbar);
+        if (BuildConfig.DEBUG) {
+
+            Log.d("NAV_NOTE", "setting_toolbar in NoteEditActivity=" + toolbar);
+        }
         View title = findViewById(R.id.default_text_input_layout);
         EditText bodyEdit = findViewById(R.id.body_edit);
 
@@ -172,9 +178,6 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
                     if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
                         logNav("BackStack > 0 -> popBackStackImmediate");
                         getSupportFragmentManager().popBackStackImmediate();
-                        // erst poppen, dann UI zurück
-                        //  getSupportFragmentManager().popBackStack();
-
                         View fc = findViewById(R.id.fragment_container);
                         View bs = findViewById(R.id.body_scroll);
                         if (fc != null) fc.setVisibility(View.GONE);
@@ -246,27 +249,23 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
         chip.setTextColor(textColor);
     }
 
-    private void applyCategoryColor(Chip chip, String colorHex) {
-        if (colorHex == null || colorHex.isEmpty()) {
-            return;
-        }
-
-        try {
-            int color = android.graphics.Color.parseColor(colorHex);
-
-            // Textfarbe
-            chip.setTextColor(color);
-
-            // Dezenter Hintergrund (Material-konform)
-            int bgColor = androidx.core.graphics.ColorUtils.setAlphaComponent(color, 40);
-            chip.setChipBackgroundColor(
-                    android.content.res.ColorStateList.valueOf(bgColor)
-            );
-
-        } catch (IllegalArgumentException e) {
-
-        }
-    }
+//    private void applyCategoryColor(Chip chip, String colorHex) {
+//        if (colorHex == null || colorHex.isEmpty()) {
+//            return;
+//        }
+//
+//        try {
+//            int color = android.graphics.Color.parseColor(colorHex);
+//            chip.setTextColor(color);
+//            int bgColor = androidx.core.graphics.ColorUtils.setAlphaComponent(color, 40);
+//            chip.setChipBackgroundColor(
+//                    android.content.res.ColorStateList.valueOf(bgColor)
+//            );
+//
+//        } catch (IllegalArgumentException e) {
+//
+//        }
+//    }
 
 
     @Override
@@ -286,8 +285,6 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
                 newNote.setNotedate();
                 newNote.setNotetime();
                 newNote.setCreateDate();
-
-                // WICHTIG: ab jetzt nur DB speichern (nicht mehr Leaf.set)
                 noteViewModel.saveNote(getApplicationContext(), newNote);
 
                 setResult(RESULT_OK);
@@ -373,11 +370,6 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
         }
     }
 
-    private boolean isNewEntry(Note note) {
-        return (note.getTitle() == null || note.getTitle().isEmpty() ||
-                note.getBody() == null || note.getBody().isEmpty());
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_note_edit, menu);
@@ -436,8 +428,6 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
                     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
                 }
-                // Fragment-Container EINBLENDEN
-
                     getSupportFragmentManager()
                             .beginTransaction()
                             .replace(
@@ -544,7 +534,6 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
         if (NoteViewModel.isEmptyEntry(current)) {
             Leaf.remove(this, current);
         } else {
-           // Leaf.set(this, current);
             noteViewModel.saveNote(getApplication(), current);
             noteViewModel.markSaved();
         }
@@ -600,9 +589,6 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
     protected void onResume() {
         super.onResume();
         Leafpad.applyKeepScreenOnFlag(this);
-//        int flags = getWindow().getAttributes().flags;
-//        boolean isFlagSet = (flags & android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON) != 0;
-//        Log.d("NoteEditActivity", "KEEP_SCREEN_ON flag is " + (isFlagSet ? "SET" : "NOT SET"));
         if (Leafpad.isKeepScreenOnEnabled(this)) {
             Leafpad.enableWakeLock(this);
         }
@@ -635,10 +621,8 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
        if (current.getTitle() == null || current.getTitle().trim().isEmpty()) {
            return;
        }
-
         // UI -> Note übernehmen
         updateNoteFromUI();
-
         // Wenn gelöscht wurde: nichts mehr persistieren
         if (isNoteDeleted) {
             return;
