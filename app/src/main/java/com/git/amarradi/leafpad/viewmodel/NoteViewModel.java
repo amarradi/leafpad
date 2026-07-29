@@ -280,60 +280,6 @@ public class NoteViewModel extends AndroidViewModel {
         isNoteModified.setValue(hasUnsavedChanges());
     }
 
-    //    public boolean hasUnsavedChanges() {
-//        Note current = selectedNote.getValue();
-//        Note original = originalNote.getValue();
-//
-//        if (original == null || current == null) {
-//            return false;
-//        }
-//
-//        String currentTitle;
-//        if (current.getTitle() == null) {
-//            currentTitle = "";
-//        } else {
-//            currentTitle = current.getTitle();
-//        }
-//
-//        String currentBody;
-//        if (current.getBody() == null) {
-//            currentBody = "";
-//        } else {
-//            currentBody = current.getBody();
-//        }
-//
-//        String originalTitle;
-//        if (original.getTitle() == null) {
-//            originalTitle = "";
-//        } else {
-//            originalTitle = original.getTitle();
-//        }
-//
-//        String originalBody;
-//        if (original.getBody() == null) {
-//            originalBody = "";
-//        } else {
-//            originalBody = original.getBody();
-//        }
-//
-//        if (!currentTitle.equals(originalTitle)) {
-//            return true;
-//        }
-//        if (!currentBody.equals(originalBody)) {
-//            return true;
-//        }
-//
-//        if (current.isHide() != original.isHide()) {
-//            return true;
-//        }
-//        List<Long> origCats = originalCategoryIds.getValue();
-//        List<Long> currCats = currentCategoryIds.getValue();
-//
-//        if (!sameIds(origCats, currCats)) {
-//            return true;
-//        }
-//        return false;
-//    }
     public boolean hasUnsavedChanges() {
         Note current = selectedNote.getValue();
         Note original = originalNote.getValue();

@@ -43,6 +43,8 @@ public class Leafpad extends Application {
         super.onCreate();
         instance = this;
 
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+
         LeafstoreImporter.importIfNeeded(this);
 
         migrateOldDesignMode();
@@ -97,7 +99,7 @@ public class Leafpad extends Application {
     }
     public static boolean isChangeNotificationEnabled(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getBoolean(PREF_NOTIFY_ON_CHANGE, false);
+        return prefs.getBoolean(PREF_NOTIFY_ON_CHANGE, true);
     }
 
     public static void setChangeNotificationEnabled(Context context, boolean enabled) {
