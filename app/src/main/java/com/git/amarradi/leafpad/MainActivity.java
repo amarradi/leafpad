@@ -145,10 +145,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         ExtendedFloatingActionButton fab = findViewById(R.id.fab_action_add);
 
         ViewCompat.setOnApplyWindowInsetsListener(fab, (v, insets) -> {
-            int bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            androidx.core.graphics.Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
             int fabMargin = getResources().getDimensionPixelSize(R.dimen.fab_margin);
-            lp.bottomMargin = bottomInset + fabMargin;
+            lp.bottomMargin = systemBars.bottom + fabMargin;
+            lp.rightMargin = systemBars.right + fabMargin;
             v.setLayoutParams(lp);
             return insets;
         });

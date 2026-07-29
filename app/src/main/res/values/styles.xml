@@ -186,4 +186,13 @@
         <item name="colorOnSurfaceVariant">@color/md_theme_ribbonmarker</item>
     </style>
 
+    <!-- styles.xml -->
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Material3.DayNight.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalBottomSheet</item>
+    </style>
+
+    <style name="AppModalBottomSheet" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="android:maxWidth">600dp</item>
+    </style>
+
 </resources>

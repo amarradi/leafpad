@@ -16,6 +16,11 @@ import com.google.android.material.textview.MaterialTextView;
 
 public class NoteActionsBottomSheet extends BottomSheetDialogFragment {
 
+    @Override
+    public int getTheme() {
+        return R.style.AppBottomSheetDialogTheme;
+    }
+
     public interface OnNoteActionListener {
         void onHideToggle(Note note);
 
@@ -43,7 +48,12 @@ public class NoteActionsBottomSheet extends BottomSheetDialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        // Edge-to-Edge: unteren Insets-Abstand (Navigationsleiste) als Padding einrechnen
+        androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(view, (v, insets) -> {
+            int bottom = insets.getInsets(androidx.core.view.WindowInsetsCompat.Type.systemBars()).bottom;
+            v.setPadding(v.getPaddingLeft(), v.getPaddingTop(), v.getPaddingRight(), bottom);
+            return insets;
+        });
         if (note == null) {
             dismiss();
             return;
@@ -90,5 +100,21 @@ public class NoteActionsBottomSheet extends BottomSheetDialogFragment {
             }
             dismiss();
         });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        com.google.android.material.bottomsheet.BottomSheetDialog dialog =
+                (com.google.android.material.bottomsheet.BottomSheetDialog) getDialog();
+        if (dialog != null) {
+            View bottomSheet = dialog.findViewById(com.google.android.material.R.id.design_bottom_sheet);
+            if (bottomSheet != null) {
+                com.google.android.material.bottomsheet.BottomSheetBehavior<View> behavior =
+                        com.google.android.material.bottomsheet.BottomSheetBehavior.from(bottomSheet);
+                behavior.setState(com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED);
+                behavior.setSkipCollapsed(true);
+            }
+        }
     }
 }
