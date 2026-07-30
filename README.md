@@ -58,6 +58,10 @@ via Buy me a Coffee
 
 [![BuyMeACoffee](https://raw.githubusercontent.com/pachadotdev/buymeacoffee-badges/main/bmc-donate-yellow.svg)](https://www.buymeacoffee.com/leafpad)
 
+via KO-FI
+
+[![Ko-fi](https://img.shields.io/badge/ko--fi-Buy_me_a_coffee-ff5f5f?logo=ko-fi&style=flat)](https://ko-fi.com/leafpad)
+
 via Liberapay
 
 <a href="https://liberapay.com/amarrradi/donate"><img src="https://img.shields.io/liberapay/goal/amarrradi.svg?logo=liberapay"></a>
