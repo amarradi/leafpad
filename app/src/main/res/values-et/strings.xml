@@ -191,10 +191,10 @@
     <string name="thanks_to_all_contributors">Suur tänu kõigile kaastöötajatele ja sõpradele, kes aitavad seda projekti Weblate\'i teenuse abil tõlkida – hindame väga teie aega ja vaeva. Täieliku ja alati ajakohase kaastöötajate loendi leiad meie lähtekoodi hoidlast GitHubis.</string>
     <string name="database_error_log">Andmebaasi viga</string>
     <string name="category_name_required">Tühi kategooria pole lubatud</string>
-    <string name="expand_preview_description">Expand/Collapse Preview</string>
-    <string name="menu_sort">sort</string>
-    <string name="sort_date_desc">newest first</string>
-    <string name="sort_title_asc">title a-z</string>
-    <string name="sort_title_desc">title z-a</string>
-    <string name="sort_date_asc">oldest first</string>
+    <string name="expand_preview_description">Laienda/ahenda eelvaadet</string>
+    <string name="menu_sort">järjestus</string>
+    <string name="sort_date_desc">esmalt uuemad</string>
+    <string name="sort_title_asc">Pealkiri A-Z</string>
+    <string name="sort_title_desc">Pealkiri Z-A</string>
+    <string name="sort_date_asc">esmalt vanemad</string>
 </resources>

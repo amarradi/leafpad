@@ -192,9 +192,9 @@
     <string name="database_error_log">Databasfel</string>
     <string name="category_name_required">Tomma kategorier är inte tillåtet</string>
     <string name="expand_preview_description">Expandera/fäll in förhandsgranskning</string>
-    <string name="menu_sort">sort</string>
-    <string name="sort_date_desc">newest first</string>
-    <string name="sort_title_asc">title a-z</string>
-    <string name="sort_title_desc">title z-a</string>
-    <string name="sort_date_asc">oldest first</string>
+    <string name="menu_sort">sortering</string>
+    <string name="sort_date_desc">nyaste första</string>
+    <string name="sort_title_asc">titel A-Z</string>
+    <string name="sort_title_desc">titel Z-A</string>
+    <string name="sort_date_asc">äldsta första</string>
 </resources>
