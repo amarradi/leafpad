@@ -1,4 +1,4 @@
-package com.git.amarradi.leafpad.adapter;
+private static final int STROKE_WIDTH = ColorUtilsHelper.dpToPx(card.getContext(), 2);package com.git.amarradi.leafpad.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,7 +54,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     public void setSelectedCategoryIds(List<Long> ids) {
         selectedCategoryIds.clear();
-        if (ids != null) {
+        if (null != ids) {
             selectedCategoryIds.addAll(ids);
         }
         notifyDataSetChanged();
@@ -110,7 +110,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
 
         holder.editButton.setOnClickListener(v -> {
-            if (listener != null) {
+            if (null != listener) {
                 listener.onEditCategory(category);
             }
         });
@@ -129,13 +129,13 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             ImageButton btnDelete,
             CategoryEntity category
     ) {
-        if (category == null) return;
+        if (null == category) return;
 
         int baseColor = ColorUtilsHelper.parseCategoryColor(category.colorHex);
 
         int bgColor = ColorUtilsHelper.getCategoryBackgroundColor(baseColor);
 
-        card.setStrokeWidth(ColorUtilsHelper.dpToPx(card.getContext(), 2));
+        card.setStrokeWidth(STROKE_WIDTH);
         card.setStrokeColor(baseColor);
         card.setCardBackgroundColor(bgColor);
 
