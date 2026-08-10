@@ -65,7 +65,7 @@
     <string name="show_hidden">Visa dolda anteckningar</string>
     <string name="note_is_recipe">note is a recipe</string>
     <string name="note_is_no_recipe">note is no recipe</string>
-    <string name="save">Save all notes as xml</string>
+    <string name="save">Spara alla anteckningar som zip-behållare med json</string>
     <string name="no">No</string>
     <string name="showDeleteConfirmation">Delete notes?</string>
     <string name="backupIsrunning">Säkerhetskopiering körs</string>
@@ -191,5 +191,10 @@
     <string name="thanks_to_all_contributors">Tack till alla bidragsgivare och vänner som hjälper till att översätta detta projekt via Weblate – er tid och ansträngning uppskattas verkligen. För en fullständig och alltid uppdaterad lista över bidragsgivare, besök vårt GitHub-arkiv.</string>
     <string name="database_error_log">Databasfel</string>
     <string name="category_name_required">Tomma kategorier är inte tillåtet</string>
-    <string name="expand_preview_description">Expand/Collapse Preview</string>
+    <string name="expand_preview_description">Expandera/fäll in förhandsgranskning</string>
+    <string name="menu_sort">sortering</string>
+    <string name="sort_date_desc">nyaste första</string>
+    <string name="sort_title_asc">titel A-Z</string>
+    <string name="sort_title_desc">titel Z-A</string>
+    <string name="sort_date_asc">äldsta första</string>
 </resources>

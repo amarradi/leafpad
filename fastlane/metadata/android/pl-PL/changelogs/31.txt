@@ -1,0 +1,8 @@
+Naprawiono: ukrywanie notatek działa ponownie.
+Naprawiono: tworzenie notatek za pomocą skrótu aplikacji działa ponownie (długie naciśnięcie ikony aplikacji).
+Dodano wizualne rozróżnienie między ukrytymi i widocznymi notatkami (ikona obok nazwy aplikacji).
+Zaktualizowano czcionki — usunięto czcionkę Robo Sans.
+Notatki są teraz domyślnie zwinięte i można je ręcznie rozwinąć.
+Aby ukryć, udostępnić lub usunąć notatkę, naciśnij ją długo.
+Kopie zapasowe i przywracanie są ponownie dostępne. Notatki są teraz zapisywane w pliku ZIP.
+Poprawiono czytelność listy notatek; przycisk „Utwórz” jest pomniejszony podczas przewijania.

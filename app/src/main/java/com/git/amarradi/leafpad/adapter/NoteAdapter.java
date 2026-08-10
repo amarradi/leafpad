@@ -294,6 +294,22 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     .setDuration(200)
                     .start();
         });
+        // Größere Touch-Fläche für den kleinen Pfeil-Button, ohne die Optik zu ändern
+        noteHolder.expandArrow.post(() -> {
+            android.view.View parent = (android.view.View) noteHolder.expandArrow.getParent();
+            if (parent == null) return;
+
+            android.graphics.Rect rect = new android.graphics.Rect();
+            noteHolder.expandArrow.getHitRect(rect);
+
+            int extraPx = (int) (12 * noteHolder.itemView.getContext().getResources().getDisplayMetrics().density);
+            rect.top -= extraPx;
+            rect.bottom += extraPx;
+            rect.left -= extraPx;
+            rect.right += extraPx;
+
+            parent.setTouchDelegate(new android.view.TouchDelegate(rect, noteHolder.expandArrow));
+        });
     }
 
     private void bindChips(ChipGroup chipGroup, List<CategoryEntity> categories) {

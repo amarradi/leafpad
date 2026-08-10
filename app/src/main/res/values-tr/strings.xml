@@ -192,4 +192,9 @@
     <string name="open_source_licenses_summary">Kullanılan kütüphane ve lisansları görüntüleyin</string>
     <string name="country_title_hindi_latin">Hintçe (latin alfabesi)</string>
     <string name="expand_preview_description">Expand/Collapse Preview</string>
+    <string name="menu_sort">sort</string>
+    <string name="sort_date_desc">newest first</string>
+    <string name="sort_title_asc">title a-z</string>
+    <string name="sort_title_desc">title z-a</string>
+    <string name="sort_date_asc">oldest first</string>
 </resources>

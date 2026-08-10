@@ -65,12 +65,12 @@
     <string name="show_hidden">Показать скрытые заметки</string>
     <string name="note_is_recipe">Заметка — это рецепт</string>
     <string name="note_is_no_recipe">Заметка — не рецепт</string>
-    <string name="save">Сохранить все заметки как ZIP-контейнер с JSON</string>
+    <string name="save">Сохранить все заметки в виде ZIP-архива с файлами JSON</string>
     <string name="showDeleteConfirmation">Удалить заметки?</string>
     <string name="backupIsrunning">Резервное копирование запущено</string>
     <string name="no">Нет</string>
     <string name="importError">При импорте заметок произошла ошибка.</string>
-    <string name="restore">Восстановить все заметки из XML файла</string>
+    <string name="restore">Восстановить все заметки из ZIP-файла</string>
     <string name="showDeleteConfirmationMessage">Все заметки будут удалены навсегда. Продолжить?</string>
     <string name="yes">Да</string>
     <plurals name="notes_imported">
@@ -195,5 +195,10 @@
     <string name="thanks_to_all_contributors">Спасибо всем участникам и друзьям, которые помогают переводить этот проект через Weblate — ваше время и усилия действительно ценятся. Полный и всегда актуальный список участников смотрите в нашем репозитории GitHub.</string>
     <string name="database_error_log">Ошибка базы данных</string>
     <string name="category_name_required">Пустая категория не допускается</string>
-    <string name="expand_preview_description">Expand/Collapse Preview</string>
+    <string name="expand_preview_description">Развернуть/Свернуть пред. просмотр</string>
+    <string name="menu_sort">сортировка</string>
+    <string name="sort_date_desc">сначала самые новые</string>
+    <string name="sort_title_asc">Названия от А до Я</string>
+    <string name="sort_title_desc">Название от Я до А</string>
+    <string name="sort_date_asc">сначала самые старые</string>
 </resources>

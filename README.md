@@ -48,9 +48,23 @@ If you have found a bug or are missing a function, you can simply open a new iss
 If you want to contribute leafpad you can read <a href='https://github.com/amarradi/leafpad/blob/development/CONTRIBUTING.md'>Contribute</a> and start.
 
 ## Support for leafpad
-If you would like to support the work on leafpad, you are welcome to do so via Liberapay
+If you would like to support the work on leafpad, you are welcome to do so
 
-<a href="https://liberapay.com/amarrradi/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
+via Paypal
+
+<a href="https://www.paypal.com/pool/9rhXDhrRIV?sr=wccr">paypal.me/MarcusRadisch</a>
+
+via Buy me a Coffee
+
+[![BuyMeACoffee](https://raw.githubusercontent.com/pachadotdev/buymeacoffee-badges/main/bmc-donate-yellow.svg)](https://www.buymeacoffee.com/leafpad)
+
+via KO-FI
+
+[![Ko-fi](https://img.shields.io/badge/ko--fi-Buy_me_a_coffee-ff5f5f?logo=ko-fi&style=flat)](https://ko-fi.com/leafpad)
+
+via Liberapay
+
+<a href="https://liberapay.com/amarrradi/donate"><img src="https://img.shields.io/liberapay/goal/amarrradi.svg?logo=liberapay"></a>
 
 Bitcoin (BTC): bc1qqpra3mk4zeufzwf6y6gpeaeaqsl3lp9fjfhjgx
 
@@ -73,6 +87,6 @@ _Many thanks to Dominik Schmidt for providing the initial source code in 2017._
 [![GitHub release](https://img.shields.io/github/v/release/amarradi/leafpad)](https://github.com/amarradi/leafpad/releases/latest)
 [![License](https://img.shields.io/github/license/amarradi/leafpad)](https://github.com/amarradi/leafpad/blob/main/LICENSE)
 [![Top language](https://img.shields.io/github/languages/top/amarradi/leafpad)](https://github.com/amarradi/leafpad)
-
+![Downloads last month](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fkitswas%2Ffdroid-metrics-dashboard%2Fraw%2Frefs%2Fheads%2Fmain%2Fprocessed%2Fmonthly%2Fcom.git.amarradi.leafpad.json&query=%24.total_downloads&logo=fdroid&label=Downloads%20last%20month)
 
 

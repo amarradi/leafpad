@@ -14,14 +14,15 @@ android {
         applicationId = "com.git.amarradi.leafpad"
         minSdkVersion 25
         targetSdkVersion 36
-        versionCode = 31
-        versionName = "1.23"
+        versionCode = 32
+        versionName = "1.24"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         resourceConfigurations += [
                 'aeb',  // Tunisian Arabic
                 'ar',  // Arabic
                 'ar-rEG',  // Egyptian Arabic
+                'arz',  // Egyptian Arabic
                 'be',  // Belarusian
                 'bg',  // Bulgarian
                 'br',  // Breton

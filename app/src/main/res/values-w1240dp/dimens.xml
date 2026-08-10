@@ -1,4 +1,4 @@
+<!-- values-w1240dp/dimens.xml -->
 <resources>
-
-    <dimen name="fab_margin">200dp</dimen>
+    <dimen name="fab_margin">24dp</dimen>
 </resources>

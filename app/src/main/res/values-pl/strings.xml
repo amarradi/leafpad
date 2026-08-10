@@ -195,5 +195,10 @@
     <string name="thanks_to_all_contributors">Dziękujemy wszystkim współautorom i przyjaciołom, którzy pomagają w tłumaczeniu tego projektu za pośrednictwem serwisu Weblate. Wasz czas i  wysiłek są naprawdę doceniane. Pełną i zawsze aktualną listę współpracowników można znaleźć w naszym repozytorium GitHub.</string>
     <string name="database_error_log">Błąd bazy danych</string>
     <string name="category_name_required">Pusta kategoria nie jest dozwolona</string>
-    <string name="expand_preview_description">Expand/Collapse Preview</string>
+    <string name="expand_preview_description">Rozwiń/Zwiń podgląd</string>
+    <string name="menu_sort">sortowanie</string>
+    <string name="sort_date_desc">najpierw najnowsze</string>
+    <string name="sort_title_asc">Tytuł A-Z</string>
+    <string name="sort_title_desc">Tytuł Z-A</string>
+    <string name="sort_date_asc">najpierw najstarsze</string>
 </resources>

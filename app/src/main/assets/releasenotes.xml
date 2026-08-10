@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <releasenote>
-    <title>Leafpad 1.23 - Was hat sich verändert</title>
+    <title>Leafpad 1.24 - Was hat sich verändert</title>
     <content>
-        * Fehler behoben: verstecken der Notizen geht wieder
-        * Fehler behoben: Notizen mit dem shortcut anlegen geht wieder. (lange aufs App-Icon
-        klicken)
-        * optische Unterscheidung der versteckten/nicht versteckten Notizen (Logo neben dem
-        App-Namen)
-        * andere Schriftarten - Robo-Sans entfernt
-        * Notizen sind jetzt eingeklappt und können manuell ausgeklpasst werden
-        * zum Vertecken, Teilen und Löschen muss man jetzt lange auf die Notiz drücken
-        * Sicherung und Wiederherstellen von Notizen ist wieder aktiv, es wird jetzt eine zip-Datei
-        abgelegt.
-        * Lesbarkeit der Notizliste erhöht, anlegen Button wird beim scrollen verkleinert
+        * Fehler behoben: zu kleiner Button zum Ein-ausklappen der Notizen vergrößert
+        * Fehler behoben: Suchergebnisse wurde als geändert erkannt.
+        * Fehler behoben: Einstellungen werden jetzt direkt geladen (Danke an @Label)
+        * Fehler behoben: Ansicht bei der Nutzung von Tablets verbessert
+        * Schritgrößen angepasst
+        * Leerzeichen am Ende der Notizen (Titel und Notiz) werden gelöscht
+        * Neue Icons hinzugefügt
+        * Übersetzungen aktualisiert
+        * Sortierung der Notizen hinzugefügt
+        * Neue Sprache hinzugefügt
     </content>
-    <date>25.07.2026</date>
+    <date>27.07.2026</date>
     <time>07:07</time>
 </releasenote>

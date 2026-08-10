@@ -10,7 +10,7 @@
 
     <style name="ToolbarTitle.App" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:fontFamily">sans-serif-thin</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">@dimen/text_size_my_toolbar_title</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:textColor">@color/md_theme_primary</item>
     </style>
@@ -184,6 +184,15 @@
 
     <style name="ThemeOverlay.App.Chip" parent="">
         <item name="colorOnSurfaceVariant">@color/md_theme_ribbonmarker</item>
+    </style>
+
+    <!-- styles.xml -->
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Material3.DayNight.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalBottomSheet</item>
+    </style>
+
+    <style name="AppModalBottomSheet" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="android:maxWidth">600dp</item>
     </style>
 
 </resources>

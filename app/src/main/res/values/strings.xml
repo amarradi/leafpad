@@ -195,4 +195,9 @@
     <string name="database_error_log">Database Error</string>
     <string name="category_name_required">Empty category is not allowed</string>
     <string name="expand_preview_description">Expand/Collapse Preview</string>
+    <string name="menu_sort">sorting</string>
+    <string name="sort_date_desc">newest first</string>
+    <string name="sort_date_asc">oldest first</string>
+    <string name="sort_title_asc">Title A-Z</string>
+    <string name="sort_title_desc">Title Z-A</string>
 </resources>

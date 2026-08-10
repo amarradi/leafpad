@@ -1,0 +1,4 @@
+Oprava chyby: Tlačítko pro rozbalení a sbalení poznámek bylo příliš malé a teď bylo zvětšeno
+Velikosti fontů změněny
+Nové ikony přidány
+Aktualizované překlady

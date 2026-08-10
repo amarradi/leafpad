@@ -1,3 +1,3 @@
-Ein einfaches Notizbuch zum Schreiben von Text ohne Cloud-Verbindung und ohne Datenbank, keine Berechtigungen erforderlich.
+Ένα απλό σημειωματάριο για να γράφετε κείμενο χωρίς σύνδεση σε cloud και χωρίς βάση δεδομένων, δεν χρειάζονται δικαιώματα.
 
-Es ist Open Source. Sie können Notizen schreiben, bearbeiten und vor neugierigen Blicken verbergen.
+Είναι ανοιχτού κώδικα. Μπορείτε να γράψετε, να επεξεργαστείτε τις σημειώσεις σας, και να τις κρύψετε από αδιάκριτα μάτια.

@@ -145,10 +145,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         ExtendedFloatingActionButton fab = findViewById(R.id.fab_action_add);
 
         ViewCompat.setOnApplyWindowInsetsListener(fab, (v, insets) -> {
-            int bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            androidx.core.graphics.Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
             int fabMargin = getResources().getDimensionPixelSize(R.dimen.fab_margin);
-            lp.bottomMargin = bottomInset + fabMargin;
+            lp.bottomMargin = systemBars.bottom + fabMargin;
+            lp.rightMargin = systemBars.right + fabMargin;
             v.setLayoutParams(lp);
             return insets;
         });
@@ -177,6 +178,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 }
             }
         });
+
+
     }
 
     private void seedTestNotes(int count) {
@@ -341,6 +344,30 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         } else {
             layoutItem.setIcon(R.drawable.ic_gridview);
         }
+
+        String currentSort = noteViewModel.getSortMode().getValue();
+        if (currentSort == null) currentSort = "date_desc";
+
+        int sortItemId;
+        switch (currentSort) {
+            case "date_asc":
+                sortItemId = R.id.sort_date_asc;
+                break;
+            case "title_asc":
+                sortItemId = R.id.sort_title_asc;
+                break;
+            case "title_desc":
+                sortItemId = R.id.sort_title_desc;
+                break;
+            case "date_desc":
+            default:
+                sortItemId = R.id.sort_date_desc;
+                break;
+        }
+        MenuItem sortMenuItem = menu.findItem(sortItemId);
+        if (sortMenuItem != null) {
+            sortMenuItem.setChecked(true);
+        }
         return true;
     }
 
@@ -365,6 +392,22 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             case R.id.item_about:
                 Intent aboutIntent = new Intent(this, AboutActivity.class);
                 startActivity(aboutIntent);
+                return true;
+            case R.id.sort_date_desc:
+                noteViewModel.setSortMode("date_desc");
+                invalidateOptionsMenu();
+                return true;
+            case R.id.sort_date_asc:
+                noteViewModel.setSortMode("date_asc");
+                invalidateOptionsMenu();
+                return true;
+            case R.id.sort_title_asc:
+                noteViewModel.setSortMode("title_asc");
+                invalidateOptionsMenu();
+                return true;
+            case R.id.sort_title_desc:
+                noteViewModel.setSortMode("title_desc");
+                invalidateOptionsMenu();
                 return true;
         }
         return super.onOptionsItemSelected(item);

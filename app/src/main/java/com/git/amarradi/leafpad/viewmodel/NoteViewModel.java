@@ -10,6 +10,7 @@ import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 
+import com.git.amarradi.leafpad.BuildConfig;
 import com.git.amarradi.leafpad.Leafpad;
 import com.git.amarradi.leafpad.helper.ReleaseNoteHelper;
 import com.git.amarradi.leafpad.model.CategoryEntity;
@@ -26,11 +27,13 @@ import java.util.Objects;
 
 public class NoteViewModel extends AndroidViewModel {
 
+    private final MutableLiveData<String> sortModeLiveData;
+
     private final NoteRepository noteRepository;
     private final LiveData<List<NoteEntity>> allNoteEntities;
-    private LiveData<List<CategoryEntity>> categoriesForSelectedNote;
+    private final LiveData<List<CategoryEntity>> categoriesForSelectedNote;
     private final MediatorLiveData<List<Note>> notesLiveData = new MediatorLiveData<>();
-    private static final MutableLiveData<Note> selectedNote = new MutableLiveData<>();
+    private final MutableLiveData<Note> selectedNote = new MutableLiveData<>();
     private final MutableLiveData<Note> originalNote = new MutableLiveData<>();
     private final MutableLiveData<Boolean> showHiddenLiveData = new MutableLiveData<>(false);
     private final LiveData<Boolean> isNoteEmpty = Transformations.map(
@@ -71,12 +74,11 @@ public class NoteViewModel extends AndroidViewModel {
     }
 
     private final LiveData<java.util.Map<String, List<CategoryEntity>>> categoriesByNoteId;
-
     public LiveData<java.util.Map<String, List<CategoryEntity>>> getCategoriesByNoteId() {
         return categoriesByNoteId;
     }
 
-
+    private java.util.Map<String, List<CategoryEntity>> latestCategoriesByNoteId = new java.util.HashMap<>();
     private Object releaseNoteHeader;
 
     public void setReleaseNoteHeader(Object releaseNoteHeader) {
@@ -91,15 +93,14 @@ public class NoteViewModel extends AndroidViewModel {
     private NoteEntity toEntity(Note n) {
         return new NoteEntity(
                 n.getId(),
-                n.getTitle(),
-                n.getBody(),
+                n.getTitle() != null ? n.getTitle().trim() : "",
+                n.getBody() != null ? n.getBody().trim() : "",
                 n.getDate(),
                 n.getTime(),
                 n.getCreateDate(),
                 n.isHide()
         );
     }
-
 
     private Note fromEntity(NoteEntity e) {
         return new Note(
@@ -282,51 +283,31 @@ public class NoteViewModel extends AndroidViewModel {
             return false;
         }
 
-        String currentTitle;
-        if (current.getTitle() == null) {
-            currentTitle = "";
-        } else {
-            currentTitle = current.getTitle();
-        }
+        String currentTitle = current.getTitle() == null ? "" : current.getTitle();
+        String currentBody = current.getBody() == null ? "" : current.getBody();
+        String originalTitle = original.getTitle() == null ? "" : original.getTitle();
+        String originalBody = original.getBody() == null ? "" : original.getBody();
 
-        String currentBody;
-        if (current.getBody() == null) {
-            currentBody = "";
-        } else {
-            currentBody = current.getBody();
-        }
-
-        String originalTitle;
-        if (original.getTitle() == null) {
-            originalTitle = "";
-        } else {
-            originalTitle = original.getTitle();
-        }
-
-        String originalBody;
-        if (original.getBody() == null) {
-            originalBody = "";
-        } else {
-            originalBody = original.getBody();
-        }
-
-        if (!currentTitle.equals(originalTitle)) {
-            return true;
-        }
-        if (!currentBody.equals(originalBody)) {
-            return true;
-        }
-
-        if (current.isHide() != original.isHide()) {
-            return true;
-        }
         List<Long> origCats = originalCategoryIds.getValue();
         List<Long> currCats = currentCategoryIds.getValue();
 
-        if (!sameIds(origCats, currCats)) {
-            return true;
+        boolean titleDiff = !currentTitle.equals(originalTitle);
+        boolean bodyDiff = !currentBody.equals(originalBody);
+        boolean hideDiff = current.isHide() != original.isHide();
+        boolean catsDiff = !sameIds(origCats, currCats);
+        if (BuildConfig.DEBUG) {
+            android.util.Log.d("UNSAVED_CHECK",
+                    "titleDiff=" + titleDiff +
+                            " bodyDiff=" + bodyDiff +
+                            " hideDiff=" + hideDiff +
+                            " catsDiff=" + catsDiff +
+                            " origCats=" + origCats +
+                            " currCats=" + currCats +
+                            " currentTitle='" + currentTitle + "'" +
+                            " originalTitle='" + originalTitle + "'");
         }
-        return false;
+
+        return titleDiff || bodyDiff || hideDiff || catsDiff;
     }
     public NoteViewModel(@NonNull Application application) {
         super(application);
@@ -346,7 +327,6 @@ public class NoteViewModel extends AndroidViewModel {
                             list = new ArrayList<>();
                             map.put(r.noteId, list);
                         }
-
                         // CategoryEntity befüllen
                         CategoryEntity c = new CategoryEntity(
                                 r.name,
@@ -374,7 +354,8 @@ public class NoteViewModel extends AndroidViewModel {
                     return noteRepository.getCategoriesByIds(ids);
                 });
 
-        allNoteEntities = noteRepository.getAllNotes();
+        sortModeLiveData = new MutableLiveData<>(Leafpad.getInstance().getSortMode());
+        allNoteEntities = Transformations.switchMap(sortModeLiveData, mode -> noteRepository.getAllNotesSorted(mode));
 
         notesLiveData.addSource(allNoteEntities, entities -> {
             rebuildNotesList(entities, showHiddenLiveData.getValue());
@@ -391,7 +372,10 @@ public class NoteViewModel extends AndroidViewModel {
         isNoteModified.addSource(originalNote, n -> checkModified());
         filteredNotes.addSource(notesLiveData, notes -> applySearchQuery());
         filteredNotes.addSource(searchQuery, q -> applySearchQuery());
-
+        filteredNotes.addSource(categoriesByNoteId, map -> {
+            latestCategoriesByNoteId = (map != null) ? map : new java.util.HashMap<>();
+            applySearchQuery();
+        });
         isNoteModified.addSource(currentCategoryIds, ids -> checkModified());
         isNoteModified.addSource(originalCategoryIds, ids -> checkModified());
 
@@ -463,8 +447,20 @@ public class NoteViewModel extends AndroidViewModel {
         String lowerQuery = query.toLowerCase();
 
         for (Note note : allNotes) {
-            if ((note.getTitle() != null && note.getTitle().toLowerCase().contains(lowerQuery)) ||
-                    (note.getBody() != null && note.getBody().toLowerCase().contains(lowerQuery))) {
+            boolean matchTitle = note.getTitle() != null && note.getTitle().toLowerCase().contains(lowerQuery);
+            boolean matchBody = note.getBody() != null && note.getBody().toLowerCase().contains(lowerQuery);
+
+            boolean matchCategory = false;
+            List<CategoryEntity> categories = latestCategoriesByNoteId.get(note.getId());
+            if (categories != null) {
+                for (CategoryEntity category : categories) {
+                    if (category.name.toLowerCase().contains(lowerQuery)) {
+                        matchCategory = true;
+                        break;
+                    }
+                }
+            }
+            if (matchTitle || matchBody || matchCategory) {
                 filtered.add(note);
             }
         }
@@ -493,6 +489,15 @@ public class NoteViewModel extends AndroidViewModel {
     public void setShowHidden(boolean showHidden) {
         showHiddenLiveData.setValue(showHidden);
         loadNotes();
+    }
+
+    public void setSortMode(String sortMode) {
+        Leafpad.getInstance().saveSortMode(sortMode);
+        sortModeLiveData.setValue(sortMode);
+    }
+
+    public LiveData<String> getSortMode() {
+        return sortModeLiveData;
     }
 
     public void setNote(Note note) {
@@ -626,7 +631,6 @@ public class NoteViewModel extends AndroidViewModel {
         Note note = selectedNote.getValue();
         if (note == null) return;
         String noteId = note.getId();
-        //noteRepository.replaceCategoriesForNote(noteId, categoryKeys);
         List<Long> safe = categoryKeys != null ? new ArrayList<>(categoryKeys) : new ArrayList<>();
         currentCategoryIds.setValue(safe);
 
@@ -691,6 +695,4 @@ public class NoteViewModel extends AndroidViewModel {
     public LiveData<List<CategoryEntity>> getCategoriesForNoteId(String noteId) {
         return noteRepository.getCategoriesForNoteId(noteId);
     }
-
-
 }

@@ -32,6 +32,7 @@ public class Leafpad extends Application {
     public static final String PREF_KEEP_SCREEN_ON = "keep_screen_on";
     public static final String EXTRA_IS_NEW_NOTE = "is_new_note";
     public static final String PREF_COLLAPSED_NOTES = "collapsed_notes";
+    public static final String PREF_SORT_MODE = "sort_mode";
 
     private static PowerManager.WakeLock wakeLock;
 
@@ -41,6 +42,8 @@ public class Leafpad extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
+
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
         LeafstoreImporter.importIfNeeded(this);
 
@@ -96,7 +99,7 @@ public class Leafpad extends Application {
     }
     public static boolean isChangeNotificationEnabled(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getBoolean(PREF_NOTIFY_ON_CHANGE, false);
+        return prefs.getBoolean(PREF_NOTIFY_ON_CHANGE, true);
     }
 
     public static void setChangeNotificationEnabled(Context context, boolean enabled) {
@@ -259,5 +262,15 @@ public class Leafpad extends Application {
         }
         prefs.edit().putStringSet(PREF_COLLAPSED_NOTES, collapsId).apply();
 
+    }
+
+    public String getSortMode() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        return sharedPreferences.getString(PREF_SORT_MODE, "date_desc");
+    }
+
+    public void saveSortMode(String sortMode) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPreferences.edit().putString(PREF_SORT_MODE, sortMode).apply();
     }
 }

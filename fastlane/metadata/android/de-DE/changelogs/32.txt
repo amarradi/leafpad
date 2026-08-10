@@ -1,0 +1,4 @@
+Fehler behoben: zu kleiner Button zum Ein-ausklappen der Notizen vergrößer
+Schritgrößen angepasst
+Neue Icons hinzugefügt
+Übersetzungen aktualisiert

@@ -13,6 +13,32 @@
         android:icon="@drawable/ic_gridview"
         android:title="@string/toggle"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/item_sort"
+        android:icon="@drawable/ic_sort"
+        android:title="@string/menu_sort"
+        app:showAsAction="ifRoom">
+        <menu>
+            <group
+                android:id="@+id/sort_group"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/sort_date_desc"
+                    android:title="@string/sort_date_desc" />
+                <item
+                    android:id="@+id/sort_date_asc"
+                    android:title="@string/sort_date_asc" />
+                <item
+                    android:id="@+id/sort_title_asc"
+                    android:title="@string/sort_title_asc" />
+                <item
+                    android:id="@+id/sort_title_desc"
+                    android:title="@string/sort_title_desc" />
+            </group>
+        </menu>
+    </item>
+
     <item
         android:id="@+id/item_show_hidden"
         android:icon="@drawable/btn_show"

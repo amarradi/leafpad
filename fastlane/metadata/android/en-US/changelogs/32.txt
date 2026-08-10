@@ -1,0 +1,4 @@
+Bug fixed: The button for expanding and collapsing notes was too small and has been enlarged
+Font sizes adjusted
+New icons added
+Translations updated

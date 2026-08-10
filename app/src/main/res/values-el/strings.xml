@@ -67,7 +67,7 @@
     <string name="note_is_recipe">Η σημείωση είναι συνταγή</string>
     <string name="note_is_no_recipe">Η σημείωση δεν είναι συνταγή</string>
     <string name="showDeleteConfirmation">Διαγραφή σημειώσεων;</string>
-    <string name="save">Αποθήκευση όλων των σημειώσεων ως περιέκτης zipb με json</string>
+    <string name="save">Αποθήκευση όλων των σημειώσεων ως περιέκτη zip με json</string>
     <string name="backupIsrunning">Το αντίγραφο ασφαλείας εκτελείται</string>
     <string name="no">Όχι</string>
     <string name="importError">Σφάλμα κατά την εισαγωγή σημειώσεων.</string>
@@ -191,5 +191,10 @@
     <string name="thanks_to_all_contributors">Ευχαριστούμε όλους τους συνεισφέροντες και φίλους που βοηθούν στη μετάφραση αυτού του εγχειρήματος μέσω του Weblate—ο χρόνος και η προσπάθεια σας εκτιμώνται πραγματικά. Για την πλήρη και πάντα ενήμερη λίστα των συνεισφερόντων, παρακαλούμε επισκεφθείτε το αποθετήριο μας στο GitHub.</string>
     <string name="database_error_log">Σφάλμα βάσης δεδομένων</string>
     <string name="category_name_required">Δεν επιτρέπεται άδεια κατηγορία</string>
-    <string name="expand_preview_description">Expand/Collapse Preview</string>
+    <string name="expand_preview_description">Επέκταση/Σύμπτυξη προεπισκόπησης</string>
+    <string name="menu_sort">ταξινόμηση</string>
+    <string name="sort_date_desc">νεότερη πρώτα</string>
+    <string name="sort_title_asc">Τίτλος Α-Ω</string>
+    <string name="sort_title_desc">Τίτλος Ω-Α</string>
+    <string name="sort_date_asc">παλαιότερη πρώτα</string>
 </resources>
