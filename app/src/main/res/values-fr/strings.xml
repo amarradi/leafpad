@@ -67,7 +67,7 @@
     <string name="note_is_recipe">La note est une recette</string>
     <string name="note_is_no_recipe">Note n\'est pas une recette</string>
     <string name="no">Non</string>
-    <string name="save">Enregistrer toutes les notes en conteneur zipb avec json</string>
+    <string name="save">Enregistrer toutes les notes en conteneur zip avec json</string>
     <string name="showDeleteConfirmation">Supprimer les notes ?</string>
     <string name="backupIsrunning">Backup est en cours</string>
     <string name="importError">Erreur lors de l\'importation de notes.</string>

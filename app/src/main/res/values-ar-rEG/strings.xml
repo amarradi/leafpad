@@ -6,7 +6,7 @@
     <string name="lightmode_preference" translatable="false">lightmode</string>
     <string name="system_preference_option_value" translatable="false">system</string>
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
-    <string name="theme_preference">Theme</string>
+    <string name="theme_preference">الثيمات</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="action_share_body">ملاحظة</string>
     <string name="title_hint">العنوان</string>
@@ -54,10 +54,10 @@
     <string name="statement">نحن نكتب قوائم التسوق، وملاحظات المحادثات ، وقوائم الأمتعة للأجازات، أو أعياد ميلاد الأصدقاء؛ وكلها أمور جيدة حتى لا ننسى. ولله -عز و جل- المثل الأعلى ، فهو -سبحانه- يحصي ويحفظ علينا حركاتنا وسكناتنا، خيرها وشرها. الله فوق كل شيء، يعلم السر وأخفى، وهو سبحانه يحب عباده ويريد لهم الهداية والفلاح، ولا يرضى لعباده الكفر. ولكن الفوز برضا الله وجنته لا يكون إلا بنقاء السريرة والقدوم عليه بقلب سليم. ومن رحمته ولطفه بنا، لم يجعل ذنوبنا نهاية المطاف، بل جعل التوبة الصادقة والاستغفار والأعمال الصالحة ماحية للخطايا والذنوب؛ فالتائب من الذنب كمن لا ذنب له. فكل من آمن بالله ووحده، واتبع صراطه المستقيم، يُكتب كتاب أعماله في \'عليين\' مع الأبرار والصالحين. فهل تسعى اليوم ليكون كتابك في عليين؟</string>
     <string name="hide_note">اجعل الملاحظة مخفية</string>
     <string name="translation_help">ساعد في ترجمة التطبيق على Weblate.</string>
-    <string name="rev20_12">«وَوُضِعَ الْكِتَابُ فَتَرَى الْمُجْرِمِينَ مُشْفِقِينَ مِمَّا فِيهِ وَيَقُولُونَ يَا وَيْلَتَنَا مَالِ هَٰذَا الْكِتَابِ لَا يُغَادِرُ صَغِيرَةً وَلَا كَبِيرَةً إِلَّا أَحْصَاهَا وَوَجَدُوا مَا عَمِلُوا حَاضِرًا وَلَا يَظْلِمُ رَبُّكَ أَحَدًا» (الكهف: 49)</string>
+    <string name="rev20_12">ورأيت الأموات، كبارهم وصغارهم، واقفين أمام العرش، وفُتحت الكتب، وفُتح كتاب آخر هو كتاب الحياة، ودين الأموات من الأمور التي</string>
     <string name="its_opensource">Leafpad مفتوح المصدر و مجاني</string>
     <string name="satisfied">هل تستمتع بـ Leafpad؟</string>
-    <string name="app_name">Leafpad</string>
+    <string name="app_name">وساده الاوراق</string>
     <string name="about_the_app">عن التطبيق</string>
     <string name="remove_dialog_title">هل أنت متأكد؟</string>
     <string name="action_add_note">إضافة ملاحظة</string>
@@ -65,7 +65,7 @@
     <string name="action_share_note">مشاركة الملاحظة</string>
     <string name="note_is_recipe">الملاحظة هي وصفة</string>
     <string name="note_is_no_recipe">الملاحظة ليست وصفة</string>
-    <string name="save">احفظ كل الملاحظات كـ json</string>
+    <string name="save">احفظ كل الملاحظات كـملف مضغوط json</string>
     <string name="showDeleteConfirmation">حذف الملاحظات؟</string>
     <string name="backupIsrunning">النسخ الاحتياطي جارٍ</string>
     <string name="no">لا</string>
@@ -199,10 +199,10 @@
     <string name="thanks_to_all_contributors">نتقدم بالشكر الجزيل لجميع المساهمين والأصدقاء الذين ساعدوا في ترجمة هذا المشروع عبر Weblate، ونقدر وقتكم وجهودكم تقديرًا كبيرًا. للاطلاع على القائمة الكاملة والمحدثة للمساهمين، يرجى زيارة مستودعنا على GitHub.</string>
     <string name="database_error_log">خطأ في قاعدة البيانات</string>
     <string name="category_name_required">التصنيف الفارغ غير مسموح</string>
-    <string name="expand_preview_description">Expand/Collapse Preview</string>
-    <string name="menu_sort">sort</string>
-    <string name="sort_date_desc">newest first</string>
-    <string name="sort_title_asc">title a-z</string>
-    <string name="sort_title_desc">title z-a</string>
-    <string name="sort_date_asc">oldest first</string>
+    <string name="expand_preview_description">تكبير/طى المعاينه</string>
+    <string name="menu_sort">النوع</string>
+    <string name="sort_date_desc">الاحدث اولا</string>
+    <string name="sort_title_asc">العنوان</string>
+    <string name="sort_title_desc">عنوان أز</string>
+    <string name="sort_date_asc">الاقدم اولا</string>
 </resources>
