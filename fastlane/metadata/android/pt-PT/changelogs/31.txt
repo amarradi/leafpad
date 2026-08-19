@@ -1,0 +1,8 @@
+Corrigido: Esconder notas funciona novamente.
+Corrigido: Criar notas através do atalho da aplicação funciona novamente (toque longo no ícone da aplicação).
+Distinção visual entre notas escondidas e visíveis adicionada (ícone ao lado do nome da aplicação).
+Fontes atualizadas - Robo Sans removido.
+Notas agora são colapsadas por predefinição e podem ser expandidas manualmente.
+Para esconder, partilhar, ou eliminar uma nota, faça um toque longo na mesma.
+Cópia de segurança e restaurar estão disponíveis novamente. Notas agora são guardadas enquanto ficheiro ZIP.
+Legibilidade da lista de notas melhoradas; o botão “Criar” é diminuído durante o deslize
