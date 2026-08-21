@@ -1,0 +1,4 @@
+Erro corrigido: O botão para expandir e colapsar notas era demasiado pequeno e foi aumentado
+Tamanhos de fontes ajustados
+Novos ícones adicionados
+Traduções atualizadas

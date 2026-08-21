@@ -32,7 +32,7 @@
     <string name="remove_dailog_message">This note will be permanently deleted. Afterwards it cannot be restored.</string>
     <string name="version">version</string>
     <string name="show_note">make the note visible</string>
-    <string name="find_code_on_github_summary">You can view and check the source code via the repository. You are welcome to open an issue for change requests and error messages.</string>
+    <string name="find_code_on_github_summary">Вы можаце праглядаць і вывучаць зыходны код праграмы праз рэпазіторый. Калі вы хочаце прапанаваць якую новую функцыю ці паведаміць пра знойдзеную памылку, калі ласка, стварыце абмеркаванне (issue).</string>
     <string name="action_share_title">Title</string>
     <string name="participate">Participate</string>
     <string name="title_hint">Title</string>
@@ -48,7 +48,7 @@
     <string name="find_code_on_github">GitHub</string>
     <string name="darkmode_preference_key">darkmode</string>
     <string name="search">search</string>
-    <string name="action_save">save note</string>
+    <string name="action_save">Захаваць нататку</string>
     <string name="share_note">Share Note?</string>
     <string name="thanks">Thank you Stefan, Stefan, Manuel, Falk and Stephanie for your ideas and testing the app.</string>
     <string name="statement">We write down shopping lists, notes for conversations, packing lists for vacations or friends\' birthdays. These are all good things so that we don\'t forget them. It\'s very similar with God, he writes down our good and bad deeds and saves them. God is above everything and simply knows everything. God loves people and wants to have fellowship with them. But this is only possible if we are seen by God as blameless. Through faith in Jesus Christ, our bad deeds (our guilt) are wiped out before God. Jesus Christ atoned for our guilt on the cross of Calvary. Every person who accepts this is entered in the book of life forever. Are you registered in the book of life?</string>
@@ -65,7 +65,7 @@
     <string name="action_share_note">Падзяліцца нататкай</string>
     <string name="note_is_recipe">note is a recipe</string>
     <string name="note_is_no_recipe">note is no recipe</string>
-    <string name="save">Save all notes as xml</string>
+    <string name="save">Захаваць усе нататкі ў выглядзе ZIP-архіва з файламі JSON</string>
     <string name="showDeleteConfirmation">Delete notes?</string>
     <string name="backupIsrunning">Backup is running</string>
     <string name="no">No</string>
@@ -78,10 +78,10 @@
         <item quantity="other">%1$d notes imported</item>
     </plurals>
     <plurals name="notes_exported">
-        <item quantity="one">%1$d note backed up</item>
-        <item quantity="other">%1$d notes backed up</item>
-        <item quantity="many">%1$d notes backed up</item>
-        <item quantity="few">%1$d notes backed up</item>
+        <item quantity="one">%d нататка экспарціравана</item>
+        <item quantity="few">%d нататкі экспарціраваны</item>
+        <item quantity="many">%d нататак экспарціравана</item>
+        <item quantity="other">%d нататак экспарціравана</item>
     </plurals>
     <string name="showDeleteConfirmationMessage">All notes will be permanently deleted. Continue?</string>
     <string name="yes">Yes</string>
@@ -123,7 +123,7 @@
     <string name="country_title_catalan">Catalan</string>
     <string name="country_title_spanish">Spanish</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
-    <string name="setCategory">Set Category</string>
+    <string name="setCategory">Задаць катэгорыю</string>
     <string name="country_title_albanian">Albanian</string>
     <string name="country_title_indonesian">Indonesian</string>
     <string name="country_title_russian">Russian</string>
@@ -152,7 +152,7 @@
     <string name="country_title_portuguese">Portuguese</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Blubberland(@Blubberland), Maximilian Hüttner(@MaxHue)</string>
-    <string name="country_title_hindi_latin">Hindi (Latin script)</string>
+    <string name="country_title_hindi_latin">Індыйская (лацінка)</string>
     <string name="country_title_hindi">Hindi</string>
     <string name="country_title_translator_estonian" translatable="false">Priit Jõerüüt(@jrthwlate)</string>
     <string name="country_title_estonian">Estonian</string>
@@ -173,32 +173,32 @@
     <string name="country_title_danish">Danish</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
     <string name="country_title_serbian">Serbian</string>
-    <string name="item_menu_add_category">create new category</string>
-    <string name="category">Category</string>
-    <string name="category_name">name of the category</string>
-    <string name="select_color">choose category color</string>
-    <string name="edit_category">edit category</string>
-    <string name="add_category">add category</string>
-    <string name="category_color">category color</string>
-    <string name="save_category">save category</string>
-    <string name="delete_category">Delete category</string>
-    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
-    <string name="delete_category_hint">Notes are retained but lose this category.</string>
-    <string name="manage_categories">Manage categories</string>
-    <string name="manage_categories_summary">Create, edit, and delete</string>
-    <string name="error">error</string>
-    <string name="category_already_exists">Category allready exists</string>
-    <string name="database_error">database error</string>
-    <string name="open_source_licenses">Open source licenses</string>
-    <string name="error_loading_licenses">Error loading licenses</string>
-    <string name="open_source_licenses_summary">View used libraries and licenses</string>
-    <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
-    <string name="database_error_log">Database Error</string>
-    <string name="category_name_required">Empty category is not allowed</string>
-    <string name="expand_preview_description">Expand/Collapse Preview</string>
-    <string name="menu_sort">sort</string>
-    <string name="sort_date_desc">newest first</string>
-    <string name="sort_title_asc">title a-z</string>
-    <string name="sort_title_desc">title z-a</string>
-    <string name="sort_date_asc">oldest first</string>
+    <string name="item_menu_add_category">Стварыць новую катэгорыю</string>
+    <string name="category">Катэгорыя</string>
+    <string name="category_name">Назва катэгорыі</string>
+    <string name="select_color">Выбярыце колер</string>
+    <string name="edit_category">Змяніць катэгорыю</string>
+    <string name="add_category">Дадаць катэгорыю</string>
+    <string name="category_color">колер катэгорыі</string>
+    <string name="save_category">Захаваць катэгорыю</string>
+    <string name="delete_category">Выдаліць катэгорыю</string>
+    <string name="delete_category_confirm">Упэўнены, што хочаце выдаліць катэгорыю “%1$s”?</string>
+    <string name="delete_category_hint">Нататкі захаваюцца, але губляюць гэту катэгорыю.</string>
+    <string name="manage_categories">Караваць катэгорыямі</string>
+    <string name="manage_categories_summary">Стварэнне, змяненне і выдаленне</string>
+    <string name="error">Памылка</string>
+    <string name="category_already_exists">Катэгорыя ўжо існуе</string>
+    <string name="database_error">Памылка базы дадзеных</string>
+    <string name="open_source_licenses">Ліцэнзіі з адкрытым зыходнім кодам</string>
+    <string name="error_loading_licenses">Памылка загрузкі ліцэнзій</string>
+    <string name="open_source_licenses_summary">Прагляд выкарыстаных бібліятэк і ліцэнзій</string>
+    <string name="thanks_to_all_contributors">Дзякуй усім удзельнікам і сябрам, якія дапамагалі перакладаць гэты праект праз Weblate — ваш час і намаганні вельмі каштоўныя. Поўны і заўсёды актуальны спіс удзельнікаў знаходзіцца ў нашым GitHub-рэпазіторыі.</string>
+    <string name="database_error_log">Памылка базы дадзеных</string>
+    <string name="category_name_required">Пустая катэгорыя не дазваляецца</string>
+    <string name="expand_preview_description">Разгарнуць/Згарнуць перадпрагляд</string>
+    <string name="menu_sort">сартыроўка</string>
+    <string name="sort_date_desc">спачатку новыя</string>
+    <string name="sort_title_asc">Назвы ад А да Я</string>
+    <string name="sort_title_desc">Назвы ад Я да А</string>
+    <string name="sort_date_asc">спачатку старыя</string>
 </resources>
