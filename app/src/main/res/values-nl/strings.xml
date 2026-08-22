@@ -11,8 +11,8 @@
     <string name="app_name">Leafpad</string>
     <string name="title_activity_note_edit">Bewerk notitie</string>
     <string name="action_edit_note">Bewerk notitie</string>
-    <string name="add_shortcut_short_label">Schrijf nieuwe</string>
-    <string name="new_note">nieuwe notitie</string>
+    <string name="add_shortcut_short_label">Schrijf Nieuwe</string>
+    <string name="new_note">Nieuwe Notitie</string>
     <string name="lightmode_preference_key">Licht thema</string>
     <string name="darkmode_preference_key">Donker thema</string>
     <string name="tell_about">Wat ik je wil vertellen over Leafpad</string>
@@ -21,36 +21,36 @@
     <string name="find_code_on_github">GitHub</string>
     <string name="its_opensource">Leafpad is OpenSource en kan vrij gebruikt worden</string>
     <string name="action_note_saved">opgeslagen</string>
-    <string name="imported">Notitie verzonden vanuit Leafpad</string>
-    <string name="rate_the_app">Wat dacht je van een beoordeling in Google\'s PlayStore? Open dan Google Play direct.</string>
+    <string name="imported">Notitie verzonden naar Leafpad</string>
+    <string name="rate_the_app">Zou je een beoordeling op de Play Store willen achterlaten?</string>
     <string name="action_share_body">Notitie</string>
     <string name="remove_dialog_abort">Annuleer</string>
     <string name="menu_settings">Instellingen</string>
-    <string name="action_fab_note">Maak een notitie</string>
-    <string name="change">versie</string>
+    <string name="action_fab_note">Maak een Notitie</string>
+    <string name="change">Versie</string>
     <string name="system_preference_key">Volg systeem (standard)</string>
-    <string name="contentDescription">schrijf nieuwe notitie</string>
+    <string name="contentDescription">Schrijf Nieuwe Notitie</string>
     <string name="note_will_be_saved_first">Notitie wordt eerst opgeslagen</string>
     <string name="general_preference">Algemene instellingen</string>
     <string name="title_licence">Licenties</string>
     <string name="remove_dailog_message">Deze notitie wordt permanent gewist. Daarna kan het niet worden hersteld.</string>
-    <string name="version">versie</string>
-    <string name="find_code_on_github_summary">Je kunt de broncode bekijken via de herplaatsing. U bent welkom om een probleem te openen voor verzoeken en foute berichten.</string>
+    <string name="version">Versie</string>
+    <string name="find_code_on_github_summary">Je kunt de broncode bekijken via het repositorium. Als u verbeteringen wil aanvragen of fouten wil melden, open hier dan gerust een issue.</string>
     <string name="action_share_title">Titel</string>
     <string name="title_hint">Titel</string>
     <string name="about">Over</string>
     <string name="theme_summary">Wissel tussen donker en licht thema</string>
-    <string name="what_is_leafpad">Leafpad is een eenvoudige app voor notities.</string>
+    <string name="what_is_leafpad">Leafpad is een eenvoudige app voor notities. Met deze app kan je notities aanmaken, bewerken, versturen en verwijderen.</string>
     <string name="created_txt">Gemaakt op</string>
-    <string name="action_remove">Verwijder notitie</string>
+    <string name="action_remove">Verwijder Notitie</string>
     <string name="licence">Open bron licenties</string>
-    <string name="edited_text">bewerkt op</string>
+    <string name="edited_text">Bewerkt op</string>
     <string name="body_hint">Notitie</string>
     <string name="search">zoek notities</string>
     <string name="remove_dialog_title">Weet je het zeker?</string>
     <string name="action_add_note">Notitie toevoegen</string>
-    <string name="action_share_note">Deel notitie</string>
-    <string name="action_save">Notitie opslaan</string>
+    <string name="action_share_note">Deel Notitie</string>
+    <string name="action_save">Notitie Opslaan</string>
     <string name="share_note">Een notitie delen?</string>
     <string name="statement">We schrijven boodschappenlijsten op, notities voor gesprekken, inpakkenlijsten voor vakanties of verjaardagen. Dit zijn allemaal goede dingen zodat we ze niet vergeten. Hij schrijft onze goede en slechte daden op en redt ze. God staat boven alles en weet gewoon alles. God houdt van mensen en wil met hen samenwerken. Maar dit is alleen mogelijk als we gezien worden door God zo onschuldig. Door vertrouwen in Jezus Christus, zijn onze slechte daden voor God uitgeroeid. Jezus Christus sprong op ons schuldgevoel op het kruis van Calvary. Iedereen die dit accepteert is voor altijd in het boek van het leven beland. Ben je geregistreerd in het boek van het leven?</string>
     <string name="rev20_12">En ik zag de doden, de grote en de kleine, staande voor de troon, en boeken werden geopend, en een ander boek werd geopend, dat is het boek van het leven, en de doden werden uitgeschreven uit de boeken, volgens hun werk. Openbaring 20:12</string>
@@ -58,7 +58,7 @@
     <string name="about_the_app">Over de App</string>
     <string name="participate">Deelnemen of Bijdragen</string>
     <string name="translate">Vertaal de app op Weblate</string>
-    <string name="translation_help">Help ons de app te vertalen in je taal op Weblate</string>
+    <string name="translation_help">Help ons de app te vertalen naar jouw taal op Weblate.</string>
     <string name="hide_note">Maak de notitie onzichtbaar</string>
     <string name="hide_hidden">Verberg verborgen notities</string>
     <string name="show_note">Maak de notitie zichtbaar</string>
@@ -67,10 +67,10 @@
     <string name="note_is_no_recipe">Notitie is geen recept</string>
     <string name="showDeleteConfirmation">Verwijder notities?</string>
     <string name="no">Nee</string>
-    <string name="save">Alle notities opslaan als xml bestand</string>
+    <string name="save">Alle notities opslaan als zip-container aan de hand van json</string>
     <string name="backupIsrunning">Back-up wordt uitgevoerd</string>
     <string name="importError">Fout bij het importeren van notities.</string>
-    <string name="restore">Alle notities in het xml bestand terugzetten</string>
+    <string name="restore">Alle notities terugzetten vanuit een zip-bestand</string>
     <string name="showDeleteConfirmationMessage">Alle notities worden definitief verwijderd. Doorgaan?</string>
     <string name="yes">Ja</string>
     <plurals name="notes_imported">
@@ -78,8 +78,8 @@
         <item quantity="other">%1$d notities geïmporteerd</item>
     </plurals>
     <plurals name="notes_exported">
-        <item quantity="one">%1$d note backed up</item>
-        <item quantity="other">%1$d notes backed up</item>
+        <item quantity="one">%1$d notitie geback-upt</item>
+        <item quantity="other">%1$d notities geback-upt</item>
     </plurals>
     <string name="fileOpeningError">Fout bij het openen van het bestand.</string>
     <string name="delete">Verwijderen</string>
@@ -91,11 +91,11 @@
     <string name="save_notes_title">Back-up</string>
     <string name="showRestoreConfirmationMessage">Alle huidige notities worden vervangen door de back-up. Doorgaan?</string>
     <string name="toggle">Wijzig weergave</string>
-    <string name="note_shared">Notitie gedeeld</string>
-    <string name="save_changes">wijzigingen opslaan</string>
-    <string name="discard">weggooien</string>
+    <string name="note_shared">Notitie Gedeeld</string>
+    <string name="save_changes">Wijzigingen Opslaan</string>
+    <string name="discard">Weggooien</string>
     <string name="unsaved_changes_title">Wijzigingen niet opgeslagen</string>
-    <string name="item_menu_description">actie-menu</string>
+    <string name="item_menu_description">Actie-menu</string>
     <string name="not_initialized">Leafpad nog niet gestart!</string>
     <string name="search_hint">Wat zoek je?</string>
     <string name="startIconDescription">Een zoekveld</string>
@@ -119,7 +119,7 @@
     <string name="country_title_catalan">Catalaans</string>
     <string name="country_title_spanish">Spaans</string>
     <string name="country_title_translator_tamil" translatable="false">தமிழ்நேரம்(@TamilNeram), Kolappan N(@kolappan)</string>
-    <string name="setCategory">Set Category</string>
+    <string name="setCategory">Categorie instellen</string>
     <string name="country_title_albanian">Albanees</string>
     <string name="country_title_indonesian">Indonesisch</string>
     <string name="country_title_russian">Russisch</string>
@@ -148,7 +148,7 @@
     <string name="country_title_portuguese">Portugees</string>
     <string name="country_title_translator_catalan" translatable="false">Adolfo Jayme Barrientos(@Fito), Toni Gurguí(@tgurgui)</string>
     <string name="country_title_translator_german" translatable="false">Blubberland(@Blubberland), Maximilian Hüttner(@MaxHue)</string>
-    <string name="country_title_hindi_latin">Hindi (Latijns schrift)</string>
+    <string name="country_title_hindi_latin">Indiaas (Latijns schrift)</string>
     <string name="country_title_hindi">Hindi</string>
     <string name="country_title_translator_estonian" translatable="false">Priit Jõerüüt(@jrthwlate)</string>
     <string name="country_title_estonian">Estisch</string>
@@ -163,38 +163,38 @@
     <string name="country_title_translator_dutch" translatable="false">Bert Aarts(@OSSRocks)</string>
     <string name="country_title_translator_danish" translatable="false">Isak(@Isak)</string>
     <string name="country_title_translator_gothic" translatable="false">Roel v(@Hrothilas)</string>
-    <string name="country_title_gothic">Gothic</string>
-    <string name="country_title_dutch">Dutch</string>
-    <string name="menu_about">About Leafpad</string>
-    <string name="country_title_danish">Danish</string>
+    <string name="country_title_gothic">Gotisch</string>
+    <string name="country_title_dutch">Nederlands</string>
+    <string name="menu_about">Over Leafpad</string>
+    <string name="country_title_danish">Deens</string>
     <string name="country_title_translator_serbian" translatable="false">Nbjs(@nbjs)</string>
-    <string name="country_title_serbian">Serbian</string>
-    <string name="item_menu_add_category">create new category</string>
-    <string name="category">Category</string>
-    <string name="category_name">name of the category</string>
-    <string name="select_color">choose category color</string>
-    <string name="edit_category">edit category</string>
-    <string name="add_category">add category</string>
-    <string name="category_color">category color</string>
-    <string name="save_category">save category</string>
-    <string name="delete_category">Delete category</string>
-    <string name="delete_category_confirm">Are you sure you want to delete the category “%1$s”?</string>
-    <string name="delete_category_hint">Notes are retained but lose this category.</string>
-    <string name="manage_categories">Manage categories</string>
-    <string name="manage_categories_summary">Create, edit, and delete</string>
-    <string name="error">error</string>
-    <string name="category_already_exists">Category allready exists</string>
-    <string name="database_error">database error</string>
-    <string name="open_source_licenses">Open source licenses</string>
-    <string name="error_loading_licenses">Error loading licenses</string>
-    <string name="open_source_licenses_summary">View used libraries and licenses</string>
-    <string name="thanks_to_all_contributors">Thanks to all contributors and friends who help translate this project via Weblate—your time and effort are truly appreciated. For the full and always up-to-date list of contributors, please visit our GitHub repository.</string>
-    <string name="database_error_log">Database Error</string>
-    <string name="category_name_required">Empty category is not allowed</string>
-    <string name="expand_preview_description">Expand/Collapse Preview</string>
-    <string name="menu_sort">sort</string>
-    <string name="sort_date_desc">newest first</string>
-    <string name="sort_title_asc">title a-z</string>
-    <string name="sort_title_desc">title z-a</string>
-    <string name="sort_date_asc">oldest first</string>
+    <string name="country_title_serbian">Servisch</string>
+    <string name="item_menu_add_category">Nieuwe Categorie Aanmaken</string>
+    <string name="category">Categorie</string>
+    <string name="category_name">Categorienaam</string>
+    <string name="select_color">Kleur selecteren</string>
+    <string name="edit_category">Categorie Bewerken</string>
+    <string name="add_category">Categorie Toevoegen</string>
+    <string name="category_color">Categoriekleur</string>
+    <string name="save_category">Categorie Opslaan</string>
+    <string name="delete_category">Categorie Verwijderen</string>
+    <string name="delete_category_confirm">Ben je zeker dat je de categorie “%1$s” wilt verwijderen?</string>
+    <string name="delete_category_hint">Er worden geen notities verwijderd, maar ze verliezen deze categorie.</string>
+    <string name="manage_categories">Categorieën beheren</string>
+    <string name="manage_categories_summary">Aanmaken, Bewerken en Verwijderen</string>
+    <string name="error">Foutmelding</string>
+    <string name="category_already_exists">Categorie bestaat al</string>
+    <string name="database_error">Databasefout</string>
+    <string name="open_source_licenses">Open source licenties</string>
+    <string name="error_loading_licenses">Fout bij het inladen van de licenties</string>
+    <string name="open_source_licenses_summary">Bekijk gebruikte bibliotheken en licenties</string>
+    <string name="thanks_to_all_contributors">Dankjewel aan iedereen die meehelpt met dit project te vertalen via Weblate - jullie tijd en moeite worden echt geapprecieerd. Voor de volledige, up-to-date lijst aan helpers, bekijk onze GitHub-pagina.</string>
+    <string name="database_error_log">Databasefout</string>
+    <string name="category_name_required">Lege categorie niet mogelijk</string>
+    <string name="expand_preview_description">Preview uitbreiden/minimaliseren</string>
+    <string name="menu_sort">sorteren</string>
+    <string name="sort_date_desc">nieuwste eerst</string>
+    <string name="sort_title_asc">Titel a-z</string>
+    <string name="sort_title_desc">Titel z-a</string>
+    <string name="sort_date_asc">oudste eerst</string>
 </resources>
