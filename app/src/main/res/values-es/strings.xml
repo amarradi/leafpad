@@ -195,8 +195,8 @@
     <string name="category_name_required">No se permite una categoría vacía</string>
     <string name="expand_preview_description">Ampliar/colapsar vista previa</string>
     <string name="menu_sort">clasificación</string>
-    <string name="sort_date_desc">newest first</string>
+    <string name="sort_date_desc">más reciente primero</string>
     <string name="sort_title_asc">título a-z</string>
     <string name="sort_title_desc">título z-a</string>
-    <string name="sort_date_asc">oldest first</string>
+    <string name="sort_date_asc">mayor primero</string>
 </resources>
