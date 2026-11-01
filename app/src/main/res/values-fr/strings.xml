@@ -193,10 +193,10 @@
     <string name="thanks_to_all_contributors">Merci à tous les contributeurs et amis qui participent à la traduction de ce projet via Weblate : nous apprécions sincèrement le temps et les efforts que vous y consacrez. Pour consulter la liste complète et toujours à jour des contributeurs, rendez-vous sur notre dépôt GitHub.</string>
     <string name="database_error_log">Erreur de Base de données</string>
     <string name="category_name_required">Une catégorie vide est interdite</string>
-    <string name="expand_preview_description">Expand/Collapse Preview</string>
-    <string name="menu_sort">sort</string>
-    <string name="sort_date_desc">newest first</string>
-    <string name="sort_title_asc">title a-z</string>
-    <string name="sort_title_desc">title z-a</string>
-    <string name="sort_date_asc">oldest first</string>
+    <string name="expand_preview_description">Étendre/réduire l’aperçu</string>
+    <string name="menu_sort">triage</string>
+    <string name="sort_date_desc">plus récents d\'abord</string>
+    <string name="sort_title_asc">Titre A-Z</string>
+    <string name="sort_title_desc">Titre Z-A</string>
+    <string name="sort_date_asc">plus anciens d\'abord</string>
 </resources>
