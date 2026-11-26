@@ -45,7 +45,7 @@
     <dimen name="text_size_my_toolbar_title_edit">16sp</dimen>
     <dimen name="text_size_my_toolbar_subtitle_edit">18sp</dimen>
     <dimen name="text_size_title">17sp</dimen>
-    <dimen name="text_size_body">12sp</dimen>
+    <dimen name="text_size_body">10sp</dimen>
 
 
     <!-- EditView -->
