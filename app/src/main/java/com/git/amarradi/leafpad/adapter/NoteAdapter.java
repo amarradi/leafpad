@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.git.amarradi.leafpad.Leafpad;
 import com.git.amarradi.leafpad.MainActivity;
 import com.git.amarradi.leafpad.R;
+import com.git.amarradi.leafpad.helper.ColorUtilsHelper;
 import com.git.amarradi.leafpad.model.CategoryEntity;
 import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.model.ReleaseNote;
@@ -51,7 +52,6 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final NoteViewModel noteViewModel;
     private final LifecycleOwner lifecycleOwner;
     private java.util.Map<String, List<CategoryEntity>> categoriesByNoteId = new java.util.HashMap<>();
-    private final java.util.Set<String> expandedNoteIds = new java.util.HashSet<>();
 
 
 
@@ -60,6 +60,12 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     private final static String BIBLEVERSE_URL_REGEX = "(?i)\\b(?:https?://)?(?:www\\.)?(bible\\.(com|org)|bibleserver\\.com)(/\\S*)?";
+    private static final Pattern BIBLE_PATTERN = Pattern.compile(BIBLEVERSE_URL_REGEX);
+
+    // Obergrenze für den Vorschautext. Die Zeilenbegrenzung (maxLines) und das "…" am Ende
+    // übernimmt das TextView; diese Grenze verhindert nur, dass sehr lange Notizen komplett
+    // in jede Karte gesetzt werden.
+    private static final int PREVIEW_MAX_CHARS = 1000;
 
     public NoteAdapter(
             Context context,
@@ -236,11 +242,13 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         // ------------------------------------------------------------
         // Body-Vorschau
         // ------------------------------------------------------------
-        String body = note.getBody() != null ? note.getBody() : "";
-        if (body.length() > 150) {
-            body = body.substring(0, 150) + "...";
+        String fullBody = note.getBody() != null ? note.getBody() : "";
+        String preview = fullBody.trim();
+        if (preview.length() > PREVIEW_MAX_CHARS) {
+            preview = preview.substring(0, PREVIEW_MAX_CHARS) + "…";
         }
-        noteHolder.bodyPreview.setText(body);
+        noteHolder.bodyPreview.setText(preview);
+        final boolean hasPreview = !preview.isEmpty();
 
         // ------------------------------------------------------------
         // Datum / Uhrzeit
@@ -252,7 +260,6 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         // Kategorien (NEU – sauber)
         // ------------------------------------------------------------
         ChipGroup chipGroup = noteHolder.categoryChipGroup;
-        chipGroup.removeAllViews();
 
         List<CategoryEntity> categories = categoriesByNoteId.get(note.getId());
         bindChips(chipGroup, categories);
@@ -260,8 +267,7 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         // ------------------------------------------------------------
         // Bibel-Link-Erkennung
         // ------------------------------------------------------------
-        Pattern biblePattern = Pattern.compile(BIBLEVERSE_URL_REGEX);
-        Matcher matcher = biblePattern.matcher(note.getBody());
+        Matcher matcher = BIBLE_PATTERN.matcher(fullBody);
         noteHolder.bibleIcon.setVisibility(matcher.find() ? View.VISIBLE : View.GONE);
 
         // ------------------------------------------------------------
@@ -277,13 +283,14 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         });
 
         // Auf-/Zuklappen der Vorschau
-        if (noteHolder.expandableContent != null) {
-        }
-        boolean isExpanded = expandedNoteIds.contains(note.getId());
+        // Hinweis: Leafpad.getCollapsedNotes() enthält die IDs der AUFGEKLAPPTEN Notizen
+        // (der Name ist irreführend). Sichtbarkeit und Pfeil nutzen dieselbe Quelle.
         Leafpad leafpad = Leafpad.getInstance();
-        boolean isCollapsed = leafpad.getCollapsedNotes().contains(note.getId());
-        noteHolder.expandableContent.setVisibility(isCollapsed ? View.VISIBLE : View.GONE);
+        boolean isExpanded = hasPreview && leafpad.getCollapsedNotes().contains(note.getId());
+        noteHolder.expandableContent.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
         noteHolder.expandArrow.setRotation(isExpanded ? 180f : 0f);
+        // Ohne Text gibt es nichts aufzuklappen
+        noteHolder.expandArrow.setVisibility(hasPreview ? View.VISIBLE : View.GONE);
 
         noteHolder.expandArrow.setOnClickListener(v -> {
             boolean nowExpanded = !leafpad.getCollapsedNotes().contains(note.getId());
@@ -295,6 +302,12 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     .start();
         });
         // Größere Touch-Fläche für den kleinen Pfeil-Button, ohne die Optik zu ändern
+        if (!hasPreview) {
+            // Recycelter Holder: alte TouchDelegate entfernen, sonst reagiert die Karte links oben
+            android.view.View arrowParent = (android.view.View) noteHolder.expandArrow.getParent();
+            if (arrowParent != null) arrowParent.setTouchDelegate(null);
+            return;
+        }
         noteHolder.expandArrow.post(() -> {
             android.view.View parent = (android.view.View) noteHolder.expandArrow.getParent();
             if (parent == null) return;
@@ -313,10 +326,17 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     private void bindChips(ChipGroup chipGroup, List<CategoryEntity> categories) {
-        chipGroup.removeAllViews();
+        // Nur die alten Chips entfernen. In der Listenansicht liegt in der ChipGroup
+        // zusätzlich der Datum/Uhrzeit-Block, der stehen bleiben muss.
+        for (int i = chipGroup.getChildCount() - 1; i >= 0; i--) {
+            if (chipGroup.getChildAt(i) instanceof Chip) {
+                chipGroup.removeViewAt(i);
+            }
+        }
 
         if (categories == null || categories.isEmpty()) {
-            chipGroup.setVisibility(View.GONE);
+            // Gibt es noch andere Kinder (Datum/Uhrzeit), bleibt die Gruppe sichtbar
+            chipGroup.setVisibility(chipGroup.getChildCount() > 0 ? View.VISIBLE : View.GONE);
             return;
         }
 
@@ -331,6 +351,21 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             );
 
             chip.setText(c.name);
+            //chip.setTextSize(10f);
+
+            float d = chip.getResources().getDisplayMetrics().density; // dp → px
+
+// Höhe
+            chip.setChipMinHeight(18 * d);
+            chip.setMinHeight((int) (18 * d));
+
+// Abstand Text ↔ Rand links/rechts
+            chip.setChipStartPadding(2 * d);
+            chip.setChipEndPadding(2 * d);
+            chip.setTextStartPadding(2 * d);
+            chip.setTextEndPadding(2 * d);
+//            chip.setChipMinHeight(ColorUtilsHelper.dpToPx(chip.getContext(), 18));
+//            chip.setMinHeight(ColorUtilsHelper.dpToPx(chip.getContext(), 18));
 
             int baseColor;
             try {
