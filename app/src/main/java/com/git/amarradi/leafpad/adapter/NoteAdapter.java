@@ -29,6 +29,7 @@ import com.google.android.material.chip.ChipGroup;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -238,6 +239,9 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         // Titel
         // ------------------------------------------------------------
         noteHolder.titleText.setText(note.getTitle());
+        if (noteHolder.pinIcon != null) {
+            noteHolder.pinIcon.setVisibility(note.isPinned() ? View.VISIBLE : View.GONE);
+        }
 
         // ------------------------------------------------------------
         // Body-Vorschau
@@ -429,7 +433,7 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     // Notiz-ViewHolder
     public static class NoteViewHolder extends RecyclerView.ViewHolder {
         TextView titleText, bodyPreview, dateText, timeText, categoryText;
-        ImageView bibleIcon, categoryIcon;
+        ImageView bibleIcon, categoryIcon, pinIcon;
         ImageButton expandArrow;
 
         View expandableContent;       // neu
@@ -445,6 +449,7 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             bibleIcon = itemView.findViewById(R.id.bible);
             //categoryIcon = itemView.findViewById(R.id.category_icon);
             expandArrow = itemView.findViewById(R.id.expand_arrow);
+            pinIcon = itemView.findViewById(R.id.pin_icon);
             expandableContent = itemView.findViewById(R.id.expandable_content);
             categoryChipGroup = itemView.findViewById(R.id.category_chip_group);
         }
@@ -490,8 +495,13 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             if (oldItem instanceof ReleaseNote && newItem instanceof ReleaseNote) {
                 return oldItem.equals(newItem);
             }
-            if (oldItem instanceof Note && newItem instanceof Note) {
-                return oldItem.equals(newItem);
+            if (oldItem instanceof Note o && newItem instanceof Note n) {
+                return Objects.equals(o.getTitle(), n.getTitle())
+                        && Objects.equals(o.getBody(), n.getBody())
+                        && Objects.equals(o.getDate(), n.getDate())
+                        && Objects.equals(o.getTime(), n.getTime())
+                        && o.isHide() == n.isHide()
+                        && o.isPinned() == n.isPinned();
             }
             return false;
         }

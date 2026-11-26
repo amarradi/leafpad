@@ -197,4 +197,7 @@
     <string name="empty_list">No notes available in the list</string>
     <string name="action_share_note">Share Note</string>
     <string name="country_title_hindi">Hindi</string>
+    <string name="action_pin_note">Pin note</string>
+    <string name="action_unpin_note">Unpin note</string>
+    <string name="pinned_note_description">This note is pinned</string>
 </resources>

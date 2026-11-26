@@ -13,27 +13,27 @@ import java.util.List;
 @Dao
 public interface NoteDao {
     @Query("SELECT * FROM notes " +
-            "ORDER BY " +
+            "ORDER BY is_pinned DESC, " +
             "substr(notedate, 7, 4) || substr(notedate, 4, 2) || substr(notedate, 1, 2) DESC, " +
             "notetime DESC")
         // @Query("SELECT * FROM notes ORDER BY notedate DESC, notetime DESC")
     LiveData<List<NoteEntity>> getAllNotes();
 
     @Query("SELECT * FROM notes " +
-            "ORDER BY " +
+            "ORDER BY is_pinned DESC," +
             "substr(notedate, 7, 4) || substr(notedate, 4, 2) || substr(notedate, 1, 2) ASC, " +
             "notetime ASC")
     LiveData<List<NoteEntity>> getAllNotesDateAsc();
 
-    @Query("SELECT * FROM notes ORDER BY title COLLATE NOCASE ASC")
+    @Query("SELECT * FROM notes ORDER BY is_pinned DESC, title COLLATE NOCASE ASC")
     LiveData<List<NoteEntity>> getAllNotesTitleAsc();
 
-    @Query("SELECT * FROM notes ORDER BY title COLLATE NOCASE DESC")
+    @Query("SELECT * FROM notes ORDER BY is_pinned DESC, title COLLATE NOCASE DESC")
     LiveData<List<NoteEntity>> getAllNotesTitleDesc();
 
     @Query("SELECT * FROM notes " +
             "WHERE hide = 0 " +
-            "ORDER BY " +
+            "ORDER BY is_pinned DESC," +
             "substr(notedate, 7, 4) || substr(notedate, 4, 2) || substr(notedate, 1, 2) DESC, " +
             "notetime DESC")
         // @Query("SELECT * FROM notes WHERE hide = 0 ORDER BY notedate DESC, notetime DESC")
@@ -44,7 +44,6 @@ public interface NoteDao {
 
     @Query("SELECT * FROM notes WHERE id = :id LIMIT 1")
     LiveData<NoteEntity> getById(String id);
-
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(NoteEntity note);
@@ -80,5 +79,6 @@ public interface NoteDao {
     @Query("SELECT COUNT(*) FROM notes")
     int countAllNotes();
 
-
+    @Query("UPDATE notes SET is_pinned = :pinned WHERE id = :id")
+    void setPinned(String id, boolean pinned);
 }

@@ -8,7 +8,7 @@ public class NoteBackupDto {
     public String time;
     public String created;
     public String category;
-    public boolean hide;
+    public boolean hide, pinned;
 
     public NoteBackupDto() {
     }

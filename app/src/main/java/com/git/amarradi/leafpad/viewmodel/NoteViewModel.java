@@ -91,7 +91,8 @@ public class NoteViewModel extends AndroidViewModel {
     }
 
     private NoteEntity toEntity(Note n) {
-        return new NoteEntity(
+
+        NoteEntity e = new NoteEntity(
                 n.getId(),
                 n.getTitle() != null ? n.getTitle().trim() : "",
                 n.getBody() != null ? n.getBody().trim() : "",
@@ -100,10 +101,12 @@ public class NoteViewModel extends AndroidViewModel {
                 n.getCreateDate(),
                 n.isHide()
         );
+        e.isPinned = n.isPinned();
+        return e;
     }
 
     private Note fromEntity(NoteEntity e) {
-        return new Note(
+        Note n = new Note(
                 e.title,
                 e.body,
                 e.notedate,
@@ -113,6 +116,8 @@ public class NoteViewModel extends AndroidViewModel {
                 "",
                 e.id
         );
+        n.setPinned(e.isPinned);
+        return n;
     }
 
 
@@ -694,5 +699,10 @@ public class NoteViewModel extends AndroidViewModel {
 
     public LiveData<List<CategoryEntity>> getCategoriesForNoteId(String noteId) {
         return noteRepository.getCategoriesForNoteId(noteId);
+    }
+
+    public void togglePin(Note note) {
+        if(note == null) return;
+        noteRepository.setPinned(note.getId(), !note.isPinned());
     }
 }

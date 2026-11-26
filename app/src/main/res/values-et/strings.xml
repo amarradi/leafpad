@@ -197,4 +197,7 @@
     <string name="sort_title_asc">Pealkiri A-Z</string>
     <string name="sort_title_desc">Pealkiri Z-A</string>
     <string name="sort_date_asc">esmalt vanemad</string>
+    <string name="action_pin_note">Pin note</string>
+    <string name="action_unpin_note">Unpin note</string>
+    <string name="pinned_note_description">This note is pinned</string>
 </resources>

@@ -30,15 +30,33 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <!-- Titel -->
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/title_text"
-                    android:textAppearance="@style/TextAppearance.MyNoteItem"
+                <!-- Titel-Zeile: Pin-Icon (nur wenn angepinnt) + Titel -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    android:ellipsize="end"
-                    android:text="" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/pin_icon"
+                        android:layout_width="@dimen/image_listView_layout_width"
+                        android:layout_height="@dimen/image_listView_layout_height"
+                        android:layout_marginEnd="6dp"
+                        android:contentDescription="@string/pinned_note_description"
+                        android:src="@drawable/ic_pin"
+                        android:visibility="gone"
+                        app:tint="@color/md_theme_primary" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/title_text"
+                        android:textAppearance="@style/TextAppearance.MyNoteItem"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:text="" />
+                </LinearLayout>
 
                 <!-- Meta-Zeile: Die ChipGroup ist hier ein Flow-Container.
                      Erstes Kind = Datum/Uhrzeit-Block, danach die Kategorie-Chips (fügt der Adapter ein).

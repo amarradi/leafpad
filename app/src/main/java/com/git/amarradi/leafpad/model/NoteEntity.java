@@ -30,6 +30,9 @@ public class NoteEntity {
     @ColumnInfo(name = "hide")
     public boolean hide;
 
+    @ColumnInfo(name = "is_pinned", defaultValue = "0")
+    public boolean isPinned;
+
 
     // ---------------------------------------------------
     // Konstruktor

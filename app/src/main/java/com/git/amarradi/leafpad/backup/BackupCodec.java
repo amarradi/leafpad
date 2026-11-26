@@ -64,6 +64,7 @@ public class BackupCodec {
             obj.put("time", dto.time);
             obj.put("created", dto.created);
             obj.put("hide", dto.hide);
+            obj.put("pinned", dto.pinned);
             obj.put("category", dto.category);
 
             notesWriter.write(obj.toString());
@@ -146,6 +147,7 @@ public class BackupCodec {
                     dto.time = obj.optString("time", "");
                     dto.created = obj.optString("created", "");
                     dto.hide = obj.optBoolean("hide", false);
+                    dto.pinned = obj.optBoolean("pinned", false);
                     dto.category = obj.optString("category", "");
 
                     notes.add(dto);

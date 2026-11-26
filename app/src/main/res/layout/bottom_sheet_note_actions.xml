@@ -15,6 +15,38 @@
         android:layout_gravity="center_horizontal"
         android:background="@drawable/bg_bottom_sheet_handle" />
 
+    <!-- Anpinnen/Lösen -->
+    <LinearLayout
+        android:id="@+id/action_pin_note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="?attr/selectableItemBackground"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/action_pin_note_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:tint="@color/md_theme_primary"
+            android:src="@drawable/ic_pin" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/action_pin_note_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:textAppearance="@style/TextAppearance.MyNoteItem"
+            android:textStyle="normal"
+            android:text="@string/action_pin_note" />
+    </LinearLayout>
+
     <!-- Verstecken/Zeigen -->
     <LinearLayout
         android:id="@+id/action_hide_note"

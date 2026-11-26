@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.git.amarradi.leafpad.BuildConfig;
 import com.git.amarradi.leafpad.R;
 import com.git.amarradi.leafpad.model.Note;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
@@ -22,6 +23,7 @@ public class NoteActionsBottomSheet extends BottomSheetDialogFragment {
     }
 
     public interface OnNoteActionListener {
+        void onPinToggle(Note note);
         void onHideToggle(Note note);
 
         void onShare(Note note);
@@ -77,6 +79,30 @@ public class NoteActionsBottomSheet extends BottomSheetDialogFragment {
         hideRow.setOnClickListener(v -> {
             if (listener != null) {
                 listener.onHideToggle(note);
+            }
+            dismiss();
+        });
+
+        // ------------------------------------------------------------
+        // Anpinnen/Lösen – Icon & Text je nach aktuellem Status
+        // ------------------------------------------------------------
+        View pinRow = view.findViewById(R.id.action_pin_note);
+        ImageView pinIcon = view.findViewById(R.id.action_pin_note_icon);
+        MaterialTextView pinText = view.findViewById(R.id.action_pin_note_text);
+        if (BuildConfig.DEBUG) {
+            android.util.Log.d("PIN", "sheet id=" + note.getId() + " pinned=" + note.isPinned());
+        }
+        if (note.isPinned()) {
+            pinText.setText(getString(R.string.action_unpin_note));
+            pinIcon.setImageResource(R.drawable.ic_unpin);
+        } else {
+            pinText.setText(getString(R.string.action_pin_note));
+            pinIcon.setImageResource(R.drawable.ic_pin);
+        }
+
+        pinRow.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onPinToggle(note);
             }
             dismiss();
         });

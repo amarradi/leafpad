@@ -72,6 +72,7 @@ public class LeafpadBackupManager {
                     dto.created = e.createDate;
                     dto.hide = e.hide;
                     dto.category = ""; // Legacy-Feld, Kategorien laufen jetzt separat
+                    dto.pinned = e.isPinned;
                     noteDtos.add(dto);
                 }
 
@@ -169,6 +170,7 @@ public class LeafpadBackupManager {
                                     dto.created,
                                     dto.hide
                             );
+                            e.isPinned = dto.pinned;
                             noteDao.insert(e);
                         }
 

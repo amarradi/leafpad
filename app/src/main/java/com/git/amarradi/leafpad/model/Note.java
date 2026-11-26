@@ -17,6 +17,7 @@ public class Note implements Parcelable {
     private String id;
     private boolean hide;
     private String category;
+    private boolean pinned;
 
     private final Locale LOCALE = Locale.GERMAN;
 
@@ -29,6 +30,7 @@ public class Note implements Parcelable {
         this.id = other.id;
         this.hide = other.hide;
         this.category = other.category;
+        this.pinned = other.pinned;
     }
 
     public Note(String title, String body, String notedate, String notetime, String create_date, boolean hide,String category, String id) {
@@ -149,6 +151,15 @@ public class Note implements Parcelable {
         id = in.readString();
         hide = in.readByte() != 0;
         category = in.readString();
+        pinned = in.readByte() != 0;
+    }
+
+    public boolean isPinned() {
+        return pinned;
+    }
+    public boolean setPinned(boolean pinned) {
+        this.pinned = pinned;
+        return pinned;
     }
 
     public static final Creator<Note> CREATOR = new Creator<Note>() {
@@ -178,6 +189,7 @@ public class Note implements Parcelable {
         parcel.writeString(id);
         parcel.writeByte((byte) (hide ? 1 : 0));
         parcel.writeString(category);
+        parcel.writeByte((byte) (pinned ? 1 : 0));
     }
 
 }

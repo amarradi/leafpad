@@ -200,4 +200,7 @@
     <string name="sort_date_asc">oldest first</string>
     <string name="sort_title_asc">Title A-Z</string>
     <string name="sort_title_desc">Title Z-A</string>
+    <string name="action_pin_note">Pin note</string>
+    <string name="action_unpin_note">Unpin note</string>
+    <string name="pinned_note_description">This note is pinned</string>
 </resources>

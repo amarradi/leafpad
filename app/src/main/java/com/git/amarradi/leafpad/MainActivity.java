@@ -23,6 +23,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SimpleItemAnimator;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.git.amarradi.leafpad.adapter.NoteAdapter;
@@ -34,6 +35,7 @@ import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.jaredrummler.android.colorpicker.BuildConfig;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -142,6 +144,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
 
         recyclerView.setAdapter(noteAdapter);
+        RecyclerView.ItemAnimator animator = recyclerView.getItemAnimator();
+        if (animator instanceof SimpleItemAnimator) {
+            ((SimpleItemAnimator) animator).setSupportsChangeAnimations(false);
+        }
         noteViewModel.getCategoriesByNoteId().observe(this, map -> {
             noteAdapter.setCategoriesByNoteId(map);
         });
@@ -288,6 +294,12 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     private void showNoteActionsBottomSheet(Note note) {
         NoteActionsBottomSheet sheet = NoteActionsBottomSheet.newInstance(note, new NoteActionsBottomSheet.OnNoteActionListener() {
+
+            @Override
+            public void onPinToggle(Note note) {
+                scrollToTopAfterSort = true;
+                noteViewModel.togglePin(note);
+            }
             @Override
             public void onHideToggle(Note note) {
                 noteViewModel.selectNote(note);

@@ -106,4 +106,8 @@ public class NoteRepository {
         }
     }
 
+    public void setPinned(String id, boolean pinned) {
+        dbExecutor.execute(()->noteDao.setPinned(id,pinned));
+    }
+
 }
