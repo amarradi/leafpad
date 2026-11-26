@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     private ImageView toolbarTitleIcon;
 
+    private boolean scrollToTopAfterSort = false;
+
     @SuppressLint("RestrictedApi")
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -87,6 +89,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             if (firstNotesLoad) {
                 recyclerView.post(() -> recyclerView.scrollToPosition(0));
                 firstNotesLoad = false;
+            } else if (scrollToTopAfterSort) {
+                recyclerView.post(() -> recyclerView.scrollToPosition(0));
+                scrollToTopAfterSort = false;
+                
             }
 
             updateEmptyState();
@@ -163,7 +169,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         });
         if (BuildConfig.DEBUG) {
             fab.setOnLongClickListener(v -> {
-                seedTestNotes(25);
+                seedTestNotes();
                 return true;
             });
         }
@@ -182,7 +188,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     }
 
-    private void seedTestNotes(int count) {
+    private void seedTestNotes() {
         new Thread(() -> {
             String[] sampleCategories = {"Rezept", "Test"};
             java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("dd.MM.yyyy", java.util.Locale.getDefault());
@@ -193,7 +199,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             com.git.amarradi.leafpad.model.AppDatabase db =
                     com.git.amarradi.leafpad.model.AppDatabase.getInstance(getApplicationContext());
 
-            for (int i = 1; i <= count; i++) {
+            for (int i = 1; i <= 25; i++) {
                 String id = com.git.amarradi.leafpad.model.Note.makeId();
 
                 com.git.amarradi.leafpad.model.NoteEntity entity = new com.git.amarradi.leafpad.model.NoteEntity(
@@ -394,19 +400,19 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 startActivity(aboutIntent);
                 return true;
             case R.id.sort_date_desc:
-                noteViewModel.setSortMode("date_desc");
+                changeSortMode("date_desc");
                 invalidateOptionsMenu();
                 return true;
             case R.id.sort_date_asc:
-                noteViewModel.setSortMode("date_asc");
+                changeSortMode("date_asc");
                 invalidateOptionsMenu();
                 return true;
             case R.id.sort_title_asc:
-                noteViewModel.setSortMode("title_asc");
+                changeSortMode("title_asc");
                 invalidateOptionsMenu();
                 return true;
             case R.id.sort_title_desc:
-                noteViewModel.setSortMode("title_desc");
+                changeSortMode("title_desc");
                 invalidateOptionsMenu();
                 return true;
         }
@@ -433,6 +439,17 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
         Leafpad.getInstance().saveShowHidden(newValue);
     }
+
+    private void changeSortMode(String newMode) {
+        String current = noteViewModel.getSortMode().getValue();
+        if (newMode.equals(current)) {
+            return; // gleiche Sortierung nochmal gewählt: nichts tun
+        }
+        scrollToTopAfterSort = true;
+        noteViewModel.setSortMode(newMode);
+        invalidateOptionsMenu();
+    }
+
     public interface NoteClickListener {
         void onNoteClicked(Note note);
         void onNoteIconClicked(Note note, View anchor);
