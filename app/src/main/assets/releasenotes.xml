@@ -2,6 +2,7 @@
 <releasenote>
     <title>Leafpad 1.25 - Was hat sich verändert</title>
     <content>
+        * Neu: Es lassen sich beliebig viele Notizen anpinnen, die werden dann an den Anfang gestellt.
         * Korrektur: Nach dem Sortieren wird nach oben gescrollt
         * Notizübersicht aktualisiert, mehr Infos sind jetzt sichtbar
         * Übersetzungen aktualisiert
