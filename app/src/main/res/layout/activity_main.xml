@@ -7,10 +7,12 @@
     android:fitsSystemWindows="true"
     tools:context="MainActivity">
 
+    <!-- liftOnScroll aus: sonst färbt Material 3 die Toolbar beim Scrollen
+         mit der getönten Oberflächenfarbe (blau/grau) ein. -->
     <com.google.android.material.appbar.AppBarLayout
-
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:liftOnScroll="false">
 
 
         <com.google.android.material.appbar.MaterialToolbar
