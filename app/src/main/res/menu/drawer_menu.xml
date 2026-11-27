@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="@string/general_preference">
+        <menu>
+            <item
+                android:id="@+id/nav_grid_view"
+                android:icon="@drawable/ic_gridview"
+                android:title="@string/drawer_grid_view"
+                app:actionLayout="@layout/drawer_switch" />
+            <item
+                android:id="@+id/nav_theme"
+                android:icon="@drawable/ic_switch_daynight_mode"
+                android:title="@string/theme_preference" />
+            <item
+                android:id="@+id/nav_backup"
+                android:icon="@drawable/ic_save_all_data"
+                android:title="@string/save_notes_title" />
+            <item
+                android:id="@+id/nav_restore"
+                android:icon="@drawable/ic_restore_all"
+                android:title="@string/restore_notes_title" />
+            <item
+                android:id="@+id/nav_categories"
+                android:icon="@drawable/ic_category"
+                android:title="@string/manage_categories" />
+            <item
+                android:id="@+id/nav_change_notification"
+                android:icon="@drawable/ic_change_notification"
+                android:title="@string/notification_of_change"
+                app:actionLayout="@layout/drawer_switch" />
+            <item
+                android:id="@+id/nav_keep_screen_on"
+                android:icon="@drawable/ic_display_timer"
+                android:title="@string/keep_screen_on_title"
+                app:actionLayout="@layout/drawer_switch" />
+        </menu>
+    </item>
+
+    <item android:title="@string/participate">
+        <menu>
+            <item
+                android:id="@+id/nav_rating"
+                android:icon="@drawable/ic_goto_play_store"
+                android:title="@string/drawer_rate" />
+            <item
+                android:id="@+id/nav_github"
+                android:icon="@drawable/ic_github_logo"
+                android:title="@string/drawer_github" />
+            <item
+                android:id="@+id/nav_translate"
+                android:icon="@drawable/ic_translation"
+                android:title="@string/drawer_translate" />
+            <item
+                android:id="@+id/nav_licenses"
+                android:icon="@drawable/ic_license"
+                android:title="@string/open_source_licenses" />
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_about_the_app"
+                android:title="@string/menu_about" />
+        </menu>
+    </item>
+</menu>

@@ -19,14 +19,7 @@
             android:name=".AboutActivity"
             android:exported="false"
             android:label="@string/about"
-            android:parentActivityName=".SettingsActivity" />
-        <activity
-            android:name=".SettingsActivity"
-            android:exported="false"
-            android:label="@string/menu_settings"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.MyApp"
-            android:windowSoftInputMode="adjustResize" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -55,9 +48,9 @@
         </activity>
         <activity
             android:name=".CategoryActivity"
-            android:exported="true"
-            android:label="@string/category"
-            android:parentActivityName=".NoteEditActivity"
+            android:exported="false"
+            android:label="@string/manage_categories"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.MyApp"
             android:windowSoftInputMode="adjustResize" />
         <activity

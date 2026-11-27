@@ -43,8 +43,6 @@ public class Leafpad extends Application {
         super.onCreate();
         instance = this;
 
-        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
-
         LeafstoreImporter.importIfNeeded(this);
 
         migrateOldDesignMode();

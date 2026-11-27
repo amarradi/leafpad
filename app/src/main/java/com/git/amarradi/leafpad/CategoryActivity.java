@@ -1,27 +1,24 @@
 package com.git.amarradi.leafpad;
 
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.Menu;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.git.amarradi.leafpad.adapter.CategoryAdapter;
-import com.git.amarradi.leafpad.viewmodel.CategoryViewModel;
+import com.git.amarradi.leafpad.fragment.CategoryFragment;
+import com.git.amarradi.leafpad.helper.DialogHelper;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
 
 import java.util.Objects;
 
-public class CategoryActivity extends AppCompatActivity {
-
-    private CategoryViewModel categoryViewModel;
+/**
+ * "Kategorien verwalten" aus der Sidebar. Zeigt CategoryFragment im Verwaltungsmodus.
+ *
+ * Das Fragment fängt Zurück selbst ab und poppt sich vom Back-Stack (closeSelf()).
+ * Ist der Back-Stack danach leer, wird die Activity beendet.
+ */
+public class CategoryActivity extends AppCompatActivity implements ColorPickerDialogListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,40 +26,33 @@ public class CategoryActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_category);
 
-        RecyclerView recyclerView = findViewById(R.id.categoryRecyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        CategoryAdapter categoryAdapter = new CategoryAdapter();
-        recyclerView.setAdapter(categoryAdapter);
-
-        categoryViewModel = new ViewModelProvider(this).get(CategoryViewModel.class);
-        categoryViewModel.getCategories().observe(this, categoryAdapter::setCategories);
-
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.category_toolbar), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-        Resources res = getResources();
-        setupToolbar();
-    }
-
-    private void setupToolbar() {
         MaterialToolbar toolbar = findViewById(R.id.category_toolbar);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(true);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(R.string.category);
+        getSupportActionBar().setTitle(R.string.manage_categories);
+        toolbar.setNavigationOnClickListener(v -> getOnBackPressedDispatcher().onBackPressed());
+
+        getSupportFragmentManager().addOnBackStackChangedListener(() -> {
+            if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+                finish();
+            }
+        });
+
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.category_fragment_container,
+                            CategoryFragment.newInstance(CategoryFragment.MODE_MANAGE_ONLY))
+                    .addToBackStack("category")
+                    .commit();
+        }
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_category, menu);
-        return super.onCreateOptionsMenu(menu);
+    public void onColorSelected(int dialogId, int color) {
+        DialogHelper.onColorSelectedForCategoryDialog(dialogId, color);
     }
 
-    private void checkForUnsavedChanges() {
+    @Override
+    public void onDialogDismissed(int dialogId) {
     }
-
 }

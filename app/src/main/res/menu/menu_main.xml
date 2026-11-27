@@ -8,11 +8,6 @@
         android:title="@string/search"
         android:icon="@drawable/btn_search"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/item_toggle_layout"
-        android:icon="@drawable/ic_gridview"
-        android:title="@string/toggle"
-        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/item_sort"
@@ -43,17 +38,6 @@
         android:id="@+id/item_show_hidden"
         android:icon="@drawable/btn_show"
         android:title="@string/show_hidden"
-        app:showAsAction="ifRoom"
-        />
-    <item
-        android:id="@+id/item_settings"
-        android:icon="@drawable/ic_settings"
-        android:title="@string/menu_settings"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/item_about"
-        android:icon="@drawable/ic_about_the_app"
-        android:title="@string/menu_about"
         app:showAsAction="ifRoom"
         />
 </menu>

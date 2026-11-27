@@ -30,6 +30,7 @@ import com.git.amarradi.leafpad.adapter.NoteAdapter;
 import com.git.amarradi.leafpad.adapter.OnReleaseNoteCloseListener;
 import com.git.amarradi.leafpad.fragment.NoteActionsBottomSheet;
 import com.git.amarradi.leafpad.helper.DialogHelper;
+import com.git.amarradi.leafpad.helper.DrawerController;
 import com.git.amarradi.leafpad.helper.ShareHelper;
 import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
@@ -37,7 +38,6 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, OnReleaseNoteCloseListener {
 
@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private ImageView toolbarTitleIcon;
 
     private boolean scrollToTopAfterSort = false;
+
+    private DrawerController drawerController;
 
     @SuppressLint("RestrictedApi")
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -103,7 +105,16 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDefaultDisplayHomeAsUpEnabled(true);
+
+        // Sidebar (ersetzt den früheren Einstellungs-Bildschirm).
+        // Listener erst nach setSupportActionBar setzen, sonst wird er überschrieben.
+        drawerController = new DrawerController(
+                this,
+                findViewById(R.id.drawer_layout),
+                findViewById(R.id.nav_view),
+                findViewById(R.id.coordinator),
+                () -> Leafpad.getInstance().toggleLayoutMode(recyclerView, noteAdapter));
+        toolbar.setNavigationOnClickListener(v -> drawerController.open());
 
         View customTitleView = getLayoutInflater().inflate(R.layout.toolbar_title_with_icon, toolbar, false);
 
@@ -329,6 +340,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         super.onResume();
         Leafpad.getInstance().applyCurrentLayoutMode(recyclerView, noteAdapter);
         noteViewModel.loadNotes();
+        drawerController.refreshSwitches();
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -337,8 +349,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         getMenuInflater().inflate(R.menu.menu_main, menu);
         android.view.MenuItem item = menu.findItem(R.id.item_show_hidden);
 
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String savedLayout = sharedPreferences.getString(Leafpad.PREF_LAYOUT_MODE, "list");
         Boolean showHidden = noteViewModel.getShowHidden().getValue();
         if (showHidden == null) {
             showHidden = false;
@@ -349,12 +359,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         } else {
             item.setIcon(getDrawable(R.drawable.btn_show));
             item.setTitle(getString(R.string.show_hidden));
-        }
-        MenuItem layoutItem = menu.findItem(R.id.item_toggle_layout);
-        if ("grid".equals(savedLayout)) {
-            layoutItem.setIcon(R.drawable.ic_listview);
-        } else {
-            layoutItem.setIcon(R.drawable.ic_gridview);
         }
 
         String currentSort = noteViewModel.getSortMode().getValue();
@@ -387,23 +391,12 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     public boolean onOptionsItemSelected(@NonNull android.view.MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.item_settings:
-                startActivity(new Intent(this, SettingsActivity.class));
-                return true;
             case R.id.item_show_hidden:
                 toggleShowHidden(item);
-                return true;
-            case R.id.item_toggle_layout:
-                Leafpad.getInstance().toggleLayoutMode(recyclerView, noteAdapter);
-                invalidateOptionsMenu();
                 return true;
             case R.id.action_search:
                 Intent searchIntent = new Intent(this, SearchActivity.class);
                 startActivity(searchIntent);
-                return true;
-            case R.id.item_about:
-                Intent aboutIntent = new Intent(this, AboutActivity.class);
-                startActivity(aboutIntent);
                 return true;
             case R.id.sort_date_desc:
                 changeSortMode("date_desc");
