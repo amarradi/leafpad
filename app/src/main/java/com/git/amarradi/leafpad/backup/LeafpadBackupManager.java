@@ -149,11 +149,19 @@ public class LeafpadBackupManager {
                     CategoryDao categoryDao = db.categoryDao();
                     NoteCategoryDao noteCategoryDao = db.noteCategoryDao();
 
+                    // v1-Backups enthalten keine Kategorien (Feld "category" war immer leer).
+                    // Dann die vorhandenen Kategorien behalten, statt sie zu löschen –
+                    // sonst wäre danach auch die Standardkategorie "Rezept" weg.
+                    final boolean backupHasCategories =
+                            result.metadata.backupSchemaVersion >= 2;
+
                     db.runInTransaction(() -> {
                         // Alles Alte weg (Join fliegt per FK-CASCADE mit)
                         noteDao.deleteAllNotes();
-                        // Bei Kategorien nicht CASCADE, also separat leeren:
-                        categoryDao.deleteAllCategories();
+                        // Kategorien nur ersetzen, wenn das Backup welche mitbringt
+                        if (backupHasCategories) {
+                            categoryDao.deleteAllCategories();
+                        }
 
                         // ---- Notizen wiederherstellen ----
                         for (NoteBackupDto dto : result.notes) {
