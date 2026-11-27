@@ -206,4 +206,20 @@
     <string name="action_pin_note">Pin note</string>
     <string name="action_unpin_note">Unpin note</string>
     <string name="pinned_note_description">This note is pinned</string>
+    <string name="drawer_list_view">List view</string>
+    <string name="drawer_github">Source code on GitHub</string>
+    <string name="drawer_grid_view">Grid view</string>
+    <string name="drawer_translate">Help translate</string>
+    <string name="drawer_open">Open navigation</string>
+    <string name="drawer_rate">Rate the app</string>
+    <string name="format_clear">Clear formatting</string>
+    <string name="fab_label_edit">Edit</string>
+    <string name="format_italic">Italic</string>
+    <string name="format_underline">Underline</string>
+    <string name="format_bullet">Bullet list</string>
+    <string name="format_heading">Heading (H1, H2, H3)</string>
+    <string name="fab_read">Done editing</string>
+    <string name="fab_edit">Edit note</string>
+    <string name="fab_label_read">Read</string>
+    <string name="format_bold">Bold</string>
 </resources>

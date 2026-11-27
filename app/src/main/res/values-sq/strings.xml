@@ -6,7 +6,7 @@
     <string name="lightmode_preference" translatable="false">lightmode</string>
     <string name="system_preference_option_value" translatable="false">system</string>
     <string name="lightmode_preference_option_value" translatable="false">lightmode</string>
-    <string name="theme_preference">Theme</string>
+    <string name="theme_preference">Temë</string>
     <string name="darkmode_preference_option_value" translatable="false">darkmode</string>
     <string name="new_note">Shënim i Ri</string>
     <string name="action_note_saved">u ruajt</string>
@@ -191,13 +191,29 @@
     <string name="thanks_to_all_contributors">Faleminderit krejt kontribuesve dhe miqve që ndihmojnë të përkthehet ky projekt në Weblate—koha dhe përpjekjet tuaja vlerësohen vërtet. Për listën e plotë dhe përherë të përditësuar të kontribuesve, ju lutemi, vizitoni depon në GitHub.</string>
     <string name="database_error_log">Gabim Baze të Dhënash</string>
     <string name="category_name_required">S’lejohet kategori e zbrazët</string>
-    <string name="expand_preview_description">Expand/Collapse Preview</string>
-    <string name="menu_sort">sort</string>
-    <string name="sort_date_desc">newest first</string>
-    <string name="sort_title_asc">title a-z</string>
-    <string name="sort_title_desc">title z-a</string>
-    <string name="sort_date_asc">oldest first</string>
-    <string name="action_pin_note">Pin note</string>
-    <string name="action_unpin_note">Unpin note</string>
-    <string name="pinned_note_description">This note is pinned</string>
+    <string name="expand_preview_description">Zgjero/Tkurre Paraparjen</string>
+    <string name="menu_sort">renditje</string>
+    <string name="sort_date_desc">më të rinjtë së pari</string>
+    <string name="sort_title_asc">Titull A-Z</string>
+    <string name="sort_title_desc">Titull Z-A</string>
+    <string name="sort_date_asc">më të vjetrit së pari</string>
+    <string name="action_pin_note">Fiksoje shënimin</string>
+    <string name="action_unpin_note">Hiqja fiksimin shënimit</string>
+    <string name="pinned_note_description">Ky shënim është fiksuar</string>
+    <string name="drawer_list_view">Pamje si listë</string>
+    <string name="drawer_github">Kod burim në GitHub</string>
+    <string name="drawer_grid_view">Pamje si mozaik</string>
+    <string name="drawer_translate">Ndihmoni të përkthehet</string>
+    <string name="drawer_open">Hap lëvizjen</string>
+    <string name="drawer_rate">Vlerësojeni aplikacionin</string>
+    <string name="format_clear">Clear formatting</string>
+    <string name="fab_label_edit">Edit</string>
+    <string name="format_italic">Italic</string>
+    <string name="format_underline">Underline</string>
+    <string name="format_bullet">Bullet list</string>
+    <string name="format_heading">Heading (H1, H2, H3)</string>
+    <string name="fab_read">Done editing</string>
+    <string name="fab_edit">Edit note</string>
+    <string name="fab_label_read">Read</string>
+    <string name="format_bold">Bold</string>
 </resources>
