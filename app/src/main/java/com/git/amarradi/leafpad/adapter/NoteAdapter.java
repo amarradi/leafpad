@@ -19,6 +19,7 @@ import com.git.amarradi.leafpad.Leafpad;
 import com.git.amarradi.leafpad.MainActivity;
 import com.git.amarradi.leafpad.R;
 import com.git.amarradi.leafpad.helper.ColorUtilsHelper;
+import com.git.amarradi.leafpad.helper.MarkdownFormatter;
 import com.git.amarradi.leafpad.model.CategoryEntity;
 import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.model.ReleaseNote;
@@ -251,7 +252,8 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         if (preview.length() > PREVIEW_MAX_CHARS) {
             preview = preview.substring(0, PREVIEW_MAX_CHARS) + "…";
         }
-        noteHolder.bodyPreview.setText(preview);
+        // Markdown formatiert anzeigen, ohne die Zeichen
+        noteHolder.bodyPreview.setText(MarkdownFormatter.render(preview, false));
         final boolean hasPreview = !preview.isEmpty();
 
         // ------------------------------------------------------------

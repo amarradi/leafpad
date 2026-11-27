@@ -209,4 +209,12 @@
     <string name="drawer_translate">Beim Übersetzen helfen</string>
     <string name="drawer_grid_view">Rasteransicht</string>
     <string name="drawer_list_view">Listenansicht</string>
+    <string name="format_bold">Fett</string>
+    <string name="format_italic">Kursiv</string>
+    <string name="format_underline">Unterstrichen</string>
+    <string name="format_bullet">Aufzählung</string>
+    <string name="fab_edit">Notiz bearbeiten</string>
+    <string name="fab_read">Bearbeiten beenden</string>
+    <string name="format_heading">Überschrift (H1, H2, H3)</string>
+    <string name="format_clear">Formatierung entfernen</string>
 </resources>

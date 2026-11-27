@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.git.amarradi.leafpad.helper.MarkdownFormatter;
 import com.git.amarradi.leafpad.R;
 import com.git.amarradi.leafpad.model.Note;
 
@@ -47,7 +48,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
         String preview = note.getBody() != null ? note.getBody() : "";
         if (preview.length() > 100) preview = preview.substring(0, 100) + "...";
-        holder.body.setText(preview);
+        holder.body.setText(MarkdownFormatter.render(preview, false));
 
         holder.itemView.setOnClickListener(v -> listener.onNoteClick(note));
     }

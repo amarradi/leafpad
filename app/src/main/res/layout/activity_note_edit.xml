@@ -120,8 +120,126 @@
                     android:background="@android:color/transparent"
                     android:textAlignment="viewStart" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Leseansicht: formatierter Text ohne Markdown-Zeichen, nicht editierbar.
+                 Umschalten über den FAB (NoteEditActivity.applyMode). -->
+            <TextView
+                android:id="@+id/body_read"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/switch_layout_margin_start"
+                android:layout_marginEnd="@dimen/switch_layout_margin_end"
+                android:hint="@string/body_hint"
+                android:paddingStart="16dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="88dp"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
+                android:textIsSelectable="true"
+                android:visibility="gone" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <!-- Formatierungsleiste: nur sichtbar, solange der Text den Fokus hat.
+         Abstand zur Tastatur setzt NoteEditActivity über die Window-Insets. -->
+    <LinearLayout
+        android:id="@+id/format_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/format_bar_height"
+        android:layout_gravity="bottom"
+        android:background="?attr/colorSurfaceContainer"
+        android:elevation="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:visibility="gone">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/format_heading"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/format_heading"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="H"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/format_bold"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/format_bold"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="B"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/format_italic"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/format_italic"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="I"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/format_underline"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/format_underline"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="U"
+            android:textSize="18sp"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/format_bullet"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/format_bullet"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="•"
+            android:textSize="22sp"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/format_clear"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/format_clear"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:icon="@drawable/ic_format_clear"
+            app:iconTint="?attr/colorPrimary" />
+    </LinearLayout>
+
+    <!-- Lesen ↔ Bearbeiten. Abstand nach unten setzt NoteEditActivity über die Insets. -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="@dimen/fab_margin"
+        android:contentDescription="@string/fab_edit"
+        app:srcCompat="@drawable/ic_edit" />
 
     <!-- Snackbar anchor unten (optional) -->
     <View

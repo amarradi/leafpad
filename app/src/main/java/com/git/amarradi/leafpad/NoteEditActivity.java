@@ -10,15 +10,20 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.Layout;
 import android.text.TextWatcher;
+import android.text.style.UnderlineSpan;
+import android.text.SpannableString;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
@@ -31,12 +36,16 @@ import androidx.lifecycle.ViewModelProvider;
 import com.git.amarradi.leafpad.fragment.CategoryFragment;
 import com.git.amarradi.leafpad.helper.DialogHelper;
 import com.git.amarradi.leafpad.helper.EditorMinHeightHelper;
+import com.git.amarradi.leafpad.helper.MarkdownFormatter;
 import com.git.amarradi.leafpad.helper.ShareHelper;
 import com.git.amarradi.leafpad.model.CategoryEntity;
 import com.git.amarradi.leafpad.model.Leaf;
 import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.color.MaterialColors;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.textfield.TextInputLayout;
@@ -65,6 +74,12 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
     private boolean isNoteDeleted = false;
     private NestedScrollView bodyScroll;
     private boolean isNewNote = false;
+
+    // Leseansicht (formatiert, nicht editierbar) vs. Bearbeiten (Markdown sichtbar)
+    private static final String STATE_READ_MODE = "read_mode";
+    private boolean readMode = false;
+    private TextView bodyRead;
+    private FloatingActionButton modeFab;
     //private boolean isUIConfigured = false;
     private String configuredNoteId = null;
     private MenuItem saveMenuItem;
@@ -102,7 +117,24 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
             int ime = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
             int nav = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
             int bottom = Math.max(ime, nav);
-            view.setPadding(0, 0, 0, bottom);
+
+            // Formatierungsleiste sitzt direkt über Tastatur bzw. Navigationsleiste
+            View formatBar = findViewById(R.id.format_bar);
+            ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) formatBar.getLayoutParams();
+            if (lp.bottomMargin != bottom) {
+                lp.bottomMargin = bottom;
+                formatBar.setLayoutParams(lp);
+            }
+            int barSpace = formatBar.getVisibility() == View.VISIBLE
+                    ? getResources().getDimensionPixelSize(R.dimen.format_bar_height) : 0;
+            view.setPadding(0, 0, 0, bottom + barSpace);
+
+            ViewGroup.MarginLayoutParams fabLp = (ViewGroup.MarginLayoutParams) modeFab.getLayoutParams();
+            int fabBottom = bottom + barSpace + getResources().getDimensionPixelSize(R.dimen.fab_margin);
+            if (fabLp.bottomMargin != fabBottom) {
+                fabLp.bottomMargin = fabBottom;
+                modeFab.setLayoutParams(fabLp);
+            }
             return insets;
         });
 
@@ -164,6 +196,12 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
             }
 
         }
+
+        // Bestehende Notizen öffnen zum Lesen, neue direkt zum Bearbeiten
+        readMode = savedInstanceState != null
+                ? savedInstanceState.getBoolean(STATE_READ_MODE, !isNewNote)
+                : !isNewNote;
+        applyMode(false);
 
         observeNote();
 
@@ -326,6 +364,7 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
 
         titleEdit.addTextChangedListener(modificationWatcher);
         bodyEdit.addTextChangedListener(modificationWatcher);
+        updateReadView();
 
         bodyEdit.postDelayed(() -> {
             bodyEdit.getText().length();
@@ -339,6 +378,12 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
         titleEdit = findViewById(R.id.title_edit);
         bodyEdit = findViewById(R.id.body_edit);
         bodyScroll = findViewById(R.id.body_scroll);
+        bodyRead = findViewById(R.id.body_read);
+        modeFab = findViewById(R.id.fab_mode);
+        modeFab.setOnClickListener(v -> {
+            readMode = !readMode;
+            applyMode(true);
+        });
 
         titleLayout.setHintEnabled(false);
         bodyLayout.setHintEnabled(false);
@@ -360,14 +405,95 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
         };
 
         bodyEdit.setOnFocusChangeListener((v, hasFocus) -> {
+            // Formatierungsleiste nur, solange im Text getippt wird
+            View formatBar = findViewById(R.id.format_bar);
+            formatBar.setVisibility(hasFocus ? View.VISIBLE : View.GONE);
+            ViewCompat.requestApplyInsets(findViewById(R.id.body_scroll));
             if (hasFocus) {
                 bodyEdit.postDelayed(this::scrollToCursor, 250);
             }
         });
 
+        setupMarkdown();
+
         bodyEdit.setOnClickListener(v -> {
             bodyEdit.postDelayed(this::scrollToCursor, 250);
         });
+    }
+
+    /**
+     * Schaltet zwischen Leseansicht und Bearbeiten um. Der Text selbst liegt immer in
+     * bodyEdit; die Leseansicht zeigt ihn nur formatiert an. Speichern läuft unverändert
+     * über Zurück/Dialog/onPause.
+     *
+     * @param userAction true, wenn per FAB umgeschaltet wurde (dann Tastatur/Fokus setzen)
+     */
+    private void applyMode(boolean userAction) {
+        View bodyLayout = findViewById(R.id.body_text_input_layout);
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        // Titel nur im Bearbeitungsmodus editierbar
+        titleEdit.setFocusable(!readMode);
+        titleEdit.setFocusableInTouchMode(!readMode);
+        titleEdit.setCursorVisible(!readMode);
+
+        if (readMode) {
+            if (imm != null) imm.hideSoftInputFromWindow(bodyEdit.getWindowToken(), 0);
+            bodyEdit.clearFocus();
+            titleEdit.clearFocus();
+            updateReadView();
+            bodyLayout.setVisibility(View.GONE);
+            bodyRead.setVisibility(View.VISIBLE);
+            modeFab.setImageResource(R.drawable.ic_edit);
+            modeFab.setContentDescription(getString(R.string.fab_edit));
+        } else {
+            bodyRead.setVisibility(View.GONE);
+            bodyLayout.setVisibility(View.VISIBLE);
+            modeFab.setImageResource(R.drawable.ic_check);
+            modeFab.setContentDescription(getString(R.string.fab_read));
+            if (userAction) {
+                bodyEdit.requestFocus();
+                Editable text = bodyEdit.getText();
+                bodyEdit.setSelection(text != null ? text.length() : 0);
+                if (imm != null) imm.showSoftInput(bodyEdit, InputMethodManager.SHOW_IMPLICIT);
+            }
+        }
+    }
+
+    private void updateReadView() {
+        if (bodyRead != null) {
+            bodyRead.setText(MarkdownFormatter.render(bodyEdit.getText()));
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(STATE_READ_MODE, readMode);
+    }
+
+    /** Live-Formatierung im Text und die Knöpfe der Formatierungsleiste. */
+    private void setupMarkdown() {
+        int markerColor = MaterialColors.getColor(bodyEdit, com.google.android.material.R.attr.colorOutline);
+        MarkdownFormatter.attach(bodyEdit, markerColor);
+
+        MaterialButton underline = findViewById(R.id.format_underline);
+        SpannableString u = new SpannableString("U");
+        u.setSpan(new UnderlineSpan(), 0, 1, 0);
+        underline.setText(u);
+
+        findViewById(R.id.format_heading).setOnClickListener(v ->
+                MarkdownFormatter.cycleHeading(bodyEdit));
+        findViewById(R.id.format_bold).setOnClickListener(v ->
+                MarkdownFormatter.toggleInline(bodyEdit, MarkdownFormatter.BOLD));
+        findViewById(R.id.format_italic).setOnClickListener(v ->
+                MarkdownFormatter.toggleInline(bodyEdit, MarkdownFormatter.ITALIC));
+        underline.setOnClickListener(v ->
+                MarkdownFormatter.toggleInline(bodyEdit, MarkdownFormatter.UNDERLINE));
+        findViewById(R.id.format_bullet).setOnClickListener(v ->
+                MarkdownFormatter.toggleBullet(bodyEdit));
+        findViewById(R.id.format_clear).setOnClickListener(v ->
+                MarkdownFormatter.clearFormatting(bodyEdit));
     }
 
     private void scrollToCursor() {

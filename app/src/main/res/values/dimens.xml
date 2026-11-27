@@ -55,4 +55,5 @@
 
     <!-- category -->
     <dimen name="category_label_radius">16dp</dimen>
+    <dimen name="format_bar_height">48dp</dimen>
 </resources>
