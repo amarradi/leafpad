@@ -89,6 +89,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         boolean checked = selectedCategoryIds.contains(category.id);
         holder.materialCheckBox.setChecked(checked);
         if (selectionEnabled) {
+            holder.materialCheckBox.setVisibility(View.VISIBLE);
+
+            // Ganze Zeile antippbar: schaltet die Checkbox um (vorher reagierte nur
+            // die kleine Checkbox). Bearbeiten/Löschen behalten ihre eigenen Klicks.
+            holder.card.setClickable(true);
+            holder.card.setFocusable(true);
+            holder.card.setOnClickListener(v ->
+                    holder.materialCheckBox.setChecked(!holder.materialCheckBox.isChecked()));
+
             holder.materialCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
                 if (isChecked) {
                     if (!selectedCategoryIds.contains(category.id)) {
@@ -100,8 +109,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             });
         } else {
 
-            // Manage-Mode: Checkbox komplett ausblenden
+            // Manage-Mode: Checkbox komplett ausblenden, Zeile selbst ohne Funktion
             holder.materialCheckBox.setVisibility(View.GONE);
+            holder.card.setOnClickListener(null);
+            holder.card.setClickable(false);
+            holder.card.setFocusable(false);
 
             // sicherheitshalber kein Haken "hängen lassen" (recycling)
             holder.materialCheckBox.setChecked(false);
