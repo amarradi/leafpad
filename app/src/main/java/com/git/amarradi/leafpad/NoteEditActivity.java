@@ -65,7 +65,6 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
     private boolean isNoteDeleted = false;
     private NestedScrollView bodyScroll;
     private boolean isNewNote = false;
-    private boolean fromSearch = false;
     //private boolean isUIConfigured = false;
     private String configuredNoteId = null;
     private MenuItem saveMenuItem;
@@ -166,7 +165,6 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
 
         }
 
-        fromSearch = getIntent().getBooleanExtra("fromSearch", false);
         observeNote();
 
         View rootEdit = findViewById(R.id.all);
@@ -472,13 +470,9 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
 
     private void exitNoteEdit() {
         setResultWithCurrentNote(isNewNote);
-        if (fromSearch) {
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            startActivity(intent);
-        } else {
-            finish();
-        }
+        // Immer einfach schließen: Wurde die Notiz aus der Suche geöffnet, kehrt man so
+        // zur Suche zurück – genauso wie nach "Änderungen speichern".
+        finish();
     }
 
     private void checkForUnsavedChanges() {
