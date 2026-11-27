@@ -192,18 +192,18 @@
     <string name="database_error_log">Gabim Baze të Dhënash</string>
     <string name="category_name_required">S’lejohet kategori e zbrazët</string>
     <string name="expand_preview_description">Expand/Collapse Preview</string>
-    <string name="menu_sort">sort</string>
-    <string name="sort_date_desc">newest first</string>
+    <string name="menu_sort">renditje</string>
+    <string name="sort_date_desc">më të rinjtë së pari</string>
     <string name="sort_title_asc">title a-z</string>
     <string name="sort_title_desc">title z-a</string>
     <string name="sort_date_asc">oldest first</string>
     <string name="action_pin_note">Pin note</string>
     <string name="action_unpin_note">Unpin note</string>
     <string name="pinned_note_description">This note is pinned</string>
-    <string name="drawer_list_view">List view</string>
-    <string name="drawer_github">Source code on GitHub</string>
-    <string name="drawer_grid_view">Grid view</string>
-    <string name="drawer_translate">Help translate</string>
+    <string name="drawer_list_view">Pamje si listë</string>
+    <string name="drawer_github">Kod burim në GitHub</string>
+    <string name="drawer_grid_view">Pamje si mozaik</string>
+    <string name="drawer_translate">Ndihmoni të përkthehet</string>
     <string name="drawer_open">Open navigation</string>
     <string name="drawer_rate">Rate the app</string>
 </resources>
