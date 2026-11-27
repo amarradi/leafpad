@@ -8,6 +8,8 @@
         * Neu: Versionsanzeige am Ende der Seitenleiste
         * Neu: Textformatierung mit Überschriften, fett, kursiv, unterstrichen und Aufzählungen über eine Leiste beim Schreiben
         * Neu: Leseansicht, Notizen öffnen formatiert und lassen sich über "Bearbeiten" ändern
+        * Neu: Eine aus der Notiz heraus angelegte Kategorie ist gleich ausgewählt
+        * Neu: Die Kategorien einer Notiz stehen bei der Auswahl oben
         * Korrektur: Nach dem Sortieren wird nach oben gescrollt
         * Korrektur: Kategorien bleiben beim Ausblenden einer Notiz erhalten
         * Korrektur: Wiederherstellen einer alten Sicherung löscht keine Kategorien mehr
@@ -23,5 +25,5 @@
         * Neue Sprache hinzugefügt
     </content>
     <date>27.11.2026</date>
-    <time>22:54</time>
+    <time>23:09</time>
 </releasenote>
