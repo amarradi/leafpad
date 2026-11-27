@@ -44,7 +44,7 @@
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="6dp"
                         android:contentDescription="@string/pinned_note_description"
-                        android:src="@drawable/ic_unpin"
+                        android:src="@drawable/ic_pin"
                         android:visibility="gone"
                         app:tint="@color/md_theme_primary" />
 
