@@ -16,10 +16,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.git.amarradi.leafpad.AboutActivity;
+import com.git.amarradi.leafpad.BuildConfig;
 import com.git.amarradi.leafpad.CategoryActivity;
 import com.git.amarradi.leafpad.Leafpad;
 import com.git.amarradi.leafpad.LicenseActivity;
@@ -89,6 +92,7 @@ public class DrawerController {
 
         navigationView.setNavigationItemSelectedListener(this::onItemSelected);
         setupInsets();
+        setupVersionFooter();
         setupBackHandling();
         refreshSwitches();
     }
@@ -195,6 +199,14 @@ public class DrawerController {
                 header.getPaddingRight(), header.getPaddingBottom());
     }
 
+    /** Unterster Eintrag: "Version 1.25" aus der Build-Konfiguration. */
+    private void setupVersionFooter() {
+        MenuItem item = navigationView.getMenu().findItem(R.id.nav_version);
+        if (item != null) {
+            item.setTitle(activity.getString(R.string.version) + " " + BuildConfig.VERSION_NAME);
+        }
+    }
+
     private void close() {
         drawerLayout.closeDrawer(GravityCompat.START);
     }
@@ -209,7 +221,18 @@ public class DrawerController {
         };
         activity.getOnBackPressedDispatcher().addCallback(activity, callback);
 
+        // Statusleisten-Symbole: über dem grünen Sidebar-Kopf hell, sonst wie vom Theme vorgegeben
+        final WindowInsetsControllerCompat insetsController =
+                WindowCompat.getInsetsController(activity.getWindow(), activity.getWindow().getDecorView());
+        final boolean themeLightStatusBar = insetsController.isAppearanceLightStatusBars();
+
         drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+            @Override
+            public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+                boolean overHeader = slideOffset > 0.5f;
+                insetsController.setAppearanceLightStatusBars(!overHeader && themeLightStatusBar);
+            }
+
             @Override
             public void onDrawerOpened(@NonNull View drawerView) {
                 callback.setEnabled(true);

@@ -61,4 +61,7 @@
 
     <color name="category_chip_bg">#EEEEEE</color>
 
+    <!-- Kopf der Sidebar (nav_header.xml) -->
+    <color name="drawer_header_background">@color/md_theme_primary</color>
+    <color name="drawer_header_text">@color/md_theme_onPrimary</color>
 </resources>

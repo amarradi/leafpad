@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/drawer_header_background"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:paddingStart="24dp"
@@ -21,6 +22,6 @@
         android:layout_marginStart="16dp"
         android:text="@string/app_name"
         android:textAppearance="@style/ToolbarTitle.App"
-        android:textColor="?attr/colorPrimary" />
+        android:textColor="@color/drawer_header_text" />
 
 </LinearLayout>
