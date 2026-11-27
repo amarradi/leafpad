@@ -1,10 +1,13 @@
 package com.git.amarradi.leafpad.fragment;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -187,40 +190,58 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     private void backupToUri(Uri uri) {
         NotificationHelper.showSnackbar(requireView(), getString(R.string.backupIsrunning));
 
-        backupManager.exportBackup(requireContext(), uri, new LeafpadBackupManager.Callback() {
+        // Application-Context: bleibt gültig, auch wenn der Nutzer die Einstellungen
+        // verlässt, bevor das Backup im Hintergrund fertig ist.
+        final Context appContext = requireContext().getApplicationContext();
+
+        backupManager.exportBackup(appContext, uri, new LeafpadBackupManager.Callback() {
             @Override
             public void onSuccess(int noteCount) {
-                String message = getResources().getQuantityString(
+                String message = appContext.getResources().getQuantityString(
                         R.plurals.notes_exported, noteCount, noteCount
                 );
-                NotificationHelper.showSnackbar(requireView(), message);
-                NotificationHelper.showSnackbar(requireView(), getString(R.string.backupfinish));
+                showResult(appContext, message);
             }
 
             @Override
             public void onError(String message) {
-                NotificationHelper.showSnackbar(requireView(), message);
+                showResult(appContext, message);
             }
         });
     }
 
     private void restoreFromUri(Uri uri) {
+        final Context appContext = requireContext().getApplicationContext();
+
         DialogHelper.showRestoreConfirmation(requireContext(), () -> {
-            backupManager.restoreBackup(requireContext(), uri, new LeafpadBackupManager.Callback() {
+            backupManager.restoreBackup(appContext, uri, new LeafpadBackupManager.Callback() {
                 @Override
                 public void onSuccess(int noteCount) {
-                    String message = getResources().getQuantityString(
+                    String message = appContext.getResources().getQuantityString(
                             R.plurals.notes_imported, noteCount, noteCount
                     );
-                    NotificationHelper.showSnackbar(requireView(), message);
+                    showResult(appContext, message);
                 }
 
                 @Override
                 public void onError(String message) {
-                    NotificationHelper.showSnackbar(requireView(), message);
+                    showResult(appContext, message);
                 }
             });
         });
+    }
+
+    /**
+     * Zeigt das Ergebnis von Backup/Restore. Ist das Fragment noch sichtbar, als Snackbar;
+     * wurde es inzwischen verlassen, als Toast – requireView() würde dann abstürzen.
+     */
+    private void showResult(Context appContext, String message) {
+        View view = getView();
+        if (isAdded() && view != null) {
+            NotificationHelper.showSnackbar(view, message);
+        } else {
+            Toast.makeText(appContext, message, Toast.LENGTH_LONG).show();
+        }
     }
 
 
