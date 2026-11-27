@@ -1,1 +1,1 @@
-Ein einfaches Notizbuch
+A simple, private notebook with text formatting

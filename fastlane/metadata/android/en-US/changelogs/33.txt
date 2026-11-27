@@ -1,0 +1,8 @@
+* New: Pin as many notes as you like, they stay at the top
+* New: Sidebar with all settings, list/grid switch and app version
+* New: Text formatting (headings, bold, italic, underline, bullet lists) with a formatting bar
+* New: Read mode, notes open formatted, tap "Edit" to change them
+* New: Categories created from a note are selected right away and listed first
+* Fixed: Categories are kept when hiding a note or restoring an old backup
+* Fixed: Several crashes
+* Translations updated

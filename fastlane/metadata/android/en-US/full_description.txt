@@ -1,3 +1,29 @@
-A simple notebook for writing text without cloud connections without a database, no permissions needed.
+Leafpad is a simple notebook. Write, edit and organize your notes – offline, without an account and without access to your personal data.
 
-It is open source. You can write, edit your notes, and you can hide your notes from prying eyes.
+Private
+• Works completely offline, no cloud, no tracking
+• Your notes are stored only on your device
+• Hide notes from prying eyes
+• Deleted notes are removed completely
+
+Write and format
+• Headings, bold, italic, underline and bullet lists
+• Formatting bar above the keyboard while writing
+• Read mode: notes open nicely formatted, tap "Edit" to change them
+• Keep the screen on while reading, e.g. for recipes
+
+Organize
+• Categories with your own names and colors, as many per note as you like
+• Pin important notes to the top
+• Sort by date or title
+• Switch between list and grid view
+• Search in titles, text and categories
+
+More
+• Back up and restore all notes and categories as a ZIP file
+• Share notes with other apps, or create notes from text shared with Leafpad
+• Create a new note directly from the app icon (long-press)
+• Light and dark theme
+• Available in many languages – help translate on Weblate
+
+Leafpad is free and open source software.
