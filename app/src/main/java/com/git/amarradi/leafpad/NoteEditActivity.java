@@ -607,6 +607,14 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
         updateNoteFromUI();
         Note current = noteViewModel.getSelectedNote().getValue();
 
+        // Neue Notiz ohne Titel und ohne Text: einfach verwerfen, kein Hinweis.
+        // (RESULT_CANCELED, damit die Liste keine leere Karte übernimmt.)
+        if (isNewNote && current != null && isBlank(current.getTitle()) && isBlank(current.getBody())) {
+            setResult(RESULT_CANCELED);
+            finish();
+            return;
+        }
+
         if (current != null && (current.getTitle() == null || current.getTitle().trim().isEmpty())) {
             DialogHelper.showTitleRequiredDialog(this,  (dialog, which) -> {
                 finish();
@@ -644,6 +652,10 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
         } else {
             exitNoteEdit();
         }
+    }
+
+    private static boolean isBlank(String s) {
+        return s == null || s.trim().isEmpty();
     }
 
     private void saveNote() {
