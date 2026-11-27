@@ -81,4 +81,7 @@ public interface NoteDao {
 
     @Query("UPDATE notes SET is_pinned = :pinned WHERE id = :id")
     void setPinned(String id, boolean pinned);
+
+    @Query("UPDATE notes SET hide = :hide WHERE id = :id")
+    void setHidden(String id, boolean hide);
 }

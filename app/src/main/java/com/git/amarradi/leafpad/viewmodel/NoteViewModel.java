@@ -173,50 +173,6 @@ public class NoteViewModel extends AndroidViewModel {
         }
     }
 
-    public void setNoteHide() {
-        // 1. Hole die aktuell ausgewählte Notiz.
-        Note note = selectedNote.getValue();
-        if (note == null) {
-            // Falls keine Notiz ausgewählt ist, abbrechen.
-            return;
-        }
-
-        // 2. Toggle den Versteckt-Status der Notiz.
-        note.setHide(!note.isHide());
-
-        // 3. Hole die aktuelle Notizenliste aus dem LiveData.
-        List<Note> oldList = notesLiveData.getValue();
-        if (oldList == null) {
-            // Falls die Liste leer oder nicht initialisiert ist, abbrechen.
-            return;
-        }
-        // 4. Erstelle eine neue Kopie der Liste (damit LiveData die Änderung erkennt).
-        List<Note> newList = new ArrayList<>(oldList);
-
-        // 5. Finde die Position der geänderten Notiz in der Liste.
-        int index = -1;
-        for (int i = 0; i < newList.size(); i++) {
-            Note n = newList.get(i);
-            // Hier solltest du vergleichen, ob es wirklich dieselbe Notiz ist.
-            // Am besten anhand einer eindeutigen ID (z. B. note.getId()).
-            if (n.getId().equals(note.getId())) {
-                index = i;
-                break;
-            }
-        }
-
-        if (index != -1) {
-            // 6. Ersetze die alte Notiz durch die geänderte Version.
-            newList.set(index, note);
-
-            // 7. Setze die aktualisierte Liste als neuen Wert im LiveData.
-            notesLiveData.setValue(newList);
-
-            // (Optional: setze das geänderte Note-Objekt auch erneut im selectedNote-LiveData, falls nötig)
-            selectedNote.setValue(note);
-        }
-    }
-
     public void persist() {
         Note n = selectedNote.getValue();
         if (n == null) return;
@@ -704,5 +660,14 @@ public class NoteViewModel extends AndroidViewModel {
     public void togglePin(Note note) {
         if(note == null) return;
         noteRepository.setPinned(note.getId(), !note.isPinned());
+    }
+
+    /**
+     * Schaltet nur das hide-Flag in der DB um. Kategorien und andere Felder
+     * bleiben unberührt; die Liste aktualisiert sich über die Room-LiveData.
+     */
+    public void toggleHide(Note note) {
+        if (note == null) return;
+        noteRepository.setHidden(note.getId(), !note.isHide());
     }
 }

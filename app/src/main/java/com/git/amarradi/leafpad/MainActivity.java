@@ -302,12 +302,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             }
             @Override
             public void onHideToggle(Note note) {
-                noteViewModel.selectNote(note);
-                noteViewModel.setNoteHide();
-                Note updatedNote = noteViewModel.getSelectedNote().getValue();
-                if (updatedNote != null) {
-                    noteViewModel.saveNote(MainActivity.this, updatedNote);
-                }
+                noteViewModel.toggleHide(note);
             }
 
             @Override

@@ -110,4 +110,8 @@ public class NoteRepository {
         dbExecutor.execute(()->noteDao.setPinned(id,pinned));
     }
 
+    public void setHidden(String id, boolean hide) {
+        dbExecutor.execute(() -> noteDao.setHidden(id, hide));
+    }
+
 }
