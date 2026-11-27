@@ -3,11 +3,19 @@
     <title>Leafpad 1.25 - Was hat sich verändert</title>
     <content>
         * Neu: Es lassen sich beliebig viele Notizen anpinnen, die werden dann an den Anfang gestellt.
+        * Neu: Seitenleiste mit allen Einstellungen, ersetzt den bisherigen Einstellungsbildschirm
+        * Neu: Umschalten zwischen Liste und Rasteransicht in der Seitenleiste
+        * Neu: Versionsanzeige am Ende der Seitenleiste
         * Korrektur: Nach dem Sortieren wird nach oben gescrollt
+        * Korrektur: Kategorien bleiben beim Ausblenden einer Notiz erhalten
+        * Korrektur: Wiederherstellen einer alten Sicherung löscht keine Kategorien mehr
+        * Korrektur: Absturz beim schnellen Verlassen einer Notiz behoben
+        * Korrektur: Absturz nach Sichern oder Wiederherstellen behoben
+        * Korrektur: Die Toolbar bleibt beim Scrollen weiß
         * Notizübersicht aktualisiert, mehr Infos sind jetzt sichtbar
         * Übersetzungen aktualisiert
         * Neue Sprache hinzugefügt
     </content>
     <date>27.11.2026</date>
-    <time>07:07</time>
+    <time>20:44</time>
 </releasenote>
