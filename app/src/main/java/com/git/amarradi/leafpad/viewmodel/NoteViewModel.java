@@ -582,12 +582,13 @@ public class NoteViewModel extends AndroidViewModel {
         return result;
     }
 
+    /**
+     * Aktuelle Kategorie-Auswahl der Notiz im Editor – inklusive noch nicht gespeicherter
+     * Änderungen (vorher kam hier der Stand aus der Datenbank, sodass ein zweites Öffnen
+     * des Pickers vor dem Speichern die alte Auswahl zeigte).
+     */
     public LiveData<List<Long>> getSelectedCategoryIds() {
-        Note note = selectedNote.getValue();
-        if (note == null) {
-            return new MutableLiveData<>(new ArrayList<>());
-        }
-        return noteRepository.getCategoryIdsForNote(note.getId());
+        return currentCategoryIds;
     }
 
 

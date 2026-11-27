@@ -21,6 +21,17 @@ public class CategoryRepository {
         DB_ERROR
     }
 
+    /** Ergebnis von insertSafe: Status und – bei OK – die ID der neuen Kategorie. */
+    public static final class InsertResult {
+        public final WriteResult result;
+        public final long id;
+
+        InsertResult(WriteResult result, long id) {
+            this.result = result;
+            this.id = id;
+        }
+    }
+
     private final CategoryDao categoryDao;
     private final LiveData<List<CategoryEntity>> activeCategories;
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
@@ -35,19 +46,19 @@ public class CategoryRepository {
         return activeCategories;
     }
 
-    public LiveData<WriteResult> insertSafe(final String rawName,
+    public LiveData<InsertResult> insertSafe(final String rawName,
                                             final String colorHex,
                                             final int sortOrder,
                                             final boolean isArchived) {
 
-        final MutableLiveData<WriteResult> result = new MutableLiveData<>();
+        final MutableLiveData<InsertResult> result = new MutableLiveData<>();
 
         executor.execute(new Runnable() {
             @Override
             public void run() {
                 String name = rawName == null ? "" : rawName.trim();
                 if (name.isEmpty()) {
-                    result.postValue(WriteResult.EMPTY_NAME);
+                    result.postValue(new InsertResult(WriteResult.EMPTY_NAME, -1));
                     return;
                 }
 
@@ -55,7 +66,7 @@ public class CategoryRepository {
 
                 // UX-Check
                 if (categoryDao.countByNormalized(normalized) > 0) {
-                    result.postValue(WriteResult.DUPLICATE);
+                    result.postValue(new InsertResult(WriteResult.DUPLICATE, -1));
                     return;
                 }
 
@@ -67,13 +78,13 @@ public class CategoryRepository {
                             sortOrder,
                             isArchived
                     );
-                    categoryDao.insert(category);
-                    result.postValue(WriteResult.OK);
+                    long id = categoryDao.insert(category);
+                    result.postValue(new InsertResult(WriteResult.OK, id));
                 } catch (SQLiteConstraintException e) {
                     // DB bleibt letzte Instanz (Race-Condition etc.)
-                    result.postValue(WriteResult.DUPLICATE);
+                    result.postValue(new InsertResult(WriteResult.DUPLICATE, -1));
                 } catch (Exception e) {
-                    result.postValue(WriteResult.DB_ERROR);
+                    result.postValue(new InsertResult(WriteResult.DB_ERROR, -1));
                 }
             }
         });

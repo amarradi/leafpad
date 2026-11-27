@@ -33,7 +33,7 @@ public class CategoryViewModel extends AndroidViewModel {
     /**
      * UI kann das Result beobachten und z.B. Toast/Snackbar zeigen.
      */
-    public LiveData<CategoryRepository.WriteResult> createCategory(String name, String colorHex) {
+    public LiveData<CategoryRepository.InsertResult> createCategory(String name, String colorHex) {
         return repository.insertSafe(name, colorHex, 0, false);
     }
 

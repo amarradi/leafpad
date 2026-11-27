@@ -144,10 +144,13 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
                                 ? new java.util.ArrayList<>()
                                 : new java.util.ArrayList<>(ids);
 
-                        adapter.setSelectedCategoryIds(safeIds);
-
-                        // Snapshot genau EINMAL setzen
+                        // Snapshot genau EINMAL setzen – auch Auswahl und Reihenfolge nur beim
+                        // Öffnen übernehmen, sonst überschreibt ein späteres Update das
+                        // Anhaken im Picker.
                         if (!initialSnapshotTaken) {
+                            adapter.setSelectedCategoryIds(safeIds);
+                            // Ausgewählte Kategorien der Notiz oben anzeigen
+                            adapter.setTopIds(safeIds);
                             initialSelectedCategoryIds = new java.util.ArrayList<>(safeIds);
                             initialSnapshotTaken = true;
                         }
@@ -260,8 +263,13 @@ public class CategoryFragment extends Fragment implements ColorPickerDialogListe
                 COLOR_PICKER_ID,
                 (name, colorHex) -> categoryViewModel
                         .createCategory(name, colorHex)
-                        .observe(getViewLifecycleOwner(), result -> {
-                            if (result == CategoryRepository.WriteResult.DUPLICATE) {
+                        .observe(getViewLifecycleOwner(), insert -> {
+                            CategoryRepository.WriteResult result = insert.result;
+                            if (result == CategoryRepository.WriteResult.OK
+                                    && getMode() == MODE_PICK_FOR_NOTE && insert.id > 0) {
+                                // Aus der Notiz heraus angelegt: gleich auswählen und oben zeigen
+                                adapter.selectAndPin(insert.id);
+                            } else if (result == CategoryRepository.WriteResult.DUPLICATE) {
                                 DialogHelper.showInfoDialog(
                                         requireContext(),
                                         getString(R.string.error),

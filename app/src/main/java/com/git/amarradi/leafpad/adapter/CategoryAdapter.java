@@ -25,6 +25,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     private final List<Long> selectedCategoryIds = new ArrayList<>();
 
+    // Kategorien, die oben stehen (Auswahl beim Öffnen + neu angelegte). Wird bewusst
+    // nicht bei jedem An-/Abhaken aktualisiert, damit Zeilen nicht unter dem Finger springen.
+    private final java.util.Set<Long> topIds = new java.util.HashSet<>();
+    private List<CategoryEntity> sourceCategories = new ArrayList<>();
+
     private boolean selectionEnabled = true;
 
     private MaterialCardView card;
@@ -48,7 +53,32 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         notifyDataSetChanged();
     }
     public void setCategories(List<CategoryEntity> categories) {
-        this.categories = categories;
+        this.sourceCategories = categories != null ? categories : new ArrayList<>();
+        applyOrder();
+    }
+
+    /** Diese Kategorien oben anzeigen (Reihenfolge innerhalb der Gruppen bleibt). */
+    public void setTopIds(java.util.Collection<Long> ids) {
+        topIds.clear();
+        if (ids != null) topIds.addAll(ids);
+        applyOrder();
+    }
+
+    /** Kategorie anhaken und nach oben stellen, z. B. direkt nach dem Anlegen. */
+    public void selectAndPin(long id) {
+        if (!selectedCategoryIds.contains(id)) selectedCategoryIds.add(id);
+        topIds.add(id);
+        applyOrder();
+    }
+
+    private void applyOrder() {
+        List<CategoryEntity> top = new ArrayList<>();
+        List<CategoryEntity> rest = new ArrayList<>();
+        for (CategoryEntity c : sourceCategories) {
+            (topIds.contains(c.id) ? top : rest).add(c);
+        }
+        top.addAll(rest);
+        this.categories = top;
         notifyDataSetChanged();
     }
 
