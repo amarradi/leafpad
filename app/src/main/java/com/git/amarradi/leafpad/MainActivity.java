@@ -35,7 +35,6 @@ import com.git.amarradi.leafpad.model.Note;
 import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.jaredrummler.android.colorpicker.BuildConfig;
 
 import java.util.ArrayList;
 import java.util.Objects;
