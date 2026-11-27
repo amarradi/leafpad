@@ -24,6 +24,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.widget.NestedScrollView;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.git.amarradi.leafpad.fragment.CategoryFragment;
@@ -145,12 +147,22 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
 
         } else if (noteId != null) {
 
-            noteViewModel.getNoteById(noteId).observe(this, note -> {
-                if (note == null) return;
-
-                isNewNote = false;
-                noteViewModel.setNote(note);
-            });
+            // Nur den ersten geladenen Stand übernehmen. Room meldet bei jeder Änderung an
+            // der Notiz-Tabelle (z. B. beim Speichern in onPause) erneut; das hat bisher den
+            // Editor-Zustand jedes Mal neu gesetzt. Nach einer Rotation hat das ViewModel
+            // die Notiz bereits, dann nicht erneut laden.
+            if (noteViewModel.getSelectedNote().getValue() == null) {
+                LiveData<Note> source = noteViewModel.getNoteById(noteId);
+                source.observe(this, new Observer<Note>() {
+                    @Override
+                    public void onChanged(Note note) {
+                        if (note == null) return;
+                        source.removeObserver(this);
+                        isNewNote = false;
+                        noteViewModel.setNote(note);
+                    }
+                });
+            }
 
         }
 

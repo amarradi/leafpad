@@ -136,7 +136,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     }
                 }
 
-                noteViewModel.selectNote(note);
                 Intent intent = new Intent(MainActivity.this, NoteEditActivity.class);
                 intent.putExtra(Leafpad.EXTRA_NOTE_ID, note.getId());
                 intent.putExtra("is_new_note", false);

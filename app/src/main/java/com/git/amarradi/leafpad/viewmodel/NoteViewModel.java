@@ -8,6 +8,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.Transformations;
 
 import com.git.amarradi.leafpad.BuildConfig;
@@ -469,33 +470,60 @@ public class NoteViewModel extends AndroidViewModel {
             originalNote.setValue(note);
             // Copy to compare
             selectedNote.setValue(new Note(note));
-            noteRepository.getCategoryIdsForNote(note.getId()).observeForever(ids -> {
-                List<Long> safe = ids != null ? new ArrayList<>(ids) : new ArrayList<>();
-                originalCategoryIds.postValue(safe);
-                currentCategoryIds.postValue(new ArrayList<>(safe));
-            });
-
+            loadCategoryIdsOnce(note.getId());
         }
+    }
+
+    // Laufendes einmaliges Laden der Kategorie-IDs (siehe loadCategoryIdsOnce)
+    private LiveData<List<Long>> pendingCategoryIdsSource;
+    private Observer<List<Long>> pendingCategoryIdsObserver;
+
+    /**
+     * Lädt die Kategorie-IDs einer Notiz genau einmal als Ausgangszustand für den Editor.
+     *
+     * Früher hing hier ein observeForever, der nie entfernt wurde: Jede Auswahl einer Notiz
+     * fügte einen weiteren Dauer-Observer hinzu, und alte Observer überschrieben bei jeder
+     * DB-Änderung die Kategorien der gerade ausgewählten Notiz.
+     */
+    private void loadCategoryIdsOnce(String noteId) {
+        cancelPendingCategoryIdsLoad();
+
+        LiveData<List<Long>> source = noteRepository.getCategoryIdsForNote(noteId);
+        Observer<List<Long>> observer = new Observer<List<Long>>() {
+            @Override
+            public void onChanged(List<Long> ids) {
+                cancelPendingCategoryIdsLoad();
+
+                // Inzwischen eine andere Notiz ausgewählt? Dann gehört das Ergebnis nicht mehr dazu.
+                Note selected = selectedNote.getValue();
+                if (selected == null || !noteId.equals(selected.getId())) return;
+
+                List<Long> safe = ids != null ? new ArrayList<>(ids) : new ArrayList<>();
+                originalCategoryIds.setValue(safe);
+                currentCategoryIds.setValue(new ArrayList<>(safe));
+            }
+        };
+        pendingCategoryIdsSource = source;
+        pendingCategoryIdsObserver = observer;
+        source.observeForever(observer);
+    }
+
+    private void cancelPendingCategoryIdsLoad() {
+        if (pendingCategoryIdsSource != null && pendingCategoryIdsObserver != null) {
+            pendingCategoryIdsSource.removeObserver(pendingCategoryIdsObserver);
+        }
+        pendingCategoryIdsSource = null;
+        pendingCategoryIdsObserver = null;
+    }
+
+    @Override
+    protected void onCleared() {
+        cancelPendingCategoryIdsLoad();
+        super.onCleared();
     }
 
     public void loadNotes() {
         rebuildNotesList(allNoteEntities.getValue(), showHiddenLiveData.getValue());
-    }
-
-    public void loadNoteById(String id) {
-        noteRepository.getNoteById(id).observeForever(entity -> {
-            if (entity == null) return;
-
-            Note note = fromEntity(entity);
-            originalNote.setValue(new Note(note)); // Deep copy
-            selectedNote.setValue(note);
-        });
-
-        noteRepository.getCategoryIdsForNote(id).observeForever(ids -> {
-            List<Long> safe = ids != null ? new ArrayList<>(ids) : new ArrayList<>();
-            originalCategoryIds.postValue(safe);
-            currentCategoryIds.postValue(new ArrayList<>(safe));
-        });
     }
 
     public LiveData<NoteEntity> getNoteEntityById(String id) {
@@ -519,10 +547,6 @@ public class NoteViewModel extends AndroidViewModel {
     }
 
 
-
-    public void selectNote(Note note) {
-        setNote(note);
-    }
 
     public void saveNote(Context context, Note note) {
         noteRepository.insert(toEntity(note));
