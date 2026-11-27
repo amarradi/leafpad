@@ -208,5 +208,10 @@
     <string name="action_pin_note">Pin note</string>
     <string name="action_unpin_note">Unpin note</string>
     <string name="pinned_note_description">This note is pinned</string>
-
+    <string name="drawer_list_view">List view</string>
+    <string name="drawer_github">Source code on GitHub</string>
+    <string name="drawer_grid_view">Grid view</string>
+    <string name="drawer_translate">Help translate</string>
+    <string name="drawer_open">Open navigation</string>
+    <string name="drawer_rate">Rate the app</string>
 </resources>
