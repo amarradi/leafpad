@@ -645,8 +645,7 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
 
         if (shouldPersistOnPause) {
             if (noteViewModel.hasUnsavedChanges()) {
-                noteViewModel.persist();
-                noteViewModel.markSaved();
+                noteViewModel.persist(); // markiert die Notiz selbst als gespeichert
                 setResultWithCurrentNote(isNewNote);
             }
         }

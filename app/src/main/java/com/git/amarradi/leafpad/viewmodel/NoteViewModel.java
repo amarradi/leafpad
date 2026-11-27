@@ -184,17 +184,13 @@ public class NoteViewModel extends AndroidViewModel {
         } else {
             noteRepository.insert(toEntity(n));
             persistCategoriesForSelectedNote();
-            markNoteSavedOnly();
+            // Text UND Kategorien als gespeichert markieren. Vorher wurden nur Titel/Text
+            // übernommen; bei geänderten Kategorien hielt onPause die Notiz danach weiter
+            // für ungespeichert und schrieb alles ein zweites Mal.
+            markSaved();
         }
     }
 
-    private void markNoteSavedOnly() {
-        Note selected = selectedNote.getValue();
-        if (selected != null) {
-            originalNote.setValue(new Note(selected));
-        }
-        isNoteModified.setValue(false);
-    }
 
     public boolean isNewEntry(Note note) {
 
