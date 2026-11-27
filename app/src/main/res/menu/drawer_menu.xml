@@ -4,11 +4,11 @@
 
     <item android:title="@string/general_preference">
         <menu>
+            <!-- Text und Symbol zeigen die jeweils andere Ansicht (DrawerController) -->
             <item
-                android:id="@+id/nav_grid_view"
+                android:id="@+id/nav_layout_toggle"
                 android:icon="@drawable/ic_gridview"
-                android:title="@string/drawer_grid_view"
-                app:actionLayout="@layout/drawer_switch" />
+                android:title="@string/drawer_grid_view" />
             <item
                 android:id="@+id/nav_theme"
                 android:icon="@drawable/ic_switch_daynight_mode"

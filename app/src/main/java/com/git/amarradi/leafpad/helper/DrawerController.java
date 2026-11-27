@@ -108,7 +108,23 @@ public class DrawerController {
     public void refreshSwitches() {
         setSwitch(R.id.nav_change_notification, Leafpad.isChangeNotificationEnabled(activity));
         setSwitch(R.id.nav_keep_screen_on, Leafpad.isKeepScreenOnEnabled(activity));
-        setSwitch(R.id.nav_grid_view, !LayoutModeHelper.isListMode(activity));
+        updateLayoutToggleItem();
+    }
+
+    /**
+     * Der Eintrag bietet immer die andere Ansicht an:
+     * Listenansicht aktiv → "Rasteransicht", Rasteransicht aktiv → "Listenansicht".
+     */
+    private void updateLayoutToggleItem() {
+        MenuItem item = navigationView.getMenu().findItem(R.id.nav_layout_toggle);
+        if (item == null) return;
+        if (LayoutModeHelper.isListMode(activity)) {
+            item.setTitle(R.string.drawer_grid_view);
+            item.setIcon(R.drawable.ic_gridview);
+        } else {
+            item.setTitle(R.string.drawer_list_view);
+            item.setIcon(R.drawable.ic_listview);
+        }
     }
 
     // ------------------------------------------------------------------
@@ -119,9 +135,9 @@ public class DrawerController {
         int id = item.getItemId();
 
         // Schalter: Sidebar offen lassen, damit man den neuen Zustand sieht
-        if (id == R.id.nav_grid_view) {
+        if (id == R.id.nav_layout_toggle) {
             listener.onToggleLayout();
-            setSwitch(id, !LayoutModeHelper.isListMode(activity));
+            updateLayoutToggleItem();
             return false;
         }
         if (id == R.id.nav_change_notification) {

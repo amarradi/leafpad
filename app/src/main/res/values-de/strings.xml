@@ -208,4 +208,5 @@
     <string name="drawer_github">Quellcode auf GitHub</string>
     <string name="drawer_translate">Beim Übersetzen helfen</string>
     <string name="drawer_grid_view">Rasteransicht</string>
+    <string name="drawer_list_view">Listenansicht</string>
 </resources>
