@@ -616,8 +616,13 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
        // getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         Note current = noteViewModel.getSelectedNote().getValue();
 
+        // Notiz noch nicht geladen (z. B. sehr schnell verlassen) oder Share-Intent ohne Text:
+        // nichts zu speichern. Kein assert verwenden – Asserts sind auf Android deaktiviert.
+        if (current == null) {
+            return;
+        }
+
        // ❗ Abbrechen, wenn Titel leer ist (egal ob Body gefüllt oder nicht)
-       assert current != null;
        if (current.getTitle() == null || current.getTitle().trim().isEmpty()) {
            return;
        }
