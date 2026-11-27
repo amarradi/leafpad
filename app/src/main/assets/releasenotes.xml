@@ -6,16 +6,22 @@
         * Neu: Seitenleiste mit allen Einstellungen, ersetzt den bisherigen Einstellungsbildschirm
         * Neu: Umschalten zwischen Liste und Rasteransicht in der Seitenleiste
         * Neu: Versionsanzeige am Ende der Seitenleiste
+        * Neu: Textformatierung mit Überschriften, fett, kursiv, unterstrichen und Aufzählungen über eine Leiste beim Schreiben
+        * Neu: Leseansicht, Notizen öffnen formatiert und lassen sich über "Bearbeiten" ändern
         * Korrektur: Nach dem Sortieren wird nach oben gescrollt
         * Korrektur: Kategorien bleiben beim Ausblenden einer Notiz erhalten
         * Korrektur: Wiederherstellen einer alten Sicherung löscht keine Kategorien mehr
         * Korrektur: Absturz beim schnellen Verlassen einer Notiz behoben
         * Korrektur: Absturz nach Sichern oder Wiederherstellen behoben
         * Korrektur: Die Toolbar bleibt beim Scrollen weiß
+        * Korrektur: Kategorien lassen sich durch Antippen der ganzen Zeile auswählen
+        * Korrektur: Aus der Suche geöffnete Notizen führen immer zurück zur Suche
+        * Korrektur: Leere neue Notizen werden ohne Hinweis verworfen
+        * Korrektur: Stabilität beim Bearbeiten von Notizen verbessert
         * Notizübersicht aktualisiert, mehr Infos sind jetzt sichtbar
         * Übersetzungen aktualisiert
         * Neue Sprache hinzugefügt
     </content>
     <date>27.11.2026</date>
-    <time>20:44</time>
+    <time>22:54</time>
 </releasenote>
