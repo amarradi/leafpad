@@ -45,7 +45,7 @@ import com.git.amarradi.leafpad.viewmodel.NoteViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.color.MaterialColors;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.textfield.TextInputLayout;
@@ -79,7 +79,7 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
     private static final String STATE_READ_MODE = "read_mode";
     private boolean readMode = false;
     private TextView bodyRead;
-    private FloatingActionButton modeFab;
+    private ExtendedFloatingActionButton modeFab;
     //private boolean isUIConfigured = false;
     private String configuredNoteId = null;
     private MenuItem saveMenuItem;
@@ -444,12 +444,14 @@ public class NoteEditActivity extends AppCompatActivity implements ColorPickerDi
             updateReadView();
             bodyLayout.setVisibility(View.GONE);
             bodyRead.setVisibility(View.VISIBLE);
-            modeFab.setImageResource(R.drawable.ic_edit);
+            modeFab.setIconResource(R.drawable.ic_edit);
+            modeFab.setText(R.string.fab_label_edit);
             modeFab.setContentDescription(getString(R.string.fab_edit));
         } else {
             bodyRead.setVisibility(View.GONE);
             bodyLayout.setVisibility(View.VISIBLE);
-            modeFab.setImageResource(R.drawable.ic_check);
+            modeFab.setIconResource(R.drawable.ic_check);
+            modeFab.setText(R.string.fab_label_read);
             modeFab.setContentDescription(getString(R.string.fab_read));
             if (userAction) {
                 bodyEdit.requestFocus();

@@ -217,4 +217,6 @@
     <string name="fab_read">Done editing</string>
     <string name="format_heading">Heading (H1, H2, H3)</string>
     <string name="format_clear">Clear formatting</string>
+    <string name="fab_label_edit">Edit</string>
+    <string name="fab_label_read">Read</string>
 </resources>

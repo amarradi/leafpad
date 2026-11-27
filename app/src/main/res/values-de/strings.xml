@@ -217,4 +217,6 @@
     <string name="fab_read">Bearbeiten beenden</string>
     <string name="format_heading">Überschrift (H1, H2, H3)</string>
     <string name="format_clear">Formatierung entfernen</string>
+    <string name="fab_label_edit">Bearbeiten</string>
+    <string name="fab_label_read">Lesen</string>
 </resources>

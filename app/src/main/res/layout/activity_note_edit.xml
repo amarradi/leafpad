@@ -230,8 +230,10 @@
             app:iconTint="?attr/colorPrimary" />
     </LinearLayout>
 
-    <!-- Lesen ↔ Bearbeiten. Abstand nach unten setzt NoteEditActivity über die Insets. -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <!-- Lesen ↔ Bearbeiten. Stil (Farben) wie der FAB der Hauptansicht über
+         extendedFloatingActionButtonStyle im Theme. Abstand nach unten setzt
+         NoteEditActivity über die Insets. -->
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab_mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -239,7 +241,8 @@
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="@dimen/fab_margin"
         android:contentDescription="@string/fab_edit"
-        app:srcCompat="@drawable/ic_edit" />
+        android:text="@string/fab_label_edit"
+        app:icon="@drawable/ic_edit" />
 
     <!-- Snackbar anchor unten (optional) -->
     <View
