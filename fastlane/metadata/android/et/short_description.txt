@@ -1,1 +1,1 @@
-Lihtne märkmik
+Lihtne ja privaatne märkmik, mis toetab teksti vormindust
