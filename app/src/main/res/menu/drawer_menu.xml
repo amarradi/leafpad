@@ -64,11 +64,11 @@
     </item>
 
     <!-- Fußzeile: eigene Gruppe, damit die NavigationView davor eine Trennlinie zieht.
-         Der Titel (Versionsname) wird in DrawerController gesetzt. -->
+         Der Titel (Versionsname) wird in DrawerController gesetzt,
+         ein Klick zeigt die Release Notes. -->
     <group android:id="@+id/nav_footer_group">
         <item
             android:id="@+id/nav_version"
-            android:enabled="false"
             android:title="@string/version" />
     </group>
 </menu>

@@ -28,12 +28,14 @@ import com.git.amarradi.leafpad.Leafpad;
 import com.git.amarradi.leafpad.LicenseActivity;
 import com.git.amarradi.leafpad.R;
 import com.git.amarradi.leafpad.backup.LeafpadBackupManager;
+import com.git.amarradi.leafpad.model.ReleaseNote;
 import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.navigation.NavigationView;
 
 /**
  * Sidebar der Hauptansicht. Enthält alle Funktionen des früheren Einstellungs-Bildschirms:
  * Theme, Backup/Restore, Kategorien, Änderungshinweis, Bildschirm-an und die Links.
+ * Ein Klick auf die Version unten zeigt die Release Notes.
  *
  * Muss in onCreate() der Activity erzeugt werden, weil hier ActivityResultLauncher
  * registriert werden.
@@ -172,6 +174,8 @@ public class DrawerController {
             activity.startActivity(new Intent(activity, LicenseActivity.class));
         } else if (id == R.id.nav_about) {
             activity.startActivity(new Intent(activity, AboutActivity.class));
+        } else if (id == R.id.nav_version) {
+            showReleaseNotes();
         }
         // false: kein Eintrag bleibt dauerhaft markiert, es sind Aktionen, keine Ziele
         return false;
@@ -221,6 +225,19 @@ public class DrawerController {
         if (item != null) {
             item.setTitle(activity.getString(R.string.version) + " " + BuildConfig.VERSION_NAME);
         }
+    }
+
+    /** Klick auf die Version: Release Notes aus assets/releasenotes.xml als Dialog. */
+    private void showReleaseNotes() {
+        ReleaseNote note = ReleaseNoteHelper.loadReleaseNote(activity);
+        if (note == null) return;
+        // Zeilen im XML sind eingerückt, die Einrückung im Dialog entfernen
+        StringBuilder message = new StringBuilder();
+        for (String line : note.getContent().split("\n")) {
+            message.append(line.trim()).append('\n');
+        }
+        message.append('\n').append(note.getDate());
+        DialogHelper.showInfoDialog(activity, note.getTitle(), message.toString());
     }
 
     private void close() {
