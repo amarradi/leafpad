@@ -69,6 +69,8 @@
     <string name="show_note">Make the note visible</string>
     <string name="show_hidden">Show hidden notes</string>
     <string name="hide_hidden">Hide hidden notes</string>
+    <string name="expand_all">Expand all</string>
+    <string name="collapse_all">Collapse all</string>
     <string name="note_is_recipe">Note is a recipe</string>
     <string name="note_is_no_recipe">Note is no recipe</string>
     <string-array name="category">

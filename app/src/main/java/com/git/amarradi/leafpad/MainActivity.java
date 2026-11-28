@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         noteViewModel.getCombinedNotes().observe(this, combinedList -> {
             noteAdapter.setCombinedList(combinedList);
+            invalidateOptionsMenu();
 
             if (firstNotesLoad) {
                 recyclerView.post(() -> recyclerView.scrollToPosition(0));
@@ -153,6 +154,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
 
         recyclerView.setAdapter(noteAdapter);
+        // Titel von "Alle ausklappen/einklappen" aktuell halten
+        noteAdapter.setExpandStateListener(this::invalidateOptionsMenu);
         RecyclerView.ItemAnimator animator = recyclerView.getItemAnimator();
         if (animator instanceof SimpleItemAnimator) {
             ((SimpleItemAnimator) animator).setSupportsChangeAnimations(false);
@@ -360,6 +363,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             item.setTitle(getString(R.string.show_hidden));
         }
 
+        MenuItem expandItem = menu.findItem(R.id.item_expand_all);
+        if (expandItem != null && noteAdapter != null) {
+            expandItem.setTitle(noteAdapter.isAnyExpanded() ? R.string.collapse_all : R.string.expand_all);
+        }
+
         String currentSort = noteViewModel.getSortMode().getValue();
         if (currentSort == null) currentSort = "date_desc";
 
@@ -392,6 +400,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         switch (item.getItemId()) {
             case R.id.item_show_hidden:
                 toggleShowHidden(item);
+                return true;
+            case R.id.item_expand_all:
+                noteAdapter.setAllExpanded(!noteAdapter.isAnyExpanded());
+                invalidateOptionsMenu();
                 return true;
             case R.id.action_search:
                 Intent searchIntent = new Intent(this, SearchActivity.class);

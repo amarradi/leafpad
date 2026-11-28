@@ -262,6 +262,18 @@ public class Leafpad extends Application {
 
     }
 
+    /** Mehrere Notizen auf einmal auf- bzw. zuklappen (für "Alle ausklappen/einklappen"). */
+    public void setNotesExpanded(java.util.Collection<String> noteIds, boolean expanded) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        java.util.Set<String> expandedIds = getCollapsedNotes();
+        if (expanded) {
+            expandedIds.addAll(noteIds);
+        } else {
+            expandedIds.removeAll(noteIds);
+        }
+        prefs.edit().putStringSet(PREF_COLLAPSED_NOTES, expandedIds).apply();
+    }
+
     public String getSortMode() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         return sharedPreferences.getString(PREF_SORT_MODE, "date_desc");

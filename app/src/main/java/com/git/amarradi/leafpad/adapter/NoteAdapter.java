@@ -54,6 +54,7 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final NoteViewModel noteViewModel;
     private final LifecycleOwner lifecycleOwner;
     private java.util.Map<String, List<CategoryEntity>> categoriesByNoteId = new java.util.HashMap<>();
+    private Runnable expandStateListener;
 
 
 
@@ -92,6 +93,41 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void setReleaseNoteHeader(ReleaseNote releaseNote) {
         this.releaseNoteHeader = releaseNote;
         buildCombinedListAndNotify();
+    }
+
+    /** Wird aufgerufen, wenn eine einzelne Notiz über ihren Pfeil auf- oder zugeklappt wird. */
+    public void setExpandStateListener(Runnable listener) {
+        this.expandStateListener = listener;
+    }
+
+    /** IDs der angezeigten Notizen, die Text haben und sich damit aufklappen lassen. */
+    private List<String> expandableNoteIds() {
+        List<String> ids = new ArrayList<>();
+        for (Object item : currentList) {
+            if (item instanceof Note note && hasPreviewText(note)) {
+                ids.add(note.getId());
+            }
+        }
+        return ids;
+    }
+
+    private static boolean hasPreviewText(Note note) {
+        return note.getBody() != null && !note.getBody().trim().isEmpty();
+    }
+
+    /** true, wenn mindestens eine angezeigte Notiz aufgeklappt ist. */
+    public boolean isAnyExpanded() {
+        java.util.Set<String> expanded = Leafpad.getInstance().getCollapsedNotes();
+        for (String id : expandableNoteIds()) {
+            if (expanded.contains(id)) return true;
+        }
+        return false;
+    }
+
+    /** Alle angezeigten Notizen auf- bzw. zuklappen. */
+    public void setAllExpanded(boolean expanded) {
+        Leafpad.getInstance().setNotesExpanded(expandableNoteIds(), expanded);
+        notifyItemRangeChanged(0, getItemCount());
     }
 
     public boolean isShowOnlyHidden() {
@@ -306,6 +342,7 @@ public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     .rotation(nowExpanded ? 180f : 0f)
                     .setDuration(200)
                     .start();
+            if (expandStateListener != null) expandStateListener.run();
         });
         // Größere Touch-Fläche für den kleinen Pfeil-Button, ohne die Optik zu ändern
         if (!hasPreview) {

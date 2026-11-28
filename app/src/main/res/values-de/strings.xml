@@ -68,6 +68,8 @@
     <string name="show_note">Die Notiz sichtbar machen</string>
     <string name="show_hidden">zeige versteckte Notizen</string>
     <string name="hide_hidden">verberge versteckte Notizen</string>
+    <string name="expand_all">Alle ausklappen</string>
+    <string name="collapse_all">Alle einklappen</string>
     <string name="note_is_recipe">Die Notiz ist ein Rezept</string>
     <string name="note_is_no_recipe">Die Notiz ist kein Rezept</string>
     <string name="importError">Fehler beim Importieren der Notizen.</string>

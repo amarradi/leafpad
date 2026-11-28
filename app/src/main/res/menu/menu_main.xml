@@ -40,4 +40,10 @@
         android:title="@string/show_hidden"
         app:showAsAction="ifRoom"
         />
+
+    <!-- Titel wechselt zwischen "Alle ausklappen" und "Alle einklappen" (MainActivity) -->
+    <item
+        android:id="@+id/item_expand_all"
+        android:title="@string/expand_all"
+        app:showAsAction="never" />
 </menu>
