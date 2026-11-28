@@ -220,4 +220,6 @@
     <string name="fab_edit">Edytuj notatkę</string>
     <string name="fab_label_read">Czytaj</string>
     <string name="format_bold">Pogrubienie</string>
+    <string name="expand_all">Expand all</string>
+    <string name="collapse_all">Collapse all</string>
 </resources>
