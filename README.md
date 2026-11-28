@@ -30,6 +30,7 @@ Leafpad is a simple notebook. Write, edit and organize your notes – offline, w
 * Pin important notes to the top
 * Sort by date or title
 * Switch between list and grid view
+* Expand or collapse all notes at once
 * Search in titles, text and categories
 
 **More**
