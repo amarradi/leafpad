@@ -1,7 +1,6 @@
 <p align="center"><img src="https://github.com/amarradi/leafpad/blob/development/dev/graphics/leaf-512_twig.png" height="100"/></p>
 
 # leafpad
-simple notebook
 
 [<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
      alt="Get it on Google Play"
@@ -10,27 +9,37 @@ simple notebook
      alt="Get it on F-Droid"
      height="80" width="220">](https://f-droid.org/packages/com.git.amarradi.leafpad/)
 
-**Offline**
-leafpad does not require an internet connection or an account to create notes.
-
-**Data protection**
-leafpad never shares your data with a server. Your notes remain stored locally on your device.
-
-**Remove your data**
-leafpad remove your note completely, when you delete your note
+Leafpad is a simple notebook. Write, edit and organize your notes – offline, without an account and without access to your personal data.
 
 ## Features
-* leafpad allows you to create notes without prior configuration
-* Notes can be shared for leafpad and then notes can be created from them
-* Notes can be shared with other apps from leafpad
-* Notes can be created with an shortcut. Long tab to the leafpad-icon then write down new
-* leafpad support the android dark/night-mode
-* leafpad sorted your notes by date and time
-* leafpad allows you to hide your notes from prying eyes
-* leafpad can switch between list and gridView
-* leafpad provides a search function
-* leafpad has a own category for (baking) recipes 
-* <b>leafpad is now available in many languages, for example English, German, French, Polish. If languages are still missing, you are welcome to participate.</b>
+
+**Private**
+* Works completely offline, no cloud, no tracking
+* Your notes are stored only on your device
+* Hide notes from prying eyes
+* Deleted notes are removed completely
+
+**Write and format**
+* Headings, bold, italic, underline and bullet lists
+* Formatting bar above the keyboard while writing
+* Read mode: notes open nicely formatted, tap "Edit" to change them
+* Keep the screen on while reading, e.g. for recipes
+
+**Organize**
+* Categories with your own names and colors, as many per note as you like
+* Pin important notes to the top
+* Sort by date or title
+* Switch between list and grid view
+* Search in titles, text and categories
+
+**More**
+* Back up and restore all notes and categories as a ZIP file
+* Share notes with other apps, or create notes from text shared with Leafpad
+* Create a new note directly from the app icon (long-press)
+* Light and dark theme
+* Available in many languages – help translate on Weblate
+
+Leafpad is free and open source software.
 
 ## Translation
 Help translate at <a href='https://hosted.weblate.org/engage/leafpad/'>Weblate</a>
