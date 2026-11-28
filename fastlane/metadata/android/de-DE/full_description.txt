@@ -1,3 +1,30 @@
-Ein einfaches Notizbuch zum Schreiben von Text ohne Cloud-Verbindung und ohne Datenbank, keine Berechtigungen erforderlich.
+Leafpad ist ein einfaches Notizbuch. Schreibe, bearbeite und ordne deine Notizen – offline, ohne Konto und ohne Zugriff auf deine persönlichen Daten.
 
-Es ist Open Source. Sie können Notizen schreiben, bearbeiten und vor neugierigen Blicken verbergen.
+Privat
+• Funktioniert komplett offline, keine Cloud, kein Tracking
+• Deine Notizen werden nur auf deinem Gerät gespeichert
+• Notizen vor neugierigen Blicken verbergen
+• Gelöschte Notizen werden vollständig entfernt
+
+Schreiben und formatieren
+• Überschriften, fett, kursiv, unterstrichen und Aufzählungen
+• Formatierungsleiste über der Tastatur beim Schreiben
+• Leseansicht: Notizen öffnen formatiert, über „Bearbeiten“ lassen sie sich ändern
+• Bildschirm beim Lesen anlassen, z. B. für Rezepte
+
+Ordnen
+• Kategorien mit eigenen Namen und Farben, beliebig viele pro Notiz
+• Wichtige Notizen oben anpinnen
+• Nach Datum oder Titel sortieren
+• Zwischen Listen- und Rasteransicht wechseln
+• Alle Notizen auf einmal aus- oder einklappen
+• Suche in Titeln, Text und Kategorien
+
+Mehr
+• Alle Notizen und Kategorien als ZIP-Datei sichern und wiederherstellen
+• Notizen mit anderen Apps teilen oder aus geteiltem Text neue Notizen anlegen
+• Neue Notiz direkt über das App-Symbol anlegen (lange drücken)
+• Helles und dunkles Design
+• In vielen Sprachen verfügbar – hilf mit beim Übersetzen auf Weblate
+
+Leafpad ist freie und quelloffene Software.
