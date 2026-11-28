@@ -216,4 +216,6 @@
     <string name="fab_edit">Përpunoni shënim</string>
     <string name="fab_label_read">Lexojeni</string>
     <string name="format_bold">Të trasha</string>
+    <string name="expand_all">Expand all</string>
+    <string name="collapse_all">Collapse all</string>
 </resources>
