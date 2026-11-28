@@ -216,4 +216,6 @@
     <string name="fab_edit">Muuda märget</string>
     <string name="fab_label_read">Loe</string>
     <string name="format_bold">Paks kiri</string>
+    <string name="expand_all">Expand all</string>
+    <string name="collapse_all">Collapse all</string>
 </resources>
