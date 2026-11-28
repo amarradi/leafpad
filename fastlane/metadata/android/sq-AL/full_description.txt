@@ -1,3 +1,29 @@
-Ein einfaches Notizbuch zum Schreiben von Text ohne Cloud-Verbindung und ohne Datenbank, keine Berechtigungen erforderlich.
+Leafpad është një bllok i thjeshtë shënimesh. Shkruani, përpunoni dhe sistemoni shënimet tuaja – jashtë interneti, pa ndonjë llogari dhe pa hyrje te të dhënat tuaja personale.
 
-Es ist Open Source. Sie können Notizen schreiben, bearbeiten und vor neugierigen Blicken verbergen.
+Privat
+• Funksionon plotësisht jashtë interneti, pa re, pa gjurmim
+• Shënimet tuaja depozitohen vetëm në pajisjen tuaj
+• Fshihini shënimet nga sy zhbirues
+• Shënimet e fshira hiqen plotësisht
+
+Shkrim dhe format
+• Krye, të trasha, të pjerrëta, të nënvizuara dhe lista me toptha
+• Shtyllë formatimi sipër tastierës, teksa shkruani
+• Mënyra lexim: shënimet hapen të formatuara hijshëm, prekni “Përpunojeni” që t’i ndryshoni
+• Mbajeni ekranin ndezur teksa lexoni, p.sh., për receta gatimi
+
+Sistemojini
+• Kategori me emra dhe ngjyra tuajat, sa të doni për secilin shënim
+• Fiksoni te kryet shënime të rëndësishme
+• Renditini sipas datash, ose titujsh
+• Kaloni nga pamja listë në atë mozaik, apo anasjelltas
+• Kërkoni në tituj, tekst dhe kategori
+
+Më tepër
+• Kopjeruani dhe riktheni krejt shënimet dhe kategoritë si një kartelë ZIP
+• Ndani shënime me aplikacione të tjerë, ose krijoni shënime nga tekst që është ndarë me Leafpad-in
+• Krijoni një shënim të ri drejt e nga ikona e aplikacionit (shtypeni më gjatë)
+• Temë e çelët dhe e errët
+• I gatshëm në mjaft gjuhë – ndihmoni të përkthehet në Weblate
+
+Leafpad-i është program i lirë dhe me burim të hapët.
