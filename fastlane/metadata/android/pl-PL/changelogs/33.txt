@@ -1,0 +1,8 @@
+* Nowość: przypinaj dowolną liczbę notatek – pozostaną one na górze listy
+* Nowość: pasek boczny zawierający wszystkie ustawienia, przełącznik widoku (lista/siatka) oraz informację o wersji aplikacji
+* Nowość: formatowanie tekstu (nagłówki, pogrubienie, kursywa, podkreślenie, listy punktowane) dostępne za pomocą paska narzędzi formatowania
+* Nowość: tryb odczytu – notatki otwierają się w sformatowanej formie; aby wprowadzić zmiany, należy wybrać opcję „Edytuj”
+* Nowość: kategorie utworzone z poziomu notatki są automatycznie zaznaczane i wyświetlane na początku listy
+* Poprawka: kategorie są zachowywane podczas ukrywania notatki lub przywracania starej kopii zapasowej
+* Poprawka: naprawiono kilka błędów powodujących awarie aplikacji
+* Zaktualizowano tłumaczenia

@@ -1,3 +1,29 @@
-Prosty notatnik do zapisywania tekstu bez połączenia z chmurą, bez bazy danych i bez wymaganych uprawnień.
+Leafpad to prosty notatnik. Pisz, edytuj i porządkuj swoje notatki – offline, bez konieczności zakładania konta i bez dostępu do Twoich danych osobowych.
 
-Jest to oprogramowanie typu open source. Możesz pisać, edytować notatki i ukrywać je przed ciekawskimi oczami.
+Prywatność
+• Działa całkowicie offline – bez chmury i bez śledzenia.
+• Notatki są przechowywane wyłącznie na Twoim urządzeniu.
+• Możliwość ukrycia notatek przed niepowołanymi osobami.
+• Usunięte notatki są trwale usuwane.
+
+Pisanie i formatowanie
+• Nagłówki, pogrubienie, kursywa, podkreślenie oraz listy punktowane.
+• Pasek formatowania dostępny nad klawiaturą podczas pisania.
+• Tryb odczytu: notatki wyświetlają się w przejrzystej formie; aby wprowadzić zmiany, wystarczy wybrać opcję „Edytuj”.
+• Możliwość utrzymania włączonego ekranu podczas czytania (przydatne np. przy korzystaniu z przepisów).
+
+Porządkowanie
+• Kategorie z własnymi nazwami i kolorami – do każdej notatki możesz przypisać dowolną ich liczbę.
+• Przypinanie ważnych notatek na górze listy.
+• Sortowanie według daty lub tytułu.
+• Przełączanie między widokiem listy a siatką.
+• Wyszukiwanie w tytułach, treści notatek oraz kategoriach.
+
+Dodatkowe funkcje
+• Tworzenie kopii zapasowych i przywracanie wszystkich notatek oraz kategorii w formie pliku ZIP.
+• Udostępnianie notatek w innych aplikacjach lub tworzenie notatek z tekstu udostępnionego w Leafpad.
+• Tworzenie nowej notatki bezpośrednio z ikony aplikacji (poprzez długie przyciśnięcie).
+• Jasny i ciemny motyw graficzny.
+• Dostępność w wielu językach – pomóż w tłumaczeniu za pośrednictwem platformy Weblate.
+
+Leafpad to bezpłatne oprogramowanie o otwartym kodzie źródłowym.

@@ -210,14 +210,16 @@
     <string name="drawer_translate">Pomóż w tłumaczeniu</string>
     <string name="drawer_open">Otwórz nawigację</string>
     <string name="drawer_rate">Oceń aplikację</string>
-    <string name="format_clear">Clear formatting</string>
-    <string name="fab_label_edit">Edit</string>
-    <string name="format_italic">Italic</string>
-    <string name="format_underline">Underline</string>
-    <string name="format_bullet">Bullet list</string>
-    <string name="format_heading">Heading (H1, H2, H3)</string>
-    <string name="fab_read">Done editing</string>
-    <string name="fab_edit">Edit note</string>
-    <string name="fab_label_read">Read</string>
-    <string name="format_bold">Bold</string>
+    <string name="format_clear">Wyczyść formatowanie</string>
+    <string name="fab_label_edit">Edytuj</string>
+    <string name="format_italic">Kursywa</string>
+    <string name="format_underline">Podkreślenie</string>
+    <string name="format_bullet">Lista punktowana</string>
+    <string name="format_heading">Nagłówek (H1, H2, H3)</string>
+    <string name="fab_read">Edycja zakończona</string>
+    <string name="fab_edit">Edytuj notatkę</string>
+    <string name="fab_label_read">Czytaj</string>
+    <string name="format_bold">Pogrubienie</string>
+    <string name="expand_all">Expand all</string>
+    <string name="collapse_all">Collapse all</string>
 </resources>

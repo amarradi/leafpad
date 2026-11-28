@@ -1,1 +1,1 @@
-Prosty notatnik
+Prosty, prywatny notatnik z możliwością formatowania tekstu
